@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "exportedAt": "2026-06-07T11:06:47.903Z",
+  "reason": "startup",
+  "service": "telegram-minimax-companion",
+  "data": {
+    "messages": [],
+    "memories": [],
+    "summaries": {}
+  }
+}
