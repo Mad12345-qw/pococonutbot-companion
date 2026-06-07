@@ -42,6 +42,24 @@ function normalizeSummaries(summaries) {
   return {};
 }
 
+function normalizeSettings(settings) {
+  if (Array.isArray(settings)) {
+    return Object.fromEntries(
+      settings
+        .filter((item) => item && item.key)
+        .map((item) => [String(item.key), String(item.value ?? "")])
+    );
+  }
+
+  if (settings && typeof settings === "object") {
+    return Object.fromEntries(
+      Object.entries(settings).map(([key, value]) => [String(key), String(value ?? "")])
+    );
+  }
+
+  return {};
+}
+
 export function createStorage(config) {
   if (config.databaseUrl) {
     return new PostgresStorage(config.databaseUrl, config.databaseSsl);
@@ -95,6 +113,12 @@ class PostgresStorage {
         summary TEXT NOT NULL,
         updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
         UNIQUE (chat_id, user_id)
+      );
+
+      CREATE TABLE IF NOT EXISTS system_settings (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL,
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
       );
 
       ALTER TABLE conversation_summaries
@@ -159,7 +183,7 @@ class PostgresStorage {
   }
 
   async exportState() {
-    const [messages, memories, summaries] = await Promise.all([
+    const [messages, memories, summaries, settings] = await Promise.all([
       this.pool.query(
         `SELECT chat_id AS "chatId", user_id AS "userId", role, modality, content, metadata, created_at AS "createdAt"
          FROM chat_messages
@@ -175,13 +199,19 @@ class PostgresStorage {
         `SELECT chat_id AS "chatId", user_id AS "userId", summary, updated_at AS "updatedAt"
          FROM conversation_summaries
          ORDER BY chat_id ASC, user_id ASC`
+      ),
+      this.pool.query(
+        `SELECT key, value, updated_at AS "updatedAt"
+         FROM system_settings
+         ORDER BY key ASC`
       )
     ]);
 
     return {
       messages: messages.rows,
       memories: memories.rows,
-      summaries: summaries.rows
+      summaries: summaries.rows,
+      settings: settings.rows
     };
   }
 
@@ -192,6 +222,7 @@ class PostgresStorage {
       await client.query("DELETE FROM chat_messages");
       await client.query("DELETE FROM memories");
       await client.query("DELETE FROM conversation_summaries");
+      await client.query("DELETE FROM system_settings");
 
       for (const message of state.messages || []) {
         await client.query(
@@ -239,6 +270,16 @@ class PostgresStorage {
            ON CONFLICT (chat_id, user_id)
            DO UPDATE SET summary = EXCLUDED.summary, updated_at = now()`,
           [String(item.chatId), String(item.userId || ""), String(item.summary || "").slice(0, 4000)]
+        );
+      }
+
+      for (const [key, value] of Object.entries(normalizeSettings(state.settings))) {
+        await client.query(
+          `INSERT INTO system_settings (key, value)
+           VALUES ($1, $2)
+           ON CONFLICT (key)
+           DO UPDATE SET value = EXCLUDED.value, updated_at = now()`,
+          [key.slice(0, 120), value.slice(0, 1000)]
         );
       }
 
@@ -436,6 +477,21 @@ class PostgresStorage {
     await this.pool.query(`DELETE FROM memories WHERE chat_id = $1`, [String(chatId)]);
     await this.pool.query(`DELETE FROM conversation_summaries WHERE chat_id = $1`, [String(chatId)]);
   }
+
+  async getSetting(key, fallback = "") {
+    const result = await this.pool.query(`SELECT value FROM system_settings WHERE key = $1`, [String(key)]);
+    return result.rows[0]?.value ?? fallback;
+  }
+
+  async setSetting(key, value) {
+    await this.pool.query(
+      `INSERT INTO system_settings (key, value)
+       VALUES ($1, $2)
+       ON CONFLICT (key)
+       DO UPDATE SET value = EXCLUDED.value, updated_at = now()`,
+      [String(key).slice(0, 120), String(value ?? "").slice(0, 1000)]
+    );
+  }
 }
 
 class JsonFileStorage {
@@ -444,7 +500,8 @@ class JsonFileStorage {
     this.state = {
       messages: [],
       memories: [],
-      summaries: {}
+      summaries: {},
+      settings: {}
     };
   }
 
@@ -453,6 +510,7 @@ class JsonFileStorage {
     try {
       this.state = JSON.parse(await fs.readFile(this.filePath, "utf8"));
       this.state.summaries = normalizeSummaries(this.state.summaries);
+      this.state.settings = normalizeSettings(this.state.settings);
     } catch {
       await this.flush();
     }
@@ -516,7 +574,8 @@ class JsonFileStorage {
       summaries: Object.entries(this.state.summaries || {}).map(([key, summary]) => ({
         ...parseSummaryKey(key),
         summary
-      }))
+      })),
+      settings: Object.entries(this.state.settings || {}).map(([key, value]) => ({ key, value }))
     };
   }
 
@@ -524,7 +583,8 @@ class JsonFileStorage {
     this.state = {
       messages: Array.isArray(state.messages) ? state.messages : [],
       memories: Array.isArray(state.memories) ? state.memories : [],
-      summaries: normalizeSummaries(state.summaries)
+      summaries: normalizeSummaries(state.summaries),
+      settings: normalizeSettings(state.settings)
     };
     await this.flush();
   }
@@ -723,6 +783,16 @@ class JsonFileStorage {
         delete this.state.summaries[key];
       }
     }
+    await this.flush();
+  }
+
+  async getSetting(key, fallback = "") {
+    return this.state.settings?.[String(key)] ?? fallback;
+  }
+
+  async setSetting(key, value) {
+    this.state.settings = this.state.settings || {};
+    this.state.settings[String(key)] = String(value ?? "").slice(0, 1000);
     await this.flush();
   }
 }

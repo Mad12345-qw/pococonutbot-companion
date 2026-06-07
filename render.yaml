@@ -35,6 +35,18 @@ services:
         value: gpt-image-2
       - key: IMAGE_SIZE
         value: 1024x1024
+      - key: STT_ENABLED
+        value: "true"
+      - key: STT_API_URL
+        value: https://api.groq.com/openai/v1/audio/transcriptions
+      - key: STT_API_KEY
+        sync: false
+      - key: STT_MODEL
+        value: whisper-large-v3-turbo
+      - key: STT_LANGUAGE
+        value: zh
+      - key: VOICE_DIRECT_INPUT_ENABLED
+        value: "false"
       - key: BOT_DISPLAY_NAME
         value: Companion
       - key: COMPANION_MODE

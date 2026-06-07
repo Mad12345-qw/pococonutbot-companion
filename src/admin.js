@@ -208,6 +208,38 @@ function adminPage(config) {
     .message b { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
     .muted { color: var(--muted); }
     .status { min-height: 20px; color: var(--muted); }
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .setting-row strong { display: block; }
+    .setting-row span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .switch { position: relative; width: 46px; height: 26px; flex: 0 0 auto; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: #c8d1cc;
+      border-radius: 999px;
+      transition: .16s ease;
+    }
+    .slider:before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 3px;
+      top: 3px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(0,0,0,.18);
+      transition: .16s ease;
+    }
+    .switch input:checked + .slider { background: var(--accent); }
+    .switch input:checked + .slider:before { transform: translateX(20px); }
     @media (max-width: 920px) {
       .shell, .grid { grid-template-columns: 1fr; }
       .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
@@ -253,6 +285,17 @@ function adminPage(config) {
         <div>
           <section>
             <h3>人格</h3>
+            <div class="setting-row">
+              <div>
+                <strong>GPT</strong>
+                <span id="gptSwitchMeta">主回复接口</span>
+              </div>
+              <label class="switch" title="关闭后主聊天直接使用备用 MiniMax">
+                <input id="gptSwitch" type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <hr style="border:0;border-top:1px solid var(--line);margin:14px 0" />
             <select id="persona">
               <option value="girlfriend">AI 女友</option>
               <option value="boyfriend">AI 男友</option>
@@ -364,6 +407,12 @@ function adminPage(config) {
       document.getElementById("meta").textContent =
         "filter " + selectedUserId + " · trigger " + state.config.triggerMode + " · storage " + state.config.storage;
 
+      const gptEnabled = state.settings?.gptEnabled !== false;
+      document.getElementById("gptSwitch").checked = gptEnabled;
+      document.getElementById("gptSwitchMeta").textContent = gptEnabled
+        ? "开启：使用 GPT 主回复接口"
+        : "关闭：直接使用备用 MiniMax";
+
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
       document.getElementById("summary").value = state.summary || "";
@@ -454,6 +503,15 @@ function adminPage(config) {
     }
 
     document.getElementById("refreshBtn").addEventListener("click", load);
+    document.getElementById("gptSwitch").addEventListener("change", async (event) => {
+      const enabled = Boolean(event.target.checked);
+      await api("/api/admin/settings", {
+        method: "POST",
+        body: JSON.stringify({ gptEnabled: enabled })
+      });
+      setStatus(enabled ? "GPT 已开启，主聊天使用 GPT 接口。" : "GPT 已关闭，主聊天直接使用备用 MiniMax。");
+      await load();
+    });
     document.getElementById("addMemoryBtn").addEventListener("click", async () => {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
       await api("/api/admin/memory", {
@@ -513,6 +571,7 @@ export function setupAdminRoutes(app, { config, storage }) {
     const targetUserId = memoryTargetUserId(selectedUserId);
     const summary = selectedChatId ? await storage.getSummary(selectedChatId, targetUserId) : "";
     const messages = selectedChatId ? await storage.getRecentMessages(selectedChatId, 80) : [];
+    const gptEnabled = String(await storage.getSetting("gpt.enabled", "true")).toLowerCase() !== "false";
     const persona =
       (targetUserId
         ? allMemories.find((memory) => memory.key === "relationship.persona" && String(memory.user_id || "") === targetUserId)?.value
@@ -529,6 +588,9 @@ export function setupAdminRoutes(app, { config, storage }) {
       summary,
       messages,
       persona,
+      settings: {
+        gptEnabled
+      },
       config: {
         displayName: config.displayName,
         companionMode: config.companionMode,
@@ -587,5 +649,16 @@ export function setupAdminRoutes(app, { config, storage }) {
       importance: 5
     });
     res.json({ ok: true });
+  });
+
+  app.post("/api/admin/settings", auth, async (req, res) => {
+    const { gptEnabled } = req.body || {};
+    if (typeof gptEnabled !== "boolean") {
+      res.status(400).json({ error: "gptEnabled boolean is required." });
+      return;
+    }
+
+    await storage.setSetting("gpt.enabled", gptEnabled ? "true" : "false");
+    res.json({ ok: true, gptEnabled });
   });
 }

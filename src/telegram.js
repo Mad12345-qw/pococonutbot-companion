@@ -6,11 +6,12 @@ const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
 
 export class TelegramCompanionBot {
-  constructor({ config, storage, ai, imageGenerator }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
+    this.speechToText = speechToText;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
     this.chatQueues = new Map();
@@ -66,7 +67,7 @@ export class TelegramCompanionBot {
       "文字：支持",
       "图片：支持",
       "生图：/draw 画面描述，或直接说“画图/生图/生成图片 ...”",
-      "语音：会交给主模型尝试听懂；失败时会提示"
+      "语音：会先转成文字，再自然回复"
     ].join("\n");
 
     await this.bot.sendMessage(chatId, help, { reply_to_message_id: replyTo });
@@ -134,9 +135,25 @@ export class TelegramCompanionBot {
     const chatId = String(msg.chat.id);
     const userId = String(msg.from?.id || "");
     const currentUser = this.describeTelegramUser(msg.from);
-    const safeUserText = redactSensitive(prepared.text);
 
     await this.upsertUserProfileMemory(chatId, userId, currentUser);
+
+    if (prepared.modality === "voice") {
+      const initialSafeUserText = redactSensitive(prepared.text);
+      if (prepared.smartCandidate) {
+        const shouldReply = await this.shouldReplyToSmartCandidate(prepared, initialSafeUserText, chatId);
+        if (!shouldReply) return;
+        prepared.smartCandidate = false;
+        prepared.shouldReply = true;
+      } else if (!prepared.shouldReply) {
+        return;
+      }
+
+      const voiceReady = await this.prepareVoiceForReply(msg, prepared);
+      if (!voiceReady) return;
+    }
+
+    const safeUserText = redactSensitive(prepared.text);
 
     await this.storage.addMessage({
       chatId,
@@ -149,7 +166,9 @@ export class TelegramCompanionBot {
         firstName: msg.from?.first_name || "",
         lastName: msg.from?.last_name || "",
         fullName: currentUser.fullName || "",
-        hasImage: prepared.imageUrls.length > 0
+        hasImage: prepared.imageUrls.length > 0,
+        hasVoice: prepared.modality === "voice",
+        transcript: prepared.transcript || ""
       }
     });
 
@@ -165,33 +184,10 @@ export class TelegramCompanionBot {
     }
 
     if (prepared.smartCandidate) {
-      const fastDecision = this.getFastSmartDecision(prepared, safeUserText);
-      let shouldReply = fastDecision === "reply";
-
-      if (fastDecision === "skip") {
-        return;
-      }
-
-      if (fastDecision === "ask-ai" && this.config.smartClassifierEnabled) {
-        const recentForDecision = await this.storage.getRecentMessages(chatId, 8);
-        shouldReply = await this.ai.shouldReplyInGroup({
-          messageText: safeUserText,
-          recentMessages: recentForDecision.map((item) => ({
-            ...item,
-            content: this.formatMessageForModel(item)
-          })),
-          botName: this.config.displayName,
-          hasImage: prepared.imageUrls.length > 0
-        });
-      }
-
+      const shouldReply = await this.shouldReplyToSmartCandidate(prepared, safeUserText, chatId);
       if (!shouldReply) return;
     } else if (!prepared.shouldReply) {
       return;
-    }
-
-    if (prepared.modality === "voice" && !prepared.audio) {
-      prepared.audio = await this.downloadAudioFromMessage(msg);
     }
 
     await this.bot.sendChatAction(msg.chat.id, "typing");
@@ -228,7 +224,7 @@ export class TelegramCompanionBot {
       });
     }
 
-    if (prepared.audio) {
+    if (prepared.audio && this.config.voiceDirectInputEnabled) {
       messages.push({
         role: "user",
         content: [
@@ -248,7 +244,7 @@ export class TelegramCompanionBot {
     try {
       reply = await this.ai.chat(messages, { maxTokens: this.config.aiReplyMaxTokens });
     } catch (error) {
-      if (prepared.audio) {
+      if (prepared.audio && this.config.voiceDirectInputEnabled) {
         reply = [
           "语音这次没有识别成功。",
           "我已经把语音交给主模型尝试处理；如果持续失败，说明当前代理模型不接受 Telegram 的语音格式，需要再接专门的 STT 服务。",
@@ -435,6 +431,79 @@ export class TelegramCompanionBot {
       ...downloaded,
       format: this.audioFormatFromMime(downloaded.contentType, msg.audio?.file_name || "")
     };
+  }
+
+  async prepareVoiceForReply(msg, prepared) {
+    if (!prepared.audio) {
+      prepared.audio = await this.downloadAudioFromMessage(msg);
+    }
+
+    if (!prepared.audio) {
+      await this.bot.sendMessage(msg.chat.id, "我收到语音了，但没有拿到可读取的音频文件。你可以再发一次，或者先发文字。", {
+        reply_to_message_id: msg.message_id
+      });
+      return false;
+    }
+
+    if (this.speechToText?.enabled) {
+      await this.bot.sendChatAction(msg.chat.id, "typing");
+      try {
+        const transcript = await this.speechToText.transcribe(prepared.audio);
+        prepared.transcript = transcript;
+        prepared.text = transcript;
+        prepared.audio = null;
+        return true;
+      } catch (error) {
+        console.error("Speech-to-text failed:", error.message);
+        if (this.config.voiceDirectInputEnabled) return true;
+
+        await this.bot.sendMessage(
+          msg.chat.id,
+          [
+            "我收到语音了，但这次没有转写成功。",
+            "现在需要接一个稳定的语音转文字接口，接好后我就能先听懂语音，再正常回复和记忆。",
+            `错误摘要：${truncate(error.message, 500)}`
+          ].join("\n"),
+          { reply_to_message_id: msg.message_id }
+        );
+        return false;
+      }
+    }
+
+    if (this.config.voiceDirectInputEnabled) {
+      return true;
+    }
+
+    await this.bot.sendMessage(
+      msg.chat.id,
+      [
+        "我收到语音了，但现在还没配置语音转文字接口。",
+        "主聊天接口目前不能稳定听 Telegram 语音。接上 STT 后，我会先把语音转成文字，再按你的话正常聊天和记忆。"
+      ].join("\n"),
+      { reply_to_message_id: msg.message_id }
+    );
+    return false;
+  }
+
+  async shouldReplyToSmartCandidate(prepared, safeUserText, chatId) {
+    const fastDecision = this.getFastSmartDecision(prepared, safeUserText);
+    if (fastDecision === "skip") return false;
+    if (fastDecision === "reply") return true;
+
+    if (fastDecision === "ask-ai" && this.config.smartClassifierEnabled) {
+      const recentForDecision = await this.storage.getRecentMessages(chatId, 8);
+      return this.ai.shouldReplyInGroup({
+        messageText: safeUserText,
+        recentMessages: recentForDecision.map((item) => ({
+          ...item,
+          content: this.formatMessageForModel(item)
+        })),
+        botName: this.config.displayName,
+        hasImage: prepared.imageUrls.length > 0
+      });
+    }
+
+    return false;
   }
 
   describeTelegramUser(from = {}) {

@@ -57,6 +57,11 @@ IMAGE_GENERATION_ENABLED=true
 IMAGE_API_URL=http://your-image-api.example
 IMAGE_API_KEY=your_image_api_key
 IMAGE_MODEL=gpt-image-2
+STT_ENABLED=true
+STT_API_URL=https://api.groq.com/openai/v1/audio/transcriptions
+STT_API_KEY=your_groq_api_key
+STT_MODEL=whisper-large-v3-turbo
+STT_LANGUAGE=zh
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
@@ -99,6 +104,7 @@ ADMIN_PASSWORD=a_strong_admin_password
 IMAGE_API_URL=your_image_api_base_url
 IMAGE_API_KEY=your_image_api_key
 FALLBACK_AI_API_KEY=your_fallback_ai_api_key
+STT_API_KEY=your_groq_api_key
 ```
 
 For a free persistent database, create a free Neon or Supabase Postgres database and paste its connection string into `DATABASE_URL`.
@@ -118,6 +124,11 @@ AI_REPLY_MAX_TOKENS=900
 IMAGE_GENERATION_ENABLED=true
 IMAGE_MODEL=gpt-image-2
 IMAGE_SIZE=1024x1024
+STT_ENABLED=true
+STT_API_URL=https://api.groq.com/openai/v1/audio/transcriptions
+STT_MODEL=whisper-large-v3-turbo
+STT_LANGUAGE=zh
+VOICE_DIRECT_INPUT_ENABLED=false
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart

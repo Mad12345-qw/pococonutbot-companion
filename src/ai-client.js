@@ -18,8 +18,9 @@ function hasSameProvider(a, b) {
 }
 
 export class AIClient {
-  constructor(config) {
+  constructor(config, options = {}) {
     this.config = config;
+    this.getSetting = options.getSetting || null;
   }
 
   get primaryProvider() {
@@ -50,6 +51,12 @@ export class AIClient {
     const primary = this.primaryProvider;
     const fallback = this.fallbackProvider;
     return Boolean(fallback.apiKey && fallback.url && fallback.model && !hasSameProvider(primary, fallback));
+  }
+
+  async isPrimaryEnabled() {
+    if (!this.getSetting) return true;
+    const value = await this.getSetting("gpt.enabled", "true");
+    return !["0", "false", "off", "no"].includes(String(value).trim().toLowerCase());
   }
 
   buildChatBody(provider, messages, options = {}) {
@@ -120,6 +127,14 @@ export class AIClient {
   }
 
   async chat(messages, options = {}) {
+    const primaryEnabled = await this.isPrimaryEnabled();
+    if (!primaryEnabled) {
+      if (!this.hasFallback) {
+        throw new Error("GPT is disabled, but fallback AI is not configured.");
+      }
+      return this.requestChat(this.fallbackProvider, messages, options);
+    }
+
     try {
       return await this.requestChat(this.primaryProvider, messages, options);
     } catch (error) {

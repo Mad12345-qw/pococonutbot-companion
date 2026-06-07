@@ -57,6 +57,22 @@ function resolveImageEndpoint(rawUrl) {
   return `${clean}/v1/images/generations`;
 }
 
+function resolveSttEndpoint(rawUrl) {
+  const input = String(rawUrl || "").trim();
+  if (!input) return "";
+  const clean = input.replace(/\/+$/, "");
+
+  if (clean.endsWith("/audio/transcriptions")) {
+    return clean;
+  }
+
+  if (clean.endsWith("/v1")) {
+    return `${clean}/audio/transcriptions`;
+  }
+
+  return `${clean}/v1/audio/transcriptions`;
+}
+
 export const config = {
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
@@ -78,6 +94,13 @@ export const config = {
   imageApiUrl: resolveImageEndpoint(process.env.IMAGE_API_URL || process.env.IMAGE2_API_URL || ""),
   imageModel: process.env.IMAGE_MODEL || process.env.IMAGE2_MODEL || "gpt-image-2",
   imageSize: process.env.IMAGE_SIZE || "1024x1024",
+  sttEnabled: asBoolean(process.env.STT_ENABLED, Boolean(process.env.STT_API_KEY)),
+  sttApiKey: process.env.STT_API_KEY || "",
+  sttApiUrl: resolveSttEndpoint(process.env.STT_API_URL || process.env.STT_BASE_URL || ""),
+  sttModel: process.env.STT_MODEL || "whisper-large-v3-turbo",
+  sttLanguage: process.env.STT_LANGUAGE || "",
+  sttPrompt: process.env.STT_PROMPT || "",
+  voiceDirectInputEnabled: asBoolean(process.env.VOICE_DIRECT_INPUT_ENABLED, false),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: process.env.BOT_DISPLAY_NAME || "小伴",

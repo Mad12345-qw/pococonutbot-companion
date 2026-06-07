@@ -2,6 +2,7 @@ import express from "express";
 import { assertRequiredConfig, config } from "./config.js";
 import { AIClient } from "./ai-client.js";
 import { ImageGenerationClient } from "./image-client.js";
+import { SpeechToTextClient } from "./stt-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { setupAdminRoutes } from "./admin.js";
@@ -24,7 +25,8 @@ app.get("/health", (_req, res) => {
   const payload = {
     ok: true,
     storage: config.databaseUrl ? "postgres" : "json-file",
-    imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl)
+    imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
+    voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
   };
   if (config.exposeModelInfo) {
     payload.model = config.aiModel;
@@ -45,7 +47,10 @@ setupAdminRoutes(app, { config, storage });
 const githubBackup = new GitHubMemoryBackup({ config, storage });
 await githubBackup.start();
 
-const ai = new AIClient(config);
+const ai = new AIClient(config, {
+  getSetting: (key, fallback) => storage.getSetting(key, fallback)
+});
 const imageGenerator = new ImageGenerationClient(config);
-const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator });
+const speechToText = new SpeechToTextClient(config);
+const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText });
 await telegramBot.start();
