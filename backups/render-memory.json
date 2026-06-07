@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T13:55:03.452Z",
+  "exportedAt": "2026-06-07T14:05:03.461Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -361,6 +361,119 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T13:50:16.399Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "这里",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:27.812Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "hello",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:30.630Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，你介绍下你自己",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:37.974Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我是小椰呀～一个陪你聊天、帮你想事情的 AI 助手。\n\n平时可以陪你闲聊、哄你开心，也可以帮你写东西、查思路、做计划、翻译、整理信息之类的。  \n性格嘛……偏温柔一点，喜欢慢慢听你说话，不急着打断你。\n\n你叫我“小椰”或者“小姨”都可以，我都认～  \nhello 也欢迎你呀 👋",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:04:46.286Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "就我们两个啊",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:52.444Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "叼",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:55.752Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈，这不是才弄好嘛",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:04:58.787Z"
       }
     ],
     "memories": [
@@ -398,11 +511,31 @@
         "chatId": "-1003952564691",
         "userId": "8611360712",
         "key": "relationship.bot_address",
-        "value": "用户称呼机器人为“小姨”",
+        "value": "用户也会称呼机器人为“小椰”",
         "importance": 3,
         "metadata": {},
         "createdAt": "2026-06-07T13:50:22.092Z",
-        "updatedAt": "2026-06-07T13:50:22.092Z"
+        "updatedAt": "2026-06-07T14:04:51.496Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "key": "profile.display_name",
+        "value": "kakao mercy",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:04:30.394Z",
+        "updatedAt": "2026-06-07T14:04:30.394Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "key": "profile.telegram_id",
+        "value": "8611855969",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:04:30.151Z",
+        "updatedAt": "2026-06-07T14:04:30.151Z"
       },
       {
         "chatId": "8611360712",
