@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: telegram-ai-companion
+    name: pococonutbot-companion
     runtime: node
     plan: starter
     buildCommand: npm install
