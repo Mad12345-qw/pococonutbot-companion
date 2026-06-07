@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T14:52:00.776Z",
+  "exportedAt": "2026-06-07T15:01:59.601Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -970,6 +970,102 @@
           "transcript": ""
         },
         "createdAt": "2026-06-07T14:45:50.012Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "https://t.me/interaction_poke_bot",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:52:17.362Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "服了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:52:36.663Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，你生成一张雪茄的电商图",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:55:19.712Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回应。",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:55:35.188Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "要变成机器人才能进",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:55:42.663Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈“要变成机器人才能进”这句也太像门禁暗号了 🤖\n\n图我先按高端电商主图风格做了一版：深棕背景、木质台面、雪茄剪和烟雾氛围。要是想更适合上架，我还可以继续给你做成：\n\n- 纯白底电商主图\n- 黑金奢华详情页头图\n- 带包装盒的套装图\n- 加文案版，比如“甄选雪茄 / 高端礼赠”之类的海报风格",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-07T14:57:29.726Z"
       }
     ],
     "memories": [
@@ -1102,6 +1198,36 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:13:02.874Z",
         "updatedAt": "2026-06-07T14:13:02.874Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "key": "profile.display_name",
+        "value": "Zhou",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:55:34.729Z",
+        "updatedAt": "2026-06-07T14:55:34.729Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "key": "profile.telegram_id",
+        "value": "6095109213",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:55:34.498Z",
+        "updatedAt": "2026-06-07T14:55:34.498Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "key": "profile.telegram_username",
+        "value": "@Lylekkk",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:55:34.958Z",
+        "updatedAt": "2026-06-07T14:55:34.958Z"
       },
       {
         "chatId": "-5298963948",
