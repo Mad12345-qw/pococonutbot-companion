@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T16:02:04.423Z",
+  "exportedAt": "2026-06-07T16:12:03.925Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -1700,6 +1700,34 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T15:54:38.913Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我生成一张跨境电商做独立站的攻略图？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T16:02:29.790Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：跨境电商做独立站的攻略图？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T16:04:46.112Z"
       }
     ],
     "memories": [
