@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T13:06:47.406Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T13:16:50.177Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -175,6 +175,136 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T12:46:30.593Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "image",
+        "content": "看看这是谁",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T13:10:30.414Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我不能确定她具体是谁，也不能帮你做人脸身份识别哦～  \n\n不过这张照片里是一位长发女生，穿白色卫衣，笑得很自然，整体感觉很清爽、温柔，像是日常写真或者网图头像那种风格。  \n\n你是想让我帮你判断她像不像某个人，还是想分析照片有没有修图/AI感呀？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:10:38.234Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "用户发送了一条语音消息，请听懂后自然回复。",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T13:11:58.402Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我这边没听到语音内容诶，可能没有成功转过来～  \n\n你可以再发一次，或者直接把大概内容打成文字给我，我马上帮你看/回你。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:12:03.748Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "用户发送了一条语音消息，请听懂后自然回复。",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T13:12:30.106Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我这边还是没拿到语音的文字内容，宝～可能接口没有把语音转给我听。  \n\n你可以用一句话告诉我你刚刚说了啥，或者点一下 Telegram 的语音转文字（如果有）发给我，我就能自然接着聊啦。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:12:36.755Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "用户发送了一条语音消息，请听懂后自然回复。",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T13:13:19.425Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 宝，我这边还是没有收到语音内容，只看到“用户发送了一条语音消息”这个提示，所以没法真的听懂你说了什么 😭\n\n你直接打几个关键词也行，比如：\n“我问的是照片是谁 / 让我分析哪里 / 语音里说了什么事”\n\n你发一句，我就接着帮你分析。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:13:24.307Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "用户发送了一条语音消息，请听懂后自然回复。",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T13:14:33.976Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我在呢宝～不过我这边现在听不到这条语音内容🥺  \n你可以把语音大概打成文字发我，或者简单说一句你想表达啥，我马上陪你聊。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:14:43.207Z"
       }
     ],
     "memories": [
