@@ -78,7 +78,7 @@ Only run one copy at a time. If local and Render both poll Telegram, updates can
 
 1. Push this folder to GitHub.
 2. In Render, create a new Blueprint from the repo, or create a Web Service manually.
-3. If using the included `render.yaml`, Render will create one Web Service and one Postgres database.
+3. If using the included `render.yaml`, Render will create one Web Service.
 4. Add secret environment variables in Render:
 
 ```env
@@ -87,9 +87,9 @@ MINIMAX_API_KEY=your_new_minimax_key
 ADMIN_PASSWORD=a_strong_admin_password
 ```
 
-The `DATABASE_URL` is wired from Render Postgres by `render.yaml`. The database uses `basic-256mb`, Render's current smallest paid Postgres instance type.
+For a free persistent database, create a free Neon or Supabase Postgres database and paste its connection string into `DATABASE_URL`.
 
-Keep `DB_SSL=false` for the Render internal database URL. Use `DB_SSL=true` only if you connect through an external SSL-required Postgres URL.
+Use `DB_SSL=true` for SSL-required external Postgres URLs such as Neon. Use `DB_SSL=false` only when the provider's connection string already handles SSL or when SSL is not required.
 
 ## 4. Recommended Render Variables
 
@@ -124,3 +124,18 @@ You can:
 - switch persona for a specific chat
 
 The persona switch writes `relationship.persona` into the selected chat memory. It takes effect immediately for future replies.
+
+## 6. GitHub Memory Backup
+
+To protect memory on Render Free, back it up to a private GitHub repo branch:
+
+```env
+GITHUB_BACKUP_TOKEN=github_token_with_repo_write_access
+GITHUB_BACKUP_REPO=Mad12345-qw/pococonutbot-minimax-companion
+GITHUB_BACKUP_BRANCH=memory-backups
+GITHUB_BACKUP_PATH=backups/render-memory.json
+GITHUB_BACKUP_INTERVAL_MINUTES=30
+RESTORE_MEMORY_FROM_GITHUB=true
+```
+
+Do not use `master` as the backup branch. If the bot commits backups to the deployment branch, every backup can trigger a Render redeploy loop.

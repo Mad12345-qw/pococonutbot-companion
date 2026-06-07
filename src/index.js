@@ -4,6 +4,7 @@ import { MiniMaxClient } from "./minimax.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { setupAdminRoutes } from "./admin.js";
+import { GitHubMemoryBackup } from "./github-backup.js";
 
 assertRequiredConfig();
 
@@ -34,6 +35,9 @@ const storage = createStorage(config);
 await storage.init();
 
 setupAdminRoutes(app, { config, storage });
+
+const githubBackup = new GitHubMemoryBackup({ config, storage });
+await githubBackup.start();
 
 const minimax = new MiniMaxClient(config);
 const telegramBot = new TelegramCompanionBot({ config, storage, minimax });

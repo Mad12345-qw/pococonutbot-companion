@@ -8,6 +8,7 @@
 - 图片理解：Telegram 图片会转成 base64 `image_url`
 - 群聊自动回复：`TRIGGER_MODE=smart`
 - 长期记忆：Postgres 或本地 JSON
+- GitHub 记忆备份：可定时提交到私有仓库的 `memory-backups` 分支
 - 网页后台：`/admin` 查看和修改记忆、摘要、人格
 - 健康检查：`/health`
 

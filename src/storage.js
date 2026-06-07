@@ -95,6 +95,106 @@ class PostgresStorage {
     return result.rows[0]?.count || 0;
   }
 
+  async isEmpty() {
+    const result = await this.pool.query(`
+      SELECT
+        (SELECT COUNT(*)::int FROM chat_messages) AS message_count,
+        (SELECT COUNT(*)::int FROM memories) AS memory_count,
+        (SELECT COUNT(*)::int FROM conversation_summaries) AS summary_count
+    `);
+    const row = result.rows[0] || {};
+    return (row.message_count || 0) + (row.memory_count || 0) + (row.summary_count || 0) === 0;
+  }
+
+  async exportState() {
+    const [messages, memories, summaries] = await Promise.all([
+      this.pool.query(
+        `SELECT chat_id AS "chatId", user_id AS "userId", role, modality, content, metadata, created_at AS "createdAt"
+         FROM chat_messages
+         ORDER BY created_at ASC, id ASC`
+      ),
+      this.pool.query(
+        `SELECT chat_id AS "chatId", user_id AS "userId", key, value, importance, metadata,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM memories
+         ORDER BY chat_id ASC, user_id ASC, key ASC`
+      ),
+      this.pool.query(
+        `SELECT chat_id AS "chatId", summary, updated_at AS "updatedAt"
+         FROM conversation_summaries
+         ORDER BY chat_id ASC`
+      )
+    ]);
+
+    return {
+      messages: messages.rows,
+      memories: memories.rows,
+      summaries: Object.fromEntries(summaries.rows.map((row) => [row.chatId, row.summary]))
+    };
+  }
+
+  async importState(state) {
+    const client = await this.pool.connect();
+    try {
+      await client.query("BEGIN");
+      await client.query("DELETE FROM chat_messages");
+      await client.query("DELETE FROM memories");
+      await client.query("DELETE FROM conversation_summaries");
+
+      for (const message of state.messages || []) {
+        await client.query(
+          `INSERT INTO chat_messages (chat_id, user_id, role, modality, content, metadata, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+          [
+            String(message.chatId),
+            String(message.userId || ""),
+            message.role,
+            message.modality || "text",
+            message.content || "",
+            JSON.stringify(message.metadata || {}),
+            message.createdAt || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const memory of state.memories || []) {
+        await client.query(
+          `INSERT INTO memories (chat_id, user_id, key, value, importance, metadata, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+           ON CONFLICT (chat_id, user_id, key)
+           DO UPDATE SET value = EXCLUDED.value, importance = EXCLUDED.importance, updated_at = EXCLUDED.updated_at`,
+          [
+            String(memory.chatId),
+            String(memory.userId || ""),
+            normalizeKey(memory.key),
+            String(memory.value || "").slice(0, 1000),
+            Math.max(1, Math.min(5, Number(memory.importance) || 3)),
+            JSON.stringify(memory.metadata || {}),
+            memory.createdAt || new Date().toISOString(),
+            memory.updatedAt || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const [chatId, summary] of Object.entries(state.summaries || {})) {
+        await client.query(
+          `INSERT INTO conversation_summaries (chat_id, summary)
+           VALUES ($1, $2)
+           ON CONFLICT (chat_id)
+           DO UPDATE SET summary = EXCLUDED.summary, updated_at = now()`,
+          [String(chatId), String(summary).slice(0, 4000)]
+        );
+      }
+
+      await client.query("COMMIT");
+    } catch (error) {
+      await client.query("ROLLBACK");
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+
   async listChats(limit = 100) {
     const result = await this.pool.query(
       `WITH chat_ids AS (
@@ -284,6 +384,31 @@ class JsonFileStorage {
 
   async countMessages(chatId) {
     return this.state.messages.filter((message) => String(message.chatId) === String(chatId)).length;
+  }
+
+  async isEmpty() {
+    return (
+      this.state.messages.length === 0 &&
+      this.state.memories.length === 0 &&
+      Object.keys(this.state.summaries || {}).length === 0
+    );
+  }
+
+  async exportState() {
+    return {
+      messages: this.state.messages,
+      memories: this.state.memories,
+      summaries: this.state.summaries || {}
+    };
+  }
+
+  async importState(state) {
+    this.state = {
+      messages: Array.isArray(state.messages) ? state.messages : [],
+      memories: Array.isArray(state.memories) ? state.memories : [],
+      summaries: state.summaries && typeof state.summaries === "object" ? state.summaries : {}
+    };
+    await this.flush();
   }
 
   async listChats(limit = 100) {

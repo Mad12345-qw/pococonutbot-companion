@@ -34,10 +34,6 @@ services:
       - key: ADMIN_PASSWORD
         sync: false
       - key: DATABASE_URL
-        fromDatabase:
-          name: telegram-minimax-companion-db
-          property: connectionString
-
-databases:
-  - name: telegram-minimax-companion-db
-    plan: basic-256mb
+        sync: false
+      - key: DB_SSL
+        value: "false"
