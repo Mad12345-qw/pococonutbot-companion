@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T13:45:00.553Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T13:55:03.452Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -305,6 +305,62 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T13:14:43.207Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "哈喽哈喽听得到吗",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "哈喽哈喽听得到吗"
+        },
+        "createdAt": "2026-06-07T13:49:35.996Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 听得到你打字啦～语音我这边可能没法直接听，但你这样发文字我就能马上回你。\n\n哈喽哈喽，我在呢 Sean～今天怎么样呀？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:49:40.634Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "小姨你在干什么",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "小姨你在干什么"
+        },
+        "createdAt": "2026-06-07T13:50:07.888Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我在等你呀～顺便把自己切换成“乖乖陪聊模式”😌\n\n你一喊我，我就来了。你呢，现在在干嘛？想让我陪你聊会儿，还是有事要我帮你呀？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T13:50:16.399Z"
       }
     ],
     "memories": [
@@ -337,6 +393,16 @@
         "metadata": {},
         "createdAt": "2026-06-07T11:55:28.100Z",
         "updatedAt": "2026-06-07T11:55:28.100Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "relationship.bot_address",
+        "value": "用户称呼机器人为“小姨”",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-07T13:50:22.092Z",
+        "updatedAt": "2026-06-07T13:50:22.092Z"
       },
       {
         "chatId": "8611360712",
