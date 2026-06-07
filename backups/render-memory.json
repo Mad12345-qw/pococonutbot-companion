@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T14:20:42.888Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T14:30:46.223Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -784,9 +784,163 @@
           "replyToUserId": "8611855969"
         },
         "createdAt": "2026-06-07T14:12:05.970Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰   你发张你现在的自拍照",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:23:30.547Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n小椰的固定形象：年轻温柔的东亚女性，长深棕色自然微卷发，干净明亮的眼睛，柔和自然的微笑，清爽亲切的气质。整体感觉阳光、干净、温柔，常穿简洁的白色宽松上衣，照片风格真实自然、生活感强。\n真实手机自拍风格，自然光，轻微景深，画面干净，不要夸张滤镜，不要文字、水印、logo，不要多人合照。\n用户这次的具体要求：小椰   你发张你现在的自拍照\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:25:06.929Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "要不要邀请我的进来",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:25:08.011Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "你的怕是进不来   哈哈",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:25:34.676Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "行吧",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:28:39.357Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰   你能做客服么？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:29:23.775Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 可以呀，我能做客服，而且比较适合做那种**稳定、耐心、24小时在线的基础客服/智能客服**。\n\n比如我可以帮你们做：\n\n- **自动回复用户问题**：产品介绍、价格、使用方法、常见问题  \n- **引导用户操作**：一步步教用户注册、下单、绑定、排查问题  \n- **收集信息**：姓名/需求/联系方式/订单号/问题截图等  \n- **分类工单**：售前、售后、技术问题、投诉、合作咨询  \n- **安抚情绪**：遇到用户不满时先接住，再给解决方案  \n- **转人工**：复杂问题、退款、权限、敏感问题交给真人处理  \n- **整理客服日报**：今天多少咨询、常见问题、未解决事项\n\n但我也要老实说一下：我不是你们公司的真人员工，所以如果涉及**退款、合同、账号权限、金钱承诺、法律承诺**这些，最好让我先做初步接待，再转给你们确认。\n\n如果你们要做客服，我建议先给我这几样东西：\n\n1. 产品/服务是做什么的  \n2. 常见问题 FAQ  \n3. 价格/套餐/售后规则  \n4. 哪些问题必须转人工  \n5. 客服语气：正式一点，还是亲切一点\n\n你们要是愿意，小椰今晚就可以帮你们搭一个**客服话术模板 + 自动回复流程**。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:29:38.441Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "厉害",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:29:56.447Z"
       }
     ],
     "memories": [
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "key": "profile.display_name",
+        "value": "Zhou",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:25:07.582Z",
+        "updatedAt": "2026-06-07T14:25:07.582Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "key": "profile.telegram_id",
+        "value": "6095109213",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:25:07.359Z",
+        "updatedAt": "2026-06-07T14:25:07.359Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "6095109213",
+        "key": "profile.telegram_username",
+        "value": "@Lylekkk",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:25:07.796Z",
+        "updatedAt": "2026-06-07T14:25:07.796Z"
+      },
       {
         "chatId": "-1003952564691",
         "userId": "8611360712",
