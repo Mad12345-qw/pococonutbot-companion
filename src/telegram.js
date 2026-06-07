@@ -5,6 +5,7 @@ import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitTelegramMessage, t
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
+const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
 export class TelegramCompanionBot {
   constructor({ config, storage, ai, imageGenerator, speechToText }) {
@@ -411,6 +412,15 @@ export class TelegramCompanionBot {
       return { requested: true, prompt: this.cleanImagePrompt(naturalMatch[1] || "") };
     }
 
+    const trailingImageMatch = raw.match(/^(?:请|帮我|麻烦你|给我)?\s*(?:生成|做|制作|设计|画|出|来)\s*(?:一张|一个|一份|个|张)?\s*(.+)$/i);
+    if (trailingImageMatch) {
+      const prompt = this.cleanImagePrompt(trailingImageMatch[1] || "");
+      const normalizedPrompt = prompt.replace(/[？?！!。.\s]+$/g, "");
+      if (imageNounPattern.test(normalizedPrompt)) {
+        return { requested: true, prompt };
+      }
+    }
+
     return { requested: false, prompt: "" };
   }
 
@@ -755,7 +765,7 @@ export class TelegramCompanionBot {
     const explicit =
       triggerCommands.some((command) => lowered.startsWith(command)) ||
       imageGenerationCommands.some((command) => lowered.startsWith(command.toLowerCase())) ||
-      /^(?:请|帮我|麻烦你|给我)?\s*(?:画图|生图|生成图片|生成图像|生成一张图|生成一张图片|画一张|画一个|画个|做一张|做一个|做个)/i.test(String(text || "").trim()) ||
+      this.extractImageGenerationPrompt(text).requested ||
       (username && lowered.includes(`@${username.toLowerCase()}`)) ||
       (msg.reply_to_message?.from?.id && msg.reply_to_message.from.id === this.botInfo?.id);
 
