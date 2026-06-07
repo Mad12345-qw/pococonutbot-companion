@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T12:14:57.497Z",
+  "exportedAt": "2026-06-07T12:15:31.391Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -97,6 +97,32 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T11:56:20.230Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "image",
+        "content": "看看这是谁？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T12:15:05.133Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "图片这次没有识别成功。\n常见原因是当前 AI 接口或模型不接受 image_url / data URL 图片输入。\n错误摘要：AI API error 400: {\"type\":\"error\",\"error\":{\"type\":\"bad_request_error\",\"message\":\"invalid param: image data url media type \\\"application/octet-stream\\\" not supported (2013)\",\"http_code\":\"400\"},\"request_id\":\"067493ca992f8f473d57e2fdd660400e\"}\n",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T12:15:07.139Z"
       }
     ],
     "memories": [
