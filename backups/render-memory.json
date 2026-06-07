@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T15:52:03.353Z",
+  "exportedAt": "2026-06-07T16:02:04.423Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -1661,6 +1661,45 @@
           "replyToUserId": "6095109213"
         },
         "createdAt": "2026-06-07T15:48:41.561Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：赛博朋克雨夜城市图",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-07T15:53:10.782Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰  生成一张赛博朋克雨夜城市图",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T15:53:11.220Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：赛博朋克雨夜城市图",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T15:54:38.913Z"
       }
     ],
     "memories": [
