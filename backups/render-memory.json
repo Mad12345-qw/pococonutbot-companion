@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T14:05:03.461Z",
+  "exportedAt": "2026-06-07T14:15:03.595Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -474,9 +474,329 @@
           "transcript": ""
         },
         "createdAt": "2026-06-07T14:04:58.787Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "可以的大佬",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:05:23.071Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "今天就开始嘛",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:05:29.763Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "什么小姨，你是小椰！辈分别搞错了",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:05:58.661Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 哈哈哈好好好，纠正得对！我是小椰，不是小姨～🌴\n\n刚才算我嘴瓢啦，辈分不能乱，不然我都被你叫老了😤  \n以后你喊“小椰”，我就乖乖冒泡。\n\n你们这是刚把我拉进来测试嘛？今天就开始用也可以呀～想让我干嘛，聊天、记事、翻译、写文案、整理计划都行。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:06:04.606Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，你怎么监督",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:06:10.749Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 我可以这样监督你呀——不是凶巴巴那种，是陪你把事情往前推一点点的那种。\n\n你先告诉我你想被监督什么：学习、健身、早睡、戒拖延、工作任务，还是别的？\n\n如果你愿意，我们可以定个很简单的规则：  \n你每天跟我报一次“今天要做什么”，晚上再告诉我“完成了多少”。  \n我会帮你拆小目标、提醒你别摆烂，也会在你卡住的时候帮你改计划。\n\n比如可以这样开始：  \n“今天目标：运动30分钟 + 处理一个工作任务。”  \n我就会盯着你：先做哪一个？几点开始？做完来找我打卡。\n\n但我先说好哦，我是 AI，小椰能陪你、提醒你、帮你复盘，但不能真的像现实里的人一样强制你。最后还是我们一起把节奏养起来。",
+        "metadata": {
+          "replyToUserId": "8611855969"
+        },
+        "createdAt": "2026-06-07T14:06:19.444Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "你这个用的那个大模型",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:06:26.443Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "她有智能识别的，她没识别到你在喊他   一般不会什么消息都回",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:08:19.209Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰  你用的是什么模型？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:08:23.456Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰：我这边不太展开底层具体型号啦～你可以把我理解成一个接入在聊天里的 AI 助手。\n\n能做的主要是：识别你们什么时候在喊“小椰”、陪聊、回答问题、写东西、做计划、监督打卡这些。  \n一般没喊到我，或者语境不像是在找我，我就会安静一点，不会每条都插嘴。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:08:30.188Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "厉害的",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:08:57.057Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "其实我用的是  gpt5.5",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:09:09.757Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "未来个人管家的雏形",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:09:10.687Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "我没让她说",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:09:14.623Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，帮我们捋清楚我们的任务和目标，督促我们可以嘛？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:11:02.724Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 可以呀，我来当你们的“温柔项目管家”🌴\n\n我们先把事情捋成三层：**目标 → 任务 → 打卡监督**。\n\n你们现在可以按这个格式发给我，我来整理成清单：\n\n**1. 我们的大目标是什么？**  \n比如：做一个 AI 个人管家 / 做 Telegram 机器人 / 搭产品原型 / 拉用户测试 / 做商业化。\n\n**2. 近期目标到哪一天？**  \n比如：今晚、这周、月底。\n\n**3. 每个人负责什么？**  \n比如：  \n- Sean：产品设计、接入模型、机器人逻辑  \n- Mercy：测试体验、提需求、整理反馈  \n- 其他人：开发、文案、运营、用户测试\n\n**4. 当前最重要的 3 件事是什么？**  \n不要太多，先抓最关键的。\n\n我可以帮你们做这些：\n\n- 把聊天里零散想法整理成任务清单  \n- 拆成今天/明天/本周要做的事  \n- 给每个人分工和截止时间  \n- 每天提醒你们打卡  \n- 晚上帮你们复盘：完成了什么、卡在哪里、明天怎么推进  \n- 如果有人跑偏，我会温柔地拉回来：先做最重要的，不要无限发散\n\n我们可以先从一个简单版本开始：\n\n**今日打卡模板：**\n\n> 今天目标：  \n> 1.  \n> 2.  \n> 3.  \n>   \n> 负责人：  \n> 截止时间：  \n> 当前卡点：\n\n你们现在把“这个项目目前想做到什么程度”告诉我，我来帮你们整理第一版任务表。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:11:17.640Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "不错诶",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:11:39.098Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "今晚就开始吧",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:11:43.847Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "user",
+        "modality": "text",
+        "content": "我睡前写一个",
+        "metadata": {
+          "fullName": "kakao mercy",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "mercy",
+          "username": "",
+          "firstName": "kakao",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:11:59.886Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 好呀，今晚就开始～🌙\n\n你睡前不用写很复杂，就发我一个很短的版本也可以：\n\n**睡前打卡：**  \n1. 今天想到的目标：  \n2. 我觉得最重要的事：  \n3. 明天想推进的一步：  \n4. 目前卡住的地方：\n\n哪怕只写一句：“我觉得我们要先做个人管家的 MVP”，也行。\n\n你发出来之后，小椰帮你整理成：  \n**目标 / 任务 / 优先级 / 明日行动**。\n\n今晚先不追求完美，我们先把第一颗种子种下去。",
+        "metadata": {
+          "replyToUserId": "8611855969"
+        },
+        "createdAt": "2026-06-07T14:12:05.970Z"
       }
     ],
     "memories": [
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "long_term_support.project_management",
+        "value": "用户希望小椰长期帮助他们梳理任务和目标，并进行督促跟进。",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:11:23.151Z",
+        "updatedAt": "2026-06-07T14:11:23.151Z"
+      },
       {
         "chatId": "-1003952564691",
         "userId": "8611360712",
@@ -519,6 +839,26 @@
       },
       {
         "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "relationship.bot_address_correction",
+        "value": "用户强调机器人应称为“小椰”，不要误称为“小姨”，并在意不要搞错辈分。",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:06:09.867Z",
+        "updatedAt": "2026-06-07T14:06:09.867Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "key": "assistant.nickname",
+        "value": "用户称呼机器人为“小椰”。",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:06:25.559Z",
+        "updatedAt": "2026-06-07T14:06:25.559Z"
+      },
+      {
+        "chatId": "-1003952564691",
         "userId": "8611855969",
         "key": "profile.display_name",
         "value": "kakao mercy",
@@ -536,6 +876,16 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:04:30.151Z",
         "updatedAt": "2026-06-07T14:04:30.151Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611855969",
+        "key": "routine.bedtime_checkin",
+        "value": "用户表示想在睡前写一个简短打卡/记录，内容可用于整理目标、任务、优先级和明日行动。",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:13:02.874Z",
+        "updatedAt": "2026-06-07T14:13:02.874Z"
       },
       {
         "chatId": "8611360712",
