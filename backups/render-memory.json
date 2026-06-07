@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T15:01:59.601Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T15:22:03.169Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1066,6 +1066,79 @@
           "replyToUserId": "6095109213"
         },
         "createdAt": "2026-06-07T14:57:29.726Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，帮我生成一张雪茄电商图",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T15:14:24.496Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "你好",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T15:16:12.641Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你好呀，Zhou～我在呢。  \n今天过得怎么样？想随便聊聊，还是让我陪你做点什么？",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-07T15:16:20.411Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：雪茄电商图",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T15:16:24.850Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "给我生成雨天的城市图",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T15:17:00.865Z"
       }
     ],
     "memories": [
@@ -1258,6 +1331,36 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:45:31.365Z",
         "updatedAt": "2026-06-07T14:45:31.365Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "key": "profile.display_name",
+        "value": "Zhou",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T15:16:12.189Z",
+        "updatedAt": "2026-06-07T15:16:12.189Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "key": "profile.telegram_id",
+        "value": "6095109213",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T15:16:11.955Z",
+        "updatedAt": "2026-06-07T15:16:11.955Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "key": "profile.telegram_username",
+        "value": "@Lylekkk",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T15:16:12.414Z",
+        "updatedAt": "2026-06-07T15:16:12.414Z"
       },
       {
         "chatId": "8611360712",
