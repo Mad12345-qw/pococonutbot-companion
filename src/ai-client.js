@@ -93,7 +93,9 @@ export class AIClient {
 
     const text = await response.text();
     if (!response.ok) {
-      throw new Error(`${provider.name} AI API error ${response.status}: ${truncate(text, 800)}`);
+      const error = new Error(`${provider.name} AI API error ${response.status}: ${truncate(text, 800)}`);
+      error.status = response.status;
+      throw error;
     }
 
     let data;
@@ -121,12 +123,17 @@ export class AIClient {
     try {
       return await this.requestChat(this.primaryProvider, messages, options);
     } catch (error) {
-      if (!this.hasFallback || options.allowFallback === false) {
+      if (!this.hasFallback || options.allowFallback === false || !this.shouldTryFallback(error)) {
         throw error;
       }
       console.error(`Primary AI failed, trying fallback: ${error.message}`);
       return this.requestChat(this.fallbackProvider, messages, options);
     }
+  }
+
+  shouldTryFallback(error) {
+    if (!error?.status) return true;
+    return error.status === 408 || error.status === 409 || error.status === 429 || error.status >= 500;
   }
 
   async extractMemories({ userText, assistantText, existingMemories, userProfile }) {
