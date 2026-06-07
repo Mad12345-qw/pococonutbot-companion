@@ -48,9 +48,15 @@ services:
       - key: VOICE_DIRECT_INPUT_ENABLED
         value: "false"
       - key: BOT_DISPLAY_NAME
-        value: Companion
+        value: 小椰
       - key: COMPANION_MODE
         value: girlfriend
+      - key: SELF_REFERENCE_IMAGE_PATH
+        value: assets/persona/xiaoye-reference.jpg
+      - key: SELF_APPEARANCE_DESCRIPTION
+        value: 小椰的固定形象：年轻温柔的东亚女性，长深棕色自然微卷发，干净明亮的眼睛，柔和自然的微笑，清爽亲切的气质。整体感觉阳光、干净、温柔，常穿简洁的白色宽松上衣，照片风格真实自然、生活感强。
+      - key: SELF_SELFIE_STYLE
+        value: 真实手机自拍风格，自然光，轻微景深，画面干净，不要夸张滤镜，不要文字、水印、logo，不要多人合照。
       - key: TRIGGER_MODE
         value: smart
       - key: SMART_CLASSIFIER_ENABLED

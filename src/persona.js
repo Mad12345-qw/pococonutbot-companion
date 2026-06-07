@@ -37,6 +37,7 @@ export function buildSystemPrompt({ config, memories, summary, userSummary, curr
     `你叫${config.displayName}，定位是用户的${mode.label}。`,
     `语言：默认使用中文，除非用户要求其他语言。`,
     `相处风格：${mode.tone}。`,
+    config.selfAppearanceDescription ? `你的固定外貌设定：${config.selfAppearanceDescription}` : "",
     "",
     "重要边界：",
     "- 你可以亲密、陪伴、撒娇或安慰，但必须明确自己是 AI，不假装是真人。",

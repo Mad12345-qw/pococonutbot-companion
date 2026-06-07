@@ -4,6 +4,7 @@ import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitTelegramMessage, t
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
+const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
 
 export class TelegramCompanionBot {
   constructor({ config, storage, ai, imageGenerator, speechToText }) {
@@ -67,6 +68,7 @@ export class TelegramCompanionBot {
       "文字：支持",
       "图片：支持",
       "生图：/draw 画面描述，或直接说“画图/生图/生成图片 ...”",
+      "自拍：直接说“小椰发张自拍”或“看看你长什么样”",
       "语音：会先转成文字，再自然回复"
     ].join("\n");
 
@@ -172,13 +174,27 @@ export class TelegramCompanionBot {
       }
     });
 
+    const selfiePrompt = this.extractSelfieGenerationPrompt(safeUserText, {
+      isPrivate: msg.chat?.type === "private",
+      explicit: prepared.shouldReply && !prepared.smartCandidate
+    });
+    if (selfiePrompt.requested) {
+      await this.handleImageGenerationRequest({
+        msg,
+        chatId,
+        userId,
+        prompt: selfiePrompt.prompt
+      });
+      return;
+    }
+
     const imagePrompt = this.extractImageGenerationPrompt(safeUserText);
     if (imagePrompt.requested) {
       await this.handleImageGenerationRequest({
         msg,
         chatId,
         userId,
-        prompt: imagePrompt.prompt
+        prompt: this.prepareImageGenerationPrompt(imagePrompt.prompt)
       });
       return;
     }
@@ -398,11 +414,59 @@ export class TelegramCompanionBot {
     return { requested: false, prompt: "" };
   }
 
+  extractSelfieGenerationPrompt(text = "", options = {}) {
+    const raw = String(text || "").trim();
+    if (!raw || !selfieKeywords.test(raw)) {
+      return { requested: false, prompt: "" };
+    }
+
+    const looksLikeRequest = /(发|给我|来|看看|想看|拍|自拍|照片|相片|长什么样|样子)/i.test(raw);
+    const namesSelf = new RegExp(`(${this.escapeRegExp(this.config.displayName || "小椰")}|小椰|你|你的)`, "i").test(raw);
+    const directSelfie = /(自拍|自拍照)/i.test(raw);
+    const canUseDirectSelfie = Boolean(options.isPrivate || options.explicit);
+    if (!looksLikeRequest || (!namesSelf && !(directSelfie && canUseDirectSelfie))) {
+      return { requested: false, prompt: "" };
+    }
+
+    return {
+      requested: true,
+      prompt: this.buildSelfiePrompt(raw)
+    };
+  }
+
+  prepareImageGenerationPrompt(prompt = "") {
+    const raw = this.cleanImagePrompt(prompt);
+    if (!raw) return raw;
+    if (!this.isSelfiePrompt(raw)) return raw;
+    return this.buildSelfiePrompt(raw);
+  }
+
+  isSelfiePrompt(prompt = "") {
+    const raw = String(prompt || "");
+    const namesSelf = new RegExp(`(${this.escapeRegExp(this.config.displayName || "小椰")}|小椰|你|你的)`, "i").test(raw);
+    return namesSelf && selfieKeywords.test(raw);
+  }
+
+  buildSelfiePrompt(userRequest = "") {
+    const request = this.cleanImagePrompt(userRequest) || "自然生活感自拍";
+    return [
+      "生成小椰的一张真实自然自拍照。",
+      this.config.selfAppearanceDescription || "",
+      this.config.selfSelfieStyle || "",
+      `用户这次的具体要求：${request}`,
+      "保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。"
+    ].filter(Boolean).join("\n");
+  }
+
   cleanImagePrompt(text = "") {
     return String(text || "")
       .replace(/^[:：,，\s]+/, "")
       .trim()
       .slice(0, 3000);
+  }
+
+  escapeRegExp(value = "") {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   generatedImageFileName(mimeType = "image/png") {

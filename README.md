@@ -8,6 +8,7 @@
 - 图片理解：Telegram 图片会转成 base64 `image_url`
 - 语音理解：Telegram 语音会先用独立 STT/Whisper 转文字，再交给主模型回复
 - 生图：`/draw`、`/image`、`/imagine`、`画图`、`生图`、`生成图片`
+- 小椰自拍：内置一张固定参考照和外貌设定，可直接说“小椰发张自拍”
 - 群聊自动回复：`TRIGGER_MODE=smart`
 - 分用户长期记忆：公共记忆 + 每个 Telegram 用户的个人记忆
 - 长期记忆：Postgres 或本地 JSON

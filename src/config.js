@@ -103,9 +103,16 @@ export const config = {
   voiceDirectInputEnabled: asBoolean(process.env.VOICE_DIRECT_INPUT_ENABLED, false),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
-  displayName: process.env.BOT_DISPLAY_NAME || "小伴",
+  displayName: process.env.BOT_DISPLAY_NAME || "小椰",
   companionMode: process.env.COMPANION_MODE || "girlfriend",
   language: process.env.BOT_LANGUAGE || "zh-CN",
+  selfReferenceImagePath: process.env.SELF_REFERENCE_IMAGE_PATH || "assets/persona/xiaoye-reference.jpg",
+  selfAppearanceDescription:
+    process.env.SELF_APPEARANCE_DESCRIPTION ||
+    "小椰的固定形象：年轻温柔的东亚女性，长深棕色自然微卷发，干净明亮的眼睛，柔和自然的微笑，清爽亲切的气质。整体感觉阳光、干净、温柔，常穿简洁的白色宽松上衣，照片风格真实自然、生活感强。",
+  selfSelfieStyle:
+    process.env.SELF_SELFIE_STYLE ||
+    "真实手机自拍风格，自然光，轻微景深，画面干净，不要夸张滤镜，不要文字、水印、logo，不要多人合照。",
   triggerMode: process.env.TRIGGER_MODE || "mention",
   smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, false),
   allowedChatIds: asList(process.env.ALLOWED_CHAT_IDS),
