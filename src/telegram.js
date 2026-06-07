@@ -13,6 +13,7 @@ export class TelegramCompanionBot {
     this.imageGenerator = imageGenerator;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
+    this.chatQueues = new Map();
   }
 
   async start() {
@@ -29,8 +30,23 @@ export class TelegramCompanionBot {
     this.bot.onText(/^\/forget\b/i, (msg) => this.handleForgetCommand(msg));
     this.bot.onText(/^\/persona(?:@\w+)?\s*(.*)$/i, (msg, match) => this.handlePersonaCommand(msg, match?.[1] || ""));
 
-    this.bot.on("message", (msg) => this.handleMessage(msg).catch((error) => this.handleError(msg, error)));
+    this.bot.on("message", (msg) => this.enqueueMessage(msg));
     this.bot.on("polling_error", (error) => console.error("Telegram polling error:", error.message));
+  }
+
+  enqueueMessage(msg) {
+    const chatId = String(msg?.chat?.id || "unknown");
+    const previous = this.chatQueues.get(chatId) || Promise.resolve();
+    const next = previous
+      .catch(() => {})
+      .then(() => this.handleMessage(msg))
+      .catch((error) => this.handleError(msg, error))
+      .finally(() => {
+        if (this.chatQueues.get(chatId) === next) {
+          this.chatQueues.delete(chatId);
+        }
+      });
+    this.chatQueues.set(chatId, next);
   }
 
   async sendHelp(chatId, replyTo) {
@@ -240,8 +256,8 @@ export class TelegramCompanionBot {
         ].join("\n");
       } else if (prepared.imageUrls.length > 0) {
         reply = [
-          "图片这次没有识别成功。",
-          "常见原因是当前 AI 接口或模型不接受 image_url / data URL 图片输入。",
+          "我收到图片了，但当前主模型接口不接受图片输入，所以这次没法读图。",
+          "这不是你发错了，是模型代理没有开放 image_url 识图能力。要真正识图，需要再接一个支持视觉输入的模型接口。",
           `错误摘要：${truncate(error.message, 500)}`
         ].join("\n");
       } else {
@@ -576,7 +592,14 @@ export class TelegramCompanionBot {
     }
 
     if (!cleanText) {
-      cleanText = text || "继续";
+      return {
+        shouldProcess: false,
+        shouldReply: false,
+        smartCandidate: false,
+        text: "",
+        modality: "text",
+        imageUrls: []
+      };
     }
 
     return {
