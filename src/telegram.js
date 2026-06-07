@@ -395,24 +395,25 @@ export class TelegramCompanionBot {
   extractImageGenerationPrompt(text = "") {
     const raw = String(text || "").trim();
     if (!raw) return { requested: false, prompt: "" };
+    const normalizedRaw = this.normalizeImageRequestText(raw);
 
     const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const username = this.botInfo?.username || "\\w+";
     for (const command of imageGenerationCommands) {
       const commandPattern = new RegExp(`^${escapeRegExp(command)}(?:@${username})?\\s*(.*)$`, "i");
-      const match = raw.match(commandPattern);
+      const match = normalizedRaw.match(commandPattern);
       if (match) {
         return { requested: true, prompt: this.cleanImagePrompt(match[1] || "") };
       }
     }
 
     const naturalPattern = /^(?:请|帮我|麻烦你|给我)?\s*(?:画图|生图|生成图片|生成图像|生成一张图|生成一张图片|画一张|画一个|画个|画|做一张|做一个|做个)\s*[：:，,]?\s*(.*)$/i;
-    const naturalMatch = raw.match(naturalPattern);
+    const naturalMatch = normalizedRaw.match(naturalPattern);
     if (naturalMatch) {
       return { requested: true, prompt: this.cleanImagePrompt(naturalMatch[1] || "") };
     }
 
-    const trailingImageMatch = raw.match(/^(?:请|帮我|麻烦你|给我)?\s*(?:生成|做|制作|设计|画|出|来)\s*(?:一张|一个|一份|个|张)?\s*(.+)$/i);
+    const trailingImageMatch = normalizedRaw.match(/^(?:请|帮我|麻烦你|给我|你)?\s*(?:生成|做|制作|设计|画|出|来)\s*(?:一张|一个|一份|个|张)?\s*(.+)$/i);
     if (trailingImageMatch) {
       const prompt = this.cleanImagePrompt(trailingImageMatch[1] || "");
       const normalizedPrompt = prompt.replace(/[？?！!。.\s]+$/g, "");
@@ -422,6 +423,20 @@ export class TelegramCompanionBot {
     }
 
     return { requested: false, prompt: "" };
+  }
+
+  normalizeImageRequestText(text = "") {
+    let output = String(text || "").trim();
+    const names = [
+      this.config.displayName || "",
+      "小椰",
+      this.botInfo?.username ? `@${this.botInfo.username}` : ""
+    ].filter(Boolean).map((value) => this.escapeRegExp(value));
+    if (names.length > 0) {
+      output = output.replace(new RegExp(`^(?:${names.join("|")})\\s*[,，:：、]?\\s*`, "i"), "");
+    }
+    output = output.replace(/^(?:你|妳)\s*/, "");
+    return output.trim();
   }
 
   extractSelfieGenerationPrompt(text = "", options = {}) {
