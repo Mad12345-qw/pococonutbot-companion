@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: telegram-minimax-companion
+    name: telegram-ai-companion
     runtime: node
     plan: starter
     buildCommand: npm install
@@ -9,10 +9,12 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 20
-      - key: MINIMAX_URL
+      - key: AI_URL
         value: https://api.minimaxi.com/v1/chat/completions
-      - key: MINIMAX_MODEL
+      - key: AI_MODEL
         value: MiniMax-M3
+      - key: AI_COMPATIBILITY
+        value: minimax
       - key: BOT_DISPLAY_NAME
         value: Companion
       - key: COMPANION_MODE
@@ -27,7 +29,7 @@ services:
         value: "24"
       - key: TELEGRAM_BOT_TOKEN
         sync: false
-      - key: MINIMAX_API_KEY
+      - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME
         value: admin

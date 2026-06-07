@@ -5,6 +5,43 @@ import { normalizeKey } from "./utils.js";
 
 const { Pool } = pg;
 
+const summaryUserSeparator = "::user::";
+
+function summaryKey(chatId, userId = "") {
+  const normalizedUserId = String(userId || "");
+  return normalizedUserId ? `${String(chatId)}${summaryUserSeparator}${normalizedUserId}` : String(chatId);
+}
+
+function parseSummaryKey(key) {
+  const value = String(key);
+  const separatorIndex = value.lastIndexOf(summaryUserSeparator);
+  if (separatorIndex === -1) return { chatId: value, userId: "" };
+  return {
+    chatId: value.slice(0, separatorIndex),
+    userId: value.slice(separatorIndex + summaryUserSeparator.length)
+  };
+}
+
+function normalizeSummaries(summaries) {
+  if (Array.isArray(summaries)) {
+    return Object.fromEntries(
+      summaries
+        .filter((item) => item && item.chatId && item.summary)
+        .map((item) => [summaryKey(item.chatId, item.userId), String(item.summary)])
+    );
+  }
+
+  if (summaries && typeof summaries === "object") {
+    return Object.fromEntries(
+      Object.entries(summaries)
+        .filter(([, value]) => value)
+        .map(([key, value]) => [String(key), String(value)])
+    );
+  }
+
+  return {};
+}
+
 export function createStorage(config) {
   if (config.databaseUrl) {
     return new PostgresStorage(config.databaseUrl, config.databaseSsl);
@@ -53,10 +90,21 @@ class PostgresStorage {
         ON memories (chat_id, user_id, importance DESC, updated_at DESC);
 
       CREATE TABLE IF NOT EXISTS conversation_summaries (
-        chat_id TEXT PRIMARY KEY,
+        chat_id TEXT NOT NULL,
+        user_id TEXT NOT NULL DEFAULT '',
         summary TEXT NOT NULL,
-        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        UNIQUE (chat_id, user_id)
       );
+
+      ALTER TABLE conversation_summaries
+        ADD COLUMN IF NOT EXISTS user_id TEXT NOT NULL DEFAULT '';
+
+      ALTER TABLE conversation_summaries
+        DROP CONSTRAINT IF EXISTS conversation_summaries_pkey;
+
+      CREATE UNIQUE INDEX IF NOT EXISTS idx_conversation_summaries_chat_user
+        ON conversation_summaries (chat_id, user_id);
     `);
   }
 
@@ -75,22 +123,26 @@ class PostgresStorage {
     );
   }
 
-  async getRecentMessages(chatId, limit) {
+  async getRecentMessages(chatId, limit, userId = null) {
+    const hasUserFilter = userId !== null && userId !== undefined;
     const result = await this.pool.query(
-      `SELECT role, content, modality, user_id, created_at
+      `SELECT role, content, modality, user_id, metadata, created_at
        FROM chat_messages
-       WHERE chat_id = $1
+       WHERE chat_id = $1 ${hasUserFilter ? "AND user_id = $3" : ""}
        ORDER BY created_at DESC
        LIMIT $2`,
-      [String(chatId), limit]
+      hasUserFilter ? [String(chatId), limit, String(userId || "")] : [String(chatId), limit]
     );
     return result.rows.reverse();
   }
 
-  async countMessages(chatId) {
+  async countMessages(chatId, userId = null) {
+    const hasUserFilter = userId !== null && userId !== undefined;
     const result = await this.pool.query(
-      `SELECT COUNT(*)::int AS count FROM chat_messages WHERE chat_id = $1`,
-      [String(chatId)]
+      `SELECT COUNT(*)::int AS count
+       FROM chat_messages
+       WHERE chat_id = $1 ${hasUserFilter ? "AND user_id = $2" : ""}`,
+      hasUserFilter ? [String(chatId), String(userId || "")] : [String(chatId)]
     );
     return result.rows[0]?.count || 0;
   }
@@ -120,16 +172,16 @@ class PostgresStorage {
          ORDER BY chat_id ASC, user_id ASC, key ASC`
       ),
       this.pool.query(
-        `SELECT chat_id AS "chatId", summary, updated_at AS "updatedAt"
+        `SELECT chat_id AS "chatId", user_id AS "userId", summary, updated_at AS "updatedAt"
          FROM conversation_summaries
-         ORDER BY chat_id ASC`
+         ORDER BY chat_id ASC, user_id ASC`
       )
     ]);
 
     return {
       messages: messages.rows,
       memories: memories.rows,
-      summaries: Object.fromEntries(summaries.rows.map((row) => [row.chatId, row.summary]))
+      summaries: summaries.rows
     };
   }
 
@@ -176,13 +228,17 @@ class PostgresStorage {
         );
       }
 
-      for (const [chatId, summary] of Object.entries(state.summaries || {})) {
+      const summaries = Array.isArray(state.summaries)
+        ? state.summaries
+        : Object.entries(state.summaries || {}).map(([chatId, summary]) => ({ chatId, userId: "", summary }));
+
+      for (const item of summaries) {
         await client.query(
-          `INSERT INTO conversation_summaries (chat_id, summary)
-           VALUES ($1, $2)
-           ON CONFLICT (chat_id)
+          `INSERT INTO conversation_summaries (chat_id, user_id, summary)
+           VALUES ($1, $2, $3)
+           ON CONFLICT (chat_id, user_id)
            DO UPDATE SET summary = EXCLUDED.summary, updated_at = now()`,
-          [String(chatId), String(summary).slice(0, 4000)]
+          [String(item.chatId), String(item.userId || ""), String(item.summary || "").slice(0, 4000)]
         );
       }
 
@@ -213,6 +269,11 @@ class PostgresStorage {
          SELECT chat_id, COUNT(*)::int AS memory_count, MAX(updated_at) AS last_memory_at
          FROM memories
          GROUP BY chat_id
+       ),
+       summary_stats AS (
+         SELECT chat_id, MAX(updated_at) AS summary_updated_at
+         FROM conversation_summaries
+         GROUP BY chat_id
        )
        SELECT
          c.chat_id,
@@ -220,12 +281,12 @@ class PostgresStorage {
          COALESCE(mem.memory_count, 0)::int AS memory_count,
          ms.last_message_at,
          mem.last_memory_at,
-         s.updated_at AS summary_updated_at
+         ss.summary_updated_at
        FROM chat_ids c
        LEFT JOIN message_stats ms ON ms.chat_id = c.chat_id
        LEFT JOIN memory_stats mem ON mem.chat_id = c.chat_id
-       LEFT JOIN conversation_summaries s ON s.chat_id = c.chat_id
-       ORDER BY COALESCE(ms.last_message_at, mem.last_memory_at, s.updated_at) DESC NULLS LAST
+       LEFT JOIN summary_stats ss ON ss.chat_id = c.chat_id
+       ORDER BY COALESCE(ms.last_message_at, mem.last_memory_at, ss.summary_updated_at) DESC NULLS LAST
        LIMIT $1`,
       [limit]
     );
@@ -234,7 +295,7 @@ class PostgresStorage {
 
   async getMemories(chatId, userId, limit) {
     const result = await this.pool.query(
-      `SELECT key, value, importance, updated_at
+      `SELECT key, value, importance, user_id, updated_at
        FROM memories
        WHERE chat_id = $1 AND (user_id = '' OR user_id = $2)
        ORDER BY importance DESC, updated_at DESC
@@ -250,6 +311,50 @@ class PostgresStorage {
        FROM memories
        WHERE chat_id = $1
        ORDER BY importance DESC, updated_at DESC
+       LIMIT $2`,
+      [String(chatId), limit]
+    );
+    return result.rows;
+  }
+
+  async listUsers(chatId, limit = 300) {
+    const result = await this.pool.query(
+      `WITH message_users AS (
+         SELECT
+           user_id,
+           MAX(metadata->>'username') AS username,
+           MAX(metadata->>'firstName') AS first_name,
+           MAX(metadata->>'lastName') AS last_name,
+           COUNT(*)::int AS message_count,
+           MAX(created_at) AS last_message_at
+         FROM chat_messages
+         WHERE chat_id = $1 AND user_id <> ''
+         GROUP BY user_id
+       ),
+       memory_users AS (
+         SELECT user_id, COUNT(*)::int AS memory_count, MAX(updated_at) AS last_memory_at
+         FROM memories
+         WHERE chat_id = $1 AND user_id <> ''
+         GROUP BY user_id
+       ),
+       user_ids AS (
+         SELECT user_id FROM message_users
+         UNION
+         SELECT user_id FROM memory_users
+       )
+       SELECT
+         u.user_id,
+         COALESCE(mu.username, '') AS username,
+         COALESCE(mu.first_name, '') AS first_name,
+         COALESCE(mu.last_name, '') AS last_name,
+         COALESCE(mu.message_count, 0)::int AS message_count,
+         COALESCE(mem.memory_count, 0)::int AS memory_count,
+         mu.last_message_at,
+         mem.last_memory_at
+       FROM user_ids u
+       LEFT JOIN message_users mu ON mu.user_id = u.user_id
+       LEFT JOIN memory_users mem ON mem.user_id = u.user_id
+       ORDER BY COALESCE(mu.last_message_at, mem.last_memory_at) DESC NULLS LAST
        LIMIT $2`,
       [String(chatId), limit]
     );
@@ -308,21 +413,21 @@ class PostgresStorage {
     );
   }
 
-  async getSummary(chatId) {
+  async getSummary(chatId, userId = "") {
     const result = await this.pool.query(
-      `SELECT summary FROM conversation_summaries WHERE chat_id = $1`,
-      [String(chatId)]
+      `SELECT summary FROM conversation_summaries WHERE chat_id = $1 AND user_id = $2`,
+      [String(chatId), String(userId || "")]
     );
     return result.rows[0]?.summary || "";
   }
 
-  async setSummary(chatId, summary) {
+  async setSummary(chatId, summary, userId = "") {
     await this.pool.query(
-      `INSERT INTO conversation_summaries (chat_id, summary)
-       VALUES ($1, $2)
-       ON CONFLICT (chat_id)
+      `INSERT INTO conversation_summaries (chat_id, user_id, summary)
+       VALUES ($1, $2, $3)
+       ON CONFLICT (chat_id, user_id)
        DO UPDATE SET summary = EXCLUDED.summary, updated_at = now()`,
-      [String(chatId), String(summary).slice(0, 4000)]
+      [String(chatId), String(userId || ""), String(summary).slice(0, 4000)]
     );
   }
 
@@ -347,6 +452,7 @@ class JsonFileStorage {
     await fs.mkdir(path.dirname(this.filePath), { recursive: true });
     try {
       this.state = JSON.parse(await fs.readFile(this.filePath, "utf8"));
+      this.state.summaries = normalizeSummaries(this.state.summaries);
     } catch {
       await this.flush();
     }
@@ -369,21 +475,30 @@ class JsonFileStorage {
     await this.flush();
   }
 
-  async getRecentMessages(chatId, limit) {
+  async getRecentMessages(chatId, limit, userId = null) {
+    const hasUserFilter = userId !== null && userId !== undefined;
     return this.state.messages
-      .filter((message) => String(message.chatId) === String(chatId))
+      .filter((message) => {
+        return String(message.chatId) === String(chatId) &&
+          (!hasUserFilter || String(message.userId || "") === String(userId || ""));
+      })
       .slice(-limit)
       .map((message) => ({
         role: message.role,
         content: message.content,
         modality: message.modality || "text",
         user_id: message.userId || "",
+        metadata: message.metadata || {},
         created_at: message.createdAt
       }));
   }
 
-  async countMessages(chatId) {
-    return this.state.messages.filter((message) => String(message.chatId) === String(chatId)).length;
+  async countMessages(chatId, userId = null) {
+    const hasUserFilter = userId !== null && userId !== undefined;
+    return this.state.messages.filter((message) => {
+      return String(message.chatId) === String(chatId) &&
+        (!hasUserFilter || String(message.userId || "") === String(userId || ""));
+    }).length;
   }
 
   async isEmpty() {
@@ -398,7 +513,10 @@ class JsonFileStorage {
     return {
       messages: this.state.messages,
       memories: this.state.memories,
-      summaries: this.state.summaries || {}
+      summaries: Object.entries(this.state.summaries || {}).map(([key, summary]) => ({
+        ...parseSummaryKey(key),
+        summary
+      }))
     };
   }
 
@@ -406,7 +524,7 @@ class JsonFileStorage {
     this.state = {
       messages: Array.isArray(state.messages) ? state.messages : [],
       memories: Array.isArray(state.memories) ? state.memories : [],
-      summaries: state.summaries && typeof state.summaries === "object" ? state.summaries : {}
+      summaries: normalizeSummaries(state.summaries)
     };
     await this.flush();
   }
@@ -415,7 +533,9 @@ class JsonFileStorage {
     const ids = new Set();
     for (const message of this.state.messages) ids.add(String(message.chatId));
     for (const memory of this.state.memories) ids.add(String(memory.chatId));
-    for (const chatId of Object.keys(this.state.summaries || {})) ids.add(String(chatId));
+    for (const key of Object.keys(this.state.summaries || {})) {
+      ids.add(String(parseSummaryKey(key).chatId));
+    }
 
     const rows = [...ids].map((chatId) => {
       const messages = this.state.messages.filter((message) => String(message.chatId) === chatId);
@@ -431,7 +551,7 @@ class JsonFileStorage {
         memory_count: memories.length,
         last_message_at: lastMessage?.createdAt || null,
         last_memory_at: lastMemory?.updatedAt || lastMemory?.createdAt || null,
-        summary_updated_at: this.state.summaries[chatId] ? null : null
+        summary_updated_at: this.state.summaries[summaryKey(chatId)] ? null : null
       };
     });
 
@@ -451,6 +571,7 @@ class JsonFileStorage {
         key: memory.key,
         value: memory.value,
         importance: memory.importance || 3,
+        user_id: memory.userId || "",
         updated_at: memory.updatedAt
       }));
   }
@@ -472,6 +593,50 @@ class JsonFileStorage {
         created_at: memory.createdAt || null,
         updated_at: memory.updatedAt || null
       }));
+  }
+
+  async listUsers(chatId, limit = 300) {
+    const byId = new Map();
+    for (const message of this.state.messages) {
+      if (String(message.chatId) !== String(chatId) || !message.userId) continue;
+      const row = byId.get(String(message.userId)) || {
+        user_id: String(message.userId),
+        username: "",
+        first_name: "",
+        last_name: "",
+        message_count: 0,
+        memory_count: 0,
+        last_message_at: null,
+        last_memory_at: null
+      };
+      row.username = message.metadata?.username || row.username;
+      row.first_name = message.metadata?.firstName || row.first_name;
+      row.last_name = message.metadata?.lastName || row.last_name;
+      row.message_count += 1;
+      row.last_message_at = message.createdAt || row.last_message_at;
+      byId.set(row.user_id, row);
+    }
+
+    for (const memory of this.state.memories) {
+      if (String(memory.chatId) !== String(chatId) || !memory.userId) continue;
+      const row = byId.get(String(memory.userId)) || {
+        user_id: String(memory.userId),
+        username: "",
+        first_name: "",
+        last_name: "",
+        message_count: 0,
+        memory_count: 0,
+        last_message_at: null,
+        last_memory_at: null
+      };
+      row.memory_count += 1;
+      row.last_memory_at = memory.updatedAt || memory.createdAt || row.last_memory_at;
+      byId.set(row.user_id, row);
+    }
+
+    return [...byId.values()]
+      .sort((a, b) => String(b.last_message_at || b.last_memory_at || "").localeCompare(String(a.last_message_at || a.last_memory_at || "")))
+      .slice(0, limit);
   }
 
   async setMemory(chatId, userId, memory) {
@@ -541,19 +706,23 @@ class JsonFileStorage {
     await this.flush();
   }
 
-  async getSummary(chatId) {
-    return this.state.summaries[String(chatId)] || "";
+  async getSummary(chatId, userId = "") {
+    return this.state.summaries[summaryKey(chatId, userId)] || "";
   }
 
-  async setSummary(chatId, summary) {
-    this.state.summaries[String(chatId)] = String(summary).slice(0, 4000);
+  async setSummary(chatId, summary, userId = "") {
+    this.state.summaries[summaryKey(chatId, userId)] = String(summary).slice(0, 4000);
     await this.flush();
   }
 
   async clearChat(chatId) {
     this.state.messages = this.state.messages.filter((message) => String(message.chatId) !== String(chatId));
     this.state.memories = this.state.memories.filter((memory) => String(memory.chatId) !== String(chatId));
-    delete this.state.summaries[String(chatId)];
+    for (const key of Object.keys(this.state.summaries || {})) {
+      if (String(parseSummaryKey(key).chatId) === String(chatId)) {
+        delete this.state.summaries[key];
+      }
+    }
     await this.flush();
   }
 }

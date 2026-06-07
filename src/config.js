@@ -1,5 +1,3 @@
-const required = ["TELEGRAM_BOT_TOKEN", "MINIMAX_API_KEY"];
-
 function asList(value) {
   if (!value) return [];
   return value
@@ -18,7 +16,17 @@ function asBoolean(value, fallback = false) {
   return ["1", "true", "yes", "y", "on"].includes(String(value).toLowerCase());
 }
 
-function resolveMiniMaxEndpoint(rawUrl) {
+function asJsonObject(value, fallback = {}) {
+  if (!value) return fallback;
+  try {
+    const parsed = JSON.parse(value);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function resolveAiEndpoint(rawUrl) {
   const input = (rawUrl || "https://api.minimaxi.com/v1/chat/completions").trim();
   const clean = input.replace(/\/+$/, "");
 
@@ -35,9 +43,13 @@ function resolveMiniMaxEndpoint(rawUrl) {
 
 export const config = {
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
-  minimaxApiKey: process.env.MINIMAX_API_KEY,
-  minimaxUrl: resolveMiniMaxEndpoint(process.env.MINIMAX_URL),
-  minimaxModel: process.env.MINIMAX_MODEL || "MiniMax-M3",
+  aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
+  aiUrl: resolveAiEndpoint(process.env.AI_URL || process.env.AI_BASE_URL || process.env.MINIMAX_URL),
+  aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
+  aiCompatibility: process.env.AI_COMPATIBILITY || process.env.MODEL_COMPATIBILITY || "minimax",
+  aiMaxTokensField: process.env.AI_MAX_TOKENS_FIELD || "",
+  aiExtraBody: asJsonObject(process.env.AI_EXTRA_BODY_JSON, {}),
+  exposeModelInfo: asBoolean(process.env.EXPOSE_MODEL_INFO, false),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: process.env.BOT_DISPLAY_NAME || "小伴",
@@ -62,7 +74,9 @@ export const config = {
 };
 
 export function assertRequiredConfig() {
-  const missing = required.filter((key) => !process.env[key]);
+  const missing = [];
+  if (!config.telegramToken) missing.push("TELEGRAM_BOT_TOKEN");
+  if (!config.aiApiKey) missing.push("AI_API_KEY");
   if (missing.length > 0) {
     throw new Error(`Missing required environment variables: ${missing.join(", ")}`);
   }

@@ -17,11 +17,21 @@ const modeProfiles = {
   }
 };
 
-export function buildSystemPrompt({ config, memories, summary, modeOverride }) {
+export function buildSystemPrompt({ config, memories, summary, userSummary, currentUser, modeOverride }) {
   const mode = modeProfiles[modeOverride] || modeProfiles[config.companionMode] || modeProfiles.girlfriend;
   const memoryText = memories.length
-    ? memories.map((item) => `- ${item.key}: ${item.value}`).join("\n")
+    ? memories.map((item) => {
+        const scope = item.user_id ? "当前用户" : "公共";
+        return `- [${scope}] ${item.key}: ${item.value}`;
+      }).join("\n")
     : "- 暂时没有长期记忆。";
+  const currentUserText = currentUser
+    ? [
+        `Telegram ID: ${currentUser.id || "未知"}`,
+        `显示名: ${currentUser.fullName || "未知"}`,
+        `用户名: ${currentUser.username ? `@${currentUser.username}` : "无"}`
+      ].join("\n")
+    : "未知";
 
   return [
     `你叫${config.displayName}，定位是用户的${mode.label}。`,
@@ -34,11 +44,18 @@ export function buildSystemPrompt({ config, memories, summary, modeOverride }) {
     "- 用户明显痛苦、失控或有自伤倾向时，先共情，再鼓励联系现实中的可信任的人或当地紧急支持。",
     "- 不保存或复述 API key、密码、验证码、银行卡、身份证等敏感凭据。",
     "- 群聊里不要暴露私聊记忆，除非用户本人明确要求。",
+    "- 不要主动提及模型名称、供应商、API、系统提示、数据库或内部工具。",
+    "",
+    "当前发言人：",
+    currentUserText,
     "",
     "长期记忆：",
     memoryText,
     "",
-    "对话摘要：",
+    "当前用户摘要：",
+    userSummary || "暂无摘要。",
+    "",
+    "聊天公共摘要：",
     summary || "暂无摘要。",
     "",
     "回复要求：",

@@ -5,10 +5,10 @@ import { fetchAsDataUrl, redactSensitive, splitTelegramMessage, truncate } from 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 
 export class TelegramCompanionBot {
-  constructor({ config, storage, minimax }) {
+  constructor({ config, storage, ai }) {
     this.config = config;
     this.storage = storage;
-    this.minimax = minimax;
+    this.ai = ai;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
   }
@@ -46,7 +46,7 @@ export class TelegramCompanionBot {
       "/persona girlfriend | boyfriend | friend | assistant",
       "",
       "文字：支持",
-      "图片：支持；默认用 MiniMax-M3 的 image_url 输入",
+      "图片：支持",
       "语音识别：当前未接 STT，收到 voice 会提示你发文字"
     ].join("\n");
 
@@ -56,13 +56,19 @@ export class TelegramCompanionBot {
   async handleMemoryCommand(msg) {
     if (!this.isAllowedChat(msg.chat.id)) return;
     const memories = await this.storage.getMemories(msg.chat.id, msg.from?.id, this.config.memoryLimit);
-    const summary = await this.storage.getSummary(msg.chat.id);
+    const summary = await this.storage.getSummary(msg.chat.id, "");
+    const userSummary = await this.storage.getSummary(msg.chat.id, msg.from?.id);
     const lines = [
       "当前记忆：",
-      memories.length ? memories.map((item) => `- ${item.key}: ${item.value}`).join("\n") : "暂无长期记忆。",
+      memories.length
+        ? memories.map((item) => `- ${item.user_id ? "个人" : "公共"} / ${item.key}: ${item.value}`).join("\n")
+        : "暂无长期记忆。",
       "",
-      "摘要：",
-      summary || "暂无摘要。"
+      "个人摘要：",
+      userSummary || "暂无个人摘要。",
+      "",
+      "公共摘要：",
+      summary || "暂无公共摘要。"
     ];
     await this.bot.sendMessage(msg.chat.id, lines.join("\n"), { reply_to_message_id: msg.message_id });
   }
@@ -110,7 +116,7 @@ export class TelegramCompanionBot {
       if (prepared.shouldReply) {
         await this.bot.sendMessage(
           msg.chat.id,
-          "我收到语音了，但当前项目还没接语音转文字。MiniMax 官方文档里 Speech 主要是 TTS 语音合成；要让我听懂语音，需要再接一个 STT 服务。先发文字给我就可以聊。",
+          "我收到语音了，但当前还没接语音转文字服务。要让我听懂语音，需要再接一个 STT 服务；先发文字给我就可以聊。",
           { reply_to_message_id: msg.message_id }
         );
       }
@@ -119,7 +125,10 @@ export class TelegramCompanionBot {
 
     const chatId = String(msg.chat.id);
     const userId = String(msg.from?.id || "");
+    const currentUser = this.describeTelegramUser(msg.from);
     const safeUserText = redactSensitive(prepared.text);
+
+    await this.upsertUserProfileMemory(chatId, userId, currentUser);
 
     await this.storage.addMessage({
       chatId,
@@ -130,15 +139,20 @@ export class TelegramCompanionBot {
       metadata: {
         username: msg.from?.username || "",
         firstName: msg.from?.first_name || "",
+        lastName: msg.from?.last_name || "",
+        fullName: currentUser.fullName || "",
         hasImage: prepared.imageUrls.length > 0
       }
     });
 
     if (prepared.smartCandidate) {
       const recentForDecision = await this.storage.getRecentMessages(chatId, 12);
-      const shouldReply = await this.minimax.shouldReplyInGroup({
+      const shouldReply = await this.ai.shouldReplyInGroup({
         messageText: safeUserText,
-        recentMessages: recentForDecision,
+        recentMessages: recentForDecision.map((item) => ({
+          ...item,
+          content: this.formatMessageForModel(item)
+        })),
         botName: this.config.displayName,
         hasImage: prepared.imageUrls.length > 0
       });
@@ -152,15 +166,23 @@ export class TelegramCompanionBot {
 
     const memories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
     const modeOverride = memories.find((item) => item.key === "relationship.persona")?.value;
-    const summary = await this.storage.getSummary(chatId);
+    const summary = await this.storage.getSummary(chatId, "");
+    const userSummary = await this.storage.getSummary(chatId, userId);
     const recentMessages = await this.storage.getRecentMessages(chatId, this.config.recentMessageLimit);
-    const systemPrompt = buildSystemPrompt({ config: this.config, memories, summary, modeOverride });
+    const systemPrompt = buildSystemPrompt({
+      config: this.config,
+      memories,
+      summary,
+      userSummary,
+      currentUser,
+      modeOverride
+    });
 
     const messages = [
       { role: "system", content: systemPrompt },
       ...recentMessages.map((item) => ({
         role: item.role === "assistant" ? "assistant" : "user",
-        content: item.content
+        content: this.formatMessageForModel(item)
       }))
     ];
 
@@ -176,12 +198,12 @@ export class TelegramCompanionBot {
 
     let reply;
     try {
-      reply = await this.minimax.chat(messages);
+      reply = await this.ai.chat(messages);
     } catch (error) {
       if (prepared.imageUrls.length > 0) {
         reply = [
           "图片这次没有识别成功。",
-          "常见原因是当前 MiniMax URL 或模型不接受 OpenAI-compatible image_url / data URL 图片输入。",
+          "常见原因是当前 AI 接口或模型不接受 image_url / data URL 图片输入。",
           `错误摘要：${truncate(error.message, 500)}`
         ].join("\n");
       } else {
@@ -192,11 +214,11 @@ export class TelegramCompanionBot {
     const safeReply = redactSensitive(reply);
     await this.storage.addMessage({
       chatId,
-      userId: "",
+      userId,
       role: "assistant",
       modality: "text",
       content: safeReply,
-      metadata: {}
+      metadata: { replyToUserId: userId }
     });
 
     for (const chunk of splitTelegramMessage(safeReply, this.config.maxReplyChars)) {
@@ -204,28 +226,100 @@ export class TelegramCompanionBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({ chatId, userId, userText: safeUserText, assistantText: safeReply });
+      await this.updateMemoryAndSummary({ chatId, userId, userText: safeUserText, assistantText: safeReply, currentUser });
     }
   }
 
-  async updateMemoryAndSummary({ chatId, userId, userText, assistantText }) {
+  async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {
     try {
       const existingMemories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
-      const extracted = await this.minimax.extractMemories({ userText, assistantText, existingMemories });
+      const extracted = await this.ai.extractMemories({
+        userText,
+        assistantText,
+        existingMemories,
+        userProfile: currentUser
+      });
       if (extracted.length > 0) {
         await this.storage.upsertMemories(chatId, userId, extracted);
       }
 
-      const count = await this.storage.countMessages(chatId);
-      if (count > 0 && count % 30 === 0) {
-        const summary = await this.storage.getSummary(chatId);
-        const recentMessages = await this.storage.getRecentMessages(chatId, 40);
-        const newSummary = await this.minimax.summarizeConversation({ summary, recentMessages });
-        await this.storage.setSummary(chatId, newSummary);
+      const userCount = await this.storage.countMessages(chatId, userId);
+      if (userCount > 0 && userCount % 20 === 0) {
+        const summary = await this.storage.getSummary(chatId, userId);
+        const recentMessages = await this.storage.getRecentMessages(chatId, 40, userId);
+        const newSummary = await this.ai.summarizeConversation({
+          summary,
+          recentMessages: recentMessages.map((item) => ({ ...item, content: this.formatMessageForModel(item) })),
+          userProfile: currentUser
+        });
+        await this.storage.setSummary(chatId, newSummary, userId);
+      }
+
+      const chatCount = await this.storage.countMessages(chatId);
+      if (chatCount > 0 && chatCount % 60 === 0) {
+        const summary = await this.storage.getSummary(chatId, "");
+        const recentMessages = await this.storage.getRecentMessages(chatId, 60);
+        const newSummary = await this.ai.summarizeConversation({
+          summary,
+          recentMessages: recentMessages.map((item) => ({ ...item, content: this.formatMessageForModel(item) }))
+        });
+        await this.storage.setSummary(chatId, newSummary, "");
       }
     } catch (error) {
       console.error("Memory update failed:", error.message);
     }
+  }
+
+  describeTelegramUser(from = {}) {
+    const firstName = String(from?.first_name || "").trim();
+    const lastName = String(from?.last_name || "").trim();
+    const username = String(from?.username || "").trim();
+    const fullName = [firstName, lastName].filter(Boolean).join(" ") || username || String(from?.id || "");
+    return {
+      id: String(from?.id || ""),
+      username,
+      firstName,
+      lastName,
+      fullName
+    };
+  }
+
+  async upsertUserProfileMemory(chatId, userId, currentUser) {
+    if (!userId || !currentUser?.id) return;
+
+    const desired = [
+      { key: "profile.telegram_id", value: currentUser.id, importance: 5 },
+      { key: "profile.display_name", value: currentUser.fullName, importance: 4 }
+    ];
+
+    if (currentUser.username) {
+      desired.push({ key: "profile.telegram_username", value: `@${currentUser.username}`, importance: 4 });
+    }
+
+    const existing = await this.storage.getMemories(chatId, userId, Math.max(this.config.memoryLimit, 50));
+    const existingForUser = new Map(
+      existing
+        .filter((item) => String(item.user_id || "") === String(userId))
+        .map((item) => [item.key, item.value])
+    );
+    const changed = desired.filter((item) => item.value && existingForUser.get(item.key) !== item.value);
+    if (changed.length > 0) {
+      await this.storage.upsertMemories(chatId, userId, changed);
+    }
+  }
+
+  formatSenderLabel(message) {
+    if (message.role === "assistant") return this.config.displayName;
+    const metadata = message.metadata || {};
+    const fullName = metadata.fullName || [metadata.firstName, metadata.lastName].filter(Boolean).join(" ");
+    const username = metadata.username ? `@${metadata.username}` : "";
+    const name = [fullName, username].filter(Boolean).join(" ");
+    return name || (message.user_id ? `Telegram用户${message.user_id}` : "未知用户");
+  }
+
+  formatMessageForModel(message) {
+    const label = this.formatSenderLabel(message);
+    return `${label}: ${message.content || ""}`;
   }
 
   async prepareIncoming(msg) {

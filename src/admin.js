@@ -7,6 +7,24 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
+function isSpecificUserFilter(value) {
+  return value && value !== "__all" && value !== "__shared";
+}
+
+function memoryTargetUserId(value) {
+  return isSpecificUserFilter(value) ? String(value) : "";
+}
+
+function filterMemories(memories, selectedUserId) {
+  if (selectedUserId === "__shared") {
+    return memories.filter((memory) => !memory.user_id);
+  }
+  if (isSpecificUserFilter(selectedUserId)) {
+    return memories.filter((memory) => String(memory.user_id || "") === String(selectedUserId));
+  }
+  return memories;
+}
+
 function isLocalRequest(req) {
   const ip = req.ip || req.socket?.remoteAddress || "";
   return ip === "127.0.0.1" || ip === "::1" || ip === "::ffff:127.0.0.1";
@@ -116,6 +134,7 @@ function adminPage(config) {
     .brand { margin-bottom: 18px; }
     .brand h1 { font-size: 18px; margin: 0 0 3px; }
     .brand p { margin: 0; color: var(--muted); }
+    .side-label { margin: 18px 0 8px; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
     .chat-list { display: grid; gap: 8px; }
     .chat-row {
       text-align: left;
@@ -204,6 +223,8 @@ function adminPage(config) {
         <p>记忆和人格后台</p>
       </div>
       <div id="chatList" class="chat-list"></div>
+      <div class="side-label">用户</div>
+      <div id="userList" class="chat-list"></div>
     </aside>
     <main>
       <div class="topbar">
@@ -259,6 +280,7 @@ function adminPage(config) {
   <script>
     let state = null;
     let selectedChatId = new URLSearchParams(location.search).get("chatId") || "";
+    let selectedUserId = new URLSearchParams(location.search).get("userId") || "__all";
     const apiOrigin = location.origin.replace(/^(https?:\\/\\/)[^@]+@/, "$1");
 
     async function api(path, options = {}) {
@@ -290,7 +312,46 @@ function adminPage(config) {
       for (const row of el.querySelectorAll(".chat-row")) {
         row.addEventListener("click", () => {
           selectedChatId = row.dataset.chat;
+          selectedUserId = "__all";
           history.replaceState(null, "", "/admin?chatId=" + encodeURIComponent(selectedChatId));
+          load();
+        });
+      }
+    }
+
+    function userLabel(user) {
+      const name = [user.first_name, user.last_name].filter(Boolean).join(" ");
+      const username = user.username ? "@" + user.username : "";
+      return [name, username].filter(Boolean).join(" ") || "User " + user.user_id;
+    }
+
+    function renderUsers() {
+      const el = document.getElementById("userList");
+      if (!selectedChatId) {
+        el.innerHTML = '<p class="muted">先选择聊天。</p>';
+        return;
+      }
+      const rows = [
+        { id: "__all", label: "全部记忆", meta: "公共 + 所有人" },
+        { id: "__shared", label: "群公共", meta: "user id 为空" },
+        ...(state.users || []).map(user => ({
+          id: String(user.user_id),
+          label: userLabel(user),
+          meta: user.message_count + " messages · " + user.memory_count + " memories"
+        }))
+      ];
+      el.innerHTML = rows.map(row => {
+        const active = String(row.id) === String(selectedUserId) ? " active" : "";
+        return '<button class="chat-row' + active + '" data-user="' + escapeHtml(row.id) + '">' +
+          '<strong>' + escapeHtml(row.label) + '</strong>' +
+          '<span>' + escapeHtml(row.meta) + '</span>' +
+          '</button>';
+      }).join("");
+      for (const row of el.querySelectorAll(".chat-row")) {
+        row.addEventListener("click", () => {
+          selectedUserId = row.dataset.user;
+          const query = "?chatId=" + encodeURIComponent(selectedChatId) + "&userId=" + encodeURIComponent(selectedUserId);
+          history.replaceState(null, "", "/admin" + query);
           load();
         });
       }
@@ -298,9 +359,10 @@ function adminPage(config) {
 
     function renderState() {
       renderChats();
+      renderUsers();
       document.getElementById("chatTitle").textContent = selectedChatId ? "Chat " + selectedChatId : "选择一个聊天";
       document.getElementById("meta").textContent =
-        "model " + state.config.model + " · trigger " + state.config.triggerMode + " · storage " + state.config.storage;
+        "filter " + selectedUserId + " · trigger " + state.config.triggerMode + " · storage " + state.config.storage;
 
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
@@ -330,7 +392,7 @@ function adminPage(config) {
       const messages = document.getElementById("messages");
       messages.innerHTML = state.messages.length ? state.messages.map(msg => (
         '<div class="message ' + escapeHtml(msg.role) + '">' +
-          '<b>' + escapeHtml(msg.role) + ' · ' + escapeHtml(msg.modality || "text") + '</b>' +
+          '<b>' + escapeHtml(msg.role) + ' · ' + escapeHtml(msg.modality || "text") + ' · user ' + escapeHtml(msg.user_id || "") + '</b>' +
           '<div>' + escapeHtml(msg.content || "") + '</div>' +
         '</div>'
       )).join("") : '<p class="muted">暂无消息。</p>';
@@ -369,9 +431,12 @@ function adminPage(config) {
     }
 
     async function load() {
-      const query = selectedChatId ? "?chatId=" + encodeURIComponent(selectedChatId) : "";
+      const query = selectedChatId
+        ? "?chatId=" + encodeURIComponent(selectedChatId) + "&userId=" + encodeURIComponent(selectedUserId)
+        : "";
       state = await api("/api/admin/state" + query);
       selectedChatId = state.selectedChatId || selectedChatId;
+      selectedUserId = state.selectedUserId || selectedUserId;
       renderState();
     }
 
@@ -384,6 +449,10 @@ function adminPage(config) {
         .replaceAll("'", "&#039;");
     }
 
+    function selectedMemoryUserId() {
+      return selectedUserId && selectedUserId !== "__all" && selectedUserId !== "__shared" ? selectedUserId : "";
+    }
+
     document.getElementById("refreshBtn").addEventListener("click", load);
     document.getElementById("addMemoryBtn").addEventListener("click", async () => {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
@@ -394,7 +463,7 @@ function adminPage(config) {
           key: document.getElementById("newKey").value,
           value: document.getElementById("newValue").value,
           importance: document.getElementById("newImportance").value,
-          userId: ""
+          userId: selectedMemoryUserId()
         })
       });
       document.getElementById("newKey").value = "";
@@ -406,7 +475,7 @@ function adminPage(config) {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
       await api("/api/admin/summary", {
         method: "POST",
-        body: JSON.stringify({ chatId: selectedChatId, summary: document.getElementById("summary").value })
+        body: JSON.stringify({ chatId: selectedChatId, userId: selectedMemoryUserId(), summary: document.getElementById("summary").value })
       });
       setStatus("已保存摘要。");
       await load();
@@ -415,7 +484,7 @@ function adminPage(config) {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
       await api("/api/admin/persona", {
         method: "POST",
-        body: JSON.stringify({ chatId: selectedChatId, persona: event.target.value })
+        body: JSON.stringify({ chatId: selectedChatId, userId: selectedMemoryUserId(), persona: event.target.value })
       });
       setStatus("已切换人格。");
       await load();
@@ -437,14 +506,25 @@ export function setupAdminRoutes(app, { config, storage }) {
   app.get("/api/admin/state", auth, async (req, res) => {
     const chats = await storage.listChats(100);
     const selectedChatId = String(req.query.chatId || chats[0]?.chat_id || "");
-    const memories = selectedChatId ? await storage.listMemories(selectedChatId, 300) : [];
-    const summary = selectedChatId ? await storage.getSummary(selectedChatId) : "";
+    const selectedUserId = String(req.query.userId || "__all");
+    const users = selectedChatId ? await storage.listUsers(selectedChatId, 300) : [];
+    const allMemories = selectedChatId ? await storage.listMemories(selectedChatId, 500) : [];
+    const memories = filterMemories(allMemories, selectedUserId).slice(0, 300);
+    const targetUserId = memoryTargetUserId(selectedUserId);
+    const summary = selectedChatId ? await storage.getSummary(selectedChatId, targetUserId) : "";
     const messages = selectedChatId ? await storage.getRecentMessages(selectedChatId, 80) : [];
-    const persona = memories.find((memory) => memory.key === "relationship.persona")?.value || config.companionMode;
+    const persona =
+      (targetUserId
+        ? allMemories.find((memory) => memory.key === "relationship.persona" && String(memory.user_id || "") === targetUserId)?.value
+        : "") ||
+      allMemories.find((memory) => memory.key === "relationship.persona" && !memory.user_id)?.value ||
+      config.companionMode;
 
     res.json({
       selectedChatId,
+      selectedUserId,
       chats,
+      users,
       memories,
       summary,
       messages,
@@ -453,7 +533,6 @@ export function setupAdminRoutes(app, { config, storage }) {
         displayName: config.displayName,
         companionMode: config.companionMode,
         triggerMode: config.triggerMode,
-        model: config.minimaxModel,
         storage: config.databaseUrl ? "postgres" : "json-file"
       }
     });
@@ -485,24 +564,24 @@ export function setupAdminRoutes(app, { config, storage }) {
   });
 
   app.post("/api/admin/summary", auth, async (req, res) => {
-    const { chatId, summary = "" } = req.body || {};
+    const { chatId, userId = "", summary = "" } = req.body || {};
     if (!chatId) {
       res.status(400).json({ error: "chatId is required." });
       return;
     }
 
-    await storage.setSummary(chatId, summary);
+    await storage.setSummary(chatId, summary, userId);
     res.json({ ok: true });
   });
 
   app.post("/api/admin/persona", auth, async (req, res) => {
-    const { chatId, persona } = req.body || {};
+    const { chatId, userId = "", persona } = req.body || {};
     if (!chatId || !persona) {
       res.status(400).json({ error: "chatId and persona are required." });
       return;
     }
 
-    await storage.setMemory(chatId, "", {
+    await storage.setMemory(chatId, userId, {
       key: "relationship.persona",
       value: persona,
       importance: 5

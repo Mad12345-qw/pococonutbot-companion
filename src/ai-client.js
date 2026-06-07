@@ -9,48 +9,71 @@ function normalizeContent(content) {
   return String(content || "");
 }
 
-export class MiniMaxClient {
+function normalizeCompatibility(value = "") {
+  return String(value || "openai").trim().toLowerCase();
+}
+
+export class AIClient {
   constructor(config) {
     this.config = config;
   }
 
-  async chat(messages, options = {}) {
+  get compatibility() {
+    return normalizeCompatibility(this.config.aiCompatibility);
+  }
+
+  get isMiniMaxCompatible() {
+    return this.compatibility === "minimax";
+  }
+
+  buildChatBody(messages, options = {}) {
     const body = {
-      model: options.model || this.config.minimaxModel,
+      model: options.model || this.config.aiModel,
       messages: messages.map((message) => ({
         role: message.role,
         content: normalizeContent(message.content)
-      }))
+      })),
+      ...this.config.aiExtraBody
     };
 
-    if (isChatCompletionsEndpoint(this.config.minimaxUrl)) {
+    if (isChatCompletionsEndpoint(this.config.aiUrl)) {
       body.temperature = options.temperature ?? 0.8;
-      body.max_completion_tokens = options.maxTokens ?? 1200;
-      body.reasoning_split = true;
-      if (String(body.model).includes("MiniMax-M3")) {
-        body.thinking = { type: "disabled" };
+      const maxTokensField =
+        this.config.aiMaxTokensField ||
+        (this.isMiniMaxCompatible ? "max_completion_tokens" : "max_tokens");
+      body[maxTokensField] = options.maxTokens ?? 1200;
+
+      if (this.isMiniMaxCompatible) {
+        body.reasoning_split = true;
+        if (String(body.model).includes("MiniMax-M3")) {
+          body.thinking = { type: "disabled" };
+        }
       }
     }
 
-    const response = await fetch(this.config.minimaxUrl, {
+    return body;
+  }
+
+  async chat(messages, options = {}) {
+    const response = await fetch(this.config.aiUrl, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${this.config.minimaxApiKey}`,
+        Authorization: `Bearer ${this.config.aiApiKey}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(this.buildChatBody(messages, options))
     });
 
     const text = await response.text();
     if (!response.ok) {
-      throw new Error(`MiniMax API error ${response.status}: ${truncate(text, 800)}`);
+      throw new Error(`AI API error ${response.status}: ${truncate(text, 800)}`);
     }
 
     let data;
     try {
       data = JSON.parse(text);
     } catch {
-      throw new Error(`MiniMax returned non-JSON response: ${truncate(text, 400)}`);
+      throw new Error(`AI API returned non-JSON response: ${truncate(text, 400)}`);
     }
 
     const content =
@@ -61,37 +84,49 @@ export class MiniMaxClient {
       "";
 
     if (!content) {
-      throw new Error(`MiniMax response did not contain text: ${truncate(JSON.stringify(data), 800)}`);
+      throw new Error(`AI API response did not contain text: ${truncate(JSON.stringify(data), 800)}`);
     }
 
     return String(content).trim();
   }
 
-  async extractMemories({ userText, assistantText, existingMemories }) {
+  async extractMemories({ userText, assistantText, existingMemories, userProfile }) {
     const memoryList = existingMemories.map((item) => `${item.key}: ${item.value}`).join("\n") || "无";
+    const profileText = userProfile
+      ? [
+          `Telegram ID: ${userProfile.id || "unknown"}`,
+          `姓名: ${userProfile.fullName || "unknown"}`,
+          `用户名: ${userProfile.username ? `@${userProfile.username}` : "none"}`
+        ].join("\n")
+      : "未知";
+
     const prompt = [
-      "你是聊天长期记忆整理器。请从本轮对话中提取值得长期保存的信息。",
-      "只记录稳定偏好、称呼、关系设定、重要经历、长期计划、禁忌、纪念日、沟通风格。",
-      "不要记录 API key、token、密码、验证码、银行卡、身份证、地址、一次性闲聊或无关事实。",
-      "如果没有值得保存的新信息，返回 {\"memories\":[] }。",
+      "你是聊天机器人的长期记忆整理器。请只为“当前发言人”提取值得长期保存的信息。",
+      "可以记录：稳定偏好、称呼、关系设定、重要经历、长期计划、待办、禁忌、纪念日、沟通风格、需要机器人长期帮忙跟进的事项。",
+      "不要记录：API key、token、密码、验证码、银行卡、身份证、精确住址、一次性闲聊、无关事实、其他人的隐私。",
+      "如果信息属于群里其他人，不要写进当前发言人的个人记忆。",
+      "如果没有值得保存的新信息，返回 {\"memories\":[]}。",
       "返回严格 JSON，不要 Markdown。",
+      "",
+      "当前发言人：",
+      profileText,
       "",
       "已有记忆：",
       memoryList,
       "",
-      "用户本轮消息：",
+      "当前发言人的本轮消息：",
       truncate(userText, 2000),
       "",
-      "助手本轮回复：",
+      "机器人本轮回复：",
       truncate(assistantText, 1200),
       "",
       "JSON 格式：",
-      "{\"memories\":[{\"key\":\"短键名\",\"value\":\"一句话记忆\",\"importance\":1}]}"
+      "{\"memories\":[{\"key\":\"preferences.nickname\",\"value\":\"用户喜欢被叫老板\",\"importance\":4}]}"
     ].join("\n");
 
     const raw = await this.chat(
       [
-        { role: "system", content: "你只输出可解析 JSON。" },
+        { role: "system", content: "你只输出可解析 JSON，不要解释。" },
         { role: "user", content: prompt }
       ],
       { temperature: 0.1, maxTokens: 700 }
@@ -110,14 +145,18 @@ export class MiniMaxClient {
       .slice(0, 8);
   }
 
-  async summarizeConversation({ summary, recentMessages }) {
+  async summarizeConversation({ summary, recentMessages, userProfile }) {
     const transcript = recentMessages
       .map((message) => `${message.role}: ${message.content}`)
       .join("\n");
+    const profileLine = userProfile
+      ? `${userProfile.fullName || "未知用户"} ${userProfile.username ? `(@${userProfile.username})` : ""}`
+      : "当前聊天";
 
     const prompt = [
-      "请更新一段简短对话摘要，供长期聊天上下文使用。",
+      "请更新一段简短对话摘要，供后续长期聊天上下文使用。",
       "保留关系进展、用户当前状态、未完成事项和重要偏好。不要保存敏感凭据。",
+      `摘要对象：${profileLine}`,
       "",
       "旧摘要：",
       summary || "无",

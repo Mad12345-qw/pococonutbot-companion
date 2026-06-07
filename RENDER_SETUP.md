@@ -30,7 +30,7 @@ Then set:
 TRIGGER_MODE=smart
 ```
 
-`smart` mode records normal group messages as context and asks MiniMax whether the bot should reply. It is safer than `all`, which replies to every message.
+`smart` mode records normal group messages as context and asks the AI service whether the bot should reply. It is safer than `all`, which replies to every message.
 
 ## 2. Local Test
 
@@ -44,9 +44,10 @@ Fill:
 
 ```env
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
-MINIMAX_API_KEY=your_minimax_key
-MINIMAX_URL=https://api.minimaxi.com/v1/chat/completions
-MINIMAX_MODEL=MiniMax-M3
+AI_API_KEY=your_ai_api_key
+AI_URL=https://api.minimaxi.com/v1/chat/completions
+AI_MODEL=MiniMax-M3
+AI_COMPATIBILITY=minimax
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
@@ -83,7 +84,7 @@ Only run one copy at a time. If local and Render both poll Telegram, updates can
 
 ```env
 TELEGRAM_BOT_TOKEN=your_new_telegram_bot_token
-MINIMAX_API_KEY=your_new_minimax_key
+AI_API_KEY=your_new_ai_api_key
 ADMIN_PASSWORD=a_strong_admin_password
 ```
 
@@ -94,8 +95,9 @@ Use `DB_SSL=true` for SSL-required external Postgres URLs such as Neon. Use `DB_
 ## 4. Recommended Render Variables
 
 ```env
-MINIMAX_URL=https://api.minimaxi.com/v1/chat/completions
-MINIMAX_MODEL=MiniMax-M3
+AI_URL=https://api.minimaxi.com/v1/chat/completions
+AI_MODEL=MiniMax-M3
+AI_COMPATIBILITY=minimax
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
@@ -120,10 +122,11 @@ You can:
 - view chats
 - view recent messages
 - view/edit/add/delete long-term memories
-- edit the conversation summary
-- switch persona for a specific chat
+- filter memories by all users, shared chat memory, or a specific Telegram user
+- edit the shared chat summary or a specific user's summary
+- switch persona for a specific chat or a specific Telegram user
 
-The persona switch writes `relationship.persona` into the selected chat memory. It takes effect immediately for future replies.
+The persona switch writes `relationship.persona` into the selected memory scope. It takes effect immediately for future replies.
 
 ## 6. GitHub Memory Backup
 
@@ -131,7 +134,7 @@ To protect memory on Render Free, back it up to a private GitHub repo branch:
 
 ```env
 GITHUB_BACKUP_TOKEN=github_token_with_repo_write_access
-GITHUB_BACKUP_REPO=Mad12345-qw/pococonutbot-minimax-companion
+GITHUB_BACKUP_REPO=owner/private-memory-repo
 GITHUB_BACKUP_BRANCH=memory-backups
 GITHUB_BACKUP_PATH=backups/render-memory.json
 GITHUB_BACKUP_INTERVAL_MINUTES=30

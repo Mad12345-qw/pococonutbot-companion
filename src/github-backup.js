@@ -140,7 +140,7 @@ export class GitHubMemoryBackup {
       version: 1,
       exportedAt: new Date().toISOString(),
       reason,
-      service: "telegram-minimax-companion",
+      service: "telegram-ai-companion",
       data: state
     };
 
