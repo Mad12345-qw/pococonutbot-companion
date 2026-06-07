@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: telegram-minimax-companion
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MINIMAX_URL
+        value: https://api.minimaxi.com/v1/chat/completions
+      - key: MINIMAX_MODEL
+        value: MiniMax-M3
+      - key: BOT_DISPLAY_NAME
+        value: Companion
+      - key: COMPANION_MODE
+        value: girlfriend
+      - key: TRIGGER_MODE
+        value: smart
+      - key: AUTO_MEMORY
+        value: "true"
+      - key: RECENT_MESSAGE_LIMIT
+        value: "24"
+      - key: MEMORY_LIMIT
+        value: "24"
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: MINIMAX_API_KEY
+        sync: false
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: telegram-minimax-companion-db
+          property: connectionString
+
+databases:
+  - name: telegram-minimax-companion-db
+    plan: basic-256mb

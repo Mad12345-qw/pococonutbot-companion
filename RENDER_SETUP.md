@@ -1,0 +1,126 @@
+# Render Setup
+
+This project runs as one Render Web Service:
+
+- Telegram bot polling
+- Health endpoint at `/health`
+- Memory/persona admin panel at `/admin`
+- Render Postgres for persistent memory
+
+Use a paid Render instance for 24/7 behavior. Free web services can spin down, which is not a good fit for a Telegram polling bot.
+
+## 1. BotFather
+
+For normal testing:
+
+```text
+Allow Groups: On
+Group Privacy: On
+```
+
+For automatic group replies without @mention:
+
+```text
+Group Privacy: Off
+```
+
+Then set:
+
+```env
+TRIGGER_MODE=smart
+```
+
+`smart` mode records normal group messages as context and asks MiniMax whether the bot should reply. It is safer than `all`, which replies to every message.
+
+## 2. Local Test
+
+Create `.env`:
+
+```powershell
+copy .env.example .env
+```
+
+Fill:
+
+```env
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+MINIMAX_API_KEY=your_minimax_key
+MINIMAX_URL=https://api.minimaxi.com/v1/chat/completions
+MINIMAX_MODEL=MiniMax-M3
+BOT_DISPLAY_NAME=小椰
+COMPANION_MODE=girlfriend
+TRIGGER_MODE=smart
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=local-test-password
+```
+
+Run:
+
+```powershell
+.\scripts\start-local.ps1
+```
+
+Open:
+
+```text
+http://127.0.0.1:3000/admin
+```
+
+Stop before cloud production:
+
+```powershell
+.\scripts\stop-local.ps1
+```
+
+Only run one copy at a time. If local and Render both poll Telegram, updates can conflict.
+
+## 3. Deploy To Render
+
+1. Push this folder to GitHub.
+2. In Render, create a new Blueprint from the repo, or create a Web Service manually.
+3. If using the included `render.yaml`, Render will create one Web Service and one Postgres database.
+4. Add secret environment variables in Render:
+
+```env
+TELEGRAM_BOT_TOKEN=your_new_telegram_bot_token
+MINIMAX_API_KEY=your_new_minimax_key
+ADMIN_PASSWORD=a_strong_admin_password
+```
+
+The `DATABASE_URL` is wired from Render Postgres by `render.yaml`. The database uses `basic-256mb`, Render's current smallest paid Postgres instance type.
+
+Keep `DB_SSL=false` for the Render internal database URL. Use `DB_SSL=true` only if you connect through an external SSL-required Postgres URL.
+
+## 4. Recommended Render Variables
+
+```env
+MINIMAX_URL=https://api.minimaxi.com/v1/chat/completions
+MINIMAX_MODEL=MiniMax-M3
+BOT_DISPLAY_NAME=小椰
+COMPANION_MODE=girlfriend
+TRIGGER_MODE=smart
+AUTO_MEMORY=true
+RECENT_MESSAGE_LIMIT=24
+MEMORY_LIMIT=24
+ADMIN_USERNAME=admin
+```
+
+Use `TRIGGER_MODE=mention` if you want the bot to reply only when mentioned.
+
+## 5. Admin Panel
+
+Open:
+
+```text
+https://your-render-service.onrender.com/admin
+```
+
+You can:
+
+- view chats
+- view recent messages
+- view/edit/add/delete long-term memories
+- edit the conversation summary
+- switch persona for a specific chat
+
+The persona switch writes `relationship.persona` into the selected chat memory. It takes effect immediately for future replies.
