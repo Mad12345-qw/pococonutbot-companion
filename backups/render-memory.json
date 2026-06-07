@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T14:38:06.587Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T14:48:10.571Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -936,6 +936,40 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T14:37:17.986Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "这里",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:45:31.585Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "你试试看，我加了记忆库",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:45:50.012Z"
       }
     ],
     "memories": [
@@ -1068,6 +1102,36 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:13:02.874Z",
         "updatedAt": "2026-06-07T14:13:02.874Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:45:31.145Z",
+        "updatedAt": "2026-06-07T14:45:31.145Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:45:30.909Z",
+        "updatedAt": "2026-06-07T14:45:30.909Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madhuang",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T14:45:31.365Z",
+        "updatedAt": "2026-06-07T14:45:31.365Z"
       },
       {
         "chatId": "8611360712",
