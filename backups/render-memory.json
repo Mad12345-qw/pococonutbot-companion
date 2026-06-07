@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T14:30:46.223Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-07T14:38:06.587Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -908,6 +908,34 @@
           "transcript": ""
         },
         "createdAt": "2026-06-07T14:29:56.447Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我生成一张跨境电商做独立站的攻略图？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-07T14:35:00.888Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 给你生成好啦～这张是**跨境电商独立站攻略图**，可以直接拿去群里/朋友圈/内部讨论用。\n\n如果你想要，我还可以继续帮你做一版更偏：\n\n1. **老板战略版**：商业模式、利润、团队配置  \n2. **小白实操版**：从0到1每一步怎么做  \n3. **招商路演版**：更高级、更像PPT封面  \n4. **短视频封面版**：适合抖音/TikTok/小红书封面  \n5. **英文版**：给海外团队或客户看",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T14:37:17.986Z"
       }
     ],
     "memories": [
