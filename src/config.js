@@ -41,6 +41,22 @@ function resolveAiEndpoint(rawUrl) {
   return clean;
 }
 
+function resolveImageEndpoint(rawUrl) {
+  const input = String(rawUrl || "").trim();
+  if (!input) return "";
+  const clean = input.replace(/\/+$/, "");
+
+  if (clean.endsWith("/images/generations")) {
+    return clean;
+  }
+
+  if (clean.endsWith("/v1")) {
+    return `${clean}/images/generations`;
+  }
+
+  return `${clean}/v1/images/generations`;
+}
+
 export const config = {
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
@@ -50,6 +66,11 @@ export const config = {
   aiMaxTokensField: process.env.AI_MAX_TOKENS_FIELD || "",
   aiExtraBody: asJsonObject(process.env.AI_EXTRA_BODY_JSON, {}),
   exposeModelInfo: asBoolean(process.env.EXPOSE_MODEL_INFO, false),
+  imageGenerationEnabled: asBoolean(process.env.IMAGE_GENERATION_ENABLED, true),
+  imageApiKey: process.env.IMAGE_API_KEY || process.env.IMAGE2_API_KEY || "",
+  imageApiUrl: resolveImageEndpoint(process.env.IMAGE_API_URL || process.env.IMAGE2_API_URL || ""),
+  imageModel: process.env.IMAGE_MODEL || process.env.IMAGE2_MODEL || "gpt-image-2",
+  imageSize: process.env.IMAGE_SIZE || "1024x1024",
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: process.env.BOT_DISPLAY_NAME || "小伴",

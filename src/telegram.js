@@ -3,12 +3,14 @@ import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { fetchAsDataUrl, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
+const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
 
 export class TelegramCompanionBot {
-  constructor({ config, storage, ai }) {
+  constructor({ config, storage, ai, imageGenerator }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
+    this.imageGenerator = imageGenerator;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
   }
@@ -47,6 +49,7 @@ export class TelegramCompanionBot {
       "",
       "文字：支持",
       "图片：支持",
+      "生图：/draw 画面描述，或直接说“画图/生图/生成图片 ...”",
       "语音识别：当前未接 STT，收到 voice 会提示你发文字"
     ].join("\n");
 
@@ -144,6 +147,17 @@ export class TelegramCompanionBot {
         hasImage: prepared.imageUrls.length > 0
       }
     });
+
+    const imagePrompt = this.extractImageGenerationPrompt(safeUserText);
+    if (imagePrompt.requested) {
+      await this.handleImageGenerationRequest({
+        msg,
+        chatId,
+        userId,
+        prompt: imagePrompt.prompt
+      });
+      return;
+    }
 
     if (prepared.smartCandidate) {
       const recentForDecision = await this.storage.getRecentMessages(chatId, 12);
@@ -270,6 +284,97 @@ export class TelegramCompanionBot {
     }
   }
 
+  async handleImageGenerationRequest({ msg, chatId, userId, prompt }) {
+    if (!prompt) {
+      await this.bot.sendMessage(msg.chat.id, "把想画的内容发给我，例如：/draw 一只穿宇航服的猫，电影海报风格。", {
+        reply_to_message_id: msg.message_id
+      });
+      return;
+    }
+
+    if (!this.imageGenerator?.enabled) {
+      await this.bot.sendMessage(msg.chat.id, "生图接口还没配置好。", {
+        reply_to_message_id: msg.message_id
+      });
+      return;
+    }
+
+    await this.bot.sendChatAction(msg.chat.id, "upload_photo");
+
+    try {
+      const image = await this.imageGenerator.generate(prompt);
+      const caption = `画好了：${truncate(prompt, 900)}`;
+      await this.bot.sendPhoto(
+        msg.chat.id,
+        image.buffer,
+        {
+          caption,
+          reply_to_message_id: msg.message_id
+        },
+        {
+          filename: this.generatedImageFileName(image.mimeType),
+          contentType: image.mimeType
+        }
+      );
+
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "image",
+        content: `已生成图片：${truncate(prompt, 1000)}`,
+        metadata: { generatedImage: true, replyToUserId: userId }
+      });
+    } catch (error) {
+      const message = `这次生图失败了：${truncate(error.message, 600)}`;
+      await this.bot.sendMessage(msg.chat.id, message, { reply_to_message_id: msg.message_id });
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "text",
+        content: message,
+        metadata: { generatedImage: false, replyToUserId: userId }
+      });
+    }
+  }
+
+  extractImageGenerationPrompt(text = "") {
+    const raw = String(text || "").trim();
+    if (!raw) return { requested: false, prompt: "" };
+
+    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const username = this.botInfo?.username || "\\w+";
+    for (const command of imageGenerationCommands) {
+      const commandPattern = new RegExp(`^${escapeRegExp(command)}(?:@${username})?\\s*(.*)$`, "i");
+      const match = raw.match(commandPattern);
+      if (match) {
+        return { requested: true, prompt: this.cleanImagePrompt(match[1] || "") };
+      }
+    }
+
+    const naturalPattern = /^(?:请|帮我|麻烦你|给我)?\s*(?:画图|生图|生成图片|生成图像|生成一张图|生成一张图片|画一张|画一个|画个|画|做一张|做一个|做个)\s*[：:，,]?\s*(.*)$/i;
+    const naturalMatch = raw.match(naturalPattern);
+    if (naturalMatch) {
+      return { requested: true, prompt: this.cleanImagePrompt(naturalMatch[1] || "") };
+    }
+
+    return { requested: false, prompt: "" };
+  }
+
+  cleanImagePrompt(text = "") {
+    return String(text || "")
+      .replace(/^[:：,，\s]+/, "")
+      .trim()
+      .slice(0, 3000);
+  }
+
+  generatedImageFileName(mimeType = "image/png") {
+    if (mimeType.includes("jpeg") || mimeType.includes("jpg")) return "generated.jpg";
+    if (mimeType.includes("webp")) return "generated.webp";
+    return "generated.png";
+  }
+
   describeTelegramUser(from = {}) {
     const firstName = String(from?.first_name || "").trim();
     const lastName = String(from?.last_name || "").trim();
@@ -391,6 +496,8 @@ export class TelegramCompanionBot {
     const lowered = String(text || "").trim().toLowerCase();
     const explicit =
       triggerCommands.some((command) => lowered.startsWith(command)) ||
+      imageGenerationCommands.some((command) => lowered.startsWith(command.toLowerCase())) ||
+      /^(?:请|帮我|麻烦你|给我)?\s*(?:画图|生图|生成图片|生成图像|生成一张图|生成一张图片|画一张|画一个|画个|做一张|做一个|做个)/i.test(String(text || "").trim()) ||
       (username && lowered.includes(`@${username.toLowerCase()}`)) ||
       (msg.reply_to_message?.from?.id && msg.reply_to_message.from.id === this.botInfo?.id);
 

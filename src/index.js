@@ -1,6 +1,7 @@
 import express from "express";
 import { assertRequiredConfig, config } from "./config.js";
 import { AIClient } from "./ai-client.js";
+import { ImageGenerationClient } from "./image-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { setupAdminRoutes } from "./admin.js";
@@ -22,7 +23,8 @@ app.get("/", (_req, res) => {
 app.get("/health", (_req, res) => {
   const payload = {
     ok: true,
-    storage: config.databaseUrl ? "postgres" : "json-file"
+    storage: config.databaseUrl ? "postgres" : "json-file",
+    imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl)
   };
   if (config.exposeModelInfo) {
     payload.model = config.aiModel;
@@ -44,5 +46,6 @@ const githubBackup = new GitHubMemoryBackup({ config, storage });
 await githubBackup.start();
 
 const ai = new AIClient(config);
-const telegramBot = new TelegramCompanionBot({ config, storage, ai });
+const imageGenerator = new ImageGenerationClient(config);
+const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator });
 await telegramBot.start();

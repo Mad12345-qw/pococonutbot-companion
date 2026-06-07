@@ -48,6 +48,10 @@ AI_API_KEY=your_ai_api_key
 AI_URL=https://api.minimaxi.com/v1/chat/completions
 AI_MODEL=MiniMax-M3
 AI_COMPATIBILITY=minimax
+IMAGE_GENERATION_ENABLED=true
+IMAGE_API_URL=http://your-image-api.example
+IMAGE_API_KEY=your_image_api_key
+IMAGE_MODEL=gpt-image-2
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
@@ -86,6 +90,8 @@ Only run one copy at a time. If local and Render both poll Telegram, updates can
 TELEGRAM_BOT_TOKEN=your_new_telegram_bot_token
 AI_API_KEY=your_new_ai_api_key
 ADMIN_PASSWORD=a_strong_admin_password
+IMAGE_API_URL=your_image_api_base_url
+IMAGE_API_KEY=your_image_api_key
 ```
 
 For a free persistent database, create a free Neon or Supabase Postgres database and paste its connection string into `DATABASE_URL`.
@@ -98,6 +104,9 @@ Use `DB_SSL=true` for SSL-required external Postgres URLs such as Neon. Use `DB_
 AI_URL=https://api.minimaxi.com/v1/chat/completions
 AI_MODEL=MiniMax-M3
 AI_COMPATIBILITY=minimax
+IMAGE_GENERATION_ENABLED=true
+IMAGE_MODEL=gpt-image-2
+IMAGE_SIZE=1024x1024
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
@@ -108,6 +117,8 @@ ADMIN_USERNAME=admin
 ```
 
 Use `TRIGGER_MODE=mention` if you want the bot to reply only when mentioned.
+
+Image generation uses `IMAGE_API_URL`, `IMAGE_API_KEY`, `IMAGE_MODEL`, and `IMAGE_SIZE`. The bot triggers it from commands like `/draw prompt`, `/image prompt`, `/imagine prompt`, or Chinese requests such as `画图 一只猫` and `生成图片 赛博朋克城市`.
 
 ## 5. Admin Panel
 
