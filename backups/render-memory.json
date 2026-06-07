@@ -1,11 +1,166 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T11:38:47.859Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-07T11:59:09.131Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
-    "messages": [],
-    "memories": [],
+    "messages": [
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T11:55:28.311Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "继续",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T11:55:53.540Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "在嘛？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T11:55:53.586Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "在的呀，怎么啦？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T11:55:56.301Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "在的～想我了？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T11:55:56.700Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰 在么",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean"
+        },
+        "createdAt": "2026-06-07T11:56:15.716Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "在的呀～我在呢，怎么啦？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-07T11:56:20.230Z"
+      }
+    ],
+    "memories": [
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:27.889Z",
+        "updatedAt": "2026-06-07T11:55:27.889Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:27.662Z",
+        "updatedAt": "2026-06-07T11:55:27.662Z"
+      },
+      {
+        "chatId": "-1003952564691",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madhuang",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:28.100Z",
+        "updatedAt": "2026-06-07T11:55:28.100Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:53.110Z",
+        "updatedAt": "2026-06-07T11:55:53.110Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:52.895Z",
+        "updatedAt": "2026-06-07T11:55:52.895Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madhuang",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-07T11:55:53.325Z",
+        "updatedAt": "2026-06-07T11:55:53.369Z"
+      }
+    ],
     "summaries": []
   }
 }
