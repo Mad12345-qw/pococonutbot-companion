@@ -6,6 +6,7 @@
 
 - 文字聊天：支持 OpenAI-compatible Chat Completions 接口
 - 图片理解：Telegram 图片会转成 base64 `image_url`
+- 语音理解：Telegram 语音会交给主模型尝试处理
 - 生图：`/draw`、`/image`、`/imagine`、`画图`、`生图`、`生成图片`
 - 群聊自动回复：`TRIGGER_MODE=smart`
 - 分用户长期记忆：公共记忆 + 每个 Telegram 用户的个人记忆

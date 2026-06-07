@@ -77,3 +77,19 @@ export async function fetchAsDataUrl(url) {
 
   return `data:${contentType};base64,${buffer.toString("base64")}`;
 }
+
+export async function fetchAsBuffer(url, maxBytes = 20 * 1024 * 1024) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to download Telegram file: ${response.status} ${response.statusText}`);
+  }
+
+  const contentType = response.headers.get("content-type") || "application/octet-stream";
+  const buffer = Buffer.from(await response.arrayBuffer());
+
+  if (buffer.length > maxBytes) {
+    throw new Error("Telegram file is too large.");
+  }
+
+  return { buffer, contentType };
+}

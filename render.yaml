@@ -10,11 +10,21 @@ services:
       - key: NODE_VERSION
         value: 20
       - key: AI_URL
-        value: https://api.minimaxi.com/v1/chat/completions
+        sync: false
       - key: AI_MODEL
-        value: MiniMax-M3
+        value: gpt-5.5
       - key: AI_COMPATIBILITY
+        value: openai
+      - key: AI_REPLY_MAX_TOKENS
+        value: "900"
+      - key: FALLBACK_AI_URL
+        value: https://api.minimaxi.com/v1/chat/completions
+      - key: FALLBACK_AI_MODEL
+        value: MiniMax-M3
+      - key: FALLBACK_AI_COMPATIBILITY
         value: minimax
+      - key: FALLBACK_AI_API_KEY
+        sync: false
       - key: IMAGE_GENERATION_ENABLED
         value: "true"
       - key: IMAGE_API_URL
@@ -31,10 +41,12 @@ services:
         value: girlfriend
       - key: TRIGGER_MODE
         value: smart
+      - key: SMART_CLASSIFIER_ENABLED
+        value: "false"
       - key: AUTO_MEMORY
         value: "true"
       - key: RECENT_MESSAGE_LIMIT
-        value: "24"
+        value: "12"
       - key: MEMORY_LIMIT
         value: "24"
       - key: TELEGRAM_BOT_TOKEN

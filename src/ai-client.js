@@ -13,37 +13,64 @@ function normalizeCompatibility(value = "") {
   return String(value || "openai").trim().toLowerCase();
 }
 
+function hasSameProvider(a, b) {
+  return a.apiKey === b.apiKey && a.url === b.url && a.model === b.model;
+}
+
 export class AIClient {
   constructor(config) {
     this.config = config;
   }
 
-  get compatibility() {
-    return normalizeCompatibility(this.config.aiCompatibility);
+  get primaryProvider() {
+    return {
+      name: "primary",
+      apiKey: this.config.aiApiKey,
+      url: this.config.aiUrl,
+      model: this.config.aiModel,
+      compatibility: normalizeCompatibility(this.config.aiCompatibility),
+      maxTokensField: this.config.aiMaxTokensField,
+      extraBody: this.config.aiExtraBody || {}
+    };
   }
 
-  get isMiniMaxCompatible() {
-    return this.compatibility === "minimax";
+  get fallbackProvider() {
+    return {
+      name: "fallback",
+      apiKey: this.config.fallbackAiApiKey,
+      url: this.config.fallbackAiUrl,
+      model: this.config.fallbackAiModel,
+      compatibility: normalizeCompatibility(this.config.fallbackAiCompatibility),
+      maxTokensField: this.config.fallbackAiMaxTokensField,
+      extraBody: this.config.fallbackAiExtraBody || {}
+    };
   }
 
-  buildChatBody(messages, options = {}) {
+  get hasFallback() {
+    const primary = this.primaryProvider;
+    const fallback = this.fallbackProvider;
+    return Boolean(fallback.apiKey && fallback.url && fallback.model && !hasSameProvider(primary, fallback));
+  }
+
+  buildChatBody(provider, messages, options = {}) {
+    const isMiniMaxCompatible = provider.compatibility === "minimax";
     const body = {
-      model: options.model || this.config.aiModel,
+      model: options.model || provider.model,
       messages: messages.map((message) => ({
         role: message.role,
         content: normalizeContent(message.content)
       })),
-      ...this.config.aiExtraBody
+      ...provider.extraBody
     };
 
-    if (isChatCompletionsEndpoint(this.config.aiUrl)) {
+    if (isChatCompletionsEndpoint(provider.url)) {
       body.temperature = options.temperature ?? 0.8;
       const maxTokensField =
-        this.config.aiMaxTokensField ||
-        (this.isMiniMaxCompatible ? "max_completion_tokens" : "max_tokens");
+        provider.maxTokensField ||
+        (isMiniMaxCompatible ? "max_completion_tokens" : "max_tokens");
       body[maxTokensField] = options.maxTokens ?? 1200;
 
-      if (this.isMiniMaxCompatible) {
+      if (isMiniMaxCompatible) {
         body.reasoning_split = true;
         if (String(body.model).includes("MiniMax-M3")) {
           body.thinking = { type: "disabled" };
@@ -54,26 +81,26 @@ export class AIClient {
     return body;
   }
 
-  async chat(messages, options = {}) {
-    const response = await fetch(this.config.aiUrl, {
+  async requestChat(provider, messages, options = {}) {
+    const response = await fetch(provider.url, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${this.config.aiApiKey}`,
+        Authorization: `Bearer ${provider.apiKey}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.buildChatBody(messages, options))
+      body: JSON.stringify(this.buildChatBody(provider, messages, options))
     });
 
     const text = await response.text();
     if (!response.ok) {
-      throw new Error(`AI API error ${response.status}: ${truncate(text, 800)}`);
+      throw new Error(`${provider.name} AI API error ${response.status}: ${truncate(text, 800)}`);
     }
 
     let data;
     try {
       data = JSON.parse(text);
     } catch {
-      throw new Error(`AI API returned non-JSON response: ${truncate(text, 400)}`);
+      throw new Error(`${provider.name} AI API returned non-JSON response: ${truncate(text, 400)}`);
     }
 
     const content =
@@ -84,10 +111,22 @@ export class AIClient {
       "";
 
     if (!content) {
-      throw new Error(`AI API response did not contain text: ${truncate(JSON.stringify(data), 800)}`);
+      throw new Error(`${provider.name} AI API response did not contain text: ${truncate(JSON.stringify(data), 800)}`);
     }
 
     return String(content).trim();
+  }
+
+  async chat(messages, options = {}) {
+    try {
+      return await this.requestChat(this.primaryProvider, messages, options);
+    } catch (error) {
+      if (!this.hasFallback || options.allowFallback === false) {
+        throw error;
+      }
+      console.error(`Primary AI failed, trying fallback: ${error.message}`);
+      return this.requestChat(this.fallbackProvider, messages, options);
+    }
   }
 
   async extractMemories({ userText, assistantText, existingMemories, userProfile }) {

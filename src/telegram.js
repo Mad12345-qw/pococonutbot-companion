@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
-import { fetchAsDataUrl, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
+import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
@@ -50,7 +50,7 @@ export class TelegramCompanionBot {
       "文字：支持",
       "图片：支持",
       "生图：/draw 画面描述，或直接说“画图/生图/生成图片 ...”",
-      "语音识别：当前未接 STT，收到 voice 会提示你发文字"
+      "语音：会交给主模型尝试听懂；失败时会提示"
     ].join("\n");
 
     await this.bot.sendMessage(chatId, help, { reply_to_message_id: replyTo });
@@ -115,17 +115,6 @@ export class TelegramCompanionBot {
     const prepared = await this.prepareIncoming(msg);
     if (!prepared.shouldProcess) return;
 
-    if (prepared.modality === "voice") {
-      if (prepared.shouldReply) {
-        await this.bot.sendMessage(
-          msg.chat.id,
-          "我收到语音了，但当前还没接语音转文字服务。要让我听懂语音，需要再接一个 STT 服务；先发文字给我就可以聊。",
-          { reply_to_message_id: msg.message_id }
-        );
-      }
-      return;
-    }
-
     const chatId = String(msg.chat.id);
     const userId = String(msg.from?.id || "");
     const currentUser = this.describeTelegramUser(msg.from);
@@ -160,20 +149,33 @@ export class TelegramCompanionBot {
     }
 
     if (prepared.smartCandidate) {
-      const recentForDecision = await this.storage.getRecentMessages(chatId, 12);
-      const shouldReply = await this.ai.shouldReplyInGroup({
-        messageText: safeUserText,
-        recentMessages: recentForDecision.map((item) => ({
-          ...item,
-          content: this.formatMessageForModel(item)
-        })),
-        botName: this.config.displayName,
-        hasImage: prepared.imageUrls.length > 0
-      });
+      const fastDecision = this.getFastSmartDecision(prepared, safeUserText);
+      let shouldReply = fastDecision === "reply";
+
+      if (fastDecision === "skip") {
+        return;
+      }
+
+      if (fastDecision === "ask-ai" && this.config.smartClassifierEnabled) {
+        const recentForDecision = await this.storage.getRecentMessages(chatId, 8);
+        shouldReply = await this.ai.shouldReplyInGroup({
+          messageText: safeUserText,
+          recentMessages: recentForDecision.map((item) => ({
+            ...item,
+            content: this.formatMessageForModel(item)
+          })),
+          botName: this.config.displayName,
+          hasImage: prepared.imageUrls.length > 0
+        });
+      }
 
       if (!shouldReply) return;
     } else if (!prepared.shouldReply) {
       return;
+    }
+
+    if (prepared.modality === "voice" && !prepared.audio) {
+      prepared.audio = await this.downloadAudioFromMessage(msg);
     }
 
     await this.bot.sendChatAction(msg.chat.id, "typing");
@@ -210,11 +212,33 @@ export class TelegramCompanionBot {
       });
     }
 
+    if (prepared.audio) {
+      messages.push({
+        role: "user",
+        content: [
+          { type: "text", text: safeUserText || "请先听懂这段语音，再自然回复当前发言人。" },
+          {
+            type: "input_audio",
+            input_audio: {
+              data: prepared.audio.buffer.toString("base64"),
+              format: prepared.audio.format
+            }
+          }
+        ]
+      });
+    }
+
     let reply;
     try {
-      reply = await this.ai.chat(messages);
+      reply = await this.ai.chat(messages, { maxTokens: this.config.aiReplyMaxTokens });
     } catch (error) {
-      if (prepared.imageUrls.length > 0) {
+      if (prepared.audio) {
+        reply = [
+          "语音这次没有识别成功。",
+          "我已经把语音交给主模型尝试处理；如果持续失败，说明当前代理模型不接受 Telegram 的语音格式，需要再接专门的 STT 服务。",
+          `错误摘要：${truncate(error.message, 500)}`
+        ].join("\n");
+      } else if (prepared.imageUrls.length > 0) {
         reply = [
           "图片这次没有识别成功。",
           "常见原因是当前 AI 接口或模型不接受 image_url / data URL 图片输入。",
@@ -321,9 +345,9 @@ export class TelegramCompanionBot {
         chatId,
         userId,
         role: "assistant",
-        modality: "image",
+        modality: "text",
         content: `已生成图片：${truncate(prompt, 1000)}`,
-        metadata: { generatedImage: true, replyToUserId: userId }
+        metadata: { replyToUserId: userId }
       });
     } catch (error) {
       const message = `这次生图失败了：${truncate(error.message, 600)}`;
@@ -334,7 +358,7 @@ export class TelegramCompanionBot {
         role: "assistant",
         modality: "text",
         content: message,
-        metadata: { generatedImage: false, replyToUserId: userId }
+        metadata: { replyToUserId: userId }
       });
     }
   }
@@ -373,6 +397,28 @@ export class TelegramCompanionBot {
     if (mimeType.includes("jpeg") || mimeType.includes("jpg")) return "generated.jpg";
     if (mimeType.includes("webp")) return "generated.webp";
     return "generated.png";
+  }
+
+  audioFormatFromMime(mimeType = "", fileName = "") {
+    const value = `${mimeType} ${fileName}`.toLowerCase();
+    if (value.includes("wav")) return "wav";
+    if (value.includes("mpeg") || value.includes("mp3")) return "mp3";
+    if (value.includes("mp4") || value.includes("m4a")) return "mp4";
+    if (value.includes("webm")) return "webm";
+    if (value.includes("ogg") || value.includes("opus")) return "ogg";
+    return "ogg";
+  }
+
+  async downloadAudioFromMessage(msg) {
+    const fileId = msg.voice?.file_id || msg.audio?.file_id;
+    if (!fileId) return null;
+
+    const telegramUrl = await this.bot.getFileLink(fileId);
+    const downloaded = await fetchAsBuffer(telegramUrl, 25 * 1024 * 1024);
+    return {
+      ...downloaded,
+      format: this.audioFormatFromMime(downloaded.contentType, msg.audio?.file_name || "")
+    };
   }
 
   describeTelegramUser(from = {}) {
@@ -427,6 +473,56 @@ export class TelegramCompanionBot {
     return `${label}: ${message.content || ""}`;
   }
 
+  getFastSmartDecision(prepared, text = "") {
+    const raw = String(text || "").trim();
+    const normalized = raw.toLowerCase();
+
+    if (this.extractImageGenerationPrompt(raw).requested) {
+      return "reply";
+    }
+
+    if (prepared.modality === "voice") {
+      return raw ? "reply" : "skip";
+    }
+
+    if (prepared.imageUrls.length > 0) {
+      return raw && raw !== "请看这张图片并自然回应。" ? "reply" : "skip";
+    }
+
+    if (!raw || raw.length <= 2) {
+      return "skip";
+    }
+
+    if (/^(ok|okay|好|好的|嗯|嗯嗯|收到|已阅|哈哈|hhh|lol|thanks|谢谢|谢了|行|可以|👌|👍)$/i.test(raw)) {
+      return "skip";
+    }
+
+    if (/[?？]$/.test(raw)) {
+      return "reply";
+    }
+
+    const requestPattern = /(帮我|帮忙|看看|看一下|解释|总结|翻译|建议|推荐|分析|判断|评价|改写|起草|写一|列一下|怎么办|怎么做|怎么弄|能不能|可不可以|要不要|有没有|为什么|是什么|如何|多少|哪里|哪个|谁|几|吗|呢)/i;
+    if (requestPattern.test(raw)) {
+      return "reply";
+    }
+
+    const escapeRegExp = (value) => String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const botTerms = ["\\bai\\b", "机器人", "助手"];
+    if (this.botInfo?.username) botTerms.push(`@${escapeRegExp(this.botInfo.username)}`);
+    if (this.config.displayName) botTerms.push(escapeRegExp(this.config.displayName));
+    const botPattern = new RegExp(`(${botTerms.join("|")})`, "i");
+    if (botPattern.test(normalized)) {
+      return "reply";
+    }
+
+    const emotionPattern = /(难过|崩溃|焦虑|失眠|好累|压力|烦死|不开心|想哭|害怕|孤独|emo|抑郁|生气|委屈)/i;
+    if (emotionPattern.test(raw)) {
+      return "reply";
+    }
+
+    return "ask-ai";
+  }
+
   async prepareIncoming(msg) {
     const chatType = msg.chat?.type || "private";
     const isPrivate = chatType === "private";
@@ -441,13 +537,18 @@ export class TelegramCompanionBot {
     }
 
     if (msg.voice || msg.audio) {
+      const audio = groupDecision.shouldReply || isPrivate
+        ? await this.downloadAudioFromMessage(msg)
+        : null;
+
       return {
         shouldProcess: true,
         shouldReply: groupDecision.shouldReply,
         smartCandidate: groupDecision.smartCandidate,
-        text: "",
+        text: "用户发送了一条语音消息，请听懂后自然回复。",
         modality: "voice",
-        imageUrls: []
+        imageUrls: [],
+        audio
       };
     }
 
@@ -455,9 +556,10 @@ export class TelegramCompanionBot {
     const imageUrls = [];
 
     if (msg.photo?.length) {
+      const hasUserText = Boolean(cleanText);
       if (!cleanText) cleanText = "请看这张图片并自然回应。";
 
-      if (groupDecision.shouldReply || groupDecision.smartCandidate || isPrivate) {
+      if (groupDecision.shouldReply || isPrivate || (groupDecision.smartCandidate && hasUserText)) {
         const largest = msg.photo[msg.photo.length - 1];
         const telegramUrl = await this.bot.getFileLink(largest.file_id);
         imageUrls.push(await fetchAsDataUrl(telegramUrl));

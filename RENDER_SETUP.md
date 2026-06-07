@@ -45,9 +45,14 @@ Fill:
 ```env
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 AI_API_KEY=your_ai_api_key
-AI_URL=https://api.minimaxi.com/v1/chat/completions
-AI_MODEL=MiniMax-M3
-AI_COMPATIBILITY=minimax
+AI_URL=your_primary_ai_base_url
+AI_MODEL=gpt-5.5
+AI_COMPATIBILITY=openai
+FALLBACK_AI_API_KEY=your_fallback_ai_api_key
+FALLBACK_AI_URL=https://api.minimaxi.com/v1/chat/completions
+FALLBACK_AI_MODEL=MiniMax-M3
+FALLBACK_AI_COMPATIBILITY=minimax
+AI_REPLY_MAX_TOKENS=900
 IMAGE_GENERATION_ENABLED=true
 IMAGE_API_URL=http://your-image-api.example
 IMAGE_API_KEY=your_image_api_key
@@ -89,9 +94,11 @@ Only run one copy at a time. If local and Render both poll Telegram, updates can
 ```env
 TELEGRAM_BOT_TOKEN=your_new_telegram_bot_token
 AI_API_KEY=your_new_ai_api_key
+AI_URL=your_primary_ai_base_url
 ADMIN_PASSWORD=a_strong_admin_password
 IMAGE_API_URL=your_image_api_base_url
 IMAGE_API_KEY=your_image_api_key
+FALLBACK_AI_API_KEY=your_fallback_ai_api_key
 ```
 
 For a free persistent database, create a free Neon or Supabase Postgres database and paste its connection string into `DATABASE_URL`.
@@ -101,17 +108,22 @@ Use `DB_SSL=true` for SSL-required external Postgres URLs such as Neon. Use `DB_
 ## 4. Recommended Render Variables
 
 ```env
-AI_URL=https://api.minimaxi.com/v1/chat/completions
-AI_MODEL=MiniMax-M3
-AI_COMPATIBILITY=minimax
+AI_URL=your_primary_ai_base_url
+AI_MODEL=gpt-5.5
+AI_COMPATIBILITY=openai
+FALLBACK_AI_URL=https://api.minimaxi.com/v1/chat/completions
+FALLBACK_AI_MODEL=MiniMax-M3
+FALLBACK_AI_COMPATIBILITY=minimax
+AI_REPLY_MAX_TOKENS=900
 IMAGE_GENERATION_ENABLED=true
 IMAGE_MODEL=gpt-image-2
 IMAGE_SIZE=1024x1024
 BOT_DISPLAY_NAME=小椰
 COMPANION_MODE=girlfriend
 TRIGGER_MODE=smart
+SMART_CLASSIFIER_ENABLED=false
 AUTO_MEMORY=true
-RECENT_MESSAGE_LIMIT=24
+RECENT_MESSAGE_LIMIT=12
 MEMORY_LIMIT=24
 ADMIN_USERNAME=admin
 ```
@@ -119,6 +131,10 @@ ADMIN_USERNAME=admin
 Use `TRIGGER_MODE=mention` if you want the bot to reply only when mentioned.
 
 Image generation uses `IMAGE_API_URL`, `IMAGE_API_KEY`, `IMAGE_MODEL`, and `IMAGE_SIZE`. The bot triggers it from commands like `/draw prompt`, `/image prompt`, `/imagine prompt`, or Chinese requests such as `画图 一只猫` and `生成图片 赛博朋克城市`.
+
+For speed, `SMART_CLASSIFIER_ENABLED=false` uses local fast rules for group auto-reply instead of making an extra AI call before every possible reply. Set it to `true` only if you want the older, slower AI timing classifier for ambiguous group messages.
+
+The image generation model does not fall back. If image generation fails, the bot reports the failure. Only the main chat/reply path uses `FALLBACK_AI_*`.
 
 ## 5. Admin Panel
 

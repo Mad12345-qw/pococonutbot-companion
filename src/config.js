@@ -38,7 +38,7 @@ function resolveAiEndpoint(rawUrl) {
     return `${clean}/chat/completions`;
   }
 
-  return clean;
+  return `${clean}/v1/chat/completions`;
 }
 
 function resolveImageEndpoint(rawUrl) {
@@ -65,6 +65,13 @@ export const config = {
   aiCompatibility: process.env.AI_COMPATIBILITY || process.env.MODEL_COMPATIBILITY || "minimax",
   aiMaxTokensField: process.env.AI_MAX_TOKENS_FIELD || "",
   aiExtraBody: asJsonObject(process.env.AI_EXTRA_BODY_JSON, {}),
+  aiReplyMaxTokens: asNumber(process.env.AI_REPLY_MAX_TOKENS, 900),
+  fallbackAiApiKey: process.env.FALLBACK_AI_API_KEY || process.env.MINIMAX_API_KEY || "",
+  fallbackAiUrl: resolveAiEndpoint(process.env.FALLBACK_AI_URL || process.env.FALLBACK_AI_BASE_URL || process.env.MINIMAX_URL || ""),
+  fallbackAiModel: process.env.FALLBACK_AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
+  fallbackAiCompatibility: process.env.FALLBACK_AI_COMPATIBILITY || "minimax",
+  fallbackAiMaxTokensField: process.env.FALLBACK_AI_MAX_TOKENS_FIELD || "",
+  fallbackAiExtraBody: asJsonObject(process.env.FALLBACK_AI_EXTRA_BODY_JSON, {}),
   exposeModelInfo: asBoolean(process.env.EXPOSE_MODEL_INFO, false),
   imageGenerationEnabled: asBoolean(process.env.IMAGE_GENERATION_ENABLED, true),
   imageApiKey: process.env.IMAGE_API_KEY || process.env.IMAGE2_API_KEY || "",
@@ -77,6 +84,7 @@ export const config = {
   companionMode: process.env.COMPANION_MODE || "girlfriend",
   language: process.env.BOT_LANGUAGE || "zh-CN",
   triggerMode: process.env.TRIGGER_MODE || "mention",
+  smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, false),
   allowedChatIds: asList(process.env.ALLOWED_CHAT_IDS),
   ownerUserIds: asList(process.env.BOT_OWNER_IDS),
   adminUsername: process.env.ADMIN_USERNAME || "admin",
