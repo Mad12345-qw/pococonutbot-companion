@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T04:58:05.572Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T05:08:10.280Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1893,6 +1893,33 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T04:54:05.476Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "在吗小椰？",
+        "metadata": {
+          "chatType": "group",
+          "platform": "feishu",
+          "messageId": "om_x100b6d508d57b4acb18fa0b79a13b57",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:59:41.109Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "在呀，我在呢～  \n怎么啦，今天想跟小椰说点什么？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:59:44.402Z"
       }
     ],
     "memories": [
@@ -2175,6 +2202,26 @@
         "metadata": {},
         "createdAt": "2026-06-07T11:55:53.325Z",
         "updatedAt": "2026-06-07T11:55:53.369Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T04:59:40.893Z",
+        "updatedAt": "2026-06-08T04:59:40.893Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T04:59:40.678Z",
+        "updatedAt": "2026-06-08T04:59:40.678Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
