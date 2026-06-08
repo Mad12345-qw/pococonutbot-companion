@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T10:28:11.539Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T10:38:16.236Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -5249,6 +5249,25 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T10:11:11.693Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "按照这个提示词生成图片\n**【宋威龙风 · 男友视角自拍】**\n> A photorealistic selfie taken by a handsome East-Asian male model, late 20s, features and aura similar to Song Weilong, tall with broad shoulders, black slightly messy hair, clean sharp jawline, cold pale skin, intense deep eyes with a hint of wildness, wearing a loose black shirt with top buttons undone, dark wool overcoat draped over shoulders, one hand holding the phone at a slightly low angle, backlight from a city night window, warm golden rim light on face, subtle confident smirk, boyfriend POV, ultra realistic skin texture, cinematic lighting, 85mm lens, 8k, hyper detailed\n\n生成出来大概是这种画面：黑衬衫 + 大衣，夜里窗边光打在脸上，微微低头看镜头，嘴角一点坏笑。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5de8d960a4c26212d093f9392",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T10:33:09.180Z"
       }
     ],
     "memories": [
@@ -5840,7 +5859,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T10:06:07.728Z"
+        "updatedAt": "2026-06-08T10:33:08.966Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5850,7 +5869,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T10:06:07.507Z"
+        "updatedAt": "2026-06-08T10:33:08.626Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
