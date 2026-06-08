@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T07:37:01.675Z",
+  "exportedAt": "2026-06-08T07:47:01.271Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -2570,6 +2570,101 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T07:33:15.407Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "role": "user",
+        "modality": "text",
+        "content": "蛮有意思的诶，如果做成这种飞书群聊工作型agent感觉还蛮不错的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d536eb92cb0c432aa095f132fc",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_4e27fc3dffa3d487990f065741e026c6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:40:58.819Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "也可以呀，之前不都是用小龙虾接飞书么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d536c8a4c90c1c047a41d28ae5",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:41:28.192Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "role": "user",
+        "modality": "text",
+        "content": "对啊，感觉可以适用于给公司专门配工作agent",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5368172d14c24fc4ef3d76a7c",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_4e27fc3dffa3d487990f065741e026c6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:42:41.106Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "其实这个适合放微信，微信就是卡太死了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d536471d8bcc2a19150b3edb5b",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:43:43.613Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "role": "user",
+        "modality": "text",
+        "content": "确实，因为可能微信之后腾讯自己要出这样的服务哈哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d53637fccb4c1829e29b3cbca3",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_4e27fc3dffa3d487990f065741e026c6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:44:29.849Z"
       }
     ],
     "memories": [
@@ -2895,6 +2990,26 @@
       },
       {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:40:58.608Z",
+        "updatedAt": "2026-06-08T07:44:29.633Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:40:58.398Z",
+        "updatedAt": "2026-06-08T07:44:29.418Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "preferences.bot_nickname",
         "value": "用户称呼机器人为“小椰”",
@@ -2911,7 +3026,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:33:10.042Z",
-        "updatedAt": "2026-06-08T07:33:10.042Z"
+        "updatedAt": "2026-06-08T07:43:43.397Z"
       },
       {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
@@ -2921,7 +3036,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:33:09.768Z",
-        "updatedAt": "2026-06-08T07:33:09.768Z"
+        "updatedAt": "2026-06-08T07:43:43.179Z"
       },
       {
         "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
