@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T06:38:30.216Z",
+  "exportedAt": "2026-06-08T07:06:57.349Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -2289,6 +2289,156 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T06:08:39.183Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你的虚心哥来了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52cb6d9c80b32373a32202f6b",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T06:59:41.371Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀，虚心哥来啦～  \n小椰在呢，今天想让我陪你聊点什么呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T06:59:45.698Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "他想让你帮他干坏事",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52c9a484b0c3c8c8ac7ae388a",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:00:10.200Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哼，那小椰得先把虚心哥拉住～  \n坏事不行，但要是遇到麻烦、想出气或者想找个办法解决，我可以陪你想个不伤人也不惹事的招。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T07:00:20.470Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈这个就是蜥蜴大佬的手下所！[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52c9287830c3d7094fce7c70d",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:00:33.123Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "[捂脸][捂脸][捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52c7caa884c26e09a105f2731",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:00:36.409Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "来了，这里",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52c0318c9cb3c8714c05b776d",
+          "rawChatId": "oc_c5e2de3ea9590f27dc185c9ec068233d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:02:12.166Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮紫伦看看怎么做图",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52dea4a0ccb3070a84211a0ab",
+          "rawChatId": "oc_c5e2de3ea9590f27dc185c9ec068233d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:02:34.662Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "来啦～把需求发我就行：想做什么图、尺寸/用途、文案、风格参考，有素材也一起丢过来。  \n我可以直接帮紫伦整理成出图提示词，或者一步步教怎么做。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T07:02:39.581Z"
       }
     ],
     "memories": [
@@ -2611,6 +2761,76 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
         "updatedAt": "2026-06-08T05:43:35.094Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.nickname",
+        "value": "用户可能喜欢被称呼为“虚心哥”",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T06:59:52.156Z",
+        "updatedAt": "2026-06-08T06:59:52.156Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T06:59:41.156Z",
+        "updatedAt": "2026-06-08T07:00:09.973Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T06:59:40.919Z",
+        "updatedAt": "2026-06-08T07:00:09.745Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:00:32.896Z",
+        "updatedAt": "2026-06-08T07:00:36.182Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:00:32.668Z",
+        "updatedAt": "2026-06-08T07:00:35.955Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:02:11.864Z",
+        "updatedAt": "2026-06-08T07:02:34.442Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:02:11.596Z",
+        "updatedAt": "2026-06-08T07:02:34.224Z"
       }
     ],
     "summaries": [
