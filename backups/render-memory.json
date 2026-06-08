@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T07:06:57.349Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T07:17:01.495Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -2439,6 +2439,106 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T07:02:39.581Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "role": "user",
+        "modality": "text",
+        "content": "你会做什么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52d086a0a8c3f1fbce45167f5",
+          "rawChatId": "oc_c5e2de3ea9590f27dc185c9ec068233d",
+          "rawUserId": "ou_940aacad07d1685380c37144cf1df8d6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:07:02.319Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我会帮你想图、写提示词、改文案、做排版思路，也能直接按描述生成图片。  \n比如海报、头像、表情包、产品图、插画风、朋友圈配图都可以～你想做哪种？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_940aacad07d1685380c37144cf1df8d6"
+        },
+        "createdAt": "2026-06-08T07:07:06.246Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "role": "user",
+        "modality": "text",
+        "content": "你接的哪个模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52d318d480c1bdfb2e3a470fb",
+          "rawChatId": "oc_c5e2de3ea9590f27dc185c9ec068233d",
+          "rawUserId": "ou_940aacad07d1685380c37144cf1df8d6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:07:11.617Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我是小椰啦～底层接的具体模型信息我这边不展开说。  \n你可以直接把我当成一个能聊天、写东西、帮做图的 AI 助手用就好。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_940aacad07d1685380c37144cf1df8d6"
+        },
+        "createdAt": "2026-06-08T07:07:16.886Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "role": "user",
+        "modality": "text",
+        "content": "好牛逼啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52d39404b0c4c72074c61cbb2",
+          "rawChatId": "oc_c5e2de3ea9590f27dc185c9ec068233d",
+          "rawUserId": "ou_940aacad07d1685380c37144cf1df8d6",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:07:23.283Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽哈喽",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d52f5abd8b0b1d919a4cc7fb4c",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:14:02.524Z"
       }
     ],
     "memories": [
@@ -2813,6 +2913,26 @@
         "updatedAt": "2026-06-08T07:00:35.955Z"
       },
       {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:14:02.304Z",
+        "updatedAt": "2026-06-08T07:14:02.304Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:14:02.003Z",
+        "updatedAt": "2026-06-08T07:14:02.003Z"
+      },
+      {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
@@ -2831,6 +2951,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T07:02:11.596Z",
         "updatedAt": "2026-06-08T07:02:34.224Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:07:02.096Z",
+        "updatedAt": "2026-06-08T07:07:23.062Z"
+      },
+      {
+        "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
+        "userId": "feishu:ou_940aacad07d1685380c37144cf1df8d6",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:07:01.874Z",
+        "updatedAt": "2026-06-08T07:07:22.840Z"
       }
     ],
     "summaries": [
