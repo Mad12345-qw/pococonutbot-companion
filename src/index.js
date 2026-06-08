@@ -54,7 +54,7 @@ const ai = new AIClient(config, {
 });
 const imageGenerator = new ImageGenerationClient(config);
 const speechToText = new SpeechToTextClient(config);
-const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator });
+const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText });
 feishuBot.setupRoutes(app);
 const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText });
 await telegramBot.start();

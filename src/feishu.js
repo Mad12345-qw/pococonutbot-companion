@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import { buildSystemPrompt } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
-import { redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
+import { detectImageMimeType, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
@@ -37,11 +37,12 @@ function shouldTryFallbackImagePrompt(text = "") {
 }
 
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
+    this.speechToText = speechToText;
     this.token = null;
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
@@ -137,10 +138,16 @@ export class FeishuBot {
   async handleMessage(payload) {
     const event = payload.event || {};
     const message = event.message || {};
-    if (message.message_type !== "text") return;
+    if (!["text", "audio", "image"].includes(message.message_type)) return;
 
     const content = parseContent(message.content);
-    const rawText = stripAtTags(content.text || "");
+    const audioMessage = message.message_type === "audio";
+    const imageMessage = message.message_type === "image";
+    const rawText = audioMessage
+      ? await this.transcribeAudioMessage(message, content)
+      : imageMessage
+        ? stripAtTags(content.text || content.caption || "请看这张图片并自然回复。")
+        : stripAtTags(content.text || "");
     if (!rawText) return;
 
     const chatType = message.chat_type || "";
@@ -161,20 +168,25 @@ export class FeishuBot {
       fullName: event.sender?.sender_id?.union_id || senderId || "飞书用户"
     };
     const safeUserText = redactSensitive(text);
+    const imageDataUrl = imageMessage ? await this.downloadImageMessage(message, content) : "";
+    if (imageMessage && !imageDataUrl) return;
 
     await this.upsertUserProfileMemory(chatId, userId, currentUser);
     await this.storage.addMessage({
       chatId,
       userId,
       role: "user",
-      modality: "text",
+      modality: audioMessage ? "voice" : imageMessage ? "image" : "text",
       content: safeUserText,
       metadata: {
         platform: "feishu",
         messageId: message.message_id || "",
         chatType,
         rawChatId: message.chat_id || "",
-        rawUserId: senderId || ""
+        rawUserId: senderId || "",
+        hasVoice: audioMessage,
+        hasImage: imageMessage,
+        voiceDurationMs: audioMessage ? Number(content.duration || 0) : 0
       }
     });
 
@@ -184,11 +196,11 @@ export class FeishuBot {
     }
 
     if (smartCandidate) {
-      const shouldReply = await this.shouldReplyToSmartCandidate({ chatId, safeUserText });
+      const shouldReply = await this.shouldReplyToSmartCandidate({ chatId, safeUserText, hasImage: imageMessage });
       if (!shouldReply) return;
     }
 
-    const reply = await this.generateReply({ chatId, userId, safeUserText, currentUser });
+    const reply = await this.generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl });
     await this.storage.addMessage({
       chatId,
       userId,
@@ -228,8 +240,98 @@ export class FeishuBot {
     return output.replace(/^\/(?:ai|ask|love)\s*/i, "").trim();
   }
 
-  async shouldReplyToSmartCandidate({ chatId, safeUserText }) {
-    const fastDecision = this.getFastSmartDecision(safeUserText);
+  audioFormatFromMime(mimeType = "", fileName = "") {
+    const value = `${mimeType} ${fileName}`.toLowerCase();
+    if (value.includes("wav")) return "wav";
+    if (value.includes("mpeg") || value.includes("mp3")) return "mp3";
+    if (value.includes("mp4") || value.includes("m4a")) return "mp4";
+    if (value.includes("webm")) return "webm";
+    if (value.includes("ogg") || value.includes("opus")) return "ogg";
+    return "ogg";
+  }
+
+  async transcribeAudioMessage(message, content = {}) {
+    if (!this.speechToText?.enabled) {
+      await this.replyText(message.message_id, "我收到语音了，但语音识别还没配置好。");
+      return "";
+    }
+
+    const fileKey = content.file_key || "";
+    if (!fileKey) {
+      await this.replyText(message.message_id, "我收到语音了，但飞书没有给到可下载的语音文件。");
+      return "";
+    }
+
+    try {
+      logEvent("info", "Feishu audio transcription started", {
+        messageId: message.message_id,
+        duration: content.duration || 0
+      });
+      const audio = await this.downloadMessageResource({
+        messageId: message.message_id,
+        fileKey,
+        type: "file",
+        maxBytes: 25 * 1024 * 1024
+      });
+      const transcript = await this.speechToText.transcribe({
+        buffer: audio.buffer,
+        contentType: audio.contentType,
+        format: this.audioFormatFromMime(audio.contentType, content.file_name || "")
+      });
+      logEvent("info", "Feishu audio transcription completed", {
+        messageId: message.message_id,
+        chars: transcript.length
+      });
+      return transcript;
+    } catch (error) {
+      logEvent("error", "Feishu audio transcription failed", {
+        messageId: message.message_id,
+        error: error.message
+      });
+      await this.replyText(message.message_id, `这条语音我暂时没听清：${truncate(error.message, 500)}`);
+      return "";
+    }
+  }
+
+  async downloadImageMessage(message, content = {}) {
+    const imageKey = content.image_key || content.file_key || "";
+    if (!imageKey) {
+      await this.replyText(message.message_id, "我收到图片了，但飞书没有给到可下载的图片文件。");
+      return "";
+    }
+
+    try {
+      logEvent("info", "Feishu image understanding download started", {
+        messageId: message.message_id
+      });
+      const image = await this.downloadMessageResource({
+        messageId: message.message_id,
+        fileKey: imageKey,
+        type: "image",
+        maxBytes: 20 * 1024 * 1024
+      });
+      const mimeType = detectImageMimeType(image.buffer, image.contentType);
+      if (!mimeType) {
+        throw new Error("Feishu image is not a supported image format.");
+      }
+      logEvent("info", "Feishu image understanding download completed", {
+        messageId: message.message_id,
+        mimeType,
+        bytes: image.buffer.length
+      });
+      return `data:${mimeType};base64,${image.buffer.toString("base64")}`;
+    } catch (error) {
+      logEvent("error", "Feishu image understanding download failed", {
+        messageId: message.message_id,
+        error: error.message
+      });
+      await this.replyText(message.message_id, `这张图片我暂时看不了：${truncate(error.message, 500)}`);
+      return "";
+    }
+  }
+
+  async shouldReplyToSmartCandidate({ chatId, safeUserText, hasImage = false }) {
+    const fastDecision = this.getFastSmartDecision(safeUserText, { hasImage });
     if (fastDecision === "skip") return false;
     if (fastDecision === "reply") return true;
 
@@ -242,7 +344,7 @@ export class FeishuBot {
           content: this.formatMessageForModel(item)
         })),
         botName: this.config.displayName,
-        hasImage: false,
+        hasImage,
         platform: "Feishu group"
       });
     }
@@ -250,9 +352,13 @@ export class FeishuBot {
     return false;
   }
 
-  getFastSmartDecision(text = "") {
+  getFastSmartDecision(text = "", options = {}) {
     const raw = String(text || "").trim();
     const normalized = raw.toLowerCase();
+
+    if (options.hasImage && raw && raw !== "请看这张图片并自然回复。") {
+      return "reply";
+    }
 
     if (!raw || raw.length <= 2) {
       return "skip";
@@ -286,7 +392,7 @@ export class FeishuBot {
     return "ask-ai";
   }
 
-  async generateReply({ chatId, userId, safeUserText, currentUser }) {
+  async generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl = "" }) {
     const memories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
     const modeOverride = memories.find((item) => item.key === "relationship.persona")?.value;
     const summary = await this.storage.getSummary(chatId, "");
@@ -301,16 +407,25 @@ export class FeishuBot {
       modeOverride
     });
 
-    return this.ai.chat(
-      [
-        { role: "system", content: systemPrompt },
-        ...recentMessages.map((item) => ({
-          role: item.role === "assistant" ? "assistant" : "user",
-          content: this.formatMessageForModel(item)
-        }))
-      ],
-      { maxTokens: this.config.aiReplyMaxTokens }
-    );
+    const messages = [
+      { role: "system", content: systemPrompt },
+      ...recentMessages.map((item) => ({
+        role: item.role === "assistant" ? "assistant" : "user",
+        content: this.formatMessageForModel(item)
+      }))
+    ];
+
+    if (imageDataUrl) {
+      messages.push({
+        role: "user",
+        content: [
+          { type: "text", text: safeUserText || "请看这张图片并自然回复。" },
+          { type: "image_url", image_url: { url: imageDataUrl } }
+        ]
+      });
+    }
+
+    return this.ai.chat(messages, { maxTokens: this.config.aiReplyMaxTokens });
   }
 
   async handleImageRequest({ messageId, chatId, userId, text }) {
@@ -414,6 +529,31 @@ export class FeishuBot {
       throw new Error(`Feishu image upload failed: ${truncate(JSON.stringify(data), 500)}`);
     }
     return data.data?.image_key;
+  }
+
+  async downloadMessageResource({ messageId, fileKey, type = "file", maxBytes = 25 * 1024 * 1024 }) {
+    const token = await this.tenantAccessToken();
+    const url =
+      `https://open.feishu.cn/open-apis/im/v1/messages/${encodeURIComponent(messageId)}` +
+      `/resources/${encodeURIComponent(fileKey)}?type=${encodeURIComponent(type)}`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    });
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`Feishu resource download failed ${response.status}: ${truncate(text, 500)}`);
+    }
+
+    const contentType = response.headers.get("content-type") || "application/octet-stream";
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (buffer.length > maxBytes) {
+      throw new Error("Feishu resource file is too large.");
+    }
+    return { buffer, contentType };
   }
 
   async feishuPost(path, body) {
