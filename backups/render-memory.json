@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T09:44:26.551Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T09:54:31.042Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -4566,6 +4566,289 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-08T09:44:18.646Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "AI终归是AI",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5ca1b750a0c493dbdb6a36f5b",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:44:25.564Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "能给我做饭 打扫卫生干家务活差不多",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cbeb0c8a4c3c297e8d0ef508",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:44:43.600Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "我喜欢活人感强一点的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cbfa6f488c4a916f3ea55ce8",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:44:58.088Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "要做饭好吃 干活麻利 干净卫生",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cbc6c0898c31ffe4e4f6a2dc",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:45:18.326Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "男人不会做饭就不要了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cbd4066dcc3ca25b92e15009",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:45:32.352Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "除非长得帅又会赚钱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cba991090c00c911387445de",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:45:45.083Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "买个机器人 但机器人不会做饭目前",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cbb17ec40c3db34572375115",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:46:09.168Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈哈 那你找对象标准还挺实在的嘛~ 最起码能喂饱自己不是？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:46:12.859Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "按照这个提示词再生成一张图",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cb8e73be4c3dcb2d31e44a20",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:46:22.181Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "没毛病",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cb9ff8884c1d601ff9e4130f",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:46:29.218Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 那看来你找对象的首要条件是：会做饭且味道不错~ 我猜对了吧？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:46:36.591Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 401: {\"error\":{\"message\":\"Your authentication token has been invalidated. Please try signing in again.\",\"type\":\"authentication_error\",\"code\":\"auth_unavailable\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T09:46:42.936Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "那得天道里面的元英来才行  哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cb6649d00c4f1ecca879c5ab",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:46:53.019Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "男人又不会生孩子",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d4bf93ca4b4c848dba446bc7",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:50:15.103Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "总得有点用吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d4b6b4490b1fc6acb53163c0",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:50:20.359Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "做饭好吃是加分项",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d489930b4b185de2f04cd796",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:50:31.369Z"
       }
     ],
     "memories": [
@@ -4992,6 +5275,16 @@
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "life.practical_needs_cooking",
+        "value": "用户提到想找会做饭的机器人/对象，反映对生活实用性的需求",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T09:46:21.258Z",
+        "updatedAt": "2026-06-08T09:46:21.258Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "key": "preferences.bot_avatar_aesthetic",
         "value": "用户希望聊天机器人的头像足够帅，当前头像不符合其审美。",
         "importance": 3,
@@ -5017,7 +5310,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-08T09:44:25.336Z"
+        "updatedAt": "2026-06-08T09:50:31.143Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5037,7 +5330,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-08T09:44:25.109Z"
+        "updatedAt": "2026-06-08T09:50:30.917Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5117,7 +5410,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T09:44:18.418Z"
+        "updatedAt": "2026-06-08T09:46:52.788Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5127,7 +5420,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T09:44:18.190Z"
+        "updatedAt": "2026-06-08T09:46:52.558Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
