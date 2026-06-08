@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:35:47.091Z",
+  "exportedAt": "2026-06-08T05:43:35.112Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -2074,6 +2074,71 @@
           "transcript": ""
         },
         "createdAt": "2026-06-08T05:34:06.688Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 宝，改好了～我把雪茄环标换成了 **SAINT LOUIS / 圣路易斯风格**，用了黑金高级感、拱门和鸢尾花元素，看起来更像高端雪茄品牌标。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T05:35:50.038Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我生成一张雪茄的电商图",
+        "metadata": {
+          "chatType": "group",
+          "platform": "feishu",
+          "messageId": "om_x100b6d51146c2480c186cc0eff7e79e",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:39:58.168Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "chatType": "p2p",
+          "platform": "feishu",
+          "messageId": "om_x100b6d502567fca0b1f5c2139aa0cb2",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:41:29.921Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈喽～我在呢 😊  \n刚刚那张虚拟自拍你还想看吗？要不我给你生成一张更像“女朋友随手自拍”的风格？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:41:35.191Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：帮我生成一张雪茄的电商图",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:42:20.846Z"
       }
     ],
     "memories": [
@@ -2365,7 +2430,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.893Z",
-        "updatedAt": "2026-06-08T05:20:08.580Z"
+        "updatedAt": "2026-06-08T05:39:57.948Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -2375,7 +2440,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
-        "updatedAt": "2026-06-08T05:20:08.361Z"
+        "updatedAt": "2026-06-08T05:39:57.613Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -2385,7 +2450,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-08T04:51:26.567Z"
+        "updatedAt": "2026-06-08T05:41:29.704Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -2395,7 +2460,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-08T04:51:26.352Z"
+        "updatedAt": "2026-06-08T05:41:29.485Z"
       }
     ],
     "summaries": [
