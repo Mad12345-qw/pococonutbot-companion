@@ -35,6 +35,8 @@ services:
         value: gpt-image-2
       - key: IMAGE_SIZE
         value: 1024x1024
+      - key: IMAGE_TIMEOUT_MS
+        value: "600000"
       - key: STT_ENABLED
         value: "true"
       - key: STT_API_URL

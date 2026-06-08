@@ -191,22 +191,26 @@ export class TelegramCompanionBot {
       explicit: prepared.shouldReply && !prepared.smartCandidate
     });
     if (selfiePrompt.requested) {
-      await this.handleImageGenerationRequest({
+      this.handleImageGenerationRequest({
         msg,
         chatId,
         userId,
         prompt: selfiePrompt.prompt
+      }).catch((error) => {
+        logEvent("error", "Telegram image background task failed", { chatId, error: error.message });
       });
       return;
     }
 
     const imagePrompt = this.extractImageGenerationPrompt(safeUserText);
     if (imagePrompt.requested) {
-      await this.handleImageGenerationRequest({
+      this.handleImageGenerationRequest({
         msg,
         chatId,
         userId,
         prompt: this.prepareImageGenerationPrompt(imagePrompt.prompt)
+      }).catch((error) => {
+        logEvent("error", "Telegram image background task failed", { chatId, error: error.message });
       });
       return;
     }

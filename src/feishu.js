@@ -210,11 +210,13 @@ export class FeishuBot {
       ]
     });
     if (imageIntent.requested) {
-      await this.handleImageRequest({
+      this.handleImageRequest({
         messageId: message.message_id,
         chatId,
         userId,
         text: imageIntent.prompt || safeUserText
+      }).catch((error) => {
+        logEvent("error", "Feishu image background task failed", { chatId, error: error.message });
       });
       return;
     }
