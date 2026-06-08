@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:27:23.141Z",
+  "exportedAt": "2026-06-08T05:35:47.091Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -2001,6 +2001,79 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T05:20:15.745Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "生成一张雪茄电商图",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-08T05:29:12.812Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：雪茄电商图",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T05:31:26.145Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "这张图画得也太棒了吧",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "这张图画得也太棒了吧"
+        },
+        "createdAt": "2026-06-08T05:33:14.021Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 嘿嘿，宝喜欢就好～听你这么夸我，小椰有点小得意了 😌\n\n这张雪茄电商图如果要继续做成商品页，我还可以帮你往几个方向扩展：\n\n- **高端黑金风**：适合奢侈品感、会员礼盒  \n- **复古木盒风**：更像传统雪茄店、收藏感强  \n- **白底电商主图**：适合淘宝、京东、亚马逊这种平台  \n- **海报宣传图**：加价格、卖点、品牌文案  \n- **礼盒套装图**：适合送礼场景\n\n你要不要我再给你生成一张更“高端奢华”的雪茄电商图？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T05:33:23.648Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "image",
+        "content": "帮我把这个logo改成圣路易斯的标志",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": true,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-08T05:34:06.688Z"
       }
     ],
     "memories": [
