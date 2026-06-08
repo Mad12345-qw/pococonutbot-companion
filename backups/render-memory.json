@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T10:38:16.236Z",
+  "exportedAt": "2026-06-08T10:48:17.235Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5268,6 +5268,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-08T10:33:09.180Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 401: {\"error\":{\"message\":\"Your authentication token has been invalidated. Please try signing in again.\",\"type\":\"authentication_error\",\"code\":\"auth_unavailable\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T10:40:58.221Z"
       }
     ],
     "memories": [
