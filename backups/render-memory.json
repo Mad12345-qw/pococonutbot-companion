@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-07T16:12:03.925Z",
+  "exportedAt": "2026-06-08T03:32:03.897Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -1728,6 +1728,62 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-07T16:04:46.112Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽小椰",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-08T03:22:33.126Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "??: 小椰: 哈喽 sean～  \n怎么啦，是不是刚才那张照片还没看清我又说没收到语音，有点小失落？  \n\n今天心情怎么样，想聊点啥或者让我继续看那张图都可以说～",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T03:22:39.106Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "发一张你的自拍图",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-08T03:24:34.117Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：fetch failed",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T03:24:35.193Z"
       }
     ],
     "memories": [
@@ -2008,6 +2064,12 @@
         "userId": "6095109213",
         "summary": "Zhou（@Lylekkk）刚开始打招呼后多次要求生成“雨天城市图”，期间因生图失败/未实际展示结果却被回复“好了”而不满，觉得被已读不回、敷衍。当前状态：生气、催促、需要被认真回应。未完成事项：若继续，应直接生成雨天城市图，少解释、不空口承诺。",
         "updatedAt": "2026-06-07T15:41:55.072Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "summary": "**用户**：sean Mad（@madhuang）\n\n**关系进展**：暂无历史，对话处于初识/破冰阶段。用户称对方为\"小椰\"，语气偏轻松亲昵。\n\n**用户当前状态**：\n- 多次发送图片，但因格式问题（`application/octet-stream`）识别失败，AI 无法查看\n- 多次发送语音消息，均未成功转写，AI 未听到内容\n- 持续尝试让 AI 识别\"这是谁\"（疑似人物照片）\n- 已明确不接受换种方式重发的建议\n\n**未完成事项**：\n- 用户希望 AI 分析/识别一张长发白衣女性照片\n- 用户语音内容始终未传达，需引导用文字重述\n\n**重要偏好**：\n- 偏好直接互动，对\"请重发/打字\"等引导回应略显急躁（多次说\"继续\"）\n- 希望 AI 能直接处理图片和语音，减少中转步骤\n- 不愿做人脸身份识别（已委婉拒绝）",
+        "updatedAt": "2026-06-08T03:22:52.552Z"
       }
     ],
     "settings": []
