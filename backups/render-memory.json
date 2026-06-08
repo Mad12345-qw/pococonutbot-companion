@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T04:22:14.049Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T04:52:17.986Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1812,6 +1812,75 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-08T03:49:47.578Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "chatType": "p2p",
+          "platform": "feishu",
+          "messageId": "om_x100b6d50c82100a0b1bace1f9cda6dc",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:43:30.467Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈喽呀～我在呢 😊  \n今天过得怎么样？想随便聊聊，还是有事要我陪你一起处理？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:43:34.504Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "hi",
+        "metadata": {
+          "chatType": "p2p",
+          "platform": "feishu",
+          "messageId": "om_x100b6d50ce2698a0b36647239d0f19f",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:47:11.344Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "??: hi～我在这儿呀 😊  \n你现在是在忙里偷闲，还是刚好想找我说说话？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:47:16.082Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "给我看看你的自拍照",
+        "metadata": {
+          "chatType": "p2p",
+          "platform": "feishu",
+          "messageId": "om_x100b6d50ea7f80a8b3c5f038191228d",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:51:26.782Z"
       }
     ],
     "memories": [
@@ -2094,6 +2163,26 @@
         "metadata": {},
         "createdAt": "2026-06-07T11:55:53.325Z",
         "updatedAt": "2026-06-07T11:55:53.369Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T04:43:30.241Z",
+        "updatedAt": "2026-06-08T04:51:26.567Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T04:43:29.995Z",
+        "updatedAt": "2026-06-08T04:51:26.352Z"
       }
     ],
     "summaries": [
