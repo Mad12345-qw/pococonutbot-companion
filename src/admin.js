@@ -1,3 +1,5 @@
+import { getRuntimeLogs } from "./runtime-log.js";
+
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -206,6 +208,15 @@ function adminPage(config) {
     }
     .message.assistant { background: #e7f0eb; }
     .message b { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+    .config-list, .logs { display: grid; gap: 8px; }
+    .config-row, .log-row {
+      background: var(--surface-2);
+      border-radius: 7px;
+      padding: 9px 10px;
+    }
+    .config-row b, .log-row b { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+    .log-row.error { background: #f8eaea; }
+    .log-row.warn { background: #fff4da; }
     .muted { color: var(--muted); }
     .status { min-height: 20px; color: var(--muted); }
     .setting-row {
@@ -314,6 +325,14 @@ function adminPage(config) {
           <section>
             <h3>最近消息</h3>
             <div id="messages" class="messages"></div>
+          </section>
+          <section>
+            <h3>模型与接口</h3>
+            <div id="runtimeConfig" class="config-list"></div>
+          </section>
+          <section>
+            <h3>运行日志</h3>
+            <div id="runtimeLogs" class="logs"></div>
           </section>
           <p id="status" class="status"></p>
         </div>
@@ -445,6 +464,29 @@ function adminPage(config) {
           '<div>' + escapeHtml(msg.content || "") + '</div>' +
         '</div>'
       )).join("") : '<p class="muted">暂无消息。</p>';
+
+      const runtimeConfig = document.getElementById("runtimeConfig");
+      const cfg = state.config || {};
+      runtimeConfig.innerHTML = [
+        ["主回复模型", cfg.primaryModel || "未显示"],
+        ["主接口类型", cfg.primaryCompatibility || "未显示"],
+        ["备用模型", cfg.fallbackModel || "未配置"],
+        ["生图模型", cfg.imageModel || "未配置"],
+        ["生图尺寸", cfg.imageSize || "未配置"],
+        ["生图状态", cfg.imageGeneration ? "已开启" : "未开启"],
+        ["语音识别", cfg.voiceRecognition ? "已开启" : "未开启"]
+      ].map(row => (
+        '<div class="config-row"><b>' + escapeHtml(row[0]) + '</b><div>' + escapeHtml(row[1]) + '</div></div>'
+      )).join("");
+
+      const runtimeLogs = document.getElementById("runtimeLogs");
+      runtimeLogs.innerHTML = state.logs?.length ? state.logs.map(log => {
+        const meta = log.meta && Object.keys(log.meta).length ? " · " + JSON.stringify(log.meta) : "";
+        return '<div class="log-row ' + escapeHtml(log.level) + '">' +
+          '<b>' + escapeHtml(log.ts) + ' · ' + escapeHtml(log.level) + '</b>' +
+          '<div>' + escapeHtml(log.message + meta) + '</div>' +
+          '</div>';
+      }).join("") : '<p class="muted">暂无运行日志。</p>';
     }
 
     function bindMemoryActions() {
@@ -591,11 +633,20 @@ export function setupAdminRoutes(app, { config, storage }) {
       settings: {
         gptEnabled
       },
+      logs: getRuntimeLogs(80),
       config: {
         displayName: config.displayName,
         companionMode: config.companionMode,
         triggerMode: config.triggerMode,
-        storage: config.databaseUrl ? "postgres" : "json-file"
+        storage: config.databaseUrl ? "postgres" : "json-file",
+        primaryModel: config.aiModel,
+        primaryCompatibility: config.aiCompatibility,
+        fallbackModel: config.fallbackAiModel,
+        fallbackCompatibility: config.fallbackAiCompatibility,
+        imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
+        imageModel: config.imageModel,
+        imageSize: config.imageSize,
+        voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
       }
     });
   });

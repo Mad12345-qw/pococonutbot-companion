@@ -1,4 +1,5 @@
 import { truncate } from "./utils.js";
+import { logEvent } from "./runtime-log.js";
 
 function parseDataUrl(value = "") {
   const match = String(value).match(/^data:([^;,]+)?;base64,(.+)$/);
@@ -39,17 +40,29 @@ export class ImageGenerationClient {
       response_format: "b64_json"
     };
 
-    const response = await fetch(this.config.imageApiUrl, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.config.imageApiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
+    logEvent("info", "Image generation request started", {
+      model: this.config.imageModel,
+      size: this.config.imageSize
     });
+
+    let response;
+    try {
+      response = await fetch(this.config.imageApiUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this.config.imageApiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+    } catch (error) {
+      logEvent("error", "Image API fetch failed", { error: error.message, model: this.config.imageModel });
+      throw new Error(`Image API fetch failed: ${error.message}`);
+    }
 
     const text = await response.text();
     if (!response.ok) {
+      logEvent("error", "Image API returned error", { status: response.status, body: truncate(text, 300) });
       throw new Error(`Image API error ${response.status}: ${truncate(text, 500)}`);
     }
 
@@ -64,6 +77,7 @@ export class ImageGenerationClient {
 
     const image = data?.data?.[0] || {};
     if (image.b64_json) {
+      logEvent("info", "Image generation returned base64 image", { model: this.config.imageModel });
       return {
         buffer: Buffer.from(image.b64_json, "base64"),
         mimeType: "image/png"
@@ -71,11 +85,18 @@ export class ImageGenerationClient {
     }
 
     if (image.url) {
-      const imageResponse = await fetch(image.url);
+      let imageResponse;
+      try {
+        imageResponse = await fetch(image.url);
+      } catch (error) {
+        logEvent("error", "Generated image download fetch failed", { error: error.message });
+        throw new Error(`Generated image download fetch failed: ${error.message}`);
+      }
       if (!imageResponse.ok) {
         throw new Error(`Generated image download failed: ${imageResponse.status}`);
       }
       const mimeType = imageResponse.headers.get("content-type") || guessMimeType(image.url);
+      logEvent("info", "Image generation returned downloadable image", { mimeType });
       return {
         buffer: Buffer.from(await imageResponse.arrayBuffer()),
         mimeType

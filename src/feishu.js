@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { buildSystemPrompt } from "./persona.js";
+import { logEvent } from "./runtime-log.js";
 import { redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
@@ -319,9 +320,16 @@ export class FeishuBot {
     }
 
     try {
+      logEvent("info", "Feishu image request started", { chatId, userId });
       const image = await this.imageGenerator.generate(text);
+      logEvent("info", "Feishu image generated, uploading to Feishu", {
+        chatId,
+        mimeType: image.mimeType,
+        bytes: image.buffer?.length || 0
+      });
       const imageKey = await this.uploadImage(image);
       await this.replyImage(messageId, imageKey);
+      logEvent("info", "Feishu image reply sent", { chatId });
       await this.storage.addMessage({
         chatId,
         userId,
@@ -331,6 +339,7 @@ export class FeishuBot {
         metadata: { platform: "feishu", replyToUserId: userId }
       });
     } catch (error) {
+      logEvent("error", "Feishu image request failed", { chatId, error: error.message });
       const message = `这次生图失败了：${truncate(error.message, 600)}`;
       await this.replyText(messageId, message);
       await this.storage.addMessage({
@@ -388,11 +397,17 @@ export class FeishuBot {
     const form = new FormData();
     form.append("image_type", "message");
     form.append("image", blob, image.mimeType?.includes("jpeg") ? "image.jpg" : "image.png");
-    const response = await fetch("https://open.feishu.cn/open-apis/im/v1/images", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-      body: form
-    });
+    let response;
+    try {
+      response = await fetch("https://open.feishu.cn/open-apis/im/v1/images", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: form
+      });
+    } catch (error) {
+      logEvent("error", "Feishu image upload fetch failed", { error: error.message });
+      throw new Error(`Feishu image upload fetch failed: ${error.message}`);
+    }
     const data = await response.json();
     if (!response.ok || data.code !== 0) {
       throw new Error(`Feishu image upload failed: ${truncate(JSON.stringify(data), 500)}`);
