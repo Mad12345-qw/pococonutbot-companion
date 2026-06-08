@@ -105,6 +105,7 @@ export const config = {
   imageApiUrl: resolveImageEndpoint(process.env.IMAGE_API_URL || process.env.IMAGE2_API_URL || ""),
   imageModel: process.env.IMAGE_MODEL || process.env.IMAGE2_MODEL || "gpt-image-2",
   imageSize: process.env.IMAGE_SIZE || "1024x1024",
+  imageTimeoutMs: asNumber(process.env.IMAGE_TIMEOUT_MS, 180000),
   sttEnabled: asBoolean(process.env.STT_ENABLED, Boolean(process.env.STT_API_KEY)),
   sttApiKey: process.env.STT_API_KEY || "",
   sttApiUrl: resolveSttEndpoint(process.env.STT_API_URL || process.env.STT_BASE_URL || ""),

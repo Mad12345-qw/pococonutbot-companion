@@ -49,6 +49,7 @@ export class ImageGenerationClient {
     try {
       response = await fetch(this.config.imageApiUrl, {
         method: "POST",
+        signal: AbortSignal.timeout(this.config.imageTimeoutMs || 180000),
         headers: {
           Authorization: `Bearer ${this.config.imageApiKey}`,
           "Content-Type": "application/json"
