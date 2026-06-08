@@ -1,5 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
+import { logEvent } from "./runtime-log.js";
 import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
@@ -157,13 +158,22 @@ export class TelegramCompanionBot {
     }
 
     const safeUserText = redactSensitive(prepared.text);
+    const imageContext = prepared.imageUrls.length > 0
+      ? await this.describeIncomingImages({
+          chatId,
+          userId,
+          text: safeUserText,
+          imageUrls: prepared.imageUrls
+        })
+      : "";
+    const storedUserText = this.withImageContext(safeUserText, imageContext, "请看这张图片并自然回应。");
 
     await this.storage.addMessage({
       chatId,
       userId,
       role: "user",
       modality: prepared.modality,
-      content: safeUserText,
+      content: storedUserText,
       metadata: {
         username: msg.from?.username || "",
         firstName: msg.from?.first_name || "",
@@ -171,7 +181,8 @@ export class TelegramCompanionBot {
         fullName: currentUser.fullName || "",
         hasImage: prepared.imageUrls.length > 0,
         hasVoice: prepared.modality === "voice",
-        transcript: prepared.transcript || ""
+        transcript: prepared.transcript || "",
+        imageContext: imageContext ? truncate(imageContext, 1200) : ""
       }
     });
 
@@ -235,7 +246,7 @@ export class TelegramCompanionBot {
       messages.push({
         role: "user",
         content: [
-          { type: "text", text: safeUserText || "请看这张图片并自然回应。" },
+          { type: "text", text: this.buildImageUnderstandingPrompt(safeUserText, "请看这张图片并自然回应。") },
           ...prepared.imageUrls.map((url) => ({ type: "image_url", image_url: { url } }))
         ]
       });
@@ -259,7 +270,10 @@ export class TelegramCompanionBot {
 
     let reply;
     try {
-      reply = await this.ai.chat(messages, { maxTokens: this.config.aiReplyMaxTokens });
+      reply = await this.ai.chat(messages, {
+        maxTokens: this.config.aiReplyMaxTokens,
+        requirePrimary: prepared.imageUrls.length > 0
+      });
     } catch (error) {
       if (prepared.audio && this.config.voiceDirectInputEnabled) {
         reply = [
@@ -268,10 +282,13 @@ export class TelegramCompanionBot {
           `错误摘要：${truncate(error.message, 500)}`
         ].join("\n");
       } else if (prepared.imageUrls.length > 0) {
+        logEvent("error", "Telegram image reply failed", {
+          chatId,
+          error: error.message
+        });
         reply = [
-          "我收到图片了，但当前主模型接口不接受图片输入，所以这次没法读图。",
-          "这不是你发错了，是模型代理没有开放 image_url 识图能力。要真正识图，需要再接一个支持视觉输入的模型接口。",
-          `错误摘要：${truncate(error.message, 500)}`
+          "这张图我刚刚没看稳。",
+          "你再发一次，或者把要整理的那块截近一点，我重新帮你读。"
         ].join("\n");
       } else {
         throw error;
@@ -293,8 +310,60 @@ export class TelegramCompanionBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({ chatId, userId, userText: safeUserText, assistantText: safeReply, currentUser });
+      await this.updateMemoryAndSummary({ chatId, userId, userText: storedUserText, assistantText: safeReply, currentUser });
     }
+  }
+
+  async describeIncomingImages({ chatId, userId, text, imageUrls }) {
+    try {
+      logEvent("info", "Telegram image context extraction started", {
+        chatId,
+        userId,
+        imageCount: imageUrls.length
+      });
+      const description = await this.ai.describeImages({
+        userText: this.cleanGenericImagePrompt(text, "请看这张图片并自然回应。"),
+        imageUrls,
+        platform: "Telegram"
+      });
+      logEvent("info", "Telegram image context extraction completed", {
+        chatId,
+        chars: description.length
+      });
+      return description;
+    } catch (error) {
+      logEvent("error", "Telegram image context extraction failed", {
+        chatId,
+        error: error.message
+      });
+      return "";
+    }
+  }
+
+  cleanGenericImagePrompt(text = "", fallback = "") {
+    const raw = String(text || "").trim();
+    return raw === fallback ? "" : raw;
+  }
+
+  withImageContext(text = "", imageContext = "", genericText = "") {
+    const cleanText = this.cleanGenericImagePrompt(text, genericText);
+    if (!imageContext) return cleanText || text;
+    return [
+      cleanText,
+      "[图片识别]",
+      truncate(imageContext, 3500)
+    ].filter(Boolean).join("\n");
+  }
+
+  buildImageUnderstandingPrompt(text = "", genericText = "") {
+    const cleanText = this.cleanGenericImagePrompt(text, genericText);
+    return [
+      cleanText || "请看这张图片并自然回应。",
+      "",
+      "这张图可能是截图、聊天记录、榜单或文字清单。请认真读图里的可见文字。",
+      "如果文字很多，优先提取标题、项目名、编号、数字、结论和用户最可能继续追问的关键信息。",
+      "不要只说“信息量大”“有点看不清”；能看清多少就说多少，遮挡或截断的地方再说明。"
+    ].join("\n");
   }
 
   async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {

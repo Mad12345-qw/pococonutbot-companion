@@ -474,6 +474,7 @@ function adminPage(config) {
         ["生图模型", cfg.imageModel || "未配置"],
         ["生图尺寸", cfg.imageSize || "未配置"],
         ["生图超时", cfg.imageTimeoutMs ? cfg.imageTimeoutMs + " ms" : "未配置"],
+        ["识图提取超时", cfg.imageUnderstandingTimeoutMs ? cfg.imageUnderstandingTimeoutMs + " ms" : "未配置"],
         ["生图状态", cfg.imageGeneration ? "已开启" : "未开启"],
         ["语音识别", cfg.voiceRecognition ? "已开启" : "未开启"]
       ].map(row => (
@@ -648,6 +649,7 @@ export function setupAdminRoutes(app, { config, storage }) {
         imageModel: config.imageModel,
         imageSize: config.imageSize,
         imageTimeoutMs: config.imageTimeoutMs,
+        imageUnderstandingTimeoutMs: config.imageUnderstandingTimeoutMs,
         voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
       }
     });

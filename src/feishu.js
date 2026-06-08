@@ -170,6 +170,16 @@ export class FeishuBot {
     const safeUserText = redactSensitive(text);
     const imageDataUrl = imageMessage ? await this.downloadImageMessage(message, content) : "";
     if (imageMessage && !imageDataUrl) return;
+    const imageContext = imageMessage
+      ? await this.describeIncomingImages({
+          chatId,
+          userId,
+          text: safeUserText,
+          imageDataUrl,
+          messageId: message.message_id
+        })
+      : "";
+    const storedUserText = this.withImageContext(safeUserText, imageContext, "请看这张图片并自然回复。");
 
     await this.upsertUserProfileMemory(chatId, userId, currentUser);
     await this.storage.addMessage({
@@ -177,7 +187,7 @@ export class FeishuBot {
       userId,
       role: "user",
       modality: audioMessage ? "voice" : imageMessage ? "image" : "text",
-      content: safeUserText,
+      content: storedUserText,
       metadata: {
         platform: "feishu",
         messageId: message.message_id || "",
@@ -186,6 +196,7 @@ export class FeishuBot {
         rawUserId: senderId || "",
         hasVoice: audioMessage,
         hasImage: imageMessage,
+        imageContext: imageContext ? truncate(imageContext, 1200) : "",
         voiceDurationMs: audioMessage ? Number(content.duration || 0) : 0
       }
     });
@@ -200,7 +211,24 @@ export class FeishuBot {
       if (!shouldReply) return;
     }
 
-    const reply = await this.generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl });
+    let reply;
+    try {
+      reply = await this.generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl });
+    } catch (error) {
+      if (imageMessage) {
+        logEvent("error", "Feishu image reply failed", {
+          chatId,
+          messageId: message.message_id,
+          error: error.message
+        });
+        reply = [
+          "这张图我刚刚没看稳。",
+          "你再发一次，或者把要整理的那块截近一点，我重新帮你读。"
+        ].join("\n");
+      } else {
+        throw error;
+      }
+    }
     await this.storage.addMessage({
       chatId,
       userId,
@@ -215,7 +243,7 @@ export class FeishuBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({ chatId, userId, userText: safeUserText, assistantText: reply, currentUser });
+      await this.updateMemoryAndSummary({ chatId, userId, userText: storedUserText, assistantText: reply, currentUser });
     }
   }
 
@@ -330,6 +358,60 @@ export class FeishuBot {
     }
   }
 
+  async describeIncomingImages({ chatId, userId, text, imageDataUrl, messageId }) {
+    try {
+      logEvent("info", "Feishu image context extraction started", {
+        chatId,
+        userId,
+        messageId
+      });
+      const description = await this.ai.describeImages({
+        userText: this.cleanGenericImagePrompt(text, "请看这张图片并自然回复。"),
+        imageUrls: [imageDataUrl],
+        platform: "Feishu"
+      });
+      logEvent("info", "Feishu image context extraction completed", {
+        chatId,
+        messageId,
+        chars: description.length
+      });
+      return description;
+    } catch (error) {
+      logEvent("error", "Feishu image context extraction failed", {
+        chatId,
+        messageId,
+        error: error.message
+      });
+      return "";
+    }
+  }
+
+  cleanGenericImagePrompt(text = "", fallback = "") {
+    const raw = String(text || "").trim();
+    return raw === fallback ? "" : raw;
+  }
+
+  buildImageUnderstandingPrompt(text = "", genericText = "") {
+    const cleanText = this.cleanGenericImagePrompt(text, genericText);
+    return [
+      cleanText || "请看这张图片并自然回复。",
+      "",
+      "这张图可能是截图、聊天记录、榜单或文字清单。请认真读图里的可见文字。",
+      "如果文字很多，优先提取标题、项目名、编号、数字、结论和用户最可能继续追问的关键信息。",
+      "不要只说“信息量大”“有点看不清”；能看清多少就说多少，遮挡或截断的地方再说明。"
+    ].join("\n");
+  }
+
+  withImageContext(text = "", imageContext = "", genericText = "") {
+    const cleanText = this.cleanGenericImagePrompt(text, genericText);
+    if (!imageContext) return cleanText || text;
+    return [
+      cleanText,
+      "[图片识别]",
+      truncate(imageContext, 3500)
+    ].filter(Boolean).join("\n");
+  }
+
   async shouldReplyToSmartCandidate({ chatId, safeUserText, hasImage = false }) {
     const fastDecision = this.getFastSmartDecision(safeUserText, { hasImage });
     if (fastDecision === "skip") return false;
@@ -419,13 +501,16 @@ export class FeishuBot {
       messages.push({
         role: "user",
         content: [
-          { type: "text", text: safeUserText || "请看这张图片并自然回复。" },
+          { type: "text", text: this.buildImageUnderstandingPrompt(safeUserText, "请看这张图片并自然回复。") },
           { type: "image_url", image_url: { url: imageDataUrl } }
         ]
       });
     }
 
-    return this.ai.chat(messages, { maxTokens: this.config.aiReplyMaxTokens });
+    return this.ai.chat(messages, {
+      maxTokens: this.config.aiReplyMaxTokens,
+      requirePrimary: Boolean(imageDataUrl)
+    });
   }
 
   async handleImageRequest({ messageId, chatId, userId, text }) {

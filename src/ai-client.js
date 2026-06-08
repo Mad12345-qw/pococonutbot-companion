@@ -91,6 +91,7 @@ export class AIClient {
   async requestChat(provider, messages, options = {}) {
     const response = await fetch(provider.url, {
       method: "POST",
+      signal: AbortSignal.timeout(options.timeoutMs || this.config.aiTimeoutMs || 120000),
       headers: {
         Authorization: `Bearer ${provider.apiKey}`,
         "Content-Type": "application/json"
@@ -127,6 +128,14 @@ export class AIClient {
   }
 
   async chat(messages, options = {}) {
+    if (options.requirePrimary) {
+      const primaryEnabled = await this.isPrimaryEnabled();
+      if (!primaryEnabled) {
+        throw new Error("Primary AI is disabled, but this request requires the primary model.");
+      }
+      return this.requestChat(this.primaryProvider, messages, { ...options, allowFallback: false });
+    }
+
     const primaryEnabled = await this.isPrimaryEnabled();
     if (!primaryEnabled) {
       if (!this.hasFallback) {
@@ -144,6 +153,45 @@ export class AIClient {
       console.error(`Primary AI failed, trying fallback: ${error.message}`);
       return this.requestChat(this.fallbackProvider, messages, options);
     }
+  }
+
+  async describeImages({ userText = "", imageUrls = [], platform = "chat" }) {
+    const urls = imageUrls.filter(Boolean).slice(0, 4);
+    if (urls.length === 0) return "";
+
+    const prompt = [
+      "请认真阅读用户发来的图片，输出一份可供后续对话继续引用的图片上下文。",
+      "重点：如果图片里有文字、截图、表格、清单、项目名、链接、数字，请尽量逐条 OCR 出来，不要只概括。",
+      "文字很多时，优先提取标题、项目名、编号、结论、关键说明，最多保留 30 条最重要信息。",
+      "如果有被输入框、遮挡物或裁切挡住的内容，请标注“被遮挡/看不清”，不要编造。",
+      "如果图片是聊天截图，请分清谁发了什么；如果是项目/榜单截图，请列出能看清的项目名和说明。",
+      "输出中文，简洁但信息密度高。不要评价图片清不清楚，不要说你无法保存图片。",
+      "",
+      `平台：${platform}`,
+      `用户附带文字：${userText || "无"}`
+    ].join("\n");
+
+    return this.chat(
+      [
+        {
+          role: "system",
+          content: "你是图片 OCR 和视觉内容提取助手。只输出图片中可见的信息和必要说明，不要寒暄。"
+        },
+        {
+          role: "user",
+          content: [
+            { type: "text", text: prompt },
+            ...urls.map((url) => ({ type: "image_url", image_url: { url } }))
+          ]
+        }
+      ],
+      {
+        temperature: 0.1,
+        maxTokens: this.config.imageUnderstandingMaxTokens || 900,
+        timeoutMs: this.config.imageUnderstandingTimeoutMs || 20000,
+        requirePrimary: true
+      }
+    );
   }
 
   shouldTryFallback(error) {
