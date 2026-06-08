@@ -37,6 +37,8 @@ services:
         value: 1024x1024
       - key: IMAGE_TIMEOUT_MS
         value: "600000"
+      - key: IMAGE_RETRY_ATTEMPTS
+        value: "3"
       - key: STT_ENABLED
         value: "true"
       - key: STT_API_URL

@@ -107,6 +107,7 @@ export const config = {
   imageModel: process.env.IMAGE_MODEL || process.env.IMAGE2_MODEL || "gpt-image-2",
   imageSize: process.env.IMAGE_SIZE || "1024x1024",
   imageTimeoutMs: asNumber(process.env.IMAGE_TIMEOUT_MS, 600000),
+  imageRetryAttempts: asNumber(process.env.IMAGE_RETRY_ATTEMPTS, 3),
   imageUnderstandingTimeoutMs: asNumber(process.env.IMAGE_UNDERSTANDING_TIMEOUT_MS, 20000),
   imageUnderstandingMaxTokens: asNumber(process.env.IMAGE_UNDERSTANDING_MAX_TOKENS, 900),
   sttEnabled: asBoolean(process.env.STT_ENABLED, Boolean(process.env.STT_API_KEY)),
