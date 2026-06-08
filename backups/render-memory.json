@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T07:17:01.495Z",
+  "exportedAt": "2026-06-08T07:37:01.675Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -2539,6 +2539,37 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-08T07:14:02.524Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽，小椰，群里的汐汐想看看你能不能实现心灵理疗的功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d534dece8acc2a5eecb9c5d972",
+          "rawChatId": "oc_aa24265a34737c3b86b50b84daad0e4c",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T07:33:10.267Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈喽～可以呀，我能陪汐汐做一些温柔的情绪梳理、压力放松、认知整理和睡前安抚之类的“小理疗”。\n\n不过我不是专业心理医生，不能替代诊断或治疗；如果她现在特别崩溃、想伤害自己，最好马上联系身边可信的人或当地紧急帮助。  \n如果只是想聊聊，我可以先问她：最近最压着心口的那件事是什么？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T07:33:15.407Z"
       }
     ],
     "memories": [
@@ -2861,6 +2892,36 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
         "updatedAt": "2026-06-08T05:43:35.094Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.bot_nickname",
+        "value": "用户称呼机器人为“小椰”",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:33:23.214Z",
+        "updatedAt": "2026-06-08T07:33:23.214Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:33:10.042Z",
+        "updatedAt": "2026-06-08T07:33:10.042Z"
+      },
+      {
+        "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T07:33:09.768Z",
+        "updatedAt": "2026-06-08T07:33:09.768Z"
       },
       {
         "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
