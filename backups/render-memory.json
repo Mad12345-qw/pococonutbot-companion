@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T10:04:30.811Z",
+  "exportedAt": "2026-06-08T10:14:32.030Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5156,6 +5156,99 @@
           "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
         },
         "createdAt": "2026-06-08T10:04:27.526Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成图片",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T10:04:29.447Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "按照这个提示词生成图片\n**【宋威龙风 · 男友视角自拍】**\n> A photorealistic selfie taken by a handsome East-Asian male model, late 20s, features and aura similar to Song Weilong, tall with broad shoulders, black slightly messy hair, clean sharp jawline, cold pale skin, intense deep eyes with a hint of wildness, wearing a loose black shirt with top buttons undone, dark wool overcoat draped over shoulders, one hand holding the phone at a slightly low angle, backlight from a city night window, warm golden rim light on face, subtle confident smirk, boyfriend POV, ultra realistic skin texture, cinematic lighting, 85mm lens, 8k, hyper detailed\n\n生成出来大概是这种画面：黑衬衫 + 大衣，夜里窗边光打在脸上，微微低头看镜头，嘴角一点坏笑。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d0e0fd8acc346b9543938ae8",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T10:06:07.949Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "宋威龙穿白衬衫也很帅的啦",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d04c81c90b258067d023da1d",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T10:08:36.026Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 懂了，白衬衫版给你整上 😎\n\n等下啊，我给你生成。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T10:09:07.907Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "以前老分不清他跟张凌赫两个人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5d05e0b86cb285aa44841db56",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T10:09:15.243Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API fetch failed: fetch failed",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T10:11:11.693Z"
       }
     ],
     "memories": [
@@ -5612,6 +5705,26 @@
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "preferences.male_aesthetic_dense_hair_sword_brows",
+        "value": "用户在男性审美偏好中追加要求：头发浓密、剑目星眉，与白衬衫、少年感、宽肩窄腰、倒三角身材、腹肌等已有偏好一致。",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T10:04:34.314Z",
+        "updatedAt": "2026-06-08T10:04:34.314Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "preferences.male_aesthetic_reference_song_weilong_white_shirt",
+        "value": "用户认为宋威龙穿白衬衫很帅，可作为其白衬衫少年感男性审美的参考。",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T10:09:14.359Z",
+        "updatedAt": "2026-06-08T10:09:14.359Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "key": "preferences.male_aesthetic_white_shirt_boyish_v_shape",
         "value": "用户偏好白衬衫、少年感、宽肩窄腰、倒三角身材的男性审美。",
         "importance": 4,
@@ -5627,7 +5740,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-08T10:04:21.234Z"
+        "updatedAt": "2026-06-08T10:09:15.022Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5647,7 +5760,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-08T10:04:21.007Z"
+        "updatedAt": "2026-06-08T10:09:14.801Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5727,7 +5840,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T10:02:54.347Z"
+        "updatedAt": "2026-06-08T10:06:07.728Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -5737,7 +5850,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T10:02:54.125Z"
+        "updatedAt": "2026-06-08T10:06:07.507Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
