@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import { buildSystemPrompt } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
-import { detectImageMimeType, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
+import { detectImageMimeType, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
@@ -210,7 +210,7 @@ export class FeishuBot {
       metadata: { platform: "feishu", replyToUserId: userId }
     });
 
-    for (const chunk of splitTelegramMessage(reply, 1800)) {
+    for (const chunk of splitChatBubbles(reply, 1800)) {
       await this.replyText(message.message_id, chunk);
     }
 

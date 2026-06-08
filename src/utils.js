@@ -36,6 +36,25 @@ export function splitTelegramMessage(text, maxLength = 3900) {
   return chunks;
 }
 
+export function splitChatBubbles(text, maxLength = 3900) {
+  const chunks = splitTelegramMessage(text, maxLength);
+  if (chunks.length !== 1) return chunks;
+
+  const value = chunks[0];
+  if (value.length > 900) return chunks;
+
+  const parts = value
+    .split(/\n{1,}/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  if (parts.length < 2 || parts.length > 4) return chunks;
+  if (parts.some((part) => part.length > 320)) return chunks;
+  if (parts.some((part) => /^[-*•]|\d+[.)、]/.test(part))) return chunks;
+
+  return parts;
+}
+
 export function parseJsonObject(text = "") {
   const raw = String(text).trim();
   try {

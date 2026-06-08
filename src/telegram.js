@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
-import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitTelegramMessage, truncate } from "./utils.js";
+import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
@@ -288,7 +288,7 @@ export class TelegramCompanionBot {
       metadata: { replyToUserId: userId }
     });
 
-    for (const chunk of splitTelegramMessage(safeReply, this.config.maxReplyChars)) {
+    for (const chunk of splitChatBubbles(safeReply, this.config.maxReplyChars)) {
       await this.bot.sendMessage(msg.chat.id, chunk, { reply_to_message_id: msg.message_id });
     }
 
