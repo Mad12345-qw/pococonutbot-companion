@@ -26,6 +26,12 @@ function asJsonObject(value, fallback = {}) {
   }
 }
 
+function asCleanText(value, fallback) {
+  const text = String(value || "").trim();
+  if (!text || /^[?]+$/.test(text)) return fallback;
+  return text;
+}
+
 function resolveAiEndpoint(rawUrl) {
   const input = (rawUrl || "https://api.minimaxi.com/v1/chat/completions").trim();
   const clean = input.replace(/\/+$/, "");
@@ -79,7 +85,7 @@ export const config = {
   feishuAppSecret: process.env.FEISHU_APP_SECRET || "",
   feishuVerificationToken: process.env.FEISHU_VERIFICATION_TOKEN || "",
   feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
-  feishuBotName: process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME || "小椰",
+  feishuBotName: asCleanText(process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME, "小椰"),
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
   aiUrl: resolveAiEndpoint(process.env.AI_URL || process.env.AI_BASE_URL || process.env.MINIMAX_URL),
   aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
@@ -108,7 +114,7 @@ export const config = {
   voiceDirectInputEnabled: asBoolean(process.env.VOICE_DIRECT_INPUT_ENABLED, false),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
-  displayName: process.env.BOT_DISPLAY_NAME || "小椰",
+  displayName: asCleanText(process.env.BOT_DISPLAY_NAME, "小椰"),
   companionMode: process.env.COMPANION_MODE || "girlfriend",
   language: process.env.BOT_LANGUAGE || "zh-CN",
   selfReferenceImagePath: process.env.SELF_REFERENCE_IMAGE_PATH || "assets/persona/xiaoye-reference.jpg",

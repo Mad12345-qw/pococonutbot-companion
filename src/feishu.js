@@ -202,9 +202,9 @@ export class FeishuBot {
 
   isMentioned(message, text = "") {
     const mentions = message.mentions || [];
-    return mentions.some((item) => item.name === this.config.feishuBotName || item.name === this.config.displayName) ||
-      String(text).includes(this.config.feishuBotName) ||
-      String(text).includes(this.config.displayName);
+    const names = new Set([this.config.feishuBotName, this.config.displayName, "小椰"].filter(Boolean));
+    return mentions.some((item) => names.has(item.name)) ||
+      [...names].some((name) => String(text).includes(name));
   }
 
   isExplicitCommand(text = "") {
