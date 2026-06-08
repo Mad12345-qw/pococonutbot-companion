@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:18:43.364Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-08T05:27:23.141Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1974,6 +1974,33 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T05:15:57.266Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "那你可以干什么？",
+        "metadata": {
+          "chatType": "group",
+          "platform": "feishu",
+          "messageId": "om_x100b6d515e97b0acc0a1f1117c4fe30",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:20:08.800Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我能陪你聊天、写文案、想点子、做计划，也能帮你润色消息、整理资料、写代码、分析问题呀。  \n\n刚刚你要“抖音直播截图”那种图，如果是要仿真到像真实平台截图、容易冒充真实直播记录的，我不能帮你做成可误导人的假截图。但我可以帮你做这些安全版本：  \n- 设计一张“直播间风格”的宣传海报  \n- 做一个虚构平台的直播界面概念图  \n- 写抖音直播间标题、话术、开场白  \n- 设计直播间贴片、背景、礼物氛围  \n- 给你一份截图构图描述，用于做合规 mockup  \n\n你要是想做直播素材，小椰可以直接帮你出一版，比如：标题、主播名、弹幕、商品卡、氛围都给你配好～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:20:15.745Z"
       }
     ],
     "memories": [
@@ -2265,7 +2292,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.893Z",
-        "updatedAt": "2026-06-08T05:10:54.002Z"
+        "updatedAt": "2026-06-08T05:20:08.580Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -2275,7 +2302,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
-        "updatedAt": "2026-06-08T05:10:53.785Z"
+        "updatedAt": "2026-06-08T05:20:08.361Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
