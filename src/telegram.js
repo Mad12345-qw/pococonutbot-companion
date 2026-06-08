@@ -352,6 +352,7 @@ export class TelegramCompanionBot {
       return;
     }
 
+    await this.bot.sendMessage(msg.chat.id, "好的，稍等", { reply_to_message_id: msg.message_id });
     await this.bot.sendChatAction(msg.chat.id, "upload_photo");
 
     try {

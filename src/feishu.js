@@ -320,6 +320,7 @@ export class FeishuBot {
     }
 
     try {
+      await this.replyText(messageId, "好的，稍等");
       logEvent("info", "Feishu image request started", { chatId, userId });
       const image = await this.imageGenerator.generate(text);
       logEvent("info", "Feishu image generated, uploading to Feishu", {
