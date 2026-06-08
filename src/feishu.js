@@ -145,8 +145,9 @@ export class FeishuBot {
     const chatType = message.chat_type || "";
     const mentioned = this.isMentioned(message, content.text || rawText);
     const text = this.stripBotName(rawText);
-    const shouldReply = chatType === "p2p" || mentioned || this.isExplicitCommand(text);
-    if (!shouldReply) return;
+    const explicitReply = chatType === "p2p" || mentioned || this.isExplicitCommand(text) || this.config.triggerMode === "all";
+    const smartCandidate = !explicitReply && chatType !== "p2p" && this.config.triggerMode === "smart";
+    if (!explicitReply && !smartCandidate) return;
 
     const senderId = event.sender?.sender_id?.open_id || event.sender?.sender_id?.user_id || "";
     const chatId = platformId(message.chat_id || message.open_chat_id || senderId);
@@ -179,6 +180,11 @@ export class FeishuBot {
     if (shouldTryFallbackImagePrompt(safeUserText)) {
       await this.handleImageRequest({ messageId: message.message_id, chatId, userId, text: safeUserText });
       return;
+    }
+
+    if (smartCandidate) {
+      const shouldReply = await this.shouldReplyToSmartCandidate({ chatId, safeUserText });
+      if (!shouldReply) return;
     }
 
     const reply = await this.generateReply({ chatId, userId, safeUserText, currentUser });
@@ -219,6 +225,64 @@ export class FeishuBot {
       output = output.replace(new RegExp(`^(?:${names.join("|")})\\s*[,，:：、]?\\s*`, "i"), "");
     }
     return output.replace(/^\/(?:ai|ask|love)\s*/i, "").trim();
+  }
+
+  async shouldReplyToSmartCandidate({ chatId, safeUserText }) {
+    const fastDecision = this.getFastSmartDecision(safeUserText);
+    if (fastDecision === "skip") return false;
+    if (fastDecision === "reply") return true;
+
+    if (fastDecision === "ask-ai" && this.config.smartClassifierEnabled) {
+      const recentForDecision = await this.storage.getRecentMessages(chatId, 8);
+      return this.ai.shouldReplyInGroup({
+        messageText: safeUserText,
+        recentMessages: recentForDecision.map((item) => ({
+          ...item,
+          content: this.formatMessageForModel(item)
+        })),
+        botName: this.config.displayName,
+        hasImage: false,
+        platform: "Feishu group"
+      });
+    }
+
+    return false;
+  }
+
+  getFastSmartDecision(text = "") {
+    const raw = String(text || "").trim();
+    const normalized = raw.toLowerCase();
+
+    if (!raw || raw.length <= 2) {
+      return "skip";
+    }
+
+    if (/^(ok|okay|yes|no|收到|好的|嗯|嗯嗯|哈哈|哈哈哈|hhh|lol|thanks|谢谢|谢了|可以|行|👍|👌)$/i.test(raw)) {
+      return "skip";
+    }
+
+    if (/[?？]$/.test(raw)) {
+      return "reply";
+    }
+
+    const requestPattern = /(帮我|帮忙|看看|看一下|解释|总结|翻译|建议|推荐|分析|判断|评价|改写|起草|写一|列一|怎么|如何|能不能|可不可以|要不要|有没有|为什么|是什么|多少|哪里|哪个|谁|啥|吗|呢)/i;
+    if (requestPattern.test(raw)) {
+      return "reply";
+    }
+
+    const botTerms = ["ai", "机器人", "助手", this.config.feishuBotName, this.config.displayName, "小椰"]
+      .filter(Boolean)
+      .map((item) => String(item).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    if (botTerms.length && new RegExp(`(${botTerms.join("|")})`, "i").test(normalized)) {
+      return "reply";
+    }
+
+    const emotionPattern = /(难过|崩溃|焦虑|失眠|好累|压力|烦死|不开心|想哭|害怕|孤独|emo|抑郁|生气|委屈)/i;
+    if (emotionPattern.test(raw)) {
+      return "reply";
+    }
+
+    return "ask-ai";
   }
 
   async generateReply({ chatId, userId, safeUserText, currentUser }) {

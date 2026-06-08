@@ -237,14 +237,14 @@ export class AIClient {
     );
   }
 
-  async shouldReplyInGroup({ messageText, recentMessages, botName, hasImage }) {
+  async shouldReplyInGroup({ messageText, recentMessages, botName, hasImage, platform = "group" }) {
     const transcript = recentMessages
       .slice(-10)
       .map((message) => `${message.role}: ${message.content}`)
       .join("\n");
 
     const prompt = [
-      "You are a timing classifier for a Telegram group AI companion bot.",
+      `You are a timing classifier for a ${platform} AI companion bot.`,
       "Decide whether the bot should proactively reply to the latest group message.",
       "",
       "Reply true when:",
