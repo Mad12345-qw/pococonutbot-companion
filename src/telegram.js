@@ -1,10 +1,10 @@
 import TelegramBot from "node-telegram-bot-api";
+import { extractImageGenerationIntent, imageGenerationCommands } from "./image-intent.js";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
 import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
-const imageGenerationCommands = ["/draw", "/image", "/imagine", "/生图", "/画图"];
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
@@ -463,6 +463,14 @@ export class TelegramCompanionBot {
   }
 
   extractImageGenerationPrompt(text = "") {
+    return extractImageGenerationIntent(text, {
+      botNames: [
+        this.config.displayName || "",
+        "小椰",
+        this.botInfo?.username ? `@${this.botInfo.username}` : ""
+      ]
+    });
+
     const raw = String(text || "").trim();
     if (!raw) return { requested: false, prompt: "" };
     const normalizedRaw = this.normalizeImageRequestText(raw);

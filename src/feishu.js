@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { extractImageGenerationIntent } from "./image-intent.js";
 import { buildSystemPrompt } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
 import { detectImageMimeType, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
@@ -201,8 +202,20 @@ export class FeishuBot {
       }
     });
 
-    if (shouldTryFallbackImagePrompt(safeUserText)) {
-      await this.handleImageRequest({ messageId: message.message_id, chatId, userId, text: safeUserText });
+    const imageIntent = extractImageGenerationIntent(safeUserText, {
+      botNames: [
+        this.config.feishuBotName || "",
+        this.config.displayName || "",
+        "小椰"
+      ]
+    });
+    if (imageIntent.requested) {
+      await this.handleImageRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        text: imageIntent.prompt || safeUserText
+      });
       return;
     }
 
