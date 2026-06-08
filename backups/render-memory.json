@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T03:32:03.897Z",
+  "exportedAt": "2026-06-08T03:52:03.437Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -1784,6 +1784,34 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-08T03:24:35.193Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "现在可以生图了么   小椰",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": ""
+        },
+        "createdAt": "2026-06-08T03:44:41.648Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "??: 抱歉，我这边没有这个图片生成工具呢，没办法给你发自拍照片。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-08T03:49:47.578Z"
       }
     ],
     "memories": [
@@ -2026,6 +2054,16 @@
         "metadata": {},
         "createdAt": "2026-06-07T15:16:12.414Z",
         "updatedAt": "2026-06-07T15:16:12.414Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "key": "preferences.assistant_nickname",
+        "value": "用户称呼机器人为“小椰”",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T03:49:52.256Z",
+        "updatedAt": "2026-06-08T03:49:52.256Z"
       },
       {
         "chatId": "8611360712",
