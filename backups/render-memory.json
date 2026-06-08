@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T04:52:17.986Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-08T04:58:05.572Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1881,6 +1881,18 @@
           "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T04:51:26.782Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "??: 给你看一张“虚拟自拍”呀～不是现实里的我本人照片，是我作为 AI 的形象照 😊  \n喜欢这种温柔一点的风格吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T04:54:05.476Z"
       }
     ],
     "memories": [
