@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:55:44.788Z",
+  "exportedAt": "2026-06-08T06:05:24.530Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -2139,6 +2139,36 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T05:42:20.846Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "听得到我说话吗小姨",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6d51d0bf80b0b1e6f02ba9b712e",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "voiceDurationMs": 2000
+        },
+        "createdAt": "2026-06-08T05:58:04.390Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 听得到呀～不过我是看文字来回应你的，不是真的用耳朵听见声音哦。  \n\n还有，是“小椰”啦，不是小姨～哼哼，叫错名字要罚你多跟我说两句。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:58:19.416Z"
       }
     ],
     "memories": [
@@ -2430,7 +2460,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.893Z",
-        "updatedAt": "2026-06-08T05:39:57.948Z"
+        "updatedAt": "2026-06-08T05:58:04.161Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -2440,7 +2470,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
-        "updatedAt": "2026-06-08T05:39:57.613Z"
+        "updatedAt": "2026-06-08T05:58:03.920Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
