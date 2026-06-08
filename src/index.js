@@ -5,6 +5,7 @@ import { ImageGenerationClient } from "./image-client.js";
 import { SpeechToTextClient } from "./stt-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
+import { FeishuBot } from "./feishu.js";
 import { setupAdminRoutes } from "./admin.js";
 import { GitHubMemoryBackup } from "./github-backup.js";
 
@@ -26,7 +27,8 @@ app.get("/health", (_req, res) => {
     ok: true,
     storage: config.databaseUrl ? "postgres" : "json-file",
     imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
-    voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
+    voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
+    feishu: Boolean(config.feishuAppId && config.feishuAppSecret)
   };
   if (config.exposeModelInfo) {
     payload.model = config.aiModel;
@@ -52,5 +54,7 @@ const ai = new AIClient(config, {
 });
 const imageGenerator = new ImageGenerationClient(config);
 const speechToText = new SpeechToTextClient(config);
+const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator });
+feishuBot.setupRoutes(app);
 const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText });
 await telegramBot.start();

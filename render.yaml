@@ -69,6 +69,16 @@ services:
         value: "24"
       - key: TELEGRAM_BOT_TOKEN
         sync: false
+      - key: FEISHU_APP_ID
+        sync: false
+      - key: FEISHU_APP_SECRET
+        sync: false
+      - key: FEISHU_VERIFICATION_TOKEN
+        sync: false
+      - key: FEISHU_ENCRYPT_KEY
+        sync: false
+      - key: FEISHU_BOT_NAME
+        value: 小椰
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME

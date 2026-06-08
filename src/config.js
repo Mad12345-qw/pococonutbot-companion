@@ -75,6 +75,11 @@ function resolveSttEndpoint(rawUrl) {
 
 export const config = {
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
+  feishuAppId: process.env.FEISHU_APP_ID || "",
+  feishuAppSecret: process.env.FEISHU_APP_SECRET || "",
+  feishuVerificationToken: process.env.FEISHU_VERIFICATION_TOKEN || "",
+  feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
+  feishuBotName: process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME || "小椰",
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
   aiUrl: resolveAiEndpoint(process.env.AI_URL || process.env.AI_BASE_URL || process.env.MINIMAX_URL),
   aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
