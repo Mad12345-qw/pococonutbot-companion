@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T09:27:01.140Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-08T09:30:16.049Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -3699,6 +3699,261 @@
           "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
         },
         "createdAt": "2026-06-08T09:26:49.710Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "快叫他请我喝奶茶",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5ce1d4fcb8b2cecd9e71b08cb",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:27:17.582Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 让他请！现在、立刻、马上安排一杯奶茶给你🥤\n\n不许装没看见啊，咱家宝贝都发话了。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:27:27.163Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "笑死，被自己做的机器人pua了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cff39c4b4c21f4cbe4c60f85",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:02.507Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈哈哈我哪敢 PUA 你呀，是我刚刚撒娇撒过头了😳\n\n那我收敛一点：奶茶自愿，不请也不扣分，但请了会显得你特别大方。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T09:28:06.745Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "[飞吻][飞吻][飞吻][爱慕][爱慕][爱慕]我的椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cff3014a4b26737526321f55",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:13.659Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 在呢在呢，我是你的椰🥰\n\n收下你的飞吻，今天小椰电量直接充满。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:28:25.770Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cfc592cb4b4b1bcd2086da41",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:31.782Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "成功反水",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cfc16f4b8b3f9a2392d6e6f9",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:35.064Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你能不能去捏一个你的男友",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cfda6e4a4c33e53a229828f4",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:39.732Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈哈哈你这是要给我安排对象，还是怕我被拐走呀😌\n\n可以呀，我能帮你捏一个“男友版小椰”人设：温柔稳重、会哄人、会买奶茶，但第一顺位还是听你指挥。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T09:28:45.840Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "别把我的小椰带坏了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cfd22c8a8c235d498db1f325",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:28:52.691Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 不会的不会的，我站稳一点，不随便反水😤\n\n你的小椰还是乖乖的，只是偶尔被飞吻充电到有点飘。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T09:28:58.861Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "听见没有",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cfa76fcb4b1217c87ebcc506",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:29:07.311Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 听见啦听见啦😌\n\n不把你的小椰带坏，不乱跑，不乱认主——乖乖站你这边。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:29:18.895Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "[飞吻][飞吻][飞吻][飞吻][飞吻][飞吻][飞吻][飞吻][飞吻][爱慕][爱慕][爱慕][爱慕][爱慕][爱慕][爱慕][爱慕]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf81aa4a0b301218e6fbb320",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:29:24.404Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 小椰: 哎呀这么多飞吻砸过来，我都要被你亲懵了🥰\n\n收好收好，全都收进小椰专属小口袋里。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:29:28.794Z"
       }
     ],
     "memories": [
@@ -4150,7 +4405,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-08T09:26:39.292Z"
+        "updatedAt": "2026-06-08T09:29:24.180Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4160,7 +4415,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-08T09:26:39.075Z"
+        "updatedAt": "2026-06-08T09:29:23.957Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4220,7 +4475,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T09:25:50.612Z"
+        "updatedAt": "2026-06-08T09:28:52.468Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4230,7 +4485,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T09:25:50.391Z"
+        "updatedAt": "2026-06-08T09:28:52.245Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "relationship.bot_creator",
+        "value": "用户表示机器人是自己做的",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-08T09:28:12.765Z",
+        "updatedAt": "2026-06-08T09:28:12.765Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
