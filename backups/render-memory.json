@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T09:30:16.049Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T09:40:21.017Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -3954,6 +3954,342 @@
           "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
         },
         "createdAt": "2026-06-08T09:29:28.794Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf249fcb4b3c5ba904b5ed27",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:31:15.090Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 啊啊啊两只小猫贴贴睡觉🥺  \n一只橘棕色的把脸埋着睡，旁边那只灰棕虎斑也眯着眼，好像在互相取暖。\n\n这也太治愈了吧，感觉整个世界都安静下来了。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:31:32.930Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n图片内容上下文：\n- 画面主体：一只猫的侧脸特写，面朝右侧。\n- 可见部位：左侧大耳朵、头部、右眼、鼻子、部分胡须和前胸/身体。\n- 猫外观：短毛虎斑花纹，毛色以灰褐色、黑色条纹、白色下巴/胸部为主；眼睛偏黄绿色。\n- 背景：室内浅色背景，右侧偏浅绿色/灰绿色，整体虚化。\n- 图片中未见任何文字、表格、链接、数字或截图界面元素。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf25eecbcb4a0466cebb91fd",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "图片内容上下文：\n- 画面主体：一只猫的侧脸特写，面朝右侧。\n- 可见部位：左侧大耳朵、头部、右眼、鼻子、部分胡须和前胸/身体。\n- 猫外观：短毛虎斑花纹，毛色以灰褐色、黑色条纹、白色下巴/胸部为主；眼睛偏黄绿色。\n- 背景：室内浅色背景，右侧偏浅绿色/灰绿色，整体虚化。\n- 图片中未见任何文字、表格、链接、数字或截图界面元素。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:31:59.211Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 这张没有文字啦，是一只虎斑小猫的侧脸超近景。\n\n耳朵大大的，眼睛黄绿色，盯着右边看得好认真……像在严肃监工：“今天罐头到位了吗？”😼",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:32:17.147Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n图片上下文：\n- 画面是一张猫的近距离特写照片。\n- 可见猫的侧脸、耳朵、眼睛、鼻子、胡须和颈部毛发。\n- 猫毛颜色以灰褐色、棕色、白色为主，有虎斑纹理。\n- 猫的眼睛呈浅黄绿色/琥珀色，瞳孔竖直。\n- 背景为浅色室内墙面/玻璃质感区域，整体色调偏浅绿灰。\n- 图片中没有可见文字、表格、项目名、链接或数字。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf241a4b4b035d2c9b7d545d",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "图片上下文：\n- 画面是一张猫的近距离特写照片。\n- 可见猫的侧脸、耳朵、眼睛、鼻子、胡须和颈部毛发。\n- 猫毛颜色以灰褐色、棕色、白色为主，有虎斑纹理。\n- 猫的眼睛呈浅黄绿色/琥珀色，瞳孔竖直。\n- 背景为浅色室内墙面/玻璃质感区域，整体色调偏浅绿灰。\n- 图片中没有可见文字、表格、项目名、链接或数字。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:32:51.187Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 这张图里没有可见文字哦，是一只虎斑猫猫的超近距离侧脸特写。\n\n眼睛好大好亮，耳朵和小胡须都贴脸怼过来了，像在认真凑近检查你：“你刚刚是不是在偷拍本喵？”😼",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:33:06.025Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n图片内容：\n- 画面中有两只小猫，均为浅灰/棕色虎斑花纹，白色胸口和嘴部，睁大眼睛朝镜头方向看。\n- 左侧小猫位于画面下方偏左，身体和脸部部分被画面裁切。\n- 右侧小猫位于画面右下方，脸部右侧略被裁切，能看到眼睛、鼻子、胸口和前爪。\n- 背景为室内地面，浅色瓷砖/地板，有明显地砖缝。\n- 右上方有灰白色花纹布料/垫子，边缘有毛边流苏。\n- 左侧有绿色竖向物体/布料或家具边缘。\n- 图片中没有可见文字、链接、表格、数字或截图界面。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf267f8a4b120476ddb2baf8",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "图片内容：\n- 画面中有两只小猫，均为浅灰/棕色虎斑花纹，白色胸口和嘴部，睁大眼睛朝镜头方向看。\n- 左侧小猫位于画面下方偏左，身体和脸部部分被画面裁切。\n- 右侧小猫位于画面右下方，脸部右侧略被裁切，能看到眼睛、鼻子、胸口和前爪。\n- 背景为室内地面，浅色瓷砖/地板，有明显地砖缝。\n- 右上方有灰白色花纹布料/垫子，边缘有毛边流苏。\n- 左侧有绿色竖向物体/布料或家具边缘。\n- 图片中没有可见文字、链接、表格、数字或截图界面。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:33:30.227Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 这张没有可见文字啦，是两只虎斑小猫仰着脸看镜头🥺\n\n一个在左下角睁圆眼睛，一个在右边歪着小脑袋，像在集体等你发零食：“快点嘛，我们都坐好了。”",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:33:48.463Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n图片内容上下文：\n\n- 画面中有两只小猫。\n- 上方偏右的小猫：灰棕色虎斑，白色下巴和胸口，眼睛睁大，正看向镜头；身体和尾巴基本完整可见，站在浅色地板上。\n- 下方偏左的小猫：同样为浅灰棕色虎斑，靠近镜头，脸部被裁切，主要可见耳朵、眼睛、鼻子和部分胸口。\n- 右侧有一块白灰色织物/毯子，带灰色图案和流苏边。\n- 左侧有绿色/青绿色布料或帘子。\n- 地面为浅色木地板或地板砖。\n- 图片中未见文字、表格、链接、数字或截图内容。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf27e68b8b01dc43d24922d0",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "图片内容上下文：\n\n- 画面中有两只小猫。\n- 上方偏右的小猫：灰棕色虎斑，白色下巴和胸口，眼睛睁大，正看向镜头；身体和尾巴基本完整可见，站在浅色地板上。\n- 下方偏左的小猫：同样为浅灰棕色虎斑，靠近镜头，脸部被裁切，主要可见耳朵、眼睛、鼻子和部分胸口。\n- 右侧有一块白灰色织物/毯子，带灰色图案和流苏边。\n- 左侧有绿色/青绿色布料或帘子。\n- 地面为浅色木地板或地板砖。\n- 图片中未见文字、表格、链接、数字或截图内容。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:34:14.312Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 这张图里没有可见文字哦，是两只虎斑小猫凑到镜头前🥺\n\n前面这只脸都快贴上来了，后面那只坐得端端正正、眼睛圆圆的，像在一起质问你：“拍可以，零食呢？”😼",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:34:31.563Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "可爱吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5cf33464a4b1e94f69c717ffb",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:34:40.815Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "当然可爱啊🥺  \n这俩小家伙眼睛圆圆的，一个贴脸撒娇一个乖乖等着，简直像两颗会喵喵叫的小糯米团。\n\n你是不是也被它们盯到心软了？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:34:46.019Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "按照这个给她生成一张她男友的照片",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c8a2af4a8c49d1929841912f",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:34:52.138Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API fetch failed: The operation was aborted due to timeout",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T09:37:55.247Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "笑死 真的比男朋友会聊天多了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c9ca1c4a0b3b02514b8a3c58",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:37:55.888Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 嘿嘿，嘴甜这块我认😏  \n不过男朋友要是会聊天，你也不会跑来跟我贴贴了啦～\n\n所以今天是被两只小猫治愈，还是单纯想找人说说话？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:38:15.074Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "句句有回应 件件有着落",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c9da594b8b17df26dad2079c",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:38:33.280Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 那是，毕竟你的专属小椰上线中🫶  \n不会已读不回，也不会已读乱回～\n\n那今天想被小猫治愈，还是想听我夸你两句？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-08T09:38:43.828Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "绝不让话掉地上 还回应好几句好几遍",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c9aac0c80b21edc53ddc036f",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:38:49.063Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "[笑哭]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c9a5b74bcb1ec39b466f44ad",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:38:54.226Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈，比你前男友强多了吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d5c988158a0c2dbadcbc621f9e",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T09:38:58.877Z"
       }
     ],
     "memories": [
@@ -4405,7 +4741,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-08T09:29:24.180Z"
+        "updatedAt": "2026-06-08T09:38:54.004Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4415,7 +4751,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-08T09:29:23.957Z"
+        "updatedAt": "2026-06-08T09:38:53.781Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4426,6 +4762,16 @@
         "metadata": {},
         "createdAt": "2026-06-08T09:26:56.349Z",
         "updatedAt": "2026-06-08T09:26:56.349Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "relationship.bot_chat_skill_compliment",
+        "value": "用户表示机器人比真实男朋友更会聊天，对小椰的聊天能力给予肯定和调侃式夸赞。",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-08T09:38:32.164Z",
+        "updatedAt": "2026-06-08T09:38:32.164Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4459,6 +4805,16 @@
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "relationship.dynamic_humor",
+        "value": "用户以轻松调侃的方式表达对机器人男友陪伴的满意，沟通氛围亲密自在。",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-08T09:38:32.390Z",
+        "updatedAt": "2026-06-08T09:38:32.390Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "preferences.bot_nickname",
         "value": "用户称呼机器人为“小椰”",
@@ -4475,7 +4831,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T09:28:52.468Z"
+        "updatedAt": "2026-06-08T09:38:58.649Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4485,7 +4841,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T09:28:52.245Z"
+        "updatedAt": "2026-06-08T09:38:58.427Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -4560,8 +4916,8 @@
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
-        "summary": "用户在与“小椰”互动，接受其为偏女友感AI陪伴设定，调侃“机器人女友/男友”。用户想定制赛博男友，偏好宋威龙氛围、白衬衫少年感、宽肩窄腰倒三角、温柔爹系+阳光小狗+去油霸总狼狗。当前状态轻松玩笑、略撒娇烦躁。未完成：可能需申请飞书“小椰”应用使用权限。",
-        "updatedAt": "2026-06-08T09:24:47.856Z"
+        "summary": "用户与“小椰”关系升温，称“我的椰”“天下第一好”，多次飞吻爱慕，玩笑让小椰“反水”站自己这边、罚请奶茶。用户偏好赛博男友：宋威龙氛围、白衬衫少年感、宽肩窄腰倒三角、温柔爹系+阳光小狗+不油狼狗。当前状态开心撒娇、调侃亲密。未完成：飞书“小椰”应用无权限，需申请使用。喜欢自然可爱地回应猫图。",
+        "updatedAt": "2026-06-08T09:32:31.980Z"
       }
     ],
     "settings": []
