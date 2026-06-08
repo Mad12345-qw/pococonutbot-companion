@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T06:05:24.530Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T06:15:28.831Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -2169,6 +2169,126 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T05:58:19.416Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "可以干啥呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6d518e8c40a0b16b776cc5ee01c",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "voiceDurationMs": 1000
+        },
+        "createdAt": "2026-06-08T06:07:05.125Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 可以陪你聊天、哄你放松，也能帮你干活呀～  \n\n比如写文案、做海报提示词、起直播话术、整理资料、写代码、翻译润色、做计划、想创意都行。你现在想玩点轻松的，还是想让我帮你办件正事？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T06:07:09.924Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d518f3464a4b30a06e762f839a",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T06:07:31.329Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈哈这张像是我一大早给你发“GitHub 今日热榜”的截图诶，信息量好大。  \n\n不过排版有点挤，最后几条还被输入框挡住了；要是你想发朋友圈/做展示，我可以帮你把它整理成更清爽的日报版。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T06:07:47.848Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "我看看这个仓库总结的内容怎么样",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6d518c6df8b0b274883ff931d57",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "voiceDurationMs": 3000
+        },
+        "createdAt": "2026-06-08T06:08:01.520Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 可以呀，你把仓库总结的文字发我，或者把截图再贴清楚一点。  \n\n我可以帮你看它有没有讲清楚：项目是干嘛的、核心功能、适合谁用、亮点/风险、安装使用是否完整。也能顺手帮你改成更像“技术日报/项目推荐”的版本～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T06:08:17.268Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我整理下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d518a4d68c0c1b3c127c14badb",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-08T06:08:22.338Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 可以呀，把仓库总结内容发我就行，我帮你整理成清爽版。  \n\n我可以按这种格式来：项目一句话介绍、核心功能、技术亮点、适用场景、安装使用、注意事项/风险、推荐指数。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T06:08:39.183Z"
       }
     ],
     "memories": [
@@ -2460,7 +2580,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.893Z",
-        "updatedAt": "2026-06-08T05:58:04.161Z"
+        "updatedAt": "2026-06-08T06:08:22.118Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -2470,7 +2590,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
-        "updatedAt": "2026-06-08T05:58:03.920Z"
+        "updatedAt": "2026-06-08T06:08:21.898Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -2505,6 +2625,12 @@
         "userId": "8611360712",
         "summary": "**用户**：sean Mad（@madhuang）\n\n**关系进展**：暂无历史，对话处于初识/破冰阶段。用户称对方为\"小椰\"，语气偏轻松亲昵。\n\n**用户当前状态**：\n- 多次发送图片，但因格式问题（`application/octet-stream`）识别失败，AI 无法查看\n- 多次发送语音消息，均未成功转写，AI 未听到内容\n- 持续尝试让 AI 识别\"这是谁\"（疑似人物照片）\n- 已明确不接受换种方式重发的建议\n\n**未完成事项**：\n- 用户希望 AI 分析/识别一张长发白衣女性照片\n- 用户语音内容始终未传达，需引导用文字重述\n\n**重要偏好**：\n- 偏好直接互动，对\"请重发/打字\"等引导回应略显急躁（多次说\"继续\"）\n- 希望 AI 能直接处理图片和语音，减少中转步骤\n- 不愿做人脸身份识别（已委婉拒绝）",
         "updatedAt": "2026-06-08T03:22:52.552Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "summary": "用户称呼助手为“小椰”，偏好亲切、自然、带一点撒娇感的回复。关系处于轻松陪伴与工具协作阶段，用户会测试助手是否在线/能否听到，也会询问能力范围。用户曾请求生成“抖音直播截图”，需注意避免制作可冒充真实平台截图的误导性内容，可改为直播风格海报、虚构界面或合规 mockup。用户已成功请求生成雪茄电商图。当前未完成事项：用户想查看并整理某个 GitHub 仓库总结内容，助手已建议按“项目一句话介绍、核心功能、技术亮点、适用场景、安装使用、风险/注意事项、推荐指数”整理，等待用户提供文字或更清晰截图。",
+        "updatedAt": "2026-06-08T06:09:04.627Z"
       }
     ],
     "settings": []
