@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:43:35.112Z",
+  "exportedAt": "2026-06-08T05:55:44.788Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -2450,7 +2450,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-08T05:41:29.704Z"
+        "updatedAt": "2026-06-08T05:43:35.307Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -2460,7 +2460,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-08T05:41:29.485Z"
+        "updatedAt": "2026-06-08T05:43:35.094Z"
       }
     ],
     "summaries": [
