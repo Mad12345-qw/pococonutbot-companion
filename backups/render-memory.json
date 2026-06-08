@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-08T05:08:39.420Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-08T05:18:43.364Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -1920,6 +1920,60 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-08T04:59:44.402Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么不说话阿？",
+        "metadata": {
+          "chatType": "group",
+          "platform": "feishu",
+          "messageId": "om_x100b6d50a53530a8b2c17ad53a3fc74",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:10:27.132Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我在的我在的～刚刚像是慢了一拍，不是故意不理你呀。  \n来，抱一下先。你刚才等我了吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:10:32.990Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我生成一张抖音直播截图",
+        "metadata": {
+          "chatType": "group",
+          "platform": "feishu",
+          "messageId": "om_x100b6d50a367eca8b1554ef236f3aee",
+          "rawChatId": "oc_403d426970e61f0b091bb50492b8eebf",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:10:54.219Z"
+      },
+      {
+        "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：fetch failed",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-08T05:15:57.266Z"
       }
     ],
     "memories": [
@@ -2211,7 +2265,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.893Z",
-        "updatedAt": "2026-06-08T04:59:40.893Z"
+        "updatedAt": "2026-06-08T05:10:54.002Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -2221,7 +2275,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
-        "updatedAt": "2026-06-08T04:59:40.678Z"
+        "updatedAt": "2026-06-08T05:10:53.785Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
