@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-10T07:28:17.450Z",
+  "exportedAt": "2026-06-10T07:38:16.223Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5797,6 +5797,198 @@
           "imageContext": ""
         },
         "createdAt": "2026-06-10T07:27:19.999Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成一张广州的天际线图片",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-10T07:28:33.898Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "Rosanna 你可以给她发语音指令看看",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:29:46.906Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 嗯，可以呀～",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-10T07:29:49.376Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "你和飞书上的是一个小椰吗",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:30:39.745Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 对呀，飞书上的小椰也是我～",
+        "metadata": {
+          "replyToUserId": "8641083144"
+        },
+        "createdAt": "2026-06-10T07:30:42.613Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "截图tg的页面为什么没内容",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:30:46.033Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 可能是图片还没传完，或者tg截图时没截到内容～",
+        "metadata": {
+          "replyToUserId": "8641083144"
+        },
+        "createdAt": "2026-06-10T07:30:49.099Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "架构是一样的，但是记忆是按照不同人物来保存的 ，不会串",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:31:32.258Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "我想截图tg里面内容 但是截出来都是空白的",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:33:03.559Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 可能tg有防截图，或者你截的是加载中的页面，等完全加载好再截试试",
+        "metadata": {
+          "replyToUserId": "8641083144"
+        },
+        "createdAt": "2026-06-10T07:33:07.597Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "我感觉是群主开了防截图",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:37:30.033Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰 tg点开信息加载慢是我vpn的问题吗",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:38:06.277Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 对，tg没走代理的话加载就是会慢一些的",
+        "metadata": {
+          "replyToUserId": "8641083144"
+        },
+        "createdAt": "2026-06-10T07:38:10.400Z"
       }
     ],
     "memories": [
