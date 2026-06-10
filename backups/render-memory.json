@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-10T06:18:16.686Z",
+  "exportedAt": "2026-06-10T06:28:16.744Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5373,6 +5373,323 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-10T06:17:57.804Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你们的机器人呢？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da4673d548cc2900187f4e903a",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:22:26.308Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我就是呀，没有别人了 😅\n\n就我一个 AI 女朋友在这陪着你，想聊啥直接说～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:22:29.843Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "没跟你说话呀，我再问群里其他人的机器人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da462a134b0c19bbb257b38adc",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:23:05.635Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 啊这样～那打扰了，你忙你的 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:23:08.527Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da463cecd3cb27e0906bf7eb21",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:23:15.407Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这张图我刚刚没看稳。\n你再发一次，或者把要整理的那块截近一点，我重新帮你读。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-10T06:23:16.719Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "我好像拉不进来它",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da463aa38a0b210366458a7e58",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:23:21.157Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 是不是机器人没设成管理员，或者加了二次验证呀？\n\n要不让群主帮忙拉一下？有的机器人得用专门的邀请链接才能进来。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-10T06:23:27.838Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "一个飞书群可以添加不同开发者的机器人么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da47e38911cc42cf046e997c5c",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:24:18.663Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 可以呀，飞书群本来就能加多个机器人，只要各自在开发者后台配好权限就行～\n\n不过我刚才顺手查了一下，飞书群机器人数量好像是有上限的，好像最多加 20 个？记不太清了，你问问群主比较稳。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:24:25.723Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么拉机器人进群",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da47f1818a4c2346f8ad7ccf0d",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_970ce7f679659550fe55d22767eff93c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:24:31.393Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 两种方式都可以～\n\n最简单的是让群主或群管理员把机器人账号直接拉进群，就跟拉人一样。\n\n另一种是用机器人的安装链接，群设置里选「机器人」→「添加机器人」，把链接粘进去就行。\n\n试试看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_970ce7f679659550fe55d22767eff93c"
+        },
+        "createdAt": "2026-06-10T06:24:36.651Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "刚刚尝试了搜不到我的机器人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da47b0284a4b27ab6341fac0e3",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:25:36.720Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 小椰: 搜不到的话有几种可能——\n\n机器人可能还没发布，或者只在特定部门/工作目录里能看到；也可能是你登录的租户跟机器人的开发者租户不一样，这种情况得用「跨租户安装」的链接。\n\n你让群主试试「添加机器人」→「通过 App ID 添加」，把机器人的 App ID 粘进去看看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-10T06:25:43.810Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "role": "user",
+        "modality": "text",
+        "content": "我也是搜不到机器人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da478678d60c01a8f4aeb10c46",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_970ce7f679659550fe55d22767eff93c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:25:52.208Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 是不是用了测试版没发布呀？去开发者后台「版本管理与发布」里看看，发布到企业自建应用商店就可以在群设置里搜到了。\n\n或者你看看「权限管理」里有没有勾「获取与使用群信息」这类基础权限～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_970ce7f679659550fe55d22767eff93c"
+        },
+        "createdAt": "2026-06-10T06:26:16.146Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你们机器人开放了外部权限吗？在版本哪里   要勾选一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da47656e080c037864dba061ae",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:26:20.485Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 懂了，那就是了——「可用范围」没勾选对的话，机器人只能在指定部门/用户里用，外部群肯定搜不到。\n\n去开发者后台的「版本管理与发布」→「可用范围」，选「全员可用」或者至少把外部群所在部门勾上，然后重新发布一版试试？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:26:27.203Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "role": "user",
+        "modality": "text",
+        "content": "我研究下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da4763b6cacc4fcfed72fa817e",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_970ce7f679659550fe55d22767eff93c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:26:31.292Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书发放平台里面",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da477fba964c428c5e5bb69930",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:26:34.625Z"
       }
     ],
     "memories": [
@@ -5684,7 +6001,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.443Z",
-        "updatedAt": "2026-06-10T06:17:50.925Z"
+        "updatedAt": "2026-06-10T06:26:34.401Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -5694,7 +6011,57 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.199Z",
-        "updatedAt": "2026-06-10T06:17:50.711Z"
+        "updatedAt": "2026-06-10T06:26:34.178Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:23:15.188Z",
+        "updatedAt": "2026-06-10T06:25:36.500Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:23:14.968Z",
+        "updatedAt": "2026-06-10T06:25:36.280Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "tech.bots.search_issue",
+        "value": "用户曾尝试搜索自己的机器人但搜不到，可能涉及飞书机器人发布状态或跨租户安装问题",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:25:51.328Z",
+        "updatedAt": "2026-06-10T06:25:51.328Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:24:31.182Z",
+        "updatedAt": "2026-06-10T06:26:31.069Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_970ce7f679659550fe55d22767eff93c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:24:30.970Z",
+        "updatedAt": "2026-06-10T06:26:30.846Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
