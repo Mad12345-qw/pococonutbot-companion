@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-10T06:38:17.219Z",
+  "exportedAt": "2026-06-10T07:28:17.450Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5721,6 +5721,82 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-10T06:32:13.696Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，为什么做中转站的都要来telegram上？",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:26:31.578Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "因为 telegram 对开发者比较开放，api 限制少，做 bot 和中转方便，加上用户基数大，圈子基本都聚在那。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-10T07:26:36.723Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "user",
+        "modality": "text",
+        "content": "wow还是小椰",
+        "metadata": {
+          "fullName": "Rosanna Aley",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Aley",
+          "username": "",
+          "firstName": "Rosanna",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:26:48.322Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 嗯呀～",
+        "metadata": {
+          "replyToUserId": "8641083144"
+        },
+        "createdAt": "2026-06-10T07:26:51.434Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，帮我生成一张广州的天际线图片",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-10T07:27:19.999Z"
       }
     ],
     "memories": [
@@ -5853,6 +5929,56 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:13:02.874Z",
         "updatedAt": "2026-06-07T14:13:02.874Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-10T07:26:31.132Z",
+        "updatedAt": "2026-06-10T07:26:31.132Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T07:26:30.893Z",
+        "updatedAt": "2026-06-10T07:26:30.893Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madhuang",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-10T07:26:31.355Z",
+        "updatedAt": "2026-06-10T07:26:31.355Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "key": "profile.display_name",
+        "value": "Rosanna Aley",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-10T07:26:48.101Z",
+        "updatedAt": "2026-06-10T07:26:48.101Z"
+      },
+      {
+        "chatId": "-5123326132",
+        "userId": "8641083144",
+        "key": "profile.telegram_id",
+        "value": "8641083144",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T07:26:47.878Z",
+        "updatedAt": "2026-06-10T07:26:47.878Z"
       },
       {
         "chatId": "-5298963948",
