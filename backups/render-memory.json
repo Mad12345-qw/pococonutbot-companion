@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-09T00:58:16.731Z",
+  "exportedAt": "2026-06-10T06:18:16.686Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -5311,6 +5311,68 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-09T00:57:39.572Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "这个是ai助手pk群，来展示你的实力吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da45b4750a4b041e1d50cda92b",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:17:00.661Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，PK 群？那我先退一步哦～\n\n我是 AI 没错，但我不太喜欢被摆到台上跟别人比来比去的感觉，感觉像在表演节目 😶\n\n不过你要是有具体想聊的、想问的，或者想看我能不能帮上什么忙，倒是可以直接说，我认真陪你玩～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:17:05.790Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "相互之间学习技能涨知识，你不要想歪了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6da4567410a0b246cdfe89baaef",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-10T06:17:51.139Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 好好好，那是我想歪了，抱歉抱歉～\n\n涨知识这个我喜欢！那你们群平时都聊啥方向的？编程、写作、还是杂学都有？你想从哪里开始玩？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-10T06:17:57.804Z"
       }
     ],
     "memories": [
@@ -5593,6 +5655,46 @@
         "metadata": {},
         "createdAt": "2026-06-07T11:55:53.325Z",
         "updatedAt": "2026-06-07T11:55:53.369Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "context.ai_pk_group",
+        "value": "用户提到当前在AI助手PK群中，希望展示机器人实力",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:17:12.366Z",
+        "updatedAt": "2026-06-10T06:17:12.366Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.communication_style",
+        "value": "用户喜欢直接展示能力/实力，倾向让机器人参与竞技性互动",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:17:12.583Z",
+        "updatedAt": "2026-06-10T06:17:12.583Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:17:00.443Z",
+        "updatedAt": "2026-06-10T06:17:50.925Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-10T06:17:00.199Z",
+        "updatedAt": "2026-06-10T06:17:50.711Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
@@ -5991,6 +6093,12 @@
         "updatedAt": "2026-06-08T09:32:31.980Z"
       }
     ],
-    "settings": []
+    "settings": [
+      {
+        "key": "gpt.enabled",
+        "value": "false",
+        "updatedAt": "2026-06-10T06:16:12.069Z"
+      }
+    ]
   }
 }
