@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T04:37:18.219Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-11T04:47:24.941Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -6008,6 +6008,44 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-11T04:31:11.088Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "[惊喜]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d97f37a34a4c42216d01dafabd",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T04:38:55.037Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "新建项目：客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d9780aa04a0c4a2ad6053c0ccd",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T04:43:22.231Z"
       }
     ],
     "memories": [
@@ -6479,7 +6517,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.874Z",
-        "updatedAt": "2026-06-11T04:31:10.874Z"
+        "updatedAt": "2026-06-11T04:43:22.014Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6489,7 +6527,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.638Z",
-        "updatedAt": "2026-06-11T04:31:10.638Z"
+        "updatedAt": "2026-06-11T04:43:21.801Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T04:38:54.816Z",
+        "updatedAt": "2026-06-11T04:38:54.816Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T04:38:54.594Z",
+        "updatedAt": "2026-06-11T04:38:54.594Z"
       },
       {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
@@ -6962,6 +7020,168 @@
         },
         "createdAt": "2026-06-11T04:31:11.306Z",
         "updatedAt": "2026-06-11T04:32:14.050Z"
+      },
+      {
+        "id": "P-20260611-4EF7B9",
+        "platform": "feishu",
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "ownerUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "title": "测试飞书文档和表格生成功能测试项目",
+        "clientName": "测试品牌",
+        "productName": "测试产品",
+        "briefText": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+        "status": "ready",
+        "metadata": {
+          "analysis": {
+            "title": "测试飞书文档和表格生成功能测试项目",
+            "audience": [
+              "内部测试团队"
+            ],
+            "channels": [
+              "小红书",
+              "抖音"
+            ],
+            "objective": "测试飞书文档和表格生成功能",
+            "assetNeeds": [
+              {
+                "usage": "用于输出市场与平台调研结果",
+                "module": "调研文档",
+                "keywords": [
+                  "飞书文档生成",
+                  "功能测试",
+                  "调研模板",
+                  "结构化调研"
+                ],
+                "assetType": "飞书文档",
+                "licenseNote": "内部测试使用，无需外部授权"
+              },
+              {
+                "usage": "用于输出项目方案骨架",
+                "module": "方案框架",
+                "keywords": [
+                  "方案框架",
+                  "功能测试",
+                  "执行计划",
+                  "交付物结构"
+                ],
+                "assetType": "飞书文档",
+                "licenseNote": "内部测试使用，无需外部授权"
+              },
+              {
+                "usage": "用于登记与跟踪素材需求",
+                "module": "素材需求表",
+                "keywords": [
+                  "飞书表格生成",
+                  "素材需求",
+                  "字段定义",
+                  "内容任务清单"
+                ],
+                "assetType": "飞书表格",
+                "licenseNote": "内部测试使用，无需外部授权"
+              }
+            ],
+            "clientName": "测试品牌",
+            "missingInfo": [
+              "客户实际业务背景缺失",
+              "产品具体信息缺失",
+              "目标受众真实画像缺失",
+              "小红书投放目的缺失（种草/转化/品牌曝光）",
+              "抖音投放目的缺失（短视频/直播/信息流）",
+              "项目预算与时间节点缺失",
+              "品牌调性与视觉风格指引缺失",
+              "产品核心卖点与差异化缺失",
+              "竞品对标对象缺失",
+              "KPI与考核指标缺失",
+              "飞书文档与表格的具体使用场景缺失",
+              "是否涉及真实账号或测试账号缺失",
+              "数据保密与合规要求缺失"
+            ],
+            "productName": "测试产品",
+            "qaChecklist": [
+              "三大交付物是否按要求生成于飞书",
+              "文档与表格格式是否完整可读",
+              "字段命名是否统一",
+              "占位信息是否清晰标注为测试数据",
+              "缺失信息是否已显式列出而非编造",
+              "是否区分真实业务与功能测试边界"
+            ],
+            "briefSummary": "本 brief 为功能测试性质，客户与产品均为占位信息，目标仅为验证飞书文档与表格生成能力，渠道仅列出小红书与抖音，交付物为调研文档、方案框架、素材需求表三类。由于缺少预算、节奏、KPI、受众、卖点等关键信息，已全部归入 missingInfo，不做虚构填充。",
+            "contentTasks": [
+              "[object Object]",
+              "[object Object]",
+              "[object Object]",
+              "[object Object]"
+            ],
+            "deliverables": [
+              "调研文档",
+              "方案框架",
+              "素材需求表"
+            ],
+            "marketingAngles": [
+              "功能测试验证角度",
+              "文档生成流程验证角度"
+            ],
+            "coreSellingPoints": [
+              "本项目为内部功能验证性质，不涉及真实商业卖点"
+            ],
+            "frameworkSections": [
+              {
+                "title": "项目背景与测试目标",
+                "bullets": [
+                  "客户与产品基本信息（占位说明）",
+                  "功能测试核心目标",
+                  "测试范围与不测试范围说明"
+                ],
+                "purpose": "说明本次功能测试的来源、目的与边界"
+              },
+              {
+                "title": "渠道与平台说明",
+                "bullets": [
+                  "小红书渠道用途",
+                  "抖音渠道用途",
+                  "渠道在测试阶段的角色定位"
+                ],
+                "purpose": "列明本次涉及的小红书与抖音渠道用途"
+              },
+              {
+                "title": "交付物说明",
+                "bullets": [
+                  "调研文档说明",
+                  "方案框架说明",
+                  "素材需求表说明"
+                ],
+                "purpose": "明确三大交付物的内容与用途"
+              },
+              {
+                "title": "执行计划",
+                "bullets": [
+                  "阶段划分",
+                  "任务分解",
+                  "责任人与协作方式"
+                ],
+                "purpose": "对测试任务的执行节奏与分工做框架性安排"
+              },
+              {
+                "title": "风险与限制",
+                "bullets": [
+                  "信息缺失导致的风险",
+                  "平台规则风险",
+                  "数据真实性风险"
+                ],
+                "purpose": "识别功能测试阶段的潜在风险与限制"
+              }
+            ],
+            "researchDirections": [
+              "飞书文档与表格生成 API 能力调研",
+              "小红书内容生态与测试账号机制",
+              "抖音内容生态与测试账号机制",
+              "同类功能测试项目交付标准调研",
+              "调研文档模板结构调研"
+            ]
+          }
+        },
+        "createdAt": "2026-06-11T04:43:22.444Z",
+        "updatedAt": "2026-06-11T04:43:54.102Z"
       }
     ],
     "projectTasks": [
@@ -7068,6 +7288,165 @@
         "error": "",
         "createdAt": "2026-06-11T04:32:06.782Z",
         "updatedAt": "2026-06-11T04:32:06.782Z"
+      },
+      {
+        "id": "2",
+        "projectId": "P-20260611-4EF7B9",
+        "agentType": "brief_agent",
+        "status": "completed",
+        "input": {
+          "briefText": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试"
+        },
+        "output": {
+          "title": "测试飞书文档和表格生成功能测试项目",
+          "audience": [
+            "内部测试团队"
+          ],
+          "channels": [
+            "小红书",
+            "抖音"
+          ],
+          "objective": "测试飞书文档和表格生成功能",
+          "assetNeeds": [
+            {
+              "usage": "用于输出市场与平台调研结果",
+              "module": "调研文档",
+              "keywords": [
+                "飞书文档生成",
+                "功能测试",
+                "调研模板",
+                "结构化调研"
+              ],
+              "assetType": "飞书文档",
+              "licenseNote": "内部测试使用，无需外部授权"
+            },
+            {
+              "usage": "用于输出项目方案骨架",
+              "module": "方案框架",
+              "keywords": [
+                "方案框架",
+                "功能测试",
+                "执行计划",
+                "交付物结构"
+              ],
+              "assetType": "飞书文档",
+              "licenseNote": "内部测试使用，无需外部授权"
+            },
+            {
+              "usage": "用于登记与跟踪素材需求",
+              "module": "素材需求表",
+              "keywords": [
+                "飞书表格生成",
+                "素材需求",
+                "字段定义",
+                "内容任务清单"
+              ],
+              "assetType": "飞书表格",
+              "licenseNote": "内部测试使用，无需外部授权"
+            }
+          ],
+          "clientName": "测试品牌",
+          "missingInfo": [
+            "客户实际业务背景缺失",
+            "产品具体信息缺失",
+            "目标受众真实画像缺失",
+            "小红书投放目的缺失（种草/转化/品牌曝光）",
+            "抖音投放目的缺失（短视频/直播/信息流）",
+            "项目预算与时间节点缺失",
+            "品牌调性与视觉风格指引缺失",
+            "产品核心卖点与差异化缺失",
+            "竞品对标对象缺失",
+            "KPI与考核指标缺失",
+            "飞书文档与表格的具体使用场景缺失",
+            "是否涉及真实账号或测试账号缺失",
+            "数据保密与合规要求缺失"
+          ],
+          "productName": "测试产品",
+          "qaChecklist": [
+            "三大交付物是否按要求生成于飞书",
+            "文档与表格格式是否完整可读",
+            "字段命名是否统一",
+            "占位信息是否清晰标注为测试数据",
+            "缺失信息是否已显式列出而非编造",
+            "是否区分真实业务与功能测试边界"
+          ],
+          "briefSummary": "本 brief 为功能测试性质，客户与产品均为占位信息，目标仅为验证飞书文档与表格生成能力，渠道仅列出小红书与抖音，交付物为调研文档、方案框架、素材需求表三类。由于缺少预算、节奏、KPI、受众、卖点等关键信息，已全部归入 missingInfo，不做虚构填充。",
+          "contentTasks": [
+            "[object Object]",
+            "[object Object]",
+            "[object Object]",
+            "[object Object]"
+          ],
+          "deliverables": [
+            "调研文档",
+            "方案框架",
+            "素材需求表"
+          ],
+          "marketingAngles": [
+            "功能测试验证角度",
+            "文档生成流程验证角度"
+          ],
+          "coreSellingPoints": [
+            "本项目为内部功能验证性质，不涉及真实商业卖点"
+          ],
+          "frameworkSections": [
+            {
+              "title": "项目背景与测试目标",
+              "bullets": [
+                "客户与产品基本信息（占位说明）",
+                "功能测试核心目标",
+                "测试范围与不测试范围说明"
+              ],
+              "purpose": "说明本次功能测试的来源、目的与边界"
+            },
+            {
+              "title": "渠道与平台说明",
+              "bullets": [
+                "小红书渠道用途",
+                "抖音渠道用途",
+                "渠道在测试阶段的角色定位"
+              ],
+              "purpose": "列明本次涉及的小红书与抖音渠道用途"
+            },
+            {
+              "title": "交付物说明",
+              "bullets": [
+                "调研文档说明",
+                "方案框架说明",
+                "素材需求表说明"
+              ],
+              "purpose": "明确三大交付物的内容与用途"
+            },
+            {
+              "title": "执行计划",
+              "bullets": [
+                "阶段划分",
+                "任务分解",
+                "责任人与协作方式"
+              ],
+              "purpose": "对测试任务的执行节奏与分工做框架性安排"
+            },
+            {
+              "title": "风险与限制",
+              "bullets": [
+                "信息缺失导致的风险",
+                "平台规则风险",
+                "数据真实性风险"
+              ],
+              "purpose": "识别功能测试阶段的潜在风险与限制"
+            }
+          ],
+          "researchDirections": [
+            "飞书文档与表格生成 API 能力调研",
+            "小红书内容生态与测试账号机制",
+            "抖音内容生态与测试账号机制",
+            "同类功能测试项目交付标准调研",
+            "调研文档模板结构调研"
+          ]
+        },
+        "error": "",
+        "createdAt": "2026-06-11T04:43:47.634Z",
+        "updatedAt": "2026-06-11T04:43:47.634Z"
       }
     ],
     "projectArtifacts": [
@@ -7138,6 +7517,85 @@
           "feishuTitle": "P-20260611-85DFB0 素材需求表"
         },
         "createdAt": "2026-06-11T04:32:13.617Z"
+      },
+      {
+        "id": "4",
+        "projectId": "P-20260611-4EF7B9",
+        "artifactType": "research_doc",
+        "title": "P-20260611-4EF7B9 调研文档",
+        "url": "https://www.feishu.cn/docx/KGxhdaMa4oDL14xSuGgc1Or8nSd",
+        "token": "KGxhdaMa4oDL14xSuGgc1Or8nSd",
+        "contentSummary": "# 测试飞书文档和表格生成功能测试项目｜调研文档\n\n## 说明\n这是第一阶段自动生成的调研骨架，当前基于 brief 和模型推理，不等同于已联网核验的事实。正式交付前，需要补充来源链接、产品资料和竞品证据。\n\n## 项目摘要\n- 项目编号：P-20260611-4EF7B9\n- 客户/品牌：测试品牌\n- 产品/服务：测试产品\n- 核心目标：测试飞书文档和表格生成功能\n\n## Brief 摘要\n本 brief 为功能测试性质，客户与产品均为占位信息，目标仅为验证飞书文档与表格生成能力，渠道仅列出小红书与抖音，交付物为调研文档、方案框架、素材需求表三类。由于缺少预算、节奏、KPI、受众、卖点等关键信息，已全部归入 missingInfo，不做虚构填充。\n\n## 目标人群假设\n- 内部测试团队\n\n## 产品主要卖点\n- 本项目为内部功能验证性质，不涉及真实商业卖点\n\n## 适合营销的方向\n- 功能测试验证角度\n- 文档生成流程验证角度\n\n## 需要继续调研的问题\n- 飞书文档与表格生成 API 能力调研\n- 小红书内容生态与测试账号机制\n- 抖音内容生态与测试账号机制\n- 同类功能测试项目交付标准调研\n- 调研文档模板结构调研\n\n## 缺失信息\n- 客户实际业务背景缺失\n- 产品具体信息缺失\n- 目标受众真实画像缺失\n- 小红书投放目的缺失（种草/转化/品牌曝光）\n- 抖音投放目的缺失（短视频/直播/信息流）\n- 项目预算与时间节点缺失\n- 品牌调性与视觉风格指引缺失\n- 产品核心卖点与差异化缺失\n- 竞品对标对象缺失\n- KPI与考核指标缺失\n- 飞书文档与表格的具体使用场景缺失\n- 是否涉及真实账号或测试账号缺失\n- 数据保密与合规要求缺失",
+        "metadata": {
+          "writeError": "Feishu workspace API failed 400: {\"code\":1770001,\"msg\":\"invalid param\",\"error\":{\"helps\":[{\"description\":\"确认参数是否合法\"}],\"log_id\":\"2026061112434885F9F1057ECB12FF1A00\",\"troubleshooter\":\"排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=2026061112434885F9F1057ECB12FF1A00&code=1770001&method_id=7055124481601699842\"}}",
+          "feishuTitle": "P-20260611-4EF7B9 调研文档"
+        },
+        "createdAt": "2026-06-11T04:43:49.497Z"
+      },
+      {
+        "id": "5",
+        "projectId": "P-20260611-4EF7B9",
+        "artifactType": "framework_doc",
+        "title": "P-20260611-4EF7B9 方案框架",
+        "url": "https://www.feishu.cn/docx/L745dvYtNo8xsUxkdJrciXDEnmt",
+        "token": "L745dvYtNo8xsUxkdJrciXDEnmt",
+        "contentSummary": "# 测试飞书文档和表格生成功能测试项目｜方案框架\n\n## 方案定位\n- 项目编号：P-20260611-4EF7B9\n- 核心目标：测试飞书文档和表格生成功能\n- 建议渠道：小红书、抖音\n- 交付物：调研文档、方案框架、素材需求表\n\n## 推荐 PPT 结构\n## 1. 项目背景与测试目标\n- 模块目的：说明本次功能测试的来源、目的与边界\n- 客户与产品基本信息（占位说明）\n- 功能测试核心目标\n- 测试范围与不测试范围说明\n\n## 2. 渠道与平台说明\n- 模块目的：列明本次涉及的小红书与抖音渠道用途\n- 小红书渠道用途\n- 抖音渠道用途\n- 渠道在测试阶段的角色定位\n\n## 3. 交付物说明\n- 模块目的：明确三大交付物的内容与用途\n- 调研文档说明\n- 方案框架说明\n- 素材需求表说明\n\n## 4. 执行计划\n- 模块目的：对测试任务的执行节奏与分工做框架性安排\n- 阶段划分\n- 任务分解\n- 责任人与协作方式\n\n## 5. 风险与限制\n- 模块目的：识别功能测试阶段的潜在风险与限制\n- 信息缺失导致的风险\n- 平台规则风险\n- 数据真实性风险\n\n## 内容填充任务\n- [object Object]\n- [object Object]\n- [object Object]\n- [object Object]\n\n## 质检清单\n- 三大交付物是否按要求生成于飞书\n- 文档与表格格式是否完整可读\n- 字段命名是否统一\n- 占位信息是否清晰标注为测试数据\n- 缺失信息是否已显式列出而非编造\n- 是否区分真实业务与功能测试边界",
+        "metadata": {
+          "writeError": "Feishu workspace API failed 400: {\"code\":1770001,\"msg\":\"invalid param\",\"error\":{\"helps\":[{\"description\":\"确认参数是否合法\"}],\"log_id\":\"202606111243505A4C42C327D51D09B690\",\"troubleshooter\":\"排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=202606111243505A4C42C327D51D09B690&code=1770001&method_id=7055124481601699842\"}}",
+          "feishuTitle": "P-20260611-4EF7B9 方案框架"
+        },
+        "createdAt": "2026-06-11T04:43:51.332Z"
+      },
+      {
+        "id": "6",
+        "projectId": "P-20260611-4EF7B9",
+        "artifactType": "asset_sheet",
+        "title": "P-20260611-4EF7B9 素材需求表",
+        "url": "https://rcnx3mn0vg5z.feishu.cn/sheets/X0RHsGCsqhTm21tglYdcnr5wn2e",
+        "token": "X0RHsGCsqhTm21tglYdcnr5wn2e",
+        "contentSummary": "项目编号 | 模块 | 素材类型 | 搜索关键词 | 用途 | 版权/来源备注 | 状态\nP-20260611-4EF7B9 | 调研文档 | 飞书文档 | 飞书文档生成 / 功能测试 / 调研模板 / 结构化调研 | 用于输出市场与平台调研结果 | 内部测试使用，无需外部授权 | 待查找\nP-20260611-4EF7B9 | 方案框架 | 飞书文档 | 方案框架 / 功能测试 / 执行计划 / 交付物结构 | 用于输出项目方案骨架 | 内部测试使用，无需外部授权 | 待查找\nP-20260611-4EF7B9 | 素材需求表 | 飞书表格 | 飞书表格生成 / 素材需求 / 字段定义 / 内容任务清单 | 用于登记与跟踪素材需求 | 内部测试使用，无需外部授权 | 待查找",
+        "metadata": {
+          "rows": [
+            [
+              "项目编号",
+              "模块",
+              "素材类型",
+              "搜索关键词",
+              "用途",
+              "版权/来源备注",
+              "状态"
+            ],
+            [
+              "P-20260611-4EF7B9",
+              "调研文档",
+              "飞书文档",
+              "飞书文档生成 / 功能测试 / 调研模板 / 结构化调研",
+              "用于输出市场与平台调研结果",
+              "内部测试使用，无需外部授权",
+              "待查找"
+            ],
+            [
+              "P-20260611-4EF7B9",
+              "方案框架",
+              "飞书文档",
+              "方案框架 / 功能测试 / 执行计划 / 交付物结构",
+              "用于输出项目方案骨架",
+              "内部测试使用，无需外部授权",
+              "待查找"
+            ],
+            [
+              "P-20260611-4EF7B9",
+              "素材需求表",
+              "飞书表格",
+              "飞书表格生成 / 素材需求 / 字段定义 / 内容任务清单",
+              "用于登记与跟踪素材需求",
+              "内部测试使用，无需外部授权",
+              "待查找"
+            ]
+          ],
+          "feishuTitle": "P-20260611-4EF7B9 素材需求表"
+        },
+        "createdAt": "2026-06-11T04:43:53.661Z"
       }
     ],
     "projectSources": [],
