@@ -16,9 +16,10 @@ function columnName(index) {
   return output || "A";
 }
 
-function textBlock(blockType, content) {
+function textBlock(blockTypeOrContent, maybeContent) {
+  const content = maybeContent === undefined ? blockTypeOrContent : maybeContent;
   return {
-    block_type: blockType,
+    block_type: 2,
     text: {
       elements: [
         {
@@ -26,7 +27,8 @@ function textBlock(blockType, content) {
             content: String(content || "").slice(0, 4000)
           }
         }
-      ]
+      ],
+      style: {}
     }
   };
 }
@@ -34,6 +36,11 @@ function textBlock(blockType, content) {
 function markdownLineToBlock(line = "") {
   const raw = String(line || "").trim();
   if (!raw) return null;
+  const normalized = raw
+    .replace(/^#{1,6}\s+/, "")
+    .replace(/^[-*]\s+/, "- ")
+    .replace(/^\d+[.)、]\s+/, "");
+  return textBlock(normalized);
   if (raw.startsWith("### ")) return textBlock(5, raw.slice(4));
   if (raw.startsWith("## ")) return textBlock(4, raw.slice(3));
   if (raw.startsWith("# ")) return textBlock(3, raw.slice(2));
@@ -42,10 +49,20 @@ function markdownLineToBlock(line = "") {
   return textBlock(2, raw);
 }
 
+function markdownLineToTextBlock(line = "") {
+  const raw = String(line || "").trim();
+  if (!raw) return null;
+  const normalized = raw
+    .replace(/^#{1,6}\s+/, "")
+    .replace(/^[-*]\s+/, "- ")
+    .replace(/^\d+[.)\u3001]\s+/, "");
+  return textBlock(normalized);
+}
+
 function markdownToBlocks(markdown = "") {
   return String(markdown || "")
     .split(/\r?\n/)
-    .map(markdownLineToBlock)
+    .map(markdownLineToTextBlock)
     .filter(Boolean)
     .slice(0, 300);
 }
@@ -126,6 +143,9 @@ export class FeishuWorkspaceClient {
       logEvent("warn", "Feishu document created but content write failed", {
         title,
         documentId,
+        blockCount: blocks.length,
+        blockTypes: [...new Set(blocks.map((block) => block.block_type))],
+        firstBlockContentLength: blocks[0]?.text?.elements?.[0]?.text_run?.content?.length || 0,
         error: error.message
       });
     }
