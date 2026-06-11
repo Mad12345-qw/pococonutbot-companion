@@ -86,6 +86,8 @@ export const config = {
   feishuVerificationToken: process.env.FEISHU_VERIFICATION_TOKEN || "",
   feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
   feishuBotName: asCleanText(process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME, "小椰"),
+  feishuProjectFolderToken: process.env.FEISHU_PROJECT_FOLDER_TOKEN || process.env.FEISHU_DRIVE_FOLDER_TOKEN || "",
+  feishuDocBaseUrl: (process.env.FEISHU_DOC_BASE_URL || "https://www.feishu.cn").replace(/\/+$/, ""),
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
   aiUrl: resolveAiEndpoint(process.env.AI_URL || process.env.AI_BASE_URL || process.env.MINIMAX_URL),
   aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",

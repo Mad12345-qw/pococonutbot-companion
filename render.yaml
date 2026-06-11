@@ -83,6 +83,10 @@ services:
         sync: false
       - key: FEISHU_BOT_NAME
         value: 小椰
+      - key: FEISHU_PROJECT_FOLDER_TOKEN
+        sync: false
+      - key: FEISHU_DOC_BASE_URL
+        value: https://www.feishu.cn
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME

@@ -17,6 +17,8 @@ Optional:
 ```env
 FEISHU_VERIFICATION_TOKEN=
 FEISHU_ENCRYPT_KEY=
+FEISHU_PROJECT_FOLDER_TOKEN=
+FEISHU_DOC_BASE_URL=https://www.feishu.cn
 ```
 
 Leave `FEISHU_ENCRYPT_KEY` empty unless you enable encrypted event pushes in Feishu.
@@ -50,6 +52,28 @@ The bot currently supports:
 - Text replies
 - Image generation replies for prompts such as "生成一张海报"
 - Shared AI/persona/memory stack with Telegram, isolated by `feishu:` id prefixes
+
+## Project Workflow Permissions
+
+Phase 1 creates Feishu docs and spreadsheets. In Feishu Open Platform, add and publish these permissions:
+
+```text
+docx:document:create
+docx:document
+sheets:spreadsheet:create
+sheets:spreadsheet
+drive:drive
+```
+
+Project workflow triggers when a Feishu message starts with `新建项目`, `创建项目`, `brief`, or `/project`.
+
+If you want artifacts to land in a fixed folder, create a Feishu Drive folder such as `AI方案工厂`, copy its folder token from the URL, and set:
+
+```env
+FEISHU_PROJECT_FOLDER_TOKEN=fld_xxx
+```
+
+When using `tenant_access_token`, Feishu may also require you to add the app to the target folder or document permissions from the Feishu document UI.
 
 ## Data Isolation
 

@@ -121,6 +121,79 @@ class PostgresStorage {
         updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
       );
 
+      CREATE TABLE IF NOT EXISTS projects (
+        id TEXT PRIMARY KEY,
+        platform TEXT NOT NULL DEFAULT '',
+        chat_id TEXT NOT NULL,
+        owner_user_id TEXT NOT NULL DEFAULT '',
+        title TEXT NOT NULL,
+        client_name TEXT NOT NULL DEFAULT '',
+        product_name TEXT NOT NULL DEFAULT '',
+        brief_text TEXT NOT NULL DEFAULT '',
+        status TEXT NOT NULL DEFAULT 'draft',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_projects_chat_updated
+        ON projects (chat_id, updated_at DESC);
+
+      CREATE TABLE IF NOT EXISTS project_tasks (
+        id BIGSERIAL PRIMARY KEY,
+        project_id TEXT NOT NULL,
+        agent_type TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'pending',
+        input JSONB NOT NULL DEFAULT '{}'::jsonb,
+        output JSONB NOT NULL DEFAULT '{}'::jsonb,
+        error TEXT NOT NULL DEFAULT '',
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_project_tasks_project
+        ON project_tasks (project_id, created_at ASC);
+
+      CREATE TABLE IF NOT EXISTS project_artifacts (
+        id BIGSERIAL PRIMARY KEY,
+        project_id TEXT NOT NULL,
+        artifact_type TEXT NOT NULL,
+        title TEXT NOT NULL,
+        url TEXT NOT NULL DEFAULT '',
+        token TEXT NOT NULL DEFAULT '',
+        content_summary TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_project_artifacts_project
+        ON project_artifacts (project_id, created_at ASC);
+
+      CREATE TABLE IF NOT EXISTS project_sources (
+        id BIGSERIAL PRIMARY KEY,
+        project_id TEXT NOT NULL,
+        source_type TEXT NOT NULL DEFAULT '',
+        title TEXT NOT NULL DEFAULT '',
+        url TEXT NOT NULL DEFAULT '',
+        note TEXT NOT NULL DEFAULT '',
+        reliability TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE TABLE IF NOT EXISTS project_assets (
+        id BIGSERIAL PRIMARY KEY,
+        project_id TEXT NOT NULL,
+        asset_type TEXT NOT NULL DEFAULT '',
+        title TEXT NOT NULL DEFAULT '',
+        url TEXT NOT NULL DEFAULT '',
+        license_note TEXT NOT NULL DEFAULT '',
+        usage_note TEXT NOT NULL DEFAULT '',
+        thumbnail_url TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
       ALTER TABLE conversation_summaries
         ADD COLUMN IF NOT EXISTS user_id TEXT NOT NULL DEFAULT '';
 
@@ -183,7 +256,7 @@ class PostgresStorage {
   }
 
   async exportState() {
-    const [messages, memories, summaries, settings] = await Promise.all([
+    const [messages, memories, summaries, settings, projects, projectTasks, projectArtifacts, projectSources, projectAssets] = await Promise.all([
       this.pool.query(
         `SELECT chat_id AS "chatId", user_id AS "userId", role, modality, content, metadata, created_at AS "createdAt"
          FROM chat_messages
@@ -204,6 +277,38 @@ class PostgresStorage {
         `SELECT key, value, updated_at AS "updatedAt"
          FROM system_settings
          ORDER BY key ASC`
+      ),
+      this.pool.query(
+        `SELECT id, platform, chat_id AS "chatId", owner_user_id AS "ownerUserId", title,
+                client_name AS "clientName", product_name AS "productName", brief_text AS "briefText",
+                status, metadata, created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM projects
+         ORDER BY created_at ASC`
+      ),
+      this.pool.query(
+        `SELECT id, project_id AS "projectId", agent_type AS "agentType", status, input, output, error,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM project_tasks
+         ORDER BY created_at ASC, id ASC`
+      ),
+      this.pool.query(
+        `SELECT id, project_id AS "projectId", artifact_type AS "artifactType", title, url, token,
+                content_summary AS "contentSummary", metadata, created_at AS "createdAt"
+         FROM project_artifacts
+         ORDER BY created_at ASC, id ASC`
+      ),
+      this.pool.query(
+        `SELECT id, project_id AS "projectId", source_type AS "sourceType", title, url, note,
+                reliability, metadata, created_at AS "createdAt"
+         FROM project_sources
+         ORDER BY created_at ASC, id ASC`
+      ),
+      this.pool.query(
+        `SELECT id, project_id AS "projectId", asset_type AS "assetType", title, url,
+                license_note AS "licenseNote", usage_note AS "usageNote", thumbnail_url AS "thumbnailUrl",
+                metadata, created_at AS "createdAt"
+         FROM project_assets
+         ORDER BY created_at ASC, id ASC`
       )
     ]);
 
@@ -211,7 +316,12 @@ class PostgresStorage {
       messages: messages.rows,
       memories: memories.rows,
       summaries: summaries.rows,
-      settings: settings.rows
+      settings: settings.rows,
+      projects: projects.rows,
+      projectTasks: projectTasks.rows,
+      projectArtifacts: projectArtifacts.rows,
+      projectSources: projectSources.rows,
+      projectAssets: projectAssets.rows
     };
   }
 
@@ -223,6 +333,11 @@ class PostgresStorage {
       await client.query("DELETE FROM memories");
       await client.query("DELETE FROM conversation_summaries");
       await client.query("DELETE FROM system_settings");
+      await client.query("DELETE FROM project_assets");
+      await client.query("DELETE FROM project_sources");
+      await client.query("DELETE FROM project_artifacts");
+      await client.query("DELETE FROM project_tasks");
+      await client.query("DELETE FROM projects");
 
       for (const message of state.messages || []) {
         await client.query(
@@ -280,6 +395,105 @@ class PostgresStorage {
            ON CONFLICT (key)
            DO UPDATE SET value = EXCLUDED.value, updated_at = now()`,
           [key.slice(0, 120), value.slice(0, 1000)]
+        );
+      }
+
+      for (const project of state.projects || []) {
+        await client.query(
+          `INSERT INTO projects (id, platform, chat_id, owner_user_id, title, client_name, product_name, brief_text, status, metadata, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+           ON CONFLICT (id)
+           DO UPDATE SET
+             title = EXCLUDED.title,
+             client_name = EXCLUDED.client_name,
+             product_name = EXCLUDED.product_name,
+             brief_text = EXCLUDED.brief_text,
+             status = EXCLUDED.status,
+             metadata = EXCLUDED.metadata,
+             updated_at = EXCLUDED.updated_at`,
+          [
+            String(project.id),
+            String(project.platform || ""),
+            String(project.chatId || project.chat_id || ""),
+            String(project.ownerUserId || project.owner_user_id || ""),
+            String(project.title || "").slice(0, 300),
+            String(project.clientName || project.client_name || "").slice(0, 200),
+            String(project.productName || project.product_name || "").slice(0, 200),
+            String(project.briefText || project.brief_text || ""),
+            String(project.status || "draft").slice(0, 40),
+            JSON.stringify(project.metadata || {}),
+            project.createdAt || project.created_at || new Date().toISOString(),
+            project.updatedAt || project.updated_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const task of state.projectTasks || []) {
+        await client.query(
+          `INSERT INTO project_tasks (project_id, agent_type, status, input, output, error, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [
+            String(task.projectId || task.project_id || ""),
+            String(task.agentType || task.agent_type || ""),
+            String(task.status || "pending"),
+            JSON.stringify(task.input || {}),
+            JSON.stringify(task.output || {}),
+            String(task.error || ""),
+            task.createdAt || task.created_at || new Date().toISOString(),
+            task.updatedAt || task.updated_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const artifact of state.projectArtifacts || []) {
+        await client.query(
+          `INSERT INTO project_artifacts (project_id, artifact_type, title, url, token, content_summary, metadata, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [
+            String(artifact.projectId || artifact.project_id || ""),
+            String(artifact.artifactType || artifact.artifact_type || ""),
+            String(artifact.title || "").slice(0, 300),
+            String(artifact.url || ""),
+            String(artifact.token || ""),
+            String(artifact.contentSummary || artifact.content_summary || ""),
+            JSON.stringify(artifact.metadata || {}),
+            artifact.createdAt || artifact.created_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const source of state.projectSources || []) {
+        await client.query(
+          `INSERT INTO project_sources (project_id, source_type, title, url, note, reliability, metadata, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [
+            String(source.projectId || source.project_id || ""),
+            String(source.sourceType || source.source_type || ""),
+            String(source.title || "").slice(0, 300),
+            String(source.url || ""),
+            String(source.note || ""),
+            String(source.reliability || ""),
+            JSON.stringify(source.metadata || {}),
+            source.createdAt || source.created_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const asset of state.projectAssets || []) {
+        await client.query(
+          `INSERT INTO project_assets (project_id, asset_type, title, url, license_note, usage_note, thumbnail_url, metadata, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+          [
+            String(asset.projectId || asset.project_id || ""),
+            String(asset.assetType || asset.asset_type || ""),
+            String(asset.title || "").slice(0, 300),
+            String(asset.url || ""),
+            String(asset.licenseNote || asset.license_note || ""),
+            String(asset.usageNote || asset.usage_note || ""),
+            String(asset.thumbnailUrl || asset.thumbnail_url || ""),
+            JSON.stringify(asset.metadata || {}),
+            asset.createdAt || asset.created_at || new Date().toISOString()
+          ]
         );
       }
 
@@ -478,6 +692,120 @@ class PostgresStorage {
     await this.pool.query(`DELETE FROM conversation_summaries WHERE chat_id = $1`, [String(chatId)]);
   }
 
+  async createProject(project) {
+    await this.pool.query(
+      `INSERT INTO projects (id, platform, chat_id, owner_user_id, title, client_name, product_name, brief_text, status, metadata)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       ON CONFLICT (id)
+       DO UPDATE SET
+         title = EXCLUDED.title,
+         client_name = EXCLUDED.client_name,
+         product_name = EXCLUDED.product_name,
+         brief_text = EXCLUDED.brief_text,
+         status = EXCLUDED.status,
+         metadata = EXCLUDED.metadata,
+         updated_at = now()`,
+      [
+        String(project.id),
+        String(project.platform || ""),
+        String(project.chatId || ""),
+        String(project.ownerUserId || ""),
+        String(project.title || "").slice(0, 300),
+        String(project.clientName || "").slice(0, 200),
+        String(project.productName || "").slice(0, 200),
+        String(project.briefText || ""),
+        String(project.status || "draft").slice(0, 40),
+        JSON.stringify(project.metadata || {})
+      ]
+    );
+  }
+
+  async updateProject(projectId, updates = {}) {
+    const existing = await this.getProject(projectId);
+    if (!existing) return;
+    await this.createProject({
+      id: existing.id,
+      platform: existing.platform,
+      chatId: existing.chat_id,
+      ownerUserId: existing.owner_user_id,
+      title: updates.title ?? existing.title,
+      clientName: updates.clientName ?? existing.client_name,
+      productName: updates.productName ?? existing.product_name,
+      briefText: updates.briefText ?? existing.brief_text,
+      status: updates.status ?? existing.status,
+      metadata: updates.metadata ?? existing.metadata ?? {}
+    });
+  }
+
+  async getProject(projectId) {
+    const result = await this.pool.query(
+      `SELECT id, platform, chat_id, owner_user_id, title, client_name, product_name, brief_text, status, metadata, created_at, updated_at
+       FROM projects
+       WHERE id = $1`,
+      [String(projectId)]
+    );
+    return result.rows[0] || null;
+  }
+
+  async listProjects(chatId = "", limit = 50) {
+    const hasChat = Boolean(chatId);
+    const result = await this.pool.query(
+      `SELECT id, platform, chat_id, owner_user_id, title, client_name, product_name, status, created_at, updated_at
+       FROM projects
+       ${hasChat ? "WHERE chat_id = $2" : ""}
+       ORDER BY updated_at DESC
+       LIMIT $1`,
+      hasChat ? [limit, String(chatId)] : [limit]
+    );
+    return result.rows;
+  }
+
+  async addProjectTask(task) {
+    const result = await this.pool.query(
+      `INSERT INTO project_tasks (project_id, agent_type, status, input, output, error)
+       VALUES ($1, $2, $3, $4, $5, $6)
+       RETURNING id`,
+      [
+        String(task.projectId || ""),
+        String(task.agentType || ""),
+        String(task.status || "pending"),
+        JSON.stringify(task.input || {}),
+        JSON.stringify(task.output || {}),
+        String(task.error || "")
+      ]
+    );
+    return result.rows[0]?.id;
+  }
+
+  async addProjectArtifact(artifact) {
+    const result = await this.pool.query(
+      `INSERT INTO project_artifacts (project_id, artifact_type, title, url, token, content_summary, metadata)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       RETURNING id`,
+      [
+        String(artifact.projectId || ""),
+        String(artifact.artifactType || ""),
+        String(artifact.title || "").slice(0, 300),
+        String(artifact.url || ""),
+        String(artifact.token || ""),
+        String(artifact.contentSummary || ""),
+        JSON.stringify(artifact.metadata || {})
+      ]
+    );
+    return result.rows[0]?.id;
+  }
+
+  async listProjectArtifacts(projectId) {
+    const result = await this.pool.query(
+      `SELECT id, project_id, artifact_type, title, url, token, content_summary, metadata, created_at
+       FROM project_artifacts
+       WHERE project_id = $1
+       ORDER BY created_at ASC, id ASC`,
+      [String(projectId)]
+    );
+    return result.rows;
+  }
+
   async getSetting(key, fallback = "") {
     const result = await this.pool.query(`SELECT value FROM system_settings WHERE key = $1`, [String(key)]);
     return result.rows[0]?.value ?? fallback;
@@ -501,7 +829,12 @@ class JsonFileStorage {
       messages: [],
       memories: [],
       summaries: {},
-      settings: {}
+      settings: {},
+      projects: [],
+      projectTasks: [],
+      projectArtifacts: [],
+      projectSources: [],
+      projectAssets: []
     };
   }
 
@@ -511,6 +844,11 @@ class JsonFileStorage {
       this.state = JSON.parse(await fs.readFile(this.filePath, "utf8"));
       this.state.summaries = normalizeSummaries(this.state.summaries);
       this.state.settings = normalizeSettings(this.state.settings);
+      this.state.projects = Array.isArray(this.state.projects) ? this.state.projects : [];
+      this.state.projectTasks = Array.isArray(this.state.projectTasks) ? this.state.projectTasks : [];
+      this.state.projectArtifacts = Array.isArray(this.state.projectArtifacts) ? this.state.projectArtifacts : [];
+      this.state.projectSources = Array.isArray(this.state.projectSources) ? this.state.projectSources : [];
+      this.state.projectAssets = Array.isArray(this.state.projectAssets) ? this.state.projectAssets : [];
     } catch {
       await this.flush();
     }
@@ -563,7 +901,8 @@ class JsonFileStorage {
     return (
       this.state.messages.length === 0 &&
       this.state.memories.length === 0 &&
-      Object.keys(this.state.summaries || {}).length === 0
+      Object.keys(this.state.summaries || {}).length === 0 &&
+      this.state.projects.length === 0
     );
   }
 
@@ -575,7 +914,12 @@ class JsonFileStorage {
         ...parseSummaryKey(key),
         summary
       })),
-      settings: Object.entries(this.state.settings || {}).map(([key, value]) => ({ key, value }))
+      settings: Object.entries(this.state.settings || {}).map(([key, value]) => ({ key, value })),
+      projects: this.state.projects,
+      projectTasks: this.state.projectTasks,
+      projectArtifacts: this.state.projectArtifacts,
+      projectSources: this.state.projectSources,
+      projectAssets: this.state.projectAssets
     };
   }
 
@@ -584,7 +928,12 @@ class JsonFileStorage {
       messages: Array.isArray(state.messages) ? state.messages : [],
       memories: Array.isArray(state.memories) ? state.memories : [],
       summaries: normalizeSummaries(state.summaries),
-      settings: normalizeSettings(state.settings)
+      settings: normalizeSettings(state.settings),
+      projects: Array.isArray(state.projects) ? state.projects : [],
+      projectTasks: Array.isArray(state.projectTasks) ? state.projectTasks : [],
+      projectArtifacts: Array.isArray(state.projectArtifacts) ? state.projectArtifacts : [],
+      projectSources: Array.isArray(state.projectSources) ? state.projectSources : [],
+      projectAssets: Array.isArray(state.projectAssets) ? state.projectAssets : []
     };
     await this.flush();
   }
@@ -784,6 +1133,100 @@ class JsonFileStorage {
       }
     }
     await this.flush();
+  }
+
+  async createProject(project) {
+    const now = new Date().toISOString();
+    const existing = this.state.projects.find((item) => String(item.id) === String(project.id));
+    const row = {
+      id: String(project.id),
+      platform: String(project.platform || ""),
+      chat_id: String(project.chatId || project.chat_id || ""),
+      owner_user_id: String(project.ownerUserId || project.owner_user_id || ""),
+      title: String(project.title || "").slice(0, 300),
+      client_name: String(project.clientName || project.client_name || "").slice(0, 200),
+      product_name: String(project.productName || project.product_name || "").slice(0, 200),
+      brief_text: String(project.briefText || project.brief_text || ""),
+      status: String(project.status || "draft").slice(0, 40),
+      metadata: project.metadata || {},
+      created_at: existing?.created_at || now,
+      updated_at: now
+    };
+    if (existing) {
+      Object.assign(existing, row);
+    } else {
+      this.state.projects.push(row);
+    }
+    await this.flush();
+  }
+
+  async updateProject(projectId, updates = {}) {
+    const existing = await this.getProject(projectId);
+    if (!existing) return;
+    await this.createProject({
+      id: existing.id,
+      platform: existing.platform,
+      chatId: existing.chat_id,
+      ownerUserId: existing.owner_user_id,
+      title: updates.title ?? existing.title,
+      clientName: updates.clientName ?? existing.client_name,
+      productName: updates.productName ?? existing.product_name,
+      briefText: updates.briefText ?? existing.brief_text,
+      status: updates.status ?? existing.status,
+      metadata: updates.metadata ?? existing.metadata ?? {}
+    });
+  }
+
+  async getProject(projectId) {
+    return this.state.projects.find((item) => String(item.id) === String(projectId)) || null;
+  }
+
+  async listProjects(chatId = "", limit = 50) {
+    return this.state.projects
+      .filter((item) => !chatId || String(item.chat_id) === String(chatId))
+      .sort((a, b) => String(b.updated_at || "").localeCompare(String(a.updated_at || "")))
+      .slice(0, limit);
+  }
+
+  async addProjectTask(task) {
+    const id = this.state.projectTasks.length + 1;
+    const now = new Date().toISOString();
+    this.state.projectTasks.push({
+      id,
+      project_id: String(task.projectId || ""),
+      agent_type: String(task.agentType || ""),
+      status: String(task.status || "pending"),
+      input: task.input || {},
+      output: task.output || {},
+      error: String(task.error || ""),
+      created_at: now,
+      updated_at: now
+    });
+    await this.flush();
+    return id;
+  }
+
+  async addProjectArtifact(artifact) {
+    const id = this.state.projectArtifacts.length + 1;
+    this.state.projectArtifacts.push({
+      id,
+      project_id: String(artifact.projectId || ""),
+      artifact_type: String(artifact.artifactType || ""),
+      title: String(artifact.title || "").slice(0, 300),
+      url: String(artifact.url || ""),
+      token: String(artifact.token || ""),
+      content_summary: String(artifact.contentSummary || ""),
+      metadata: artifact.metadata || {},
+      created_at: new Date().toISOString()
+    });
+    await this.flush();
+    return id;
+  }
+
+  async listProjectArtifacts(projectId) {
+    return this.state.projectArtifacts
+      .filter((item) => String(item.project_id) === String(projectId))
+      .sort((a, b) => (a.id || 0) - (b.id || 0));
   }
 
   async getSetting(key, fallback = "") {

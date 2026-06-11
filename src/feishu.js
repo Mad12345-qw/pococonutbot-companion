@@ -1,6 +1,8 @@
 import crypto from "node:crypto";
 import { extractImageGenerationIntent } from "./image-intent.js";
 import { buildSystemPrompt } from "./persona.js";
+import { FeishuWorkspaceClient } from "./feishu-workspace.js";
+import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { detectImageMimeType, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
@@ -48,6 +50,16 @@ export class FeishuBot {
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
     this.seenMessageIds = new Set();
+    this.workspace = new FeishuWorkspaceClient({
+      config,
+      getToken: () => this.tenantAccessToken()
+    });
+    this.projectEngine = new ProjectEngine({
+      config,
+      storage,
+      ai,
+      feishuWorkspace: this.workspace
+    });
   }
 
   get enabled() {
@@ -154,7 +166,8 @@ export class FeishuBot {
     const chatType = message.chat_type || "";
     const mentioned = this.isMentioned(message, content.text || rawText);
     const text = this.stripBotName(rawText);
-    const explicitReply = chatType === "p2p" || mentioned || this.isExplicitCommand(text) || this.config.triggerMode === "all";
+    const projectRequest = isProjectCreateRequest(text);
+    const explicitReply = chatType === "p2p" || mentioned || this.isExplicitCommand(text) || projectRequest || this.config.triggerMode === "all";
     const smartCandidate = !explicitReply && chatType !== "p2p" && this.config.triggerMode === "smart";
     if (!explicitReply && !smartCandidate) return;
 
@@ -201,6 +214,19 @@ export class FeishuBot {
         voiceDurationMs: audioMessage ? Number(content.duration || 0) : 0
       }
     });
+
+    if (projectRequest) {
+      this.projectEngine.createProjectFromBrief({
+        chatId,
+        userId,
+        text: safeUserText,
+        reply: (replyText) => this.replyText(message.message_id, replyText)
+      }).catch(async (error) => {
+        logEvent("error", "Feishu project workflow failed", { chatId, error: error.message });
+        await this.replyText(message.message_id, `项目工作流失败了：${truncate(error.message, 600)}`);
+      });
+      return;
+    }
 
     const imageIntent = extractImageGenerationIntent(safeUserText, {
       botNames: [

@@ -292,6 +292,10 @@ function adminPage(config) {
             <h3>长期记忆</h3>
             <div id="memoryList" class="muted">暂无记忆</div>
           </section>
+          <section>
+            <h3>项目</h3>
+            <div id="projectList" class="config-list"></div>
+          </section>
         </div>
         <div>
           <section>
@@ -457,6 +461,21 @@ function adminPage(config) {
         bindMemoryActions();
       }
 
+      const projectList = document.getElementById("projectList");
+      const projects = state.projects || [];
+      projectList.innerHTML = projects.length ? projects.map(project => (
+        '<div class="config-row">' +
+          '<b>' + escapeHtml(project.id || "") + ' · ' + escapeHtml(project.status || "") + '</b>' +
+          '<div>' + escapeHtml(project.title || "") + '</div>' +
+          '<div class="muted">' + escapeHtml([project.client_name, project.product_name].filter(Boolean).join(" / ")) + '</div>' +
+          (project.artifacts?.length ? '<div style="margin-top:6px">' + project.artifacts.map(item => (
+            item.url
+              ? '<a href="' + escapeHtml(item.url) + '" target="_blank" rel="noreferrer">' + escapeHtml(item.title || item.artifact_type || "artifact") + '</a>'
+              : '<span class="muted">' + escapeHtml(item.title || item.artifact_type || "artifact") + '</span>'
+          )).join("<br />") + '</div>' : '') +
+        '</div>'
+      )).join("") : '<p class="muted">暂无项目。</p>';
+
       const messages = document.getElementById("messages");
       messages.innerHTML = state.messages.length ? state.messages.map(msg => (
         '<div class="message ' + escapeHtml(msg.role) + '">' +
@@ -615,6 +634,10 @@ export function setupAdminRoutes(app, { config, storage }) {
     const targetUserId = memoryTargetUserId(selectedUserId);
     const summary = selectedChatId ? await storage.getSummary(selectedChatId, targetUserId) : "";
     const messages = selectedChatId ? await storage.getRecentMessages(selectedChatId, 80) : [];
+    const projects = selectedChatId ? await storage.listProjects(selectedChatId, 20) : [];
+    for (const project of projects) {
+      project.artifacts = await storage.listProjectArtifacts(project.id);
+    }
     const gptEnabled = String(await storage.getSetting("gpt.enabled", "true")).toLowerCase() !== "false";
     const persona =
       (targetUserId
@@ -631,6 +654,7 @@ export function setupAdminRoutes(app, { config, storage }) {
       memories,
       summary,
       messages,
+      projects,
       persona,
       settings: {
         gptEnabled
