@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T06:03:46.239Z",
+  "exportedAt": "2026-06-11T07:23:46.105Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -6189,6 +6189,99 @@
           "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
         },
         "createdAt": "2026-06-11T05:54:19.228Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "你先给我一个调研报告",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d926e9ec8ecb3cfaee85d84094",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T07:21:45.871Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 调研什么呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-11T07:21:55.346Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "你先给我一个调研报告",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d926f03e0b8b2845030b9d6e51",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T07:22:08.831Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 没问题，我先按你brief里的\"测试产品 + 小红书、抖音\"出一版框架性调研报告，你看完再告诉我要补哪些方向，我针对性深挖～\n\n---\n\n# 测试产品 · 小红书 & 抖音 渠道调研报告（框架版 v0.1）\n\n## 一、行业概览\n- 品类现状、规模、增速（需补具体数据源）\n- 头部品牌 / 长尾品牌分布\n- 用户画像：年龄、性别、城市、消费力\n\n## 二、小红书渠道分析\n- **平台特性**：种草属性强、长尾搜索流量稳、笔记生命周期长\n- **内容形态**：图文笔记、短视频、合集测评、使用场景\n- **爆款规律**：标题关键词、封面样式、首图钩子、互动话术\n- **竞品动作**：近 30 天 / 90 天 TOP 笔记、合作品牌、达人层级\n\n## 三、抖音渠道分析\n- **平台特性**：算法分发、爆款短频快、直播 + 短视频双引擎\n- **内容形态**：口播、剧情、测评、信息流短视频、直播切片\n- **爆款规律**：前 3 秒钩子、完播率、评论区引导\n- **竞品动作**：TOP 视频、达人结构、直播间话术与SKU\n\n## 四、测试产品适配性初判\n- 目标人群匹配度（小红书 vs 抖音）\n- 内容抓手建议（卖点 × 内容形式）\n- 风险点（价格带、舆情、平台规则）\n\n## 五、后续建议\n- 补：竞品具体名单、达人样本\n- 补：近 30 天数据来源（蝉妈妈、千瓜、新榜）\n- 下一版：方案框架 + 素材需求表\n\n---\n\n你先看这个骨架和方向对不对？确定后我再细化每一块，或者你直接告诉我重点想看哪部分（比如就深挖小红书爆款规律），我重写一版也行～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-11T07:22:29.311Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "你再给我一个方案框架",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d926dcda4acb3e9efcc06ddf87",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T07:22:33.513Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 小椰: 收到～这个和调研报告配套，目标是把\"我们怎么打\"讲清楚。框架版先给你看结构，确认后我再填内容👇\n\n---\n\n# 测试产品 · 小红书 & 抖音 营销方案框架 v0.1\n\n## 一、目标设定\n- **核心目标**：（待对齐）种草 / 转化 / 品牌认知\n- **北极星指标**：GMV / 搜索量 / 进店UV / 留资\n- **拆解指标**：曝光、互动、点击、转化、复购\n\n## 二、人群策略\n- 目标人群分层（核心 / 机会 / 观望）\n- 人群关键词包（兴趣词 + 场景词 + 痛点词）\n- 小红书 vs 抖音人群差异\n\n## 三、平台打法\n\n### 3.1 小红书\n- **内容矩阵**：产品笔记 / 场景笔记 / 测评笔记 / 攻略笔记\n- **达人结构**：头部 + 腰部 + KOC（配比待定）\n- **爆款公式**：标题 + 封面 + 钩子\n- **节奏**：预热期 → 爆发期 → 长尾期\n\n### 3.2 抖音\n- **内容矩阵**：短视频 + 直播 + 信息流\n- **达人与自播**：达人分销 vs 自播闭环\n- **爆款公式**：前3秒 + 完播 + 转化点\n- **节奏**：冷启动 → 放量 → 沉淀\n\n## 四、预算与排期\n- 预算分配（达人 / 内容 / 投流 / 直播）\n- 月度排期（周维度内容+投放节奏）\n- 节点卡位（大促 / 节庆）\n\n## 五、组织与交付\n- 内容生产链路：brief → 拍摄 → 剪辑 → 投放\n- 素材需求：数量、品类、规格（衔接素材需求表）\n- 数据复盘：周报 / 月报机制\n\n## 六、风险与备选\n- 内容合规风险\n- 平台规则变化\n- 达人翻车/舆情预案\n\n## 七、所需确认事项\n- 单平台预算上限\n- 目标人群（具体年龄段/城市）\n- 首批达人合作意向\n- 上线时间节点\n\n---\n\n你看这个颗粒度对不对？要加什么模块（比如投流策略、ROI测算）也告诉我～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-11T07:22:56.865Z"
       }
     ],
     "memories": [
@@ -6570,7 +6663,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:15.188Z",
-        "updatedAt": "2026-06-10T06:25:36.500Z"
+        "updatedAt": "2026-06-11T07:21:45.647Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -6580,7 +6673,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:14.968Z",
-        "updatedAt": "2026-06-10T06:25:36.280Z"
+        "updatedAt": "2026-06-11T07:21:45.385Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -6710,7 +6803,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:38:54.816Z",
-        "updatedAt": "2026-06-11T05:54:13.882Z"
+        "updatedAt": "2026-06-11T07:22:33.299Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6720,7 +6813,57 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:38:54.594Z",
-        "updatedAt": "2026-06-11T05:54:13.659Z"
+        "updatedAt": "2026-06-11T07:22:33.084Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "work.channels",
+        "value": "小红书、抖音",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T07:22:32.433Z",
+        "updatedAt": "2026-06-11T07:22:32.433Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "work.deliverables",
+        "value": "调研报告 + 营销方案框架（v0.1），涵盖目标设定、人群策略、平台打法、预算排期、组织交付、风险备选等模块",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-11T07:23:03.682Z",
+        "updatedAt": "2026-06-11T07:23:03.682Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "work.pending_confirmation",
+        "value": "营销方案框架v0.1待用户确认：目标人群、单平台预算上限、首批达人合作意向、上线时间节点；是否需加投流策略/ROI测算模块",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-11T07:23:03.896Z",
+        "updatedAt": "2026-06-11T07:23:03.896Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "work.product",
+        "value": "测试产品",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T07:22:32.217Z",
+        "updatedAt": "2026-06-11T07:22:32.217Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "work.task",
+        "value": "为测试产品出小红书&抖音渠道调研报告+营销方案框架，当前为框架版v0.1，待用户确认方向后细化",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T07:22:32.648Z",
+        "updatedAt": "2026-06-11T07:23:03.470Z"
       },
       {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
