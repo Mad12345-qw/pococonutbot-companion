@@ -510,7 +510,8 @@ function adminPage(config) {
         ["生图超时", cfg.imageTimeoutMs ? cfg.imageTimeoutMs + " ms" : "未配置"],
         ["识图提取超时", cfg.imageUnderstandingTimeoutMs ? cfg.imageUnderstandingTimeoutMs + " ms" : "未配置"],
         ["生图状态", cfg.imageGeneration ? "已开启" : "未开启"],
-        ["语音识别", cfg.voiceRecognition ? "已开启" : "未开启"]
+        ["语音识别", cfg.voiceRecognition ? "已开启" : "未开启"],
+        ["飞书项目文件夹", cfg.feishuProjectFolder ? "已配置" : "未配置"]
       ].map(row => (
         '<div class="config-row"><b>' + escapeHtml(row[0]) + '</b><div>' + escapeHtml(row[1]) + '</div></div>'
       )).join("");
@@ -697,6 +698,7 @@ export function setupAdminRoutes(app, { config, storage }) {
         primaryCompatibility: config.aiCompatibility,
         fallbackModel: config.fallbackAiModel,
         fallbackCompatibility: config.fallbackAiCompatibility,
+        feishuProjectFolder: Boolean(config.feishuProjectFolderToken),
         imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
         imageModel: config.imageModel,
         imageSize: config.imageSize,

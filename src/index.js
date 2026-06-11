@@ -28,7 +28,8 @@ app.get("/health", (_req, res) => {
     storage: config.databaseUrl ? "postgres" : "json-file",
     imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
     voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
-    feishu: Boolean(config.feishuAppId && config.feishuAppSecret)
+    feishu: Boolean(config.feishuAppId && config.feishuAppSecret),
+    feishuProjectFolder: Boolean(config.feishuProjectFolderToken)
   };
   if (config.exposeModelInfo) {
     payload.model = config.aiModel;

@@ -133,7 +133,13 @@ export class FeishuWorkspaceClient {
       });
     }
 
-    logEvent("info", "Feishu document created", { title, documentId, blocks: blocks.length, contentWritten: !writeError });
+    logEvent("info", "Feishu document created", {
+      title,
+      documentId,
+      blocks: blocks.length,
+      contentWritten: !writeError,
+      folderConfigured: Boolean(this.config.feishuProjectFolderToken)
+    });
     return {
       token: documentId,
       url: this.docUrl(documentId),
@@ -175,7 +181,12 @@ export class FeishuWorkspaceClient {
       });
     }
 
-    logEvent("info", "Feishu spreadsheet created", { title, token, rows: values.length });
+    logEvent("info", "Feishu spreadsheet created", {
+      title,
+      token,
+      rows: values.length,
+      folderConfigured: Boolean(this.config.feishuProjectFolderToken)
+    });
     return {
       token,
       url: spreadsheet.url || `${this.config.feishuDocBaseUrl || "https://www.feishu.cn"}/sheets/${token}`,
