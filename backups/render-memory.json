@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T04:09:00.026Z",
+  "exportedAt": "2026-06-11T04:37:18.219Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -5989,6 +5989,25 @@
           "replyToUserId": "8641083144"
         },
         "createdAt": "2026-06-10T07:38:10.400Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "新建项目：客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d97ee70a4a0c3acd39d43c449a",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T04:31:11.088Z"
       }
     ],
     "memories": [
@@ -6453,6 +6472,26 @@
         "updatedAt": "2026-06-09T00:57:34.493Z"
       },
       {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T04:31:10.874Z",
+        "updatedAt": "2026-06-11T04:31:10.874Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T04:31:10.638Z",
+        "updatedAt": "2026-06-11T04:31:10.638Z"
+      },
+      {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
         "userId": "feishu:ou_4e27fc3dffa3d487990f065741e026c6",
         "key": "profile.feishu_open_id",
@@ -6816,9 +6855,291 @@
         "updatedAt": "2026-06-10T06:16:12.069Z"
       }
     ],
-    "projects": [],
-    "projectTasks": [],
-    "projectArtifacts": [],
+    "projects": [
+      {
+        "id": "P-20260611-85DFB0",
+        "platform": "feishu",
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "ownerUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "title": "AI 方案项目",
+        "clientName": "待补充",
+        "productName": "待补充",
+        "briefText": "客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红",
+        "status": "ready",
+        "metadata": {
+          "analysis": {
+            "title": "AI 方案项目",
+            "audience": [],
+            "channels": [],
+            "objective": "基于用户提供的 brief，搭建调研、方案框架和素材需求表。",
+            "assetNeeds": [
+              {
+                "usage": "用于卖点页和电商转化页",
+                "module": "产品介绍",
+                "keywords": [
+                  "产品白底图",
+                  "SKU 图"
+                ],
+                "assetType": "白底产品图"
+              },
+              {
+                "usage": "用于确定视觉调性",
+                "module": "策略主视觉",
+                "keywords": [
+                  "品牌 KV",
+                  "Campaign visual"
+                ],
+                "assetType": "KV 参考"
+              }
+            ],
+            "clientName": "待补充",
+            "missingInfo": [
+              "客户/品牌背景",
+              "产品核心卖点",
+              "预算",
+              "上线时间",
+              "已有素材",
+              "目标人群数据"
+            ],
+            "productName": "待补充",
+            "qaChecklist": [
+              "目标是否明确",
+              "卖点是否具体",
+              "每个模块是否有证据或数据支撑",
+              "是否缺少素材和版权说明"
+            ],
+            "briefSummary": "客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红",
+            "contentTasks": [],
+            "deliverables": [],
+            "marketingAngles": [],
+            "coreSellingPoints": [],
+            "frameworkSections": [
+              {
+                "title": "项目背景与目标",
+                "bullets": [
+                  "业务背景",
+                  "传播目标",
+                  "核心挑战"
+                ],
+                "purpose": "对齐甲方诉求和交付目标"
+              },
+              {
+                "title": "产品卖点梳理",
+                "bullets": [
+                  "功能卖点",
+                  "情绪价值",
+                  "场景价值"
+                ],
+                "purpose": "提炼可传播的核心利益点"
+              },
+              {
+                "title": "营销策略方向",
+                "bullets": [
+                  "主题方向",
+                  "渠道打法",
+                  "内容支柱"
+                ],
+                "purpose": "形成可执行的传播主线"
+              },
+              {
+                "title": "执行排期与产出",
+                "bullets": [
+                  "阶段节奏",
+                  "素材需求",
+                  "验收指标"
+                ],
+                "purpose": "拆解后续执行工作"
+              }
+            ],
+            "researchDirections": [
+              "企业与品牌背景",
+              "产品功能与卖点",
+              "竞品传播方式",
+              "目标人群需求",
+              "可用视觉资产"
+            ]
+          }
+        },
+        "createdAt": "2026-06-11T04:31:11.306Z",
+        "updatedAt": "2026-06-11T04:32:14.050Z"
+      }
+    ],
+    "projectTasks": [
+      {
+        "id": "1",
+        "projectId": "P-20260611-85DFB0",
+        "agentType": "brief_agent",
+        "status": "completed",
+        "input": {
+          "briefText": "客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红"
+        },
+        "output": {
+          "title": "AI 方案项目",
+          "audience": [],
+          "channels": [],
+          "objective": "基于用户提供的 brief，搭建调研、方案框架和素材需求表。",
+          "assetNeeds": [
+            {
+              "usage": "用于卖点页和电商转化页",
+              "module": "产品介绍",
+              "keywords": [
+                "产品白底图",
+                "SKU 图"
+              ],
+              "assetType": "白底产品图"
+            },
+            {
+              "usage": "用于确定视觉调性",
+              "module": "策略主视觉",
+              "keywords": [
+                "品牌 KV",
+                "Campaign visual"
+              ],
+              "assetType": "KV 参考"
+            }
+          ],
+          "clientName": "待补充",
+          "missingInfo": [
+            "客户/品牌背景",
+            "产品核心卖点",
+            "预算",
+            "上线时间",
+            "已有素材",
+            "目标人群数据"
+          ],
+          "productName": "待补充",
+          "qaChecklist": [
+            "目标是否明确",
+            "卖点是否具体",
+            "每个模块是否有证据或数据支撑",
+            "是否缺少素材和版权说明"
+          ],
+          "briefSummary": "客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红",
+          "contentTasks": [],
+          "deliverables": [],
+          "marketingAngles": [],
+          "coreSellingPoints": [],
+          "frameworkSections": [
+            {
+              "title": "项目背景与目标",
+              "bullets": [
+                "业务背景",
+                "传播目标",
+                "核心挑战"
+              ],
+              "purpose": "对齐甲方诉求和交付目标"
+            },
+            {
+              "title": "产品卖点梳理",
+              "bullets": [
+                "功能卖点",
+                "情绪价值",
+                "场景价值"
+              ],
+              "purpose": "提炼可传播的核心利益点"
+            },
+            {
+              "title": "营销策略方向",
+              "bullets": [
+                "主题方向",
+                "渠道打法",
+                "内容支柱"
+              ],
+              "purpose": "形成可执行的传播主线"
+            },
+            {
+              "title": "执行排期与产出",
+              "bullets": [
+                "阶段节奏",
+                "素材需求",
+                "验收指标"
+              ],
+              "purpose": "拆解后续执行工作"
+            }
+          ],
+          "researchDirections": [
+            "企业与品牌背景",
+            "产品功能与卖点",
+            "竞品传播方式",
+            "目标人群需求",
+            "可用视觉资产"
+          ]
+        },
+        "error": "",
+        "createdAt": "2026-06-11T04:32:06.782Z",
+        "updatedAt": "2026-06-11T04:32:06.782Z"
+      }
+    ],
+    "projectArtifacts": [
+      {
+        "id": "1",
+        "projectId": "P-20260611-85DFB0",
+        "artifactType": "research_doc",
+        "title": "P-20260611-85DFB0 调研文档",
+        "url": "",
+        "token": "",
+        "contentSummary": "# AI 方案项目｜调研文档\n\n## 说明\n这是第一阶段自动生成的调研骨架，当前基于 brief 和模型推理，不等同于已联网核验的事实。正式交付前，需要补充来源链接、产品资料和竞品证据。\n\n## 项目摘要\n- 项目编号：P-20260611-85DFB0\n- 客户/品牌：待补充\n- 产品/服务：待补充\n- 核心目标：基于用户提供的 brief，搭建调研、方案框架和素材需求表。\n\n## Brief 摘要\n客户：测试咖啡品牌\n产品：夏季冷萃新品\n目标：做一份新品上市传播方案\n渠道：小红书、抖音、线下门店\n交付物：调研文档、方案框架、素材需求表、PPT大纲\n要求：高级感、清爽、不要太网红\n\n## 目标人群假设\n- 待补充目标人群\n\n## 产品主要卖点\n- 待补充产品卖点\n\n## 适合营销的方向\n- 待补充营销方向\n\n## 需要继续调研的问题\n- 企业与品牌背景\n- 产品功能与卖点\n- 竞品传播方式\n- 目标人群需求\n- 可用视觉资产\n\n## 缺失信息\n- 客户/品牌背景\n- 产品核心卖点\n- 预算\n- 上线时间\n- 已有素材\n- 目标人群数据",
+        "metadata": {
+          "error": "Feishu workspace API failed 400: {\"code\":1770001,\"msg\":\"invalid param\",\"error\":{\"helps\":[{\"description\":\"确认参数是否合法\"}],\"log_id\":\"202606111232088F9BF3FB833A72FA103B\",\"troubleshooter\":\"排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=202606111232088F9BF3FB833A72FA103B&code=1770001&method_id=7055124481601699842\"}}"
+        },
+        "createdAt": "2026-06-11T04:32:09.221Z"
+      },
+      {
+        "id": "2",
+        "projectId": "P-20260611-85DFB0",
+        "artifactType": "framework_doc",
+        "title": "P-20260611-85DFB0 方案框架",
+        "url": "",
+        "token": "",
+        "contentSummary": "# AI 方案项目｜方案框架\n\n## 方案定位\n- 项目编号：P-20260611-85DFB0\n- 核心目标：基于用户提供的 brief，搭建调研、方案框架和素材需求表。\n- 建议渠道：待补充\n- 交付物：待补充\n\n## 推荐 PPT 结构\n## 1. 项目背景与目标\n- 模块目的：对齐甲方诉求和交付目标\n- 业务背景\n- 传播目标\n- 核心挑战\n\n## 2. 产品卖点梳理\n- 模块目的：提炼可传播的核心利益点\n- 功能卖点\n- 情绪价值\n- 场景价值\n\n## 3. 营销策略方向\n- 模块目的：形成可执行的传播主线\n- 主题方向\n- 渠道打法\n- 内容支柱\n\n## 4. 执行排期与产出\n- 模块目的：拆解后续执行工作\n- 阶段节奏\n- 素材需求\n- 验收指标\n\n## 内容填充任务\n- 按模块补充数据、案例、素材、执行排期\n\n## 质检清单\n- 目标是否明确\n- 卖点是否具体\n- 每个模块是否有证据或数据支撑\n- 是否缺少素材和版权说明",
+        "metadata": {
+          "error": "Feishu workspace API failed 400: {\"code\":1770001,\"msg\":\"invalid param\",\"error\":{\"helps\":[{\"description\":\"确认参数是否合法\"}],\"log_id\":\"202606111232105FE411B4629029F5C78F\",\"troubleshooter\":\"排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=202606111232105FE411B4629029F5C78F&code=1770001&method_id=7055124481601699842\"}}"
+        },
+        "createdAt": "2026-06-11T04:32:11.058Z"
+      },
+      {
+        "id": "3",
+        "projectId": "P-20260611-85DFB0",
+        "artifactType": "asset_sheet",
+        "title": "P-20260611-85DFB0 素材需求表",
+        "url": "https://rcnx3mn0vg5z.feishu.cn/sheets/Jg7Ls4kNPhrX2RtJDgDcqbjOn6e",
+        "token": "Jg7Ls4kNPhrX2RtJDgDcqbjOn6e",
+        "contentSummary": "项目编号 | 模块 | 素材类型 | 搜索关键词 | 用途 | 版权/来源备注 | 状态\nP-20260611-85DFB0 | 产品介绍 | 白底产品图 | 产品白底图 / SKU 图 | 用于卖点页和电商转化页 | 需人工确认可商用/可引用范围 | 待查找\nP-20260611-85DFB0 | 策略主视觉 | KV 参考 | 品牌 KV / Campaign visual | 用于确定视觉调性 | 需人工确认可商用/可引用范围 | 待查找",
+        "metadata": {
+          "rows": [
+            [
+              "项目编号",
+              "模块",
+              "素材类型",
+              "搜索关键词",
+              "用途",
+              "版权/来源备注",
+              "状态"
+            ],
+            [
+              "P-20260611-85DFB0",
+              "产品介绍",
+              "白底产品图",
+              "产品白底图 / SKU 图",
+              "用于卖点页和电商转化页",
+              "需人工确认可商用/可引用范围",
+              "待查找"
+            ],
+            [
+              "P-20260611-85DFB0",
+              "策略主视觉",
+              "KV 参考",
+              "品牌 KV / Campaign visual",
+              "用于确定视觉调性",
+              "需人工确认可商用/可引用范围",
+              "待查找"
+            ]
+          ],
+          "feishuTitle": "P-20260611-85DFB0 素材需求表"
+        },
+        "createdAt": "2026-06-11T04:32:13.617Z"
+      }
+    ],
     "projectSources": [],
     "projectAssets": []
   }
