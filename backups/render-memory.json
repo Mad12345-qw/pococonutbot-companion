@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T05:28:21.390Z",
+  "exportedAt": "2026-06-11T05:53:38.419Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -6096,6 +6096,68 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-11T05:00:38.523Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "能爬外部的网站里面的内容吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d909f5e88acb32c109c220b7d3",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T05:52:28.890Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 我这边没办法直接打开网页去爬内容，也不能实时访问外部网站。\n\n不过如果你有素材，我可以在你给的内容基础上帮你做：\n- 提炼重点、梳理框架\n- 竞品/案例分析（你把内容贴给我或发文件）\n- 直接生成调研文档、方案\n\n要不要先这样跑起来？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-11T05:52:34.072Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "加mcp功能就行    对吧  小椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d909d7a30acc36fc44d6f7623c",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T05:53:03.056Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 对的，思路是这样：给小椰接上能联网、能抓网页的 MCP 能力（搜索、爬虫、读取网页内容），我就能直接帮你拉外部资料回来整理。\n\n不过现在我手头还没接这个能力，所以爬不了。得看你那边的 MCP 工具什么时候配好～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-11T05:53:10.023Z"
       }
     ],
     "memories": [
@@ -6572,12 +6634,32 @@
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "communication_style.nickname",
+        "value": "用户称呼机器人为'小椰'",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T05:53:15.785Z",
+        "updatedAt": "2026-06-11T05:53:15.785Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "long_term_tasks.mcp_integration",
+        "value": "用户希望给小椰加MCP功能（如联网搜索、爬虫、读取网页内容），等MCP工具配置好后即可使用",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-11T05:53:16.007Z",
+        "updatedAt": "2026-06-11T05:53:16.007Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.874Z",
-        "updatedAt": "2026-06-11T05:00:31.619Z"
+        "updatedAt": "2026-06-11T05:53:02.836Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6587,7 +6669,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.638Z",
-        "updatedAt": "2026-06-11T05:00:31.390Z"
+        "updatedAt": "2026-06-11T05:53:02.616Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6597,7 +6679,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:38:54.816Z",
-        "updatedAt": "2026-06-11T04:38:54.816Z"
+        "updatedAt": "2026-06-11T05:52:28.662Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6607,7 +6689,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:38:54.594Z",
-        "updatedAt": "2026-06-11T04:38:54.594Z"
+        "updatedAt": "2026-06-11T05:52:28.414Z"
       },
       {
         "chatId": "feishu:oc_aa24265a34737c3b86b50b84daad0e4c",
