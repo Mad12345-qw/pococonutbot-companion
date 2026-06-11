@@ -284,8 +284,13 @@ export class ProjectEngine {
     await this.storage.updateProject(project.id, { status: "ready" });
     const artifacts = await this.storage.listProjectArtifacts(project.id);
     const links = artifacts.map((item) => {
-      const link = item.url ? `\n${item.url}` : "\n（飞书文档未创建成功，内容已保存在项目记录里）";
-      return `- ${item.title}${link}`;
+      const metadata = item.metadata || {};
+      const reason = metadata.writeError || metadata.error || "";
+      const suffix = reason ? `\n  原因：${truncate(reason, 260)}` : "";
+      const link = item.url
+        ? `\n${item.url}${metadata.writeError ? "\n  （文档已创建，但内容写入失败，正文已保存在项目记录里）" : ""}`
+        : "\n（飞书文档未创建成功，内容已保存在项目记录里）";
+      return `- ${item.title}${link}${suffix}`;
     }).join("\n");
 
     const missing = analysis.missingInfo.length ? `\n\n我还需要你补充：\n${list(analysis.missingInfo)}` : "";
@@ -308,7 +313,7 @@ export class ProjectEngine {
       const doc = await this.feishuWorkspace.createDocument({ title, markdown });
       url = doc.url;
       token = doc.token;
-      metadata = { feishuTitle: doc.title };
+      metadata = { feishuTitle: doc.title, writeError: doc.writeError || "" };
     } catch (error) {
       metadata = { error: error.message };
       logEvent("warn", "Project document artifact fallback used", { projectId: project.id, artifactType, error: error.message });

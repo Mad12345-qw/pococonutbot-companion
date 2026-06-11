@@ -108,23 +108,34 @@ export class FeishuWorkspaceClient {
     if (!documentId) throw new Error(`Feishu document response missing document_id: ${truncate(JSON.stringify(data), 500)}`);
 
     const blocks = markdownToBlocks(markdown);
-    for (let index = 0; index < blocks.length; index += 40) {
-      const children = blocks.slice(index, index + 40);
-      await this.request(
-        `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(documentId)}/children?document_revision_id=-1`,
-        {
-          method: "POST",
-          body: { children }
-        }
-      );
-      if (index + 40 < blocks.length) await sleep(450);
+    let writeError = "";
+    try {
+      for (let index = 0; index < blocks.length; index += 40) {
+        const children = blocks.slice(index, index + 40);
+        await this.request(
+          `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(documentId)}/children?document_revision_id=-1`,
+          {
+            method: "POST",
+            body: { children }
+          }
+        );
+        if (index + 40 < blocks.length) await sleep(450);
+      }
+    } catch (error) {
+      writeError = error.message;
+      logEvent("warn", "Feishu document created but content write failed", {
+        title,
+        documentId,
+        error: error.message
+      });
     }
 
-    logEvent("info", "Feishu document created", { title, documentId, blocks: blocks.length });
+    logEvent("info", "Feishu document created", { title, documentId, blocks: blocks.length, contentWritten: !writeError });
     return {
       token: documentId,
       url: this.docUrl(documentId),
-      title: document.title || title
+      title: document.title || title,
+      writeError
     };
   }
 
