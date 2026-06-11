@@ -285,7 +285,7 @@ export class AIClient {
     );
   }
 
-  async shouldReplyInGroup({ messageText, recentMessages, botName, hasImage, platform = "group" }) {
+  async shouldReplyInGroup({ messageText, recentMessages, botName, hasImage, platform = "group", confidenceThreshold = 0.75 }) {
     const transcript = recentMessages
       .slice(-10)
       .map((message) => `${message.role}: ${message.content}`)
@@ -303,6 +303,7 @@ export class AIClient {
       "",
       "Reply false when:",
       "- It is normal human-to-human small talk, acknowledgement, jokes, emoji, laughter, OK, or 'received'.",
+      "- The latest message is addressed to another specific human and does not ask the bot for help.",
       "- The user seems to be sending several context messages and is not done yet.",
       "- The bot would feel interruptive or needy.",
       "- The message contains private or sensitive content without an explicit request for bot help.",
@@ -317,7 +318,7 @@ export class AIClient {
       messageText || "[no text]",
       "",
       "Return strict JSON only:",
-      "{\"should_reply\":true,\"reason\":\"short reason\"}"
+      "{\"should_reply\":true,\"confidence\":0.82,\"reason\":\"short reason\"}"
     ].join("\n");
 
     const raw = await this.chat(
@@ -329,6 +330,8 @@ export class AIClient {
     );
 
     const parsed = parseJsonObject(raw);
-    return Boolean(parsed?.should_reply);
+    if (!parsed?.should_reply) return false;
+    const confidence = Number(parsed.confidence);
+    return !Number.isFinite(confidence) || confidence >= confidenceThreshold;
   }
 }

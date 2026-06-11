@@ -39,6 +39,11 @@ function shouldTryFallbackImagePrompt(text = "") {
   return imageNounPattern.test(prompt);
 }
 
+function isUsableBotName(name = "") {
+  const value = String(name || "").trim();
+  return Boolean(value && !/^[?\uFFFD]+$/.test(value) && /[\p{L}\p{N}]/u.test(value));
+}
+
 export class FeishuBot {
   constructor({ config, storage, ai, imageGenerator, speechToText }) {
     this.config = config;
@@ -50,6 +55,7 @@ export class FeishuBot {
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
     this.seenMessageIds = new Set();
+    this.sentBotMessageIds = new Map();
     this.workspace = new FeishuWorkspaceClient({
       config,
       getToken: () => this.tenantAccessToken()
@@ -164,10 +170,24 @@ export class FeishuBot {
     if (!rawText) return;
 
     const chatType = message.chat_type || "";
-    const mentioned = this.isMentioned(message, content.text || rawText);
+    const mentionInfo = this.getMentionInfo(message, content.text || rawText);
+    const replyToBot = this.isReplyToBotMessage(message);
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
-    const explicitReply = chatType === "p2p" || mentioned || this.isExplicitCommand(text) || projectRequest || this.config.triggerMode === "all";
+    const explicitReply =
+      chatType === "p2p" ||
+      mentionInfo.botMentioned ||
+      replyToBot ||
+      this.isExplicitCommand(text) ||
+      projectRequest ||
+      this.config.triggerMode === "all";
+    if (!explicitReply && chatType !== "p2p" && mentionInfo.mentionedOtherOnly) {
+      logEvent("info", "Feishu group message mentioned another user; skipped smart reply", {
+        messageId: message.message_id || "",
+        mentions: mentionInfo.mentionNames.slice(0, 5)
+      });
+      return;
+    }
     const smartCandidate = !explicitReply && chatType !== "p2p" && this.config.triggerMode === "smart";
     if (!explicitReply && !smartCandidate) return;
 
@@ -288,15 +308,69 @@ export class FeishuBot {
     }
   }
 
-  isMentioned(message, text = "") {
-    const mentions = message.mentions || [];
-    const names = new Set([this.config.feishuBotName, this.config.displayName, "小椰"].filter(Boolean));
-    return mentions.some((item) => names.has(item.name)) ||
-      [...names].some((name) => String(text).includes(name));
+  getBotMentionNames() {
+    return [...new Set([this.config.feishuBotName, this.config.displayName, ...(this.config.feishuBotAliases || []), "小椰", "飞书营销大师"]
+      .filter(Boolean)
+      .map((name) => String(name).trim())
+      .filter(isUsableBotName))];
+  }
+
+  getMentionInfo(message, text = "") {
+    const mentions = Array.isArray(message.mentions) ? message.mentions : [];
+    const botNames = this.getBotMentionNames();
+    const mentionNames = mentions
+      .map((item) => String(item.name || item.text || "").replace(/^@/, "").trim())
+      .filter(Boolean);
+    const textValue = String(text || "");
+    const hasMentionTag = /<at\b/i.test(textValue);
+    const hasMentions = mentions.length > 0 || hasMentionTag;
+    const botMentionedByField = mentionNames.some((name) => botNames.some((botName) => name === botName));
+    const botMentionedByText = botNames.some((botName) => botName && textValue.includes(botName));
+    const botMentioned = botMentionedByField || botMentionedByText;
+    return {
+      hasMentions,
+      mentionNames,
+      botMentioned,
+      mentionedOtherOnly: hasMentions && !botMentioned
+    };
+  }
+
+  rememberBotMessage(response) {
+    const messageId =
+      response?.data?.message_id ||
+      response?.data?.message?.message_id ||
+      response?.data?.message?.message_id_str ||
+      "";
+    if (!messageId) return;
+    this.sentBotMessageIds.set(String(messageId), Date.now());
+    if (this.sentBotMessageIds.size > 500) {
+      const entries = [...this.sentBotMessageIds.entries()].slice(-300);
+      this.sentBotMessageIds = new Map(entries);
+    }
+  }
+
+  isReplyToBotMessage(message) {
+    const ids = [
+      message.parent_id,
+      message.root_id,
+      message.parent_message_id,
+      message.reply_to?.message_id,
+      message.reply_to_message_id
+    ]
+      .filter(Boolean)
+      .map(String);
+    if (!ids.length) return false;
+    const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+    for (const [id, timestamp] of this.sentBotMessageIds.entries()) {
+      if (timestamp < cutoff) this.sentBotMessageIds.delete(id);
+    }
+    return ids.some((id) => this.sentBotMessageIds.has(id));
   }
 
   isExplicitCommand(text = "") {
-    return /^(\/ai|\/ask|\/love|小椰|你|请|帮我|麻烦你)/i.test(String(text || "").trim());
+    const value = String(text || "").trim();
+    if (/^\/(?:ai|ask|love)\b/i.test(value)) return true;
+    return this.getBotMentionNames().some((name) => value.toLowerCase().startsWith(name.toLowerCase()));
   }
 
   stripBotName(text = "") {
@@ -458,7 +532,8 @@ export class FeishuBot {
     if (fastDecision === "skip") return false;
     if (fastDecision === "reply") return true;
 
-    if (fastDecision === "ask-ai" && this.config.smartClassifierEnabled) {
+    const smartRepliesEnabled = await this.isSmartRepliesEnabled();
+    if (fastDecision === "ask-ai" && smartRepliesEnabled) {
       const recentForDecision = await this.storage.getRecentMessages(chatId, 8);
       return this.ai.shouldReplyInGroup({
         messageText: safeUserText,
@@ -468,11 +543,18 @@ export class FeishuBot {
         })),
         botName: this.config.displayName,
         hasImage,
-        platform: "Feishu group"
+        platform: "Feishu group",
+        confidenceThreshold: this.config.smartReplyConfidenceThreshold
       });
     }
 
     return false;
+  }
+
+  async isSmartRepliesEnabled() {
+    const fallback = this.config.smartClassifierEnabled ? "true" : "false";
+    const value = await this.storage.getSetting("smart_replies.enabled", fallback);
+    return !["0", "false", "off", "no"].includes(String(value).trim().toLowerCase());
   }
 
   getFastSmartDecision(text = "", options = {}) {
@@ -492,12 +574,12 @@ export class FeishuBot {
     }
 
     if (/[?？]$/.test(raw)) {
-      return "reply";
+      return "ask-ai";
     }
 
     const requestPattern = /(帮我|帮忙|看看|看一下|解释|总结|翻译|建议|推荐|分析|判断|评价|改写|起草|写一|列一|怎么|如何|能不能|可不可以|要不要|有没有|为什么|是什么|多少|哪里|哪个|谁|啥|吗|呢)/i;
     if (requestPattern.test(raw)) {
-      return "reply";
+      return "ask-ai";
     }
 
     const botTerms = ["ai", "机器人", "助手", this.config.feishuBotName, this.config.displayName, "小椰"]
@@ -509,7 +591,7 @@ export class FeishuBot {
 
     const emotionPattern = /(难过|崩溃|焦虑|失眠|好累|压力|烦死|不开心|想哭|害怕|孤独|emo|抑郁|生气|委屈)/i;
     if (emotionPattern.test(raw)) {
-      return "reply";
+      return "ask-ai";
     }
 
     return "ask-ai";
@@ -619,18 +701,22 @@ export class FeishuBot {
 
   async replyText(messageId, text) {
     if (!messageId) return;
-    await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "text",
       content: JSON.stringify({ text: String(text || "") })
     });
+    this.rememberBotMessage(response);
+    return response;
   }
 
   async replyImage(messageId, imageKey) {
     if (!messageId || !imageKey) return;
-    await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "image",
       content: JSON.stringify({ image_key: imageKey })
     });
+    this.rememberBotMessage(response);
+    return response;
   }
 
   async uploadImage(image) {

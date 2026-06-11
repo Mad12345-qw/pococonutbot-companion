@@ -86,6 +86,7 @@ export const config = {
   feishuVerificationToken: process.env.FEISHU_VERIFICATION_TOKEN || "",
   feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
   feishuBotName: asCleanText(process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME, "小椰"),
+  feishuBotAliases: asList(process.env.FEISHU_BOT_ALIASES),
   feishuProjectFolderToken: process.env.FEISHU_PROJECT_FOLDER_TOKEN || process.env.FEISHU_DRIVE_FOLDER_TOKEN || "",
   feishuDocBaseUrl: (process.env.FEISHU_DOC_BASE_URL || "https://www.feishu.cn").replace(/\/+$/, ""),
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
@@ -132,7 +133,8 @@ export const config = {
     process.env.SELF_SELFIE_STYLE ||
     "真实手机自拍风格，自然光，轻微景深，画面干净，不要夸张滤镜，不要文字、水印、logo，不要多人合照。",
   triggerMode: process.env.TRIGGER_MODE || "mention",
-  smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, false),
+  smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, (process.env.TRIGGER_MODE || "mention") === "smart"),
+  smartReplyConfidenceThreshold: asNumber(process.env.SMART_REPLY_CONFIDENCE_THRESHOLD, 0.75),
   allowedChatIds: asList(process.env.ALLOWED_CHAT_IDS),
   ownerUserIds: asList(process.env.BOT_OWNER_IDS),
   adminUsername: process.env.ADMIN_USERNAME || "admin",

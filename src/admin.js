@@ -310,6 +310,16 @@ function adminPage(config) {
                 <span class="slider"></span>
               </label>
             </div>
+            <div class="setting-row">
+              <div>
+                <strong>智能插话</strong>
+                <span id="smartRepliesSwitchMeta">群聊自动判断是否回复</span>
+              </div>
+              <label class="switch" title="关闭后群聊里不主动插话，只响应 @、指令、私聊和明确任务">
+                <input id="smartRepliesSwitch" type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
             <hr style="border:0;border-top:1px solid var(--line);margin:14px 0" />
             <select id="persona">
               <option value="girlfriend">AI 女友</option>
@@ -435,6 +445,11 @@ function adminPage(config) {
       document.getElementById("gptSwitchMeta").textContent = gptEnabled
         ? "开启：使用 GPT 主回复接口"
         : "关闭：直接使用备用 MiniMax";
+      const smartRepliesEnabled = state.settings?.smartRepliesEnabled !== false;
+      document.getElementById("smartRepliesSwitch").checked = smartRepliesEnabled;
+      document.getElementById("smartRepliesSwitchMeta").textContent = smartRepliesEnabled
+        ? "开启：普通群聊先由 AI 判断是否适合回复"
+        : "关闭：群聊只响应 @、指令、私聊和明确任务";
 
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
@@ -575,6 +590,15 @@ function adminPage(config) {
       setStatus(enabled ? "GPT 已开启，主聊天使用 GPT 接口。" : "GPT 已关闭，主聊天直接使用备用 MiniMax。");
       await load();
     });
+    document.getElementById("smartRepliesSwitch").addEventListener("change", async (event) => {
+      const enabled = Boolean(event.target.checked);
+      await api("/api/admin/settings", {
+        method: "POST",
+        body: JSON.stringify({ smartRepliesEnabled: enabled })
+      });
+      setStatus(enabled ? "智能插话已开启。" : "智能插话已关闭。");
+      await load();
+    });
     document.getElementById("addMemoryBtn").addEventListener("click", async () => {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
       await api("/api/admin/memory", {
@@ -639,6 +663,8 @@ export function setupAdminRoutes(app, { config, storage }) {
       project.artifacts = await storage.listProjectArtifacts(project.id);
     }
     const gptEnabled = String(await storage.getSetting("gpt.enabled", "true")).toLowerCase() !== "false";
+    const smartRepliesEnabled =
+      String(await storage.getSetting("smart_replies.enabled", config.smartClassifierEnabled ? "true" : "false")).toLowerCase() !== "false";
     const persona =
       (targetUserId
         ? allMemories.find((memory) => memory.key === "relationship.persona" && String(memory.user_id || "") === targetUserId)?.value
@@ -657,13 +683,15 @@ export function setupAdminRoutes(app, { config, storage }) {
       projects,
       persona,
       settings: {
-        gptEnabled
+        gptEnabled,
+        smartRepliesEnabled
       },
       logs: getRuntimeLogs(80),
       config: {
         displayName: config.displayName,
         companionMode: config.companionMode,
         triggerMode: config.triggerMode,
+        smartReplyConfidenceThreshold: config.smartReplyConfidenceThreshold,
         storage: config.databaseUrl ? "postgres" : "json-file",
         primaryModel: config.aiModel,
         primaryCompatibility: config.aiCompatibility,
@@ -731,13 +759,21 @@ export function setupAdminRoutes(app, { config, storage }) {
   });
 
   app.post("/api/admin/settings", auth, async (req, res) => {
-    const { gptEnabled } = req.body || {};
-    if (typeof gptEnabled !== "boolean") {
-      res.status(400).json({ error: "gptEnabled boolean is required." });
+    const { gptEnabled, smartRepliesEnabled } = req.body || {};
+    if (typeof gptEnabled !== "boolean" && typeof smartRepliesEnabled !== "boolean") {
+      res.status(400).json({ error: "At least one boolean setting is required." });
       return;
     }
 
-    await storage.setSetting("gpt.enabled", gptEnabled ? "true" : "false");
-    res.json({ ok: true, gptEnabled });
+    const response = { ok: true };
+    if (typeof gptEnabled === "boolean") {
+      await storage.setSetting("gpt.enabled", gptEnabled ? "true" : "false");
+      response.gptEnabled = gptEnabled;
+    }
+    if (typeof smartRepliesEnabled === "boolean") {
+      await storage.setSetting("smart_replies.enabled", smartRepliesEnabled ? "true" : "false");
+      response.smartRepliesEnabled = smartRepliesEnabled;
+    }
+    res.json(response);
   });
 }
