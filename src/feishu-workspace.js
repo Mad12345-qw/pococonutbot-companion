@@ -16,8 +16,7 @@ function columnName(index) {
   return output || "A";
 }
 
-function textBlock(blockTypeOrContent, maybeContent) {
-  const content = maybeContent === undefined ? blockTypeOrContent : maybeContent;
+function textBlock(content) {
   return {
     block_type: 2,
     text: {
@@ -31,22 +30,6 @@ function textBlock(blockTypeOrContent, maybeContent) {
       style: {}
     }
   };
-}
-
-function markdownLineToBlock(line = "") {
-  const raw = String(line || "").trim();
-  if (!raw) return null;
-  const normalized = raw
-    .replace(/^#{1,6}\s+/, "")
-    .replace(/^[-*]\s+/, "- ")
-    .replace(/^\d+[.)、]\s+/, "");
-  return textBlock(normalized);
-  if (raw.startsWith("### ")) return textBlock(5, raw.slice(4));
-  if (raw.startsWith("## ")) return textBlock(4, raw.slice(3));
-  if (raw.startsWith("# ")) return textBlock(3, raw.slice(2));
-  if (/^[-*]\s+/.test(raw)) return textBlock(12, raw.replace(/^[-*]\s+/, ""));
-  if (/^\d+[.)、]\s+/.test(raw)) return textBlock(13, raw.replace(/^\d+[.)、]\s+/, ""));
-  return textBlock(2, raw);
 }
 
 function markdownLineToTextBlock(line = "") {
