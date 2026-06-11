@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T04:55:12.232Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-11T05:05:19.282Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -6046,6 +6046,56 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-11T04:43:22.231Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "新建项目：客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d904f0068a8c3731da209cd9b8",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T04:57:04.604Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "可以夸我了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6d90400410a4c334c2129bfb2e9",
+          "rawChatId": "oc_a05951c22dcbf76785c43a87794240b5",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-11T05:00:31.848Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "等下，你是想让我夸你发的项目brief很完整？\n\n写得挺清楚的，客户、产品、目标、渠道、交付物都列明白了，需求也明确——这种brief接手起来特别顺畅，做事的人会感谢你的 ✨",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-11T05:00:38.523Z"
       }
     ],
     "memories": [
@@ -6512,12 +6562,22 @@
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "communication_style.likes_praise",
+        "value": "喜欢被夸赞，希望机器人给予肯定和表扬",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-11T05:00:42.499Z",
+        "updatedAt": "2026-06-11T05:00:42.499Z"
+      },
+      {
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.874Z",
-        "updatedAt": "2026-06-11T04:43:22.014Z"
+        "updatedAt": "2026-06-11T05:00:31.619Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -6527,7 +6587,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-11T04:31:10.638Z",
-        "updatedAt": "2026-06-11T04:43:21.801Z"
+        "updatedAt": "2026-06-11T05:00:31.390Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -7182,6 +7242,113 @@
         },
         "createdAt": "2026-06-11T04:43:22.444Z",
         "updatedAt": "2026-06-11T04:43:54.102Z"
+      },
+      {
+        "id": "P-20260611-F3AA01",
+        "platform": "feishu",
+        "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
+        "ownerUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "title": "AI 方案项目",
+        "clientName": "待补充",
+        "productName": "待补充",
+        "briefText": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+        "status": "ready",
+        "metadata": {
+          "analysis": {
+            "title": "AI 方案项目",
+            "audience": [],
+            "channels": [],
+            "objective": "基于用户提供的 brief，搭建调研、方案框架和素材需求表。",
+            "assetNeeds": [
+              {
+                "usage": "用于卖点页和电商转化页",
+                "module": "产品介绍",
+                "keywords": [
+                  "产品白底图",
+                  "SKU 图"
+                ],
+                "assetType": "白底产品图"
+              },
+              {
+                "usage": "用于确定视觉调性",
+                "module": "策略主视觉",
+                "keywords": [
+                  "品牌 KV",
+                  "Campaign visual"
+                ],
+                "assetType": "KV 参考"
+              }
+            ],
+            "clientName": "待补充",
+            "missingInfo": [
+              "客户/品牌背景",
+              "产品核心卖点",
+              "预算",
+              "上线时间",
+              "已有素材",
+              "目标人群数据"
+            ],
+            "productName": "待补充",
+            "qaChecklist": [
+              "目标是否明确",
+              "卖点是否具体",
+              "每个模块是否有证据或数据支撑",
+              "是否缺少素材和版权说明"
+            ],
+            "briefSummary": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+            "contentTasks": [],
+            "deliverables": [],
+            "marketingAngles": [],
+            "coreSellingPoints": [],
+            "frameworkSections": [
+              {
+                "title": "项目背景与目标",
+                "bullets": [
+                  "业务背景",
+                  "传播目标",
+                  "核心挑战"
+                ],
+                "purpose": "对齐甲方诉求和交付目标"
+              },
+              {
+                "title": "产品卖点梳理",
+                "bullets": [
+                  "功能卖点",
+                  "情绪价值",
+                  "场景价值"
+                ],
+                "purpose": "提炼可传播的核心利益点"
+              },
+              {
+                "title": "营销策略方向",
+                "bullets": [
+                  "主题方向",
+                  "渠道打法",
+                  "内容支柱"
+                ],
+                "purpose": "形成可执行的传播主线"
+              },
+              {
+                "title": "执行排期与产出",
+                "bullets": [
+                  "阶段节奏",
+                  "素材需求",
+                  "验收指标"
+                ],
+                "purpose": "拆解后续执行工作"
+              }
+            ],
+            "researchDirections": [
+              "企业与品牌背景",
+              "产品功能与卖点",
+              "竞品传播方式",
+              "目标人群需求",
+              "可用视觉资产"
+            ]
+          }
+        },
+        "createdAt": "2026-06-11T04:57:04.835Z",
+        "updatedAt": "2026-06-11T04:57:52.016Z"
       }
     ],
     "projectTasks": [
@@ -7447,6 +7614,110 @@
         "error": "",
         "createdAt": "2026-06-11T04:43:47.634Z",
         "updatedAt": "2026-06-11T04:43:47.634Z"
+      },
+      {
+        "id": "3",
+        "projectId": "P-20260611-F3AA01",
+        "agentType": "brief_agent",
+        "status": "completed",
+        "input": {
+          "briefText": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试"
+        },
+        "output": {
+          "title": "AI 方案项目",
+          "audience": [],
+          "channels": [],
+          "objective": "基于用户提供的 brief，搭建调研、方案框架和素材需求表。",
+          "assetNeeds": [
+            {
+              "usage": "用于卖点页和电商转化页",
+              "module": "产品介绍",
+              "keywords": [
+                "产品白底图",
+                "SKU 图"
+              ],
+              "assetType": "白底产品图"
+            },
+            {
+              "usage": "用于确定视觉调性",
+              "module": "策略主视觉",
+              "keywords": [
+                "品牌 KV",
+                "Campaign visual"
+              ],
+              "assetType": "KV 参考"
+            }
+          ],
+          "clientName": "待补充",
+          "missingInfo": [
+            "客户/品牌背景",
+            "产品核心卖点",
+            "预算",
+            "上线时间",
+            "已有素材",
+            "目标人群数据"
+          ],
+          "productName": "待补充",
+          "qaChecklist": [
+            "目标是否明确",
+            "卖点是否具体",
+            "每个模块是否有证据或数据支撑",
+            "是否缺少素材和版权说明"
+          ],
+          "briefSummary": "客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试",
+          "contentTasks": [],
+          "deliverables": [],
+          "marketingAngles": [],
+          "coreSellingPoints": [],
+          "frameworkSections": [
+            {
+              "title": "项目背景与目标",
+              "bullets": [
+                "业务背景",
+                "传播目标",
+                "核心挑战"
+              ],
+              "purpose": "对齐甲方诉求和交付目标"
+            },
+            {
+              "title": "产品卖点梳理",
+              "bullets": [
+                "功能卖点",
+                "情绪价值",
+                "场景价值"
+              ],
+              "purpose": "提炼可传播的核心利益点"
+            },
+            {
+              "title": "营销策略方向",
+              "bullets": [
+                "主题方向",
+                "渠道打法",
+                "内容支柱"
+              ],
+              "purpose": "形成可执行的传播主线"
+            },
+            {
+              "title": "执行排期与产出",
+              "bullets": [
+                "阶段节奏",
+                "素材需求",
+                "验收指标"
+              ],
+              "purpose": "拆解后续执行工作"
+            }
+          ],
+          "researchDirections": [
+            "企业与品牌背景",
+            "产品功能与卖点",
+            "竞品传播方式",
+            "目标人群需求",
+            "可用视觉资产"
+          ]
+        },
+        "error": "",
+        "createdAt": "2026-06-11T04:57:45.237Z",
+        "updatedAt": "2026-06-11T04:57:45.237Z"
       }
     ],
     "projectArtifacts": [
@@ -7596,6 +7867,76 @@
           "feishuTitle": "P-20260611-4EF7B9 素材需求表"
         },
         "createdAt": "2026-06-11T04:43:53.661Z"
+      },
+      {
+        "id": "7",
+        "projectId": "P-20260611-F3AA01",
+        "artifactType": "research_doc",
+        "title": "P-20260611-F3AA01 调研文档",
+        "url": "https://www.feishu.cn/docx/VEwQdt8fvoAIc1xNqUVcy8b8nYp",
+        "token": "VEwQdt8fvoAIc1xNqUVcy8b8nYp",
+        "contentSummary": "# AI 方案项目｜调研文档\n\n## 说明\n这是第一阶段自动生成的调研骨架，当前基于 brief 和模型推理，不等同于已联网核验的事实。正式交付前，需要补充来源链接、产品资料和竞品证据。\n\n## 项目摘要\n- 项目编号：P-20260611-F3AA01\n- 客户/品牌：待补充\n- 产品/服务：待补充\n- 核心目标：基于用户提供的 brief，搭建调研、方案框架和素材需求表。\n\n## Brief 摘要\n客户：测试品牌\n产品：测试产品\n目标：测试飞书文档和表格生成\n渠道：小红书、抖音\n交付物：调研文档、方案框架、素材需求表\n要求：只做功能测试\n\n## 目标人群假设\n- 待补充目标人群\n\n## 产品主要卖点\n- 待补充产品卖点\n\n## 适合营销的方向\n- 待补充营销方向\n\n## 需要继续调研的问题\n- 企业与品牌背景\n- 产品功能与卖点\n- 竞品传播方式\n- 目标人群需求\n- 可用视觉资产\n\n## 缺失信息\n- 客户/品牌背景\n- 产品核心卖点\n- 预算\n- 上线时间\n- 已有素材\n- 目标人群数据",
+        "metadata": {
+          "writeError": "",
+          "feishuTitle": "P-20260611-F3AA01 调研文档"
+        },
+        "createdAt": "2026-06-11T04:57:47.234Z"
+      },
+      {
+        "id": "8",
+        "projectId": "P-20260611-F3AA01",
+        "artifactType": "framework_doc",
+        "title": "P-20260611-F3AA01 方案框架",
+        "url": "https://www.feishu.cn/docx/KgERdupAcoiFq6xSN47cKnV7nWh",
+        "token": "KgERdupAcoiFq6xSN47cKnV7nWh",
+        "contentSummary": "# AI 方案项目｜方案框架\n\n## 方案定位\n- 项目编号：P-20260611-F3AA01\n- 核心目标：基于用户提供的 brief，搭建调研、方案框架和素材需求表。\n- 建议渠道：待补充\n- 交付物：待补充\n\n## 推荐 PPT 结构\n## 1. 项目背景与目标\n- 模块目的：对齐甲方诉求和交付目标\n- 业务背景\n- 传播目标\n- 核心挑战\n\n## 2. 产品卖点梳理\n- 模块目的：提炼可传播的核心利益点\n- 功能卖点\n- 情绪价值\n- 场景价值\n\n## 3. 营销策略方向\n- 模块目的：形成可执行的传播主线\n- 主题方向\n- 渠道打法\n- 内容支柱\n\n## 4. 执行排期与产出\n- 模块目的：拆解后续执行工作\n- 阶段节奏\n- 素材需求\n- 验收指标\n\n## 内容填充任务\n- 按模块补充数据、案例、素材、执行排期\n\n## 质检清单\n- 目标是否明确\n- 卖点是否具体\n- 每个模块是否有证据或数据支撑\n- 是否缺少素材和版权说明",
+        "metadata": {
+          "writeError": "",
+          "feishuTitle": "P-20260611-F3AA01 方案框架"
+        },
+        "createdAt": "2026-06-11T04:57:49.171Z"
+      },
+      {
+        "id": "9",
+        "projectId": "P-20260611-F3AA01",
+        "artifactType": "asset_sheet",
+        "title": "P-20260611-F3AA01 素材需求表",
+        "url": "https://rcnx3mn0vg5z.feishu.cn/sheets/LLfys5vMphoXAptFDY5cP7fCnse",
+        "token": "LLfys5vMphoXAptFDY5cP7fCnse",
+        "contentSummary": "项目编号 | 模块 | 素材类型 | 搜索关键词 | 用途 | 版权/来源备注 | 状态\nP-20260611-F3AA01 | 产品介绍 | 白底产品图 | 产品白底图 / SKU 图 | 用于卖点页和电商转化页 | 需人工确认可商用/可引用范围 | 待查找\nP-20260611-F3AA01 | 策略主视觉 | KV 参考 | 品牌 KV / Campaign visual | 用于确定视觉调性 | 需人工确认可商用/可引用范围 | 待查找",
+        "metadata": {
+          "rows": [
+            [
+              "项目编号",
+              "模块",
+              "素材类型",
+              "搜索关键词",
+              "用途",
+              "版权/来源备注",
+              "状态"
+            ],
+            [
+              "P-20260611-F3AA01",
+              "产品介绍",
+              "白底产品图",
+              "产品白底图 / SKU 图",
+              "用于卖点页和电商转化页",
+              "需人工确认可商用/可引用范围",
+              "待查找"
+            ],
+            [
+              "P-20260611-F3AA01",
+              "策略主视觉",
+              "KV 参考",
+              "品牌 KV / Campaign visual",
+              "用于确定视觉调性",
+              "需人工确认可商用/可引用范围",
+              "待查找"
+            ]
+          ],
+          "feishuTitle": "P-20260611-F3AA01 素材需求表"
+        },
+        "createdAt": "2026-06-11T04:57:51.577Z"
       }
     ],
     "projectSources": [],
