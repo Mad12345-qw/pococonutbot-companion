@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-11T07:23:46.105Z",
+  "exportedAt": "2026-06-12T17:23:46.373Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -6282,6 +6282,37 @@
           "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
         },
         "createdAt": "2026-06-11T07:22:56.865Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "在吗",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6df7bee5d4a0b4a713bb8233fda",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-12T17:16:54.027Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 在的呀～我一直在 😊  \n你刚刚是不是在忙别的事情？怎么啦？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-12T17:16:57.982Z"
       }
     ],
     "memories": [
@@ -6733,7 +6764,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-09T00:57:34.763Z"
+        "updatedAt": "2026-06-12T17:16:53.801Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -6743,7 +6774,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-09T00:57:34.493Z"
+        "updatedAt": "2026-06-12T17:16:53.531Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
