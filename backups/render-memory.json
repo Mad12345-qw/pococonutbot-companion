@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T14:49:29.654Z",
+  "exportedAt": "2026-06-16T14:59:09.723Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -6615,6 +6615,161 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-16T14:42:28.223Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "小爷小爷唱两句邓子奇的歌我听一下",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22671674a0b39f4a560959432",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 5000
+        },
+        "createdAt": "2026-06-16T14:50:11.427Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 小椰: 哈哈小爷你这称呼我挺喜欢～不过真唱不了啦，我这边是文字的，没法出声。\n\n要不这样，我写几句《红玫瑰》的词给你看：\n\n\"得不到的永远在骚动\n被偏爱的都有恃无恐\n人的一生会遇到很多人\n但能放进心里的没几个\"\n\n念得有感觉吗？还是你想听《泡沫》或者《十年》？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:50:16.945Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "小耶，邓紫棋最近在忙什么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c227e9a14a4b4b0237739de2e0",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T14:51:53.143Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 邓紫棋最近在忙的事我能想到几个——\n\n2025 年她忙着开「Gloria 世界巡回演唱会」，走了很多城市；同年还出了新专辑《启示录》，口碑不错。\n\n2026 年初她官宣了新恋情，3 月在澳门开了两场新巡演。\n\n具体的最新行程我不太确定，你想去她的官方社交账号看看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:52:01.900Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "谁是邓紫棋",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c227f83c8a8c1e9f7e0d2c6a8e",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T14:52:27.421Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 邓紫棋（G.E.M.）是香港的华语流行歌手，1991 年出生。\n\n她很有名，2014 年参加《我是歌手》后红遍两岸，嗓音很有穿透力。\n\n代表作有《泡沫》《光年之外》《喜欢你》这些，创作能力也很强。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-16T14:52:33.756Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱两句邓紫棋的歌我听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c227b1e54a8b1179d3c8625b6c",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T14:53:20.796Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 哈哈我是AI不会真唱，但给你来两句《泡沫》的词吧：\n\n「阳光下的泡沫，是彩色的，美丽的，却一触就破……」\n\n要听完整版就去音乐平台搜～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:53:24.629Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "需要转文字功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22774f98acc265f1bf01b4895",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T14:54:19.657Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 语音转文字？你是想要工具还是想让我帮你做？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-06-16T14:54:25.986Z"
       }
     ],
     "memories": [
@@ -6976,7 +7131,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.443Z",
-        "updatedAt": "2026-06-10T06:32:09.652Z"
+        "updatedAt": "2026-06-16T14:53:20.578Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -6986,7 +7141,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.199Z",
-        "updatedAt": "2026-06-10T06:32:09.430Z"
+        "updatedAt": "2026-06-16T14:53:20.360Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "feature_request.speech_to_text",
+        "value": "用户需要语音转文字功能",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-16T14:54:40.016Z",
+        "updatedAt": "2026-06-16T14:54:40.016Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -6996,7 +7161,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:15.188Z",
-        "updatedAt": "2026-06-11T07:21:45.647Z"
+        "updatedAt": "2026-06-16T14:54:19.423Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -7006,7 +7171,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:14.968Z",
-        "updatedAt": "2026-06-11T07:21:45.385Z"
+        "updatedAt": "2026-06-16T14:54:19.193Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -7061,12 +7226,42 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "communication_style",
+        "value": "用户喜欢用俏皮、撒娇式的语气交流",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-06-16T14:50:48.055Z",
+        "updatedAt": "2026-06-16T14:50:48.055Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.music",
+        "value": "用户喜欢听邓子奇（陈奕迅）的歌，提到了《红玫瑰》《泡沫》《十年》",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-06-16T14:50:47.845Z",
+        "updatedAt": "2026-06-16T14:50:47.845Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.nickname",
+        "value": "用户喜欢自称或被叫'小爷'",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-16T14:50:47.633Z",
+        "updatedAt": "2026-06-16T14:50:47.633Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-16T14:42:23.481Z"
+        "updatedAt": "2026-06-16T14:50:11.201Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -7076,7 +7271,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-16T14:42:23.125Z"
+        "updatedAt": "2026-06-16T14:50:10.955Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
