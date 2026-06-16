@@ -52,29 +52,6 @@ await storage.init();
 const feishuBitable = new FeishuBitableClient({ config });
 setupAdminRoutes(app, { config, storage, feishuBitable });
 
-const bitableBootstrapStatus = {
-  enabled: true,
-  startedAt: new Date().toISOString(),
-  finishedAt: "",
-  ok: false,
-  result: null,
-  error: ""
-};
-app.get("/bitable-bootstrap-status", (_req, res) => {
-  res.json(bitableBootstrapStatus);
-});
-feishuBitable.applySalesSchema()
-  .then((result) => {
-    bitableBootstrapStatus.ok = true;
-    bitableBootstrapStatus.result = result;
-  })
-  .catch((error) => {
-    bitableBootstrapStatus.error = error.message;
-  })
-  .finally(() => {
-    bitableBootstrapStatus.finishedAt = new Date().toISOString();
-  });
-
 function serviceOrigin(req) {
   const host = req.get("x-forwarded-host") || req.get("host");
   const proto = req.get("x-forwarded-proto") || req.protocol || "https";
@@ -85,6 +62,7 @@ app.get("/feishu/bitable-user-auth/start", (req, res) => {
   const redirectUri = `${serviceOrigin(req)}/feishu/bitable-user-auth/callback`;
   const state = Buffer.from(JSON.stringify({
     appToken: String(req.query.appToken || "P1g7bR1bkaBhIDs2QHQcoGbEnLg"),
+    execute: req.query.execute === "1",
     ts: Date.now()
   })).toString("base64url");
   const url = new URL("https://accounts.feishu.cn/open-apis/authen/v1/authorize");
@@ -104,14 +82,26 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
   }
 
   let appToken = "P1g7bR1bkaBhIDs2QHQcoGbEnLg";
+  let execute = false;
   try {
     const parsed = JSON.parse(Buffer.from(String(req.query.state || ""), "base64url").toString("utf8"));
     if (parsed?.appToken) appToken = parsed.appToken;
+    execute = parsed?.execute === true;
   } catch {
     // Keep default app token.
   }
 
   const redirectUri = `${serviceOrigin(req)}/feishu/bitable-user-auth/callback`;
+  const diagnostics = {
+    ok: false,
+    stage: "oauth_token",
+    appToken,
+    execute,
+    tokenKind: "not_received",
+    userInfo: null,
+    accessCheck: null,
+    hint: ""
+  };
   try {
     const tokenResponse = await fetch("https://open.feishu.cn/open-apis/authen/v2/oauth/token", {
       method: "POST",
@@ -126,30 +116,72 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
     });
     const tokenData = await tokenResponse.json();
     if (!tokenResponse.ok || tokenData.code !== 0) {
-      res.status(500).type("text").send(`Feishu OAuth token failed: ${JSON.stringify(tokenData)}`);
+      diagnostics.error = tokenData;
+      diagnostics.hint = "OAuth token exchange failed. Check the Feishu app redirect URL and OAuth app configuration.";
+      res.status(500).type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu OAuth Failed</title><pre>${JSON.stringify(diagnostics, null, 2)}</pre>`);
       return;
     }
 
     const userToken = tokenData.data?.access_token || tokenData.access_token;
     if (!userToken) {
-      res.status(500).type("text").send(`Feishu OAuth token missing access_token: ${JSON.stringify(tokenData)}`);
+      diagnostics.error = tokenData;
+      diagnostics.hint = "OAuth succeeded but Feishu did not return an access_token.";
+      res.status(500).type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu OAuth Failed</title><pre>${JSON.stringify(diagnostics, null, 2)}</pre>`);
       return;
+    }
+    diagnostics.tokenKind = userToken.startsWith("u-") ? "user_access_token" : "unknown";
+    diagnostics.stage = "user_info";
+
+    try {
+      const userInfoResponse = await fetch("https://open.feishu.cn/open-apis/authen/v1/user_info", {
+        headers: { Authorization: `Bearer ${userToken}` }
+      });
+      diagnostics.userInfo = await userInfoResponse.json();
+    } catch (error) {
+      diagnostics.userInfo = { error: error.message };
     }
 
     const originalTenantAccessToken = feishuBitable.tenantAccessToken.bind(feishuBitable);
     feishuBitable.tenantAccessToken = async () => userToken;
     try {
-      const result = await feishuBitable.applySalesSchema({ appToken });
-      res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Base Updated</title><pre>${JSON.stringify({
+      diagnostics.stage = "bitable_access_check";
+      const tables = await feishuBitable.listAll(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
+        page_size: 100
+      });
+      diagnostics.accessCheck = {
         ok: true,
-        appToken,
-        result
+        tableCount: tables.length,
+        tables: tables.map((table) => ({
+          tableId: table.table_id,
+          name: table.name
+        }))
+      };
+
+      if (!execute) {
+        diagnostics.ok = true;
+        diagnostics.stage = "ready_to_execute";
+        diagnostics.hint = "The authorized user token can read this Base. Re-open the start URL with &execute=1 to apply the schema after confirming the schema file is clean.";
+        res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Base Access OK</title><pre>${JSON.stringify(diagnostics, null, 2)}</pre>`);
+        return;
+      }
+
+      diagnostics.stage = "apply_sales_schema";
+      const result = await feishuBitable.applySalesSchema({ appToken });
+      diagnostics.ok = true;
+      diagnostics.stage = "done";
+      diagnostics.result = result;
+      res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Base Updated</title><pre>${JSON.stringify({
+        ...diagnostics
       }, null, 2)}</pre>`);
     } finally {
       feishuBitable.tenantAccessToken = originalTenantAccessToken;
     }
   } catch (error) {
-    res.status(500).type("text").send(error.message);
+    diagnostics.error = error.message;
+    diagnostics.hint = "If tokenKind is user_access_token but bitable_access_check returns RolePermNotAllow, the authorized Feishu user is not recognized as an editor of this Base for OpenAPI, or the app's OAuth scopes/tenant do not match this Base.";
+    res.status(500).type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Bitable Failed</title><pre>${JSON.stringify({
+      ...diagnostics
+    }, null, 2)}</pre>`);
   }
 });
 
