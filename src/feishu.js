@@ -5,7 +5,7 @@ import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertWavToOpus } from "./tts-client.js";
-import { detectImageMimeType, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
+import { detectImageMimeType, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
@@ -292,19 +292,20 @@ export class FeishuBot {
         throw error;
       }
     }
+    const safeAssistantReply = this.cleanAssistantReply(redactSensitive(reply));
     await this.storage.addMessage({
       chatId,
       userId,
       role: "assistant",
       modality: "text",
-      content: redactSensitive(reply),
+      content: safeAssistantReply,
       metadata: { platform: "feishu", replyToUserId: userId }
     });
 
-    const safeReply = redactSensitive(reply);
+    const safeReply = safeAssistantReply;
     const sentAsSpeech = await this.replySpeech(message.message_id, safeReply);
     if (!sentAsSpeech) {
-      for (const chunk of splitChatBubbles(reply, 1800)) {
+      for (const chunk of splitChatBubbles(safeReply, 1800)) {
         await this.replyText(message.message_id, chunk);
       }
     }
@@ -713,6 +714,10 @@ export class FeishuBot {
     });
     this.rememberBotMessage(response);
     return response;
+  }
+
+  cleanAssistantReply(text = "") {
+    return stripLeadingSelfName(text, [this.config.displayName, this.config.feishuBotName, "小椰"]);
   }
 
   async replyImage(messageId, imageKey) {

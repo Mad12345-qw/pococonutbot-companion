@@ -13,6 +13,30 @@ export function redactSensitive(text = "") {
   return output;
 }
 
+function escapeRegExp(value = "") {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+export function stripLeadingSelfName(text = "", names = []) {
+  let output = String(text || "").trim();
+  const cleanNames = [...new Set(names.filter(Boolean).map((name) => String(name).trim()).filter(Boolean))];
+  if (!output || cleanNames.length === 0) return output;
+
+  const namePattern = cleanNames.map(escapeRegExp).join("|");
+  const leadingPattern = new RegExp(
+    `^(?:我是\\s*)?(?:${namePattern})(?:\\s*(?:呀|啊|哦|啦|呢))?\\s*[,，:：、。.!！?？\\-—\\s]+`,
+    "i"
+  );
+
+  for (let i = 0; i < 3; i += 1) {
+    const next = output.replace(leadingPattern, "").trim();
+    if (next === output) break;
+    output = next;
+  }
+
+  return output || String(text || "").trim();
+}
+
 export function truncate(text = "", max = 4000) {
   const value = String(text);
   if (value.length <= max) return value;
