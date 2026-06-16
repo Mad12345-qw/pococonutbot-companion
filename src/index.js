@@ -49,6 +49,29 @@ await storage.init();
 const feishuBitable = new FeishuBitableClient({ config });
 setupAdminRoutes(app, { config, storage, feishuBitable });
 
+const bitableBootstrapStatus = {
+  enabled: true,
+  startedAt: new Date().toISOString(),
+  finishedAt: "",
+  ok: false,
+  result: null,
+  error: ""
+};
+app.get("/bitable-bootstrap-status", (_req, res) => {
+  res.json(bitableBootstrapStatus);
+});
+feishuBitable.applySalesSchema()
+  .then((result) => {
+    bitableBootstrapStatus.ok = true;
+    bitableBootstrapStatus.result = result;
+  })
+  .catch((error) => {
+    bitableBootstrapStatus.error = error.message;
+  })
+  .finally(() => {
+    bitableBootstrapStatus.finishedAt = new Date().toISOString();
+  });
+
 const githubBackup = new GitHubMemoryBackup({ config, storage });
 await githubBackup.start();
 
