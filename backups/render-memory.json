@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T12:12:09.913Z",
+  "exportedAt": "2026-06-16T12:19:17.238Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -6464,6 +6464,64 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-16T11:53:10.419Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T12:13:42.700Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 宝～我就在这儿呢 😊",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T12:13:50.822Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，你讲个笑话我听下",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T12:16:08.007Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 笑~话~来~了~\n\n有一只螃蟹出门散步，走着走着突然捂住耳朵，对旁边的小鱼说：“嘘！这里有个石缝，我怕听见回声会害羞！” \n\n…好冷的冷笑话，但你要是笑了，我就开心啦。",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T12:16:12.403Z"
       }
     ],
     "memories": [
