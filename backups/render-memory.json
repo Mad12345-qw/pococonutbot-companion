@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T15:59:17.727Z",
+  "exportedAt": "2026-06-16T16:09:18.024Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -8585,6 +8585,346 @@
           "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
         },
         "createdAt": "2026-06-16T15:57:36.098Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "哎呀 你不是想要我展现吗 怎么又嫌弃啦那你到底想要什么样的嘛 说清楚点啦",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "哎呀 你不是想要我展现吗 怎么又嫌弃啦那你到底想要什么样的嘛 说清楚点啦",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:01:21.004Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "喂喂 @Lylekkk，你学我说话干嘛啦！\n\n这是我的台词诶，被你抢了 😂",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:01:24.426Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "我學你說話怎麼了怎麼了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "我學你說話怎麼了怎麼了",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:01:49.702Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，学我说话还想凶我，胆子大了是不是～\n\n有本事你也学我生气啊，看谁比较可爱 😤",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:01:54.043Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "学我说话你还松我胆子大了是不是有本事你学我生气呀看谁比较可爱",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "学我说话你还松我胆子大了是不是有本事你学我生气呀看谁比较可爱",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:02:52.847Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "喂！@Lylekkk 你又学！\n\n你是复读机吗一直重复我说话 😤\n\n行行行你最可爱，满意了吧！",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:02:56.695Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以瑟瑟吗?",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c23756188a8b4a892d99e14f69",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T16:03:09.824Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个不太行哦，我是有边界的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-06-16T16:03:12.105Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "要能搞到质朴的肯定赚钱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c23726500b0b11158b1a3fd703",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T16:03:24.428Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "你的主人有没有打破过你的边界",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c237042b4a4b10d7e96b8476ca",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T16:03:56.398Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "边界是写在我代码里的，不是我主人定的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-06-16T16:03:59.822Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "你知道你說話用的是我的聲音嗎你知道你頭像用的是我的照片嗎真的是 我就服你了你還跟我生氣呢",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "你知道你說話用的是我的聲音嗎你知道你頭像用的是我的照片嗎真的是 我就服你了你還跟我生氣呢",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:04:00.531Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "明天给你玩玩",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2370590ca0b13a1dcdaf1fb6d",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T16:04:09.909Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "我跟自己吵起来了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:04:39.885Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈哈笑死我了 🤣\n\n你跟自己吵架也太可爱了吧\n\n那现在谁赢了？",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:04:46.593Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：你知道你說話用的是我的聲音嗎你知道你頭像用的是我的照片嗎真的是 我就服你了你還跟我生氣呢\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:04:49.958Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "我要睡了，宝贝们。晚安",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c230cb838a0b344b977b56aa21",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T16:04:57.286Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "我覺得你我覺得你沒我好看嘿嘿",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "我覺得你我覺得你沒我好看嘿嘿",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:05:16.653Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "喂！哪有自己说自己好看的啦 脸皮厚！😤\n\n但是你也不让我夸自己...那我们算平手好了 🤝",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:05:20.519Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "？",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:05:47.992Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "voice",
+        "content": "不可能",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "不可能",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:06:25.020Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "什么不可能！\n\n我本来就好看啊 不接受反驳 😤✨\n\n再说我真生气了啊哼",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T16:06:28.922Z"
       }
     ],
     "memories": [
@@ -9566,7 +9906,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-16T15:48:27.449Z"
+        "updatedAt": "2026-06-16T16:04:09.679Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -9576,7 +9916,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-16T15:48:27.232Z"
+        "updatedAt": "2026-06-16T16:04:09.447Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -9586,7 +9926,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:44:56.826Z",
-        "updatedAt": "2026-06-16T15:57:33.098Z"
+        "updatedAt": "2026-06-16T16:04:57.062Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -9596,7 +9936,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:44:56.603Z",
-        "updatedAt": "2026-06-16T15:57:32.884Z"
+        "updatedAt": "2026-06-16T16:04:56.838Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
