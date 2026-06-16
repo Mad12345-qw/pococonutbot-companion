@@ -152,7 +152,7 @@ export const config = {
   ttsTopP: asNumber(process.env.TTS_TOP_P, 0.8),
   ttsTopK: asNumber(process.env.TTS_TOP_K, 25),
   ttsTelegramMode: process.env.TTS_TELEGRAM_MODE || "voice",
-  feishuTtsVoiceId: process.env.FEISHU_TTS_VOICE_ID || process.env.TTS_VOICE_ID || "",
+  feishuTtsVoiceId: process.env.FEISHU_TTS_VOICE_ID || "",
   feishuTtsMaxInputChars: asNumber(process.env.FEISHU_TTS_MAX_INPUT_CHARS, asNumber(process.env.TTS_MAX_INPUT_CHARS, 1200)),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),

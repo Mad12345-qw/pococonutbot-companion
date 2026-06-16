@@ -18,6 +18,11 @@ const app = express();
 app.use(express.json({ limit: "1mb" }));
 app.set("trust proxy", true);
 
+function idSuffix(value = "") {
+  const text = String(value || "");
+  return text ? text.slice(-4) : "";
+}
+
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
@@ -34,6 +39,13 @@ app.get("/health", (_req, res) => {
     voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
     voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),
     feishuVoiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.feishuTtsVoiceId),
+    voiceReplyDetails: {
+      telegramVoiceConfigured: Boolean(config.ttsVoiceId),
+      feishuVoiceConfigured: Boolean(config.feishuTtsVoiceId),
+      distinctVoices: Boolean(config.ttsVoiceId && config.feishuTtsVoiceId && config.ttsVoiceId !== config.feishuTtsVoiceId),
+      telegramVoiceSuffix: idSuffix(config.ttsVoiceId),
+      feishuVoiceSuffix: idSuffix(config.feishuTtsVoiceId)
+    },
     feishu: Boolean(config.feishuAppId && config.feishuAppSecret),
     feishuProjectFolder: Boolean(config.feishuProjectFolderToken)
   };
