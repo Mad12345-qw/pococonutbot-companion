@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T14:59:09.723Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-16T15:09:18.329Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -6770,6 +6770,68 @@
           "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
         },
         "createdAt": "2026-06-16T14:54:25.986Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "夏宜,你能假装唱两句,我再听一下吗?",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22024f50a0b275310bd5d3aa0",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 4000
+        },
+        "createdAt": "2026-06-16T14:59:24.994Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈好嘞，那我清唱两句试试～\n\n*咳咳*\n\n🎵\"红是朱砂痣烙印心口\n　白是月光前尘旧梦\n　得不到的永远在骚动\n　被偏爱的都有恃无恐～\"🎵\n\n*清清嗓子*\n\n🎵\"十年之前\n　我不认识你\n　你不属于我\n　我们还是一样\n　陪在一个陌生人左右～\"🎵\n\n*鞠躬*\n\n怎么样小爷，我这\"清唱\"还能入耳不～😆",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:59:33.451Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "小耶，你会唱歌么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22178934a0b24bd81c9571d6f",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:02:47.710Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "叫我呀～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T15:02:53.744Z"
       }
     ],
     "memories": [
@@ -7261,7 +7323,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-16T14:50:11.201Z"
+        "updatedAt": "2026-06-16T14:59:24.765Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -7271,7 +7333,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-16T14:50:10.955Z"
+        "updatedAt": "2026-06-16T14:59:24.536Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -7661,7 +7723,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-08T10:33:08.966Z"
+        "updatedAt": "2026-06-16T15:02:47.490Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7671,7 +7733,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-08T10:33:08.626Z"
+        "updatedAt": "2026-06-16T15:02:47.268Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
