@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T16:09:18.024Z",
+  "exportedAt": "2026-06-16T16:29:18.117Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -8925,6 +8925,24 @@
           "replyToUserId": "6095109213"
         },
         "createdAt": "2026-06-16T16:06:28.922Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "不行",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T16:25:04.997Z"
       }
     ],
     "memories": [
