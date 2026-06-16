@@ -1,4 +1,5 @@
 import express from "express";
+import { randomUUID } from "node:crypto";
 import { assertRequiredConfig, config } from "./config.js";
 import { AIClient } from "./ai-client.js";
 import { ImageGenerationClient } from "./image-client.js";
@@ -51,6 +52,7 @@ await storage.init();
 
 const feishuBitable = new FeishuBitableClient({ config });
 setupAdminRoutes(app, { config, storage, feishuBitable });
+const bitableJobs = new Map();
 
 function serviceOrigin(req) {
   const host = req.get("x-forwarded-host") || req.get("host");
@@ -72,6 +74,20 @@ app.get("/feishu/bitable-user-auth/start", (req, res) => {
   url.searchParams.set("scope", "bitable:app");
   url.searchParams.set("state", state);
   res.redirect(url.toString());
+});
+
+app.get("/feishu/bitable-user-auth/jobs/:jobId", (req, res) => {
+  const job = bitableJobs.get(req.params.jobId);
+  if (!job) {
+    res.status(404).type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Job Not Found</title><pre>${JSON.stringify({
+      ok: false,
+      error: "Job not found. Re-open the start URL to create a fresh Feishu authorization."
+    }, null, 2)}</pre>`);
+    return;
+  }
+
+  const done = job.status === "done" || job.status === "failed";
+  res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Bitable Job ${job.status}</title>${done ? "" : "<meta http-equiv=\"refresh\" content=\"5\">"}<pre>${JSON.stringify(job, null, 2)}</pre>`);
 });
 
 app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
@@ -165,13 +181,47 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
         return;
       }
 
-      diagnostics.stage = "apply_sales_schema";
-      const result = await feishuBitable.applySalesSchema({ appToken });
-      diagnostics.ok = true;
-      diagnostics.stage = "done";
-      diagnostics.result = result;
-      res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Base Updated</title><pre>${JSON.stringify({
-        ...diagnostics
+      const jobId = randomUUID();
+      const jobUrl = `${serviceOrigin(req)}/feishu/bitable-user-auth/jobs/${jobId}`;
+      const job = {
+        id: jobId,
+        ok: false,
+        status: "running",
+        stage: "apply_sales_schema",
+        appToken,
+        startedAt: new Date().toISOString(),
+        finishedAt: "",
+        diagnostics,
+        result: null,
+        error: ""
+      };
+      bitableJobs.set(jobId, job);
+
+      const jobClient = new FeishuBitableClient({ config });
+      jobClient.tenantAccessToken = async () => userToken;
+      jobClient.applySalesSchema({ appToken })
+        .then((result) => {
+          job.ok = true;
+          job.status = "done";
+          job.stage = "done";
+          job.result = result;
+        })
+        .catch((error) => {
+          job.status = "failed";
+          job.stage = "failed";
+          job.error = error.message;
+        })
+        .finally(() => {
+          job.finishedAt = new Date().toISOString();
+        });
+
+      res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Bitable Job Started</title><meta http-equiv="refresh" content="2; url=${jobUrl}"><p>Feishu bitable schema job started. This page will refresh automatically.</p><p><a href="${jobUrl}">Open job status</a></p><pre>${JSON.stringify({
+        ok: true,
+        stage: "job_started",
+        jobId,
+        jobUrl,
+        appToken,
+        accessCheck: diagnostics.accessCheck
       }, null, 2)}</pre>`);
     } finally {
       feishuBitable.tenantAccessToken = originalTenantAccessToken;
