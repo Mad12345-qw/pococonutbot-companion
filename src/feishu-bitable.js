@@ -75,7 +75,7 @@ const SALES_SCHEMA = [
       field("预计成本", 2, { formatter: "0.00" }),
       field("预计利润", 20, { formula: ["预计成交金额", "-", "预计成本"], formatter: "0.00" }),
       field("预计成交日期", 5, { date_formatter: "yyyy/MM/dd" }),
-      field("成交概率", 2, { formatter: "0%" }),
+      field("成交概率", 2, { formatter: "0.00%" }),
       field("商机状态", 3, { options: [option("进行中", 0), option("赢单", 1), option("输单", 2), option("搁置", 3)] }),
       field("实际成交订单", 18, { linkTo: "销售订单", multiple: true }),
       field("创建日期", 5, { date_formatter: "yyyy/MM/dd" }),
@@ -88,7 +88,7 @@ const SALES_SCHEMA = [
     primary: field("订单编号", 1),
     fields: [
       field("订单日期", 5, { date_formatter: "yyyy/MM/dd" }),
-      field("归属月份", 5, { date_formatter: "yyyy/MM" }),
+      field("归属月份", 5, { date_formatter: "yyyy/MM/dd" }),
       field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
       field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
@@ -154,7 +154,7 @@ const SALES_SCHEMA = [
     primary: field("费用名称", 1),
     fields: [
       field("费用日期", 5, { date_formatter: "yyyy/MM/dd" }),
-      field("归属月份", 5, { date_formatter: "yyyy/MM" }),
+      field("归属月份", 5, { date_formatter: "yyyy/MM/dd" }),
       field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("费用类型", 3, { options: [option("平台扣费", 0), option("推广费", 1), option("服务费", 2), option("物流费", 3), option("其他", 4)] }),
       field("费用金额", 2, { formatter: "0.00" }),
@@ -185,7 +185,7 @@ const SALES_SCHEMA = [
     name: "销售目标管理",
     primary: field("目标名称", 1),
     fields: [
-      field("目标月份", 5, { date_formatter: "yyyy/MM" }),
+      field("目标月份", 5, { date_formatter: "yyyy/MM/dd" }),
       field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("销售额目标", 2, { formatter: "0.00" }),
@@ -203,7 +203,7 @@ const SALES_SCHEMA = [
     name: "工资表",
     primary: field("工资记录", 1),
     fields: [
-      field("工资月份", 5, { date_formatter: "yyyy/MM" }),
+      field("工资月份", 5, { date_formatter: "yyyy/MM/dd" }),
       field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("基本工资", 2, { formatter: "0.00" }),
       field("实际销售额", 2, { formatter: "0.00" }),
@@ -221,7 +221,7 @@ const SALES_SCHEMA = [
     name: "经营看板指标",
     primary: field("指标名称", 1),
     fields: [
-      field("指标月份", 5, { date_formatter: "yyyy/MM" }),
+      field("指标月份", 5, { date_formatter: "yyyy/MM/dd" }),
       field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("销售额", 2, { formatter: "0.00" }),
