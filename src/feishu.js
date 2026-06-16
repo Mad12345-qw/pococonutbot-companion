@@ -4,6 +4,7 @@ import { buildSystemPrompt } from "./persona.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
+import { convertWavToOpus } from "./tts-client.js";
 import { detectImageMimeType, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
@@ -45,12 +46,13 @@ function isUsableBotName(name = "") {
 }
 
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
     this.speechToText = speechToText;
+    this.textToSpeech = textToSpeech;
     this.token = null;
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
@@ -299,8 +301,12 @@ export class FeishuBot {
       metadata: { platform: "feishu", replyToUserId: userId }
     });
 
-    for (const chunk of splitChatBubbles(reply, 1800)) {
-      await this.replyText(message.message_id, chunk);
+    const safeReply = redactSensitive(reply);
+    const sentAsSpeech = await this.replySpeech(message.message_id, safeReply);
+    if (!sentAsSpeech) {
+      for (const chunk of splitChatBubbles(reply, 1800)) {
+        await this.replyText(message.message_id, chunk);
+      }
     }
 
     if (this.config.autoMemory) {
@@ -719,6 +725,39 @@ export class FeishuBot {
     return response;
   }
 
+  async replySpeech(messageId, text) {
+    if (!messageId || !this.textToSpeech?.isEnabled(this.config.feishuTtsVoiceId)) return false;
+
+    try {
+      const speech = await this.textToSpeech.synthesize(text, {
+        voiceId: this.config.feishuTtsVoiceId,
+        maxInputChars: this.config.feishuTtsMaxInputChars
+      });
+      const opus = await convertWavToOpus(speech.buffer, { fileName: "reply.opus" });
+      const fileKey = await this.uploadAudio({
+        buffer: opus.buffer,
+        contentType: opus.contentType,
+        fileName: opus.fileName,
+        durationMs: speech.durationMs
+      });
+      const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+        msg_type: "audio",
+        content: JSON.stringify({
+          file_key: fileKey,
+          duration: speech.durationMs
+        })
+      });
+      this.rememberBotMessage(response);
+      return true;
+    } catch (error) {
+      logEvent("error", "Feishu text-to-speech reply failed", {
+        messageId,
+        error: error.message
+      });
+      return false;
+    }
+  }
+
   async uploadImage(image) {
     const token = await this.tenantAccessToken();
     const blob = new Blob([image.buffer], { type: image.mimeType || "image/png" });
@@ -741,6 +780,38 @@ export class FeishuBot {
       throw new Error(`Feishu image upload failed: ${truncate(JSON.stringify(data), 500)}`);
     }
     return data.data?.image_key;
+  }
+
+  async uploadAudio(audio) {
+    const token = await this.tenantAccessToken();
+    const blob = new Blob([audio.buffer], { type: audio.contentType || "audio/ogg" });
+    const form = new FormData();
+    form.append("file_type", "opus");
+    form.append("file_name", audio.fileName || "reply.opus");
+    form.append("duration", String(Math.max(1000, Number(audio.durationMs || 1000))));
+    form.append("file", blob, audio.fileName || "reply.opus");
+
+    let response;
+    try {
+      response = await fetch("https://open.feishu.cn/open-apis/im/v1/files", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: form
+      });
+    } catch (error) {
+      logEvent("error", "Feishu audio upload fetch failed", { error: error.message });
+      throw new Error(`Feishu audio upload fetch failed: ${error.message}`);
+    }
+
+    const data = await response.json();
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu audio upload failed: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    const fileKey = data.data?.file_key;
+    if (!fileKey) {
+      throw new Error(`Feishu audio upload did not return file_key: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    return fileKey;
   }
 
   async downloadMessageResource({ messageId, fileKey, type = "file", maxBytes = 25 * 1024 * 1024 }) {

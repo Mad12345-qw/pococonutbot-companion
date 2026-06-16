@@ -63,6 +63,10 @@ services:
         sync: false
       - key: TTS_TELEGRAM_MODE
         value: voice
+      - key: FEISHU_TTS_VOICE_ID
+        value: "2066888673848201216"
+      - key: FEISHU_TTS_MAX_INPUT_CHARS
+        value: "1200"
       - key: BOT_DISPLAY_NAME
         value: 小椰
       - key: COMPANION_MODE

@@ -33,6 +33,7 @@ app.get("/health", (_req, res) => {
     imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
     voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
     voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),
+    feishuVoiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.feishuTtsVoiceId),
     feishu: Boolean(config.feishuAppId && config.feishuAppSecret),
     feishuProjectFolder: Boolean(config.feishuProjectFolderToken)
   };
@@ -244,7 +245,7 @@ const ai = new AIClient(config, {
 const imageGenerator = new ImageGenerationClient(config);
 const speechToText = new SpeechToTextClient(config);
 const textToSpeech = new TextToSpeechClient(config);
-const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText });
+const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
 feishuBot.setupRoutes(app);
 const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
 await telegramBot.start();

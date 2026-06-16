@@ -64,10 +64,11 @@ function runFfmpeg(args, timeoutMs = 120000) {
   });
 }
 
-export async function convertWavToTelegramVoice(wavBuffer) {
+export async function convertWavToOpus(wavBuffer, options = {}) {
+  const fileName = options.fileName || "reply.opus";
   const tempDir = await mkdtemp(path.join(tmpdir(), "telegram-voice-"));
   const inputPath = path.join(tempDir, "reply.wav");
-  const outputPath = path.join(tempDir, "reply.ogg");
+  const outputPath = path.join(tempDir, fileName);
 
   try {
     await writeFile(inputPath, wavBuffer);
@@ -76,6 +77,8 @@ export async function convertWavToTelegramVoice(wavBuffer) {
       "-i", inputPath,
       "-vn",
       "-acodec", "libopus",
+      "-ac", "1",
+      "-ar", String(options.sampleRate || 16000),
       "-b:a", "48k",
       "-vbr", "on",
       "-compression_level", "10",
@@ -86,11 +89,24 @@ export async function convertWavToTelegramVoice(wavBuffer) {
     return {
       buffer: await readFile(outputPath),
       contentType: "audio/ogg",
-      fileName: "reply.ogg"
+      fileName
     };
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
+}
+
+export async function convertWavToTelegramVoice(wavBuffer) {
+  return convertWavToOpus(wavBuffer, { fileName: "reply.ogg" });
+}
+
+function estimateSpeechDurationMs(text = "") {
+  const value = String(text || "").trim();
+  if (!value) return 1000;
+  const cjkChars = (value.match(/[\u4e00-\u9fff]/g) || []).length;
+  const latinWords = (value.replace(/[\u4e00-\u9fff]/g, " ").match(/[A-Za-z0-9]+/g) || []).length;
+  const estimatedSeconds = Math.max(1, cjkChars / 4.5 + latinWords / 2.6);
+  return Math.round(estimatedSeconds * 1000);
 }
 
 export class TextToSpeechClient {
@@ -98,21 +114,25 @@ export class TextToSpeechClient {
     this.config = config;
   }
 
-  get enabled() {
+  isEnabled(voiceId = this.config.ttsVoiceId) {
     return Boolean(
       this.config.ttsEnabled &&
         this.config.ttsApiKey &&
         this.config.ttsApiUrl &&
         this.config.ttsModel &&
-        this.config.ttsVoiceId
+        voiceId
     );
   }
 
-  buildBody(text) {
+  get enabled() {
+    return this.isEnabled();
+  }
+
+  buildBody(text, options = {}) {
     const body = {
       model: this.config.ttsModel,
       text,
-      voice_id: this.config.ttsVoiceId,
+      voice_id: options.voiceId || this.config.ttsVoiceId,
       meta_info: this.config.ttsMetaInfo,
       sampling_params: {
         max_new_tokens: this.config.ttsMaxNewTokens,
@@ -129,12 +149,13 @@ export class TextToSpeechClient {
     return body;
   }
 
-  async synthesize(text) {
-    if (!this.enabled) {
+  async synthesize(text, options = {}) {
+    const voiceId = options.voiceId || this.config.ttsVoiceId;
+    if (!this.isEnabled(voiceId)) {
       throw new Error("Text-to-speech is not configured.");
     }
 
-    const speechText = normalizeSpeechText(text, this.config.ttsMaxInputChars);
+    const speechText = normalizeSpeechText(text, options.maxInputChars || this.config.ttsMaxInputChars);
     if (!speechText) {
       throw new Error("Text-to-speech input is empty.");
     }
@@ -146,7 +167,7 @@ export class TextToSpeechClient {
         Authorization: `Bearer ${this.config.ttsApiKey}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.buildBody(speechText))
+      body: JSON.stringify(this.buildBody(speechText, { voiceId }))
     });
 
     const responseText = await response.text();
@@ -166,11 +187,17 @@ export class TextToSpeechClient {
       throw new Error(`Text-to-speech API response did not contain audio_data: ${truncate(JSON.stringify(data), 800)}`);
     }
 
+    const durationS = data?.duration_s ?? data?.data?.duration_s ?? null;
+    const durationMs = Number.isFinite(Number(durationS))
+      ? Math.max(1000, Math.round(Number(durationS) * 1000))
+      : estimateSpeechDurationMs(speechText);
+
     return {
       buffer,
       contentType: "audio/wav",
       fileName: "reply.wav",
-      durationS: data?.duration_s ?? data?.data?.duration_s ?? null
+      durationS,
+      durationMs
     };
   }
 }

@@ -135,7 +135,10 @@ export const config = {
   sttLanguage: process.env.STT_LANGUAGE || "",
   sttPrompt: process.env.STT_PROMPT || "",
   voiceDirectInputEnabled: asBoolean(process.env.VOICE_DIRECT_INPUT_ENABLED, false),
-  ttsEnabled: asBoolean(process.env.TTS_ENABLED, Boolean((process.env.TTS_API_KEY || process.env.MOSI_API_KEY) && process.env.TTS_VOICE_ID)),
+  ttsEnabled: asBoolean(
+    process.env.TTS_ENABLED,
+    Boolean((process.env.TTS_API_KEY || process.env.MOSI_API_KEY) && (process.env.TTS_VOICE_ID || process.env.FEISHU_TTS_VOICE_ID))
+  ),
   ttsApiKey: process.env.TTS_API_KEY || process.env.MOSI_API_KEY || "",
   ttsApiUrl: resolveTtsEndpoint(process.env.TTS_API_URL || process.env.TTS_BASE_URL),
   ttsModel: process.env.TTS_MODEL || "moss-tts",
@@ -149,6 +152,8 @@ export const config = {
   ttsTopP: asNumber(process.env.TTS_TOP_P, 0.8),
   ttsTopK: asNumber(process.env.TTS_TOP_K, 25),
   ttsTelegramMode: process.env.TTS_TELEGRAM_MODE || "voice",
+  feishuTtsVoiceId: process.env.FEISHU_TTS_VOICE_ID || process.env.TTS_VOICE_ID || "",
+  feishuTtsMaxInputChars: asNumber(process.env.FEISHU_TTS_MAX_INPUT_CHARS, asNumber(process.env.TTS_MAX_INPUT_CHARS, 1200)),
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: asCleanText(process.env.BOT_DISPLAY_NAME, "小椰"),
