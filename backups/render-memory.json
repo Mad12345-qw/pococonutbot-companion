@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T16:29:18.117Z",
+  "exportedAt": "2026-06-16T18:09:18.255Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -8943,6 +8943,130 @@
           "imageContext": ""
         },
         "createdAt": "2026-06-16T16:25:04.997Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么才能让你唱两句呀？有什么tts推荐么？",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2cb70f28a4b3e31b8626cb980",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T18:02:07.513Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈哈你这是认真想要\"听\"我唱啊～\n\nTTS我这边确实没法直接用，但可以推荐几个给你试试：\n\n**免费的**\n- **微软 Azure TTS** - 有免费额度，中文效果不错，还能调情绪\n- **Google Cloud TTS** - 自然度还行，有中文音色\n- **搜狗语音/百度语音** - 国内直接可用，有免费额度\n\n**付费但效果好**\n- **Reecho（睿声）** - 国产，能克隆声音，中文特别自然\n- **ChatTTS** - 开源免费，对话感强\n- **GPT-SoVITS** - 可以克隆特定人的声音（比如陈奕迅），需要一定动手能力\n\n**最简单的方案**\n如果你只是想听陈奕迅的歌，直接去B站或网易云就行啦～\n\n你想克隆特定人的声音还是只是想听AI唱歌？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T18:02:15.151Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我生成一张邓紫棋的演唱会高清实时图片",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2d4df920a0b252ecb24f7aeb6",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T18:04:38.665Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成一张邓紫棋的演唱会高清实时图片",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T18:05:34.234Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "这也太不像了吧",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2d432534a0b04b82311b3d8de",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 2000
+        },
+        "createdAt": "2026-06-16T18:07:30.682Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈确实差点意思～\n\n图片生成有时候就这样，特别是真人的脸，AI容易\"翻车\"。你要是想看邓紫棋的高清演唱会图，建议去微博、B站、或者搜图网站找找，那边的图源更全更真。\n\n要不要我帮你找找链接？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T18:07:37.366Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "好，给我个链接",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2d5cf190a0b227f37c30835d2",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T18:08:39.107Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "直接搜吧～\n\n- B站搜\"邓紫棋演唱会 4K\"\n- 微博搜\"邓紫棋 concert\"\n- YouTube搜\"G.E.M. Concert Live\"\n\n这样最快最全～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T18:08:41.992Z"
       }
     ],
     "memories": [
@@ -9419,12 +9543,22 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interests.tts_singing",
+        "value": "用户想让机器人唱歌，对TTS技术感兴趣，会主动询问TTS推荐",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-16T18:02:58.366Z",
+        "updatedAt": "2026-06-16T18:02:58.366Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "preferences.music",
         "value": "用户喜欢听邓子奇（陈奕迅）的歌，提到了《红玫瑰》《泡沫》《十年》",
-        "importance": 2,
+        "importance": 3,
         "metadata": {},
         "createdAt": "2026-06-16T14:50:47.845Z",
-        "updatedAt": "2026-06-16T14:50:47.845Z"
+        "updatedAt": "2026-06-16T18:02:58.587Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -9444,7 +9578,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-16T14:59:24.765Z"
+        "updatedAt": "2026-06-16T18:08:38.891Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -9454,7 +9588,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-16T14:59:24.536Z"
+        "updatedAt": "2026-06-16T18:08:38.676Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
