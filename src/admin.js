@@ -642,7 +642,7 @@ function adminPage(config) {
 </html>`;
 }
 
-export function setupAdminRoutes(app, { config, storage }) {
+export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
   const auth = adminAuth(config);
 
   app.get("/admin", auth, (_req, res) => {
@@ -707,6 +707,22 @@ export function setupAdminRoutes(app, { config, storage }) {
         voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
       }
     });
+  });
+
+  app.get("/api/admin/bitable/snapshot", auth, async (req, res) => {
+    if (!feishuBitable?.enabled) {
+      res.status(400).json({ error: "Feishu app credentials are not configured." });
+      return;
+    }
+
+    const appToken = String(req.query.appToken || "P1g7bR1bkaBhIDs2QHQcoGbEnLg");
+    const sampleSize = Math.min(Math.max(Number(req.query.sampleSize || 5), 0), 20);
+    try {
+      const snapshot = await feishuBitable.snapshot({ appToken, sampleSize });
+      res.json({ ok: true, snapshot });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   });
 
   app.post("/api/admin/memory", auth, async (req, res) => {

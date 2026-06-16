@@ -6,6 +6,7 @@ import { SpeechToTextClient } from "./stt-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { FeishuBot } from "./feishu.js";
+import { FeishuBitableClient } from "./feishu-bitable.js";
 import { setupAdminRoutes } from "./admin.js";
 import { GitHubMemoryBackup } from "./github-backup.js";
 
@@ -45,7 +46,8 @@ app.listen(config.port, "0.0.0.0", () => {
 const storage = createStorage(config);
 await storage.init();
 
-setupAdminRoutes(app, { config, storage });
+const feishuBitable = new FeishuBitableClient({ config });
+setupAdminRoutes(app, { config, storage, feishuBitable });
 
 const githubBackup = new GitHubMemoryBackup({ config, storage });
 await githubBackup.start();
