@@ -365,25 +365,33 @@ export class FeishuBitableClient {
         logs.push({ action: "skip_table", table: tableSpec.name, tableId: tableMap[tableSpec.name] });
         continue;
       }
-      const created = await this.request(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
-        method: "POST",
-        body: {
-          table: {
-            name: tableSpec.name,
-            default_view_name: "表格视图",
-            fields: [this.toApiField(tableSpec.primary)]
+      try {
+        const created = await this.request(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
+          method: "POST",
+          body: {
+            table: {
+              name: tableSpec.name,
+              default_view_name: "表格视图",
+              fields: [this.toApiField(tableSpec.primary)]
+            }
           }
-        }
-      });
-      const createdTableId = created.table?.table_id || created.table_id;
-      if (!createdTableId) throw new Error(`Create table response missing table_id for ${tableSpec.name}: ${truncate(JSON.stringify(created), 500)}`);
-      tableMap[tableSpec.name] = createdTableId;
-      logs.push({ action: "create_table", table: tableSpec.name, tableId: createdTableId });
+        });
+        const createdTableId = created.table?.table_id || created.table_id;
+        if (!createdTableId) throw new Error(`Create table response missing table_id for ${tableSpec.name}: ${truncate(JSON.stringify(created), 500)}`);
+        tableMap[tableSpec.name] = createdTableId;
+        logs.push({ action: "create_table", table: tableSpec.name, tableId: createdTableId });
+      } catch (error) {
+        logs.push({ action: "table_error", table: tableSpec.name, error: error.message });
+      }
       await new Promise((resolve) => setTimeout(resolve, 500));
     }
 
     for (const tableSpec of SALES_SCHEMA) {
       const tableId = tableMap[tableSpec.name];
+      if (!tableId) {
+        logs.push({ action: "skip_fields_missing_table", table: tableSpec.name });
+        continue;
+      }
       const currentFields = await this.listAll(
         `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/fields`,
         { page_size: 100 }
