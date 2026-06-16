@@ -2,6 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import { extractImageGenerationIntent, imageGenerationCommands } from "./image-intent.js";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
+import { convertWavToTelegramVoice } from "./tts-client.js";
 import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitChatBubbles, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
@@ -9,12 +10,13 @@ const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|�
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
 export class TelegramCompanionBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
     this.speechToText = speechToText;
+    this.textToSpeech = textToSpeech;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
     this.chatQueues = new Map();
@@ -309,8 +311,11 @@ export class TelegramCompanionBot {
       metadata: { replyToUserId: userId }
     });
 
-    for (const chunk of splitChatBubbles(safeReply, this.config.maxReplyChars)) {
-      await this.bot.sendMessage(msg.chat.id, chunk, { reply_to_message_id: msg.message_id });
+    const sentAsSpeech = await this.sendSpeechReply(msg, safeReply);
+    if (!sentAsSpeech) {
+      for (const chunk of splitChatBubbles(safeReply, this.config.maxReplyChars)) {
+        await this.bot.sendMessage(msg.chat.id, chunk, { reply_to_message_id: msg.message_id });
+      }
     }
 
     if (this.config.autoMemory) {
@@ -341,6 +346,51 @@ export class TelegramCompanionBot {
         error: error.message
       });
       return "";
+    }
+  }
+
+  async sendSpeechReply(msg, text) {
+    if (!this.textToSpeech?.enabled) return false;
+
+    try {
+      await this.bot.sendChatAction(msg.chat.id, "upload_voice");
+      const speech = await this.textToSpeech.synthesize(text);
+      const mode = String(this.config.ttsTelegramMode || "voice").toLowerCase();
+
+      if (mode === "voice") {
+        try {
+          const voice = await convertWavToTelegramVoice(speech.buffer);
+          await this.bot.sendVoice(
+            msg.chat.id,
+            voice.buffer,
+            { reply_to_message_id: msg.message_id },
+            { filename: voice.fileName, contentType: voice.contentType }
+          );
+          return true;
+        } catch (error) {
+          logEvent("error", "Telegram sendVoice failed, falling back to sendAudio", {
+            chatId: String(msg.chat.id),
+            error: error.message
+          });
+        }
+      }
+
+      await this.bot.sendAudio(
+        msg.chat.id,
+        speech.buffer,
+        {
+          reply_to_message_id: msg.message_id,
+          title: this.config.displayName || "AI reply"
+        },
+        { filename: speech.fileName, contentType: speech.contentType }
+      );
+      return true;
+    } catch (error) {
+      logEvent("error", "Telegram text-to-speech reply failed", {
+        chatId: String(msg.chat.id),
+        error: error.message
+      });
+      return false;
     }
   }
 

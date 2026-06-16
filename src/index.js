@@ -3,6 +3,7 @@ import { assertRequiredConfig, config } from "./config.js";
 import { AIClient } from "./ai-client.js";
 import { ImageGenerationClient } from "./image-client.js";
 import { SpeechToTextClient } from "./stt-client.js";
+import { TextToSpeechClient } from "./tts-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { FeishuBot } from "./feishu.js";
@@ -30,6 +31,7 @@ app.get("/health", (_req, res) => {
     storage: config.databaseUrl ? "postgres" : "json-file",
     imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
     voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
+    voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),
     feishu: Boolean(config.feishuAppId && config.feishuAppSecret),
     feishuProjectFolder: Boolean(config.feishuProjectFolderToken)
   };
@@ -159,7 +161,8 @@ const ai = new AIClient(config, {
 });
 const imageGenerator = new ImageGenerationClient(config);
 const speechToText = new SpeechToTextClient(config);
+const textToSpeech = new TextToSpeechClient(config);
 const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText });
 feishuBot.setupRoutes(app);
-const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText });
+const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
 await telegramBot.start();

@@ -79,6 +79,21 @@ function resolveSttEndpoint(rawUrl) {
   return `${clean}/v1/audio/transcriptions`;
 }
 
+function resolveTtsEndpoint(rawUrl) {
+  const input = String(rawUrl || "https://studio.mosi.cn").trim();
+  const clean = input.replace(/\/+$/, "");
+
+  if (clean.endsWith("/api/v1/audio/speech")) {
+    return clean;
+  }
+
+  if (clean.endsWith("/api/v1")) {
+    return `${clean}/audio/speech`;
+  }
+
+  return `${clean}/api/v1/audio/speech`;
+}
+
 export const config = {
   telegramToken: process.env.TELEGRAM_BOT_TOKEN,
   feishuAppId: process.env.FEISHU_APP_ID || "",
@@ -120,6 +135,20 @@ export const config = {
   sttLanguage: process.env.STT_LANGUAGE || "",
   sttPrompt: process.env.STT_PROMPT || "",
   voiceDirectInputEnabled: asBoolean(process.env.VOICE_DIRECT_INPUT_ENABLED, false),
+  ttsEnabled: asBoolean(process.env.TTS_ENABLED, Boolean((process.env.TTS_API_KEY || process.env.MOSI_API_KEY) && process.env.TTS_VOICE_ID)),
+  ttsApiKey: process.env.TTS_API_KEY || process.env.MOSI_API_KEY || "",
+  ttsApiUrl: resolveTtsEndpoint(process.env.TTS_API_URL || process.env.TTS_BASE_URL),
+  ttsModel: process.env.TTS_MODEL || "moss-tts",
+  ttsVoiceId: process.env.TTS_VOICE_ID || "",
+  ttsTimeoutMs: asNumber(process.env.TTS_TIMEOUT_MS, 1800000),
+  ttsMaxInputChars: asNumber(process.env.TTS_MAX_INPUT_CHARS, 1200),
+  ttsExpectedDurationSec: asNumber(process.env.TTS_EXPECTED_DURATION_SEC, 0),
+  ttsMetaInfo: asBoolean(process.env.TTS_META_INFO, false),
+  ttsMaxNewTokens: asNumber(process.env.TTS_MAX_NEW_TOKENS, 20000),
+  ttsTemperature: asNumber(process.env.TTS_TEMPERATURE, 1.7),
+  ttsTopP: asNumber(process.env.TTS_TOP_P, 0.8),
+  ttsTopK: asNumber(process.env.TTS_TOP_K, 25),
+  ttsTelegramMode: process.env.TTS_TELEGRAM_MODE || "voice",
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: asCleanText(process.env.BOT_DISPLAY_NAME, "小椰"),

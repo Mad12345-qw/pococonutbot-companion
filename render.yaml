@@ -51,6 +51,18 @@ services:
         value: zh
       - key: VOICE_DIRECT_INPUT_ENABLED
         value: "false"
+      - key: TTS_ENABLED
+        value: "true"
+      - key: TTS_API_URL
+        value: https://studio.mosi.cn/api/v1/audio/speech
+      - key: TTS_API_KEY
+        sync: false
+      - key: TTS_MODEL
+        value: moss-tts
+      - key: TTS_VOICE_ID
+        sync: false
+      - key: TTS_TELEGRAM_MODE
+        value: voice
       - key: BOT_DISPLAY_NAME
         value: 小椰
       - key: COMPANION_MODE
