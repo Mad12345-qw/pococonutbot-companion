@@ -12,7 +12,7 @@ function field(field_name, type = 1, property = undefined) {
 
 const SALES_SCHEMA = [
   {
-    name: "客户表",
+    name: "客户信息",
     primary: field("客户名称", 1),
     fields: [
       field("客户编号", 1),
@@ -21,22 +21,23 @@ const SALES_SCHEMA = [
       field("客户来源", 3, { options: [option("平台", 0), option("转介绍", 1), option("广告推广", 2), option("销售开发", 3), option("其他", 4)] }),
       field("所属行业", 1),
       field("所在地区", 1),
-      field("负责人", 1),
+      field("负责人", 18, { linkTo: "销售人员管理", multiple: false }),
       field("客户状态", 3, { options: [option("潜在", 0), option("跟进中", 1), option("已成交", 2), option("流失", 3), option("暂停", 4)] }),
       field("首次成交日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("最近跟进日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("最近成交日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("累计销售额", 2, { formatter: "0.00" }),
-      field("累计利润", 2, { formatter: "0.00" }),
+      field("累计销售利润", 2, { formatter: "0.00" }),
       field("跟进次数", 2, { formatter: "0" }),
+      field("客户维护动作", 1),
       field("备注", 1)
     ]
   },
   {
-    name: "客户联系人表",
+    name: "客户联系人",
     primary: field("联系人姓名", 1),
     fields: [
-      field("关联客户", 18, { linkTo: "客户表", multiple: false }),
+      field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
       field("职位", 1),
       field("手机/微信", 1),
       field("邮箱", 1),
@@ -46,51 +47,52 @@ const SALES_SCHEMA = [
     ]
   },
   {
-    name: "跟进记录表",
+    name: "跟进记录",
     primary: field("跟进主题", 1),
     fields: [
-      field("关联客户", 18, { linkTo: "客户表", multiple: false }),
-      field("关联联系人", 18, { linkTo: "客户联系人表", multiple: false }),
-      field("关联商机", 18, { linkTo: "商机表", multiple: false }),
-      field("跟进人", 18, { linkTo: "销售人员表", multiple: false }),
+      field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
+      field("关联联系人", 18, { linkTo: "客户联系人", multiple: false }),
+      field("关联商机", 18, { linkTo: "商机管理", multiple: false }),
+      field("跟进人", 18, { linkTo: "销售人员管理", multiple: false }),
       field("跟进时间", 5, { date_formatter: "yyyy/MM/dd HH:mm" }),
       field("跟进方式", 3, { options: [option("电话", 0), option("微信", 1), option("飞书", 2), option("面访", 3), option("邮件", 4), option("其他", 5)] }),
       field("跟进内容", 1),
       field("下次跟进时间", 5, { date_formatter: "yyyy/MM/dd HH:mm" }),
       field("跟进结果", 3, { options: [option("需继续跟进", 0), option("有明确需求", 1), option("已报价", 2), option("已成交", 3), option("暂不合作", 4)] }),
-      field("是否需要提醒", 7)
+      field("是否需要提醒", 7),
+      field("备注", 1)
     ]
   },
   {
-    name: "商机表",
+    name: "商机管理",
     primary: field("商机名称", 1),
     fields: [
-      field("关联客户", 18, { linkTo: "客户表", multiple: false }),
+      field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
       field("商机来源", 3, { options: [option("客户咨询", 0), option("销售开发", 1), option("广告线索", 2), option("转介绍", 3), option("复购", 4), option("其他", 5)] }),
       field("商机阶段", 3, { options: [option("初步接触", 0), option("需求确认", 1), option("报价方案", 2), option("谈判中", 3), option("赢单", 4), option("输单", 5), option("搁置", 6)] }),
-      field("商机负责人", 18, { linkTo: "销售人员表", multiple: false }),
+      field("商机负责人", 18, { linkTo: "销售人员管理", multiple: false }),
       field("预计成交金额", 2, { formatter: "0.00" }),
       field("预计成本", 2, { formatter: "0.00" }),
-      field("预计利润", 2, { formatter: "0.00" }),
+      field("预计利润", 20, { formula: ["预计成交金额", "-", "预计成本"], formatter: "0.00" }),
       field("预计成交日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("成交概率", 2, { formatter: "0%" }),
       field("商机状态", 3, { options: [option("进行中", 0), option("赢单", 1), option("输单", 2), option("搁置", 3)] }),
-      field("实际成交订单", 18, { linkTo: "销售订单表", multiple: true }),
+      field("实际成交订单", 18, { linkTo: "销售订单", multiple: true }),
       field("创建日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("关闭日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("备注", 1)
     ]
   },
   {
-    name: "销售订单表",
+    name: "销售订单",
     primary: field("订单编号", 1),
     fields: [
       field("订单日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("归属月份", 5, { date_formatter: "yyyy/MM" }),
-      field("关联客户", 18, { linkTo: "客户表", multiple: false }),
-      field("关联平台", 18, { linkTo: "平台表", multiple: false }),
-      field("销售人员", 18, { linkTo: "销售人员表", multiple: false }),
-      field("关联商机", 18, { linkTo: "商机表", multiple: false }),
+      field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
+      field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
+      field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
+      field("关联商机", 18, { linkTo: "商机管理", multiple: false }),
       field("订单状态", 3, { options: [option("待确认", 0), option("已成交", 1), option("已发货", 2), option("已完成", 3), option("已退货", 4), option("已取消", 5)] }),
       field("订单销售额", 2, { formatter: "0.00" }),
       field("订单成本", 2, { formatter: "0.00" }),
@@ -99,16 +101,17 @@ const SALES_SCHEMA = [
       field("退货金额", 2, { formatter: "0.00" }),
       field("销售利润", 20, { formula: ["订单销售额", "-", "订单成本", "-", "平台扣费", "-", "推广费", "-", "退货金额"], formatter: "0.00" }),
       field("利润率", 2, { formatter: "0.00%" }),
-      field("销售明细", 18, { linkTo: "销售明细表", multiple: true }),
-      field("退货记录", 18, { linkTo: "退货表", multiple: true }),
+      field("销售明细", 18, { linkTo: "订单产品明细表", multiple: true }),
+      field("退货记录", 18, { linkTo: "退货管理", multiple: true }),
       field("备注", 1)
     ]
   },
   {
-    name: "销售明细表",
+    name: "订单产品明细表",
     primary: field("明细编号", 1),
     fields: [
-      field("关联订单", 18, { linkTo: "销售订单表", multiple: false }),
+      field("关联订单", 18, { linkTo: "销售订单", multiple: false }),
+      field("关联产品", 18, { linkTo: "产品管理", multiple: false }),
       field("商品/SKU", 1),
       field("数量", 2, { formatter: "0" }),
       field("单价", 2, { formatter: "0.00" }),
@@ -120,13 +123,13 @@ const SALES_SCHEMA = [
     ]
   },
   {
-    name: "退货表",
+    name: "退货管理",
     primary: field("退货编号", 1),
     fields: [
-      field("关联订单", 18, { linkTo: "销售订单表", multiple: false }),
-      field("关联客户", 18, { linkTo: "客户表", multiple: false }),
-      field("关联平台", 18, { linkTo: "平台表", multiple: false }),
-      field("销售人员", 18, { linkTo: "销售人员表", multiple: false }),
+      field("关联订单", 18, { linkTo: "销售订单", multiple: false }),
+      field("关联客户", 18, { linkTo: "客户信息", multiple: false }),
+      field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
+      field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("退货日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("退货金额", 2, { formatter: "0.00" }),
       field("退货成本", 2, { formatter: "0.00" }),
@@ -136,31 +139,31 @@ const SALES_SCHEMA = [
     ]
   },
   {
-    name: "平台表",
+    name: "平台管理",
     primary: field("平台名称", 1),
     fields: [
       field("平台类型", 3, { options: [option("电商平台", 0), option("线下渠道", 1), option("私域", 2), option("批发", 3), option("其他", 4)] }),
       field("扣费规则", 1),
-      field("负责人", 18, { linkTo: "销售人员表", multiple: false }),
+      field("负责人", 18, { linkTo: "销售人员管理", multiple: false }),
       field("状态", 3, { options: [option("启用", 0), option("暂停", 1), option("停用", 2)] }),
       field("备注", 1)
     ]
   },
   {
-    name: "平台费用表",
+    name: "平台费用",
     primary: field("费用名称", 1),
     fields: [
       field("费用日期", 5, { date_formatter: "yyyy/MM/dd" }),
       field("归属月份", 5, { date_formatter: "yyyy/MM" }),
-      field("关联平台", 18, { linkTo: "平台表", multiple: false }),
+      field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("费用类型", 3, { options: [option("平台扣费", 0), option("推广费", 1), option("服务费", 2), option("物流费", 3), option("其他", 4)] }),
       field("费用金额", 2, { formatter: "0.00" }),
-      field("关联订单", 18, { linkTo: "销售订单表", multiple: false }),
+      field("关联订单", 18, { linkTo: "销售订单", multiple: false }),
       field("备注", 1)
     ]
   },
   {
-    name: "销售人员表",
+    name: "销售人员管理",
     primary: field("姓名", 1),
     fields: [
       field("员工编号", 1),
@@ -172,16 +175,19 @@ const SALES_SCHEMA = [
       field("直属上级", 1),
       field("目标规则", 1),
       field("提成规则", 1),
+      field("本月销售额", 2, { formatter: "0.00" }),
+      field("本月销售利润", 2, { formatter: "0.00" }),
+      field("本月订单数", 2, { formatter: "0" }),
       field("备注", 1)
     ]
   },
   {
-    name: "销售目标表",
+    name: "销售目标管理",
     primary: field("目标名称", 1),
     fields: [
       field("目标月份", 5, { date_formatter: "yyyy/MM" }),
-      field("销售人员", 18, { linkTo: "销售人员表", multiple: false }),
-      field("关联平台", 18, { linkTo: "平台表", multiple: false }),
+      field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
+      field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
       field("销售额目标", 2, { formatter: "0.00" }),
       field("利润目标", 2, { formatter: "0.00" }),
       field("实际销售额", 2, { formatter: "0.00" }),
@@ -198,7 +204,7 @@ const SALES_SCHEMA = [
     primary: field("工资记录", 1),
     fields: [
       field("工资月份", 5, { date_formatter: "yyyy/MM" }),
-      field("销售人员", 18, { linkTo: "销售人员表", multiple: false }),
+      field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("基本工资", 2, { formatter: "0.00" }),
       field("实际销售额", 2, { formatter: "0.00" }),
       field("实际利润", 2, { formatter: "0.00" }),
@@ -212,12 +218,12 @@ const SALES_SCHEMA = [
     ]
   },
   {
-    name: "经营看板指标表",
+    name: "经营看板指标",
     primary: field("指标名称", 1),
     fields: [
       field("指标月份", 5, { date_formatter: "yyyy/MM" }),
-      field("关联平台", 18, { linkTo: "平台表", multiple: false }),
-      field("销售人员", 18, { linkTo: "销售人员表", multiple: false }),
+      field("关联平台", 18, { linkTo: "平台管理", multiple: false }),
+      field("销售人员", 18, { linkTo: "销售人员管理", multiple: false }),
       field("销售额", 2, { formatter: "0.00" }),
       field("销售利润", 2, { formatter: "0.00" }),
       field("平台扣费", 2, { formatter: "0.00" }),
@@ -244,6 +250,7 @@ export class FeishuBitableClient {
   async tenantAccessToken() {
     const now = Date.now();
     if (this.token && now < this.tokenExpiresAt - 60_000) return this.token;
+    if (!this.enabled) throw new Error("Feishu app credentials are not configured.");
 
     const response = await fetch("https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal", {
       method: "POST",

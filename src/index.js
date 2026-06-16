@@ -129,7 +129,7 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
       res.status(500).type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu OAuth Failed</title><pre>${JSON.stringify(diagnostics, null, 2)}</pre>`);
       return;
     }
-    diagnostics.tokenKind = userToken.startsWith("u-") ? "user_access_token" : "unknown";
+    diagnostics.tokenKind = userToken.startsWith("u-") ? "user_access_token" : "oauth_access_token";
     diagnostics.stage = "user_info";
 
     try {
