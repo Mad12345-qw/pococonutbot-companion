@@ -236,6 +236,94 @@ const SALES_SCHEMA = [
   }
 ];
 
+const SALES_VIEWS = {
+  "客户信息": [
+    "客户总表",
+    "客户分析-按等级",
+    "客户分析-按来源",
+    "客户维护-待跟进",
+    "成交客户",
+    "流失客户"
+  ],
+  "客户联系人": [
+    "联系人总表",
+    "主要联系人",
+    "重点维护联系人"
+  ],
+  "跟进记录": [
+    "跟进总表",
+    "本周跟进",
+    "下次跟进提醒",
+    "按跟进人查看",
+    "客户跟踪记录"
+  ],
+  "商机管理": [
+    "商机总表",
+    "商机分析-阶段分布",
+    "本月预计成交",
+    "高金额重点商机",
+    "赢单输单复盘"
+  ],
+  "销售订单": [
+    "订单管理-全部订单",
+    "经营看板-月度销售利润",
+    "经营看板-年度销售趋势",
+    "平台销售数据",
+    "销售人员业绩",
+    "已完成订单",
+    "退货订单"
+  ],
+  "订单产品明细表": [
+    "销售明细总表",
+    "商品SKU销售分析",
+    "明细利润分析"
+  ],
+  "退货管理": [
+    "退货管理-全部退货",
+    "待处理退货",
+    "按平台退货分析",
+    "按销售人员退货分析"
+  ],
+  "平台管理": [
+    "平台总表",
+    "启用平台",
+    "平台负责人"
+  ],
+  "平台费用": [
+    "平台费用总表",
+    "平台扣费明细",
+    "推广费明细",
+    "按月平台费用"
+  ],
+  "销售目标管理": [
+    "目标管理总表",
+    "月度目标查看",
+    "销售人员目标完成",
+    "平台目标完成",
+    "未达成目标"
+  ],
+  "销售人员管理": [
+    "销售人员总表",
+    "在职销售人员",
+    "销售人员业绩数据",
+    "团队人员管理"
+  ],
+  "工资表": [
+    "工资表总表",
+    "月度工资表",
+    "待审核工资",
+    "已发放工资",
+    "销售提成核算"
+  ],
+  "经营看板指标": [
+    "经营看板-总览",
+    "每年每月销售额利润",
+    "各平台销售额利润费用",
+    "销售人员业绩汇总",
+    "销售目标达成汇总"
+  ]
+};
+
 export class FeishuBitableClient {
   constructor({ config }) {
     this.config = config;
@@ -351,6 +439,19 @@ export class FeishuBitableClient {
     );
   }
 
+  async createView(appToken, tableId, viewName, viewType = "grid") {
+    return this.request(
+      `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/views`,
+      {
+        method: "POST",
+        body: {
+          view_name: viewName,
+          view_type: viewType
+        }
+      }
+    );
+  }
+
   async applySalesSchema({ appToken = DEFAULT_APP_TOKEN } = {}) {
     if (!this.enabled) throw new Error("Feishu app credentials are not configured.");
 
@@ -427,6 +528,41 @@ export class FeishuBitableClient {
           }
         }
         await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+
+    for (const [tableName, viewNames] of Object.entries(SALES_VIEWS)) {
+      const tableId = tableMap[tableName];
+      if (!tableId) {
+        logs.push({ action: "skip_views_missing_table", table: tableName });
+        continue;
+      }
+
+      try {
+        const currentViews = await this.listAll(
+          `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/views`,
+          { page_size: 100 }
+        );
+        const viewSet = new Set(currentViews.map((item) => item.view_name || item.name));
+
+        for (const viewName of viewNames) {
+          if (viewSet.has(viewName)) {
+            logs.push({ action: "skip_view", table: tableName, view: viewName });
+            continue;
+          }
+
+          try {
+            const created = await this.createView(appToken, tableId, viewName);
+            const viewId = created.view?.view_id || created.view_id;
+            logs.push({ action: "create_view", table: tableName, view: viewName, viewId });
+            viewSet.add(viewName);
+          } catch (error) {
+            logs.push({ action: "view_error", table: tableName, view: viewName, error: error.message });
+          }
+          await new Promise((resolve) => setTimeout(resolve, 300));
+        }
+      } catch (error) {
+        logs.push({ action: "list_views_error", table: tableName, error: error.message });
       }
     }
 
