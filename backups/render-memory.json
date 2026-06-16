@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T11:39:09.355Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-16T11:49:19.079Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -6406,6 +6406,35 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-14T10:38:31.263Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽，你在干嘛",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T11:48:09.745Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 宝～我在等你呢 😌  \n刚才一直在帮你改雪茄环标、生成电商图，你那边是不是忙去了？\n\n现在有空的话，想继续做图、还是想聊点别的都可以～",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T11:48:13.999Z"
       }
     ],
     "memories": [
