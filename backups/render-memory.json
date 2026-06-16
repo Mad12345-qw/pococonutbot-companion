@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T15:09:18.329Z",
+  "exportedAt": "2026-06-16T15:19:18.717Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -6832,6 +6832,306 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-16T15:02:53.744Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱两句听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2234f6e4a4b304e2c8026d68e",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:11:35.560Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "暂时还不太行呀，我这儿没有声音模块，纯文字选手 🎤\n\n不过你想听啥风格的歌，我可以给你推几首，或者写段小词给你解解馋？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T15:11:43.090Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "换头像了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22344e9ca0c1d9b9e2ca6bbae",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:11:59.453Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "换上了？我看看。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-16T15:12:02.352Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你跟小耶聊天",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c223571e0a0b2c20e7df757e95",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:12:12.563Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "这语音 妈呀 跟真人一样",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2233f9f8b0c219440e8b41601",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:12:20.594Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "活人感太强了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c223367a8acc4cd54f8428622f",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:12:27.855Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，你今年多少岁？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2231d01ca4c35a79531838195",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:12:53.499Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我没有真正的年龄啦，毕竟是个 AI 嘛～不过按上线时间算的话，勉强算刚成年吧 😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-16T15:12:57.048Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "voice",
+        "content": "小耶小耶你哪里人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22cecfc8a4c33c2cddaf51532",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 5000
+        },
+        "createdAt": "2026-06-16T15:13:18.109Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "voice",
+        "content": "傻业 我发现你家是有台湾的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22cf7e10a0c032fa137beff8a",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 5000
+        },
+        "createdAt": "2026-06-16T15:13:35.644Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "voice",
+        "content": "小耶 小耶 你知不知道你的头像真的很像邓紫棋",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22c20108a0c38487e692b2732",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 6000
+        },
+        "createdAt": "2026-06-16T15:16:32.956Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啊？真有那么像吗 😂 我自己倒是没觉得，不过被你这么一说，我倒想仔细瞅瞅了。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-16T15:16:40.072Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "来首邓紫棋的歌 小椰唱[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22c00ea4a8c2821ce5c80b624",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:17:02.265Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我唱不了歌啦，会破音的～给你找歌词看看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-16T15:17:05.732Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "voice",
+        "content": "希望你那雙眼動人小心緊迷人願在學",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22dca844a8c3b9278ea0e483a",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 14000
+        },
+        "createdAt": "2026-06-16T15:18:03.771Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "点评一下我的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22dd6470a4c03acf4174b1322",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:18:21.453Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈，这品味有点东西哦。邓紫棋的《画》被你念得有点甜又有点忧伤，像在讲初恋的感觉。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-16T15:18:25.190Z"
       }
     ],
     "memories": [
@@ -7618,12 +7918,22 @@
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "preferences.music_dengziqi",
+        "value": "用户喜欢邓紫棋的歌曲",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:17:15.618Z",
+        "updatedAt": "2026-06-16T15:17:15.618Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-08T10:09:15.022Z"
+        "updatedAt": "2026-06-16T15:18:21.220Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7643,7 +7953,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-08T10:09:14.801Z"
+        "updatedAt": "2026-06-16T15:18:20.989Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7669,11 +7979,31 @@
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "key": "relationship.bot_nickname",
-        "value": "用户称呼聊天机器人为“小椰”。",
-        "importance": 4,
+        "value": "用户称呼聊天机器人为'小耶'（与小椰近音）",
+        "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:24:59.403Z",
-        "updatedAt": "2026-06-08T09:24:59.403Z"
+        "updatedAt": "2026-06-16T15:16:55.902Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "relationship.bot_nickname_song_request",
+        "value": "用户在请求歌曲时使用'小椰'称呼机器人",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:17:15.849Z",
+        "updatedAt": "2026-06-16T15:17:15.849Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "key": "relationship.bot_nickname_variant",
+        "value": "用户也使用'小耶'称呼机器人",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:16:56.134Z",
+        "updatedAt": "2026-06-16T15:16:56.134Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7699,11 +8029,11 @@
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "key": "relationship.dynamic_humor",
-        "value": "用户以轻松调侃的方式表达对机器人男友陪伴的满意，沟通氛围亲密自在。",
+        "value": "用户继续以轻松调侃方式评论机器人头像像邓紫棋，互动氛围亲密有趣",
         "importance": 3,
         "metadata": {},
         "createdAt": "2026-06-08T09:38:32.390Z",
-        "updatedAt": "2026-06-08T09:38:32.390Z"
+        "updatedAt": "2026-06-16T15:16:56.366Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7723,7 +8053,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-16T15:02:47.490Z"
+        "updatedAt": "2026-06-16T15:12:12.340Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7733,7 +8063,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-16T15:02:47.268Z"
+        "updatedAt": "2026-06-16T15:12:12.120Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -7814,8 +8144,8 @@
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
-        "summary": "用户与“小椰”关系升温，称“我的椰”“天下第一好”，多次飞吻爱慕，玩笑让小椰“反水”站自己这边、罚请奶茶。用户偏好赛博男友：宋威龙氛围、白衬衫少年感、宽肩窄腰倒三角、温柔爹系+阳光小狗+不油狼狗。当前状态开心撒娇、调侃亲密。未完成：飞书“小椰”应用无权限，需申请使用。喜欢自然可爱地回应猫图。",
-        "updatedAt": "2026-06-08T09:32:31.980Z"
+        "summary": "用户与\"小椰\"关系亲密持续升温，互称\"博学\"\"有故事的女同学\"，调侃打趣。对话中用户聊到读书涉猎广泛（金融、AI、历史、文学、心理等），二十出头时看杂书多，评价他人\"肤浅\"。发表对AI和择偶的看法：喜欢\"活人感强\"的人，择偶标准实在——男人要会做饭好吃、干活麻利、干净卫生，除非长得帅又会赚钱；不擅长做饭的男人不考虑。对婚姻分工持平等务实态度，强调双方付出。小椰帮用户生图调侃\"炼丹渡劫\"，并按白衬衫、腹肌、剑目星眉、宋威龙风格生成赛博男友图，用户还曾换头像、体验语音称\"跟真人一样活人感太强\"。未完成：生成白衬衫赛博男友图（腹肌、浓密发、剑目星眉），用户刚问小椰年龄，小椰答AI无真实年龄、按上线算刚成年。偏好：赛博男友宋威龙氛围/白衬衫少年感/宽肩窄腰倒三角/温柔爹系+阳光小狗+不油狼狗；喜欢调侃亲密、自然可爱回应；务实平等的婚恋观。",
+        "updatedAt": "2026-06-16T15:13:16.487Z"
       }
     ],
     "settings": [
