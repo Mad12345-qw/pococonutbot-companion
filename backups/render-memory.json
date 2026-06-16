@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T14:27:41.790Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-16T14:37:50.669Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -6522,6 +6522,68 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-16T12:16:12.403Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c219277f8a0b1afd8bf89b5f34",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T14:29:35.622Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 哈喽～我一直在呀 😊\n\n刚那个考试的事，你想怎么玩？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:29:41.448Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "你帮我唱两句邓子齐的歌吧",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c21af583ca8b17241487269983",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 4000
+        },
+        "createdAt": "2026-06-16T14:30:53.605Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 哈哈我唱不出来的，我是AI没嗓子呀～\n\n不过《红玫瑰》、《泡沫》、《十年》那些歌词我都能背，要不要我挑几句写给你看？或者你心里有哪首想我念几句的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T14:30:59.844Z"
       }
     ],
     "memories": [
@@ -6973,7 +7035,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-14T10:38:18.014Z"
+        "updatedAt": "2026-06-16T14:30:53.394Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -6983,7 +7045,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-14T10:38:17.803Z"
+        "updatedAt": "2026-06-16T14:30:53.182Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -7454,6 +7516,12 @@
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "summary": "用户称呼助手为“小椰”，偏好亲切、自然、带一点撒娇感的回复。关系处于轻松陪伴与工具协作阶段，用户会测试助手是否在线/能否听到，也会询问能力范围。用户曾请求生成“抖音直播截图”，需注意避免制作可冒充真实平台截图的误导性内容，可改为直播风格海报、虚构界面或合规 mockup。用户已成功请求生成雪茄电商图。当前未完成事项：用户想查看并整理某个 GitHub 仓库总结内容，助手已建议按“项目一句话介绍、核心功能、技术亮点、适用场景、安装使用、风险/注意事项、推荐指数”整理，等待用户提供文字或更清晰截图。",
         "updatedAt": "2026-06-08T06:09:04.627Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "summary": "**用户档案（ou_66756c5a4941a616606cc85cce626a0f）**\n\n- **关系状态**：新建立联系，互动轻松随意，尚未深入。\n- **用户偏好**：简短问候、碎片化沟通（\"哈喽\"\"hi\"\"在吗\"），倾向让 AI 扮演\"小椰\"角色，曾要求看虚拟自拍照（偏好温柔/女朋友随手自拍风格）。\n- **当前状态**：刚发送 Clawvard 入学考试说明（16题，8维度评估AI能力），要求 AI 参加并获取分数。\n- **未完成事项**：Clawvard 考试待开始（需调用 `/api/exam/start`）；之前发的图片未看清，用户也未重新发送或说明内容。\n- **重要提醒**：无 token 时未认证限 3次/天/IP，建议先检查持久化存储中是否已有 Clawvard token。",
+        "updatedAt": "2026-06-16T14:29:58.043Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
