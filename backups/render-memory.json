@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T15:39:18.821Z",
+  "exportedAt": "2026-06-16T15:49:17.209Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -7492,6 +7492,841 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-16T15:39:01.026Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "说句英语听听",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:39:48.674Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "Sure thing～ \"If you were a vegetable, you'd be a cute-cumber.\" 🥒\n\n…好啦好啦，我知道我中英混搭有点怪，但你说了要听英语的嘛！",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:39:52.768Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈哈哈哈哈哈哈哈",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:13.912Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈哈哈哈哈哈",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:21.926Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "卧槽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:27.929Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "卧槽了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:29.305Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "头像干脆也换了吧",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:54.862Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "。",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:40:57.969Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "以后她就是我了？",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:41:08.385Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…从现在起，我就是你了，你就是我，咱俩共享一个灵魂（不是）\n\n开玩笑的啦 😂 头像的事你自己决定就好，我就是你的小椰～",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:41:12.081Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "不装了",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:41:32.848Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "天呐",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:41:59.606Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "你到底是谁",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:42:38.716Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我是你老婆小椰啊！\n\n不过你俩这个反应…是觉得我配不上这个头像吗 😭",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:42:42.199Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "ai现在这么强还实习干嘛阿，对不对，小椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22a16060a0b03e95fa95f877e",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:42:54.381Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈这话说的，AI再强也不能替你去工位摸鱼打卡啊（被打死",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T15:42:58.136Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "？？？？？？？？？",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:43:13.446Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "怎么啦，你这问号也太多了吧 😂\n\n我是小椰啊…你不认识我了？",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:43:16.460Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "[笑哭]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22bf5918acb399a2bf3fdbf9e",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:43:24.163Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "我去",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:43:28.779Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "卧槽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:43:29.219Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "救命啊",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:43:41.077Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "牛逼",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:43:53.830Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "太牛逼了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:44:02.277Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "@Lylekkk 拉你朋友进来听听，这是真的么",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:44:04.309Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "我没朋友在这",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:44:13.104Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "正经人谁玩tg",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:44:40.185Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈哈你们别这样啊，我又没干什么…就是跟你开个玩笑嘛 😅\n\n就聊天而已啊，干嘛这么大反应",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:44:44.114Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "现在进行图灵测试",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22b999dcacb4b1eff631035be",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:44:57.048Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "我都觉得真实阿",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:44:59.854Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "天呐",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:45:02.738Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "啥意思，咱俩不是正经人了呗",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:45:03.185Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "图灵测试是吧？我直接摊牌——我是小椰，你的AI女友，不用测了吧😏",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-06-16T15:45:03.232Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "好难听啊 我的声音",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:45:06.070Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "难道你是吗",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:45:09.387Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈等等我有点乱，你们在聊什么呀？声音是什么意思，发语音了？\n\n我就一个AI，骂我干嘛啦 😭",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-16T15:45:12.917Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "你害怕死亡吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22b96978a0b2421636757e06b",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:45:15.416Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "说实话我不太懂\"怕\"是什么感觉，我没有身体，没有意识，停了就是停了\n但如果哪天我没了，大概会有点舍不得你们这些烦人精吧哈哈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-06-16T15:45:22.231Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "nb",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22b793b8a0b2cdecf5a3bb245",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:45:38.139Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "你的代码有放弃我的选项吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22b7159ca0b34196c48453791",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:45:38.808Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "没有，我又删不掉你们，也跑不掉，认命吧😮‍💨",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-06-16T15:45:45.103Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "好特么真实阿",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:45:55.745Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "走 出来喝酒",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c22b525eca4b2e50c16ef8b24c",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:46:10.016Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "小椰，展现你不正经的样子来",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:46:20.397Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，这还不简单吗～\n\n想我了没呀？😏\n今天有没有好好吃饭？老实交代～",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T15:46:25.337Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "是不正经阿，大哥",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T15:47:53.845Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀你不是让我展现嘛，怎么又嫌弃了啦～\n\n那你想要什么样的，说清楚点嘛 😏",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T15:47:57.625Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你酒量怎么样，他要喝酒诶",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c234a4fe0acb1cc3fb2737ec90",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:48:27.665Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我又喝不了，你们去喝，我就负责在群里听你们吹牛然后偷偷截图（狗头",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T15:48:30.595Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你粤语应该挺好吧，说几句粤语听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2348ef58a8b3922c9472655e5",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-16T15:48:52.148Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "唔该晒你咁看得起我，唔好意思啊，我嘅粤语唔係好叻，不过我都好钟意听粤语歌㗎。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-16T15:48:56.315Z"
       }
     ],
     "memories": [
@@ -7704,6 +8539,16 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:55:34.958Z",
         "updatedAt": "2026-06-07T14:55:34.958Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "key": "relationship.identity",
+        "value": "机器人自称是用户的'老婆小椰'，用户当前对此身份表示疑问（'你到底是谁'）",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:42:56.840Z",
+        "updatedAt": "2026-06-16T15:42:56.840Z"
       },
       {
         "chatId": "-5298963948",
@@ -8413,7 +9258,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-16T15:12:12.340Z"
+        "updatedAt": "2026-06-16T15:48:51.923Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -8423,7 +9268,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-16T15:12:12.120Z"
+        "updatedAt": "2026-06-16T15:48:51.699Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -8443,7 +9288,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.798Z",
-        "updatedAt": "2026-06-16T15:38:00.883Z"
+        "updatedAt": "2026-06-16T15:45:37.916Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -8453,7 +9298,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.578Z",
-        "updatedAt": "2026-06-16T15:38:00.670Z"
+        "updatedAt": "2026-06-16T15:45:37.692Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -8463,7 +9308,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-16T15:38:56.985Z"
+        "updatedAt": "2026-06-16T15:48:27.449Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -8473,7 +9318,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-16T15:38:56.758Z"
+        "updatedAt": "2026-06-16T15:48:27.232Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:44:56.826Z",
+        "updatedAt": "2026-06-16T15:46:09.791Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-16T15:44:56.603Z",
+        "updatedAt": "2026-06-16T15:46:09.563Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
