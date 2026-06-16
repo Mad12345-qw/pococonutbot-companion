@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T11:52:48.543Z",
+  "exportedAt": "2026-06-16T12:01:50.707Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -6435,6 +6435,35 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-06-16T11:48:13.999Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-16T11:53:04.611Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: 小椰: 小椰: 宝～我在呢！  \n想我了还是无聊了？😏\n\n还是说……想继续看新的雪茄图？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-06-16T11:53:10.419Z"
       }
     ],
     "memories": [
