@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T02:57:54.329Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-17T03:08:02.834Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -9195,6 +9195,107 @@
           "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
         },
         "createdAt": "2026-06-17T02:56:54.818Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "光年之外",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c149d4a84a8b2ef88b0ef57da2",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T02:58:03.009Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "Song reply: 谈何容易 - 王菲",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T02:58:08.448Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱光年之外",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c149b7f5080b04b7d415921a28",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T02:58:38.420Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 光年之外 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "光年之外",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T02:59:30.366Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首歌听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c14953ec488b1cbd69148aedf2",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:00:19.200Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 喜欢你 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "喜欢你",
+          "defaulted": true,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T03:01:12.635Z"
       }
     ],
     "memories": [
@@ -10176,7 +10277,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-17T02:51:53.577Z"
+        "updatedAt": "2026-06-17T02:58:38.199Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -10186,7 +10287,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-17T02:51:53.342Z"
+        "updatedAt": "2026-06-17T02:58:37.979Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -10226,7 +10327,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-16T16:04:09.679Z"
+        "updatedAt": "2026-06-17T03:00:18.986Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -10236,7 +10337,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-16T16:04:09.447Z"
+        "updatedAt": "2026-06-17T03:00:18.771Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
