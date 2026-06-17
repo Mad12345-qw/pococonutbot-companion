@@ -17,6 +17,7 @@ Optional:
 ```env
 FEISHU_VERIFICATION_TOKEN=
 FEISHU_ENCRYPT_KEY=
+FEISHU_MENTION_TARGETS_JSON={"珠珠":"ou_xxx"}
 FEISHU_PROJECT_FOLDER_TOKEN=
 FEISHU_DOC_BASE_URL=https://www.feishu.cn
 ```
@@ -50,8 +51,19 @@ The bot currently supports:
 - Private text messages
 - Group messages that mention the bot or start with a clear command
 - Text replies
+- Rich-text mention replies for requests such as "艾特一下珠珠"
 - Image generation replies for prompts such as "生成一张海报"
 - Shared AI/persona/memory stack with Telegram, isolated by `feishu:` id prefixes
+
+## Mention Targets
+
+Feishu @ mentions need an actual user or bot id. If the incoming user already @ mentioned the target, the bot reuses that id. If the user only types a name, configure a name-to-id map in Render:
+
+```env
+FEISHU_MENTION_TARGETS_JSON={"珠珠":"ou_xxx","珠珠-SPM":{"open_id":"ou_xxx","name":"珠珠-SPM"}}
+```
+
+Bot accounts can be configured the same way if Feishu exposes their open_id in the group. Whether the mentioned bot replies depends on that bot's own event and anti-loop settings.
 
 ## Project Workflow Permissions
 

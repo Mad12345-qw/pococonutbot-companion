@@ -46,6 +46,14 @@ function isUsableBotName(name = "") {
   return Boolean(value && !/^[?\uFFFD]+$/.test(value) && /[\p{L}\p{N}]/u.test(value));
 }
 
+function normalizeMentionName(value = "") {
+  return String(value || "").replace(/^@+/, "").trim();
+}
+
+function isValidMentionId(value = "") {
+  return Boolean(String(value || "").trim());
+}
+
 export class FeishuBot {
   constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient }) {
     this.config = config;
@@ -345,6 +353,28 @@ export class FeishuBot {
     });
 
     const safeReply = safeAssistantReply;
+    const mentionTargets = this.resolveOutgoingMentionTargets(safeUserText, mentionInfo);
+    if (mentionTargets.length > 0) {
+      await this.replyPostMention(message.message_id, safeReply, mentionTargets);
+      if (this.config.autoMemory) {
+        await this.updateMemoryAndSummary({
+          chatId,
+          userId,
+          userText: storedUserText,
+          assistantText: reply,
+          currentUser,
+          skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
+        });
+      }
+      return;
+    }
+
+    if (this.hasExplicitMentionDeliveryRequest(safeUserText)) {
+      const notice = "我可以帮你 @ 人，但需要你在消息里真的 @ 一下对方，或者先在 Render 配置 FEISHU_MENTION_TARGETS_JSON，把名字和 open_id 对上。";
+      await this.replyText(message.message_id, notice);
+      return;
+    }
+
     const deliveryPreference = getReplyDeliveryPreference(safeUserText);
     const sentAsSpeech = deliveryPreference === "text" ? false : await this.replySpeech(message.message_id, safeReply);
     if (!sentAsSpeech) {
@@ -418,21 +448,96 @@ export class FeishuBot {
   getMentionInfo(message, text = "") {
     const mentions = Array.isArray(message.mentions) ? message.mentions : [];
     const botNames = this.getBotMentionNames();
+    const isBotName = (name) => botNames.some((botName) => name === botName);
     const mentionNames = mentions
       .map((item) => String(item.name || item.text || "").replace(/^@/, "").trim())
       .filter(Boolean);
+    const mentionTargets = mentions
+      .map((item) => this.mentionTargetFromIncomingMention(item))
+      .filter((item) => item && !isBotName(item.name));
     const textValue = String(text || "");
     const hasMentionTag = /<at\b/i.test(textValue);
     const hasMentions = mentions.length > 0 || hasMentionTag;
-    const botMentionedByField = mentionNames.some((name) => botNames.some((botName) => name === botName));
+    const botMentionedByField = mentionNames.some((name) => isBotName(name));
     const botMentionedByText = botNames.some((botName) => botName && textValue.includes(botName));
     const botMentioned = botMentionedByField || botMentionedByText;
     return {
       hasMentions,
       mentionNames,
+      mentionTargets,
       botMentioned,
       mentionedOtherOnly: hasMentions && !botMentioned
     };
+  }
+
+  mentionTargetFromIncomingMention(item = {}) {
+    const id =
+      item.id?.open_id ||
+      item.id?.user_id ||
+      item.id?.union_id ||
+      item.open_id ||
+      item.user_id ||
+      item.union_id ||
+      (typeof item.id === "string" ? item.id : "");
+    const name = normalizeMentionName(item.name || item.text || item.key || "");
+    if (!isValidMentionId(id) || !name) return null;
+    return { id: String(id), name };
+  }
+
+  configuredMentionTargets() {
+    const raw = this.config.feishuMentionTargets || {};
+    return Object.entries(raw).map(([alias, value]) => {
+      if (typeof value === "string") {
+        return { alias: normalizeMentionName(alias), id: value.trim(), name: normalizeMentionName(alias) };
+      }
+      if (value && typeof value === "object") {
+        const id = value.open_id || value.user_id || value.union_id || value.id || "";
+        return {
+          alias: normalizeMentionName(alias),
+          id: String(id || "").trim(),
+          name: normalizeMentionName(value.name || value.user_name || alias)
+        };
+      }
+      return null;
+    }).filter((item) => item && item.alias && isValidMentionId(item.id));
+  }
+
+  hasMentionRequest(text = "") {
+    return /(?:艾特|@|at|AT|叫|喊|cue|通知|提醒|转告|告诉|问问|问下|教下|帮.+?(?:找|叫|喊|问|通知|提醒|告诉))/i.test(String(text || ""));
+  }
+
+  hasExplicitMentionDeliveryRequest(text = "") {
+    return /(?:艾特|@|at|AT|cue|通知|提醒|转告|告诉|帮.+?(?:叫|喊|通知|提醒|告诉)|(?:叫|喊)(?:一下|下|一声|一哈|一下子))/i.test(String(text || ""));
+  }
+
+  extractRequestedMentionName(text = "") {
+    const value = String(text || "");
+    const match = value.match(/(?:艾特|@|at|AT|叫|喊|cue|通知|提醒|转告|告诉|问问|问下|教下)(?:一下|下|一声|一哈|一下子)?\s*([^\s，,。.!！?？、:：]{1,40})/i);
+    if (!match) return "";
+    return normalizeMentionName(match[1]);
+  }
+
+  resolveOutgoingMentionTargets(text = "", mentionInfo = {}) {
+    if (!this.hasMentionRequest(text)) return [];
+    const byId = new Map();
+    const add = (target) => {
+      if (!target || !isValidMentionId(target.id)) return;
+      const id = String(target.id).trim();
+      if (!byId.has(id)) byId.set(id, { id, name: normalizeMentionName(target.name) || "用户" });
+    };
+
+    for (const target of mentionInfo.mentionTargets || []) add(target);
+
+    const requestedName = this.extractRequestedMentionName(text);
+    if (requestedName) {
+      for (const target of this.configuredMentionTargets()) {
+        if (target.alias === requestedName || target.name === requestedName || requestedName.includes(target.alias) || target.alias.includes(requestedName)) {
+          add(target);
+        }
+      }
+    }
+
+    return [...byId.values()].slice(0, 5);
   }
 
   rememberBotMessage(response) {
@@ -951,6 +1056,34 @@ export class FeishuBot {
     const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "text",
       content: JSON.stringify({ text: String(text || "") })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async replyPostMention(messageId, text, targets = []) {
+    if (!messageId || !targets.length) return;
+    const mentionNodes = targets
+      .filter((target) => target && isValidMentionId(target.id))
+      .map((target) => ({
+        tag: "at",
+        user_id: String(target.id),
+        user_name: normalizeMentionName(target.name) || "用户"
+      }));
+    if (!mentionNodes.length) return;
+
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "post",
+      content: JSON.stringify({
+        zh_cn: {
+          content: [
+            [
+              ...mentionNodes,
+              { tag: "text", text: ` ${String(text || "")}` }
+            ]
+          ]
+        }
+      })
     });
     this.rememberBotMessage(response);
     return response;

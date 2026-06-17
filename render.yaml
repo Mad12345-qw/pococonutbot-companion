@@ -119,6 +119,8 @@ services:
         value: 小椰
       - key: FEISHU_BOT_ALIASES
         value: 小椰,飞书营销大师
+      - key: FEISHU_MENTION_TARGETS_JSON
+        sync: false
       - key: FEISHU_PROJECT_FOLDER_TOKEN
         sync: false
       - key: FEISHU_DOC_BASE_URL
