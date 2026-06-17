@@ -88,6 +88,62 @@ function uniqueStrings(values = []) {
   return [...new Set(values.map((item) => String(item || "").trim()).filter(Boolean))];
 }
 
+function extractStringsDeep(value, output = []) {
+  if (value == null) return output;
+  if (typeof value === "string") {
+    output.push(value);
+    return output;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) extractStringsDeep(item, output);
+    return output;
+  }
+  if (typeof value === "object") {
+    for (const item of Object.values(value)) extractStringsDeep(item, output);
+  }
+  return output;
+}
+
+function flattenGenericContent(content = {}) {
+  const priority = [
+    content.text,
+    content.title,
+    content.name,
+    content.file_name,
+    content.description,
+    content.summary,
+    content.url,
+    content.href
+  ];
+  const strings = uniqueStrings([
+    ...priority,
+    ...extractStringsDeep(content).filter((item) => item.length <= 500)
+  ]);
+  return strings.slice(0, 20).join("\n").trim();
+}
+
+function extractFeishuDocxIdsDeep(value, output = []) {
+  if (!value || typeof value !== "object") return output;
+  if (Array.isArray(value)) {
+    for (const item of value) extractFeishuDocxIdsDeep(item, output);
+    return output;
+  }
+  for (const [key, raw] of Object.entries(value)) {
+    if (raw && typeof raw === "object") {
+      extractFeishuDocxIdsDeep(raw, output);
+      continue;
+    }
+    const text = String(raw || "").trim();
+    if (!text) continue;
+    const fromUrl = extractFeishuDocxId(text);
+    if (fromUrl) output.push(fromUrl);
+    if (/docx|document/i.test(key) && /^[A-Za-z0-9]{8,}$/.test(text)) {
+      output.push(text);
+    }
+  }
+  return output;
+}
+
 function extractFeishuDocxId(url = "") {
   try {
     const parsed = new URL(url);
@@ -269,21 +325,24 @@ export class FeishuBot {
   async handleMessage(payload) {
     const event = payload.event || {};
     const message = event.message || {};
-    if (!["text", "audio", "image", "post"].includes(message.message_type)) return;
 
     const content = parseContent(message.content);
     const audioMessage = message.message_type === "audio";
     const imageMessage = message.message_type === "image";
     const postMessage = message.message_type === "post";
-    const rawMessageText = postMessage ? flattenPostContent(content) : content.text || "";
+    const supportedInteractiveMessage = ["text", "audio", "image", "post"].includes(message.message_type);
+    const rawMessageText = postMessage ? flattenPostContent(content) : (content.text || flattenGenericContent(content));
     const rawText = audioMessage
       ? await this.transcribeAudioMessage(message, content)
       : imageMessage
         ? stripAtTags(content.text || content.caption || "请看这张图片并自然回复。")
         : postMessage
           ? rawMessageText
-          : stripAtTags(content.text || "");
-    if (!rawText) return;
+          : stripAtTags(rawMessageText || "");
+    const senderId = event.sender?.sender_id?.open_id || event.sender?.sender_id?.user_id || "";
+    const chatId = platformId(message.chat_id || message.open_chat_id || senderId);
+    const userId = platformId(senderId || "unknown");
+    await this.recordPassiveLinkMessage({ chatId, userId, message, content, rawMessageText });
 
     const chatType = message.chat_type || "";
     const mentionInfo = this.getMentionInfo(message, rawMessageText || content.text || rawText);
@@ -311,9 +370,8 @@ export class FeishuBot {
     const smartCandidate = !explicitReply && chatType !== "p2p" && this.config.triggerMode === "smart";
     if (!explicitReply && !smartCandidate) return;
 
-    const senderId = event.sender?.sender_id?.open_id || event.sender?.sender_id?.user_id || "";
-    const chatId = platformId(message.chat_id || message.open_chat_id || senderId);
-    const userId = platformId(senderId || "unknown");
+    if (!supportedInteractiveMessage || !rawText) return;
+
     const currentUser = {
       id: userId,
       username: "",
@@ -820,7 +878,7 @@ export class FeishuBot {
   async describeIncomingLinks({ chatId, message, content = {}, rawMessageText = "", text = "" }) {
     if (!this.config.linkReadingEnabled) return "";
     try {
-      const urls = await this.collectMessageUrls({ message, content, rawMessageText, text });
+      const urls = await this.collectMessageUrls({ chatId, message, content, rawMessageText, text });
       if (!urls.length) return "";
 
       logEvent("info", "Feishu link reading started", {
@@ -855,12 +913,13 @@ export class FeishuBot {
     }
   }
 
-  async collectMessageUrls({ message, content = {}, rawMessageText = "", text = "" }) {
+  async collectMessageUrls({ chatId = "", message, content = {}, rawMessageText = "", text = "" }) {
     const direct = [
       ...extractUrls(text),
       ...extractUrls(rawMessageText),
       ...extractUrls(JSON.stringify(content || {})),
-      ...extractPostLinks(content)
+      ...extractPostLinks(content),
+      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`)
     ];
 
     const referenced = [];
@@ -876,13 +935,80 @@ export class FeishuBot {
         const ref = await this.fetchFeishuMessage(id);
         referenced.push(...this.extractUrlsFromFeishuMessage(ref));
       }
+      referenced.push(...await this.recentStoredLinkUrls(chatId));
     }
 
-    return uniqueStrings([...direct, ...referenced]).filter((url) => /^https?:\/\//i.test(url));
+    return uniqueStrings([...direct, ...referenced]).filter((url) => /^https?:\/\//i.test(url) || /^feishu-docx:/i.test(url));
+  }
+
+  async recentStoredLinkUrls(chatId) {
+    if (!chatId) return [];
+    try {
+      const recent = await this.storage.getRecentMessages(chatId, 12);
+      const urls = [];
+      for (const item of recent) {
+        const metadata = item.metadata || {};
+        if (Array.isArray(metadata.linkUrls)) urls.push(...metadata.linkUrls);
+        if (Array.isArray(metadata.docxIds)) urls.push(...metadata.docxIds.map((id) => `feishu-docx:${id}`));
+        urls.push(...extractUrls(item.content || ""));
+      }
+      return uniqueStrings(urls).slice(0, 5);
+    } catch (error) {
+      logEvent("warn", "Feishu recent link lookup failed", { chatId, error: error.message });
+      return [];
+    }
+  }
+
+  async recordPassiveLinkMessage({ chatId, userId, message, content = {}, rawMessageText = "" }) {
+    if (!this.config.linkReadingEnabled || !chatId) return;
+    const urls = uniqueStrings([
+      ...extractUrls(rawMessageText),
+      ...extractUrls(JSON.stringify(content || {})),
+      ...extractPostLinks(content)
+    ]);
+    const docxIds = uniqueStrings([
+      ...extractFeishuDocxIdsDeep(content),
+      ...urls.map(extractFeishuDocxId)
+    ]).filter(Boolean);
+    if (!urls.length && !docxIds.length) return;
+
+    const title =
+      content.title ||
+      content.name ||
+      content.file_name ||
+      rawMessageText.split(/\r?\n/).find(Boolean) ||
+      message.message_type ||
+      "Feishu link";
+    await this.storage.addMessage({
+      chatId,
+      userId,
+      role: "user",
+      modality: "link",
+      content: [
+        `[Link message] ${String(title || "").slice(0, 300)}`,
+        ...urls.slice(0, 5),
+        ...docxIds.slice(0, 5).map((id) => `feishu-docx:${id}`)
+      ].join("\n"),
+      metadata: {
+        platform: "feishu",
+        passiveLinkSource: true,
+        messageId: message.message_id || "",
+        messageType: message.message_type || "",
+        linkUrls: urls.slice(0, 10),
+        docxIds: docxIds.slice(0, 10)
+      }
+    });
+    logEvent("info", "Feishu passive link message recorded", {
+      chatId,
+      messageId: message.message_id || "",
+      messageType: message.message_type || "",
+      urls: urls.length,
+      docxIds: docxIds.length
+    });
   }
 
   looksLikeLinkReadingRequest(text = "") {
-    return /(链接|连接|文档|文章|网页|网址|内容|学习|总结|整理|提取|阅读|读一下|看一下|看下|文字发我|转文字|摘要|概括)/i.test(String(text || ""));
+    return /(链接|连接|文档|文章|网页|网址|内容|学习|总结|整理|提取|阅读|读一下|看一下|看下|看看|怎么玩|怎么做|玩法|规则|细则|文字发我|转文字|摘要|概括)/i.test(String(text || ""));
   }
 
   extractUrlsFromFeishuMessage(message = {}) {
@@ -896,7 +1022,8 @@ export class FeishuBot {
       ...extractUrls(content.href || ""),
       ...extractUrls(content.link_url || ""),
       ...extractUrls(JSON.stringify(content || {})),
-      ...extractPostLinks(content)
+      ...extractPostLinks(content),
+      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`)
     ]);
   }
 
@@ -922,6 +1049,16 @@ export class FeishuBot {
   }
 
   async readLinkContent(url) {
+    if (/^feishu-docx:/i.test(url)) {
+      const docxId = url.replace(/^feishu-docx:/i, "").trim();
+      const content = await this.workspace.readDocumentRawContent(docxId);
+      if (!content) return "";
+      return [
+        `[Feishu document] ${docxId}`,
+        truncate(content, this.config.linkReadingMaxChars || 12000)
+      ].join("\n");
+    }
+
     const docxId = extractFeishuDocxId(url);
     if (docxId) {
       const content = await this.workspace.readDocumentRawContent(docxId);
