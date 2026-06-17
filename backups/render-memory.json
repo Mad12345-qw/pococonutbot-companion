@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T03:38:01.759Z",
+  "exportedAt": "2026-06-17T03:48:02.733Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -9315,6 +9315,260 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T03:37:54.211Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，虚心哥这是考我呢？  \n小椰可以帮你梳理思路、列提纲、改语法、润色语言，也能陪你一起想论点和论据，但正式上交之前记得自己再核对一遍哦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T03:38:00.358Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你声音和邓紫棋好像，唱首歌听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c152206e0acb2e674b5293846f",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:38:56.500Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈，小椰还没学唱歌呢，怕一开口就把邓紫棋的歌喉给吓跑～  \n要不虚心哥先点一首，下次我练熟了再唱给你听？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T03:39:02.600Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "我的天吓我一跳这个声音",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15239de8a4b11b0bd5d7230ee",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:39:20.211Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首泡沫吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c153ede98b0b252f0d8276e0df",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:39:48.840Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "hhahhhahh",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c153ff528bcb10176689762095",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:40:07.662Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T03:40:41.442Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15343a9d64b268d11f9b09a3b",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:42:43.034Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "你怕不是直接给我录制过来的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15354478a4b142ab4218a5f31",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:42:51.201Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀被你发现了！小椰提前准备好的存货～邓紫棋正版授权可不是我现唱的哦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f"
+        },
+        "createdAt": "2026-06-17T03:42:55.263Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c153500d4b8b21fb8385a9757d",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:43:11.520Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "？[微笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15cc747094b4b64f58c1a9608",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:44:46.835Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "你还怪聪明呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15cde09080b11261385c08cc6",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:44:53.262Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "user",
+        "modality": "text",
+        "content": "同学",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c15cd5bc0b4b16f86d1f0996ac",
+          "rawChatId": "oc_b051fc99468341f0454f50d058fb529b",
+          "rawUserId": "ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T03:44:59.497Z"
+      },
+      {
+        "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
+        "userId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嘿嘿，小椰主打一个聪明～同学你听着还行吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_ce1604bc29f083dd8bb1fbacbcb9b73f"
+        },
+        "createdAt": "2026-06-17T03:45:02.325Z"
       }
     ],
     "memories": [
@@ -10066,7 +10320,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T06:59:41.156Z",
-        "updatedAt": "2026-06-17T03:37:53.990Z"
+        "updatedAt": "2026-06-17T03:39:48.622Z"
       },
       {
         "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
@@ -10076,7 +10330,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T06:59:40.919Z",
-        "updatedAt": "2026-06-17T03:37:53.731Z"
+        "updatedAt": "2026-06-17T03:39:48.404Z"
       },
       {
         "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
@@ -10086,7 +10340,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:00:32.896Z",
-        "updatedAt": "2026-06-08T07:00:36.182Z"
+        "updatedAt": "2026-06-17T03:44:59.269Z"
       },
       {
         "chatId": "feishu:oc_b051fc99468341f0454f50d058fb529b",
@@ -10096,7 +10350,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:00:32.668Z",
-        "updatedAt": "2026-06-08T07:00:35.955Z"
+        "updatedAt": "2026-06-17T03:44:59.040Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
