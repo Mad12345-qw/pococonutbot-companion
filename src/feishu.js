@@ -530,12 +530,8 @@ export class FeishuBot {
     }).filter((item) => item && item.alias && isValidMentionId(item.id));
   }
 
-  hasMentionRequest(text = "") {
-    return /(?:艾特|@|at|AT|叫|喊|cue|通知|提醒|转告|告诉|问问|问下|教下|帮.+?(?:找|叫|喊|问|通知|提醒|告诉))/i.test(String(text || ""));
-  }
-
   hasExplicitMentionDeliveryRequest(text = "") {
-    return /(?:艾特|@|at|AT|cue|通知|提醒|转告|告诉|帮.+?(?:叫|喊|通知|提醒|告诉)|(?:叫|喊)(?:一下|下|一声|一哈|一下子))/i.test(String(text || ""));
+    return /(?:艾特|at\s+|AT\s+|cue|通知|提醒|转告|告诉|帮.+?(?:@|艾特|at|AT|cue|叫|喊|通知|提醒|告诉)|(?:叫|喊)(?:一下|下|一声|一哈|一下子))/i.test(String(text || ""));
   }
 
   extractRequestedMentionName(text = "") {
@@ -546,7 +542,7 @@ export class FeishuBot {
   }
 
   resolveOutgoingMentionTargets(text = "", mentionInfo = {}) {
-    if (!this.hasMentionRequest(text)) return [];
+    if (!this.hasExplicitMentionDeliveryRequest(text)) return [];
     const byId = new Map();
     const add = (target) => {
       if (!target || !isValidMentionId(target.id)) return;
