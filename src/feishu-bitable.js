@@ -40,6 +40,19 @@ function firstExisting(fields, names) {
   return undefined;
 }
 
+function firstMeaningful(fields, names) {
+  for (const name of names) {
+    if (!Object.prototype.hasOwnProperty.call(fields, name)) continue;
+    const value = fields[name];
+    if (Array.isArray(value) && value.length === 0) continue;
+    const text = textCell(value, "");
+    if (text) return value;
+    const numeric = numberCell(value, NaN);
+    if (Number.isFinite(numeric)) return value;
+  }
+  return undefined;
+}
+
 function parseMonthKey(value) {
   const rawText = textCell(value, "");
   const match = rawText.match(/(20\d{2})[年./-]?\s*(\d{1,2})/);
@@ -839,6 +852,13 @@ export class FeishuBitableClient {
     );
   }
 
+  async deleteTable(appToken, tableId) {
+    return this.request(
+      `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}`,
+      { method: "DELETE" }
+    );
+  }
+
   async ensureSimpleTable(appToken, tableSpec, tableMap, logs) {
     if (!tableMap[tableSpec.name]) {
       const created = await this.request(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
@@ -1059,17 +1079,20 @@ export class FeishuBitableClient {
   }
 
   extractOrderMetrics(fields) {
-    const sales = numberCell(firstExisting(fields, ["订单销售额", "销售额", "订单金额", "成交金额"]));
-    const costValue = firstExisting(fields, ["订单成本", "成本"]);
+    const sales = numberCell(firstMeaningful(fields, ["订单销售额", "订单总金额", "订单原价", "销售额", "订单金额", "成交金额"]));
+    const costValue = firstMeaningful(fields, ["订单成本", "成本合计", "成本"]);
     const cost = numberCell(costValue);
-    const platformFee = numberCell(firstExisting(fields, ["平台扣费", "平台费用", "平台费", "扣费"]));
-    const promotionFee = numberCell(firstExisting(fields, ["推广费", "推广费用"]));
-    const returnAmount = numberCell(firstExisting(fields, ["退货金额", "退款金额"]));
-    const explicitProfit = firstExisting(fields, ["销售利润", "订单利润", "利润"]);
+    const platformFee = numberCell(firstMeaningful(fields, ["平台扣费", "平台费用", "平台费", "扣费"]));
+    const promotionFee = numberCell(firstMeaningful(fields, ["推广费", "推广费用"]));
+    const returnAmount = numberCell(firstMeaningful(fields, ["退货金额", "退款金额"]));
+    const grossValue = firstMeaningful(fields, ["毛利", "销售毛利"]);
+    const explicitProfit = firstMeaningful(fields, ["销售利润", "订单利润", "利润"]);
     const hasCost = costValue !== undefined && costValue !== null && costValue !== "";
-    const hasExplicitProfit = explicitProfit !== undefined && explicitProfit !== null && explicitProfit !== "";
-    const grossProfit = hasCost ? sales - cost : numberCell(explicitProfit);
-    const netProfit = hasExplicitProfit ? numberCell(explicitProfit) : grossProfit - platformFee - promotionFee - returnAmount;
+    const grossProfit = grossValue !== undefined ? numberCell(grossValue) : hasCost ? sales - cost : numberCell(explicitProfit);
+    const explicitProfitNumber = numberCell(explicitProfit, NaN);
+    const netProfit = Number.isFinite(explicitProfitNumber) && (explicitProfitNumber !== 0 || !grossProfit)
+      ? explicitProfitNumber
+      : grossProfit - platformFee - promotionFee - returnAmount;
     return {
       sales,
       cost,
@@ -1119,28 +1142,28 @@ export class FeishuBitableClient {
     const customerInfo = new Map();
     for (const record of customerRecords) {
       const fields = record.fields || {};
-      const customer = textCell(firstExisting(fields, ["客户名称", "客户", "公司名称"]), "");
+      const customer = textCell(firstMeaningful(fields, ["客户名称", "客户", "公司名称"]), "");
       if (!customer) continue;
       customerInfo.set(customer, {
-        owner: textCell(firstExisting(fields, ["负责人", "销售人员", "客户负责人"]), ""),
-        level: textCell(firstExisting(fields, ["客户等级", "等级"]), ""),
-        source: textCell(firstExisting(fields, ["客户来源", "来源"]), ""),
-        status: textCell(firstExisting(fields, ["客户状态", "状态"]), ""),
-        recentFollow: textCell(firstExisting(fields, ["最近跟进日期", "最近跟进时间"]), "")
+        owner: textCell(firstMeaningful(fields, ["负责人", "销售负责人", "销售人员", "客户负责人"]), ""),
+        level: textCell(firstMeaningful(fields, ["客户等级", "客户标签", "等级"]), ""),
+        source: textCell(firstMeaningful(fields, ["客户来源", "来源"]), ""),
+        status: textCell(firstMeaningful(fields, ["客户状态", "状态"]), ""),
+        recentFollow: textCell(firstMeaningful(fields, ["最近跟进日期", "最近跟进时间", "创建时间"]), "")
       });
     }
 
     for (const record of orderRecords) {
       const fields = record.fields || {};
-      const statusText = textCell(firstExisting(fields, ["订单状态", "状态"]), "");
+      const statusText = textCell(firstMeaningful(fields, ["订单状态", "状态"]), "");
       if (statusText.includes("已取消") || statusText.includes("取消")) continue;
 
-      const periods = periodRows(firstExisting(fields, ["订单日期", "下单日期", "归属月份", "日期"]));
+      const periods = periodRows(firstMeaningful(fields, ["订单日期", "下单日期", "归属月份", "下单月份", "日期"]));
       if (!periods.length) continue;
 
-      const platform = textCell(firstExisting(fields, ["关联平台", "平台", "销售平台"]), "未填写平台");
-      const seller = textCell(firstExisting(fields, ["销售人员", "销售", "负责人"]), "未填写销售人员");
-      const customer = textCell(firstExisting(fields, ["关联客户", "客户", "客户名称"]), "未填写客户");
+      const platform = textCell(firstMeaningful(fields, ["关联平台", "平台", "销售平台"]), "未维护平台");
+      const seller = textCell(firstMeaningful(fields, ["销售负责人", "销售人员", "销售", "负责人"]), "未填写销售人员");
+      const customer = textCell(firstMeaningful(fields, ["客户信息", "客户名称", "客户", "关联客户"]), "未填写客户");
       const metrics = this.extractOrderMetrics(fields);
 
       for (const period of periods) {
@@ -1179,13 +1202,13 @@ export class FeishuBitableClient {
 
     for (const record of opportunityRecords) {
       const fields = record.fields || {};
-      const periods = periodRows(firstExisting(fields, ["预计成交日期", "创建日期", "商机日期", "日期"]));
+      const periods = periodRows(firstMeaningful(fields, ["预计成交日期", "实际成交日期", "创建日期", "实际成交月份", "商机日期", "日期"]));
       if (!periods.length) continue;
-      const stage = textCell(firstExisting(fields, ["商机阶段", "阶段", "商机状态"]), "未填写阶段");
-      const owner = textCell(firstExisting(fields, ["商机负责人", "负责人", "销售人员"]), "未填写负责人");
-      const customer = textCell(firstExisting(fields, ["关联客户", "客户", "客户名称"]), "未填写客户");
-      const amount = numberCell(firstExisting(fields, ["预计成交金额", "商机金额", "预计金额", "成交金额"]));
-      const profit = numberCell(firstExisting(fields, ["预计利润", "预计销售利润", "利润"]));
+      const stage = textCell(firstMeaningful(fields, ["商机阶段", "阶段", "商机状态", "优先级"]), "未填写阶段");
+      const owner = textCell(firstMeaningful(fields, ["商机负责人", "销售负责人", "负责人", "销售人员"]), "未填写负责人");
+      const customer = textCell(firstMeaningful(fields, ["客户名称", "客户", "关联客户"]), "未填写客户");
+      const amount = numberCell(firstMeaningful(fields, ["预计成交金额", "商机金额", "实际成交金额", "预测商机金额", "预计金额", "成交金额"]));
+      const profit = numberCell(firstMeaningful(fields, ["预计利润", "预计销售利润", "利润"]));
 
       for (const period of periods) {
         const key = `${period.type}|${period.period}|${stage}|${owner}|${customer}`;
@@ -1194,20 +1217,20 @@ export class FeishuBitableClient {
         row.count += 1;
         row.amount += amount;
         row.profit += profit;
-        addSetValue(sellerOpportunities, `${period.type}|${period.period}|${owner}`, textCell(firstExisting(fields, ["商机名称", "商机", "商机编号"]), record.record_id || key));
+        addSetValue(sellerOpportunities, `${period.type}|${period.period}|${owner}`, textCell(firstMeaningful(fields, ["商机名称", "商机描述", "商机", "商机编号"]), record.record_id || key));
       }
     }
 
     for (const record of targetRecords) {
       const fields = record.fields || {};
-      const periods = periodRows(firstExisting(fields, ["目标月份", "目标日期", "月份", "日期"]));
+      const periods = periodRows(firstMeaningful(fields, ["目标月份", "目标日期", "月份", "日期"]));
       if (!periods.length) continue;
-      const seller = textCell(firstExisting(fields, ["销售人员", "销售", "负责人"]), "未填写销售人员");
-      const platform = textCell(firstExisting(fields, ["关联平台", "平台", "销售平台"]), "全部平台");
-      const targetSales = numberCell(firstExisting(fields, ["销售额目标", "销售目标", "目标销售额"]));
-      const targetProfit = numberCell(firstExisting(fields, ["利润目标", "目标利润"]));
-      const actualSalesInTable = numberCell(firstExisting(fields, ["实际销售额", "销售额"]));
-      const actualProfitInTable = numberCell(firstExisting(fields, ["实际利润", "销售利润", "利润"]));
+      const seller = textCell(firstMeaningful(fields, ["销售负责人", "销售人员", "销售", "负责人"]), "全部销售人员");
+      const platform = textCell(firstMeaningful(fields, ["关联平台", "平台", "销售平台"]), "全部平台");
+      const targetSales = numberCell(firstMeaningful(fields, ["销售额目标", "销售目标", "目标销售额"]));
+      const targetProfit = numberCell(firstMeaningful(fields, ["利润目标", "目标利润"]));
+      const actualSalesInTable = numberCell(firstMeaningful(fields, ["实际销售额", "销售额"]));
+      const actualProfitInTable = numberCell(firstMeaningful(fields, ["当前销售总利润", "实际利润", "销售利润", "利润"]));
 
       for (const period of periods) {
         const sellerKey = `${period.type}|${period.period}|${seller}`;
@@ -1252,10 +1275,10 @@ export class FeishuBitableClient {
 
     for (const record of salaryRecords) {
       const fields = record.fields || {};
-      const periods = periodRows(firstExisting(fields, ["工资月份", "月份", "发放月份", "日期"])).filter((period) => period.type !== "周");
-      if (!periods.length) continue;
-      const seller = textCell(firstExisting(fields, ["销售人员", "员工", "姓名"]), "未填写销售人员");
-      const title = textCell(firstExisting(fields, ["工资记录", "记录名称", "工资编号"]), record.record_id || seller);
+      let periods = periodRows(firstMeaningful(fields, ["工资月份", "月份", "发放月份", "日期"])).filter((period) => period.type !== "周");
+      if (!periods.length) periods = periodRows(new Date()).filter((period) => period.type !== "周");
+      const seller = textCell(firstMeaningful(fields, ["销售人员", "员工", "姓名"]), "未填写销售人员");
+      const title = textCell(firstMeaningful(fields, ["工资记录", "记录名称", "工资编号"]), record.record_id || seller);
       for (const period of periods) {
         const key = `${period.type}|${period.period}|${seller}|${title}`;
         if (!salaryMap.has(key)) {
@@ -1274,15 +1297,15 @@ export class FeishuBitableClient {
           });
         }
         const row = salaryMap.get(key);
-        row.baseSalary += numberCell(firstExisting(fields, ["基本工资"]));
-        row.actualSales += numberCell(firstExisting(fields, ["实际销售额", "销售额"]));
-        row.actualProfit += numberCell(firstExisting(fields, ["实际利润", "销售利润", "利润"]));
-        row.completionRate = Math.max(row.completionRate, numberCell(firstExisting(fields, ["目标完成率", "完成率"])));
-        row.commission += numberCell(firstExisting(fields, ["提成金额", "提成"]));
-        row.bonus += numberCell(firstExisting(fields, ["奖金"]));
-        row.deduction += numberCell(firstExisting(fields, ["扣款"]));
-        row.payable += numberCell(firstExisting(fields, ["应发工资", "实发工资"]));
-        row.status = textCell(firstExisting(fields, ["发放状态", "状态"]), row.status);
+        row.baseSalary += numberCell(firstMeaningful(fields, ["基本工资"]));
+        row.actualSales += numberCell(firstMeaningful(fields, ["实际销售额", "销售额"]));
+        row.actualProfit += numberCell(firstMeaningful(fields, ["实际利润", "销售利润", "利润"]));
+        row.completionRate = Math.max(row.completionRate, numberCell(firstMeaningful(fields, ["目标完成率", "完成率"])));
+        row.commission += numberCell(firstMeaningful(fields, ["提成金额", "提成"]));
+        row.bonus += numberCell(firstMeaningful(fields, ["奖金"]));
+        row.deduction += numberCell(firstMeaningful(fields, ["扣款"]));
+        row.payable += numberCell(firstMeaningful(fields, ["应发工资", "实发工资"]));
+        row.status = textCell(firstMeaningful(fields, ["发放状态", "状态"]), row.status);
       }
     }
 
@@ -1388,6 +1411,15 @@ export class FeishuBitableClient {
       page_size: 100
     });
     const tableMap = Object.fromEntries(tables.map((item) => [item.name, item.table_id]));
+
+    const classifiedNames = new Set(CLASSIFIED_DASHBOARD_TABLES.map((item) => item.name));
+    for (const table of tables) {
+      const baseName = String(table.name || "").split("_conflict_")[0];
+      if (table.name?.includes("_conflict_") && classifiedNames.has(baseName)) {
+        await this.deleteTable(appToken, table.table_id);
+        logs.push({ action: "delete_conflict_table", table: table.name, tableId: table.table_id });
+      }
+    }
 
     const orderData = await this.recordsForTable(appToken, tables, ["销售订单"]);
     if (!orderData.table) throw new Error("未找到“销售订单”表，无法生成分类经营看板。");
