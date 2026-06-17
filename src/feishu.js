@@ -8,6 +8,7 @@ import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
 import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
+const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
 
 function platformId(id = "") {
   return `feishu:${String(id || "")}`;
@@ -178,12 +179,14 @@ export class FeishuBot {
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
+    const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const explicitReply =
       chatType === "p2p" ||
       mentionInfo.botMentioned ||
       replyToBot ||
       this.isExplicitCommand(text) ||
       songRequest.requested ||
+      selfieRequest.requested ||
       projectRequest ||
       this.config.triggerMode === "all";
     if (!explicitReply && chatType !== "p2p" && mentionInfo.mentionedOtherOnly) {
@@ -249,6 +252,18 @@ export class FeishuBot {
       }).catch(async (error) => {
         logEvent("error", "Feishu project workflow failed", { chatId, error: error.message });
         await this.replyText(message.message_id, `项目工作流失败了：${truncate(error.message, 600)}`);
+      });
+      return;
+    }
+
+    if (selfieRequest.requested) {
+      this.handleImageRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        text: selfieRequest.prompt
+      }).catch((error) => {
+        logEvent("error", "Feishu selfie image background task failed", { chatId, error: error.message });
       });
       return;
     }
@@ -590,6 +605,51 @@ export class FeishuBot {
   cleanGenericImagePrompt(text = "", fallback = "") {
     const raw = String(text || "").trim();
     return raw === fallback ? "" : raw;
+  }
+
+  extractSelfieGenerationPrompt(text = "") {
+    const raw = String(text || "").trim();
+    if (!raw || !selfieKeywords.test(raw)) {
+      return { requested: false, prompt: "" };
+    }
+
+    const looksLikeRequest = /(发|给我|来|看看|想看|拍|自拍|照片|相片|长什么样|样子)/i.test(raw);
+    const selfNames = [this.config.feishuBotName, this.config.displayName, "小椰", "你", "你的"]
+      .filter(Boolean)
+      .map((name) => this.escapeRegExp(name));
+    const namesSelf = selfNames.length > 0 && new RegExp(`(${selfNames.join("|")})`, "i").test(raw);
+    const directSelfie = /(自拍|自拍照)/i.test(raw);
+    const directSelfieRequest = directSelfie && /(发|给我|来|看看|想看)/i.test(raw);
+    if (!looksLikeRequest || (!namesSelf && !directSelfieRequest)) {
+      return { requested: false, prompt: "" };
+    }
+
+    return {
+      requested: true,
+      prompt: this.buildSelfiePrompt(raw)
+    };
+  }
+
+  buildSelfiePrompt(userRequest = "") {
+    const request = this.cleanImagePrompt(userRequest) || "自然生活感自拍";
+    return [
+      "生成小椰的一张真实自然自拍照。",
+      this.config.selfAppearanceDescription || "",
+      this.config.selfSelfieStyle || "",
+      `用户这次的具体要求：${request}`,
+      "保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。"
+    ].filter(Boolean).join("\n");
+  }
+
+  cleanImagePrompt(text = "") {
+    return String(text || "")
+      .replace(/^[:：,，\s]+/, "")
+      .trim()
+      .slice(0, 3000);
+  }
+
+  escapeRegExp(value = "") {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   buildImageUnderstandingPrompt(text = "", genericText = "") {
