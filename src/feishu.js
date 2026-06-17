@@ -31,6 +31,30 @@ function stripAtTags(text = "") {
     .trim();
 }
 
+function flattenPostContent(content = {}) {
+  const root =
+    content?.zh_cn?.content ||
+    content?.content ||
+    content?.en_us?.content ||
+    content?.ja_jp?.content ||
+    [];
+  const lines = Array.isArray(root) ? root : [];
+  return lines
+    .map((line) => {
+      const nodes = Array.isArray(line) ? line : [line];
+      return nodes.map((node) => {
+        if (!node || typeof node !== "object") return "";
+        if (node.tag === "at") {
+          const name = node.user_name || node.name || node.text || node.user_id || "";
+          return name ? `@${normalizeMentionName(name)}` : "";
+        }
+        return node.text || node.name || "";
+      }).join("");
+    })
+    .join("\n")
+    .trim();
+}
+
 function shouldTryFallbackImagePrompt(text = "") {
   const raw = String(text || "").trim();
   if (!raw) return false;
@@ -169,20 +193,24 @@ export class FeishuBot {
   async handleMessage(payload) {
     const event = payload.event || {};
     const message = event.message || {};
-    if (!["text", "audio", "image"].includes(message.message_type)) return;
+    if (!["text", "audio", "image", "post"].includes(message.message_type)) return;
 
     const content = parseContent(message.content);
     const audioMessage = message.message_type === "audio";
     const imageMessage = message.message_type === "image";
+    const postMessage = message.message_type === "post";
+    const rawMessageText = postMessage ? flattenPostContent(content) : content.text || "";
     const rawText = audioMessage
       ? await this.transcribeAudioMessage(message, content)
       : imageMessage
         ? stripAtTags(content.text || content.caption || "请看这张图片并自然回复。")
-        : stripAtTags(content.text || "");
+        : postMessage
+          ? rawMessageText
+          : stripAtTags(content.text || "");
     if (!rawText) return;
 
     const chatType = message.chat_type || "";
-    const mentionInfo = this.getMentionInfo(message, content.text || rawText);
+    const mentionInfo = this.getMentionInfo(message, rawMessageText || content.text || rawText);
     const replyToBot = this.isReplyToBotMessage(message);
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
@@ -583,6 +611,7 @@ export class FeishuBot {
     const names = [this.config.feishuBotName, this.config.displayName, "小椰"].filter(Boolean)
       .map((item) => String(item).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
     let output = String(text || "").trim();
+    output = output.replace(/^@+/, "");
     if (names.length) {
       output = output.replace(new RegExp(`^(?:${names.join("|")})\\s*[,，:：、]?\\s*`, "i"), "");
     }
