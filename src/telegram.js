@@ -278,7 +278,7 @@ export class TelegramCompanionBot {
     try {
       reply = await this.ai.chat(messages, {
         maxTokens: this.config.aiReplyMaxTokens,
-        requirePrimary: prepared.imageUrls.length > 0
+        requirePrimary: Boolean(this.config.imageUnderstandingRequirePrimary && prepared.imageUrls.length > 0)
       });
     } catch (error) {
       if (prepared.audio && this.config.voiceDirectInputEnabled) {

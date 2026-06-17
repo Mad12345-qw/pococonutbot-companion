@@ -37,7 +37,10 @@ app.get("/health", (_req, res) => {
     ok: true,
     storage: config.databaseUrl ? "postgres" : "json-file",
     imageGeneration: Boolean(config.imageGenerationEnabled && config.imageApiKey && config.imageApiUrl),
-    imageUnderstanding: Boolean(config.aiApiKey && config.aiUrl && config.aiModel),
+    imageUnderstanding: Boolean(
+      (config.aiApiKey && config.aiUrl && config.aiModel) ||
+      (config.fallbackAiApiKey && config.fallbackAiUrl && config.fallbackAiModel)
+    ),
     imageUnderstandingAllowsFallback: !config.imageUnderstandingRequirePrimary,
     voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl),
     voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),

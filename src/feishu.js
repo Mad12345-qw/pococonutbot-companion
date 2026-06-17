@@ -790,7 +790,7 @@ export class FeishuBot {
 
     return this.ai.chat(messages, {
       maxTokens: this.config.aiReplyMaxTokens,
-      requirePrimary: Boolean(imageDataUrl)
+      requirePrimary: Boolean(this.config.imageUnderstandingRequirePrimary && imageDataUrl)
     });
   }
 
