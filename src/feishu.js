@@ -4,7 +4,7 @@ import { buildSystemPrompt } from "./persona.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
-import { convertWavToOpus } from "./tts-client.js";
+import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
 import { detectImageMimeType, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
@@ -46,13 +46,14 @@ function isUsableBotName(name = "") {
 }
 
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
     this.speechToText = speechToText;
     this.textToSpeech = textToSpeech;
+    this.songClient = songClient;
     this.token = null;
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
@@ -176,11 +177,13 @@ export class FeishuBot {
     const replyToBot = this.isReplyToBotMessage(message);
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
+    const songRequest = this.extractSongRequest(text);
     const explicitReply =
       chatType === "p2p" ||
       mentionInfo.botMentioned ||
       replyToBot ||
       this.isExplicitCommand(text) ||
+      songRequest.requested ||
       projectRequest ||
       this.config.triggerMode === "all";
     if (!explicitReply && chatType !== "p2p" && mentionInfo.mentionedOtherOnly) {
@@ -250,6 +253,18 @@ export class FeishuBot {
       return;
     }
 
+    if (songRequest.requested) {
+      this.handleSongRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: songRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
+      });
+      return;
+    }
+
     const imageIntent = extractImageGenerationIntent(safeUserText, {
       botNames: [
         this.config.feishuBotName || "",
@@ -315,6 +330,45 @@ export class FeishuBot {
     }
   }
 
+  extractSongRequest(text = "") {
+    let raw = String(text || "").trim();
+    if (!raw) return { requested: false, query: "", defaulted: false };
+    const botNames = this.getBotMentionNames()
+      .map((name) => String(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    if (botNames.length) {
+      raw = raw.replace(new RegExp(`^(?:${botNames.join("|")})\\s*`, "i"), "").trim();
+    }
+
+    const command = raw.match(/^\/(?:song|music)(?:\s+(.+))?$/i);
+    if (command) {
+      const query = this.cleanSongQuery(command[1] || "");
+      return { requested: true, query, defaulted: !query };
+    }
+
+    const patterns = [
+      /^(?:\u6211\u60f3\u542c|\u60f3\u542c|\u6211\u8981\u542c|\u542c\u6b4c|\u542c\u9996\u6b4c|\u542c\u4e00\u9996|\u653e\u6b4c|\u653e\u9996\u6b4c|\u653e\u4e00\u9996|\u70b9\u6b4c|\u6765\u9996|\u6765\u4e00\u9996|\u5531\u6b4c|\u5531\u9996\u6b4c|\u5531\u4e00\u9996|\u5531\u4e24\u53e5|\u6b4c\u66f2|\u97f3\u4e50)\s*[:\uff1a,\uff0c]?\s*(.*)$/i,
+      /^(?:\u7ed9\u6211|\u5e2e\u6211)?(?:\u64ad\u653e|\u653e|\u5531|\u542c)\s*(?:\u4e00\u9996|\u9996|\u4e24\u53e5)?\s*(.+)$/i
+    ];
+
+    for (const pattern of patterns) {
+      const match = raw.match(pattern);
+      if (!match) continue;
+      const query = this.cleanSongQuery(match[1] || "");
+      return { requested: true, query, defaulted: !query };
+    }
+
+    return { requested: false, query: "", defaulted: false };
+  }
+
+  cleanSongQuery(text = "") {
+    return String(text || "")
+      .replace(/^[:\uff1a,\uff0c\s]+/, "")
+      .replace(/^(?:\u4e00\u9996|\u9996|\u6b4c|\u6b4c\u66f2|\u97f3\u4e50|\u4e00\u4e0b|\u4e00\u4e2a)\s*/, "")
+      .replace(/\u7684\u6b4c$/i, "")
+      .replace(/(?:\u8fd9\u9996\u6b4c|\u8fd9\u9996|\u5427|\u5440|\u554a|\u5462)[\s.!?\u3002\uff01\uff1f]*$/i, "")
+      .trim();
+  }
+
   getBotMentionNames() {
     return [...new Set([this.config.feishuBotName, this.config.displayName, ...(this.config.feishuBotAliases || []), "小椰", "飞书营销大师"]
       .filter(Boolean)
@@ -376,7 +430,8 @@ export class FeishuBot {
 
   isExplicitCommand(text = "") {
     const value = String(text || "").trim();
-    if (/^\/(?:ai|ask|love)\b/i.test(value)) return true;
+    if (/^\/(?:ai|ask|love|song|music)\b/i.test(value)) return true;
+    if (this.extractSongRequest(value).requested) return true;
     return this.getBotMentionNames().some((name) => value.toLowerCase().startsWith(name.toLowerCase()));
   }
 
@@ -684,6 +739,76 @@ export class FeishuBot {
     }
   }
 
+  async handleSongRequest({ messageId, chatId, userId, request }) {
+    if (!this.songClient?.enabled) {
+      await this.replyText(messageId, "\u70b9\u6b4c\u63a5\u53e3\u8fd8\u6ca1\u914d\u7f6e\u597d\u3002");
+      return;
+    }
+
+    const query = request.query || this.songClient.randomDefaultQuery();
+    try {
+      logEvent("info", "Feishu song request started", {
+        chatId,
+        userId,
+        query,
+        defaulted: Boolean(request.defaulted)
+      });
+      const song = await this.songClient.fetchSong(query);
+      const opus = await convertAudioToOpus(song.buffer, {
+        fileName: "song.opus",
+        inputFileName: song.inputFileName,
+        sampleRate: 48000,
+        bitrate: "64k",
+        application: "audio"
+      });
+      const durationMs = Number(song.durationMs || this.config.songDefaultDurationMs || 180000);
+      const fileKey = await this.uploadAudio({
+        buffer: opus.buffer,
+        contentType: opus.contentType,
+        fileName: opus.fileName,
+        durationMs
+      });
+      await this.replyAudio(messageId, fileKey, durationMs);
+      logEvent("info", "Feishu song reply sent", {
+        chatId,
+        name: song.name,
+        singer: song.singer,
+        bytes: opus.buffer.length
+      });
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "audio",
+        content: `Song reply: ${song.name}${song.singer ? ` - ${song.singer}` : ""}`,
+        metadata: {
+          platform: "feishu",
+          replyToUserId: userId,
+          songName: song.name,
+          singer: song.singer,
+          quality: song.quality,
+          defaulted: Boolean(request.defaulted)
+        }
+      });
+    } catch (error) {
+      logEvent("error", "Feishu song request failed", {
+        chatId,
+        query,
+        error: error.message
+      });
+      const message = `\u8fd9\u9996\u6b4c\u6682\u65f6\u6ca1\u53d1\u51fa\u6765\uff1a${truncate(error.message, 500)}`;
+      await this.replyText(messageId, message);
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "text",
+        content: message,
+        metadata: { platform: "feishu", replyToUserId: userId, songQuery: query }
+      });
+    }
+  }
+
   async tenantAccessToken() {
     const now = Date.now();
     if (this.token && now < this.tokenExpiresAt - 60_000) return this.token;
@@ -730,6 +855,19 @@ export class FeishuBot {
     return response;
   }
 
+  async replyAudio(messageId, fileKey, durationMs) {
+    if (!messageId || !fileKey) return;
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "audio",
+      content: JSON.stringify({
+        file_key: fileKey,
+        duration: Math.max(1000, Number(durationMs || 1000))
+      })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
   async replySpeech(messageId, text) {
     if (!messageId || !this.textToSpeech?.isEnabled(this.config.feishuTtsVoiceId)) return false;
 
@@ -745,14 +883,7 @@ export class FeishuBot {
         fileName: opus.fileName,
         durationMs: speech.durationMs
       });
-      const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
-        msg_type: "audio",
-        content: JSON.stringify({
-          file_key: fileKey,
-          duration: speech.durationMs
-        })
-      });
-      this.rememberBotMessage(response);
+      await this.replyAudio(messageId, fileKey, speech.durationMs);
       return true;
     } catch (error) {
       logEvent("error", "Feishu text-to-speech reply failed", {

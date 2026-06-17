@@ -154,6 +154,25 @@ export const config = {
   ttsTelegramMode: process.env.TTS_TELEGRAM_MODE || "voice",
   feishuTtsVoiceId: process.env.FEISHU_TTS_VOICE_ID || "",
   feishuTtsMaxInputChars: asNumber(process.env.FEISHU_TTS_MAX_INPUT_CHARS, asNumber(process.env.TTS_MAX_INPUT_CHARS, 1200)),
+  songApiEnabled: asBoolean(process.env.SONG_API_ENABLED, Boolean(process.env.SONG_API_TOKEN || process.env.SUOL_SONG_API_TOKEN)),
+  songApiUrl: process.env.SONG_API_URL || "https://api.suol.cc/v1/yy_sq.php",
+  songApiToken: process.env.SONG_API_TOKEN || process.env.SUOL_SONG_API_TOKEN || "",
+  songApiSource: process.env.SONG_API_SOURCE || "qq",
+  songApiTimeoutMs: asNumber(process.env.SONG_API_TIMEOUT_MS, 30000),
+  songDownloadTimeoutMs: asNumber(process.env.SONG_DOWNLOAD_TIMEOUT_MS, 180000),
+  songMaxDownloadBytes: asNumber(process.env.SONG_MAX_DOWNLOAD_BYTES, 80 * 1024 * 1024),
+  songDefaultDurationMs: asNumber(process.env.SONG_DEFAULT_DURATION_MS, 180000),
+  songDefaultQueries: asList(process.env.SONG_DEFAULT_QUERIES).length
+    ? asList(process.env.SONG_DEFAULT_QUERIES)
+    : [
+        "\u9093\u7d2b\u68cb \u5149\u5e74\u4e4b\u5916",
+        "\u9093\u7d2b\u68cb \u6ce1\u6cab",
+        "\u9093\u7d2b\u68cb \u53e5\u53f7",
+        "\u9093\u7d2b\u68cb \u559c\u6b22\u4f60",
+        "\u9093\u7d2b\u68cb \u5012\u6570",
+        "\u9093\u7d2b\u68cb \u591a\u8fdc\u90fd\u8981\u5728\u4e00\u8d77",
+        "\u9093\u7d2b\u68cb \u6765\u81ea\u5929\u5802\u7684\u9b54\u9b3c"
+      ],
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: asCleanText(process.env.BOT_DISPLAY_NAME, "小椰"),

@@ -67,6 +67,14 @@ services:
         value: "2066888673848201216"
       - key: FEISHU_TTS_MAX_INPUT_CHARS
         value: "1200"
+      - key: SONG_API_ENABLED
+        value: "true"
+      - key: SONG_API_URL
+        value: https://api.suol.cc/v1/yy_sq.php
+      - key: SONG_API_TOKEN
+        sync: false
+      - key: SONG_API_SOURCE
+        value: qq
       - key: BOT_DISPLAY_NAME
         value: 小椰
       - key: COMPANION_MODE

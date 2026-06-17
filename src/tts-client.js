@@ -64,25 +64,25 @@ function runFfmpeg(args, timeoutMs = 120000) {
   });
 }
 
-export async function convertWavToOpus(wavBuffer, options = {}) {
+export async function convertAudioToOpus(audioBuffer, options = {}) {
   const fileName = options.fileName || "reply.opus";
   const tempDir = await mkdtemp(path.join(tmpdir(), "telegram-voice-"));
-  const inputPath = path.join(tempDir, "reply.wav");
+  const inputPath = path.join(tempDir, options.inputFileName || "input.audio");
   const outputPath = path.join(tempDir, fileName);
 
   try {
-    await writeFile(inputPath, wavBuffer);
+    await writeFile(inputPath, audioBuffer);
     await runFfmpeg([
       "-y",
       "-i", inputPath,
       "-vn",
       "-acodec", "libopus",
-      "-ac", "1",
+      "-ac", String(options.channels || 1),
       "-ar", String(options.sampleRate || 16000),
-      "-b:a", "48k",
+      "-b:a", options.bitrate || "48k",
       "-vbr", "on",
       "-compression_level", "10",
-      "-application", "voip",
+      "-application", options.application || "voip",
       outputPath
     ]);
 
@@ -94,6 +94,10 @@ export async function convertWavToOpus(wavBuffer, options = {}) {
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
+}
+
+export async function convertWavToOpus(wavBuffer, options = {}) {
+  return convertAudioToOpus(wavBuffer, { inputFileName: "reply.wav", ...options });
 }
 
 export async function convertWavToTelegramVoice(wavBuffer) {
