@@ -75,6 +75,8 @@ services:
         sync: false
       - key: SONG_API_SOURCE
         value: qq
+      - key: SONG_SEARCH_ATTEMPTS
+        value: "3"
       - key: BOT_DISPLAY_NAME
         value: 小椰
       - key: COMPANION_MODE

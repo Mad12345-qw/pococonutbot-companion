@@ -818,7 +818,7 @@ export class FeishuBot {
         query,
         error: error.message
       });
-      const message = `\u8fd9\u9996\u6b4c\u6682\u65f6\u6ca1\u53d1\u51fa\u6765\uff1a${truncate(error.message, 500)}`;
+      const message = this.formatSongFailureMessage(error, query);
       await this.replyText(messageId, message);
       await this.storage.addMessage({
         chatId,
@@ -829,6 +829,17 @@ export class FeishuBot {
         metadata: { platform: "feishu", replyToUserId: userId, songQuery: query }
       });
     }
+  }
+
+  formatSongFailureMessage(error, query = "") {
+    const detail = String(error?.message || "");
+    if (/404|file not exist|download failed|not return an audio url|lookup failed/i.test(detail)) {
+      return `\u8fd9\u9996\u6b4c\u7684\u97f3\u6e90\u94fe\u63a5\u597d\u50cf\u5931\u6548\u4e86\uff0c\u6211\u521a\u521a\u81ea\u52a8\u6362\u4e86\u51e0\u4e2a\u7ed3\u679c\u4e5f\u6ca1\u62ff\u5230\u53ef\u64ad\u653e\u7248\u672c\u3002\u4f60\u6362\u4e2a\u6b4c\u540d\u6216\u52a0\u4e0a\u6b4c\u624b\u518d\u8bd5\u8bd5\u3002`;
+    }
+    if (/too large/i.test(detail)) {
+      return `\u8fd9\u9996\u6b4c\u6587\u4ef6\u592a\u5927\u4e86\uff0c\u98de\u4e66\u8fd9\u8fb9\u4e0d\u592a\u597d\u53d1\u6210\u8bed\u97f3\u6c14\u6ce1\u3002\u6362\u9996\u77ed\u4e00\u70b9\u7684\u6211\u518d\u8bd5\u8bd5\u3002`;
+    }
+    return `\u8fd9\u9996\u6b4c\u6682\u65f6\u6ca1\u53d1\u51fa\u6765\uff0c\u6211\u8fd9\u8fb9\u70b9\u6b4c\u63a5\u53e3\u521a\u521a\u6ca1\u62ff\u7a33\u3002\u4f60\u7a0d\u540e\u518d\u8bd5\u4e00\u4e0b\uff0c\u6216\u8005\u6362\u4e2a\u66f4\u660e\u786e\u7684\u6b4c\u540d\u3002`;
   }
 
   async tenantAccessToken() {

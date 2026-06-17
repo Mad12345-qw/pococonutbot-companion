@@ -160,6 +160,7 @@ export const config = {
   songApiSource: process.env.SONG_API_SOURCE || "qq",
   songApiTimeoutMs: asNumber(process.env.SONG_API_TIMEOUT_MS, 30000),
   songDownloadTimeoutMs: asNumber(process.env.SONG_DOWNLOAD_TIMEOUT_MS, 180000),
+  songSearchAttempts: asNumber(process.env.SONG_SEARCH_ATTEMPTS, 3),
   songMaxDownloadBytes: asNumber(process.env.SONG_MAX_DOWNLOAD_BYTES, 80 * 1024 * 1024),
   songDefaultDurationMs: asNumber(process.env.SONG_DEFAULT_DURATION_MS, 180000),
   songDefaultQueries: asList(process.env.SONG_DEFAULT_QUERIES).length

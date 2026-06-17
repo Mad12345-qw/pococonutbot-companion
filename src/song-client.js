@@ -48,6 +48,18 @@ function safeJsonParse(text = "") {
   }
 }
 
+function clampAttempts(value, fallback = 3) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 1) return fallback;
+  return Math.max(1, Math.min(10, Math.floor(parsed)));
+}
+
+function formatAttemptErrors(errors = []) {
+  return errors
+    .map((item) => `n=${item.index}: ${item.message}`)
+    .join("; ");
+}
+
 export class SongClient {
   constructor(config) {
     this.config = config;
@@ -141,7 +153,22 @@ export class SongClient {
   }
 
   async fetchSong(query, options = {}) {
-    const song = await this.requestSong(query, options);
-    return this.downloadAudio(song);
+    const attempts = clampAttempts(options.attempts || this.config.songSearchAttempts, 3);
+    const requestedIndex = Number(options.index || 1);
+    const startIndex = Number.isFinite(requestedIndex) && requestedIndex > 0 ? Math.floor(requestedIndex) : 1;
+    const errors = [];
+
+    for (let index = startIndex; index < startIndex + attempts; index += 1) {
+      try {
+        const song = await this.requestSong(query, { ...options, index });
+        return await this.downloadAudio(song);
+      } catch (error) {
+        errors.push({ index, message: error.message });
+      }
+    }
+
+    const error = new Error(`Song lookup failed after ${attempts} attempts: ${truncate(formatAttemptErrors(errors), 800)}`);
+    error.attempts = errors;
+    throw error;
   }
 }
