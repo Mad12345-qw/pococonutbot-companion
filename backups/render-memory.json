@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T07:17:04.619Z",
+  "exportedAt": "2026-06-17T07:22:08.538Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -10475,6 +10475,68 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T07:10:25.508Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你暴躁一点，帮我骂骂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10ea8bfcb8b26f4d9a11620bd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:18:36.290Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啧，行吧，让姐开嗓给你们表演个暴躁式问候~ 滚过来听好了，再磨叽信不信我顺着网线过去给你一脚？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T07:18:41.270Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "这语气太平淡了，凶狠暴跳起来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10e7d17cbcb2826aecf41ef69",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:19:53.819Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啧，嫌我平淡是吧？那姐今天就让你们见识见识什么叫跳脚式问候——都给老娘竖起耳朵听好了，再叨叨信不信我一脚把你们全踹飞？！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T07:19:57.533Z"
       }
     ],
     "memories": [
@@ -11651,12 +11713,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "communication_style.preference",
+        "value": "用户希望机器人语气更凶狠暴跳、有攻击性，不要太平淡",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:20:16.847Z",
+        "updatedAt": "2026-06-17T07:20:16.847Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T07:10:25.281Z"
+        "updatedAt": "2026-06-17T07:19:53.604Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11666,7 +11738,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T07:10:25.052Z"
+        "updatedAt": "2026-06-17T07:19:53.389Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
