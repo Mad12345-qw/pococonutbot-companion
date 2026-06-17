@@ -119,6 +119,23 @@ export function getReplyDeliveryPreference(text = "") {
   return textIndex >= voiceIndex ? "text" : "voice";
 }
 
+export function removeGeneratedSpeechArtifacts(text = "") {
+  let output = String(text || "");
+  output = output
+    .replace(/^(?:生成)?(?:语音|音频)?(?:内容|文案|稿子)\s*[:：,，]?\s*/i, "")
+    .replace(/(?:\n|\s)*(?:下载链接|下载地址|语音链接|音频链接)\s*[:：,，]?\s*https?:\/\/\S+[\s\S]*$/i, "")
+    .replace(/(?:\n|\s)*(?:下载链接|下载地址|语音链接|音频链接)\s*[:：,，]?[\s\S]*$/i, "")
+    .trim();
+
+  for (let i = 0; i < 2; i += 1) {
+    output = output
+      .replace(/^(?:生成)?(?:语音|音频)?(?:内容|文案|稿子)\s*[:：,，]?\s*/i, "")
+      .trim();
+  }
+
+  return output || String(text || "").trim();
+}
+
 export function parseJsonObject(text = "") {
   const raw = String(text).trim();
   try {

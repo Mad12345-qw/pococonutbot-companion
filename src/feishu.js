@@ -5,7 +5,7 @@ import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
-import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
@@ -957,7 +957,7 @@ export class FeishuBot {
   }
 
   cleanAssistantReply(text = "") {
-    return stripLeadingSelfName(text, [this.config.displayName, this.config.feishuBotName, "小椰"]);
+    return removeGeneratedSpeechArtifacts(stripLeadingSelfName(text, [this.config.displayName, this.config.feishuBotName, "小椰"]));
   }
 
   async replyImage(messageId, imageKey) {

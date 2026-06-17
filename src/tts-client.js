@@ -5,15 +5,26 @@ import path from "node:path";
 import ffmpegPath from "ffmpeg-static";
 import { truncate } from "./utils.js";
 
-function normalizeSpeechText(text = "", maxChars = 1200) {
-  return String(text || "")
+export function normalizeSpeechText(text = "", maxChars = 1200) {
+  let output = String(text || "")
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/https?:\/\/\S+/gi, " ")
+    .replace(/\bwww\.\S+/gi, " ")
+    .replace(/(?:下载链接|下载地址|链接|URL|url)\s*[:：,，]?\s*[\s\S]*$/i, " ")
+    .replace(/^(?:生成)?(?:语音|音频)?(?:内容|文案|稿子)\s*[:：,，]?\s*/i, "")
     .replace(/[*_>#-]+/g, " ")
     .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, maxChars);
+    .trim();
+
+  for (let i = 0; i < 2; i += 1) {
+    output = output
+      .replace(/^(?:生成)?(?:语音|音频)?(?:内容|文案|稿子)\s*[:：,，]?\s*/i, "")
+      .trim();
+  }
+
+  return output.slice(0, maxChars);
 }
 
 function extractAudioData(data) {

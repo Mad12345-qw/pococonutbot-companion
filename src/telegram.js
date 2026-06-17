@@ -3,7 +3,7 @@ import { extractImageGenerationIntent, imageGenerationCommands } from "./image-i
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
 import { convertWavToTelegramVoice } from "./tts-client.js";
-import { fetchAsBuffer, fetchAsDataUrl, getReplyDeliveryPreference, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { fetchAsBuffer, fetchAsDataUrl, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
@@ -358,7 +358,7 @@ export class TelegramCompanionBot {
   }
 
   cleanAssistantReply(text = "") {
-    return stripLeadingSelfName(text, [this.config.displayName, "小椰"]);
+    return removeGeneratedSpeechArtifacts(stripLeadingSelfName(text, [this.config.displayName, "小椰"]));
   }
 
   async sendSpeechReply(msg, text) {
