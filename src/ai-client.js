@@ -220,7 +220,7 @@ export class AIClient {
         temperature: 0.1,
         maxTokens: this.config.imageUnderstandingMaxTokens || 900,
         timeoutMs: this.config.imageUnderstandingTimeoutMs || 20000,
-        requirePrimary: true
+        requirePrimary: Boolean(this.config.imageUnderstandingRequirePrimary)
       }
     );
   }

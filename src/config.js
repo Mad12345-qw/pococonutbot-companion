@@ -128,6 +128,7 @@ export const config = {
   imageSize: process.env.IMAGE_SIZE || "1024x1024",
   imageTimeoutMs: asNumber(process.env.IMAGE_TIMEOUT_MS, 600000),
   imageRetryAttempts: asNumber(process.env.IMAGE_RETRY_ATTEMPTS, 3),
+  imageUnderstandingRequirePrimary: asBoolean(process.env.IMAGE_UNDERSTANDING_REQUIRE_PRIMARY, false),
   imageUnderstandingTimeoutMs: asNumber(process.env.IMAGE_UNDERSTANDING_TIMEOUT_MS, 20000),
   imageUnderstandingMaxTokens: asNumber(process.env.IMAGE_UNDERSTANDING_MAX_TOKENS, 900),
   sttEnabled: asBoolean(process.env.STT_ENABLED, Boolean(process.env.STT_API_KEY)),

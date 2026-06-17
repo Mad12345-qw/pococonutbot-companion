@@ -43,6 +43,8 @@ services:
         value: "600000"
       - key: IMAGE_RETRY_ATTEMPTS
         value: "3"
+      - key: IMAGE_UNDERSTANDING_REQUIRE_PRIMARY
+        value: "false"
       - key: STT_ENABLED
         value: "true"
       - key: STT_API_URL
