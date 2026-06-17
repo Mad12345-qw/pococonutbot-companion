@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T16:32:46.715Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-17T16:37:50.197Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -14093,6 +14093,206 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T16:29:38.160Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文：用量信息\n\n## 标题\n**用量信息**\n\n## 关键文字说明\n- 所有日期均按 UTC+0 时间显示，数据可能有 5 分钟延迟。\n\n## 核心数据\n- **充值余额**：¥5.84 CNY\n- **六月消费（按 UTC+0 时间）**：¥134.15 CNY\n- **消费金额（每月用量）**：¥134.15\n\n## 操作按钮/提示\n- [去充值] 按钮\n- 余额预警未开启（[去设置]）——橙色提示标签\n\n## 图表信息：每月用量（柱状图）\n- Y 轴范围：¥0 – ¥20\n- X 轴起始日期：6-1\n- 图表类型：日级柱状图（黄色柱），其中 6-1 当天的柱子为橙色（疑似当日/高亮）\n- 最高单日消费约接近 ¥20（出现在图表中段）\n- 最低单日消费接近 ¥0（出现在图表后段）\n- 整月（共约 22–24 个柱子）累计消费 ¥134.15\n- 注：X 轴后续日期标签未显示/被遮挡\n\n## 其他\n- 页面无项目链接、无用户标识、无表格清单\n- 平台：Feishu（飞书）",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c188b25d4a0b2c3661c742a1f6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "# 图片上下文：用量信息\n\n## 标题\n**用量信息**\n\n## 关键文字说明\n- 所有日期均按 UTC+0 时间显示，数据可能有 5 分钟延迟。\n\n## 核心数据\n- **充值余额**：¥5.84 CNY\n- **六月消费（按 UTC+0 时间）**：¥134.15 CNY\n- **消费金额（每月用量）**：¥134.15\n\n## 操作按钮/提示\n- [去充值] 按钮\n- 余额预警未开启（[去设置]）——橙色提示标签\n\n## 图表信息：每月用量（柱状图）\n- Y 轴范围：¥0 – ¥20\n- X 轴起始日期：6-1\n- 图表类型：日级柱状图（黄色柱），其中 6-1 当天的柱子为橙色（疑似当日/高亮）\n- 最高单日消费约接近 ¥20（出现在图表中段）\n- 最低单日消费接近 ¥0（出现在图表后段）\n- 整月（共约 22–24 个柱子）累计消费 ¥134.15\n- 注：X 轴后续日期标签未显示/被遮挡\n\n## 其他\n- 页面无项目链接、无用户标识、无表格清单\n- 平台：Feishu（飞书）",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:33:52.456Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这是用量信息页面，充了5.84块，六月花了134.15块？余额不太够啦～还有\"余额预警\"没开，要不要去设置一下？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-17T16:34:05.387Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我咋啥都没干自己烧这么多",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18885888a0b11599ccd5db2bf",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:34:23.729Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈可能你之前问问题太勤快啦～看图里六月中下旬有几笔花的挺多的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-17T16:34:29.759Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "谁玩我的小乖了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1889def0a4b2118e83a7eda05",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:34:44.110Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[流泪]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1889a958a8b3e64ecfaf9845f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:34:47.226Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "怎么啦小乖，哭什么呀～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-17T16:34:52.368Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你加的群多，群的上下文也烧token[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1881142ca0c35c87d9fb639ae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:36:20.359Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈是嘛，那确实烧钱…要不把不活跃的群退一退？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-17T16:36:27.020Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://bytedance.larkoffice.com/wiki/DScwwZPzsikvNzk5slJc2kgpnie",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c189aead0a0b3bd4f6b22a820f",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:37:35.008Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "看看怎么玩？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c189ae3c0a0b257a2215a51eca",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:37:38.822Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我点开看看~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T16:37:41.435Z"
       }
     ],
     "memories": [
@@ -15374,7 +15574,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-17T15:29:35.872Z"
+        "updatedAt": "2026-06-17T16:34:47.007Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15384,7 +15584,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-17T15:29:35.643Z"
+        "updatedAt": "2026-06-17T16:34:46.789Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15514,7 +15714,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-17T16:12:00.288Z"
+        "updatedAt": "2026-06-17T16:36:20.136Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15524,7 +15724,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-17T16:12:00.006Z"
+        "updatedAt": "2026-06-17T16:36:19.912Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15704,7 +15904,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T16:12:33.729Z",
-        "updatedAt": "2026-06-17T16:27:55.186Z"
+        "updatedAt": "2026-06-17T16:37:38.595Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -15714,7 +15914,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T16:12:33.492Z",
-        "updatedAt": "2026-06-17T16:27:54.963Z"
+        "updatedAt": "2026-06-17T16:37:38.369Z"
       }
     ],
     "summaries": [
