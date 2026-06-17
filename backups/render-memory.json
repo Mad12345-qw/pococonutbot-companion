@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T04:26:18.195Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-17T06:06:27.207Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -9773,6 +9773,72 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T04:20:19.648Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "能给我推荐点抖音热门的歌曲吗",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17cab428bcb16a71b3fef34a0",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 4000
+        },
+        "createdAt": "2026-06-17T06:01:50.836Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞，给你来几首最近抖音超火的～\n\n**热歌榜单**\n- 《APT.》- ROSÉ & Bruno Mars\n- 《执剑天涯》- 戴羽彤\n- 《不谓侠》- 萧忆情\n- 《你笑起来真好看》- 李昕融\n- 《云与海》- 阿YueYue\n- 《踏山河》- 是七叔呢\n\n**国风/古风**\n- 《山楂树》- 王胜男\n- 《半生雪》- 是七叔呢\n- 《踏山河》- 是七叔呢\n\n**伤感/emo向**\n- 《我记得》- 赵雷\n- 《漠河舞厅》- 柳爽\n- 《海底》- 一支榴莲\n\n有喜欢的风格吗？我再给你多推几首～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:02:07.359Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "帮我播放你刚才推进的这第一首",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17c4eb38b8b1052f907776fba",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 4000
+        },
+        "createdAt": "2026-06-17T06:03:19.862Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 写给你的一首语录-妍兮.情感电台 - 妍兮",
+        "metadata": {
+          "singer": "妍兮",
+          "quality": "标准品质",
+          "platform": "feishu",
+          "songName": "写给你的一首语录-妍兮.情感电台",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:03:59.461Z"
       }
     ],
     "memories": [
@@ -10329,6 +10395,16 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interests.douyin_music",
+        "value": "用户会主动询问抖音热门歌曲推荐，对流行音乐榜单感兴趣",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:02:47.836Z",
+        "updatedAt": "2026-06-17T06:02:47.836Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "interests.tts_singing",
         "value": "用户想让机器人唱歌，对TTS技术感兴趣，会主动询问TTS推荐",
         "importance": 3,
@@ -10364,7 +10440,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-16T18:08:38.891Z"
+        "updatedAt": "2026-06-17T06:03:19.643Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -10374,7 +10450,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-16T18:08:38.676Z"
+        "updatedAt": "2026-06-17T06:03:19.425Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
