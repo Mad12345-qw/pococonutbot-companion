@@ -74,6 +74,28 @@ const feishuBitable = new FeishuBitableClient({ config });
 setupAdminRoutes(app, { config, storage, feishuBitable });
 const bitableJobs = new Map();
 
+function publicBitableJob(job) {
+  if (!job) return null;
+  const diagnostics = job.diagnostics ? {
+    ...job.diagnostics,
+    userInfo: job.diagnostics.userInfo ? {
+      code: job.diagnostics.userInfo.code,
+      msg: job.diagnostics.userInfo.msg,
+      data: job.diagnostics.userInfo.data ? {
+        name: job.diagnostics.userInfo.data.name,
+        en_name: job.diagnostics.userInfo.data.en_name,
+        tenant_key: job.diagnostics.userInfo.data.tenant_key,
+        user_id: job.diagnostics.userInfo.data.user_id
+      } : undefined
+    } : null
+  } : null;
+
+  return {
+    ...job,
+    diagnostics
+  };
+}
+
 function serviceOrigin(req) {
   const host = req.get("x-forwarded-host") || req.get("host");
   const proto = req.get("x-forwarded-proto") || req.protocol || "https";
@@ -110,7 +132,26 @@ app.get("/feishu/bitable-user-auth/jobs/:jobId", (req, res) => {
   }
 
   const done = job.status === "done" || job.status === "failed";
-  res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Bitable Job ${job.status}</title>${done ? "" : "<meta http-equiv=\"refresh\" content=\"5\">"}<pre>${JSON.stringify(job, null, 2)}</pre>`);
+  res.type("html").send(`<!doctype html><meta charset="utf-8"><title>Feishu Bitable Job ${job.status}</title>${done ? "" : "<meta http-equiv=\"refresh\" content=\"5\">"}<pre>${JSON.stringify(publicBitableJob(job), null, 2)}</pre>`);
+});
+
+app.get("/feishu/bitable-user-auth/latest-job", (req, res) => {
+  const appToken = String(req.query.appToken || "");
+  const action = String(req.query.action || "");
+  const jobs = [...bitableJobs.values()]
+    .filter((job) => !appToken || job.appToken === appToken)
+    .filter((job) => !action || job.diagnostics?.action === action)
+    .sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt)));
+
+  if (!jobs.length) {
+    res.status(404).json({
+      ok: false,
+      error: "No matching Feishu bitable job found."
+    });
+    return;
+  }
+
+  res.json(publicBitableJob(jobs[0]));
 });
 
 app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
