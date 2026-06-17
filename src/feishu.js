@@ -212,13 +212,14 @@ function isLikelyBinaryUrl(url = "") {
 
 function normalizeLinkCandidates(values = []) {
   return uniqueStrings(values)
-    .filter((url) => /^https?:\/\//i.test(url) || /^feishu-docx:/i.test(url))
+    .filter((url) => /^https?:\/\//i.test(url) || /^feishu-(?:docx|wiki):/i.test(url))
     .filter((url) => isFeishuDocCandidate(url) || !isLikelyBinaryUrl(url))
     .sort((a, b) => Number(isFeishuDocCandidate(b)) - Number(isFeishuDocCandidate(a)));
 }
 
 function linkLogLabel(url = "") {
   if (/^feishu-docx:/i.test(url)) return "feishu-docx";
+  if (/^feishu-wiki:/i.test(url)) return "feishu-wiki";
   try {
     const parsed = new URL(url);
     return `${parsed.hostname}${parsed.pathname}`.slice(0, 160);
@@ -255,6 +256,61 @@ function htmlToReadableText(html = "") {
     .replace(/&quot;/gi, '"')
     .replace(/&#39;/gi, "'")
     .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function looksLikeLongFormReadingRequest(text = "") {
+  return /(文档|文章|链接|网页|内容|学习|总结|精华|重点|亮点|怎么玩|怎么做|玩法|规则|细则|策划|方案|文字发我|转文字|摘要|概括|整理|分析|评价)/i.test(String(text || ""));
+}
+
+function cleanMarkdownInline(text = "") {
+  return String(text || "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/__([^_]+)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .trim();
+}
+
+function formatFeishuPlainText(text = "") {
+  const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
+  const output = [];
+  let headingIndex = 0;
+
+  for (const rawLine of lines) {
+    let line = rawLine.trim();
+    if (!line) {
+      if (output.length && output[output.length - 1] !== "") output.push("");
+      continue;
+    }
+    if (/^```/.test(line)) continue;
+
+    const heading = line.match(/^#{1,6}\s*(.+)$/);
+    if (heading) {
+      headingIndex += 1;
+      const icon = headingIndex === 1 ? "📌" : headingIndex === 2 ? "🎯" : headingIndex === 3 ? "🧩" : "🔹";
+      output.push(`${icon} ${cleanMarkdownInline(heading[1])}`);
+      continue;
+    }
+
+    const bullet = line.match(/^[-*]\s+(.+)$/);
+    if (bullet) {
+      output.push(`• ${cleanMarkdownInline(bullet[1])}`);
+      continue;
+    }
+
+    const numbered = line.match(/^(\d+)[.)、]\s+(.+)$/);
+    if (numbered) {
+      output.push(`${numbered[1]}. ${cleanMarkdownInline(numbered[2])}`);
+      continue;
+    }
+
+    output.push(cleanMarkdownInline(line));
+  }
+
+  return output
+    .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
@@ -1606,7 +1662,8 @@ export class FeishuBot {
   }
 
   cleanAssistantReply(text = "") {
-    return removeGeneratedSpeechArtifacts(stripLeadingSelfName(text, [this.config.displayName, this.config.feishuBotName, "小椰"]));
+    const cleaned = removeGeneratedSpeechArtifacts(stripLeadingSelfName(text, [this.config.displayName, this.config.feishuBotName, "小椰"]));
+    return formatFeishuPlainText(cleaned);
   }
 
   async replyImage(messageId, imageKey) {
@@ -1809,11 +1866,22 @@ export class FeishuBot {
 
   formatCurrentMessageForModel({ userId, currentUser, safeUserText, hasImage = false, styleOverride = "" }) {
     const sender = currentUser?.fullName || userId || "当前飞书用户";
+    const longFormFormatting = looksLikeLongFormReadingRequest(safeUserText)
+      ? [
+          "",
+          "[飞书文字排版要求]",
+          "用户在让你阅读、学习、总结或整理内容。请输出适合飞书聊天气泡阅读的精华版，不要写 Markdown 源码。",
+          "不要使用 #、##、**、```、表格。标题直接写成“📌 总体判断”“🎯 几个亮点”“🧩 可以打磨的点”这类短标题。",
+          "每段 1 到 3 行，重点前可用 🎯、🧩、🎮、💡、⚠️、✅ 等少量图标；编号最多 3 到 5 条。",
+          "先给一句整体评价，再列亮点，再列可改进点，最后给一句结论或下一步建议。不要把原文目录机械搬运一遍。"
+        ].join("\n")
+      : "";
     return [
       "[当前要回复的飞书消息]",
       `发送者: ${sender}`,
       `内容: ${safeUserText || (hasImage ? "用户发送了一张图片。" : "")}`,
       styleOverride ? `\n[当前消息的风格要求]\n${styleOverride}` : "",
+      longFormFormatting,
       "",
       "请只回答上面这条当前消息。前面的群聊历史只能用于理解上下文，不要去回答历史里的其他人，也不要接着上一条已经过去的话题聊。"
     ].filter(Boolean).join("\n");
