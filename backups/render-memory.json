@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T17:26:57.773Z",
+  "exportedAt": "2026-06-17T17:56:57.680Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -15062,6 +15062,77 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T17:24:22.013Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 《毕业季的风》@汽水音乐 https://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐\nhttps://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c19a66774a8b29bef09c38b113",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-17T17:51:10.340Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "role": "user",
+        "modality": "text",
+        "content": "《毕业季的风》@汽水音乐 https://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐\n[Link content]\n[Web page] https://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐\n{\"message\":\"404 not found\"}",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c19a66774a8b29bef09c38b113",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_24b01bde1396823af43da099c6cecc3b",
+          "linkContext": "[Web page] https://qishui.douyin.com/s/iQGaQrGx/大家可以看看这个是我用TRAE做的skill做成的音乐\n{\"message\":\"404 not found\"}",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T17:51:11.517Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "链接打不开诶，是已经下架了还是需要登录才能看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_24b01bde1396823af43da099c6cecc3b"
+        },
+        "createdAt": "2026-06-17T17:51:17.650Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "role": "user",
+        "modality": "text",
+        "content": "登录才能听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c19a451c0a0b2ca76f095fe544",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_24b01bde1396823af43da099c6cecc3b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T17:51:41.626Z"
       }
     ],
     "memories": [
@@ -16694,6 +16765,46 @@
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.002Z",
         "updatedAt": "2026-06-17T10:06:29.053Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "key": "interests.music_creation",
+        "value": "用户使用TRAE制作音乐，分享了作品《毕业季的风》",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-17T17:51:20.883Z",
+        "updatedAt": "2026-06-17T17:51:20.883Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T17:51:11.289Z",
+        "updatedAt": "2026-06-17T17:51:41.402Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T17:51:11.043Z",
+        "updatedAt": "2026-06-17T17:51:41.179Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_24b01bde1396823af43da099c6cecc3b",
+        "key": "tools.trae",
+        "value": "用户使用TRAE工具进行创作（包括skill开发和音乐制作）",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-17T17:51:21.109Z",
+        "updatedAt": "2026-06-17T17:51:21.109Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
