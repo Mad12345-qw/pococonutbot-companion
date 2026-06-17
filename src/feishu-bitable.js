@@ -257,9 +257,18 @@ const CLARITY_TABLES = [
   }
 ];
 
+const CLASSIFIED_TABLE_NAMES = {
+  platform: "01 平台经营看板",
+  seller: "02 销售人员业绩看板",
+  customer: "03 客户分析数据看板",
+  opportunity: "04 商机分析数据看板",
+  target: "05 销售目标数据看板",
+  salary: "06 工资明细看板"
+};
+
 const CLASSIFIED_DASHBOARD_TABLES = [
   {
-    name: "平台经营看板",
+    name: CLASSIFIED_TABLE_NAMES.platform,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -279,7 +288,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["平台经营-按年", "平台经营-按月", "平台经营-按周"]
   },
   {
-    name: "销售人员业绩看板",
+    name: CLASSIFIED_TABLE_NAMES.seller,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -300,7 +309,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["销售人员-按年", "销售人员-按月", "销售人员-按周"]
   },
   {
-    name: "客户分析数据看板",
+    name: CLASSIFIED_TABLE_NAMES.customer,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -322,7 +331,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["客户分析-按年", "客户分析-按月", "客户分析-按周"]
   },
   {
-    name: "商机分析数据看板",
+    name: CLASSIFIED_TABLE_NAMES.opportunity,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -340,7 +349,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["商机分析-按年", "商机分析-按月", "商机分析-按周"]
   },
   {
-    name: "销售目标数据看板",
+    name: CLASSIFIED_TABLE_NAMES.target,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -361,7 +370,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["销售目标-按年", "销售目标-按月", "销售目标-按周"]
   },
   {
-    name: "工资明细看板",
+    name: CLASSIFIED_TABLE_NAMES.salary,
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1)] }),
@@ -746,10 +755,10 @@ export class FeishuBitableClient {
     try {
       data = text ? JSON.parse(text) : {};
     } catch {
-      throw new Error(`Feishu bitable API returned non-JSON: ${truncate(text, 500)}`);
+      throw new Error(`Feishu bitable API returned non-JSON for ${method} ${path}: ${truncate(text, 500)}`);
     }
     if (!response.ok || data.code !== 0) {
-      throw new Error(`Feishu bitable API failed ${response.status}: ${truncate(JSON.stringify(data), 800)}`);
+      throw new Error(`Feishu bitable API failed ${response.status} for ${method} ${path}: ${truncate(JSON.stringify(data), 800)}`);
     }
     return data.data || {};
   }
@@ -915,7 +924,7 @@ export class FeishuBitableClient {
     return tableId;
   }
 
-  async upsertRowsByPrimary(appToken, tableId, primaryFieldName, rows, logs, tableName) {
+  async upsertRowsByPrimary(appToken, tableId, primaryFieldName, rows, logs, tableName, { deleteStale = true } = {}) {
     const records = await this.listAll(
       `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/records`,
       { page_size: 100 }
@@ -923,11 +932,13 @@ export class FeishuBitableClient {
     const existing = new Map(records.map((record) => [textCell(record.fields?.[primaryFieldName], ""), record]));
     const desiredKeys = new Set(rows.map((row) => textCell(row[primaryFieldName], "")).filter(Boolean));
 
-    for (const [key, record] of existing.entries()) {
-      if (!key || desiredKeys.has(key) || !record?.record_id) continue;
-      await this.deleteRecord(appToken, tableId, record.record_id);
-      logs.push({ action: "delete_stale_clarity_record", table: tableName, key });
-      await new Promise((resolve) => setTimeout(resolve, 200));
+    if (deleteStale) {
+      for (const [key, record] of existing.entries()) {
+        if (!key || desiredKeys.has(key) || !record?.record_id) continue;
+        await this.deleteRecord(appToken, tableId, record.record_id);
+        logs.push({ action: "delete_stale_clarity_record", table: tableName, key });
+        await new Promise((resolve) => setTimeout(resolve, 200));
+      }
     }
 
     for (const row of rows) {
@@ -1438,12 +1449,12 @@ export class FeishuBitableClient {
       salaryRecords: salaryData.records
     });
 
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["平台经营看板"], "汇总键", rows.platformRows, logs, "平台经营看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售人员业绩看板"], "汇总键", rows.sellerRows, logs, "销售人员业绩看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["客户分析数据看板"], "汇总键", rows.customerRows, logs, "客户分析数据看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["商机分析数据看板"], "汇总键", rows.opportunityRows, logs, "商机分析数据看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售目标数据看板"], "汇总键", rows.targetRows, logs, "销售目标数据看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["工资明细看板"], "汇总键", rows.salaryRows, logs, "工资明细看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.platform], "汇总键", rows.platformRows, logs, CLASSIFIED_TABLE_NAMES.platform, { deleteStale: false });
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.seller], "汇总键", rows.sellerRows, logs, CLASSIFIED_TABLE_NAMES.seller, { deleteStale: false });
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.customer], "汇总键", rows.customerRows, logs, CLASSIFIED_TABLE_NAMES.customer, { deleteStale: false });
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.opportunity], "汇总键", rows.opportunityRows, logs, CLASSIFIED_TABLE_NAMES.opportunity, { deleteStale: false });
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.target], "汇总键", rows.targetRows, logs, CLASSIFIED_TABLE_NAMES.target, { deleteStale: false });
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds[CLASSIFIED_TABLE_NAMES.salary], "汇总键", rows.salaryRows, logs, CLASSIFIED_TABLE_NAMES.salary, { deleteStale: false });
 
     return {
       appToken,
