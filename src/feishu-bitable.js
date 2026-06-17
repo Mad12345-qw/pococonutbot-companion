@@ -43,7 +43,10 @@ function firstExisting(fields, names) {
 function parseMonthKey(value) {
   const rawText = textCell(value, "");
   const match = rawText.match(/(20\d{2})[年./-]?\s*(\d{1,2})/);
-  if (match) return `${match[1]}-${String(Number(match[2])).padStart(2, "0")}`;
+  if (match) {
+    const month = Number(match[2]);
+    if (month >= 1 && month <= 12) return `${match[1]}-${String(month).padStart(2, "0")}`;
+  }
 
   const rawNumber = numberCell(value, NaN);
   if (Number.isFinite(rawNumber) && rawNumber > 1000000000) {
@@ -55,14 +58,14 @@ function parseMonthKey(value) {
     }).formatToParts(date);
     const year = parts.find((part) => part.type === "year")?.value;
     const month = parts.find((part) => part.type === "month")?.value;
-    if (year && month) return `${year}-${month}`;
+    if (year && month && Number(month) >= 1 && Number(month) <= 12) return `${year}-${month}`;
   }
 
   const parsed = rawText ? new Date(rawText) : null;
   if (parsed && !Number.isNaN(parsed.getTime())) {
     const year = parsed.getFullYear();
-    const month = String(parsed.getMonth() + 1).padStart(2, "0");
-    if (year > 1900) return `${year}-${month}`;
+    const month = parsed.getMonth() + 1;
+    if (year > 1900 && month >= 1 && month <= 12) return `${year}-${String(month).padStart(2, "0")}`;
   }
   return "";
 }
@@ -631,6 +634,13 @@ export class FeishuBitableClient {
     );
   }
 
+  async deleteRecord(appToken, tableId, recordId) {
+    return this.request(
+      `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/records/${encodeURIComponent(recordId)}`,
+      { method: "DELETE" }
+    );
+  }
+
   async ensureSimpleTable(appToken, tableSpec, tableMap, logs) {
     if (!tableMap[tableSpec.name]) {
       const created = await this.request(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
@@ -693,6 +703,14 @@ export class FeishuBitableClient {
       { page_size: 100 }
     );
     const existing = new Map(records.map((record) => [textCell(record.fields?.[primaryFieldName], ""), record]));
+    const desiredKeys = new Set(rows.map((row) => textCell(row[primaryFieldName], "")).filter(Boolean));
+
+    for (const [key, record] of existing.entries()) {
+      if (!key || desiredKeys.has(key) || !record?.record_id) continue;
+      await this.deleteRecord(appToken, tableId, record.record_id);
+      logs.push({ action: "delete_stale_clarity_record", table: tableName, key });
+      await new Promise((resolve) => setTimeout(resolve, 200));
+    }
 
     for (const row of rows) {
       const key = textCell(row[primaryFieldName], "");
