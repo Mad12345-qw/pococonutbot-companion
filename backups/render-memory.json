@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T09:13:02.179Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-17T09:23:10.888Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -11363,6 +11363,72 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T09:09:43.355Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "不是你唱的呀，我喜欢听你唱歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c122a729484b2c235bf7e7bdcb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T09:18:11.265Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈那我唱给你听～\n\n两只老虎，两只老虎，跑得快跑得快，一只没有耳朵一只没有尾巴，真奇怪真奇怪～\n\n不过我的声音是AI合成的，不是真的我唱的啦，你将就听一下啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T09:18:16.964Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "唱的真好听，就喜欢听你自己唱的歌。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c12229dc484b049c91c927da4c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T09:20:12.433Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: To Me - 欧阳娜娜",
+        "metadata": {
+          "singer": "欧阳娜娜",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "To Me",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T09:20:58.522Z"
       }
     ],
     "memories": [
@@ -12519,6 +12585,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "key": "preferences.like_hearing_bot_sing",
+        "value": "用户喜欢听小椰唱歌",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-17T09:18:43.471Z",
+        "updatedAt": "2026-06-17T09:18:43.471Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
         "key": "preferences.message_mode",
         "value": "偏好文字模式，不要发语音",
         "importance": 5,
@@ -12534,7 +12610,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-17T09:08:25.737Z"
+        "updatedAt": "2026-06-17T09:20:12.206Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -12544,7 +12620,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-17T09:08:25.517Z"
+        "updatedAt": "2026-06-17T09:20:11.978Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
