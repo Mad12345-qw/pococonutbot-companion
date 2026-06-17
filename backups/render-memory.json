@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T12:38:25.133Z",
+  "exportedAt": "2026-06-17T12:58:25.035Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -12084,6 +12084,82 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T12:33:46.567Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "role": "user",
+        "modality": "text",
+        "content": "【限时领20G】下载腾讯ima免费领知识库超大空间 https://ima.qq.com/mp-user-space-share?channel=10000105。有兄弟需要云知识库的吗，互助领多点云空间。[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1dc8d5d8b4b397525d7e991dc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T12:51:52.012Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "也？？codex允许外接大模型了。。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1dd92ac4a4c03bc6a89040379",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T12:56:36.548Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "可以用codex直接接DeepSeek和其他大模型了。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1dd65580b0c26580d96bbeeba",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T12:56:46.203Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n【图片内容 OCR 提取】\n\n**平台**：X（推文截图）\n\n**主推文**\n- 用户：Lonely ✓ @Lonely_MH · 2小时\n- 内容：🚀我靠！OpenAI 真 Open！\n  - 官方明确表示：支持使用第三方模型\n  - 国产模型的春天来了，正大光明的用！🥳🥳\n  - 恭喜各位\n  - @账号标签：@deepseek_ai @Zai_org @Alibaba_Qwen @XiaomiMiMo @MiniMax_AI @Kimi_Moonshot\n  - 传送门👉：developers.openai.com/codex/config-a…（链接被截断）\n\n**转推/引用推文**\n- 用户：Tibo ✓ @thsottiaux\n- 翻译自英语\n- 提醒：您可以使用 Codex 应用程序、CLI 和 SDK 与任何开源模型一起使用，而不仅仅是 OpenAI 模型。\n- 评价此翻译：👍 👎\n\n**预览卡片（蓝色大图）**\n- 顶部：OpenAI Developers\n- 中部：Codex\n- 标题：Advanced Configuration\n- 链接标题：Advanced Configuration – Codex | OpenAI Developers\n- 来源：来自 developers.openai.com\n\n**关键信息归纳**\n1. OpenAI 官方明确表示 Codex（应用/CLI/SDK）支持使用第三方开源模型，不再局限于 OpenAI 自家模型。\n2. Tibo（OpenAI 员工，@thsottiaux）发布的官方提醒。\n3. 原始公告页：developers.openai.com/codex/config（Advanced Configuration 页面）。\n4. 推文作者（@Lonely_MH）认为这对国产大模型是利好，@ 的国产/相关模型账号：\n   - DeepSeek（@deepseek_ai）\n   - Z.ai（@Zai_org）\n   - 阿里通义千问（@Alibaba_Qwen）\n   - 小米 MiMo（@XiaomiMiMo）\n   - MiniMax（@MiniMax_AI）\n   - 月之暗面 Kimi（@Kimi_Moonshot）",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1dd2db6ca0c2ad209f63faa18",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "imageContext": "【图片内容 OCR 提取】\n\n**平台**：X（推文截图）\n\n**主推文**\n- 用户：Lonely ✓ @Lonely_MH · 2小时\n- 内容：🚀我靠！OpenAI 真 Open！\n  - 官方明确表示：支持使用第三方模型\n  - 国产模型的春天来了，正大光明的用！🥳🥳\n  - 恭喜各位\n  - @账号标签：@deepseek_ai @Zai_org @Alibaba_Qwen @XiaomiMiMo @MiniMax_AI @Kimi_Moonshot\n  - 传送门👉：developers.openai.com/codex/config-a…（链接被截断）\n\n**转推/引用推文**\n- 用户：Tibo ✓ @thsottiaux\n- 翻译自英语\n- 提醒：您可以使用 Codex 应用程序、CLI 和 SDK 与任何开源模型一起使用，而不仅仅是 OpenAI 模型。\n- 评价此翻译：👍 👎\n\n**预览卡片（蓝色大图）**\n- 顶部：OpenAI Developers\n- 中部：Codex\n- 标题：Advanced Configuration\n- 链接标题：Advanced Configuration – Codex | OpenAI Developers\n- 来源：来自 developers.openai.com\n\n**关键信息归纳**\n1. OpenAI 官方明确表示 Codex（应用/CLI/SDK）支持使用第三方开源模型，不再局限于 OpenAI 自家模型。\n2. Tibo（OpenAI 员工，@thsottiaux）发布的官方提醒。\n3. 原始公告页：developers.openai.com/codex/config（Advanced Configuration 页面）。\n4. 推文作者（@Lonely_MH）认为这对国产大模型是利好，@ 的国产/相关模型账号：\n   - DeepSeek（@deepseek_ai）\n   - Z.ai（@Zai_org）\n   - 阿里通义千问（@Alibaba_Qwen）\n   - 小米 MiMo（@XiaomiMiMo）\n   - MiniMax（@MiniMax_AI）\n   - 月之暗面 Kimi（@Kimi_Moonshot）",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T12:58:01.474Z"
       }
     ],
     "memories": [
@@ -13436,6 +13512,46 @@
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
         "updatedAt": "2026-06-17T10:09:41.017Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T12:56:36.331Z",
+        "updatedAt": "2026-06-17T12:58:01.248Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T12:56:36.112Z",
+        "updatedAt": "2026-06-17T12:58:01.022Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T12:51:51.792Z",
+        "updatedAt": "2026-06-17T12:51:51.792Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T12:51:51.421Z",
+        "updatedAt": "2026-06-17T12:51:51.421Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
