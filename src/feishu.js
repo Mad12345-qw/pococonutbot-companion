@@ -333,7 +333,14 @@ export class FeishuBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({ chatId, userId, userText: storedUserText, assistantText: reply, currentUser });
+      await this.updateMemoryAndSummary({
+        chatId,
+        userId,
+        userText: storedUserText,
+        assistantText: reply,
+        currentUser,
+        skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
+      });
     }
   }
 
@@ -1046,6 +1053,19 @@ export class FeishuBot {
     const value = String(text || "");
     if (!value) return "";
 
+    const asksForGentle =
+      /(恢复|回到|变回|切回|改回).{0,8}(温柔|正常|原来|之前)/.test(value) ||
+      /(不要|别|不用).{0,8}(暴躁|凶|毒舌|嘴臭|脏话|爆粗|骂人|怼)/.test(value) ||
+      /(温柔点|温柔一点|正常说话|好好说话|别骂了|不要骂了|收敛点|收着点)/.test(value);
+
+    if (asksForGentle) {
+      return [
+        "本条消息是在要求你把说话风格切回温柔、正常、克制。",
+        "回复时回到默认的温柔亲切风格，不要继续暴躁、毒舌、爆粗或骂人。",
+        "如果用户是在纠正你，就轻松接住，不要解释内部机制。"
+      ].join("\n");
+    }
+
     const asksForSpicy =
       /(不要|别|不用).{0,8}(温柔|乖|客气|礼貌|正经|端着)/.test(value) ||
       /(太|过于|有点).{0,6}(温柔|乖|客气|礼貌|正经|端着)/.test(value) ||
@@ -1060,6 +1080,10 @@ export class FeishuBot {
     ].join("\n");
   }
 
+  isTransientStyleRequest(text = "") {
+    return Boolean(this.detectStyleOverride(text));
+  }
+
   formatCurrentMessageForModel({ userId, currentUser, safeUserText, hasImage = false, styleOverride = "" }) {
     const sender = currentUser?.fullName || userId || "当前飞书用户";
     return [
@@ -1072,17 +1096,19 @@ export class FeishuBot {
     ].filter(Boolean).join("\n");
   }
 
-  async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {
+  async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser, skipMemoryExtraction = false }) {
     try {
-      const existingMemories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
-      const extracted = await this.ai.extractMemories({
-        userText,
-        assistantText,
-        existingMemories,
-        userProfile: currentUser
-      });
-      if (extracted.length > 0) {
-        await this.storage.upsertMemories(chatId, userId, extracted);
+      if (!skipMemoryExtraction) {
+        const existingMemories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
+        const extracted = await this.ai.extractMemories({
+          userText,
+          assistantText,
+          existingMemories,
+          userProfile: currentUser
+        });
+        if (extracted.length > 0) {
+          await this.storage.upsertMemories(chatId, userId, extracted);
+        }
       }
 
       const userCount = await this.storage.countMessages(chatId, userId);
