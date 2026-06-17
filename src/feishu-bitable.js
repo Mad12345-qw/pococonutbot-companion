@@ -90,12 +90,84 @@ function addAmount(target, values) {
 function blankSummary() {
   return {
     sales: 0,
+    cost: 0,
+    grossProfit: 0,
     profit: 0,
     platformFee: 0,
     promotionFee: 0,
     returnAmount: 0,
     orderCount: 0
   };
+}
+
+function parseDateInfo(value) {
+  const rawText = textCell(value, "");
+  const textMatch = rawText.match(/(20\d{2})[年./-]?\s*(\d{1,2})[月./-]?\s*(\d{1,2})?/);
+  if (textMatch) {
+    const year = Number(textMatch[1]);
+    const month = Number(textMatch[2]);
+    const day = Number(textMatch[3] || 1);
+    if (year > 1900 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+      return new Date(year, month - 1, day);
+    }
+  }
+
+  const numeric = numberCell(value, NaN);
+  if (Number.isFinite(numeric) && numeric > 1000000000) {
+    const date = new Date(numeric > 100000000000 ? numeric : numeric * 1000);
+    if (!Number.isNaN(date.getTime()) && date.getFullYear() > 1900) return date;
+  }
+
+  const parsed = rawText ? new Date(rawText) : null;
+  if (parsed && !Number.isNaN(parsed.getTime()) && parsed.getFullYear() > 1900) return parsed;
+  return null;
+}
+
+function isoWeek(date) {
+  const current = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const day = current.getUTCDay() || 7;
+  current.setUTCDate(current.getUTCDate() + 4 - day);
+  const yearStart = new Date(Date.UTC(current.getUTCFullYear(), 0, 1));
+  const week = Math.ceil((((current - yearStart) / 86400000) + 1) / 7);
+  return {
+    year: current.getUTCFullYear(),
+    week
+  };
+}
+
+function periodRows(value) {
+  const date = parseDateInfo(value);
+  if (!date) return [];
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const weekInfo = isoWeek(date);
+  return [
+    { type: "年", period: String(year), year, month: 0, week: 0 },
+    { type: "月", period: `${year}-${String(month).padStart(2, "0")}`, year, month, week: 0 },
+    { type: "周", period: `${weekInfo.year}-W${String(weekInfo.week).padStart(2, "0")}`, year: weekInfo.year, month, week: weekInfo.week }
+  ];
+}
+
+function addClassifiedAmount(target, values) {
+  target.sales += values.sales || 0;
+  target.cost += values.cost || 0;
+  target.grossProfit += values.grossProfit || 0;
+  target.profit += values.profit || 0;
+  target.platformFee += values.platformFee || 0;
+  target.promotionFee += values.promotionFee || 0;
+  target.returnAmount += values.returnAmount || 0;
+  target.orderCount += values.orderCount || 0;
+}
+
+function percent(numerator, denominator) {
+  if (!denominator) return 0;
+  return numerator / denominator;
+}
+
+function addSetValue(map, key, value) {
+  if (!value) return;
+  if (!map.has(key)) map.set(key, new Set());
+  map.get(key).add(value);
 }
 
 const CLARITY_TABLES = [
@@ -169,6 +241,132 @@ const CLARITY_TABLES = [
       field("说明", 1)
     ],
     views: ["客户检核-按销售人员看每月业绩"]
+  }
+];
+
+const CLASSIFIED_DASHBOARD_TABLES = [
+  {
+    name: "平台经营看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("周数", 2, { formatter: "0" }),
+      field("平台", 1),
+      field("销售额", 2, { formatter: "0.00" }),
+      field("销售利润", 2, { formatter: "0.00" }),
+      field("推广费", 2, { formatter: "0.00" }),
+      field("平台费", 2, { formatter: "0.00" }),
+      field("退货金额", 2, { formatter: "0.00" }),
+      field("净利润", 2, { formatter: "0.00" }),
+      field("订单数", 2, { formatter: "0" })
+    ],
+    views: ["平台经营-按年", "平台经营-按月", "平台经营-按周"]
+  },
+  {
+    name: "销售人员业绩看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("周数", 2, { formatter: "0" }),
+      field("销售人员", 1),
+      field("销售额", 2, { formatter: "0.00" }),
+      field("销售利润", 2, { formatter: "0.00" }),
+      field("净利润", 2, { formatter: "0.00" }),
+      field("订单数", 2, { formatter: "0" }),
+      field("销售目标", 2, { formatter: "0.00" }),
+      field("目标完成率", 2, { formatter: "0.00%" }),
+      field("客户数", 2, { formatter: "0" }),
+      field("商机数", 2, { formatter: "0" })
+    ],
+    views: ["销售人员-按年", "销售人员-按月", "销售人员-按周"]
+  },
+  {
+    name: "客户分析看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("周数", 2, { formatter: "0" }),
+      field("客户", 1),
+      field("负责人", 1),
+      field("客户等级", 1),
+      field("客户来源", 1),
+      field("客户状态", 1),
+      field("销售额", 2, { formatter: "0.00" }),
+      field("销售利润", 2, { formatter: "0.00" }),
+      field("净利润", 2, { formatter: "0.00" }),
+      field("订单数", 2, { formatter: "0" }),
+      field("最近跟进日期", 1)
+    ],
+    views: ["客户分析-按年", "客户分析-按月", "客户分析-按周"]
+  },
+  {
+    name: "商机分析看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("周数", 2, { formatter: "0" }),
+      field("商机阶段", 1),
+      field("商机负责人", 1),
+      field("关联客户", 1),
+      field("商机数量", 2, { formatter: "0" }),
+      field("预计成交金额", 2, { formatter: "0.00" }),
+      field("预计利润", 2, { formatter: "0.00" })
+    ],
+    views: ["商机分析-按年", "商机分析-按月", "商机分析-按周"]
+  },
+  {
+    name: "销售目标看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("周数", 2, { formatter: "0" }),
+      field("销售人员", 1),
+      field("平台", 1),
+      field("销售额目标", 2, { formatter: "0.00" }),
+      field("实际销售额", 2, { formatter: "0.00" }),
+      field("销售额完成率", 2, { formatter: "0.00%" }),
+      field("利润目标", 2, { formatter: "0.00" }),
+      field("实际利润", 2, { formatter: "0.00" }),
+      field("利润完成率", 2, { formatter: "0.00%" }),
+      field("目标差额", 2, { formatter: "0.00" })
+    ],
+    views: ["销售目标-按年", "销售目标-按月", "销售目标-按周"]
+  },
+  {
+    name: "工资明细看板",
+    primary: field("汇总键", 1),
+    fields: [
+      field("周期类型", 3, { options: [option("年", 0), option("月", 1)] }),
+      field("周期", 1),
+      field("年份", 2, { formatter: "0" }),
+      field("月份", 2, { formatter: "0" }),
+      field("销售人员", 1),
+      field("基本工资", 2, { formatter: "0.00" }),
+      field("实际销售额", 2, { formatter: "0.00" }),
+      field("实际利润", 2, { formatter: "0.00" }),
+      field("目标完成率", 2, { formatter: "0.00%" }),
+      field("提成金额", 2, { formatter: "0.00" }),
+      field("奖金", 2, { formatter: "0.00" }),
+      field("扣款", 2, { formatter: "0.00" }),
+      field("应发工资", 2, { formatter: "0.00" }),
+      field("发放状态", 1)
+    ],
+    views: ["工资明细-按年", "工资明细-按月"]
   }
 ];
 
@@ -858,6 +1056,381 @@ export class FeishuBitableClient {
     ];
 
     return { guideRows, monthlyRows, mayJuneRows, platformRows, sellerRows };
+  }
+
+  extractOrderMetrics(fields) {
+    const sales = numberCell(firstExisting(fields, ["订单销售额", "销售额", "订单金额", "成交金额"]));
+    const costValue = firstExisting(fields, ["订单成本", "成本"]);
+    const cost = numberCell(costValue);
+    const platformFee = numberCell(firstExisting(fields, ["平台扣费", "平台费用", "平台费", "扣费"]));
+    const promotionFee = numberCell(firstExisting(fields, ["推广费", "推广费用"]));
+    const returnAmount = numberCell(firstExisting(fields, ["退货金额", "退款金额"]));
+    const explicitProfit = firstExisting(fields, ["销售利润", "订单利润", "利润"]);
+    const hasCost = costValue !== undefined && costValue !== null && costValue !== "";
+    const hasExplicitProfit = explicitProfit !== undefined && explicitProfit !== null && explicitProfit !== "";
+    const grossProfit = hasCost ? sales - cost : numberCell(explicitProfit);
+    const netProfit = hasExplicitProfit ? numberCell(explicitProfit) : grossProfit - platformFee - promotionFee - returnAmount;
+    return {
+      sales,
+      cost,
+      grossProfit,
+      profit: netProfit,
+      platformFee,
+      promotionFee,
+      returnAmount,
+      orderCount: 1
+    };
+  }
+
+  async recordsForTable(appToken, tables, candidates) {
+    const table = tables.find((item) => candidates.includes(item.name))
+      || tables.find((item) => candidates.some((name) => item.name.includes(name)));
+    if (!table?.table_id) return { table: null, records: [] };
+    const records = await this.listAll(
+      `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(table.table_id)}/records`,
+      { page_size: 100 }
+    );
+    return { table, records };
+  }
+
+  collectClassifiedDashboardRows({ orderRecords, targetRecords, customerRecords, opportunityRecords, salaryRecords }) {
+    const platformMap = new Map();
+    const sellerMap = new Map();
+    const customerMap = new Map();
+    const opportunityMap = new Map();
+    const targetMap = new Map();
+    const salaryMap = new Map();
+    const sellerCustomers = new Map();
+    const sellerOpportunities = new Map();
+    const sellerTargets = new Map();
+    const actualBySellerPlatform = new Map();
+
+    const customerInfo = new Map();
+    for (const record of customerRecords) {
+      const fields = record.fields || {};
+      const customer = textCell(firstExisting(fields, ["客户名称", "客户", "公司名称"]), "");
+      if (!customer) continue;
+      customerInfo.set(customer, {
+        owner: textCell(firstExisting(fields, ["负责人", "销售人员", "客户负责人"]), ""),
+        level: textCell(firstExisting(fields, ["客户等级", "等级"]), ""),
+        source: textCell(firstExisting(fields, ["客户来源", "来源"]), ""),
+        status: textCell(firstExisting(fields, ["客户状态", "状态"]), ""),
+        recentFollow: textCell(firstExisting(fields, ["最近跟进日期", "最近跟进时间"]), "")
+      });
+    }
+
+    for (const record of orderRecords) {
+      const fields = record.fields || {};
+      const statusText = textCell(firstExisting(fields, ["订单状态", "状态"]), "");
+      if (statusText.includes("已取消") || statusText.includes("取消")) continue;
+
+      const periods = periodRows(firstExisting(fields, ["订单日期", "下单日期", "归属月份", "日期"]));
+      if (!periods.length) continue;
+
+      const platform = textCell(firstExisting(fields, ["关联平台", "平台", "销售平台"]), "未填写平台");
+      const seller = textCell(firstExisting(fields, ["销售人员", "销售", "负责人"]), "未填写销售人员");
+      const customer = textCell(firstExisting(fields, ["关联客户", "客户", "客户名称"]), "未填写客户");
+      const metrics = this.extractOrderMetrics(fields);
+
+      for (const period of periods) {
+        const platformKey = `${period.type}|${period.period}|${platform}`;
+        if (!platformMap.has(platformKey)) platformMap.set(platformKey, { period, platform, ...blankSummary() });
+        addClassifiedAmount(platformMap.get(platformKey), metrics);
+
+        const sellerKey = `${period.type}|${period.period}|${seller}`;
+        if (!sellerMap.has(sellerKey)) sellerMap.set(sellerKey, { period, seller, ...blankSummary(), targetSales: 0, customerCount: 0, opportunityCount: 0 });
+        addClassifiedAmount(sellerMap.get(sellerKey), metrics);
+        addSetValue(sellerCustomers, sellerKey, customer === "未填写客户" ? "" : customer);
+
+        const info = customerInfo.get(customer) || {};
+        const customerKey = `${period.type}|${period.period}|${customer}`;
+        if (!customerMap.has(customerKey)) {
+          customerMap.set(customerKey, {
+            period,
+            customer,
+            owner: info.owner || seller,
+            level: info.level || "",
+            source: info.source || "",
+            status: info.status || "",
+            recentFollow: info.recentFollow || "",
+            ...blankSummary()
+          });
+        }
+        addClassifiedAmount(customerMap.get(customerKey), metrics);
+
+        const actualKey = `${period.type}|${period.period}|${seller}|${platform}`;
+        if (!actualBySellerPlatform.has(actualKey)) actualBySellerPlatform.set(actualKey, { period, seller, platform, sales: 0, profit: 0 });
+        const actual = actualBySellerPlatform.get(actualKey);
+        actual.sales += metrics.sales;
+        actual.profit += metrics.profit;
+      }
+    }
+
+    for (const record of opportunityRecords) {
+      const fields = record.fields || {};
+      const periods = periodRows(firstExisting(fields, ["预计成交日期", "创建日期", "商机日期", "日期"]));
+      if (!periods.length) continue;
+      const stage = textCell(firstExisting(fields, ["商机阶段", "阶段", "商机状态"]), "未填写阶段");
+      const owner = textCell(firstExisting(fields, ["商机负责人", "负责人", "销售人员"]), "未填写负责人");
+      const customer = textCell(firstExisting(fields, ["关联客户", "客户", "客户名称"]), "未填写客户");
+      const amount = numberCell(firstExisting(fields, ["预计成交金额", "商机金额", "预计金额", "成交金额"]));
+      const profit = numberCell(firstExisting(fields, ["预计利润", "预计销售利润", "利润"]));
+
+      for (const period of periods) {
+        const key = `${period.type}|${period.period}|${stage}|${owner}|${customer}`;
+        if (!opportunityMap.has(key)) opportunityMap.set(key, { period, stage, owner, customer, count: 0, amount: 0, profit: 0 });
+        const row = opportunityMap.get(key);
+        row.count += 1;
+        row.amount += amount;
+        row.profit += profit;
+        addSetValue(sellerOpportunities, `${period.type}|${period.period}|${owner}`, textCell(firstExisting(fields, ["商机名称", "商机", "商机编号"]), record.record_id || key));
+      }
+    }
+
+    for (const record of targetRecords) {
+      const fields = record.fields || {};
+      const periods = periodRows(firstExisting(fields, ["目标月份", "目标日期", "月份", "日期"]));
+      if (!periods.length) continue;
+      const seller = textCell(firstExisting(fields, ["销售人员", "销售", "负责人"]), "未填写销售人员");
+      const platform = textCell(firstExisting(fields, ["关联平台", "平台", "销售平台"]), "全部平台");
+      const targetSales = numberCell(firstExisting(fields, ["销售额目标", "销售目标", "目标销售额"]));
+      const targetProfit = numberCell(firstExisting(fields, ["利润目标", "目标利润"]));
+      const actualSalesInTable = numberCell(firstExisting(fields, ["实际销售额", "销售额"]));
+      const actualProfitInTable = numberCell(firstExisting(fields, ["实际利润", "销售利润", "利润"]));
+
+      for (const period of periods) {
+        const sellerKey = `${period.type}|${period.period}|${seller}`;
+        const targetKey = `${period.type}|${period.period}|${seller}|${platform}`;
+        sellerTargets.set(sellerKey, (sellerTargets.get(sellerKey) || 0) + targetSales);
+
+        if (!targetMap.has(targetKey)) {
+          targetMap.set(targetKey, {
+            period,
+            seller,
+            platform,
+            targetSales: 0,
+            targetProfit: 0,
+            actualSales: 0,
+            actualProfit: 0
+          });
+        }
+        const row = targetMap.get(targetKey);
+        row.targetSales += targetSales;
+        row.targetProfit += targetProfit;
+        row.actualSales += actualSalesInTable;
+        row.actualProfit += actualProfitInTable;
+      }
+    }
+
+    for (const [actualKey, actual] of actualBySellerPlatform.entries()) {
+      if (!targetMap.has(actualKey)) {
+        targetMap.set(actualKey, {
+          period: actual.period,
+          seller: actual.seller,
+          platform: actual.platform,
+          targetSales: 0,
+          targetProfit: 0,
+          actualSales: 0,
+          actualProfit: 0
+        });
+      }
+      const row = targetMap.get(actualKey);
+      if (!row.actualSales) row.actualSales = actual.sales;
+      if (!row.actualProfit) row.actualProfit = actual.profit;
+    }
+
+    for (const record of salaryRecords) {
+      const fields = record.fields || {};
+      const periods = periodRows(firstExisting(fields, ["工资月份", "月份", "发放月份", "日期"])).filter((period) => period.type !== "周");
+      if (!periods.length) continue;
+      const seller = textCell(firstExisting(fields, ["销售人员", "员工", "姓名"]), "未填写销售人员");
+      const title = textCell(firstExisting(fields, ["工资记录", "记录名称", "工资编号"]), record.record_id || seller);
+      for (const period of periods) {
+        const key = `${period.type}|${period.period}|${seller}|${title}`;
+        if (!salaryMap.has(key)) {
+          salaryMap.set(key, {
+            period,
+            seller,
+            baseSalary: 0,
+            actualSales: 0,
+            actualProfit: 0,
+            completionRate: 0,
+            commission: 0,
+            bonus: 0,
+            deduction: 0,
+            payable: 0,
+            status: ""
+          });
+        }
+        const row = salaryMap.get(key);
+        row.baseSalary += numberCell(firstExisting(fields, ["基本工资"]));
+        row.actualSales += numberCell(firstExisting(fields, ["实际销售额", "销售额"]));
+        row.actualProfit += numberCell(firstExisting(fields, ["实际利润", "销售利润", "利润"]));
+        row.completionRate = Math.max(row.completionRate, numberCell(firstExisting(fields, ["目标完成率", "完成率"])));
+        row.commission += numberCell(firstExisting(fields, ["提成金额", "提成"]));
+        row.bonus += numberCell(firstExisting(fields, ["奖金"]));
+        row.deduction += numberCell(firstExisting(fields, ["扣款"]));
+        row.payable += numberCell(firstExisting(fields, ["应发工资", "实发工资"]));
+        row.status = textCell(firstExisting(fields, ["发放状态", "状态"]), row.status);
+      }
+    }
+
+    for (const [key, row] of sellerMap.entries()) {
+      row.targetSales = sellerTargets.get(key) || 0;
+      row.customerCount = sellerCustomers.get(key)?.size || 0;
+      row.opportunityCount = sellerOpportunities.get(key)?.size || 0;
+    }
+
+    const periodFields = (period) => ({
+      "周期类型": period.type,
+      "周期": period.period,
+      "年份": period.year,
+      "月份": period.month,
+      "周数": period.week
+    });
+
+    return {
+      platformRows: [...platformMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.platform}`,
+        ...periodFields(row.period),
+        "平台": row.platform,
+        "销售额": row.sales,
+        "销售利润": row.grossProfit,
+        "推广费": row.promotionFee,
+        "平台费": row.platformFee,
+        "退货金额": row.returnAmount,
+        "净利润": row.profit,
+        "订单数": row.orderCount
+      })),
+      sellerRows: [...sellerMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.seller}`,
+        ...periodFields(row.period),
+        "销售人员": row.seller,
+        "销售额": row.sales,
+        "销售利润": row.grossProfit,
+        "净利润": row.profit,
+        "订单数": row.orderCount,
+        "销售目标": row.targetSales,
+        "目标完成率": percent(row.sales, row.targetSales),
+        "客户数": row.customerCount,
+        "商机数": row.opportunityCount
+      })),
+      customerRows: [...customerMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.customer}`,
+        ...periodFields(row.period),
+        "客户": row.customer,
+        "负责人": row.owner,
+        "客户等级": row.level,
+        "客户来源": row.source,
+        "客户状态": row.status,
+        "销售额": row.sales,
+        "销售利润": row.grossProfit,
+        "净利润": row.profit,
+        "订单数": row.orderCount,
+        "最近跟进日期": row.recentFollow
+      })),
+      opportunityRows: [...opportunityMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.stage}|${row.owner}|${row.customer}`,
+        ...periodFields(row.period),
+        "商机阶段": row.stage,
+        "商机负责人": row.owner,
+        "关联客户": row.customer,
+        "商机数量": row.count,
+        "预计成交金额": row.amount,
+        "预计利润": row.profit
+      })),
+      targetRows: [...targetMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.seller}|${row.platform}`,
+        ...periodFields(row.period),
+        "销售人员": row.seller,
+        "平台": row.platform,
+        "销售额目标": row.targetSales,
+        "实际销售额": row.actualSales,
+        "销售额完成率": percent(row.actualSales, row.targetSales),
+        "利润目标": row.targetProfit,
+        "实际利润": row.actualProfit,
+        "利润完成率": percent(row.actualProfit, row.targetProfit),
+        "目标差额": row.actualSales - row.targetSales
+      })),
+      salaryRows: [...salaryMap.values()].map((row) => ({
+        "汇总键": `${row.period.type}|${row.period.period}|${row.seller}`,
+        ...periodFields(row.period),
+        "销售人员": row.seller,
+        "基本工资": row.baseSalary,
+        "实际销售额": row.actualSales,
+        "实际利润": row.actualProfit,
+        "目标完成率": row.completionRate,
+        "提成金额": row.commission,
+        "奖金": row.bonus,
+        "扣款": row.deduction,
+        "应发工资": row.payable,
+        "发放状态": row.status
+      }))
+    };
+  }
+
+  async applyClassifiedDashboards({ appToken = DEFAULT_APP_TOKEN } = {}) {
+    if (!this.enabled) throw new Error("Feishu app credentials are not configured.");
+
+    const logs = [];
+    const tables = await this.listAll(`/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables`, {
+      page_size: 100
+    });
+    const tableMap = Object.fromEntries(tables.map((item) => [item.name, item.table_id]));
+
+    const orderData = await this.recordsForTable(appToken, tables, ["销售订单"]);
+    if (!orderData.table) throw new Error("未找到“销售订单”表，无法生成分类经营看板。");
+    const targetData = await this.recordsForTable(appToken, tables, ["销售目标管理", "销售目标"]);
+    const customerData = await this.recordsForTable(appToken, tables, ["客户信息"]);
+    const opportunityData = await this.recordsForTable(appToken, tables, ["商机管理", "商机"]);
+    const salaryData = await this.recordsForTable(appToken, tables, ["工资表", "工资"]);
+
+    logs.push({ action: "read_source_records", table: orderData.table.name, records: orderData.records.length });
+    logs.push({ action: "read_source_records", table: targetData.table?.name || "销售目标管理", records: targetData.records.length });
+    logs.push({ action: "read_source_records", table: customerData.table?.name || "客户信息", records: customerData.records.length });
+    logs.push({ action: "read_source_records", table: opportunityData.table?.name || "商机管理", records: opportunityData.records.length });
+    logs.push({ action: "read_source_records", table: salaryData.table?.name || "工资表", records: salaryData.records.length });
+
+    const dashboardTableIds = {};
+    for (const tableSpec of CLASSIFIED_DASHBOARD_TABLES) {
+      dashboardTableIds[tableSpec.name] = await this.ensureSimpleTable(appToken, tableSpec, tableMap, logs);
+    }
+
+    const rows = this.collectClassifiedDashboardRows({
+      orderRecords: orderData.records,
+      targetRecords: targetData.records,
+      customerRecords: customerData.records,
+      opportunityRecords: opportunityData.records,
+      salaryRecords: salaryData.records
+    });
+
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["平台经营看板"], "汇总键", rows.platformRows, logs, "平台经营看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售人员业绩看板"], "汇总键", rows.sellerRows, logs, "销售人员业绩看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["客户分析看板"], "汇总键", rows.customerRows, logs, "客户分析看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["商机分析看板"], "汇总键", rows.opportunityRows, logs, "商机分析看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售目标看板"], "汇总键", rows.targetRows, logs, "销售目标看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["工资明细看板"], "汇总键", rows.salaryRows, logs, "工资明细看板");
+
+    return {
+      appToken,
+      generatedAt: new Date().toISOString(),
+      source: {
+        orderRecords: orderData.records.length,
+        targetRecords: targetData.records.length,
+        customerRecords: customerData.records.length,
+        opportunityRecords: opportunityData.records.length,
+        salaryRecords: salaryData.records.length
+      },
+      summaries: {
+        platformRows: rows.platformRows.length,
+        sellerRows: rows.sellerRows.length,
+        customerRows: rows.customerRows.length,
+        opportunityRows: rows.opportunityRows.length,
+        targetRows: rows.targetRows.length,
+        salaryRows: rows.salaryRows.length
+      },
+      logs
+    };
   }
 
   async applyDashboardClarity({ appToken = DEFAULT_APP_TOKEN } = {}) {

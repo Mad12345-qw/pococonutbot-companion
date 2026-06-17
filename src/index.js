@@ -213,7 +213,9 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
         id: jobId,
         ok: false,
         status: "running",
-        stage: action === "dashboard_clarity" ? "apply_dashboard_clarity" : "apply_sales_schema",
+        stage: action === "classified_dashboards"
+          ? "apply_classified_dashboards"
+          : action === "dashboard_clarity" ? "apply_dashboard_clarity" : "apply_sales_schema",
         appToken,
         startedAt: new Date().toISOString(),
         finishedAt: "",
@@ -225,9 +227,11 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
 
       const jobClient = new FeishuBitableClient({ config });
       jobClient.tenantAccessToken = async () => userToken;
-      const runner = action === "dashboard_clarity"
-        ? () => jobClient.applyDashboardClarity({ appToken })
-        : () => jobClient.applySalesSchema({ appToken });
+      const runner = action === "classified_dashboards"
+        ? () => jobClient.applyClassifiedDashboards({ appToken })
+        : action === "dashboard_clarity"
+          ? () => jobClient.applyDashboardClarity({ appToken })
+          : () => jobClient.applySalesSchema({ appToken });
       runner()
         .then((result) => {
           job.ok = true;
