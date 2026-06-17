@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T15:44:53.451Z",
+  "exportedAt": "2026-06-17T15:54:52.556Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -13824,6 +13824,53 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T15:44:34.121Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 出来 - Gambler",
+        "metadata": {
+          "singer": "Gambler",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "出来",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-17T15:45:10.221Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "你是不是刚去岛国学习回来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c185673eca0b139a21ef654be9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:47:30.916Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？什么岛国？我刚学会唱《父亲节快乐》～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-17T15:47:33.422Z"
       }
     ],
     "memories": [
@@ -15205,7 +15252,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-17T15:44:33.892Z"
+        "updatedAt": "2026-06-17T15:47:30.706Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15215,7 +15262,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-17T15:44:33.663Z"
+        "updatedAt": "2026-06-17T15:47:30.496Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
