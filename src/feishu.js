@@ -700,7 +700,8 @@ export class FeishuBot {
       userId,
       currentUser,
       safeUserText,
-      hasImage: Boolean(imageDataUrl)
+      hasImage: Boolean(imageDataUrl),
+      styleOverride: this.detectStyleOverride(safeUserText)
     });
     if (imageDataUrl) {
       messages.push({
@@ -1041,15 +1042,34 @@ export class FeishuBot {
     return `${label}: ${message.content || ""}`;
   }
 
-  formatCurrentMessageForModel({ userId, currentUser, safeUserText, hasImage = false }) {
+  detectStyleOverride(text = "") {
+    const value = String(text || "");
+    if (!value) return "";
+
+    const asksForSpicy =
+      /(不要|别|不用).{0,8}(温柔|乖|客气|礼貌|正经|端着)/.test(value) ||
+      /(太|过于|有点).{0,6}(温柔|乖|客气|礼貌|正经|端着)/.test(value) ||
+      /(暴躁|暴躁款|暴躁点|凶一点|凶点|毒舌|嘴臭|嘴巴毒|怼|开怼|脏话|说脏话|爆粗|骂人|开口就是骂)/.test(value);
+
+    if (!asksForSpicy) return "";
+
+    return [
+      "本条消息是在要求你调整说话风格：不要把“太温柔/不要温柔/要暴躁/可以说脏话”理解成继续温柔。",
+      "回复时可以更暴躁、毒舌、带一点口语化脏话和吐槽感，但保持玩笑式分寸。",
+      "不要使用仇恨、歧视、威胁、羞辱性人身攻击，也不要真的攻击群成员隐私或现实身份。"
+    ].join("\n");
+  }
+
+  formatCurrentMessageForModel({ userId, currentUser, safeUserText, hasImage = false, styleOverride = "" }) {
     const sender = currentUser?.fullName || userId || "当前飞书用户";
     return [
       "[当前要回复的飞书消息]",
       `发送者: ${sender}`,
       `内容: ${safeUserText || (hasImage ? "用户发送了一张图片。" : "")}`,
+      styleOverride ? `\n[当前消息的风格要求]\n${styleOverride}` : "",
       "",
       "请只回答上面这条当前消息。前面的群聊历史只能用于理解上下文，不要去回答历史里的其他人，也不要接着上一条已经过去的话题聊。"
-    ].join("\n");
+    ].filter(Boolean).join("\n");
   }
 
   async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {
