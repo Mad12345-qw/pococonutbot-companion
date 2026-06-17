@@ -125,6 +125,12 @@ services:
         sync: false
       - key: FEISHU_DOC_BASE_URL
         value: https://www.feishu.cn
+      - key: LINK_READING_ENABLED
+        value: "true"
+      - key: LINK_READING_MAX_CHARS
+        value: "12000"
+      - key: LINK_READING_TIMEOUT_MS
+        value: "20000"
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME

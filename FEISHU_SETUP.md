@@ -20,6 +20,8 @@ FEISHU_ENCRYPT_KEY=
 FEISHU_MENTION_TARGETS_JSON={"珠珠":"ou_xxx"}
 FEISHU_PROJECT_FOLDER_TOKEN=
 FEISHU_DOC_BASE_URL=https://www.feishu.cn
+LINK_READING_ENABLED=true
+LINK_READING_MAX_CHARS=12000
 ```
 
 Leave `FEISHU_ENCRYPT_KEY` empty unless you enable encrypted event pushes in Feishu.
@@ -52,8 +54,22 @@ The bot currently supports:
 - Group messages that mention the bot or start with a clear command
 - Text replies
 - Rich-text mention replies for requests such as "艾特一下珠珠"
+- Link/document reading for public web pages and Feishu `/docx/` links
 - Image generation replies for prompts such as "生成一张海报"
 - Shared AI/persona/memory stack with Telegram, isolated by `feishu:` id prefixes
+
+## Link And Document Reading
+
+When a user sends a URL, or replies to a message that contains a URL and asks the bot to read it, the bot tries to add the linked content to the AI context. Feishu `/docx/` links are read through the Feishu document API; normal public web pages are fetched as text.
+
+Recommended Feishu Open Platform permissions:
+
+```text
+im:message
+docx:document
+```
+
+The app must also have permission to the target document. For private docs, share the document with the bot app or put it in a folder the app can access.
 
 ## Mention Targets
 

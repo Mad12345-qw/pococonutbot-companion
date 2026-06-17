@@ -69,6 +69,18 @@ export class FeishuWorkspaceClient {
     return `${this.config.feishuDocBaseUrl || "https://www.feishu.cn"}/docx/${documentId}`;
   }
 
+  async readDocumentRawContent(documentId) {
+    if (!documentId) return "";
+    const data = await this.request(`/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/raw_content`);
+    const content =
+      data.content ||
+      data.raw_content ||
+      data.document?.content ||
+      data.document?.raw_content ||
+      "";
+    return String(content || "");
+  }
+
   async request(path, { method = "GET", body, headers = {} } = {}) {
     const token = await this.getToken();
     const response = await fetch(`https://open.feishu.cn${path}`, {

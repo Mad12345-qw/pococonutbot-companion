@@ -55,6 +55,82 @@ function flattenPostContent(content = {}) {
     .trim();
 }
 
+function extractPostLinks(content = {}) {
+  const root =
+    content?.zh_cn?.content ||
+    content?.content ||
+    content?.en_us?.content ||
+    content?.ja_jp?.content ||
+    [];
+  const links = [];
+  const visit = (node) => {
+    if (Array.isArray(node)) {
+      for (const item of node) visit(item);
+      return;
+    }
+    if (!node || typeof node !== "object") return;
+    const href = node.href || node.url || node.link || node.link_url;
+    if (href) links.push(String(href));
+    for (const value of Object.values(node)) {
+      if (value && typeof value === "object") visit(value);
+    }
+  };
+  visit(root);
+  return links;
+}
+
+function extractUrls(text = "") {
+  const matches = String(text || "").match(/https?:\/\/[^\s<>"'`）)】\]]+/gi) || [];
+  return matches.map((url) => url.replace(/[.,!?;:，。！？；：]+$/g, ""));
+}
+
+function uniqueStrings(values = []) {
+  return [...new Set(values.map((item) => String(item || "").trim()).filter(Boolean))];
+}
+
+function extractFeishuDocxId(url = "") {
+  try {
+    const parsed = new URL(url);
+    if (!/(^|\.)((feishu|larksuite)\.cn|feishu\.com|larksuite\.com)$/i.test(parsed.hostname)) return "";
+    const match = parsed.pathname.match(/\/docx\/([A-Za-z0-9]+)/i);
+    return match?.[1] || "";
+  } catch {
+    return "";
+  }
+}
+
+function isPrivateLikeHost(hostname = "") {
+  const host = String(hostname || "").toLowerCase();
+  return (
+    host === "localhost" ||
+    host.endsWith(".local") ||
+    /^127\./.test(host) ||
+    /^10\./.test(host) ||
+    /^192\.168\./.test(host) ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(host) ||
+    host === "0.0.0.0" ||
+    host === "::1"
+  );
+}
+
+function htmlToReadableText(html = "") {
+  return String(html || "")
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, " ")
+    .replace(/<\/(p|div|section|article|h[1-6]|li|br)>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function shouldTryFallbackImagePrompt(text = "") {
   const raw = String(text || "").trim();
   if (!raw) return false;
@@ -246,18 +322,26 @@ export class FeishuBot {
       fullName: event.sender?.sender_id?.union_id || senderId || "飞书用户"
     };
     const safeUserText = redactSensitive(text);
+    const linkContext = await this.describeIncomingLinks({
+      chatId,
+      message,
+      content,
+      rawMessageText,
+      text: safeUserText
+    });
+    const contextualUserText = this.withLinkContext(safeUserText, linkContext);
     const imageDataUrl = imageMessage ? await this.downloadImageMessage(message, content) : "";
     if (imageMessage && !imageDataUrl) return;
     const imageContext = imageMessage
       ? await this.describeIncomingImages({
           chatId,
           userId,
-          text: safeUserText,
+          text: contextualUserText,
           imageDataUrl,
           messageId: message.message_id
         })
       : "";
-    const storedUserText = this.withImageContext(safeUserText, imageContext, "请看这张图片并自然回复。");
+    const storedUserText = this.withImageContext(contextualUserText, imageContext, "请看这张图片并自然回复。");
 
     await this.upsertUserProfileMemory(chatId, userId, currentUser);
     await this.storage.addMessage({
@@ -274,6 +358,7 @@ export class FeishuBot {
         rawUserId: senderId || "",
         hasVoice: audioMessage,
         hasImage: imageMessage,
+        linkContext: linkContext ? truncate(linkContext, 1200) : "",
         imageContext: imageContext ? truncate(imageContext, 1200) : "",
         voiceDurationMs: audioMessage ? Number(content.duration || 0) : 0
       }
@@ -345,7 +430,7 @@ export class FeishuBot {
       reply = await this.generateReply({
         chatId,
         userId,
-        safeUserText,
+        safeUserText: contextualUserText,
         currentUser,
         imageDataUrl,
         currentMessageId: message.message_id || ""
@@ -732,9 +817,167 @@ export class FeishuBot {
     }
   }
 
+  async describeIncomingLinks({ chatId, message, content = {}, rawMessageText = "", text = "" }) {
+    if (!this.config.linkReadingEnabled) return "";
+    try {
+      const urls = await this.collectMessageUrls({ message, content, rawMessageText, text });
+      if (!urls.length) return "";
+
+      logEvent("info", "Feishu link reading started", {
+        chatId,
+        messageId: message.message_id || "",
+        urls: urls.length
+      });
+
+      const sections = [];
+      for (const url of urls.slice(0, 3)) {
+        const section = await this.readLinkContent(url);
+        if (section) sections.push(section);
+      }
+
+      const output = sections.join("\n\n").slice(0, this.config.linkReadingMaxChars || 12000);
+      if (output) {
+        logEvent("info", "Feishu link reading completed", {
+          chatId,
+          messageId: message.message_id || "",
+          urls: urls.length,
+          chars: output.length
+        });
+      }
+      return output;
+    } catch (error) {
+      logEvent("warn", "Feishu link reading failed", {
+        chatId,
+        messageId: message.message_id || "",
+        error: error.message
+      });
+      return "";
+    }
+  }
+
+  async collectMessageUrls({ message, content = {}, rawMessageText = "", text = "" }) {
+    const direct = [
+      ...extractUrls(text),
+      ...extractUrls(rawMessageText),
+      ...extractUrls(JSON.stringify(content || {})),
+      ...extractPostLinks(content)
+    ];
+
+    const referenced = [];
+    if (direct.length === 0 && this.looksLikeLinkReadingRequest(text)) {
+      const ids = uniqueStrings([
+        message.parent_id,
+        message.root_id,
+        message.parent_message_id,
+        message.reply_to?.message_id,
+        message.reply_to_message_id
+      ]).filter((id) => id !== message.message_id);
+      for (const id of ids.slice(0, 2)) {
+        const ref = await this.fetchFeishuMessage(id);
+        referenced.push(...this.extractUrlsFromFeishuMessage(ref));
+      }
+    }
+
+    return uniqueStrings([...direct, ...referenced]).filter((url) => /^https?:\/\//i.test(url));
+  }
+
+  looksLikeLinkReadingRequest(text = "") {
+    return /(链接|连接|文档|文章|网页|网址|内容|学习|总结|整理|提取|阅读|读一下|看一下|看下|文字发我|转文字|摘要|概括)/i.test(String(text || ""));
+  }
+
+  extractUrlsFromFeishuMessage(message = {}) {
+    const content = parseContent(message.content);
+    const postText = message.message_type === "post" ? flattenPostContent(content) : "";
+    return uniqueStrings([
+      ...extractUrls(postText),
+      ...extractUrls(content.text || ""),
+      ...extractUrls(content.title || ""),
+      ...extractUrls(content.url || ""),
+      ...extractUrls(content.href || ""),
+      ...extractUrls(content.link_url || ""),
+      ...extractUrls(JSON.stringify(content || {})),
+      ...extractPostLinks(content)
+    ]);
+  }
+
+  async fetchFeishuMessage(messageId) {
+    if (!messageId) return {};
+    try {
+      const data = await this.workspace.request(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}`);
+      const message =
+        data.message ||
+        data.item ||
+        data.items?.[0] ||
+        data.message_info ||
+        {};
+      logEvent("info", "Feishu referenced message fetched", { messageId });
+      return message;
+    } catch (error) {
+      logEvent("warn", "Feishu referenced message fetch failed", {
+        messageId,
+        error: error.message
+      });
+      return {};
+    }
+  }
+
+  async readLinkContent(url) {
+    const docxId = extractFeishuDocxId(url);
+    if (docxId) {
+      const content = await this.workspace.readDocumentRawContent(docxId);
+      if (!content) return "";
+      return [
+        `[Feishu document] ${url}`,
+        truncate(content, this.config.linkReadingMaxChars || 12000)
+      ].join("\n");
+    }
+
+    return this.readExternalUrlContent(url);
+  }
+
+  async readExternalUrlContent(url) {
+    let parsed;
+    try {
+      parsed = new URL(url);
+    } catch {
+      return "";
+    }
+    if (!["http:", "https:"].includes(parsed.protocol) || isPrivateLikeHost(parsed.hostname)) return "";
+
+    const response = await fetch(url, {
+      method: "GET",
+      signal: AbortSignal.timeout(this.config.linkReadingTimeoutMs || 20000),
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; FeishuBotLinkReader/1.0)",
+        Accept: "text/html,text/plain,application/json;q=0.8,*/*;q=0.5"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`Link fetch failed ${response.status}`);
+    }
+    const contentType = response.headers.get("content-type") || "";
+    if (!/text|html|json|xml/i.test(contentType)) return "";
+    const raw = await response.text();
+    const text = /html/i.test(contentType) ? htmlToReadableText(raw) : raw;
+    if (!text.trim()) return "";
+    return [
+      `[Web page] ${url}`,
+      truncate(text, this.config.linkReadingMaxChars || 12000)
+    ].join("\n");
+  }
+
   cleanGenericImagePrompt(text = "", fallback = "") {
     const raw = String(text || "").trim();
     return raw === fallback ? "" : raw;
+  }
+
+  withLinkContext(text = "", linkContext = "") {
+    if (!linkContext) return text;
+    return [
+      text,
+      "[Link content]",
+      truncate(linkContext, this.config.linkReadingMaxChars || 12000)
+    ].filter(Boolean).join("\n");
   }
 
   extractSelfieGenerationPrompt(text = "") {

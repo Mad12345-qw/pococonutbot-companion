@@ -46,6 +46,7 @@ app.get("/health", (_req, res) => {
     voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),
     feishuVoiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.feishuTtsVoiceId),
     feishuSongReply: Boolean(config.songApiEnabled && config.songApiToken),
+    linkReading: Boolean(config.linkReadingEnabled),
     voiceReplyDetails: {
       telegramVoiceConfigured: Boolean(config.ttsVoiceId),
       feishuVoiceConfigured: Boolean(config.feishuTtsVoiceId),
