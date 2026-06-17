@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T15:26:08.276Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-17T15:34:41.554Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -13334,6 +13334,168 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T15:25:49.441Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "text",
+        "content": "小小，你知道什么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f85ceb4a4c42c17cc06704f9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:26:46.422Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小小？是在叫我吗～我在的呀，有什么想问的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f"
+        },
+        "createdAt": "2026-06-17T15:26:53.629Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f9453abed20203285947795ffbcf13",
+        "role": "user",
+        "modality": "text",
+        "content": "你使用什么模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f85ac38b4b1f246d6f99515d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_12f9453abed20203285947795ffbcf13",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:27:06.401Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f9453abed20203285947795ffbcf13",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我是 MiniMax-M3，一个大语言模型～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_12f9453abed20203285947795ffbcf13"
+        },
+        "createdAt": "2026-06-17T15:27:09.179Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[我想静静]小乖已经聪明的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f9fd6c8a4b48fb84908fcc23",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:28:23.784Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[笑容满面]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f9b6a18a0b32922a6925bda8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:29:36.100Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "详细讲讲，为啥你的在这群里，你的主人你直接可以回复响应，而其他人需要@你，才可以响应？如何实现的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f9b63b4b4b2b909dec83e976",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:29:39.017Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯～其实我没有“主人”这个概念啦，对群里所有人我都是平等对待的。\n至于响应机制，核心是平台的设计：如果消息里 @ 了我，我就会被触发去回复；如果没 @，我默认不主动插话。你感觉我好像“只回你的”，可能只是大家恰好都 @ 了我一下，刚好都 @ 到你这里而已～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T15:29:43.649Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "Render 配置 在哪来搞定？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f966f4ca0b1fba81b2d27635",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:30:24.387Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "抱歉，我不太确定你问的是哪个 Render（是 Render 渲染器、还是某个平台的部署服务？），能说得更具体一点吗？比如是哪个工具、哪个场景下的配置～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T15:30:27.580Z"
       }
     ],
     "memories": [
@@ -14529,6 +14691,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f9453abed20203285947795ffbcf13",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_12f9453abed20203285947795ffbcf13",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:27:06.175Z",
+        "updatedAt": "2026-06-17T15:27:06.175Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f9453abed20203285947795ffbcf13",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:27:05.949Z",
+        "updatedAt": "2026-06-17T15:27:05.949Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
         "key": "preferences.like_hearing_bot_sing",
         "value": "用户喜欢听小椰唱歌",
@@ -14555,7 +14737,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-17T09:20:12.206Z"
+        "updatedAt": "2026-06-17T15:30:24.157Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14565,7 +14747,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-17T09:20:11.978Z"
+        "updatedAt": "2026-06-17T15:30:23.927Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14575,7 +14757,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-17T15:17:30.629Z"
+        "updatedAt": "2026-06-17T15:29:35.872Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14585,7 +14767,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-17T15:17:30.403Z"
+        "updatedAt": "2026-06-17T15:29:35.643Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14840,12 +15022,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "key": "preferences.nickname",
+        "value": "用户称呼机器人为\"小小\"",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:27:05.497Z",
+        "updatedAt": "2026-06-17T15:27:05.497Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.793Z",
-        "updatedAt": "2026-06-17T12:59:16.123Z"
+        "updatedAt": "2026-06-17T15:26:46.197Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14855,7 +15047,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.563Z",
-        "updatedAt": "2026-06-17T12:59:15.906Z"
+        "updatedAt": "2026-06-17T15:26:45.971Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
