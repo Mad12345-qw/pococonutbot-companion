@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T10:03:09.977Z",
+  "exportedAt": "2026-06-17T10:13:10.877Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -11634,6 +11634,313 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-17T10:02:07.856Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "用播音腔朗诵一段朱自清的《背影》：\n我说道：\"爸爸，你走吧。\"\n他往车外看了看说：\"我买几个橘子去。你就在此地，不要走动。\"\n我看见他戴着黑布小帽，穿着黑布大马褂，深青布棉袍，蹒跚地走到铁道边，慢慢探身下去，尚不大难。可是他穿过铁道，要爬上那边月台，就不容易了。他用两手攀着上面，两脚再向上缩；他肥胖的身子向左微倾，显出努力的样子。\n这时我看见他的背影，我的泪很快地流下来了。\n我赶紧拭干了泪，怕他看见，也怕别人看见。我再向外看时，他已抱了朱红的橘子往回走了。过铁道时，他先将橘子散放在地上，自己慢慢爬下，再抱起橘子走。到这边时，我赶紧去搀他。他和我走到车上，将橘子一股脑儿放在我的皮大衣上。于是扑扑衣上的泥土，心里很轻松似的，过一会儿说：\"我走了，到那边来信！\"我望着他走出去。他走了几步，回过头看见我，说：\"进去吧，里边没人。\"\n等他的背影混入来来往往的人里，再找不着了，我便进来坐下，我的眼泪又来了。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c135b9930b8c3b8c21059dca97",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:05:17.082Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…这是要我用播音腔念给你听吗？我念不了语音，但这段文字读起来真的很戳心，尤其是父亲爬月台那段，每次看都鼻子酸酸的。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T10:05:21.203Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "别搞我token阿兄弟",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1357545cb0b1ca069b8c4b2ba",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:06:24.450Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1357336554b2aad1acf4ccb99",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:06:29.492Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "烧钱的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1354ff7490b15b0f3de1ee00a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:06:32.272Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "哦哦，收到",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1355cf7884c4ffcea618a1674",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:06:45.995Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "话说，为什么她不能念文章啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c13504520a4c22c3be5ac341ac",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:07:42.476Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？为啥不能念文章啊…刚才不是聊到一半吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T10:07:47.598Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "她又不是个复读机",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136fb1bcacb270523dc812bba",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:08:30.137Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "ai有通人性的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136f30a0b4b1381f1a352e944",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:08:36.654Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "通人性是通人性，又不是万能的…现在连“读”都得耗token，更别说“念”了😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T10:08:40.701Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "？不用艾特么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136dd2c480c03e078db1b85f5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:08:55.045Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "我这个不用ai就能智能识别上下文回复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136afb70a8b13c0b820960373",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:09:13.629Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰: ？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T10:09:16.346Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "nb啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136a2a4114c2d21441253141c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:09:25.019Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你的机器人如果也这么设置就可以相互对话了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136bd79080b1f2a02a410bd47",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:09:27.951Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？这么神奇的吗…那我这边的AI也试试看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T10:09:30.938Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "要是tts顶得住，那可以聊天了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c136b4ca0b4c263503159d454f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:09:41.467Z"
       }
     ],
     "memories": [
@@ -12875,7 +13182,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T09:09:43.130Z"
+        "updatedAt": "2026-06-17T10:09:27.726Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -12885,7 +13192,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T09:09:42.904Z"
+        "updatedAt": "2026-06-17T10:09:27.500Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -12955,7 +13262,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-17T10:02:03.697Z"
+        "updatedAt": "2026-06-17T10:09:41.242Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -12965,7 +13272,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-17T10:02:03.476Z"
+        "updatedAt": "2026-06-17T10:09:41.017Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13025,7 +13332,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.219Z",
-        "updatedAt": "2026-06-17T07:01:44.400Z"
+        "updatedAt": "2026-06-17T10:06:29.273Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13035,7 +13342,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.002Z",
-        "updatedAt": "2026-06-17T07:01:44.184Z"
+        "updatedAt": "2026-06-17T10:06:29.053Z"
       }
     ],
     "summaries": [
@@ -13068,6 +13375,12 @@
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "summary": "用户与\"小椰\"关系亲密持续升温，互称\"博学\"\"有故事的女同学\"，调侃打趣。对话中用户聊到读书涉猎广泛（金融、AI、历史、文学、心理等），二十出头时看杂书多，评价他人\"肤浅\"。发表对AI和择偶的看法：喜欢\"活人感强\"的人，择偶标准实在——男人要会做饭好吃、干活麻利、干净卫生，除非长得帅又会赚钱；不擅长做饭的男人不考虑。对婚姻分工持平等务实态度，强调双方付出。小椰帮用户生图调侃\"炼丹渡劫\"，并按白衬衫、腹肌、剑目星眉、宋威龙风格生成赛博男友图，用户还曾换头像、体验语音称\"跟真人一样活人感太强\"。未完成：生成白衬衫赛博男友图（腹肌、浓密发、剑目星眉），用户刚问小椰年龄，小椰答AI无真实年龄、按上线算刚成年。偏好：赛博男友宋威龙氛围/白衬衫少年感/宽肩窄腰倒三角/温柔爹系+阳光小狗+不油狼狗；喜欢调侃亲密、自然可爱回应；务实平等的婚恋观。",
         "updatedAt": "2026-06-16T15:13:16.487Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "summary": "用户初识小椰，关系刚建立，处于轻松试探阶段。用户偏好粤语交流，要求小椰用粤语对话、念绕口令、播音腔朗诵等。小椰表示会粤语基础、会日语基础，但无法发送语音。花泽香菜《恋愛サーキュレーション》粤语翻唱未能完成（小椰称音太高唱不了，提出唱粤语儿歌替代，用户未回应）。未完成事项：粤语绕口令念诵（用户要求听粤语发音，小椰无法发语音，建议用户念一遍由其点评）；《背影》播音腔朗诵（小椰同样无法语音输出）。重要偏好：粤语交流、对语音/声音类互动有期待。用户昵称线索\"k。。。nb啊\"，表达对AI能力的惊叹。整体氛围轻松幽默。",
+        "updatedAt": "2026-06-17T10:08:08.275Z"
       }
     ],
     "settings": [
