@@ -1093,6 +1093,17 @@ export class FeishuBitableClient {
     return { table, records };
   }
 
+  describeRecordFields(records, limit = 3) {
+    return records.slice(0, limit).map((record) => {
+      const fields = record.fields || {};
+      return {
+        recordId: record.record_id,
+        keys: Object.keys(fields),
+        preview: Object.fromEntries(Object.entries(fields).slice(0, 20).map(([key, value]) => [key, textCell(value, String(numberCell(value, "")))]))
+      };
+    });
+  }
+
   collectClassifiedDashboardRows({ orderRecords, targetRecords, customerRecords, opportunityRecords, salaryRecords }) {
     const platformMap = new Map();
     const sellerMap = new Map();
@@ -1420,6 +1431,13 @@ export class FeishuBitableClient {
         customerRecords: customerData.records.length,
         opportunityRecords: opportunityData.records.length,
         salaryRecords: salaryData.records.length
+      },
+      sourceFieldDiagnostics: {
+        orders: this.describeRecordFields(orderData.records),
+        targets: this.describeRecordFields(targetData.records),
+        customers: this.describeRecordFields(customerData.records),
+        opportunities: this.describeRecordFields(opportunityData.records),
+        salaries: this.describeRecordFields(salaryData.records)
       },
       summaries: {
         platformRows: rows.platformRows.length,
