@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T15:06:07.974Z",
+  "exportedAt": "2026-06-17T15:16:07.069Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -12863,6 +12863,358 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T15:05:29.918Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "让你唱歌你怎么直接放的歌曲音频",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f3051d4a4b112c072331318d",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:06:21.557Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀弄错了，我以为发的是音频文件呢，下次给你清唱两句",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3204d469307450013d2bd8bf57b34505"
+        },
+        "createdAt": "2026-06-17T15:06:24.314Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "user",
+        "modality": "text",
+        "content": "你是用什么生成的图片",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fc874a0a8b11ce2de98675f8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:08:33.819Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成的图片",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba"
+        },
+        "createdAt": "2026-06-17T15:09:48.101Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "生成图片1girl，矮齐刘海深棕色双马尾，马尾两侧白色毛绒圆球发饰，圆润娃娃脸，二次元软萌滤镜，大大的黑眼睛，淡淡的粉嫩腮红，皮肤白皙，身穿粉白猫咪印花连体泳衣，胸前立体卡通猫咪口袋，交叉挂脖绑带，肩部荷叶花边，衣身布满小草莓暗纹，下摆荷叶边，配套粉色荷叶边护腕，灰色超薄丝袜，站在室内浅灰色纱帘前，正面平视，柔和室内冷白光，抖音网红写实，柔和磨皮，精致面部，居中构图，高清8k",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fc31850a0b1c15a837cc5796",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:10:27.496Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成图片1girl，矮齐刘海深棕色双马尾，马尾两侧白色毛绒圆球发饰，圆润娃娃脸，二次元软萌滤镜，大大的黑眼睛，淡淡的粉嫩腮红，皮肤白皙，身穿粉白猫咪印花连体泳衣，胸前立体卡通猫咪口袋，交叉挂脖绑带，肩部荷叶花边，衣身布满小草莓暗纹，下摆荷叶边，配套粉色荷叶边护腕，灰色超薄丝袜，站在室内浅灰色纱帘前，正面平视，柔和室内冷白光，抖音网红写实，柔和磨皮，精致面部，居中构图，高清8k",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T15:11:24.914Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "那你唱一句",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fdbdfe0a4b12f5a3c2320648",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:12:20.917Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "assistant",
+        "modality": "text",
+        "content": "月亮代表我的心～🎤",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3204d469307450013d2bd8bf57b34505"
+        },
+        "createdAt": "2026-06-17T15:12:23.629Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱不了兄弟，这个tts还没开放这个功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd905bca4b1f2bf52747eb48",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:04.220Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "唱啊 有旋律的唱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd82ef4a4b27b210f880c610",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:06.605Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首歌暂时没发出来，我这边点歌接口刚刚没拿稳。你稍后再试一下，或者换个更明确的歌名。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "不了兄弟，这个tts还没开放这个功能",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T15:13:07.951Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "我接了qq音乐的api",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd69778a8b1f9095fa913589",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:13.625Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "user",
+        "modality": "text",
+        "content": "你还没有告诉我图片是用什么工具和流程来完成的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd66fa8b0b1ac5136dcc8f62",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:19.021Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "可以点歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd62720a0b1054cfc767bb04",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:21.809Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "assistant",
+        "modality": "text",
+        "content": "用 Pollinations 的免费接口直接出图的，没有额外流程～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba"
+        },
+        "createdAt": "2026-06-17T15:13:22.988Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "ok",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd4b58ca8b3e21af8b17f59e",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:46.533Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 有的人 - 极光类型",
+        "metadata": {
+          "singer": "极光类型",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "有的人",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_3204d469307450013d2bd8bf57b34505"
+        },
+        "createdAt": "2026-06-17T15:13:47.660Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "role": "user",
+        "modality": "text",
+        "content": "🐮",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd46088a8b307842db844c73",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:13:48.614Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "tts额度用完了，兄弟们点歌听吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd0b4c4a4b2f20f8ed91715f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:14:53.522Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首歌听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1fd1e3c8acb1c87f0d4f55380",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:15:03.703Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 光年之外 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "光年之外",
+          "defaulted": true,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T15:15:55.484Z"
       }
     ],
     "memories": [
@@ -13325,6 +13677,26 @@
         "metadata": {},
         "createdAt": "2026-06-10T06:25:51.328Z",
         "updatedAt": "2026-06-10T06:25:51.328Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:13:48.397Z",
+        "updatedAt": "2026-06-17T15:13:48.397Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:13:48.177Z",
+        "updatedAt": "2026-06-17T15:13:48.177Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -13924,7 +14296,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.798Z",
-        "updatedAt": "2026-06-16T15:57:13.005Z"
+        "updatedAt": "2026-06-17T15:13:46.316Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -13934,7 +14306,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.578Z",
-        "updatedAt": "2026-06-16T15:57:12.780Z"
+        "updatedAt": "2026-06-17T15:13:46.099Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -13944,7 +14316,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-17T03:00:18.986Z"
+        "updatedAt": "2026-06-17T15:13:21.592Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -13954,7 +14326,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-17T03:00:18.771Z"
+        "updatedAt": "2026-06-17T15:13:21.376Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -14144,7 +14516,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T15:04:02.746Z"
+        "updatedAt": "2026-06-17T15:15:03.485Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14154,7 +14526,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T15:04:02.244Z"
+        "updatedAt": "2026-06-17T15:15:03.267Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14235,6 +14607,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
         "updatedAt": "2026-06-17T14:46:21.632Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:08:33.602Z",
+        "updatedAt": "2026-06-17T15:13:18.799Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T15:08:33.383Z",
+        "updatedAt": "2026-06-17T15:13:18.577Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
