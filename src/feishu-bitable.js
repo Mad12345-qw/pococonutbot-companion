@@ -300,7 +300,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["销售人员-按年", "销售人员-按月", "销售人员-按周"]
   },
   {
-    name: "客户分析看板",
+    name: "客户分析数据看板",
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -322,7 +322,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["客户分析-按年", "客户分析-按月", "客户分析-按周"]
   },
   {
-    name: "商机分析看板",
+    name: "商机分析数据看板",
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -340,7 +340,7 @@ const CLASSIFIED_DASHBOARD_TABLES = [
     views: ["商机分析-按年", "商机分析-按月", "商机分析-按周"]
   },
   {
-    name: "销售目标看板",
+    name: "销售目标数据看板",
     primary: field("汇总键", 1),
     fields: [
       field("周期类型", 3, { options: [option("年", 0), option("月", 1), option("周", 2)] }),
@@ -1412,15 +1412,6 @@ export class FeishuBitableClient {
     });
     const tableMap = Object.fromEntries(tables.map((item) => [item.name, item.table_id]));
 
-    const classifiedNames = new Set(CLASSIFIED_DASHBOARD_TABLES.map((item) => item.name));
-    for (const table of tables) {
-      const baseName = String(table.name || "").split("_conflict_")[0];
-      if (table.name?.includes("_conflict_") && classifiedNames.has(baseName)) {
-        await this.deleteTable(appToken, table.table_id);
-        logs.push({ action: "delete_conflict_table", table: table.name, tableId: table.table_id });
-      }
-    }
-
     const orderData = await this.recordsForTable(appToken, tables, ["销售订单"]);
     if (!orderData.table) throw new Error("未找到“销售订单”表，无法生成分类经营看板。");
     const targetData = await this.recordsForTable(appToken, tables, ["销售目标管理", "销售目标"]);
@@ -1449,9 +1440,9 @@ export class FeishuBitableClient {
 
     await this.upsertRowsByPrimary(appToken, dashboardTableIds["平台经营看板"], "汇总键", rows.platformRows, logs, "平台经营看板");
     await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售人员业绩看板"], "汇总键", rows.sellerRows, logs, "销售人员业绩看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["客户分析看板"], "汇总键", rows.customerRows, logs, "客户分析看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["商机分析看板"], "汇总键", rows.opportunityRows, logs, "商机分析看板");
-    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售目标看板"], "汇总键", rows.targetRows, logs, "销售目标看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["客户分析数据看板"], "汇总键", rows.customerRows, logs, "客户分析数据看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["商机分析数据看板"], "汇总键", rows.opportunityRows, logs, "商机分析数据看板");
+    await this.upsertRowsByPrimary(appToken, dashboardTableIds["销售目标数据看板"], "汇总键", rows.targetRows, logs, "销售目标数据看板");
     await this.upsertRowsByPrimary(appToken, dashboardTableIds["工资明细看板"], "汇总键", rows.salaryRows, logs, "工资明细看板");
 
     return {
