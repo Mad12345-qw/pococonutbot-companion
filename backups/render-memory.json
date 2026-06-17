@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T06:47:18.788Z",
+  "exportedAt": "2026-06-17T06:53:50.530Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -10266,6 +10266,41 @@
           "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
         },
         "createdAt": "2026-06-17T06:41:22.743Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首死了都要爱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c107275f4a0b3bea348c2fd644",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:50:55.707Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 死了都要爱 - 信乐团",
+        "metadata": {
+          "singer": "信乐团",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "死了都要爱",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:51:55.021Z"
       }
     ],
     "memories": [
@@ -10867,7 +10902,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-17T06:03:19.643Z"
+        "updatedAt": "2026-06-17T06:50:55.487Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -10877,7 +10912,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-17T06:03:19.425Z"
+        "updatedAt": "2026-06-17T06:50:55.268Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
