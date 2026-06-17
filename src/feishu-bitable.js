@@ -1414,6 +1414,12 @@ export class FeishuBitableClient {
       "月份": period.month,
       "周数": period.week
     });
+    const salaryPeriodFields = (period) => ({
+      "周期类型": period.type,
+      "周期": period.period,
+      "年份": period.year,
+      "月份": period.month
+    });
 
     return {
       platformRows: [...platformMap.values()].map((row) => ({
@@ -1480,7 +1486,7 @@ export class FeishuBitableClient {
       })),
       salaryRows: [...salaryMap.values()].map((row) => ({
         "汇总键": `${row.period.type}|${row.period.period}|${row.seller}`,
-        ...periodFields(row.period),
+        ...salaryPeriodFields(row.period),
         "销售人员": row.seller,
         "基本工资": row.baseSalary,
         "实际销售额": row.actualSales,
