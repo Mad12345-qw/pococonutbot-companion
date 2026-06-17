@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T13:22:22.984Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-17T13:25:39.065Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -12341,6 +12341,68 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T13:16:47.194Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "你跟小椰学习一下怎么发语音",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1db021aca0b39e542cf1915b8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T13:24:05.811Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…可是我也不会发语音呀🥲",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-06-17T13:24:09.572Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "你不会发你这是在干嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1e4f7c7b94b1c9561074743af",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T13:24:49.566Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我在等你教我呀…你真的会发语音吗🥺",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-06-17T13:24:52.512Z"
       }
     ],
     "memories": [
@@ -13502,7 +13564,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:44.021Z",
-        "updatedAt": "2026-06-17T13:08:28.833Z"
+        "updatedAt": "2026-06-17T13:24:49.337Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13512,7 +13574,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:43.675Z",
-        "updatedAt": "2026-06-17T13:08:28.614Z"
+        "updatedAt": "2026-06-17T13:24:49.109Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
