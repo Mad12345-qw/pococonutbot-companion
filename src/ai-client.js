@@ -17,6 +17,14 @@ function hasSameProvider(a, b) {
   return a.apiKey === b.apiKey && a.url === b.url && a.model === b.model;
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableStatus(status) {
+  return status === 408 || status === 409 || status === 429 || status >= 500;
+}
+
 export class AIClient {
   constructor(config, options = {}) {
     this.config = config;
@@ -88,7 +96,7 @@ export class AIClient {
     return body;
   }
 
-  async requestChat(provider, messages, options = {}) {
+  async requestChatOnce(provider, messages, options = {}) {
     const response = await fetch(provider.url, {
       method: "POST",
       signal: AbortSignal.timeout(options.timeoutMs || this.config.aiTimeoutMs || 120000),
@@ -125,6 +133,29 @@ export class AIClient {
     }
 
     return String(content).trim();
+  }
+
+  async requestChat(provider, messages, options = {}) {
+    const rawAttempts = Number(options.retryAttempts || this.config.aiRetryAttempts || 2);
+    const rawDelayMs = Number(options.retryDelayMs || this.config.aiRetryDelayMs || 800);
+    const attempts = Number.isFinite(rawAttempts) ? Math.max(1, Math.min(5, Math.floor(rawAttempts))) : 2;
+    const delayMs = Number.isFinite(rawDelayMs) ? Math.max(100, rawDelayMs) : 800;
+    let lastError;
+
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      try {
+        return await this.requestChatOnce(provider, messages, options);
+      } catch (error) {
+        lastError = error;
+        if (attempt >= attempts || !this.shouldTryFallback(error)) {
+          throw error;
+        }
+        console.warn(`${provider.name} AI request failed (${error.status || "network"}), retrying ${attempt}/${attempts - 1}: ${error.message}`);
+        await sleep(delayMs * attempt);
+      }
+    }
+
+    throw lastError;
   }
 
   async chat(messages, options = {}) {
@@ -196,7 +227,7 @@ export class AIClient {
 
   shouldTryFallback(error) {
     if (!error?.status) return true;
-    return error.status === 408 || error.status === 409 || error.status === 429 || error.status >= 500;
+    return isRetryableStatus(error.status);
   }
 
   async extractMemories({ userText, assistantText, existingMemories, userProfile }) {

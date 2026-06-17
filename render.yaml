@@ -17,6 +17,10 @@ services:
         value: openai
       - key: AI_REPLY_MAX_TOKENS
         value: "900"
+      - key: AI_RETRY_ATTEMPTS
+        value: "2"
+      - key: AI_RETRY_DELAY_MS
+        value: "800"
       - key: FALLBACK_AI_URL
         value: https://api.minimaxi.com/v1/chat/completions
       - key: FALLBACK_AI_MODEL

@@ -112,6 +112,8 @@ export const config = {
   aiExtraBody: asJsonObject(process.env.AI_EXTRA_BODY_JSON, {}),
   aiReplyMaxTokens: asNumber(process.env.AI_REPLY_MAX_TOKENS, 900),
   aiTimeoutMs: asNumber(process.env.AI_TIMEOUT_MS, 120000),
+  aiRetryAttempts: asNumber(process.env.AI_RETRY_ATTEMPTS, 2),
+  aiRetryDelayMs: asNumber(process.env.AI_RETRY_DELAY_MS, 800),
   fallbackAiApiKey: process.env.FALLBACK_AI_API_KEY || process.env.MINIMAX_API_KEY || "",
   fallbackAiUrl: resolveAiEndpoint(process.env.FALLBACK_AI_URL || process.env.FALLBACK_AI_BASE_URL || process.env.MINIMAX_URL || ""),
   fallbackAiModel: process.env.FALLBACK_AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",

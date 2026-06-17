@@ -311,7 +311,12 @@ export class FeishuBot {
           "你再发一次，或者把要整理的那块截近一点，我重新帮你读。"
         ].join("\n");
       } else {
-        throw error;
+        logEvent("error", "Feishu AI reply failed", {
+          chatId,
+          messageId: message.message_id,
+          error: error.message
+        });
+        reply = this.formatAiFailureMessage(error);
       }
     }
     const safeAssistantReply = this.cleanAssistantReply(redactSensitive(reply));
@@ -848,6 +853,14 @@ export class FeishuBot {
       return `\u8fd9\u9996\u6b4c\u6587\u4ef6\u592a\u5927\u4e86\uff0c\u98de\u4e66\u8fd9\u8fb9\u4e0d\u592a\u597d\u53d1\u6210\u8bed\u97f3\u6c14\u6ce1\u3002\u6362\u9996\u77ed\u4e00\u70b9\u7684\u6211\u518d\u8bd5\u8bd5\u3002`;
     }
     return `\u8fd9\u9996\u6b4c\u6682\u65f6\u6ca1\u53d1\u51fa\u6765\uff0c\u6211\u8fd9\u8fb9\u70b9\u6b4c\u63a5\u53e3\u521a\u521a\u6ca1\u62ff\u7a33\u3002\u4f60\u7a0d\u540e\u518d\u8bd5\u4e00\u4e0b\uff0c\u6216\u8005\u6362\u4e2a\u66f4\u660e\u786e\u7684\u6b4c\u540d\u3002`;
+  }
+
+  formatAiFailureMessage(error) {
+    const detail = String(error?.message || "");
+    if (/529|overloaded|overload|rate limit|429|timeout|timed out/i.test(detail)) {
+      return "我这边模型服务刚刚有点挤，没接稳这句话。你等几秒再发一次，我再回你。";
+    }
+    return "我刚刚这一下没回稳，你稍后再发一次，我重新接。";
   }
 
   async tenantAccessToken() {
