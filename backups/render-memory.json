@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-16T18:09:18.255Z",
+  "exportedAt": "2026-06-17T00:49:18.220Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -9067,6 +9067,68 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-16T18:08:41.992Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "小姨你会唱歌吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2aafe4d4a4b24e45604a5d0c8",
+          "rawChatId": "oc_3451a46e6c3b39e1489cde39c3139fa1",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 3000
+        },
+        "createdAt": "2026-06-17T00:45:12.558Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "唱歌嘛……五音不全那种，哼两句还行，上台就算了😅 你想听什么？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T00:45:17.839Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+        "role": "user",
+        "modality": "text",
+        "content": "唱个泡沫吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c2aa65db0a8b4bd8691f68d6b3",
+          "rawChatId": "oc_3451a46e6c3b39e1489cde39c3139fa1",
+          "rawUserId": "ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T00:47:08.687Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "阳光下的泡沫　是彩色的🌈\n就像被骗的我　是幸福的🎈\n……\n好了好了，唱不下去了，跑调跑到外太空🚀 你就当听了个欢乐版吧哈哈哈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c"
+        },
+        "createdAt": "2026-06-17T00:47:12.577Z"
       }
     ],
     "memories": [
@@ -9509,6 +9571,46 @@
         "metadata": {},
         "createdAt": "2026-06-10T06:24:30.970Z",
         "updatedAt": "2026-06-10T06:26:30.846Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T00:47:08.466Z",
+        "updatedAt": "2026-06-17T00:47:08.466Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T00:47:08.245Z",
+        "updatedAt": "2026-06-17T00:47:08.245Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T00:45:12.333Z",
+        "updatedAt": "2026-06-17T00:45:12.333Z"
+      },
+      {
+        "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T00:45:12.062Z",
+        "updatedAt": "2026-06-17T00:45:12.062Z"
       },
       {
         "chatId": "feishu:oc_403d426970e61f0b091bb50492b8eebf",
