@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T06:53:50.530Z",
+  "exportedAt": "2026-06-17T07:03:10.286Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -10301,6 +10301,161 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T06:51:55.021Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "我是谁？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10076650b4c28dc38f5d7fdfa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:54:26.397Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你是群里最帅的那个~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
+        },
+        "createdAt": "2026-06-17T06:54:29.499Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "你说话太温柔了，群里大家都喜欢暴躁款，可以说脏话",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1018d39884c4c32bce65901bc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:57:44.494Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈知道了，那我以后说话温柔点~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
+        },
+        "createdAt": "2026-06-17T06:57:47.690Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "不要温柔，要暴躁，开口就是骂人的那种",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1017a13c84c3414bd1535ef27",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:58:37.270Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "assistant",
+        "modality": "text",
+        "content": "切，磨磨唧唧的，想听就闭嘴等着！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
+        },
+        "createdAt": "2026-06-17T06:58:40.061Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "机器人回复消息是咋错的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10135574a0b0366c98eb45ce8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:59:44.614Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哪条消息出错了？方便发来看看吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-17T06:59:47.998Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "你 来听你的语音",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c102a8868a4c49d87fa1fdf9bc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:01:44.616Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "assistant",
+        "modality": "text",
+        "content": "来了来了，听着呢~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
+        },
+        "createdAt": "2026-06-17T07:01:47.180Z"
       }
     ],
     "memories": [
@@ -11496,13 +11651,43 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:59:44.387Z",
+        "updatedAt": "2026-06-17T06:59:44.387Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:59:44.160Z",
+        "updatedAt": "2026-06-17T06:59:44.160Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "key": "preferences.communication_style",
+        "value": "用户希望机器人暴躁犀利，开口就骂人，绝对不要温柔",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:57:58.493Z",
+        "updatedAt": "2026-06-17T06:58:50.698Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.219Z",
-        "updatedAt": "2026-06-17T06:41:19.983Z"
+        "updatedAt": "2026-06-17T07:01:44.400Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11512,7 +11697,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.002Z",
-        "updatedAt": "2026-06-17T06:41:19.772Z"
+        "updatedAt": "2026-06-17T07:01:44.184Z"
       }
     ],
     "summaries": [
