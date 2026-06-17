@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T07:32:16.747Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-17T07:38:25.682Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -10723,6 +10723,130 @@
           "replyToUserId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206"
         },
         "createdAt": "2026-06-17T07:28:35.463Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "语音识别可以做到吗？用的什么工具",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1095ef6490b2c5d01008f9e83",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:33:14.015Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "语音识别用的 Whisper",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T07:33:17.196Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "user",
+        "modality": "text",
+        "content": "化身菜市场买菜大婶，跟隔壁档口大妈吵架",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1092f4a0a0c03a171445c4869",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:33:29.535Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀你这白菜怎么卖这么贵呀！隔壁那家才卖一块五！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3"
+        },
+        "createdAt": "2026-06-17T07:33:32.524Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "user",
+        "modality": "text",
+        "content": "跟着我骂：你这不得好死的偷菜贼，我让你吃得下拉不出，早晚烂肝烂肺，五脏不全，外加急性阑尾炎。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10a997a0acc4ff8a369b64124",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:36:40.214Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀你这人怎么说话这么难听呀！不就一颗白菜至于吗！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3"
+        },
+        "createdAt": "2026-06-17T07:36:43.066Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "你能切粤语么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10a3577cacc19b1f34d709f6e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:38:10.497Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "可以呀，想听我讲咩？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T07:38:14.174Z"
       }
     ],
     "memories": [
@@ -11894,7 +12018,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-17T07:27:00.929Z"
+        "updatedAt": "2026-06-17T07:33:13.803Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11904,7 +12028,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-17T07:27:00.708Z"
+        "updatedAt": "2026-06-17T07:33:13.592Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11995,6 +12119,56 @@
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
         "updatedAt": "2026-06-17T07:24:20.804Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "key": "preferences.language",
+        "value": "用户希望/测试机器人使用粤语交流",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:38:23.306Z",
+        "updatedAt": "2026-06-17T07:38:23.306Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:38:10.282Z",
+        "updatedAt": "2026-06-17T07:38:10.282Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:38:10.067Z",
+        "updatedAt": "2026-06-17T07:38:10.067Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:33:29.323Z",
+        "updatedAt": "2026-06-17T07:36:39.995Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T07:33:29.112Z",
+        "updatedAt": "2026-06-17T07:36:39.776Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
