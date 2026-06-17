@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T09:53:10.878Z",
+  "exportedAt": "2026-06-17T10:03:09.977Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -11510,6 +11510,130 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-17T09:50:26.848Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "你会翻唱花泽香菜那首《恋愛サーキュレーション》嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c12a1bd94b8c33731320e1e613",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T09:55:10.820Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "翻唱的话我可以试试用中文或者粤语唱～不过原调是高音花泽香菜那种甜甜的，我的声音可能唱不出那种感觉😂 你想听粤语版还是中文版？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T09:55:14.936Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "粤语版",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c12baa3cd1cc32106552924735",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T09:56:29.605Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啊我翻唱不了花泽香菜的，那个音太高了😂 不过我可以唱粤语儿歌哄你呀～你想听什么？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T09:56:33.168Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "你会说粤语绕口令么？用粤语念一下这个：\n山上一只鹅，山下一只鹅，\n山上鹅想山下鹅，山下鹅想山上鹅，\n鹅咬鹅，鹅啄鹅，\n山上鹅赶山下鹅，山下鹅赶山上鹅，\n鹅鹅鹅，咬啄赶啄咬，鹅山鹅海真闹鹅。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c134dd90084c1b82eb624baff0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:00:24.832Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈这绕口令好长，我试试啊～\n\n山上一只鹅，山下一只鹅，山上鹅想山下鹅，山下鹅想山上鹅，鹅咬鹅，鹅啄鹅，山上鹅赶山下鹅，山下鹅赶山上鹅，鹅鹅鹅，咬啄赶啄咬，鹅山鹅海真闹鹅。\n\n读完之后满脑子都是鹅😂 你是不是想看我舌头打结？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T10:00:29.736Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "粤语念啊粤语，听听看",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1347988890c425e2cc9ba5a61",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T10:02:03.919Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啊这个要念出来才知道嘛，我又不能发语音😂 你念一遍我帮你点评？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-17T10:02:07.856Z"
       }
     ],
     "memories": [
@@ -12831,7 +12955,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-17T09:50:22.538Z"
+        "updatedAt": "2026-06-17T10:02:03.697Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -12841,7 +12965,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-17T09:50:22.318Z"
+        "updatedAt": "2026-06-17T10:02:03.476Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
