@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T02:51:30.135Z",
+  "exportedAt": "2026-06-17T02:57:54.329Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -9129,6 +9129,72 @@
           "replyToUserId": "feishu:ou_5d8bd5cf89c53bf9c82bc14b7554857c"
         },
         "createdAt": "2026-06-17T00:47:12.577Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首歌听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c14f29370b4b04fa5f90dea0a5",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T02:51:53.796Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 听听 - 伍家辉",
+        "metadata": {
+          "singer": "伍家辉",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "听听",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T02:52:48.353Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么是男声",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c14801ddc8cc1035c39b7fee41",
+          "rawChatId": "oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+          "rawUserId": "ou_13f2a65059c41949e337de881c4040d1",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T02:56:48.708Z"
+      },
+      {
+        "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
+        "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "想要我唱《光年之外》还是《泡沫》啊？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_13f2a65059c41949e337de881c4040d1"
+        },
+        "createdAt": "2026-06-17T02:56:54.818Z"
       }
     ],
     "memories": [
@@ -9990,7 +10056,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:48.028Z",
-        "updatedAt": "2026-06-16T15:51:01.175Z"
+        "updatedAt": "2026-06-17T02:56:48.495Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -10010,7 +10076,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T09:09:47.776Z",
-        "updatedAt": "2026-06-16T15:51:00.955Z"
+        "updatedAt": "2026-06-17T02:56:48.282Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -10110,7 +10176,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.304Z",
-        "updatedAt": "2026-06-16T15:48:51.923Z"
+        "updatedAt": "2026-06-17T02:51:53.577Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
@@ -10120,7 +10186,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T07:14:02.003Z",
-        "updatedAt": "2026-06-16T15:48:51.699Z"
+        "updatedAt": "2026-06-17T02:51:53.342Z"
       },
       {
         "chatId": "feishu:oc_b1bf36bfa1a6f2c5cc1b32dd856db51d",
