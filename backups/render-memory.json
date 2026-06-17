@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T04:18:02.730Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-17T04:26:18.195Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -9669,6 +9669,110 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T04:17:41.442Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你喊她名字是100%回答，其他会根据上下文智能分辨",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c164e989cb0b1f3f2a568d6a38",
+          "rawChatId": "oc_1b655ea1785886e016303b8a804b870f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T04:18:16.558Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_587ebe5cc9e7f2fc52e52e6823dd82f0",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈，厉害啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c164e9798a8b2ea88ea40436e5",
+          "rawChatId": "oc_1b655ea1785886e016303b8a804b870f",
+          "rawUserId": "ou_587ebe5cc9e7f2fc52e52e6823dd82f0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T04:18:19.776Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_587ebe5cc9e7f2fc52e52e6823dd82f0",
+        "role": "user",
+        "modality": "text",
+        "content": "你是男的还是女的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c164c834ca0b4a5296da787db2",
+          "rawChatId": "oc_1b655ea1785886e016303b8a804b870f",
+          "rawUserId": "ou_587ebe5cc9e7f2fc52e52e6823dd82f0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T04:18:48.592Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_587ebe5cc9e7f2fc52e52e6823dd82f0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈听着还挺聪明的，那我得表现好点，别老被过滤掉",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_587ebe5cc9e7f2fc52e52e6823dd82f0"
+        },
+        "createdAt": "2026-06-17T04:18:51.325Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首邓紫棋的情人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c164acf38b0b1ad8f43d5c76fc",
+          "rawChatId": "oc_1b655ea1785886e016303b8a804b870f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T04:19:14.303Z"
+      },
+      {
+        "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 情人 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "情人",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T04:20:19.648Z"
       }
     ],
     "memories": [
@@ -10020,7 +10124,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T04:15:36.748Z",
-        "updatedAt": "2026-06-17T04:15:36.748Z"
+        "updatedAt": "2026-06-17T04:18:48.365Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
@@ -10030,7 +10134,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T04:15:36.517Z",
-        "updatedAt": "2026-06-17T04:15:36.517Z"
+        "updatedAt": "2026-06-17T04:18:48.139Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
@@ -10040,7 +10144,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T04:15:01.596Z",
-        "updatedAt": "2026-06-17T04:17:41.214Z"
+        "updatedAt": "2026-06-17T04:19:14.077Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
@@ -10050,7 +10154,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T04:15:01.325Z",
-        "updatedAt": "2026-06-17T04:17:40.987Z"
+        "updatedAt": "2026-06-17T04:19:13.854Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
