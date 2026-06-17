@@ -77,9 +77,12 @@ function serviceOrigin(req) {
 
 app.get("/feishu/bitable-user-auth/start", (req, res) => {
   const redirectUri = `${serviceOrigin(req)}/feishu/bitable-user-auth/callback`;
+  const execute = req.query.execute === "1";
+  const action = String(req.query.action || req.query.mode || (execute ? "apply_sales_schema" : "check"));
   const state = Buffer.from(JSON.stringify({
     appToken: String(req.query.appToken || "P1g7bR1bkaBhIDs2QHQcoGbEnLg"),
-    execute: req.query.execute === "1",
+    execute,
+    action,
     ts: Date.now()
   })).toString("base64url");
   const url = new URL("https://accounts.feishu.cn/open-apis/authen/v1/authorize");
@@ -114,10 +117,12 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
 
   let appToken = "P1g7bR1bkaBhIDs2QHQcoGbEnLg";
   let execute = false;
+  let action = "check";
   try {
     const parsed = JSON.parse(Buffer.from(String(req.query.state || ""), "base64url").toString("utf8"));
     if (parsed?.appToken) appToken = parsed.appToken;
     execute = parsed?.execute === true;
+    action = String(parsed?.action || (execute ? "apply_sales_schema" : "check"));
   } catch {
     // Keep default app token.
   }
@@ -128,6 +133,7 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
     stage: "oauth_token",
     appToken,
     execute,
+    action,
     tokenKind: "not_received",
     userInfo: null,
     accessCheck: null,
@@ -202,7 +208,7 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
         id: jobId,
         ok: false,
         status: "running",
-        stage: "apply_sales_schema",
+        stage: action === "dashboard_clarity" ? "apply_dashboard_clarity" : "apply_sales_schema",
         appToken,
         startedAt: new Date().toISOString(),
         finishedAt: "",
@@ -214,7 +220,10 @@ app.get("/feishu/bitable-user-auth/callback", async (req, res) => {
 
       const jobClient = new FeishuBitableClient({ config });
       jobClient.tenantAccessToken = async () => userToken;
-      jobClient.applySalesSchema({ appToken })
+      const runner = action === "dashboard_clarity"
+        ? () => jobClient.applyDashboardClarity({ appToken })
+        : () => jobClient.applySalesSchema({ appToken });
+      runner()
         .then((result) => {
           job.ok = true;
           job.status = "done";
