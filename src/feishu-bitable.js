@@ -773,7 +773,15 @@ export class FeishuBitableClient {
     const mayJuneRows = monthlyRows
       .filter((row) => row["月份"].endsWith("-05") || row["月份"].endsWith("-06"))
       .map((row) => ({
-        ...row,
+        "月份": row["月份"],
+        "年份": row["年份"],
+        "月份数字": row["月份数字"],
+        "订单销售额": row["订单销售额"],
+        "销售利润": row["销售利润"],
+        "平台扣费": row["平台扣费"],
+        "推广费": row["推广费"],
+        "退货金额": row["退货金额"],
+        "订单数": row["订单数"],
         "客户查看说明": "客户要看5月和6月销售额时，直接看本表两行的订单销售额和销售利润。"
       }));
 
