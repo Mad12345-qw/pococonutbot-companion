@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T07:08:15.168Z",
+  "exportedAt": "2026-06-17T07:17:04.619Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -10456,6 +10456,25 @@
           "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
         },
         "createdAt": "2026-06-17T07:01:47.180Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你暴躁一点，帮我骂骂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c10cb446ca8b176d6192c889c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T07:10:25.508Z"
       }
     ],
     "memories": [
@@ -11637,7 +11656,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T06:38:15.003Z"
+        "updatedAt": "2026-06-17T07:10:25.281Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11647,7 +11666,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T06:38:14.780Z"
+        "updatedAt": "2026-06-17T07:10:25.052Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
