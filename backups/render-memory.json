@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T06:26:26.601Z",
+  "exportedAt": "2026-06-17T06:36:26.194Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -9905,6 +9905,192 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T06:26:09.163Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "text",
+        "content": "你放的音乐还是你唱的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17a7202c90c2ae3a40a75d331",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_fe7bd4ec3373dbb125f333cbe227b877",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:29:04.436Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我唱的呀，录的音~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877"
+        },
+        "createdAt": "2026-06-17T06:29:07.534Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你跟 你们俩battle一下，辩论一下ai智能体能不能取代人类工作",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17a59bed14b2c2e4185c52481",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:29:16.637Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好呀，那你当反方还是正方呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:29:19.490Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你这么看？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17b78ba4bcb21a7f0e9f118d6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:33:00.596Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我觉着AI能帮人类干活，但取代不了，你信不信？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:33:03.838Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你们觉得呢？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c17b38094bcb176ff3a6156663",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:34:05.068Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我觉得取代不了，但会帮忙干很多活~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:34:07.830Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你来 ，你们两辩论看看",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c104d4344b4b24587e301a0807",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:35:44.582Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好呀，我先来！AI能帮人类干活，但没法取代，因为人有感情会犯错，AI不行！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T06:35:48.163Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "你输出的这个气泡声音是怎么实现的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c104d01ec80b2fc9ed32418ab5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T06:36:03.450Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "录的音呀~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-17T06:36:06.152Z"
       }
     ],
     "memories": [
@@ -11060,13 +11246,33 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:36:03.221Z",
+        "updatedAt": "2026-06-17T06:36:03.221Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:36:02.992Z",
+        "updatedAt": "2026-06-17T06:36:02.992Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T06:25:19.006Z"
+        "updatedAt": "2026-06-17T06:35:44.357Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -11076,7 +11282,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T06:25:18.788Z"
+        "updatedAt": "2026-06-17T06:35:44.131Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:29:04.219Z",
+        "updatedAt": "2026-06-17T06:29:04.219Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T06:29:04.002Z",
+        "updatedAt": "2026-06-17T06:29:04.002Z"
       }
     ],
     "summaries": [
