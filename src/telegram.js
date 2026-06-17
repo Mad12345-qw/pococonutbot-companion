@@ -3,7 +3,7 @@ import { extractImageGenerationIntent, imageGenerationCommands } from "./image-i
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
 import { convertWavToTelegramVoice } from "./tts-client.js";
-import { fetchAsBuffer, fetchAsDataUrl, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { fetchAsBuffer, fetchAsDataUrl, getReplyDeliveryPreference, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const triggerCommands = ["/ai", "/ask", "/love", "/伴侣"];
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
@@ -311,7 +311,8 @@ export class TelegramCompanionBot {
       metadata: { replyToUserId: userId }
     });
 
-    const sentAsSpeech = await this.sendSpeechReply(msg, safeReply);
+    const deliveryPreference = getReplyDeliveryPreference(safeUserText);
+    const sentAsSpeech = deliveryPreference === "text" ? false : await this.sendSpeechReply(msg, safeReply);
     if (!sentAsSpeech) {
       for (const chunk of splitChatBubbles(safeReply, this.config.maxReplyChars)) {
         await this.bot.sendMessage(msg.chat.id, chunk, { reply_to_message_id: msg.message_id });
@@ -319,7 +320,14 @@ export class TelegramCompanionBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({ chatId, userId, userText: storedUserText, assistantText: safeReply, currentUser });
+      await this.updateMemoryAndSummary({
+        chatId,
+        userId,
+        userText: storedUserText,
+        assistantText: safeReply,
+        currentUser,
+        skipMemoryExtraction: Boolean(deliveryPreference)
+      });
     }
   }
 
@@ -424,17 +432,19 @@ export class TelegramCompanionBot {
     ].join("\n");
   }
 
-  async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {
+  async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser, skipMemoryExtraction = false }) {
     try {
-      const existingMemories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
-      const extracted = await this.ai.extractMemories({
-        userText,
-        assistantText,
-        existingMemories,
-        userProfile: currentUser
-      });
-      if (extracted.length > 0) {
-        await this.storage.upsertMemories(chatId, userId, extracted);
+      if (!skipMemoryExtraction) {
+        const existingMemories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
+        const extracted = await this.ai.extractMemories({
+          userText,
+          assistantText,
+          existingMemories,
+          userProfile: currentUser
+        });
+        if (extracted.length > 0) {
+          await this.storage.upsertMemories(chatId, userId, extracted);
+        }
       }
 
       const userCount = await this.storage.countMessages(chatId, userId);

@@ -5,7 +5,7 @@ import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
-import { detectImageMimeType, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
@@ -330,7 +330,8 @@ export class FeishuBot {
     });
 
     const safeReply = safeAssistantReply;
-    const sentAsSpeech = await this.replySpeech(message.message_id, safeReply);
+    const deliveryPreference = getReplyDeliveryPreference(safeUserText);
+    const sentAsSpeech = deliveryPreference === "text" ? false : await this.replySpeech(message.message_id, safeReply);
     if (!sentAsSpeech) {
       for (const chunk of splitChatBubbles(safeReply, 1800)) {
         await this.replyText(message.message_id, chunk);
@@ -344,7 +345,7 @@ export class FeishuBot {
         userText: storedUserText,
         assistantText: reply,
         currentUser,
-        skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
+        skipMemoryExtraction: this.isTransientStyleRequest(safeUserText) || Boolean(deliveryPreference)
       });
     }
   }

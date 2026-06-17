@@ -79,6 +79,46 @@ export function splitChatBubbles(text, maxLength = 3900) {
   return parts;
 }
 
+function findLastMatchIndex(text = "", patterns = []) {
+  let index = -1;
+  for (const pattern of patterns) {
+    const flags = pattern.flags.includes("g") ? pattern.flags : `${pattern.flags}g`;
+    const regex = new RegExp(pattern.source, flags);
+    let match;
+    while ((match = regex.exec(text))) {
+      index = Math.max(index, match.index + match[0].length);
+      if (match[0].length === 0) regex.lastIndex += 1;
+    }
+  }
+  return index;
+}
+
+export function getReplyDeliveryPreference(text = "") {
+  const value = String(text || "").replace(/\s+/g, "");
+  if (!value) return "";
+
+  const textPatterns = [
+    /(?:用|以|发|只发|只用)(?:文字|文本)(?:回复|回|回答|说|发|就行|即可)?/i,
+    /(?:文字|文本)(?:回复|回|回答|发|就行|即可)/i,
+    /(?:回复|回|回答|发)(?:文字|文本)/i,
+    /(?:打字|码字)(?:回复|回|回答|发)?/i,
+    /(?:别|不要|不用|先别|别再|不要再)(?:发|用|走)?(?:语音|声音|tts|TTS)/i,
+    /(?:不走|不用|省点|省)(?:tts|TTS)/i,
+    /(?:只发|只用)(?:文字|文本)/i
+  ];
+  const voicePatterns = [
+    /(?:用|发|走)(?:语音|声音)(?:回复|回|回答|发)?/i,
+    /(?:语音|声音)(?:回复|回|回答|发)/i,
+    /(?:回复|回|回答|发)(?:语音|声音)/i,
+    /(?:读出来|念出来|说出来)/i
+  ];
+
+  const textIndex = findLastMatchIndex(value, textPatterns);
+  const voiceIndex = findLastMatchIndex(value, voicePatterns);
+  if (textIndex < 0 && voiceIndex < 0) return "";
+  return textIndex >= voiceIndex ? "text" : "voice";
+}
+
 export function parseJsonObject(text = "") {
   const raw = String(text).trim();
   try {
