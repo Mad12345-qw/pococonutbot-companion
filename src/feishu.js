@@ -155,6 +155,36 @@ function extractFeishuDocxId(url = "") {
   }
 }
 
+function isFeishuDocCandidate(url = "") {
+  return /^feishu-docx:/i.test(String(url || "")) || Boolean(extractFeishuDocxId(url));
+}
+
+function isLikelyBinaryUrl(url = "") {
+  try {
+    const parsed = new URL(url);
+    return /\.(?:avif|bmp|gif|ico|jpe?g|mp3|mp4|ogg|opus|png|svg|webm|webp|wav)(?:$|[?#])/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function normalizeLinkCandidates(values = []) {
+  return uniqueStrings(values)
+    .filter((url) => /^https?:\/\//i.test(url) || /^feishu-docx:/i.test(url))
+    .filter((url) => isFeishuDocCandidate(url) || !isLikelyBinaryUrl(url))
+    .sort((a, b) => Number(isFeishuDocCandidate(b)) - Number(isFeishuDocCandidate(a)));
+}
+
+function linkLogLabel(url = "") {
+  if (/^feishu-docx:/i.test(url)) return "feishu-docx";
+  try {
+    const parsed = new URL(url);
+    return `${parsed.hostname}${parsed.pathname}`.slice(0, 160);
+  } catch {
+    return "unknown";
+  }
+}
+
 function isPrivateLikeHost(hostname = "") {
   const host = String(hostname || "").toLowerCase();
   return (
@@ -888,9 +918,18 @@ export class FeishuBot {
       });
 
       const sections = [];
-      for (const url of urls.slice(0, 3)) {
-        const section = await this.readLinkContent(url);
-        if (section) sections.push(section);
+      for (const url of urls.slice(0, 5)) {
+        try {
+          const section = await this.readLinkContent(url);
+          if (section) sections.push(section);
+        } catch (error) {
+          logEvent("warn", "Feishu single link read failed", {
+            chatId,
+            messageId: message.message_id || "",
+            link: linkLogLabel(url),
+            error: error.message
+          });
+        }
       }
 
       const output = sections.join("\n\n").slice(0, this.config.linkReadingMaxChars || 12000);
@@ -938,7 +977,7 @@ export class FeishuBot {
       referenced.push(...await this.recentStoredLinkUrls(chatId));
     }
 
-    return uniqueStrings([...direct, ...referenced]).filter((url) => /^https?:\/\//i.test(url) || /^feishu-docx:/i.test(url));
+    return normalizeLinkCandidates([...direct, ...referenced]);
   }
 
   async recentStoredLinkUrls(chatId) {
@@ -952,7 +991,7 @@ export class FeishuBot {
         if (Array.isArray(metadata.docxIds)) urls.push(...metadata.docxIds.map((id) => `feishu-docx:${id}`));
         urls.push(...extractUrls(item.content || ""));
       }
-      return uniqueStrings(urls).slice(0, 5);
+      return normalizeLinkCandidates(urls).slice(0, 5);
     } catch (error) {
       logEvent("warn", "Feishu recent link lookup failed", { chatId, error: error.message });
       return [];
@@ -1014,7 +1053,7 @@ export class FeishuBot {
   extractUrlsFromFeishuMessage(message = {}) {
     const content = parseContent(message.content);
     const postText = message.message_type === "post" ? flattenPostContent(content) : "";
-    return uniqueStrings([
+    return normalizeLinkCandidates([
       ...extractUrls(postText),
       ...extractUrls(content.text || ""),
       ...extractUrls(content.title || ""),
