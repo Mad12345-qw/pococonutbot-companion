@@ -10,9 +10,17 @@ function field(field_name, type = 1, property = undefined) {
   return property ? { field_name, type, property } : { field_name, type };
 }
 
+function dedupeDelimitedText(value) {
+  const text = String(value || "");
+  const parts = text.split(/[、,，]/).map((part) => part.trim()).filter(Boolean);
+  if (parts.length < 2) return text;
+  const unique = [...new Set(parts)];
+  return unique.length < parts.length ? unique.join("、") : text;
+}
+
 function textCell(value, fallback = "") {
   if (value === null || value === undefined) return fallback;
-  if (typeof value === "string") return value || fallback;
+  if (typeof value === "string") return dedupeDelimitedText(value) || fallback;
   if (typeof value === "number" || typeof value === "boolean") return String(value);
   if (Array.isArray(value)) {
     const text = [...new Set(value.map((item) => textCell(item, "")).filter(Boolean))].join("、");
@@ -22,6 +30,10 @@ function textCell(value, fallback = "") {
     return textCell(value.text ?? value.name ?? value.value ?? value.display_value ?? value.link ?? "", fallback);
   }
   return fallback;
+}
+
+function primaryKeyCell(value) {
+  return textCell(value, "").split("|").map((part) => dedupeDelimitedText(part)).join("|");
 }
 
 function numberCell(value, fallback = 0) {
@@ -937,8 +949,8 @@ export class FeishuBitableClient {
       `/open-apis/bitable/v1/apps/${encodeURIComponent(appToken)}/tables/${encodeURIComponent(tableId)}/records`,
       { page_size: 100 }
     );
-    const existing = new Map(records.map((record) => [textCell(record.fields?.[primaryFieldName], ""), record]));
-    const desiredKeys = new Set(rows.map((row) => textCell(row[primaryFieldName], "")).filter(Boolean));
+    const existing = new Map(records.map((record) => [primaryKeyCell(record.fields?.[primaryFieldName]), record]));
+    const desiredKeys = new Set(rows.map((row) => primaryKeyCell(row[primaryFieldName])).filter(Boolean));
 
     if (deleteStale) {
       for (const [key, record] of existing.entries()) {
@@ -950,7 +962,7 @@ export class FeishuBitableClient {
     }
 
     for (const row of rows) {
-      const key = textCell(row[primaryFieldName], "");
+      const key = primaryKeyCell(row[primaryFieldName]);
       if (!key) continue;
       const current = existing.get(key);
       if (current?.record_id) {
