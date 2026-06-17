@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T14:55:58.770Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-17T15:06:07.974Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -12832,6 +12832,37 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-17T14:51:37.947Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你来按照这个提示词生成一张图片",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f3b76cca0b2c435fef7fdb36",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T15:04:02.977Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成一张图片",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T15:05:29.918Z"
       }
     ],
     "memories": [
@@ -14113,7 +14144,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T14:51:37.725Z"
+        "updatedAt": "2026-06-17T15:04:02.746Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -14123,7 +14154,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T14:51:37.503Z"
+        "updatedAt": "2026-06-17T15:04:02.244Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
