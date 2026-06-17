@@ -67,6 +67,7 @@ Recommended Feishu Open Platform permissions:
 ```text
 im:message
 docx:document
+wiki:wiki
 ```
 
 The app must also have permission to the target document. For private docs, share the document with the bot app or put it in a folder the app can access.

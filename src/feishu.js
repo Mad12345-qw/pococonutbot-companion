@@ -144,10 +144,36 @@ function extractFeishuDocxIdsDeep(value, output = []) {
   return output;
 }
 
+function extractFeishuWikiTokensDeep(value, output = []) {
+  if (!value || typeof value !== "object") return output;
+  if (Array.isArray(value)) {
+    for (const item of value) extractFeishuWikiTokensDeep(item, output);
+    return output;
+  }
+  for (const [key, raw] of Object.entries(value)) {
+    if (raw && typeof raw === "object") {
+      extractFeishuWikiTokensDeep(raw, output);
+      continue;
+    }
+    const text = String(raw || "").trim();
+    if (!text) continue;
+    const fromUrl = extractFeishuWikiToken(text);
+    if (fromUrl) output.push(fromUrl);
+    if (/wiki/i.test(key) && /^[A-Za-z0-9]{8,}$/.test(text)) {
+      output.push(text);
+    }
+  }
+  return output;
+}
+
+function isFeishuHost(hostname = "") {
+  return /(^|\.)((feishu|larksuite)\.cn|feishu\.com|larksuite\.com|larkoffice\.com)$/i.test(String(hostname || ""));
+}
+
 function extractFeishuDocxId(url = "") {
   try {
     const parsed = new URL(url);
-    if (!/(^|\.)((feishu|larksuite)\.cn|feishu\.com|larksuite\.com)$/i.test(parsed.hostname)) return "";
+    if (!isFeishuHost(parsed.hostname)) return "";
     const match = parsed.pathname.match(/\/docx\/([A-Za-z0-9]+)/i);
     return match?.[1] || "";
   } catch {
@@ -155,8 +181,24 @@ function extractFeishuDocxId(url = "") {
   }
 }
 
+function extractFeishuWikiToken(url = "") {
+  try {
+    const parsed = new URL(url);
+    if (!isFeishuHost(parsed.hostname)) return "";
+    const match = parsed.pathname.match(/\/wiki\/([A-Za-z0-9]+)/i);
+    return match?.[1] || "";
+  } catch {
+    return "";
+  }
+}
+
 function isFeishuDocCandidate(url = "") {
-  return /^feishu-docx:/i.test(String(url || "")) || Boolean(extractFeishuDocxId(url));
+  return (
+    /^feishu-docx:/i.test(String(url || "")) ||
+    /^feishu-wiki:/i.test(String(url || "")) ||
+    Boolean(extractFeishuDocxId(url)) ||
+    Boolean(extractFeishuWikiToken(url))
+  );
 }
 
 function isLikelyBinaryUrl(url = "") {
@@ -958,7 +1000,8 @@ export class FeishuBot {
       ...extractUrls(rawMessageText),
       ...extractUrls(JSON.stringify(content || {})),
       ...extractPostLinks(content),
-      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`)
+      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`),
+      ...extractFeishuWikiTokensDeep(content).map((token) => `feishu-wiki:${token}`)
     ];
 
     const referenced = [];
@@ -989,6 +1032,7 @@ export class FeishuBot {
         const metadata = item.metadata || {};
         if (Array.isArray(metadata.linkUrls)) urls.push(...metadata.linkUrls);
         if (Array.isArray(metadata.docxIds)) urls.push(...metadata.docxIds.map((id) => `feishu-docx:${id}`));
+        if (Array.isArray(metadata.wikiTokens)) urls.push(...metadata.wikiTokens.map((token) => `feishu-wiki:${token}`));
         urls.push(...extractUrls(item.content || ""));
       }
       return normalizeLinkCandidates(urls).slice(0, 5);
@@ -1009,7 +1053,11 @@ export class FeishuBot {
       ...extractFeishuDocxIdsDeep(content),
       ...urls.map(extractFeishuDocxId)
     ]).filter(Boolean);
-    if (!urls.length && !docxIds.length) return;
+    const wikiTokens = uniqueStrings([
+      ...extractFeishuWikiTokensDeep(content),
+      ...urls.map(extractFeishuWikiToken)
+    ]).filter(Boolean);
+    if (!urls.length && !docxIds.length && !wikiTokens.length) return;
 
     const title =
       content.title ||
@@ -1026,7 +1074,8 @@ export class FeishuBot {
       content: [
         `[Link message] ${String(title || "").slice(0, 300)}`,
         ...urls.slice(0, 5),
-        ...docxIds.slice(0, 5).map((id) => `feishu-docx:${id}`)
+        ...docxIds.slice(0, 5).map((id) => `feishu-docx:${id}`),
+        ...wikiTokens.slice(0, 5).map((token) => `feishu-wiki:${token}`)
       ].join("\n"),
       metadata: {
         platform: "feishu",
@@ -1034,7 +1083,8 @@ export class FeishuBot {
         messageId: message.message_id || "",
         messageType: message.message_type || "",
         linkUrls: urls.slice(0, 10),
-        docxIds: docxIds.slice(0, 10)
+        docxIds: docxIds.slice(0, 10),
+        wikiTokens: wikiTokens.slice(0, 10)
       }
     });
     logEvent("info", "Feishu passive link message recorded", {
@@ -1042,7 +1092,8 @@ export class FeishuBot {
       messageId: message.message_id || "",
       messageType: message.message_type || "",
       urls: urls.length,
-      docxIds: docxIds.length
+      docxIds: docxIds.length,
+      wikiTokens: wikiTokens.length
     });
   }
 
@@ -1062,7 +1113,8 @@ export class FeishuBot {
       ...extractUrls(content.link_url || ""),
       ...extractUrls(JSON.stringify(content || {})),
       ...extractPostLinks(content),
-      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`)
+      ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`),
+      ...extractFeishuWikiTokensDeep(content).map((token) => `feishu-wiki:${token}`)
     ]);
   }
 
@@ -1088,6 +1140,16 @@ export class FeishuBot {
   }
 
   async readLinkContent(url) {
+    if (/^feishu-wiki:/i.test(url)) {
+      const wikiToken = url.replace(/^feishu-wiki:/i, "").trim();
+      const content = await this.workspace.readWikiNodeRawContent(wikiToken);
+      if (!content) return "";
+      return [
+        `[Feishu wiki] ${wikiToken}`,
+        truncate(content, this.config.linkReadingMaxChars || 12000)
+      ].join("\n");
+    }
+
     if (/^feishu-docx:/i.test(url)) {
       const docxId = url.replace(/^feishu-docx:/i, "").trim();
       const content = await this.workspace.readDocumentRawContent(docxId);
@@ -1104,6 +1166,16 @@ export class FeishuBot {
       if (!content) return "";
       return [
         `[Feishu document] ${url}`,
+        truncate(content, this.config.linkReadingMaxChars || 12000)
+      ].join("\n");
+    }
+
+    const wikiToken = extractFeishuWikiToken(url);
+    if (wikiToken) {
+      const content = await this.workspace.readWikiNodeRawContent(wikiToken);
+      if (!content) return "";
+      return [
+        `[Feishu wiki] ${url}`,
         truncate(content, this.config.linkReadingMaxChars || 12000)
       ].join("\n");
     }

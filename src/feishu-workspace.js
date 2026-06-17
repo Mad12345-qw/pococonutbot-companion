@@ -81,6 +81,28 @@ export class FeishuWorkspaceClient {
     return String(content || "");
   }
 
+  async getWikiNode(token, objType = "wiki") {
+    if (!token) return {};
+    const params = new URLSearchParams({ token: String(token) });
+    if (objType) params.set("obj_type", String(objType));
+    const data = await this.request(`/open-apis/wiki/v2/spaces/get_node?${params.toString()}`);
+    return data.node || {};
+  }
+
+  async readWikiNodeRawContent(wikiToken) {
+    if (!wikiToken) return "";
+    const node = await this.getWikiNode(wikiToken, "wiki");
+    const objType = String(node.obj_type || "").toLowerCase();
+    const objToken = node.obj_token || "";
+    if (objType === "docx" && objToken) {
+      return this.readDocumentRawContent(objToken);
+    }
+    if (node.title) {
+      return `Wiki node title: ${node.title}\nUnsupported wiki object type: ${node.obj_type || "unknown"}`;
+    }
+    return "";
+  }
+
   async request(path, { method = "GET", body, headers = {} } = {}) {
     const token = await this.getToken();
     const response = await fetch(`https://open.feishu.cn${path}`, {
