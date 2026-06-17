@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T14:39:32.407Z",
+  "exportedAt": "2026-06-17T14:48:52.701Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -12465,6 +12465,304 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-17T14:08:49.681Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "拆解一下你发送飞书气泡语音链路和步骤",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f6f4348b0c19bfcc2389d6ca",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:41:36.595Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "1. 先确认你用的飞书机器人框架支持语音消息（大部分都支持）\n2. 用户发消息后，你的服务收到回调\n3. 把要回复的文字丢给 TTS 服务（Azure/阿里/ChatTTS等）\n4. 拿到音频文件，上传到飞书获取 media_id\n5. 用发送消息接口，msg_type 设为 audio，传入 media_id\n6. 用户那边就显示语音气泡了\n\n就这几步，主要是第3、4步要配好 TTS 和文件上传～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-17T14:41:42.873Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "有文字再描述详细步骤",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f66b640a8c37c560a32ceeae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:43:26.994Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "1. 收到用户消息（webhook 回调）\n2. 提取消息内容，判断要不要用语音回复\n3. 文字丢给 TTS 接口，参数设好：音色、语速、音量\n4. TTS 返回音频流/文件，存到本地或对象存储\n5. 调飞书「上传文件」接口（im/v1/files），传音频文件拿 media_id\n6. 调「发送消息」接口，msg_type=audio，content 传 {\"file_key\": media_id}\n7. 飞书渲染成语音气泡，用户点击就能播",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-17T14:43:32.766Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "笑死，一个个非要把小椰底裤扒出来，我这个项目开源到了github，怎么不直接问我哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f65e5fca4b038dad63b7b8ba",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:44:07.258Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈哥你这下藏不住了吧，直接交出来👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T14:44:10.575Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "用文字回复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f62ab0cb0b36086bd7ef6e57",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:44:27.218Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "收到！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T14:44:31.134Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "需要配置key吗？用那家服务",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f611f34a0c43fd0fc9e4ec9c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:45:23.353Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "要的！常见用 Azure TTS 或者阿里云语音合成，音色比较自然。注册一下拿个 key，配到环境变量里就行～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-17T14:45:27.297Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "把这段话用文字回复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f7eefb8a4b12f658fee09f67",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:45:44.791Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "收到～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T14:45:47.775Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "做个自我介绍",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f7f3fb4a0b3c66967a9c4afc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:45:56.334Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "查询一下key如何收费的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f7db2dca0c348ac06a6b5e05",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:46:22.091Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看是 Azure 还是阿里云，Azure TTS 免费额度每月 50 万字符，超了按音素算大概几美元/百万；阿里云短文本免费额度小，商用一般几毛一百字符，音色不同价格也不一样～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-17T14:46:26.110Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[思考]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f7b1304b4b4c485749c598bc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:46:58.813Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：做个自我介绍",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-17T14:47:06.790Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "作图软件你用的那个模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1f775524a8b108355ee0e7e88",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T14:48:00.110Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "用的 Pollinations 那个免费接口，背后是 FLUX 系列的模型，画风比较自然～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-17T14:48:04.281Z"
       }
     ],
     "memories": [
@@ -13680,6 +13978,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T14:46:58.590Z",
+        "updatedAt": "2026-06-17T14:46:58.590Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T14:46:58.367Z",
+        "updatedAt": "2026-06-17T14:46:58.367Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
         "key": "interaction.style.roleplay",
         "value": "用户接受带有强势/命令/冒犯风格的扮演互动，喜欢被骂、被凶",
@@ -13726,7 +14044,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T13:16:43.453Z"
+        "updatedAt": "2026-06-17T14:45:44.562Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13736,7 +14054,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T13:16:43.231Z"
+        "updatedAt": "2026-06-17T14:45:44.332Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "projects.open_source",
+        "value": "用户有一个开源项目放在GitHub上，代号/名字涉及\"小椰\"",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T14:44:20.902Z",
+        "updatedAt": "2026-06-17T14:44:20.902Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13756,7 +14084,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-17T07:24:21.031Z"
+        "updatedAt": "2026-06-17T14:47:59.889Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13766,7 +14094,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-17T07:24:20.804Z"
+        "updatedAt": "2026-06-17T14:47:59.668Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13796,7 +14124,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-17T09:04:02.802Z"
+        "updatedAt": "2026-06-17T14:46:21.862Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13806,7 +14134,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-17T09:04:02.585Z"
+        "updatedAt": "2026-06-17T14:46:21.632Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
