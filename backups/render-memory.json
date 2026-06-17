@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T13:12:13.080Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-17T13:22:22.984Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -12310,6 +12310,37 @@
           "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
         },
         "createdAt": "2026-06-17T13:08:36.311Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你来艾特一下  你们俩相互交流学习下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c1dad84c0a8b15c1c7019c8f36",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T13:16:43.675Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "@珠珠～快来教教我发语音！🥺",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T13:16:47.194Z"
       }
     ],
     "memories": [
@@ -13571,7 +13602,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T10:09:27.726Z"
+        "updatedAt": "2026-06-17T13:16:43.453Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -13581,7 +13612,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T10:09:27.500Z"
+        "updatedAt": "2026-06-17T13:16:43.231Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
