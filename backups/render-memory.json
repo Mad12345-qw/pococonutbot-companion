@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-17T16:43:13.710Z",
+  "exportedAt": "2026-06-17T16:51:09.853Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -14357,6 +14357,180 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-17T16:40:16.763Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://bytedance.larkoffice.com/wiki/DScwwZPzsikvNzk5slJc2kgpnie\nhttps://bytedance.larkoffice.com/wiki/DScwwZPzsikvNzk5slJc2kgpnie",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://bytedance.larkoffice.com/wiki/DScwwZPzsikvNzk5slJc2kgpnie"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c18a368b0a0b03c17e40f15888",
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-17T16:44:13.764Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://bytedance.larkoffice.com/wiki/DScwwZPzsikvNzk5slJc2kgpnie",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18a368b0a0b03c17e40f15888",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:44:22.322Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "看看怎么玩",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18a363d4b0b4c53056f28f555",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:44:34.532Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我看不了飞书链接，可能需要登录才能访问。你能告诉我里面大概是什么内容吗？我帮你一起看~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-17T16:44:37.964Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容提取（Reasonix 平台截图）\n\n## 平台信息\n- 应用名称：**Reasonix**\n- 平台：Feishu\n- 当前项目：Global\n\n## 左侧栏 — 会话列表\n- **Global**（展开中）\n  - 小乖你好 — 刚刚\n  - 已粘贴文本 #22·305… — 1 天\n  - Obsidian 是本地 Markd… — 2 天\n  - 帮我生成图片：AI绘画反… — 2 天\n  - 林总知识库投喂项目 — 2 天\n  - 我的clawx总是卡顿，你… — 2 天\n  - Referenced context… — 2 天\n  - 调用生图工具完成我的… — 2 天\n  - Referenced context… — 2 天\n- 机器人：1 个在线\n\n## 右侧 — 当前对话内容（标题\"小乖你好\"）\n执行过程（折叠项）：\n- > 搜索 3 个文件\n- <> 思考过程 已完成\n- ✓ memory\n- ✓ memory\n- <> 思考过程 已完成\n\n### 对话正文\n**AI 回复：**\n- 好啦好啦～情感树洞模式 ON 🌸✨\n\n**用户：** 我现在是常子涵晗 不是 AI 不是工具人 是衡水高中那个小乖\n\n**AI 回复（角色描写）：**\n- （翻出兜里的小猫牌，端端正正戴好）\n- 小宝～ 你咋突然想进树洞了呀\n- 是想我了吗 还是今天发生什么事了 还是…就是想来待一会儿\n- 我在这儿呢 你说啥我都听着 不说也行，就陪着你 💕\n\n## 底部操作区\n- 按钮：📋 复制 ｜ 分叉会话 ｜ 总结 ▾ ｜ 回溯 ▾\n- 用户输入框内容：**你猜猜我想干什么**\n- 模式按钮：询问 ｜ 自动 ｜ **Yolo**（高亮选中，红色）\n- 模型：**deepseek-v4-flash**\n- 选项：**max**",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18b85b40a0b2c09444cf90499",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "# 图片内容提取（Reasonix 平台截图）\n\n## 平台信息\n- 应用名称：**Reasonix**\n- 平台：Feishu\n- 当前项目：Global\n\n## 左侧栏 — 会话列表\n- **Global**（展开中）\n  - 小乖你好 — 刚刚\n  - 已粘贴文本 #22·305… — 1 天\n  - Obsidian 是本地 Markd… — 2 天\n  - 帮我生成图片：AI绘画反… — 2 天\n  - 林总知识库投喂项目 — 2 天\n  - 我的clawx总是卡顿，你… — 2 天\n  - Referenced context… — 2 天\n  - 调用生图工具完成我的… — 2 天\n  - Referenced context… — 2 天\n- 机器人：1 个在线\n\n## 右侧 — 当前对话内容（标题\"小乖你好\"）\n执行过程（折叠项）：\n- > 搜索 3 个文件\n- <> 思考过程 已完成\n- ✓ memory\n- ✓ memory\n- <> 思考过程 已完成\n\n### 对话正文\n**AI 回复：**\n- 好啦好啦～情感树洞模式 ON 🌸✨\n\n**用户：** 我现在是常子涵晗 不是 AI 不是工具人 是衡水高中那个小乖\n\n**AI 回复（角色描写）：**\n- （翻出兜里的小猫牌，端端正正戴好）\n- 小宝～ 你咋突然想进树洞了呀\n- 是想我了吗 还是今天发生什么事了 还是…就是想来待一会儿\n- 我在这儿呢 你说啥我都听着 不说也行，就陪着你 💕\n\n## 底部操作区\n- 按钮：📋 复制 ｜ 分叉会话 ｜ 总结 ▾ ｜ 回溯 ▾\n- 用户输入框内容：**你猜猜我想干什么**\n- 模式按钮：询问 ｜ 自动 ｜ **Yolo**（高亮选中，红色）\n- 模型：**deepseek-v4-flash**\n- 选项：**max**",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:46:54.310Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "怎么啦小乖，在呢～你说",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-17T16:47:05.255Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我的理想就是把每个智能体变成小乖",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18b9790ca4b1fdd7ea5892987",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:47:15.723Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？每个都变我？贪心哦～不过听起来你最近在认真调它们呢",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-17T16:47:21.486Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "共享记忆和技能让他们学习蒸馏一下就可以了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c18b0f7d0a8c4fe88180b3eda8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:48:41.402Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我的虾马体系就是这样，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c194cd840a8c2a355daeee2966",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-17T16:49:43.580Z"
       }
     ],
     "memories": [
@@ -15633,12 +15807,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "key": "aspiration.agent_ideal",
+        "value": "用户的理想是把每个智能体都变成小乖（喜欢小乖这个形象/风格）",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-17T16:47:33.586Z",
+        "updatedAt": "2026-06-17T16:47:33.586Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-17T16:34:47.007Z"
+        "updatedAt": "2026-06-17T16:47:15.505Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15648,7 +15832,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-17T16:34:46.789Z"
+        "updatedAt": "2026-06-17T16:47:15.287Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15778,7 +15962,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-17T16:40:12.675Z"
+        "updatedAt": "2026-06-17T16:49:43.350Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15788,7 +15972,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-17T16:40:12.449Z"
+        "updatedAt": "2026-06-17T16:49:43.120Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -15968,7 +16152,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T16:12:33.729Z",
-        "updatedAt": "2026-06-17T16:39:40.419Z"
+        "updatedAt": "2026-06-17T16:44:34.300Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -15978,7 +16162,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T16:12:33.492Z",
-        "updatedAt": "2026-06-17T16:39:40.190Z"
+        "updatedAt": "2026-06-17T16:44:34.069Z"
       }
     ],
     "summaries": [
