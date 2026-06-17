@@ -291,7 +291,14 @@ export class FeishuBot {
 
     let reply;
     try {
-      reply = await this.generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl });
+      reply = await this.generateReply({
+        chatId,
+        userId,
+        safeUserText,
+        currentUser,
+        imageDataUrl,
+        currentMessageId: message.message_id || ""
+      });
     } catch (error) {
       if (imageMessage) {
         logEvent("error", "Feishu image reply failed", {
@@ -663,12 +670,15 @@ export class FeishuBot {
     return "ask-ai";
   }
 
-  async generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl = "" }) {
+  async generateReply({ chatId, userId, safeUserText, currentUser, imageDataUrl = "", currentMessageId = "" }) {
     const memories = await this.storage.getMemories(chatId, userId, this.config.memoryLimit);
     const modeOverride = memories.find((item) => item.key === "relationship.persona")?.value;
     const summary = await this.storage.getSummary(chatId, "");
     const userSummary = await this.storage.getSummary(chatId, userId);
     const recentMessages = await this.storage.getRecentMessages(chatId, this.config.recentMessageLimit);
+    const historyMessages = currentMessageId
+      ? recentMessages.filter((item) => String(item.metadata?.messageId || "") !== String(currentMessageId))
+      : recentMessages;
     const systemPrompt = buildSystemPrompt({
       config: this.config,
       memories,
@@ -680,20 +690,28 @@ export class FeishuBot {
 
     const messages = [
       { role: "system", content: systemPrompt },
-      ...recentMessages.map((item) => ({
+      ...historyMessages.map((item) => ({
         role: item.role === "assistant" ? "assistant" : "user",
         content: this.formatMessageForModel(item)
       }))
     ];
 
+    const currentPrompt = this.formatCurrentMessageForModel({
+      userId,
+      currentUser,
+      safeUserText,
+      hasImage: Boolean(imageDataUrl)
+    });
     if (imageDataUrl) {
       messages.push({
         role: "user",
         content: [
-          { type: "text", text: this.buildImageUnderstandingPrompt(safeUserText, "请看这张图片并自然回复。") },
+          { type: "text", text: this.buildImageUnderstandingPrompt(currentPrompt, "请看这张图片并自然回复。") },
           { type: "image_url", image_url: { url: imageDataUrl } }
         ]
       });
+    } else {
+      messages.push({ role: "user", content: currentPrompt });
     }
 
     return this.ai.chat(messages, {
@@ -1010,6 +1028,17 @@ export class FeishuBot {
       ? this.config.displayName
       : metadata.rawUserId || message.user_id || "飞书用户";
     return `${label}: ${message.content || ""}`;
+  }
+
+  formatCurrentMessageForModel({ userId, currentUser, safeUserText, hasImage = false }) {
+    const sender = currentUser?.fullName || userId || "当前飞书用户";
+    return [
+      "[当前要回复的飞书消息]",
+      `发送者: ${sender}`,
+      `内容: ${safeUserText || (hasImage ? "用户发送了一张图片。" : "")}`,
+      "",
+      "请只回答上面这条当前消息。前面的群聊历史只能用于理解上下文，不要去回答历史里的其他人，也不要接着上一条已经过去的话题聊。"
+    ].join("\n");
   }
 
   async updateMemoryAndSummary({ chatId, userId, userText, assistantText, currentUser }) {
