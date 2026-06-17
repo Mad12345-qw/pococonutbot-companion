@@ -15,7 +15,7 @@ function textCell(value, fallback = "") {
   if (typeof value === "string") return value || fallback;
   if (typeof value === "number" || typeof value === "boolean") return String(value);
   if (Array.isArray(value)) {
-    const text = value.map((item) => textCell(item, "")).filter(Boolean).join("、");
+    const text = [...new Set(value.map((item) => textCell(item, "")).filter(Boolean))].join("、");
     return text || fallback;
   }
   if (typeof value === "object") {
@@ -114,7 +114,21 @@ function blankSummary() {
 }
 
 function parseDateInfo(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime()) && value.getFullYear() > 1900) return value;
   const rawText = textCell(value, "");
+  const numeric = numberCell(value, NaN);
+
+  if (Number.isFinite(numeric) && numeric > 1000000000) {
+    const date = new Date(numeric > 100000000000 ? numeric : numeric * 1000);
+    if (!Number.isNaN(date.getTime()) && date.getFullYear() > 1900) return date;
+  }
+
+  if (Number.isFinite(numeric) && numeric > 20000 && numeric < 80000) {
+    const excelEpoch = Date.UTC(1899, 11, 30);
+    const date = new Date(excelEpoch + numeric * 86400000);
+    if (!Number.isNaN(date.getTime()) && date.getFullYear() > 1900) return date;
+  }
+
   const textMatch = rawText.match(/(20\d{2})[年./-]?\s*(\d{1,2})[月./-]?\s*(\d{1,2})?/);
   if (textMatch) {
     const year = Number(textMatch[1]);
@@ -123,12 +137,6 @@ function parseDateInfo(value) {
     if (year > 1900 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
       return new Date(year, month - 1, day);
     }
-  }
-
-  const numeric = numberCell(value, NaN);
-  if (Number.isFinite(numeric) && numeric > 1000000000) {
-    const date = new Date(numeric > 100000000000 ? numeric : numeric * 1000);
-    if (!Number.isNaN(date.getTime()) && date.getFullYear() > 1900) return date;
   }
 
   const parsed = rawText ? new Date(rawText) : null;
@@ -258,12 +266,12 @@ const CLARITY_TABLES = [
 ];
 
 const CLASSIFIED_TABLE_NAMES = {
-  platform: "01 平台经营看板",
-  seller: "02 销售人员业绩看板",
-  customer: "03 客户分析数据看板",
-  opportunity: "04 商机分析数据看板",
-  target: "05 销售目标数据看板",
-  salary: "06 工资明细看板"
+  platform: "客户验收 01 平台经营看板",
+  seller: "客户验收 02 销售人员业绩看板",
+  customer: "客户验收 03 客户分析数据看板",
+  opportunity: "客户验收 04 商机分析数据看板",
+  target: "客户验收 05 销售目标数据看板",
+  salary: "客户验收 06 工资明细看板"
 };
 
 const CLASSIFIED_DASHBOARD_TABLES = [
@@ -1138,7 +1146,7 @@ export class FeishuBitableClient {
     });
   }
 
-  collectClassifiedDashboardRows({ orderRecords, targetRecords, customerRecords, opportunityRecords, salaryRecords }) {
+  collectClassifiedDashboardRows({ orderRecords, feeRecords = [], returnRecords = [], targetRecords, customerRecords, opportunityRecords, salaryRecords }) {
     const platformMap = new Map();
     const sellerMap = new Map();
     const customerMap = new Map();
@@ -1208,6 +1216,79 @@ export class FeishuBitableClient {
         const actual = actualBySellerPlatform.get(actualKey);
         actual.sales += metrics.sales;
         actual.profit += metrics.profit;
+      }
+    }
+
+    for (const record of feeRecords) {
+      const fields = record.fields || {};
+      const periods = periodRows(firstMeaningful(fields, ["费用日期", "归属月份", "月份", "日期"]));
+      if (!periods.length) continue;
+      const platform = textCell(firstMeaningful(fields, ["关联平台", "平台", "销售平台"]), "未维护平台");
+      const feeType = textCell(firstMeaningful(fields, ["费用类型", "类型", "费用项目"]), "");
+      const amount = numberCell(firstMeaningful(fields, ["费用金额", "平台扣费", "推广费", "金额"]));
+      if (!amount) continue;
+
+      for (const period of periods) {
+        const platformKey = `${period.type}|${period.period}|${platform}`;
+        if (!platformMap.has(platformKey)) platformMap.set(platformKey, { period, platform, ...blankSummary() });
+        const row = platformMap.get(platformKey);
+        if (feeType.includes("推广")) {
+          row.promotionFee += amount;
+        } else {
+          row.platformFee += amount;
+        }
+        row.profit -= amount;
+      }
+    }
+
+    for (const record of returnRecords) {
+      const fields = record.fields || {};
+      const periods = periodRows(firstMeaningful(fields, ["退货日期", "归属月份", "日期", "月份"]));
+      if (!periods.length) continue;
+      const platform = textCell(firstMeaningful(fields, ["关联平台", "平台", "销售平台"]), "未维护平台");
+      const seller = textCell(firstMeaningful(fields, ["销售负责人", "销售人员", "销售", "负责人"]), "未填写销售人员");
+      const customer = textCell(firstMeaningful(fields, ["关联客户", "客户信息", "客户名称", "客户"]), "未填写客户");
+      const amount = numberCell(firstMeaningful(fields, ["退货金额", "退款金额", "金额"]));
+      if (!amount) continue;
+      const metrics = {
+        sales: 0,
+        cost: 0,
+        grossProfit: 0,
+        profit: -amount,
+        platformFee: 0,
+        promotionFee: 0,
+        returnAmount: amount,
+        orderCount: 0
+      };
+
+      for (const period of periods) {
+        const platformKey = `${period.type}|${period.period}|${platform}`;
+        if (!platformMap.has(platformKey)) platformMap.set(platformKey, { period, platform, ...blankSummary() });
+        addClassifiedAmount(platformMap.get(platformKey), metrics);
+
+        const sellerKey = `${period.type}|${period.period}|${seller}`;
+        if (!sellerMap.has(sellerKey)) sellerMap.set(sellerKey, { period, seller, ...blankSummary(), targetSales: 0, customerCount: 0, opportunityCount: 0 });
+        addClassifiedAmount(sellerMap.get(sellerKey), metrics);
+
+        const info = customerInfo.get(customer) || {};
+        const customerKey = `${period.type}|${period.period}|${customer}`;
+        if (!customerMap.has(customerKey)) {
+          customerMap.set(customerKey, {
+            period,
+            customer,
+            owner: info.owner || seller,
+            level: info.level || "",
+            source: info.source || "",
+            status: info.status || "",
+            recentFollow: info.recentFollow || "",
+            ...blankSummary()
+          });
+        }
+        addClassifiedAmount(customerMap.get(customerKey), metrics);
+
+        const actualKey = `${period.type}|${period.period}|${seller}|${platform}`;
+        if (!actualBySellerPlatform.has(actualKey)) actualBySellerPlatform.set(actualKey, { period, seller, platform, sales: 0, profit: 0 });
+        actualBySellerPlatform.get(actualKey).profit -= amount;
       }
     }
 
@@ -1425,12 +1506,16 @@ export class FeishuBitableClient {
 
     const orderData = await this.recordsForTable(appToken, tables, ["销售订单"]);
     if (!orderData.table) throw new Error("未找到“销售订单”表，无法生成分类经营看板。");
+    const feeData = await this.recordsForTable(appToken, tables, ["平台费用", "费用"]);
+    const returnData = await this.recordsForTable(appToken, tables, ["退货管理", "退货"]);
     const targetData = await this.recordsForTable(appToken, tables, ["销售目标管理", "销售目标"]);
     const customerData = await this.recordsForTable(appToken, tables, ["客户信息"]);
     const opportunityData = await this.recordsForTable(appToken, tables, ["商机管理", "商机"]);
     const salaryData = await this.recordsForTable(appToken, tables, ["工资表", "工资"]);
 
     logs.push({ action: "read_source_records", table: orderData.table.name, records: orderData.records.length });
+    logs.push({ action: "read_source_records", table: feeData.table?.name || "平台费用", records: feeData.records.length });
+    logs.push({ action: "read_source_records", table: returnData.table?.name || "退货管理", records: returnData.records.length });
     logs.push({ action: "read_source_records", table: targetData.table?.name || "销售目标管理", records: targetData.records.length });
     logs.push({ action: "read_source_records", table: customerData.table?.name || "客户信息", records: customerData.records.length });
     logs.push({ action: "read_source_records", table: opportunityData.table?.name || "商机管理", records: opportunityData.records.length });
@@ -1443,6 +1528,8 @@ export class FeishuBitableClient {
 
     const rows = this.collectClassifiedDashboardRows({
       orderRecords: orderData.records,
+      feeRecords: feeData.records,
+      returnRecords: returnData.records,
       targetRecords: targetData.records,
       customerRecords: customerData.records,
       opportunityRecords: opportunityData.records,
@@ -1461,6 +1548,8 @@ export class FeishuBitableClient {
       generatedAt: new Date().toISOString(),
       source: {
         orderRecords: orderData.records.length,
+        feeRecords: feeData.records.length,
+        returnRecords: returnData.records.length,
         targetRecords: targetData.records.length,
         customerRecords: customerData.records.length,
         opportunityRecords: opportunityData.records.length,
@@ -1468,6 +1557,8 @@ export class FeishuBitableClient {
       },
       sourceFieldDiagnostics: {
         orders: this.describeRecordFields(orderData.records),
+        fees: this.describeRecordFields(feeData.records),
+        returns: this.describeRecordFields(returnData.records),
         targets: this.describeRecordFields(targetData.records),
         customers: this.describeRecordFields(customerData.records),
         opportunities: this.describeRecordFields(opportunityData.records),
