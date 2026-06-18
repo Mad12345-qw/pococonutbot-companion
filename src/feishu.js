@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { extractImageGenerationIntent } from "./image-intent.js";
+import { buildSearchCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
 import { buildSystemPrompt } from "./persona.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
@@ -444,6 +445,12 @@ export class FeishuBot {
           return;
         }
 
+        const cardActionResponse = await this.handleCardAction(payload);
+        if (cardActionResponse) {
+          res.json(cardActionResponse);
+          return;
+        }
+
         res.json({ ok: true });
         this.enqueueEvent(payload);
       } catch (error) {
@@ -479,6 +486,77 @@ export class FeishuBot {
   isValidToken(payload) {
     if (!this.config.feishuVerificationToken) return true;
     return payload?.header?.token === this.config.feishuVerificationToken || payload?.token === this.config.feishuVerificationToken;
+  }
+
+  async handleCardAction(payload = {}) {
+    const eventType = payload?.header?.event_type || payload?.type || "";
+    if (!/(?:card\.action|card_action)/i.test(eventType)) return null;
+
+    const event = payload.event || payload;
+    const action = event.action || payload.action || {};
+    const value = action.value || action || {};
+    if (value.action !== "worldcup_vote") {
+      return { toast: { type: "info", content: "这个按钮我收到了。" } };
+    }
+
+    const operator =
+      event.operator?.operator_id?.open_id ||
+      event.operator?.open_id ||
+      event.sender?.sender_id?.open_id ||
+      event.user_id ||
+      "";
+    const poll = await this.recordWorldCupVote({
+      pollId: value.poll_id || value.pollId,
+      option: value.option,
+      label: value.label,
+      title: value.title,
+      operator
+    });
+    return {
+      toast: {
+        type: "success",
+        content: `已投 ${poll.label}，当前 ${poll.count} 票。`
+      }
+    };
+  }
+
+  async recordWorldCupVote({ pollId = "", option = "", label = "", title = "", operator = "" }) {
+    const safePollId = String(pollId || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 80);
+    const safeOption = String(option || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
+    if (!safePollId || !safeOption) {
+      return { label: "这一项", count: 0 };
+    }
+
+    const key = `feishu.worldcup.poll.${safePollId}`;
+    let poll = {};
+    try {
+      poll = JSON.parse(await this.storage.getSetting(key, "{}"));
+    } catch {
+      poll = {};
+    }
+
+    poll.title = String(title || poll.title || "世界杯投票").slice(0, 160);
+    poll.options = poll.options || {};
+    poll.counts = poll.counts || {};
+    poll.voters = poll.voters || {};
+    poll.options[safeOption] = String(label || poll.options[safeOption] || safeOption).slice(0, 40);
+
+    const voter = String(operator || "").slice(0, 120);
+    const previous = voter ? poll.voters[voter] : "";
+    if (previous && previous !== safeOption && poll.counts[previous]) {
+      poll.counts[previous] = Math.max(0, Number(poll.counts[previous] || 0) - 1);
+    }
+    if (!previous || previous !== safeOption) {
+      poll.counts[safeOption] = Number(poll.counts[safeOption] || 0) + 1;
+    }
+    if (voter) poll.voters[voter] = safeOption;
+    poll.updatedAt = new Date().toISOString();
+
+    await this.storage.setSetting(key, JSON.stringify(poll));
+    return {
+      label: poll.options[safeOption],
+      count: Number(poll.counts[safeOption] || 0)
+    };
   }
 
   enqueueEvent(payload) {
@@ -773,9 +851,15 @@ export class FeishuBot {
     let raw = String(text || "").trim();
     if (!raw) return { requested: false, query: "", freshness: "" };
 
-    const command = raw.match(/^\/(?:search|web|news)(?:\s+([\s\S]+))?$/i);
+    const command = raw.match(/^\/(search|web|news|weather|worldcup|wc)(?:\s+([\s\S]+))?$/i);
     if (command) {
-      const query = this.cleanWebSearchQuery(command[1] || "");
+      let query = this.cleanWebSearchQuery(command[2] || "");
+      if (/^weather$/i.test(command[1]) && query && !/(?:\u5929\u6c14|\u6c14\u6e29|\u6e29\u5ea6|\u9884\u62a5)/.test(query)) {
+        query = `${query} \u5929\u6c14`;
+      }
+      if (/^(?:worldcup|wc)$/i.test(command[1]) && query && !/(?:\u4e16\u754c\u676f|World Cup)/i.test(query)) {
+        query = `\u4e16\u754c\u676f ${query}`;
+      }
       return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
     }
 
@@ -783,6 +867,18 @@ export class FeishuBot {
     if (explicit) {
       const query = this.cleanWebSearchQuery(explicit[1] || "");
       return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    if (/(?:\u4e16\u754c\u676f|FIFA|World Cup|worldcup|wc|足球).*(?:\u8d5b\u7a0b|\u5bf9\u9635|\u6bd4\u5206|\u79ef\u5206|\u9884\u6d4b|\u80dc\u7387|\u6295\u7968|\u652f\u6301|\u8c01\u8d62)|(?:\u8d5b\u7a0b|\u5bf9\u9635|\u9884\u6d4b|\u6295\u7968).*(?:\u4e16\u754c\u676f|FIFA|World Cup|足球)/i.test(raw)) {
+      return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    if (/(?:\u5929\u6c14|\u6c14\u6e29|\u6e29\u5ea6|\u4e0b\u96e8|\u964d\u96e8|\u964d\u6c34|\u7a7a\u6c14\u8d28\u91cf|AQI|\u7a7f\u4ec0\u4e48|\u53f0\u98ce|\u66b4\u96e8|\u9884\u62a5)/i.test(raw) && /(?:\u4eca\u5929|\u4eca\u65e5|\u660e\u5929|\u5468\u672b|\u73b0\u5728|\u672c\u5468|\u600e\u4e48\u6837|\u5982\u4f55|\u591a\u5c11|\u67e5|\u770b|\u4f1a\u4e0d\u4f1a|\u9002\u5408|\u9884\u62a5)/.test(raw)) {
+      return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    if (/(?:\u4ef7\u683c|\u884c\u60c5|\u62a5\u4ef7|\u91d1\u4ef7|\u9ec4\u91d1|\u767d\u94f6|\u6c47\u7387|\u80a1\u4ef7|\u80a1\u7968|\u6307\u6570|\u6cb9\u4ef7|\u5229\u7387|CPI|PPI|BTC|USDT|\u6bd4\u7279\u5e01|\u4eba\u6c11\u5e01|\u7f8e\u5143)/i.test(raw)) {
+      return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
     }
 
     if (
@@ -804,12 +900,7 @@ export class FeishuBot {
   }
 
   pickWebSearchFreshness(text = "") {
-    const value = String(text || "");
-    if (/(?:\u4eca\u5929|\u4eca\u65e5|\u73b0\u5728|\u521a\u521a|\u5b9e\u65f6)/.test(value)) return "oneDay";
-    if (/(?:\u672c\u5468|\u8fd9\u5468|\u4e00\u5468)/.test(value)) return "oneWeek";
-    if (/(?:\u6700\u65b0|\u6700\u8fd1|\u8fd1\u671f|\u8fd1\u4e00\u4e2a\u6708)/.test(value)) return "oneMonth";
-    if (/(?:\u4eca\u5e74|\u8fd1\u4e00\u5e74)/.test(value)) return "oneYear";
-    return this.config.bochaSearchFreshness || "noLimit";
+    return inferSearchFreshness(text, this.config.bochaSearchFreshness || "noLimit");
   }
 
   async handleWebSearchRequest({ messageId, chatId, userId, request }) {
@@ -891,14 +982,12 @@ export class FeishuBot {
   }
 
   buildWebSearchCard({ query, search, summary }) {
-    const results = search.results.slice(0, 5);
-    const kind = this.classifyWebSearchCard(query, results);
-    if (kind === "price") return this.buildPriceSearchCard({ query, results, summary });
-    if (kind === "news") return this.buildNewsSearchCard({ query, results, summary });
-    return this.buildReferenceSearchCard({ query, results, summary });
+    return buildSearchCard({ query, search, summary });
   }
 
   classifyWebSearchCard(query = "", results = []) {
+    const kind = searchKindFromText([query, ...results.slice(0, 4).flatMap((item) => [item.title, item.summary, item.snippet, item.siteName])].join("\n"));
+    if (kind !== "reference") return kind;
     const text = [
       query,
       ...results.slice(0, 4).flatMap((item) => [item.title, item.summary, item.snippet, item.siteName])

@@ -48,6 +48,12 @@ Enable message receive events, especially:
 im.message.receive_v1
 ```
 
+For World Cup poll buttons, also enable:
+
+```text
+card.action.trigger
+```
+
 The bot currently supports:
 
 - Private text messages
