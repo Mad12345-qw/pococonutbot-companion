@@ -545,12 +545,15 @@ export class FeishuBot {
     });
     return {
       toast: {
-        type: "success",
+        type: "info",
         content: poll.changed
           ? `已投 ${poll.label}，当前 ${poll.count} 票。`
           : `你已经投过 ${poll.label} 了，票数没有重复增加。`
       },
-      card: buildWorldCupPollResultCard(poll)
+      card: {
+        type: "raw",
+        data: buildWorldCupPollResultCard(poll)
+      }
     };
   }
 
