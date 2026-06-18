@@ -123,24 +123,27 @@ BOCHA_SEARCH_COUNT=6
 BOCHA_SEARCH_FRESHNESS=noLimit
 ```
 
-For World Cup poll buttons, add one Feishu event:
+For World Cup poll buttons, add one Feishu card callback. This is not in the normal event list.
 
 1. Open Feishu Open Platform.
 2. Open this bot app.
-3. Go to event subscription.
-4. Keep the existing request URL:
+3. Go to `事件与回调`.
+4. Open the `回调配置` tab, not the `事件配置` tab.
+5. Keep the existing request URL:
 
 ```text
 https://pococonutbot-minimax-companion.onrender.com/feishu/events
 ```
 
-5. Add the message card interaction event:
+6. Add the card callback named:
 
 ```text
-card.action.trigger
+卡片回传交互
 ```
 
-6. Publish the app version again if Feishu asks for it.
+The API callback type behind this item is `card.action.trigger`, but the console may only show the Chinese name.
+
+7. Publish the app version again if Feishu asks for it.
 
 ## Recommended Test Messages
 

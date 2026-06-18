@@ -48,11 +48,13 @@ Enable message receive events, especially:
 im.message.receive_v1
 ```
 
-For World Cup poll buttons, also enable:
+For World Cup poll buttons, also open `回调配置` and enable the card callback:
 
 ```text
-card.action.trigger
+卡片回传交互
 ```
+
+The API callback type is `card.action.trigger`, but it is configured under `回调配置`, not the normal event list.
 
 The bot currently supports:
 
