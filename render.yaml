@@ -131,6 +131,22 @@ services:
         value: "12000"
       - key: LINK_READING_TIMEOUT_MS
         value: "20000"
+      - key: WEB_SEARCH_ENABLED
+        value: "true"
+      - key: BOCHA_API_KEY
+        sync: false
+      - key: BOCHA_SEARCH_URL
+        value: https://api.bochaai.com/v1/web-search
+      - key: BOCHA_SEARCH_COUNT
+        value: "6"
+      - key: BOCHA_SEARCH_FRESHNESS
+        value: noLimit
+      - key: BOCHA_SEARCH_SUMMARY
+        value: "true"
+      - key: BOCHA_SEARCH_TIMEOUT_MS
+        value: "30000"
+      - key: WEB_SEARCH_SUMMARY_MAX_TOKENS
+        value: "700"
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME

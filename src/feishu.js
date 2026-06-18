@@ -338,8 +338,16 @@ function isValidMentionId(value = "") {
   return Boolean(String(value || "").trim());
 }
 
+function cardText(value = "", max = 600) {
+  return truncate(String(value || "").replace(/[<>{}]/g, "").replace(/\s+/g, " ").trim(), max);
+}
+
+function compactLines(lines = []) {
+  return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
+}
+
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, webSearch }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
@@ -347,6 +355,7 @@ export class FeishuBot {
     this.speechToText = speechToText;
     this.textToSpeech = textToSpeech;
     this.songClient = songClient;
+    this.webSearch = webSearch;
     this.token = null;
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
@@ -478,12 +487,14 @@ export class FeishuBot {
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
+    const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const explicitReply =
       chatType === "p2p" ||
       mentionInfo.botMentioned ||
       replyToBot ||
       this.isExplicitCommand(text) ||
+      webSearchRequest.requested ||
       songRequest.requested ||
       selfieRequest.requested ||
       projectRequest ||
@@ -583,6 +594,18 @@ export class FeishuBot {
         request: songRequest
       }).catch((error) => {
         logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
+      });
+      return;
+    }
+
+    if (webSearchRequest.requested) {
+      this.handleWebSearchRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: webSearchRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu web search background task failed", { chatId, error: error.message });
       });
       return;
     }
@@ -692,6 +715,196 @@ export class FeishuBot {
         skipMemoryExtraction: this.isTransientStyleRequest(safeUserText) || Boolean(deliveryPreference)
       });
     }
+  }
+
+  extractWebSearchRequest(text = "") {
+    let raw = String(text || "").trim();
+    if (!raw) return { requested: false, query: "", freshness: "" };
+
+    const command = raw.match(/^\/(?:search|web|news)(?:\s+([\s\S]+))?$/i);
+    if (command) {
+      const query = this.cleanWebSearchQuery(command[1] || "");
+      return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    const explicit = raw.match(/^(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)?\s*(?:\u641c\u4e00\u4e0b|\u641c\u641c|\u641c\u7d22|\u67e5\u4e00\u4e0b|\u67e5\u67e5|\u67e5\u8be2|\u8054\u7f51\u67e5|\u8054\u7f51\u641c|\u7f51\u4e0a\u641c|\u767e\u5ea6\u4e00\u4e0b)\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
+    if (explicit) {
+      const query = this.cleanWebSearchQuery(explicit[1] || "");
+      return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    if (
+      /^(?:\u6700\u65b0|\u4eca\u5929|\u4eca\u65e5|\u73b0\u5728|\u8fd1\u671f|\u6700\u8fd1)[\s\S]{2,}/.test(raw) &&
+      /(?:\u65b0\u95fb|\u6d88\u606f|\u8fdb\u5c55|\u52a8\u6001|\u4ef7\u683c|\u653f\u7b56|\u60c5\u51b5|\u70ed\u641c|\u699c\u5355|\u53d1\u5e03|\u66f4\u65b0)/.test(raw)
+    ) {
+      return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
+    }
+
+    return { requested: false, query: "", freshness: "" };
+  }
+
+  cleanWebSearchQuery(text = "") {
+    return String(text || "")
+      .replace(/^[:\uff1a,\uff0c\s]+/, "")
+      .replace(/(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)\s*/g, "")
+      .replace(/(?:\u770b\u770b|\u67e5\u67e5|\u641c\u641c|\u641c\u4e00\u4e0b|\u67e5\u4e00\u4e0b)$/g, "")
+      .trim();
+  }
+
+  pickWebSearchFreshness(text = "") {
+    const value = String(text || "");
+    if (/(?:\u4eca\u5929|\u4eca\u65e5|\u73b0\u5728|\u521a\u521a|\u5b9e\u65f6)/.test(value)) return "oneDay";
+    if (/(?:\u672c\u5468|\u8fd9\u5468|\u4e00\u5468)/.test(value)) return "oneWeek";
+    if (/(?:\u6700\u65b0|\u6700\u8fd1|\u8fd1\u671f|\u8fd1\u4e00\u4e2a\u6708)/.test(value)) return "oneMonth";
+    if (/(?:\u4eca\u5e74|\u8fd1\u4e00\u5e74)/.test(value)) return "oneYear";
+    return this.config.bochaSearchFreshness || "noLimit";
+  }
+
+  async handleWebSearchRequest({ messageId, chatId, userId, request }) {
+    if (!this.webSearch?.enabled) {
+      await this.replyText(messageId, "\u8054\u7f51\u641c\u7d22\u8fd8\u6ca1\u914d\u7f6e\u597d\u3002\u4f60\u5148\u5728 Render \u91cc\u52a0 BOCHA_API_KEY\uff0c\u6211\u5c31\u80fd\u5f00\u59cb\u641c\u3002");
+      return;
+    }
+    if (!request.query) {
+      await this.replyText(messageId, "\u8981\u641c\u4ec0\u4e48\uff1f\u4f60\u53ef\u4ee5\u8fd9\u6837\u53d1\uff1a\u641c\u4e00\u4e0b \u4eca\u5929\u9ec4\u91d1\u4ef7\u683c\u4e3a\u4ec0\u4e48\u6da8\u3002");
+      return;
+    }
+
+    try {
+      logEvent("info", "Feishu web search started", { chatId, userId, query: request.query, freshness: request.freshness });
+      const search = await this.webSearch.search(request.query, { freshness: request.freshness });
+      const summary = await this.generateWebSearchSummary(request.query, search.results);
+      const card = this.buildWebSearchCard({ query: request.query, search, summary });
+      await this.replyCard(messageId, card);
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "card",
+        content: `Web search card: ${request.query}\n${summary}`,
+        metadata: {
+          platform: "feishu",
+          replyToUserId: userId,
+          webSearch: true,
+          resultCount: search.results.length
+        }
+      });
+      logEvent("info", "Feishu web search card sent", { chatId, query: request.query, results: search.results.length });
+    } catch (error) {
+      logEvent("error", "Feishu web search failed", { chatId, query: request.query, error: error.message });
+      await this.replyText(messageId, `\u6211\u521a\u521a\u641c\u4e86\u4e00\u4e0b\uff0c\u4f46\u6ca1\u628a\u7ed3\u679c\u6574\u7406\u51fa\u6765\uff1a${truncate(error.message, 500)}`);
+    }
+  }
+
+  async generateWebSearchSummary(query, results = []) {
+    if (!results.length) {
+      return "\u6ca1\u641c\u5230\u7279\u522b\u53ef\u9760\u7684\u7ed3\u679c\uff0c\u53ef\u4ee5\u6362\u4e2a\u66f4\u5177\u4f53\u7684\u5173\u952e\u8bcd\u518d\u8bd5\u3002";
+    }
+
+    const sourceText = results.slice(0, 6).map((item, index) => compactLines([
+      `[${index + 1}] ${item.title}`,
+      `site: ${item.siteName || item.displayUrl || item.url}`,
+      item.publishedAt ? `date: ${item.publishedAt}` : "",
+      `summary: ${item.summary || item.snippet}`,
+      `url: ${item.url}`
+    ])).join("\n\n");
+
+    try {
+      const raw = await this.ai.chat([
+        {
+          role: "system",
+          content: "You summarize web search results for a Feishu bot. Reply in Simplified Chinese. Be concise, concrete, and source-grounded. Do not invent facts that are not in the search results."
+        },
+        {
+          role: "user",
+          content: `Query: ${query}\n\nSearch results:\n${sourceText}\n\nWrite 3-5 short bullets. Mention uncertainty if sources are thin.`
+        }
+      ], {
+        maxTokens: this.config.webSearchSummaryMaxTokens || 700,
+        temperature: 0.3
+      });
+      return cardText(this.cleanAssistantReply(raw), 1200);
+    } catch (error) {
+      logEvent("warn", "Feishu web search summary fallback used", { query, error: error.message });
+      return this.fallbackWebSearchSummary(results);
+    }
+  }
+
+  fallbackWebSearchSummary(results = []) {
+    const lines = results.slice(0, 3).map((item, index) => {
+      const text = item.summary || item.snippet || item.title;
+      return `${index + 1}. ${cardText(text, 180)}`;
+    });
+    return lines.join("\n");
+  }
+
+  buildWebSearchCard({ query, search, summary }) {
+    const results = search.results.slice(0, 5);
+    const elements = [
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            `**${cardText(query, 120)}**`,
+            cardText(summary, 1200)
+          ])
+        }
+      },
+      { tag: "hr" }
+    ];
+
+    for (const item of results) {
+      elements.push({
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            `**${item.index}. ${cardText(item.title, 120)}**`,
+            cardText(item.summary || item.snippet, 260),
+            cardText([item.siteName, item.publishedAt].filter(Boolean).join(" | "), 120)
+          ])
+        }
+      });
+    }
+
+    const actions = results
+      .filter((item) => /^https?:\/\//i.test(item.url))
+      .slice(0, 3)
+      .map((item) => ({
+        tag: "button",
+        text: {
+          tag: "plain_text",
+          content: `\u6765\u6e90 ${item.index}`
+        },
+        type: item.index === 1 ? "primary" : "default",
+        url: item.url
+      }));
+    if (actions.length) elements.push({ tag: "action", actions });
+
+    elements.push({
+      tag: "note",
+      elements: [
+        {
+          tag: "plain_text",
+          content: `Bocha Web Search | ${results.length} results`
+        }
+      ]
+    });
+
+    return {
+      config: {
+        wide_screen_mode: true
+      },
+      header: {
+        template: "blue",
+        title: {
+          tag: "plain_text",
+          content: "\u8054\u7f51\u641c\u7d22\u7ed3\u679c"
+        }
+      },
+      elements
+    };
   }
 
   extractSongRequest(text = "") {
@@ -1628,6 +1841,16 @@ export class FeishuBot {
     const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "text",
       content: JSON.stringify({ text: String(text || "") })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async replyCard(messageId, card) {
+    if (!messageId || !card) return;
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "interactive",
+      content: JSON.stringify(card)
     });
     this.rememberBotMessage(response);
     return response;
