@@ -1,9 +1,27 @@
 import { Resvg } from "@resvg/resvg-js";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { worldCupPollId } from "./feishu-card-templates.js";
 import { truncate } from "./utils.js";
 
 const WIDTH = 900;
 const HEIGHT = 1120;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+let bundledFontFiles = null;
+
+function premiumFontFiles() {
+  if (bundledFontFiles) return bundledFontFiles;
+  const fontDir = path.resolve(__dirname, "..", "node_modules", "lxgw-wenkai-screen-webfont", "files");
+  if (!existsSync(fontDir)) {
+    bundledFontFiles = [];
+    return bundledFontFiles;
+  }
+  bundledFontFiles = readdirSync(fontDir)
+    .filter((file) => /^lxgwwenkaiscreen-subset-\d+\.woff2$/i.test(file))
+    .map((file) => path.join(fontDir, file));
+  return bundledFontFiles;
+}
 
 function safeText(value = "", max = 160) {
   return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
@@ -220,7 +238,7 @@ function baseSvg({ kind, title, subtitle, metrics = [], bullets = [], poll = nul
         <feGaussianBlur stdDeviation="28"/>
       </filter>
       <style>
-        text { font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Arial", sans-serif; letter-spacing: 0; }
+        text { font-family: "LXGW WenKai Screen", "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Arial", sans-serif; letter-spacing: 0; }
       </style>
     </defs>
     <rect width="${WIDTH}" height="${HEIGHT}" fill="#EEF3F8"/>
@@ -363,7 +381,7 @@ export function renderPremiumSearchCardImage({ query, results = [], summary = ""
   const svg = baseSvg(data);
   const renderer = new Resvg(svg, {
     fitTo: { mode: "width", value: WIDTH },
-    font: { loadSystemFonts: true }
+    font: { loadSystemFonts: true, fontFiles: premiumFontFiles() }
   });
   return {
     buffer: renderer.render().asPng(),

@@ -544,7 +544,7 @@ export class FeishuBot {
       title: value.title,
       operator
     });
-    const responseCard = await this.buildWorldCupPollResponseCard(poll);
+    const responseCard = buildWorldCupPollResultCard(poll);
     return {
       toast: {
         type: "info",
@@ -1478,14 +1478,24 @@ export class FeishuBot {
   }
 
   hasExplicitMentionDeliveryRequest(text = "") {
-    return /(?:艾特|at\s+|AT\s+|cue|通知|提醒|转告|告诉|帮.+?(?:@|艾特|at|AT|cue|叫|喊|通知|提醒|告诉)|(?:叫|喊)(?:一下|下|一声|一哈|一下子))/i.test(String(text || ""));
+    const value = String(text || "");
+    if (/(?:告诉|通知|提醒|问问|问下|教下)(?:我|你)(?:$|[\s，,。.!！?？、:：]|一下|下|一声|一哈|一下子|这个|这件事|怎么|为什么|能不能|能不|可不|是不是|用不|要不要)/.test(value)) return false;
+    if (/(?:@|艾特|at\s+|AT\s+|cue)/i.test(value)) return true;
+    return /(?:帮我|帮忙|麻烦|你|小椰|机器人).{0,10}(?:通知|提醒|转告|告诉|叫|喊|问问|问下)/i.test(value)
+      || /(?:通知|提醒|转告|告诉|叫|喊|问问|问下)(?:一下|下|一声|一哈|一下子)?\s*(?!我(?:$|[\s，,。.!！?？、:：]|一下|下|一声|一哈|一下子|这个|这件事|怎么|为什么|能不能|能不|可不|是不是|用不|要不要)|你(?:$|[\s，,。.!！?？、:：]|一下|下|一声|一哈|一下子|这个|这件事)|一下|下|一声|一哈|这个|这件事)[^\s，,。.!！?？、:：]{1,40}/i.test(value);
   }
 
   extractRequestedMentionName(text = "") {
     const value = String(text || "");
     const match = value.match(/(?:艾特|@|at|AT|叫|喊|cue|通知|提醒|转告|告诉|问问|问下|教下)(?:一下|下|一声|一哈|一下子)?\s*([^\s，,。.!！?？、:：]{1,40})/i);
     if (!match) return "";
-    return normalizeMentionName(match[1]);
+    const target = String(match[1] || "")
+      .split(/(?:看下|看一下|看看|来看看|处理下|处理一下|确认下|确认一下|回复下|回复一下|帮忙|这个|这件事)/)[0]
+      .replace(/(?:一下|下|一声|一哈|一下子)$/i, "")
+      .trim();
+    if (/^(?:我|你)(?:$|一下|下|一声|一哈|一下子|这个|这件事|怎么|为什么|能不能|能不|可不|是不是|用不|要不要)/i.test(target)) return "";
+    if (/^(?:一下|下|一声|一哈|这个|这件事|它|他|她)?$/i.test(target)) return "";
+    return normalizeMentionName(target);
   }
 
   resolveOutgoingMentionTargets(text = "", mentionInfo = {}) {
