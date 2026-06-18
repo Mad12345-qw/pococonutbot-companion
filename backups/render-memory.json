@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T15:26:31.004Z",
+  "exportedAt": "2026-06-18T15:36:32.154Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -19686,6 +19686,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T15:26:27.279Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…能感受到你那种空落落的感觉，不是不想动，是不知道往哪儿使劲对吧？\n\n其实玩AI本身也不是浪费时间啦，你已经在研究新东西了，只是暂时还没把它变成收入，所以心里慌。\n\n要不咱们一起想想？你会调AI、会查信息、懂金价，这些能不能变成点什么？哪怕小小的方向，有个念想就没那么慌了。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T15:26:38.556Z"
       }
     ],
     "memories": [
@@ -20332,6 +20344,16 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "emotional_state.current_situation",
+        "value": "用户目前每天除了玩AI不知道干什么，没有收入，对未来充满迷茫，需要情感支持和方向引导",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T15:27:05.220Z",
+        "updatedAt": "2026-06-18T15:27:05.220Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "emotional_state.feelings",
         "value": "用户最近表达过迷茫情绪，需要情感支持",
         "importance": 5,
@@ -20368,6 +20390,26 @@
         "metadata": {},
         "createdAt": "2026-06-16T18:02:58.366Z",
         "updatedAt": "2026-06-17T12:31:55.751Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "life_context.daily_activity",
+        "value": "用户现在每天主要在玩AI",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T15:27:05.673Z",
+        "updatedAt": "2026-06-18T15:27:05.673Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "life_context.income",
+        "value": "用户目前没有任何收入来源",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T15:27:05.447Z",
+        "updatedAt": "2026-06-18T15:27:05.447Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
