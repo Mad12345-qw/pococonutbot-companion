@@ -5,8 +5,26 @@ function cardText(value = "", max = 600) {
   return truncate(String(value || "").replace(/[<>{}]/g, "").replace(/\s+/g, " ").trim(), max);
 }
 
+function cardMarkdown(value = "", max = 1200) {
+  return truncate(
+    String(value || "")
+      .replace(/[<>{}]/g, "")
+      .replace(/[ \t]+/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim(),
+    max
+  );
+}
+
 function compactLines(lines = []) {
   return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
+}
+
+function labelValue(label = "", value = "") {
+  return compactLines([
+    cardText(label, 24),
+    `**${cardText(value || "待确认", 90)}**`
+  ]);
 }
 
 function uniqueItems(items = []) {
@@ -41,7 +59,7 @@ function cardActionButtons(results = [], limit = 3) {
       tag: "button",
       text: {
         tag: "plain_text",
-        content: `资料 ${item.index || index + 1}`
+        content: `打开资料 ${item.index || index + 1}`
       },
       type: index === 0 ? "primary" : "default",
       url: item.url
@@ -55,7 +73,7 @@ function cardNote(results = []) {
     elements: [
       {
         tag: "plain_text",
-        content: `已整理 ${sourceCount} 条公开资料`
+        content: `已整理 ${sourceCount} 条资料，卡片仅保留关键信息`
       }
     ]
   };
@@ -66,7 +84,7 @@ function md(content = "", max = 1200) {
     tag: "div",
     text: {
       tag: "lark_md",
-      content: cardText(content, max)
+      content: cardMarkdown(content, max)
     }
   };
 }
@@ -77,10 +95,7 @@ function metricColumn(label, value) {
     width: "weighted",
     weight: 1,
     elements: [
-      md(compactLines([
-        `**${cardText(label, 20)}**`,
-        cardText(value || "待确认", 80)
-      ]), 140)
+      md(labelValue(label, value), 160)
     ]
   };
 }
@@ -97,7 +112,8 @@ function metricStrip(metrics = []) {
 function baseCard({ title, template = "blue", elements = [] }) {
   return {
     config: {
-      wide_screen_mode: true
+      wide_screen_mode: true,
+      enable_forward: true
     },
     header: {
       template,
@@ -108,6 +124,20 @@ function baseCard({ title, template = "blue", elements = [] }) {
     },
     elements
   };
+}
+
+function heroBlock({ eyebrow = "", title = "", body = "" }) {
+  return md(compactLines([
+    eyebrow ? cardText(eyebrow, 60) : "",
+    title ? `**${cardText(title, 140)}**` : "",
+    body ? cardText(body, 220) : ""
+  ]), 520);
+}
+
+function insightBlock(title = "", bullets = []) {
+  const items = bullets.map((item) => `- ${cardText(item, 140)}`).slice(0, 3);
+  if (!items.length) return null;
+  return md(compactLines([`**${cardText(title, 40)}**`, ...items]), 560);
 }
 
 function textForKind(query = "", results = []) {
@@ -149,7 +179,7 @@ export function inferSearchFreshness(text = "", fallback = "noLimit") {
   return fallback || "noLimit";
 }
 
-export function buildSearchCard({ query, search, summary }) {
+export function buildSearchCard({ query, search, summary, poll }) {
   const results = (search?.results || []).slice(0, 5);
   const kind = classifySearchCard(query, results);
   if (kind === "weather") return buildWeatherCard({ query, results, summary });
@@ -157,28 +187,23 @@ export function buildSearchCard({ query, search, summary }) {
   if (kind === "news") return buildNewsCard({ query, results, summary });
   if (kind === "worldcup_schedule") return buildWorldCupCard({ query, results, summary, mode: "schedule" });
   if (kind === "worldcup_prediction") return buildWorldCupCard({ query, results, summary, mode: "prediction" });
-  if (kind === "worldcup_poll") return buildWorldCupCard({ query, results, summary, mode: "poll" });
+  if (kind === "worldcup_poll") return buildWorldCupCard({ query, results, summary, mode: "poll", poll });
   return buildReferenceCard({ query, results, summary });
 }
 
 function buildWeatherCard({ query, results, summary }) {
   const signals = extractWeatherSignals({ query, results, summary });
   const bullets = summaryBullets(summary, 4);
+  const lead = bullets[0] || cardText(summary, 220);
   const elements = [
-    md(compactLines([
-      `**${cardText(query, 120)}**`,
-      bullets[0] || cardText(summary, 220)
-    ]), 360),
+    heroBlock({ eyebrow: "Weather", title: query, body: lead }),
     metricStrip([
       { label: "体感", value: signals.temperature },
       { label: "降雨", value: signals.rain },
       { label: "空气", value: signals.air }
     ]),
-    md(compactLines([
-      "**今日提醒**",
-      ...bullets.slice(1, 4).map((item) => `- ${item}`)
-    ]), 700)
-  ];
+    insightBlock("今日提醒", bullets.slice(1, 4))
+  ].filter(Boolean);
   const actions = cardActionButtons(results, 2);
   if (actions.length) elements.push({ tag: "action", actions });
   elements.push(cardNote(results));
@@ -204,21 +229,16 @@ function extractWeatherSignals({ query = "", results = [], summary = "" }) {
 function buildPriceCard({ query, results, summary }) {
   const signals = extractPriceSignals({ query, results, summary });
   const bullets = summaryBullets(summary, 4);
+  const lead = bullets[0] || cardText(summary, 220);
   const elements = [
-    md(compactLines([
-      `**${cardText(query, 120)}**`,
-      bullets[0] || cardText(summary, 220)
-    ]), 360),
+    heroBlock({ eyebrow: "Market", title: query, body: lead }),
     metricStrip([
       { label: "最新信号", value: signals.primaryNumber },
       { label: "方向", value: signals.trend },
       { label: "观察点", value: signals.watch }
     ]),
-    md(compactLines([
-      "**驱动因素**",
-      ...bullets.slice(1, 4).map((item) => `- ${item}`)
-    ]), 760)
-  ];
+    insightBlock("驱动因素", bullets.slice(1, 4))
+  ].filter(Boolean);
   const actions = cardActionButtons(results, 3);
   if (actions.length) elements.push({ tag: "action", actions });
   elements.push(cardNote(results));
@@ -256,22 +276,16 @@ function buildNewsCard({ query, results, summary }) {
   const bullets = summaryBullets(summary, 4);
   const lead = bullets.shift() || cardText(summary, 200);
   const elements = [
-    md(compactLines([
-      `**${cardText(query, 120)}**`,
-      lead
-    ]), 360),
-    md(compactLines([
-      "**今日主线**",
-      ...bullets.map((item) => `- ${item}`)
-    ]), 720),
+    heroBlock({ eyebrow: "Daily Brief", title: query, body: lead }),
+    insightBlock("今日主线", bullets),
     { tag: "hr" },
     md("**重点新闻**", 60)
-  ];
+  ].filter(Boolean);
   for (const item of results.slice(0, 4)) {
     elements.push(md(compactLines([
       `**${String(item.index).padStart(2, "0")}  ${cardText(item.title, 120)}**`,
       sourceLabel(item),
-      cardText(item.summary || item.snippet, 210)
+      cardText(item.summary || item.snippet, 150)
     ]), 460));
   }
   const actions = cardActionButtons(results, 3);
@@ -280,28 +294,25 @@ function buildNewsCard({ query, results, summary }) {
   return baseCard({ title: "今日简报", template: "orange", elements });
 }
 
-function buildWorldCupCard({ query, results, summary, mode }) {
+function buildWorldCupCard({ query, results, summary, mode, poll }) {
   const bullets = summaryBullets(summary, mode === "poll" ? 3 : 4);
   const title =
     mode === "poll" ? "世界杯投票" :
     mode === "prediction" ? "世界杯预测" :
     "世界杯赛程";
+  const lead = bullets[0] || cardText(summary, 220);
   const elements = [
-    md(compactLines([
-      `**${cardText(query, 120)}**`,
-      bullets[0] || cardText(summary, 220)
-    ]), 360),
+    heroBlock({ eyebrow: "World Cup", title: query, body: lead }),
     metricStrip(worldCupMetrics({ query, results, summary, mode })),
-    md(compactLines([
-      mode === "poll" ? "**先投一票**" : mode === "prediction" ? "**判断依据**" : "**赛程重点**",
-      ...bullets.slice(1, 4).map((item) => `- ${item}`)
-    ]), 760)
-  ];
+    mode === "poll"
+      ? pollScoreboard(poll || emptyPollForQuery(query))
+      : insightBlock(mode === "prediction" ? "判断依据" : "赛程重点", bullets.slice(1, 4))
+  ].filter(Boolean);
 
   if (mode === "poll") {
     elements.push({
       tag: "action",
-      actions: buildWorldCupVoteButtons(query)
+      actions: buildWorldCupVoteButtons(query, poll)
     });
   }
 
@@ -309,6 +320,32 @@ function buildWorldCupCard({ query, results, summary, mode }) {
   if (actions.length) elements.push({ tag: "action", actions });
   elements.push(cardNote(results));
   return baseCard({ title, template: mode === "prediction" ? "purple" : "indigo", elements });
+}
+
+export function buildWorldCupPollResultCard(poll = {}) {
+  const query = poll.title || "世界杯投票";
+  const elements = [
+    heroBlock({
+      eyebrow: "World Cup Poll",
+      title: query,
+      body: poll.lastVoterChoice ? `刚刚收到一票：${poll.lastVoterChoice}` : "每个人只能投一票，重复点击不会刷票。"
+    }),
+    pollScoreboard(poll),
+    {
+      tag: "action",
+      actions: buildWorldCupVoteButtons(query, poll)
+    },
+    {
+      tag: "note",
+      elements: [
+        {
+          tag: "plain_text",
+          content: `共 ${pollTotal(poll)} 票，${Object.keys(poll.voters || {}).length} 人参与`
+        }
+      ]
+    }
+  ];
+  return baseCard({ title: "世界杯投票", template: "indigo", elements });
 }
 
 function worldCupMetrics({ query = "", results = [], summary = "", mode = "schedule" }) {
@@ -337,6 +374,43 @@ function worldCupMetrics({ query = "", results = [], summary = "", mode = "sched
   ];
 }
 
+function emptyPollForQuery(query = "") {
+  const teams = extractTeams(query);
+  return {
+    title: query,
+    options: {
+      home: teams.home,
+      draw: "平局 / 加时",
+      away: teams.away
+    },
+    counts: {},
+    voters: {}
+  };
+}
+
+function pollTotal(poll = {}) {
+  return Object.values(poll.counts || {}).reduce((total, value) => total + Math.max(0, Number(value) || 0), 0);
+}
+
+function pollScoreboard(poll = {}) {
+  const options = poll.options || {};
+  const counts = poll.counts || {};
+  const total = Math.max(0, pollTotal(poll));
+  const rows = ["home", "draw", "away"].map((key) => {
+    const label = options[key] || (key === "draw" ? "平局 / 加时" : key);
+    const count = Math.max(0, Number(counts[key] || 0));
+    const pct = total ? Math.round((count / total) * 100) : 0;
+    const filled = Math.max(0, Math.min(10, Math.round(pct / 10)));
+    const bar = `${"█".repeat(filled)}${"░".repeat(10 - filled)}`;
+    return `${bar}  **${cardText(label, 24)}**  ${count} 票 · ${pct}%`;
+  });
+  return md(compactLines([
+    "**实时票数**",
+    ...rows,
+    total ? `共 ${total} 票，每个人只保留最后一次选择` : "还没人投，点下面按钮开局。"
+  ]), 620);
+}
+
 function inferWinner(query = "", summary = "") {
   const text = `${query}\n${summary}`;
   const match = text.match(/(?:看好|倾向|预测|胜率较高|优势)[^。！？\n]{0,32}/);
@@ -354,13 +428,22 @@ function extractTeams(query = "") {
   return { home, away };
 }
 
-function buildWorldCupVoteButtons(query = "") {
-  const pollId = crypto.createHash("sha1").update(String(query || "worldcup")).digest("hex").slice(0, 16);
+export function worldCupPollId(query = "") {
+  return crypto.createHash("sha1").update(String(query || "worldcup")).digest("hex").slice(0, 16);
+}
+
+function buildWorldCupVoteButtons(query = "", poll = null) {
+  const pollId = poll?.pollId || poll?.poll_id || worldCupPollId(query);
   const teams = extractTeams(query);
+  const optionLabels = {
+    home: poll?.options?.home || teams.home,
+    draw: poll?.options?.draw || "平局 / 加时",
+    away: poll?.options?.away || teams.away
+  };
   const options = [
-    { key: "home", label: teams.home },
-    { key: "draw", label: "平局 / 加时" },
-    { key: "away", label: teams.away }
+    { key: "home", label: optionLabels.home },
+    { key: "draw", label: optionLabels.draw },
+    { key: "away", label: optionLabels.away }
   ];
   return options.map((option, index) => ({
     tag: "button",
@@ -374,6 +457,7 @@ function buildWorldCupVoteButtons(query = "") {
       poll_id: pollId,
       option: option.key,
       label: option.label,
+      options: optionLabels,
       title: cardText(query, 120)
     }
   }));
@@ -382,13 +466,11 @@ function buildWorldCupVoteButtons(query = "") {
 function buildReferenceCard({ query, results, summary }) {
   const bullets = summaryBullets(summary, 4);
   const elements = [
-    md(compactLines([
-      `**${cardText(query, 120)}**`,
-      ...bullets.map((item) => `- ${item}`)
-    ]), 760),
+    heroBlock({ eyebrow: "Reference", title: query, body: bullets[0] || cardText(summary, 220) }),
+    insightBlock("要点", bullets.slice(1, 4)),
     { tag: "hr" },
     md("**可参考资料**", 60)
-  ];
+  ].filter(Boolean);
   for (const item of results.slice(0, 5)) {
     elements.push(md(compactLines([
       `**${item.index}. ${cardText(item.title, 120)}**`,

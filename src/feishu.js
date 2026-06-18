@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import { extractImageGenerationIntent } from "./image-intent.js";
-import { buildSearchCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
+import { buildSearchCard, buildWorldCupPollResultCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
 import { buildSystemPrompt } from "./persona.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
@@ -87,6 +87,29 @@ function extractUrls(text = "") {
 
 function uniqueStrings(values = []) {
   return [...new Set(values.map((item) => String(item || "").trim()).filter(Boolean))];
+}
+
+function pickFirstString(values = []) {
+  return values.map((item) => String(item || "").trim()).find(Boolean) || "";
+}
+
+function collectIdsDeep(value, output = []) {
+  if (!value || typeof value !== "object") return output;
+  if (Array.isArray(value)) {
+    for (const item of value) collectIdsDeep(item, output);
+    return output;
+  }
+  for (const [key, raw] of Object.entries(value)) {
+    if (raw && typeof raw === "object") {
+      collectIdsDeep(raw, output);
+      continue;
+    }
+    if (/(?:open_id|user_id|union_id)$/i.test(key)) {
+      const text = String(raw || "").trim();
+      if (text) output.push(text);
+    }
+  }
+  return output;
 }
 
 function extractStringsDeep(value, output = []) {
@@ -499,32 +522,61 @@ export class FeishuBot {
       return { toast: { type: "info", content: "这个按钮我收到了。" } };
     }
 
-    const operator =
-      event.operator?.operator_id?.open_id ||
-      event.operator?.open_id ||
-      event.sender?.sender_id?.open_id ||
-      event.user_id ||
-      "";
+    const operator = this.extractCardActionOperatorId(event, payload);
+    if (!operator) {
+      logEvent("warn", "Feishu card vote ignored because operator id was missing", {
+        pollId: value.poll_id || value.pollId || "",
+        option: value.option || ""
+      });
+      return {
+        toast: {
+          type: "warning",
+          content: "这次没拿到你的飞书身份，先不计票，避免被刷票。"
+        }
+      };
+    }
     const poll = await this.recordWorldCupVote({
       pollId: value.poll_id || value.pollId,
       option: value.option,
       label: value.label,
+      options: value.options,
       title: value.title,
       operator
     });
     return {
       toast: {
         type: "success",
-        content: `已投 ${poll.label}，当前 ${poll.count} 票。`
-      }
+        content: poll.changed
+          ? `已投 ${poll.label}，当前 ${poll.count} 票。`
+          : `你已经投过 ${poll.label} 了，票数没有重复增加。`
+      },
+      card: buildWorldCupPollResultCard(poll)
     };
   }
 
-  async recordWorldCupVote({ pollId = "", option = "", label = "", title = "", operator = "" }) {
+  extractCardActionOperatorId(event = {}, payload = {}) {
+    return pickFirstString([
+      event.operator?.operator_id?.open_id,
+      event.operator?.operator_id?.user_id,
+      event.operator?.operator_id?.union_id,
+      event.operator?.open_id,
+      event.operator?.user_id,
+      event.operator?.union_id,
+      event.sender?.sender_id?.open_id,
+      event.sender?.sender_id?.user_id,
+      event.sender?.sender_id?.union_id,
+      event.user_id,
+      event.open_id,
+      ...collectIdsDeep(event.operator || {}),
+      ...collectIdsDeep(payload.operator || {})
+    ]);
+  }
+
+  async recordWorldCupVote({ pollId = "", option = "", label = "", options = null, title = "", operator = "" }) {
     const safePollId = String(pollId || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 80);
     const safeOption = String(option || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
     if (!safePollId || !safeOption) {
-      return { label: "这一项", count: 0 };
+      return { label: "这一项", count: 0, counts: {}, options: {}, voters: {}, changed: false };
     }
 
     const key = `feishu.worldcup.poll.${safePollId}`;
@@ -535,27 +587,36 @@ export class FeishuBot {
       poll = {};
     }
 
+    poll.pollId = safePollId;
     poll.title = String(title || poll.title || "世界杯投票").slice(0, 160);
     poll.options = poll.options || {};
     poll.counts = poll.counts || {};
     poll.voters = poll.voters || {};
+    for (const [key, value] of Object.entries(options || {})) {
+      const cleanKey = String(key || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
+      if (cleanKey && value) poll.options[cleanKey] = String(value).slice(0, 40);
+    }
     poll.options[safeOption] = String(label || poll.options[safeOption] || safeOption).slice(0, 40);
 
     const voter = String(operator || "").slice(0, 120);
     const previous = voter ? poll.voters[voter] : "";
+    const changed = previous !== safeOption;
     if (previous && previous !== safeOption && poll.counts[previous]) {
       poll.counts[previous] = Math.max(0, Number(poll.counts[previous] || 0) - 1);
     }
-    if (!previous || previous !== safeOption) {
+    if (changed) {
       poll.counts[safeOption] = Number(poll.counts[safeOption] || 0) + 1;
     }
     if (voter) poll.voters[voter] = safeOption;
+    poll.lastVoterChoice = poll.options[safeOption];
     poll.updatedAt = new Date().toISOString();
 
     await this.storage.setSetting(key, JSON.stringify(poll));
     return {
+      ...poll,
       label: poll.options[safeOption],
-      count: Number(poll.counts[safeOption] || 0)
+      count: Number(poll.counts[safeOption] || 0),
+      changed
     };
   }
 
