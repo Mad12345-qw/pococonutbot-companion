@@ -779,7 +779,7 @@ export class FeishuBot {
       return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
     }
 
-    const explicit = raw.match(/^(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)?\s*(?:\u641c\u4e00\u4e0b|\u641c\u641c|\u641c\u7d22|\u67e5\u4e00\u4e0b|\u67e5\u67e5|\u67e5\u8be2|\u8054\u7f51\u67e5|\u8054\u7f51\u641c|\u7f51\u4e0a\u641c|\u767e\u5ea6\u4e00\u4e0b)\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
+    const explicit = raw.match(/^(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)?\s*(?:\u641c\u4e00\u4e0b|\u641c\u4e0b|\u641c\u641c(?:\u770b)?|\u641c\u7d22|\u67e5\u4e00\u4e0b|\u67e5\u4e0b|\u67e5\u67e5(?:\u770b)?|\u67e5\u8be2|\u770b\u770b|\u8054\u7f51\u67e5|\u8054\u7f51\u641c|\u7f51\u4e0a\u641c|\u767e\u5ea6\u4e00\u4e0b)\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
     if (explicit) {
       const query = this.cleanWebSearchQuery(explicit[1] || "");
       return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
@@ -799,7 +799,7 @@ export class FeishuBot {
     return String(text || "")
       .replace(/^[:\uff1a,\uff0c\s]+/, "")
       .replace(/(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)\s*/g, "")
-      .replace(/(?:\u770b\u770b|\u67e5\u67e5|\u641c\u641c|\u641c\u4e00\u4e0b|\u67e5\u4e00\u4e0b)$/g, "")
+      .replace(/(?:\u770b\u770b|\u67e5\u67e5(?:\u770b)?|\u641c\u641c(?:\u770b)?|\u641c\u4e00\u4e0b|\u641c\u4e0b|\u67e5\u4e00\u4e0b|\u67e5\u4e0b)$/g, "")
       .trim();
   }
 
