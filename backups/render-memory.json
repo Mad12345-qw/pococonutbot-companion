@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T04:57:56.748Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T05:08:07.348Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17553,6 +17553,142 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T04:21:08.446Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "查一下今天深圳天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03f80e38b4b2c3965614c9775",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:00:32.075Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天深圳天气\n📍 深圳今日（6月18日）天气速览 • 🌧️ 强降雨持续：阴天，有大雨到暴雨，气温 26–28°C，西南风3–4级，沿海、高地及海区阵风可达 8 级，相对湿度 80%–100%。 • ⚠️ 预警生效中：深圳市气象台已将暴雨橙色预警扩展至全市，并发布全市雷电黄色预警；过去 3 小时已出现强降雨，预计未来 2 小时仍有 30–40 毫米降水。 • 🏫 出行影响：全市中小学、幼儿园可视情况推迟上学；山洪、内涝、滑坡、泥石流等次生灾害风险较高，建议远离低洼地带、边坡、河道及山区。 • 📅 后续趋势：19 日起降雨明显减弱，转为多云间阴天、局部有（雷）阵雨；20–22 日端午假期以多云为主，偶有短时雷雨，气温回升至 32°C 左右，体感闷热。 • 🛡️ 温馨提示：雨伞先别收，户外活动避开积水路段；地质灾害具有滞后性，端午出行仍需警惕。 来源：深圳市气象台、博查、中国天气网（深圳特区报、宝安日报、腾讯新闻整理发布）。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T05:00:42.904Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03f61c68a0b3cd3b1f62f8fcb",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:01:04.589Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天黄金价格\n今日黄金价格速览（2026年6月17–18日） • 国际现货黄金：6月17日开盘约 4332.83 美元/盎司，日内最高 4349.17、最低 4312.99；当日午后一度站上 4360 美元/盎司（涨约 0.67%）。来源 [1][3] • 6月18日早盘：受前一晚美联储鹰派决议影响，金价一度暴跌至 4224 美元/盎司，随后反弹突破 4300 关口，报约 4299.27 美元/盎司（涨 0.98%）。来源 [4] • 国内黄金9999/9995（金投网报价）：约 938.50 元/克，较前一日小幅下跌（-0.21%）。来源 [2] • 国内品牌金饰（6月18日）：周生生 1309 元/克（下调7元）、老庙 1310 元/克（下调3元）、周大福维持 1312 元/克。来源 [4] • 数据来源提示：以上报价仅供参考，实际成交价以官方/品牌门店为准；金价日内波动较大，请关注最新行情。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T05:01:13.263Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "世界杯今天赛程",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03f4bb64a0b4a80a56aa80302",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:01:31.408Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：世界杯今天赛程\n• 6月19日（今天）世界杯赛程共4场，全部为小组赛第二轮，A组和B组各两场（来源：球天下体育、海口日报）： • 00:00 捷克 VS 南非 • 03:00 瑞士 VS 波黑 • 06:00 加拿大 VS 卡塔尔 • 09:00 墨西哥 VS 韩国 • 首轮战报：揭幕战墨西哥 2-0 战胜南非；韩国 2-1 击败捷克，墨西哥和韩国均已取得首胜（来源：OneFootball、澳客）。 • 6月20日预告赛程（北京时间）：01:00 葡萄牙 VS 刚果（金）、04:00 英格兰 VS 克罗地亚、07:00 加纳 VS 巴拿马、10:00 乌兹别克斯坦 VS 哥伦比亚（来源：海口日报、腾讯新闻）。 • 赛事概况：2026年美加墨世界杯由48支球队参赛，小组第三名也有晋级机会，转播权归属央视（来源：球天下体育、澳客）。 • 不确定项：搜索结果中未出现具体的即时比分、赔率数据及今日各场详细赔率盘口信息，如需实时数据建议查阅专业体育资讯平台。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T05:01:40.703Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "世界杯 阿根廷vs法国 投票",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03f201bca0b1dd5a1b41dc674",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:02:08.496Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：世界杯 阿根廷vs法国 投票\n⚠️ 搜索结果中未找到关于\"阿根廷vs法国\"的投票相关信息，无法直接回答该查询。 以下是搜索结果中与阿根廷世界杯相关的可用信息： • 2026世界杯阿根廷首战：北京时间6月17日，世界杯小组赛J组第1轮，阿根廷3-0战胜阿尔及利亚，梅西上演帽子戏法。（来源：网易） • CCTV5收视率：该场比赛实时收视率超2.1%，市占率近30%。（来源：24直播网） • 《队报》评分：梅西获评全场最高9分，麦卡利斯特、德保罗7分。（来源：24直播网） • 赛前预测分析：澳客、即嗨体育等平台曾对阿根廷vs阿尔及利亚比赛进行预测和分析，主要看好阿根廷胜出，但提示\"阿根廷世界杯首场大胜不多，基本1球小胜\"。（来源：即嗨体育、澳客） 📌 如需查询\"阿根廷vs法国\"投票专题，建议补充搜索关键词或提供更具体的背景（如比赛届次、投票平台等）。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T05:02:16.645Z"
       }
     ],
     "memories": [
@@ -18244,7 +18380,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T04:20:57.862Z"
+        "updatedAt": "2026-06-18T05:02:08.266Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18254,7 +18390,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T04:20:57.648Z"
+        "updatedAt": "2026-06-18T05:02:08.036Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -19576,6 +19712,11 @@
       }
     ],
     "settings": [
+      {
+        "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\"},\"counts\":{\"draw\":0,\"away\":1},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\"},\"updatedAt\":\"2026-06-18T05:02:29.771Z\"}",
+        "updatedAt": "2026-06-18T05:02:29.886Z"
+      },
       {
         "key": "gpt.enabled",
         "value": "false",
