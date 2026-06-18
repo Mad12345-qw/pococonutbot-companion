@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T08:02:10.293Z",
+  "exportedAt": "2026-06-18T08:22:07.593Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -18315,6 +18315,26 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T07:18:11.780Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "额，真的是每天都能学到新知识。。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0ed383b0a0c339d74f0e19243",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T08:18:36.438Z"
       }
     ],
     "memories": [
@@ -19946,7 +19966,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-18T03:56:30.653Z"
+        "updatedAt": "2026-06-18T08:18:36.217Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19956,7 +19976,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-18T03:56:30.420Z"
+        "updatedAt": "2026-06-18T08:18:35.947Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
