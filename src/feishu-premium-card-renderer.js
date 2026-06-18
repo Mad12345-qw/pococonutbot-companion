@@ -16,8 +16,17 @@ function premiumFontFiles() {
   return bundledFontFiles;
 }
 
+function stripUnsupportedGlyphs(value = "") {
+  return String(value || "")
+    .replace(/[\uFE0E\uFE0F]/g, "")
+    .replace(/[\p{Extended_Pictographic}]/gu, "")
+    .replace(/[\u2600-\u27BF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function safeText(value = "", max = 160) {
-  const cleaned = String(value || "")
+  const cleaned = stripUnsupportedGlyphs(value)
     .replace(/\.\.\.\[truncated\]/gi, "")
     .replace(/\[truncated\]/gi, "")
     .replace(/\s+/g, " ")
@@ -42,8 +51,17 @@ function lines(text = "", maxChars = 24, maxLines = 2) {
     const charWidth = /[A-Za-z0-9 .,/%:+-]/.test(char) ? 0.55 : 1;
     const currentWidth = [...current].reduce((sum, item) => sum + (/[A-Za-z0-9 .,/%:+-]/.test(item) ? 0.55 : 1), 0);
     if (currentWidth + charWidth > maxChars && current) {
-      output.push(current.trimEnd());
-      current = char;
+      let line = current.trimEnd();
+      let next = char;
+      if (/[A-Za-z0-9.%％℃°~+\-/]/.test(char)) {
+        const token = line.match(/[A-Za-z0-9.,/%％:+~℃°+\-/]+$/)?.[0] || "";
+        if (token && line.length > token.length) {
+          line = line.slice(0, -token.length).trimEnd();
+          next = `${token}${char}`;
+        }
+      }
+      output.push(line);
+      current = next;
       if (output.length >= maxLines) break;
     } else {
       current += char;
@@ -89,10 +107,12 @@ function textBlock({ text = "", x = 0, y = 0, size = 28, weight = 500, fill = "#
 
 function splitMetricValue(value = "") {
   const raw = safeText(value, 28);
+  const range = raw.match(/^([+-]?\d+(?:\.\d+)?)(?:\s*(?:~|至|-|—|－)\s*([+-]?\d+(?:\.\d+)?))\s*(℃|度|°C|°c)$/);
+  if (range) return { main: `${range[1]}~${range[2]}`, unit: range[3] === "度" || /^°c$/i.test(range[3]) ? "℃" : range[3] };
   const match = raw.match(/^([+-]?\d+(?:\.\d+)?)(.*)$/);
   if (!match) return { main: raw, unit: "" };
   const unit = match[2].trim();
-  return { main: match[1], unit };
+  return { main: match[1], unit: /^°c$/i.test(unit) ? "℃" : unit };
 }
 
 function summaryBullets(text = "", limit = 3) {
@@ -108,7 +128,7 @@ function summaryBullets(text = "", limit = 3) {
     .filter(Boolean);
   const items = byLine.length > 1
     ? byLine
-    : raw.split(/[。！？?]\s*/).map((line) => line.trim()).filter(Boolean);
+    : raw.split(/[。！？?；;]\s*/).map((line) => line.trim()).filter(Boolean);
   return items
     .map((item) => item.replace(/^\s*(?:(?:[-*•]|\d+[.)、])\s*)+/, "").trim())
     .filter((item) => item && !/^(?:天气)?[（(]?多地天气[，,、]?\s*仅供参考[）)]?$/.test(item))
@@ -117,10 +137,33 @@ function summaryBullets(text = "", limit = 3) {
 }
 
 function extractNumbers(text = "") {
-  return [...String(text || "").matchAll(/[+-]?\d+(?:\.\d+)?\s*(?:℃|度|%|％|美元\/盎司|美元|元\/克|元|点|BTC|USDT)?/g)]
+  return [...String(text || "").matchAll(/[+-]?\d+(?:\.\d+)?\s*(?:℃|度|°C|°c|%|％|美元\/盎司|美元|元\/克|元|点|BTC|USDT)?/g)]
     .map((match) => match[0].trim())
     .filter(Boolean)
     .slice(0, 6);
+}
+
+function extractTemperatures(text = "") {
+  return [...String(text || "").matchAll(/[+-]?\d+(?:\.\d+)?\s*(?:~|至|-|—|－)?\s*[+-]?\d*(?:\.\d+)?\s*(?:℃|度|°C|°c)/g)]
+    .map((match) => match[0].replace(/\s+/g, "").trim())
+    .filter(Boolean)
+    .filter((value) => !/^20\d{2}/.test(value))
+    .slice(0, 4);
+}
+
+function extractPercentages(text = "") {
+  return [...String(text || "").matchAll(/[+-]?\d+(?:\.\d+)?\s*(?:%|％)/g)]
+    .map((match) => match[0].replace(/\s+/g, "").trim())
+    .filter(Boolean)
+    .slice(0, 4);
+}
+
+function extractMarketValues(text = "") {
+  const values = [...String(text || "").matchAll(/[+-]?\d+(?:,\d{3})*(?:\.\d+)?\s*(?:美元\/盎司|美元|元\/克|元|点|BTC|USDT|%|％)/g)]
+    .map((match) => match[0].replace(/\s+/g, "").trim())
+    .filter(Boolean)
+    .filter((value) => !/^20\d{2}(?:年|美元|元|点)?$/.test(value));
+  return [...new Set(values)].slice(0, 6);
 }
 
 function combineText({ query = "", results = [], summary = "" }) {
@@ -266,7 +309,7 @@ function baseSvg({ kind, title, subtitle, metrics = [], bullets = [], poll = nul
     ${metricCards}
     ${poll ? renderPollBars(poll, p) : bulletRows}
     <rect x="76" y="944" width="748" height="76" rx="38" fill="#0F172A"/>
-    <text x="450" y="993" text-anchor="middle" font-size="29" font-weight="800" fill="#FFFFFF">${kind.startsWith("worldcup_poll") ? "点击下方按钮投票" : "打开资料与来源"}</text>
+    <text x="450" y="993" text-anchor="middle" font-size="29" font-weight="800" fill="#FFFFFF">${kind.startsWith("worldcup_poll") ? "点击下方按钮投票" : "点击下方信息来源看详情"}</text>
     <text x="76" y="1056" font-size="22" font-weight="500" fill="#64748B">Premium Feishu Card · Prismatic Widgets</text>
   </svg>`;
 }
@@ -321,13 +364,15 @@ function dataForKind({ query, results, summary, poll }) {
   const numbers = extractNumbers(text);
   if (kind === "weather") {
     const multiRegion = /多个地区|多地|综合/.test(summary);
+    const temperatures = extractTemperatures(text);
+    const percentages = extractPercentages(text);
     return {
       kind,
       title: safeText(query.replace(/查下|查询|今天|今日/g, "").trim() || "天气速览", 32),
       subtitle: multiRegion ? "多地天气，仅供参考" : bullets[0] || "天气、降雨和体感已整理好。",
       metrics: [
-        { label: "体感", value: numbers.find((item) => /℃|度/.test(item)) || numbers[0] || "待确认" },
-        { label: "降雨", value: numbers.find((item) => /%|％/.test(item)) || "看实况" },
+        { label: "温度", value: temperatures[0] || "待确认" },
+        { label: "降雨", value: percentages[0] || (/雨|降水|阵雨|暴雨|雷阵雨/.test(text) ? "看实况" : "待确认") },
         { label: "空气", value: /优/.test(text) ? "优" : /良/.test(text) ? "良" : "待确认" }
       ],
       bullets
@@ -336,12 +381,13 @@ function dataForKind({ query, results, summary, poll }) {
   if (kind === "price") {
     const up = /上涨|涨|走高|上行|升/.test(text);
     const down = /下跌|跌|走低|回落|降/.test(text);
+    const marketValues = extractMarketValues(text);
     return {
       kind,
       title: safeText(query, 32),
       subtitle: bullets[0] || "最新行情与主要变量已整理。",
       metrics: [
-        { label: "最新", value: numbers[0] || "待确认" },
+        { label: "最新", value: marketValues[0] || "待确认" },
         { label: "方向", value: up && down ? "震荡" : down ? "偏弱" : up ? "偏强" : "观察" },
         { label: "变量", value: "利率/美元" }
       ],
@@ -401,13 +447,47 @@ export function renderPremiumSearchCardImage({ query, results = [], summary = ""
   };
 }
 
+function hostnameFromUrl(value = "") {
+  try {
+    const hostname = new URL(value).hostname.replace(/^www\./i, "");
+    return hostname || "";
+  } catch {
+    return "";
+  }
+}
+
+function sourceLabel(item = {}, index = 0) {
+  const direct = safeText(item.siteName || item.source || item.provider || item.displayName || "", 16);
+  if (direct) return direct;
+  const displayUrl = safeText(item.displayUrl || item.url || "", 80);
+  const hostname = hostnameFromUrl(displayUrl) || displayUrl.replace(/^https?:\/\//i, "").split(/[/?#]/)[0];
+  if (!hostname) return `信息来源 ${index + 1}`;
+  const known = [
+    [/163\.com$/i, "网易新闻"],
+    [/(?:qq\.com|tencent\.com)$/i, "腾讯新闻"],
+    [/weather\.com\.cn$/i, "中国天气网"],
+    [/cma\.cn$/i, "中国气象局"],
+    [/sina\.com\.cn$/i, "新浪新闻"],
+    [/sohu\.com$/i, "搜狐新闻"],
+    [/ifeng\.com$/i, "凤凰网"],
+    [/people\.com\.cn$/i, "人民网"],
+    [/xinhuanet\.com$/i, "新华网"],
+    [/thepaper\.cn$/i, "澎湃新闻"]
+  ].find(([pattern]) => pattern.test(hostname));
+  if (known) return known[1];
+  const compact = hostname
+    .replace(/\.(com|cn|net|org|gov|edu)(\.[a-z]{2})?$/i, "")
+    .replace(/\.(news|finance|weather)$/i, "");
+  return safeText(compact || hostname, 16);
+}
+
 function sourceActions(results = [], limit = 3) {
   return results
     .filter((item) => /^https?:\/\//i.test(item.url))
     .slice(0, limit)
     .map((item, index) => ({
       tag: "button",
-      text: { tag: "plain_text", content: `资料 ${item.index || index + 1}` },
+      text: { tag: "plain_text", content: sourceLabel(item, index) },
       type: index === 0 ? "primary" : "default",
       url: item.url
     }));
