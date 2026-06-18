@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T06:03:48.621Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T06:23:59.919Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17941,6 +17941,74 @@
           "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
         },
         "createdAt": "2026-06-18T05:54:18.425Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "世界杯 阿根廷vs法国 投票",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0c9b576cacb15baf066c7baa0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:17:04.941Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：世界杯 阿根廷vs法国 投票\n搜索结果中未找到\"阿根廷 vs 法国\"的投票相关内容,主要为2026年美加墨世界杯J组小组赛阿根廷3-0战胜阿尔及利亚的报道: • 2026年世界杯小组赛J组首轮,阿根廷3-0击败阿尔及利亚,梅西上演帽子戏法,法媒《队报》给梅西打出全场最高的9分。 • 阿根廷以世预赛南美区第一的身份晋级,延续上届夺冠核心班底;阿尔及利亚阵中多名球员在法甲、德甲效力,锋线核心为马赫雷斯。 • 法国队同样征战2026年世界杯,但搜索结果中未出现阿根廷与法国直接交锋的赛程或投票信息。 • 第三方分析平台(如澳客、即嗨体育)围绕阿根廷 vs 阿尔及利亚赛事给出竞猜建议,但未涉及阿根廷 vs 法国的投票。 ⚠️ 说明:搜索结果中并无\"阿根廷 vs 法国 投票\"的直接信息,以上内容仅供参考,具体投票或对阵安排建议通过官方世界杯渠道核实。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:17:20.024Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0c944ae4b0b172c6d8f34d96d",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:18:20.373Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天黄金价格\n今日黄金价格(2026年6月18日) • 国内黄金9999:约 938.50 元/克,日内下跌约 0.21%(数据来源:金投网,6月17日收盘报价) • 国际现货黄金:在美联储鹰派决议后从4224美元低点反弹,18日早盘一度突破4300美元,后回落至约4242美元/盎司,日内跌幅约2% • 国内金饰克价:经历连续多日上涨后小幅下调——周生生 1309元/克(-7元)、老庙黄金 1310元/克(-3元)、周大福维持 1312元/克 • COMEX黄金期货主力:报约 4339.50 美元/盎司,日内跌约 0.34% • 市场观点:专家预计短期金价大概率在 4000–4800 美元/盎司区间震荡 ⚠️ 提示:以上数据综合自6月17–18日多来源报道,金价日内波动较大,实时价格请以官方渠道为准。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:18:34.494Z"
       }
     ],
     "memories": [
@@ -18632,7 +18700,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T05:11:24.608Z"
+        "updatedAt": "2026-06-18T06:18:20.150Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18642,7 +18710,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T05:11:24.386Z"
+        "updatedAt": "2026-06-18T06:18:19.925Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -19422,7 +19490,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-18T02:14:31.061Z"
+        "updatedAt": "2026-06-18T06:17:04.716Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19432,7 +19500,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-18T02:14:30.837Z"
+        "updatedAt": "2026-06-18T06:17:04.364Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -20006,8 +20074,8 @@
     "settings": [
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
-        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":0,\"away\":0,\"home\":1},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"home\"},\"updatedAt\":\"2026-06-18T05:12:31.938Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"阿根廷\"}",
-        "updatedAt": "2026-06-18T05:12:32.047Z"
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":2,\"away\":1,\"home\":0},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"draw\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\"},\"updatedAt\":\"2026-06-18T06:20:18.513Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"法国\"}",
+        "updatedAt": "2026-06-18T06:20:18.621Z"
       },
       {
         "key": "gpt.enabled",
