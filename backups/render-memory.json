@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T05:36:15.533Z",
+  "exportedAt": "2026-06-18T05:56:16.431Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -17909,6 +17909,38 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T05:36:04.957Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "不知不觉攒下那么多知识库要有效用起来有啥方案吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0c31f3fcbcb1ff9fdf6f3d103",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:54:03.602Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "想真正用起来，关键是让它\"主动找你\"，别光放在那积灰。\n\n🎯 先挑 3 个最高频的场景\n比如技术问答、写作素材、代码片段，别的先别管，集中喂相关的资料。\n\n🎯 配个自动入口\n群聊机器人、浏览器插件、每天定时推送都行，别让自己每次都去手动搜。\n\n🧩 定期清理\n过期的、重复的、低质量的删掉，留得越精，召回越准。\n\n💡 小建议\n先从一个真问题开始，比如\"帮我从知识库里找XX\"，跑通了再加场景。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T05:54:18.425Z"
       }
     ],
     "memories": [
@@ -19620,7 +19652,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-18T04:15:50.279Z"
+        "updatedAt": "2026-06-18T05:54:03.377Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19630,7 +19662,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-18T04:15:50.052Z"
+        "updatedAt": "2026-06-18T05:54:03.113Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
