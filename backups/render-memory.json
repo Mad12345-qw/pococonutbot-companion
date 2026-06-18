@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T06:39:27.058Z",
+  "exportedAt": "2026-06-18T06:48:27.935Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -18077,6 +18077,40 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T06:33:17.077Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0d602c3cacb4b4df476fa37d1",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:40:50.167Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天天气\n以下是根据搜索结果整理的天气信息(综合多个地区,仅供参考): • 北京:今天(6月18日)白天多云转阴,傍晚有分散性雷阵雨,最高气温31°C,最低气温24°C;19日阴有雷阵雨,局地伴7级以上短时大风和冰雹。 • 烟台开发区:多云间阴,南风短时北风,陆地3~4级,21~30°C;19日夜间到20日阴,局部有雷雨或阵雨。 • 当涂县(安徽):今天夜里多云,明天白天多云转阴有分散性阵雨或雷雨,23~31°C;19日阴有大雨、局部暴雨。 • 比如县(西藏):今天(6月18日)雷阵雨转小雨,5~18°C;未来一周多以小雨为主,气温在5~20°C之间。 • 其他地区:某地(疑似山东)夜间至18日白天多云间晴,偏西阵风4-5级转3级,24~35°C;19~20日最高气温可达37°C。 ⚠️ 提示:搜索结果未明确用户所在城市,以上为不同地区的天气汇总。如需准确天气,建议补充所在城市信息。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:41:16.312Z"
       }
     ],
     "memories": [
@@ -18768,7 +18802,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T06:33:02.447Z"
+        "updatedAt": "2026-06-18T06:40:49.936Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18778,7 +18812,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T06:33:02.225Z"
+        "updatedAt": "2026-06-18T06:40:49.672Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
