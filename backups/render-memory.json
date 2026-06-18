@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T06:48:27.935Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T06:58:39.328Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -18111,6 +18111,74 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T06:41:16.312Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0d1f7328b0b2232d281e51a03",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:50:08.058Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天黄金价格\n📌 今日(2026年6月18日)黄金价格概况 • 国际现货黄金:早盘从盘中低点反弹,一度突破4300美元/盎司,截至发稿报约4299美元/盎司,日内涨0.98%。昨夜曾因美联储鹰派决议暴跌逾2%,最低触及4224美元/盎司(来源:腾讯新闻、汇通财经)。 • 国内金饰克价:经历连续多日上涨后,今日部分品牌小幅下调——周生生1309元/克(-7元)、老庙黄金1310元/克(-3元)、周大福维持1312元/克(来源:腾讯新闻)。 • 上海黄金交易所黄金9999:报938.50元/克,日内下跌0.21%(来源:金投网,6月17日数据)。 • 专家观点:短期金价大概率在 4000–4800美元/盎司 区间震荡(来源:腾讯新闻)。 • ⚠️ 注意:黄金价格日内波动剧烈,以上数据为搜索结果中的快照,实时价格请以官方渠道为准。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:50:34.619Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天武汉天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0d1974d0a0b30e60bbde5684a",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:51:43.048Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天武汉天气\n📍 武汉天气速报（2026年6月18日） • 🌧️ 今天白天：阴天有阵雨或雷阵雨，夜间转大雨、局地暴雨并伴有雷电；气温 24~31°C，偏东风 2~3 级、阵风 4~5 级。 • ⚠️ 今晚至明晨降雨最强：18日夜间至19日上午有大雨到暴雨、局地大暴雨，可能伴 8~10 级雷暴大风。 • 🌂 未来一周多阴雨：19日中到大雨转小雨（24~29°C），20日小雨（23~30°C），21日中雨（22~29°C），体感闷热潮湿。 • ☔ 18–22日累计雨量预计 200~300 毫米，局地超 400 毫米；最大小时雨强 40~80 毫米，需防范城市内涝和地质灾害。 • 📝 温馨提示：今天武汉正式入梅（梅雨季开启），恰逢中考（6月20–22日）和端午假期，请考生提前1小时以上出门，户外携带雨具、避开低洼积水路段。 ⚠️ 注：以上为天气预报预测，实际天气存在实时变化可能，请关注中国天气网最新更新。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:52:10.443Z"
       }
     ],
     "memories": [
@@ -18802,7 +18870,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T06:40:49.936Z"
+        "updatedAt": "2026-06-18T06:51:42.831Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18812,7 +18880,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T06:40:49.672Z"
+        "updatedAt": "2026-06-18T06:51:42.614Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -20176,8 +20244,8 @@
     "settings": [
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
-        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":1,\"away\":2,\"home\":0},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\"},\"updatedAt\":\"2026-06-18T06:32:48.951Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"法国\"}",
-        "updatedAt": "2026-06-18T06:32:49.061Z"
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":1,\"away\":2,\"home\":2},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\"},\"updatedAt\":\"2026-06-18T06:56:56.035Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"阿根廷\"}",
+        "updatedAt": "2026-06-18T06:56:56.149Z"
       },
       {
         "key": "gpt.enabled",
