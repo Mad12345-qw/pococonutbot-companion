@@ -149,9 +149,10 @@ function textForKind(query = "", results = []) {
 
 export function classifySearchCard(query = "", results = []) {
   const text = textForKind(query, results);
-  if (/(?:世界杯|FIFA|World Cup|足球|比赛|赛程|对阵|比分|小组赛|淘汰赛|积分榜|预测|胜率|投票|支持哪队)/i.test(text)) {
-    if (/(?:投票|支持|押|猜|选哪|站哪边|谁赢)/i.test(text)) return "worldcup_poll";
-    if (/(?:预测|胜率|谁会赢|分析|看好|赔率)/i.test(text)) return "worldcup_prediction";
+  const queryText = String(query || "");
+  if (/(?:世界杯|FIFA|World Cup|worldcup|足球|赛程|对阵|比分|小组赛|淘汰赛|积分榜)/i.test(queryText)) {
+    if (/(?:投票|支持|押|猜|选哪|站哪边|谁赢)/i.test(queryText)) return "worldcup_poll";
+    if (/(?:预测|胜率|谁会赢|分析|看好|赔率)/i.test(queryText)) return "worldcup_prediction";
     return "worldcup_schedule";
   }
   if (/(?:天气|气温|温度|下雨|降雨|降水|空气质量|AQI|穿什么|台风|暴雨|预报|晴|多云|雷阵雨)/i.test(text)) {

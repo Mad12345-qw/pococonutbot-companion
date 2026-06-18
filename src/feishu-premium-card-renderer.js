@@ -21,7 +21,7 @@ function stripUnsupportedGlyphs(value = "") {
     .replace(/[\uFE0E\uFE0F]/g, "")
     .replace(/[\p{Extended_Pictographic}]/gu, "")
     .replace(/[\u2600-\u27BF]/g, "")
-    .replace(/\s+/g, " ")
+    .replace(/[^\S\r\n]+/g, " ")
     .trim();
 }
 
@@ -29,7 +29,7 @@ function safeText(value = "", max = 160) {
   const cleaned = stripUnsupportedGlyphs(value)
     .replace(/\.\.\.\[truncated\]/gi, "")
     .replace(/\[truncated\]/gi, "")
-    .replace(/\s+/g, " ")
+    .replace(/[^\S\r\n]+/g, " ")
     .trim();
   if (cleaned.length <= max) return cleaned;
   return `${cleaned.slice(0, Math.max(1, max - 1)).trimEnd()}…`;
@@ -116,10 +116,13 @@ function splitMetricValue(value = "") {
 }
 
 function summaryBullets(text = "", limit = 3) {
-  const raw = safeText(text, 320)
+  const raw = stripUnsupportedGlyphs(text)
+    .replace(/\.\.\.\[truncated\]/gi, "")
+    .replace(/\[truncated\]/gi, "")
     .replace(/以下是根据搜索结果整理的?/g, "")
     .replace(/综合多个地区[，,、]?\s*仅供参考/g, "多地天气，仅供参考")
     .replace(/天气信息/g, "天气")
+    .replace(/[^\S\r\n]+/g, " ")
     .trim();
   if (!raw) return [];
   const byLine = raw
@@ -172,9 +175,10 @@ function combineText({ query = "", results = [], summary = "" }) {
 
 function classifyPremiumKind(query = "", results = []) {
   const text = [query, ...results.slice(0, 4).flatMap((item) => [item.title, item.summary, item.snippet, item.siteName])].join("\n");
-  if (/(?:世界杯|FIFA|World Cup|worldcup|足球|比赛|赛程|对阵|比分|积分|预测|胜率|投票|支持哪队)/i.test(text)) {
-    if (/(?:投票|支持|猜|选哪|站哪边|谁赢)/i.test(text)) return "worldcup_poll";
-    if (/(?:预测|胜率|谁会赢|分析|看好|赔率)/i.test(text)) return "worldcup_prediction";
+  const queryText = String(query || "");
+  if (/(?:世界杯|FIFA|World Cup|worldcup|足球|赛程|对阵|比分|小组赛|淘汰赛|积分榜)/i.test(queryText)) {
+    if (/(?:投票|支持|猜|选哪|站哪边|谁赢)/i.test(queryText)) return "worldcup_poll";
+    if (/(?:预测|胜率|谁会赢|分析|看好|赔率)/i.test(queryText)) return "worldcup_prediction";
     return "worldcup_schedule";
   }
   if (/(?:天气|气温|温度|下雨|降雨|降水|空气质量|AQI|穿什么|台风|暴雨|预报|晴|多云|雷阵雨)/i.test(text)) return "weather";
@@ -457,6 +461,11 @@ function hostnameFromUrl(value = "") {
 }
 
 function sourceLabel(item = {}, index = 0) {
+  const rawUrl = String(item.url || item.displayUrl || "");
+  const rawHost = hostnameFromUrl(rawUrl) || rawUrl.replace(/^https?:\/\//i, "").split(/[/?#]/)[0];
+  if (/github\.com$/i.test(rawHost) && /[\w.-]+\s*\/\s*[\w.-]+/.test(item.title || "")) {
+    return safeText(String(item.title).replace(/\s*\/\s*/, "/"), 22);
+  }
   const direct = safeText(item.siteName || item.source || item.provider || item.displayName || "", 16);
   if (direct) return direct;
   const displayUrl = safeText(item.displayUrl || item.url || "", 80);

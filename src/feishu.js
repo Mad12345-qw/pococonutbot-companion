@@ -958,6 +958,10 @@ export class FeishuBot {
       return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
     }
 
+    if (this.isGithubTrendingRequest(raw)) {
+      return { requested: true, query: this.cleanWebSearchQuery(raw) || "今天 GitHub 热门仓库 Top 3", freshness: "oneDay", githubTrending: true };
+    }
+
     if (/(?:\u5929\u6c14|\u6c14\u6e29|\u6e29\u5ea6|\u4e0b\u96e8|\u964d\u96e8|\u964d\u6c34|\u7a7a\u6c14\u8d28\u91cf|AQI|\u7a7f\u4ec0\u4e48|\u53f0\u98ce|\u66b4\u96e8|\u9884\u62a5)/i.test(raw) && /(?:\u4eca\u5929|\u4eca\u65e5|\u660e\u5929|\u5468\u672b|\u73b0\u5728|\u672c\u5468|\u600e\u4e48\u6837|\u5982\u4f55|\u591a\u5c11|\u67e5|\u770b|\u4f1a\u4e0d\u4f1a|\u9002\u5408|\u9884\u62a5)/.test(raw)) {
       return { requested: true, query: this.cleanWebSearchQuery(raw), freshness: this.pickWebSearchFreshness(raw) };
     }
@@ -984,6 +988,11 @@ export class FeishuBot {
       .trim();
   }
 
+  isGithubTrendingRequest(text = "") {
+    const value = String(text || "");
+    return /github/i.test(value) && /(?:热榜|热门|趋势|trending|榜单|排行|仓库|repo|repository|开源项目)/i.test(value);
+  }
+
   pickWebSearchFreshness(text = "") {
     return inferSearchFreshness(text, this.config.bochaSearchFreshness || "noLimit");
   }
@@ -999,6 +1008,10 @@ export class FeishuBot {
     }
 
     try {
+      if (request.githubTrending || this.isGithubTrendingRequest(request.query)) {
+        await this.handleGithubTrendingRequest({ messageId, chatId, userId, query: request.query });
+        return;
+      }
       logEvent("info", "Feishu web search started", { chatId, userId, query: request.query, freshness: request.freshness });
       const search = await this.webSearch.search(request.query, { freshness: request.freshness });
       const summary = await this.generateWebSearchSummary(request.query, search.results);
@@ -1022,6 +1035,113 @@ export class FeishuBot {
       logEvent("error", "Feishu web search failed", { chatId, query: request.query, error: error.message });
       await this.replyText(messageId, `\u6211\u521a\u521a\u641c\u4e86\u4e00\u4e0b\uff0c\u4f46\u6ca1\u628a\u7ed3\u679c\u6574\u7406\u51fa\u6765\uff1a${truncate(error.message, 500)}`);
     }
+  }
+
+  async handleGithubTrendingRequest({ messageId, chatId, userId, query = "" }) {
+    let repos = [];
+    try {
+      repos = await this.fetchGithubTrendingRepos(3);
+    } catch (error) {
+      logEvent("warn", "GitHub trending direct fetch failed; falling back to web search", { error: error.message });
+    }
+    if (!repos.length && this.webSearch?.enabled) {
+      const fallback = await this.webSearch.search("GitHub Trending repositories today top 3", { freshness: "oneDay", count: 6 });
+      repos = fallback.results
+        .filter((item) => /github\.com/i.test(item.url || item.displayUrl || item.siteName || ""))
+        .slice(0, 3)
+        .map((item) => ({
+          title: item.title,
+          url: item.url,
+          summary: item.summary || item.snippet,
+          language: "",
+          starsToday: ""
+        }));
+    }
+    if (!repos.length) {
+      await this.replyText(messageId, "我刚刚看了 GitHub 热榜，但没有稳定解析到仓库列表。你稍后再试一次。");
+      return;
+    }
+
+    const summary = repos.map((repo, index) => {
+      const meta = [repo.language, repo.starsToday].filter(Boolean).join(" · ");
+      return `${index + 1}. ${repo.title}${meta ? `（${meta}）` : ""}：${repo.summary || "今日 GitHub Trending 仓库。"}`;
+    }).join("\n");
+    const search = {
+      query: "GitHub Trending repositories today",
+      freshness: "oneDay",
+      results: repos.map((repo, index) => ({
+        title: repo.title,
+        url: repo.url,
+        displayUrl: repo.url,
+        siteName: "GitHub",
+        summary: repo.summary,
+        snippet: [repo.language, repo.starsToday].filter(Boolean).join(" · "),
+        publishedAt: "",
+        index: index + 1
+      }))
+    };
+    const card = await this.buildWebSearchCard({ query: query || "今天 GitHub 热门仓库 Top 3", search, summary });
+    await this.replyCard(messageId, card);
+    await this.storage.addMessage({
+      chatId,
+      userId,
+      role: "assistant",
+      modality: "card",
+      content: `GitHub 热门仓库 Top 3\n${summary}`,
+      metadata: {
+        platform: "feishu",
+        replyToUserId: userId,
+        githubTrending: true,
+        resultCount: repos.length
+      }
+    });
+    logEvent("info", "Feishu GitHub trending card sent", { chatId, results: repos.length });
+  }
+
+  async fetchGithubTrendingRepos(limit = 3) {
+    const response = await fetch("https://github.com/trending?since=daily", {
+      signal: AbortSignal.timeout(20000),
+      headers: {
+        "User-Agent": "Mozilla/5.0 FeishuBot/1.0",
+        Accept: "text/html,application/xhtml+xml"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`GitHub Trending HTTP ${response.status}`);
+    }
+    const html = await response.text();
+    return this.parseGithubTrendingRepos(html, limit);
+  }
+
+  parseGithubTrendingRepos(html = "", limit = 3) {
+    const clean = (value = "") => String(value || "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&amp;/g, "&")
+      .replace(/&quot;/g, "\"")
+      .replace(/&#39;/g, "'")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/\s+/g, " ")
+      .trim();
+    return String(html || "")
+      .split('<article class="Box-row"')
+      .slice(1, Number(limit || 3) + 1)
+      .map((article) => {
+        const repoMatch = article.match(/<h2[^>]*>[\s\S]*?<a\b[^>]*href="([^"]+)"[\s\S]*?>([\s\S]*?)<\/a>/);
+        const descMatch = article.match(/<p[^>]*class="[^"]*col-9[^"]*"[^>]*>([\s\S]*?)<\/p>/);
+        const langMatch = article.match(/itemprop="programmingLanguage">([^<]+)</);
+        const starsTodayMatch = article.match(/<span[^>]*class="[^"]*float-sm-right[^"]*"[^>]*>([\s\S]*?)<\/span>/);
+        const title = repoMatch ? clean(repoMatch[2]).replace(/\s*\/\s*/, "/") : "";
+        const href = repoMatch?.[1] || "";
+        return {
+          title,
+          url: href ? `https://github.com${href}` : "",
+          summary: clean(descMatch?.[1] || ""),
+          language: clean(langMatch?.[1] || ""),
+          starsToday: clean(starsTodayMatch?.[1] || "")
+        };
+      })
+      .filter((repo) => repo.title && repo.url);
   }
 
   async generateWebSearchSummary(query, results = []) {
