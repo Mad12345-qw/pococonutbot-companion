@@ -36,13 +36,17 @@ export class GitHubMemoryBackup {
     }
 
     console.log(`GitHub memory backup enabled for ${this.config.githubBackupRepo}/${this.config.githubBackupPath}`);
-    await this.ensureBranch();
+    try {
+      await this.ensureBranch();
 
-    if (this.config.restoreMemoryFromGithub && await this.storage.isEmpty()) {
-      await this.restoreLatest();
+      if (this.config.restoreMemoryFromGithub && await this.storage.isEmpty()) {
+        await this.restoreLatest();
+      }
+
+      await this.backupNow("startup");
+    } catch (error) {
+      console.error("GitHub memory backup startup failed:", error.message);
     }
-
-    await this.backupNow("startup");
 
     const intervalMs = Math.max(5, this.config.githubBackupIntervalMinutes) * 60 * 1000;
     setInterval(() => {
@@ -105,7 +109,17 @@ export class GitHubMemoryBackup {
 
     try {
       const file = await this.request(`/repos/${owner}/${repo}/contents/${path}?ref=${branch}`);
-      const parsed = JSON.parse(fromBase64Utf8(file.content));
+      const decoded = fromBase64Utf8(file.content).trim();
+      if (!decoded) {
+        return { sha: file.sha, snapshot: null };
+      }
+      let parsed;
+      try {
+        parsed = JSON.parse(decoded);
+      } catch (error) {
+        console.warn(`Ignoring invalid GitHub memory backup JSON at ${this.config.githubBackupPath}: ${error.message}`);
+        return { sha: file.sha, snapshot: null };
+      }
       return { sha: file.sha, snapshot: parsed };
     } catch (error) {
       if (error.status === 404) return { sha: "", snapshot: null };
