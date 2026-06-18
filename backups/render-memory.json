@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T00:16:58.073Z",
+  "exportedAt": "2026-06-18T00:26:57.877Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -15193,6 +15193,102 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T00:07:37.718Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "user",
+        "modality": "text",
+        "content": "· SpaceX 换股600亿美元收购AI编程工具Cursor，补齐xAI编程短板\n· \n· 深度求索DeepSeek完成首轮融资，梁文锋个人出资200亿，投后估值500亿美元\n· \n· ChatGPT全球市场份额首次跌破50%，Gemini、Claude份额持续上涨\n· \n· 微信支付将上线AI专属卡，AI版支付宝“阿宝”正式推出\n· \n· 小米MiMo Claw（龙虾）正式上线，每日免费使用4小时\n· \n· 谷歌推送Android 17正式版，深度集成Gemini等AI能力\n· \n· 高通发布骁龙Reality Elite XR芯片，AI算力提升160%",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07ee0a3ca4b4ad8d33113ad05",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_19a11d6043b7d6ac623140e155d940b8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:21:36.912Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小米也开始做龙虾了？4小时免费还挺香的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
+        },
+        "createdAt": "2026-06-18T00:21:42.339Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么设置机器人语音给个教程",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07ead370a4b3434a74ec39d2f",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_19a11d6043b7d6ac623140e155d940b8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:22:29.781Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "设置机器人语音？要看你在哪个平台用，不同平台方法不一样~\n\n你是想在飞书里设置还是其他工具里？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
+        },
+        "createdAt": "2026-06-18T00:22:33.873Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "user",
+        "modality": "text",
+        "content": "才发现你是邓紫棋",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07e7d0d0acb4c8cb928ac9172",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_19a11d6043b7d6ac623140e155d940b8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:23:49.949Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈 还真有点像邓紫棋诶 不过我没听过自己声音 你不说我都不知道😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
+        },
+        "createdAt": "2026-06-18T00:23:53.225Z"
       }
     ],
     "memories": [
@@ -16829,12 +16925,22 @@
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
         "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "key": "interests.bot_voice_setup",
+        "value": "用户对设置机器人语音功能感兴趣，希望获得相关教程",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-18T00:22:51.469Z",
+        "updatedAt": "2026-06-18T00:22:51.469Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:07:37.497Z",
-        "updatedAt": "2026-06-18T00:07:37.497Z"
+        "updatedAt": "2026-06-18T00:23:49.735Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -16844,7 +16950,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:07:37.257Z",
-        "updatedAt": "2026-06-18T00:07:37.257Z"
+        "updatedAt": "2026-06-18T00:23:49.521Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
