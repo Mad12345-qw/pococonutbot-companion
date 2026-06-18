@@ -1,5 +1,5 @@
 import { Resvg } from "@resvg/resvg-js";
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { worldCupPollId } from "./feishu-card-templates.js";
@@ -12,14 +12,8 @@ let bundledFontFiles = null;
 
 function premiumFontFiles() {
   if (bundledFontFiles) return bundledFontFiles;
-  const fontDir = path.resolve(__dirname, "..", "node_modules", "lxgw-wenkai-screen-webfont", "files");
-  if (!existsSync(fontDir)) {
-    bundledFontFiles = [];
-    return bundledFontFiles;
-  }
-  bundledFontFiles = readdirSync(fontDir)
-    .filter((file) => /^lxgwwenkaiscreen-subset-\d+\.woff2$/i.test(file))
-    .map((file) => path.join(fontDir, file));
+  const fontFile = path.resolve(__dirname, "..", "assets", "fonts", "LXGWWenKaiScreen.ttf");
+  bundledFontFiles = existsSync(fontFile) ? [fontFile] : [];
   return bundledFontFiles;
 }
 
