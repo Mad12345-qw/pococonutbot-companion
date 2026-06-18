@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T03:59:13.941Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T04:09:24.645Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17387,6 +17387,40 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-18T03:56:36.169Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "搜一下为什么今天黄金价格为什么涨？",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c02916f14a8b34cac10f63e1be",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T04:03:09.404Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "Web search card: 为什么今天黄金价格为什么涨？\n黄金价格上涨原因（2026年6月18日） • 美伊初步停火：6月15日美伊达成初步和平协议，拟于6月19日在瑞士正式签署。冲突降温使油价大跌、布伦特原油跌超4%，通胀预期回落，黄金持有成本下降。 • 美元走弱：停火消息叠加美联储降息预期松动，美元指数跌至十日低位，以美元计价的黄金获得支撑。 • 历史性涨幅延续：黄金已突破4350美元/盎司，年内累计涨幅超65%，黄金ETF（518800）连续5个交易日净流入超28亿元，央行连续11个月增持黄金。 • 结构性买盘支撑：美国关税冲击、政府停摆风险、美元信用体系结构性松动（债务膨胀、国债承接力下降），推动黄金作为\"美元镜像\"和对冲工具的配置需求。 • 来源说明：以上日期与价格数据来自搜索结果中标注的2026年6月报道，请以实际日期为准。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T04:03:17.423Z"
       }
     ],
     "memories": [
@@ -18068,7 +18102,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-17T17:23:44.597Z"
+        "updatedAt": "2026-06-18T04:03:09.182Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18078,7 +18112,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-17T17:23:44.371Z"
+        "updatedAt": "2026-06-18T04:03:08.956Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
