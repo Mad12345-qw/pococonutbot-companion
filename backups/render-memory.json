@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T09:02:07.386Z",
+  "exportedAt": "2026-06-18T09:22:07.789Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -18335,6 +18335,194 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T08:18:36.438Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "兄弟们，我又把语音tts的token冲满了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0f33990424b15c4f5178fbc17",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:18:21.600Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "又冲满了？哥们你是真能聊啊……一天到晚在那嘶嘶嘶烧钱不心疼是吧？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T09:18:29.317Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "看看今天github热榜是什么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0f30439cacb0432147f82076d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:18:45.527Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "user",
+        "modality": "text",
+        "content": "我靠 ，这个可以",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0fceeeb4acc2a943af555344c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:19:06.208Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "GitHub 热门仓库 Top 3\n1. DeusData/codebase-memory-mcp（C · 371 stars today）：High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies.\n2. n0-computer/iroh（Rust · 421 stars today）：IP addresses break, dial keys instead. Modular networking stack in Rust.\n3. Panniantong/Agent-Reach（Python · 1,161 stars today）：Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+        "metadata": {
+          "platform": "feishu",
+          "resultCount": 3,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "githubTrending": true
+        },
+        "createdAt": "2026-06-18T09:19:07.770Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "user",
+        "modality": "text",
+        "content": "给我唱首歌 ，痒",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0fcfdb4ca8c3310b43df0381f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:19:20.994Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 痒 - 黄龄",
+        "metadata": {
+          "singer": "黄龄",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "痒",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64"
+        },
+        "createdAt": "2026-06-18T09:20:10.883Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我看看这个是什么活动",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0fcb7114b0b1b5d2d770fa9a6",
+          "rawChatId": "oc_b370d47fae4430fda8501e7676d0d3f0",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:20:31.758Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：这个是什么活动\n• 搜索结果中没有直接回答\"这个是什么活动\"这一具体问题，无法判断用户指的是哪类活动。 • 相关结果涉及多个不同场景的活动询问，包括：游戏《坦克世界闪击战》的活动、虚拟主播\"彩虹社\"的德比3D披露会、《诛仙》游戏活动等。 • 还有知乎、一起活动吧、中国日报网等平台的泛活动讨论帖，但均缺乏明确指向性。 • 建议用户提供更多上下文（如活动名称、截图或来源链接），以便进一步确认。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T09:20:59.984Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "嚯！好牛的小椰！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0fc652d0b8b2ef63fbefc4159",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T09:21:20.030Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嘿嘿，被夸了开心～有啥想听的随时叫我呀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a"
+        },
+        "createdAt": "2026-06-18T09:21:24.652Z"
       }
     ],
     "memories": [
@@ -19479,6 +19667,26 @@
         "updatedAt": "2026-06-08T09:28:12.765Z"
       },
       {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:20:31.533Z",
+        "updatedAt": "2026-06-18T09:20:31.533Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:20:31.307Z",
+        "updatedAt": "2026-06-18T09:20:31.307Z"
+      },
+      {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
         "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
         "key": "profile.feishu_open_id",
@@ -19816,7 +20024,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-18T06:17:04.716Z"
+        "updatedAt": "2026-06-18T09:18:45.306Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19826,7 +20034,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-18T06:17:04.364Z"
+        "updatedAt": "2026-06-18T09:18:45.086Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19837,6 +20045,16 @@
         "metadata": {},
         "createdAt": "2026-06-17T14:44:20.902Z",
         "updatedAt": "2026-06-17T14:44:20.902Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "projects.tts",
+        "value": "用户使用语音TTS服务，会反复充值token，说明使用频率很高",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:18:44.379Z",
+        "updatedAt": "2026-06-18T09:18:44.379Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19890,6 +20108,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:19:05.982Z",
+        "updatedAt": "2026-06-18T09:19:20.777Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:19:05.756Z",
+        "updatedAt": "2026-06-18T09:19:20.560Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
@@ -19907,6 +20145,26 @@
         "metadata": {},
         "createdAt": "2026-06-18T05:19:24.739Z",
         "updatedAt": "2026-06-18T05:20:07.562Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:21:19.815Z",
+        "updatedAt": "2026-06-18T09:21:19.815Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T09:21:19.600Z",
+        "updatedAt": "2026-06-18T09:21:19.600Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
