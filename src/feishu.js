@@ -289,6 +289,29 @@ function looksLikeLongFormReadingRequest(text = "") {
   return /(文档|文章|链接|网页|内容|学习|总结|精华|重点|亮点|怎么玩|怎么做|玩法|规则|细则|策划|方案|文字发我|转文字|摘要|概括|整理|分析|评价)/i.test(String(text || ""));
 }
 
+function looksLikeContextReferenceRequest(text = "") {
+  const value = String(text || "").trim();
+  if (!value) return false;
+  return (
+    /(这个|这条|这篇|这份|这段|上面|上边|刚才|引用|原文|资料|内容|文档|文章|链接|帖子|截图|长图)/i.test(value) &&
+    /(看看|看下|看一下|读一下|阅读|总结|整理|概括|提炼|复盘|分析|评价|提取|精华|重点|亮点|文字发我|转文字)/i.test(value)
+  );
+}
+
+function looksLikeHardWebSearchIntent(text = "") {
+  const value = String(text || "").trim();
+  if (!value) return false;
+  return (
+    /^\/(?:search|web|news|weather|worldcup|wc)\b/i.test(value) ||
+    /(搜一下|搜下|搜搜看|搜索|查一下|查下|查查看|查询|联网查|联网搜|网上搜|百度一下)/i.test(value) ||
+    /(?:天气|气温|温度|下雨|降雨|空气质量|AQI|台风|暴雨|预报).*(?:今天|今日|明天|现在|本周|周末|多少|会不会|适合)/i.test(value) ||
+    /(?:价格|行情|报价|金价|黄金|白银|汇率|股价|股票|指数|油价|利率|CPI|PPI|BTC|USDT|比特币|人民币|美元)/i.test(value) ||
+    /(?:世界杯|FIFA|World Cup|worldcup|足球).*(?:赛程|对阵|比分|积分|预测|胜率|投票|支持|谁赢)/i.test(value) ||
+    /github.*(?:热榜|热门|趋势|trending|榜单|排行|仓库|repo|repository|开源项目)/i.test(value) ||
+    /^(?:最新|今天|今日|现在|近期|最近)[\s\S]{2,}(?:新闻|消息|进展|动态|政策|情况|热搜|榜单|发布|更新)/i.test(value)
+  );
+}
+
 function cleanMarkdownInline(text = "") {
   return String(text || "")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
@@ -741,6 +764,11 @@ export class FeishuBot {
       rawMessageText,
       text: safeUserText
     });
+    const shouldUseWebSearch = webSearchRequest.requested && !this.shouldPreferLinkReadingOverSearch({
+      text: safeUserText,
+      linkContext,
+      request: webSearchRequest
+    });
     const contextualUserText = this.withLinkContext(safeUserText, linkContext);
     const imageDataUrl = imageMessage ? await this.downloadImageMessage(message, content) : "";
     if (imageMessage && !imageDataUrl) return;
@@ -813,7 +841,7 @@ export class FeishuBot {
       return;
     }
 
-    if (webSearchRequest.requested) {
+    if (shouldUseWebSearch) {
       this.handleWebSearchRequest({
         messageId: message.message_id,
         chatId,
@@ -951,6 +979,9 @@ export class FeishuBot {
     const explicit = raw.match(/^(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)?\s*(?:\u641c\u4e00\u4e0b|\u641c\u4e0b|\u641c\u641c(?:\u770b)?|\u641c\u7d22|\u67e5\u4e00\u4e0b|\u67e5\u4e0b|\u67e5\u67e5(?:\u770b)?|\u67e5\u8be2|\u770b\u770b|\u8054\u7f51\u67e5|\u8054\u7f51\u641c|\u7f51\u4e0a\u641c|\u767e\u5ea6\u4e00\u4e0b)\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
     if (explicit) {
       const query = this.cleanWebSearchQuery(explicit[1] || "");
+      if (!looksLikeHardWebSearchIntent(raw) && looksLikeContextReferenceRequest(query || raw)) {
+        return { requested: false, query: "", freshness: "" };
+      }
       return { requested: true, query, freshness: this.pickWebSearchFreshness(raw) };
     }
 
@@ -978,6 +1009,19 @@ export class FeishuBot {
     }
 
     return { requested: false, query: "", freshness: "" };
+  }
+
+  shouldPreferLinkReadingOverSearch({ text = "", linkContext = "", request = {} } = {}) {
+    if (!request?.requested || !linkContext) return false;
+    if (request.githubTrending) return false;
+    if (looksLikeHardWebSearchIntent(text)) return false;
+    if (!looksLikeContextReferenceRequest(text) && !looksLikeLongFormReadingRequest(text)) return false;
+
+    logEvent("info", "Feishu link reading preferred over web search", {
+      query: request.query || "",
+      linkChars: String(linkContext || "").length
+    });
+    return true;
   }
 
   cleanWebSearchQuery(text = "") {
