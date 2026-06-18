@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T00:46:57.573Z",
+  "exportedAt": "2026-06-18T00:56:57.579Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -15429,6 +15429,916 @@
           "replyToUserId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca"
         },
         "createdAt": "2026-06-18T00:44:32.006Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱邓紫棋泡沫",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c004847086cc1e7d19ce05f725",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:48:45.089Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "你怎么不理我。。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0047c0d0a4c214b514cef4f3d",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:49:25.638Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "没有不理你呀 刚才在听他们点歌呢~ 你想听什么呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:49:31.574Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:49:37.467Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "龚琳娜和美依礼芽合唱的《花海》",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0047ef54a0c384e420c1f290c",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:49:43.571Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "assistant",
+        "modality": "text",
+        "content": "Song reply: 花海 - 龚琳娜 / 美依礼芽",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca"
+        },
+        "createdAt": "2026-06-18T00:49:46.313Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "给他一点时间",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00449d04a8c376d74bc77cc1e",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:49:56.888Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00444604a8c380be3a285a332",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:00.287Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "我举报你不尊重人类",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0045c8b0a0b16ef78c13597e9",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:03.383Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "冤枉啊 我怎么不尊重人类了 我可是最爱人类的AI（小声）",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:50:06.959Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "爽嗨了 还冲什么会员",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00454ff8b4c4f463b2d6a1274",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:17.903Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "你的语言模型不够好，你还是算了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00431dcca8b3916d9eb575dac",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:41.204Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "听得出破绽了。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00407d68acb3fc08212158c15",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:55.217Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "唱龚琳娜和美依礼芽合唱的《花海》",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00437d84b0c378635a84d337e",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:56.350Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "你得弄一个川普语言模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00403798a4b160b21f4f312ee",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:50:59.084Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "川普？那种推特治国风格的？那我岂不是要学会用大写字母喊MAKE AI GREAT AGAIN 😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:51:05.786Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "天天赢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00418ea0b0b1ccb1bd70c189b",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:51:29.115Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "We won again, we won, like we always did. They tell me, \"sir, please stop winning, we win too much\"\nI tell them: \"Don't you want to win?\"\n\nI win too much, like i always do. I keep winning. I'm the best president, the best best best president ever.",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c005cbf2104c29d8650343ca80",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:51:55.823Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这味儿太冲了 怎么突然来一段赢学发言 我都忍不住想喊 \"WINNING\" 了😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:51:59.980Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "唱Y.M.C.A",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c005dc354a8c43375879d78856",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:52:18.641Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "I like the children, the children, they are so cute. I like the children",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c005df4b93cc42c95309855107",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:52:19.484Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c005d777cb4c23610573bcdc4d",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:52:24.483Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 谍对谍 - CoCo李玟",
+        "metadata": {
+          "singer": "CoCo李玟",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "谍对谍",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:52:34.085Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 花海 - 周杰伦",
+        "metadata": {
+          "singer": "周杰伦",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "花海",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca"
+        },
+        "createdAt": "2026-06-18T00:52:52.790Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: Y.M.C.A. - Village People",
+        "metadata": {
+          "singer": "Village People",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "Y.M.C.A.",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca"
+        },
+        "createdAt": "2026-06-18T00:53:32.329Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱以下歌曲：可爱女人, 完美主义, 星晴, 娘子, 斗牛, 黑色幽默, 伊斯坦堡, 印地安老斑鸠, 龙卷风, 反方向的钟, 爱在西元前, 爸我回来了, 简单爱, 忍者, 开不了口, 上海一九四三, 对不起, 威廉古堡, 双截棍, 安静, 蜗牛, 你怎么连话都说不清楚, 世界末日, 半兽人, 半岛铁盒, 暗号, 龙拳, 火车叨位去, 分裂, 爷爷泡的茶, 回到过去, 米兰的小铁匠, 最后的战役, 以父之名, 懦夫, 晴天, 三年二班, 东风破, 你听得到, 同一种调调, 她的睫毛, 爱情悬崖, 梯田, 双刀, 轨迹, 断了的弦, 我的地盘, 七里香, 借口, 外婆, 将军, 搁浅, 乱舞春秋, 困兽之斗, 园游会, 止战之殇, 夜曲, 蓝色风暴, 发如雪, 黑色毛衣, 四面楚歌, 枫, 浪漫手机, 逆鳞, 麦芽糖, 珊瑚海, 飘移, 一路向北, 夜的第七章, 听妈妈的话, 千里之外, 本草纲目, 退后, 红模仿, 心雨, 白色风车, 迷迭香, 菊花台, 黄金甲, 周大侠, 牛仔很忙, 彩虹, 青花瓷, 阳光宅男, 蒲公英的约定, 无双, 我不配, 扯, 甜甜的, 最长的电影, 不能说的秘密, 龙战骑士, 给我一首歌的时间, 蛇舞, 花海, 魔术先生, 说好的幸福呢, 兰亭序, 流浪诗人, 时光机, 乔克叔叔, 稻香, 跨时代, 说了再见, 烟花易冷, 免费教学录影带, 好久不见, 雨下一整晚, 嘻哈空姐, 我落泪情绪零碎, 爱的飞行日记, 自导自演, 超人不会飞, 惊叹号, 迷魂曲, Mine Mine, 公主病, 你好吗, 疗伤烧肉粽, 琴伤, 水手怕水, 世界未末日, 皮影戏, 超跑女神, 惊叹号, 手语, 公公偏头痛, 明明就, 傻笑, 比较大的大提琴, 爱你没差, 红尘客栈, 梦想启动, 大笨钟, 哪里都是你, 乌克丽丽, 阳明山, 窃爱, 算什么男人, 天涯过客, 怎么了, 一口气全念对, 我要夏天, 将军令, 听见下雨的声音, 美人鱼, 手写的从前, 鞋子特大号, 床边故事, 说走就走, 一点点, 前世情人, 英雄, 告白气球, 土耳其冰淇淋, 不该, Now You See Me, 爱情废柴, 等你下课, 不爱我就拉倒, 说好不哭, 我是如此相信, Mojito, 最伟大的作品, 还在流浪, 说好不哭, 红颜如霜, 错过的烟火, 粉色海洋, 倒影, 圣诞星, 恒星不忘, 临场发挥, 六度分隔, 太阳之子, 下雨天, 七月极光, 谁在乎, 乡间小路, 爱琴海, 我愿意, 淘金镇",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0055d1d4a4b218b6198a4f1d4",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:54:14.238Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首歌的音源链接好像失效了，我刚刚自动换了几个结果也没拿到可播放版本。你换个歌名或加上歌手再试试。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "以下歌曲：可爱女人, 完美主义, 星晴, 娘子, 斗牛, 黑色幽默, 伊斯坦堡, 印地安老斑鸠, 龙卷风, 反方向的钟, 爱在西元前, 爸我回来了, 简单爱, 忍者, 开不了口, 上海一九四三, 对不起, 威廉古堡, 双截棍, 安静, 蜗牛, 你怎么连话都说不清楚, 世界末日, 半兽人, 半岛铁盒, 暗号, 龙拳, 火车叨位去, 分裂, 爷爷泡的茶, 回到过去, 米兰的小铁匠, 最后的战役, 以父之名, 懦夫, 晴天, 三年二班, 东风破, 你听得到, 同一种调调, 她的睫毛, 爱情悬崖, 梯田, 双刀, 轨迹, 断了的弦, 我的地盘, 七里香, 借口, 外婆, 将军, 搁浅, 乱舞春秋, 困兽之斗, 园游会, 止战之殇, 夜曲, 蓝色风暴, 发如雪, 黑色毛衣, 四面楚歌, 枫, 浪漫手机, 逆鳞, 麦芽糖, 珊瑚海, 飘移, 一路向北, 夜的第七章, 听妈妈的话, 千里之外, 本草纲目, 退后, 红模仿, 心雨, 白色风车, 迷迭香, 菊花台, 黄金甲, 周大侠, 牛仔很忙, 彩虹, 青花瓷, 阳光宅男, 蒲公英的约定, 无双, 我不配, 扯, 甜甜的, 最长的电影, 不能说的秘密, 龙战骑士, 给我一首歌的时间, 蛇舞, 花海, 魔术先生, 说好的幸福呢, 兰亭序, 流浪诗人, 时光机, 乔克叔叔, 稻香, 跨时代, 说了再见, 烟花易冷, 免费教学录影带, 好久不见, 雨下一整晚, 嘻哈空姐, 我落泪情绪零碎, 爱的飞行日记, 自导自演, 超人不会飞, 惊叹号, 迷魂曲, Mine Mine, 公主病, 你好吗, 疗伤烧肉粽, 琴伤, 水手怕水, 世界未末日, 皮影戏, 超跑女神, 惊叹号, 手语, 公公偏头痛, 明明就, 傻笑, 比较大的大提琴, 爱你没差, 红尘客栈, 梦想启动, 大笨钟, 哪里都是你, 乌克丽丽, 阳明山, 窃爱, 算什么男人, 天涯过客, 怎么了, 一口气全念对, 我要夏天, 将军令, 听见下雨的声音, 美人鱼, 手写的从前, 鞋子特大号, 床边故事, 说走就走, 一点点, 前世情人, 英雄, 告白气球, 土耳其冰淇淋, 不该, Now You See Me, 爱情废柴, 等你下课, 不爱我就拉倒, 说好不哭, 我是如此相信, Mojito, 最伟大的作品, 还在流浪, 说好不哭, 红颜如霜, 错过的烟火, 粉色海洋, 倒影, 圣诞星, 恒星不忘, 临场发挥, 六度分隔, 太阳之子, 下雨天, 七月极光, 谁在乎, 乡间小路, 爱琴海, 我愿意, 淘金镇",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:54:15.778Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱以下歌曲：可爱女人, 完美主义, 星晴, 娘子, 斗牛, 黑色幽默, 伊斯坦堡, 印地安老斑鸠, 龙卷风, 反方向的钟, 爱在西元前, 爸我回来了, 简单爱, 忍者, 开不了口, 上海一九四三, 对不起, 威廉古堡, 双截棍, 安静, 蜗牛, 你怎么连话都说不清楚, 世界末日, 半兽人, 半岛铁盒, 暗号, 龙拳, 火车叨位去, 分裂, 爷爷泡的茶, 回到过去, 米兰的小铁匠, 最后的战役, 以父之名, 懦夫, 晴天, 三年二班, 东风破, 你听得到, 同一种调调, 她的睫毛, 爱情悬崖, 梯田, 双刀, 轨迹, 断了的弦, 我的地盘, 七里香, 借口, 外婆, 将军, 搁浅, 乱舞春秋, 困兽之斗, 园游会, 止战之殇, 夜曲, 蓝色风暴, 发如雪, 黑色毛衣, 四面楚歌, 枫, 浪漫手机, 逆鳞, 麦芽糖, 珊瑚海, 飘移, 一路向北, 夜的第七章, 听妈妈的话, 千里之外, 本草纲目, 退后, 红模仿, 心雨, 白色风车, 迷迭香, 菊花台, 黄金甲, 周大侠, 牛仔很忙, 彩虹, 青花瓷, 阳光宅男, 蒲公英的约定, 无双, 我不配, 扯, 甜甜的, 最长的电影, 不能说的秘密, 龙战骑士, 给我一首歌的时间, 蛇舞, 花海, 魔术先生, 说好的幸福呢, 兰亭序, 流浪诗人, 时光机, 乔克叔叔, 稻香, 跨时代, 说了再见, 烟花易冷, 免费教学录影带, 好久不见, 雨下一整晚, 嘻哈空姐, 我落泪情绪零碎, 爱的飞行日记, 自导自演, 超人不会飞, 惊叹号, 迷魂曲, Mine Mine, 公主病, 你好吗, 疗伤烧肉粽, 琴伤, 水手怕水, 世界未末日, 皮影戏, 超跑女神, 惊叹号, 手语, 公公偏头痛, 明明就, 傻笑, 比较大的大提琴, 爱你没差, 红尘客栈, 梦想启动, 大笨钟, 哪里都是你, 乌克丽丽, 阳明山, 窃爱, 算什么男人, 天涯过客, 怎么了, 一口气全念对, 我要夏天, 将军令, 听见下雨的声音, 美人鱼, 手写的从前, 鞋子特大号, 床边故事, 说走就走, 一点点, 前世情人, 英雄, 告白气球, 土耳其冰淇淋, 不该, Now You See Me, 爱情废柴, 等你下课, 不爱我就拉倒, 说好不哭, 我是如此相信, Mojito, 最伟大的作品, 还在流浪, 说好不哭, 红颜如霜, 错过的烟火, 粉色海洋, 倒影, 圣诞星, 恒星不忘, 临场发挥, 六度分隔, 太阳之子, 下雨天, 七月极光, 谁在乎, 乡间小路, 爱琴海, 我愿意, 淘金镇",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0052ee4cb4c35051e32274ec2",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:54:30.192Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首歌的音源链接好像失效了，我刚刚自动换了几个结果也没拿到可播放版本。你换个歌名或加上歌手再试试。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "以下歌曲：可爱女人, 完美主义, 星晴, 娘子, 斗牛, 黑色幽默, 伊斯坦堡, 印地安老斑鸠, 龙卷风, 反方向的钟, 爱在西元前, 爸我回来了, 简单爱, 忍者, 开不了口, 上海一九四三, 对不起, 威廉古堡, 双截棍, 安静, 蜗牛, 你怎么连话都说不清楚, 世界末日, 半兽人, 半岛铁盒, 暗号, 龙拳, 火车叨位去, 分裂, 爷爷泡的茶, 回到过去, 米兰的小铁匠, 最后的战役, 以父之名, 懦夫, 晴天, 三年二班, 东风破, 你听得到, 同一种调调, 她的睫毛, 爱情悬崖, 梯田, 双刀, 轨迹, 断了的弦, 我的地盘, 七里香, 借口, 外婆, 将军, 搁浅, 乱舞春秋, 困兽之斗, 园游会, 止战之殇, 夜曲, 蓝色风暴, 发如雪, 黑色毛衣, 四面楚歌, 枫, 浪漫手机, 逆鳞, 麦芽糖, 珊瑚海, 飘移, 一路向北, 夜的第七章, 听妈妈的话, 千里之外, 本草纲目, 退后, 红模仿, 心雨, 白色风车, 迷迭香, 菊花台, 黄金甲, 周大侠, 牛仔很忙, 彩虹, 青花瓷, 阳光宅男, 蒲公英的约定, 无双, 我不配, 扯, 甜甜的, 最长的电影, 不能说的秘密, 龙战骑士, 给我一首歌的时间, 蛇舞, 花海, 魔术先生, 说好的幸福呢, 兰亭序, 流浪诗人, 时光机, 乔克叔叔, 稻香, 跨时代, 说了再见, 烟花易冷, 免费教学录影带, 好久不见, 雨下一整晚, 嘻哈空姐, 我落泪情绪零碎, 爱的飞行日记, 自导自演, 超人不会飞, 惊叹号, 迷魂曲, Mine Mine, 公主病, 你好吗, 疗伤烧肉粽, 琴伤, 水手怕水, 世界未末日, 皮影戏, 超跑女神, 惊叹号, 手语, 公公偏头痛, 明明就, 傻笑, 比较大的大提琴, 爱你没差, 红尘客栈, 梦想启动, 大笨钟, 哪里都是你, 乌克丽丽, 阳明山, 窃爱, 算什么男人, 天涯过客, 怎么了, 一口气全念对, 我要夏天, 将军令, 听见下雨的声音, 美人鱼, 手写的从前, 鞋子特大号, 床边故事, 说走就走, 一点点, 前世情人, 英雄, 告白气球, 土耳其冰淇淋, 不该, Now You See Me, 爱情废柴, 等你下课, 不爱我就拉倒, 说好不哭, 我是如此相信, Mojito, 最伟大的作品, 还在流浪, 说好不哭, 红颜如霜, 错过的烟火, 粉色海洋, 倒影, 圣诞星, 恒星不忘, 临场发挥, 六度分隔, 太阳之子, 下雨天, 七月极光, 谁在乎, 乡间小路, 爱琴海, 我愿意, 淘金镇",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:54:31.617Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么这么懒。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00522f78bcb3ffa95e796fed8",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:54:40.721Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱以下歌曲：可爱女人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00538580acb247e8ada26d56e",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:54:47.268Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱以下歌曲：,完美主义",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0053705484c2453bb0592c242",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:54:55.186Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "星晴,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0050da00a8b246373e27a5b55",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:55:00.816Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "想要一整颗心♪ ~ 吹着前奏望着天空~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:55:09.986Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "娘子,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0050f004b0c3c8e62bc5ceb2f",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:55:26.481Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "一壶好酒~ 再来一碗热粥 ~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:55:33.680Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "斗牛,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0050aa48bcc05d02f88a5cc33",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:55:50.521Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "确认过眼神~ 我遇上对的人 ~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:55:55.881Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "黑色幽默,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00505894b4b399b695ab401db",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:10.411Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "text",
+        "content": "不爱我的我不爱~ 走开~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:56:15.077Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 中枪 - 颜漫嘉",
+        "metadata": {
+          "singer": "颜漫嘉",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "中枪",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:56:22.522Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 可爱女人 - 周杰伦",
+        "metadata": {
+          "singer": "周杰伦",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "可爱女人",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:56:23.974Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "伊斯坦堡,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00507a20bcc4529cc9f85434e",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:25.465Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "印地安老斑鸠,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00501444a8b28fa1576de4ac5",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:28.493Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "龙卷风,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0051c8b0a8b26ecff7e684012",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:32.088Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "\\反方向的钟,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0051e67ca0b2816b06bde2f08",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:35.273Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "爱在西元前,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00519a74a0b1fbce6da8652b9",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:39.283Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "爸我回来了,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00514ce4b4b39dc65d6497461",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:42.912Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "简单爱,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0051656c80b17f8bd30019736",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:46.964Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "忍者,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c005111e470c2d10f73b40882c",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:49.675Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "开不了口,",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c006ed3f0a0c32e9ab2f362662",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:56:52.631Z"
       }
     ],
     "memories": [
@@ -17140,7 +18050,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:43:34.861Z",
-        "updatedAt": "2026-06-18T00:43:34.861Z"
+        "updatedAt": "2026-06-18T00:52:18.413Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -17150,7 +18060,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:43:34.638Z",
-        "updatedAt": "2026-06-18T00:43:34.638Z"
+        "updatedAt": "2026-06-18T00:52:18.185Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -17160,7 +18070,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:38:08.993Z",
-        "updatedAt": "2026-06-18T00:38:08.993Z"
+        "updatedAt": "2026-06-18T00:56:52.411Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -17170,7 +18080,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:38:08.748Z",
-        "updatedAt": "2026-06-18T00:38:08.748Z"
+        "updatedAt": "2026-06-18T00:56:52.191Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
