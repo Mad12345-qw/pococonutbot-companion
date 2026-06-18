@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T04:13:16.673Z",
+  "exportedAt": "2026-06-18T04:19:49.058Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -17421,6 +17421,104 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T04:03:17.423Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "查下今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03472338a0b32ceebbc1f4ea2",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T04:14:26.807Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "Web search card: 今天黄金价格\n今日黄金价格（实时行情，2026年6月18日参考） • 国际金价：伦敦金现报约4318美元/盎司，盘中波动剧烈。 • 国内金价： • 黄金T+D：约1018.5元/克 • 沪金主力：约1019.8元/克 • 各大品牌足金零售价：周大福、周生生、老凤祥等报价约1485-1505元/克（含工费） • 银行投资金条：约1028-1042元/克（无加工费） • 回收价格：足金回收约998-1010元/克 • 价格波动提醒：受美伊停火协议、美联储降息预期及央行连续11个月增持影响，黄金近期创历史新高后高位震荡。 • 说明：以上为搜索结果中的参考报价，实际成交价以各渠道实时报价为准。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T04:14:33.796Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "你用的作图工具，使用的是哪家的服务，用文本发给我",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c034025c0acb2cb67c09b9866e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T04:15:50.503Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边没接作图工具，就是普通的文字回复，识图也是网页自己加的能力。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T04:15:54.093Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "查查今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03587598b4b049f2d8451a8b8",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T04:17:51.198Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天黄金价格\n📊 今日黄金价格速览(2026年6月17-18日) • 国际现货黄金:6月17日开盘4332.83美元/盎司,盘中最高4349.17、最低4312.99;盘中一度跌破4320(报4319.93,日内跌0.26%);晚间重新站上4360(涨0.67%)。 • 6月18日早盘:受美联储鹰派决议影响,昨夜金价一度暴跌逾2%至4224美元,18日早盘反弹突破4300关口,报4299.265美元/盎司(涨0.98%)。 • 国内黄金9999(沪金):6月17日报938.50元/克,较前一日跌1.98元(-0.21%),日内最高945.80、最低937.00元/克。 • 国内金饰零售价(6月18日):周生生从1316元/克下调至1309元;老庙黄金从1313元下调至1310元;周大福维持1312元/克不变(各品牌报价存在差异)。 • COMEX黄金期货主力:6月17日最新报4339.50美元/盎司,日内跌0.34%。 ⚠️ 提示:以上为金投网、第一财经、大象新闻等媒体实时报价,具体成交价请以官方渠道为准;美联储利率决议落地后波动较大,投资需谨慎。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T04:18:00.454Z"
       }
     ],
     "memories": [
@@ -18047,6 +18145,16 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interests.gold_price",
+        "value": "用户会主动查询黄金价格，对黄金行情/投资金价感兴趣",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T04:15:22.329Z",
+        "updatedAt": "2026-06-18T04:15:22.329Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "interests.tts_singing",
         "value": "用户有使用TTS语音平台的实际消费记录（余额约2969.31积分，多次-tts扣费），表明用户确实在用TTS服务生成语音/歌曲",
         "importance": 5,
@@ -18102,7 +18210,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T04:03:09.182Z"
+        "updatedAt": "2026-06-18T04:17:50.972Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18112,7 +18220,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T04:03:08.956Z"
+        "updatedAt": "2026-06-18T04:17:50.746Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -19082,7 +19190,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-18T03:38:21.974Z"
+        "updatedAt": "2026-06-18T04:15:50.279Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -19092,7 +19200,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-18T03:38:21.759Z"
+        "updatedAt": "2026-06-18T04:15:50.052Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
