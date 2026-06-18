@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T01:36:57.372Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-18T01:44:40.873Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -16835,6 +16835,38 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T01:34:01.394Z"
+      },
+      {
+        "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我学习下这个，总结发给我",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c009a5358acb1b511de2316d2a",
+          "rawChatId": "oc_8ec2db0ad4e682ae6572608e4d108899",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:43:43.196Z"
+      },
+      {
+        "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你想让我学习的是哪条内容呀？直接把它发给我，我看完就给你总结～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T01:43:46.201Z"
       }
     ],
     "memories": [
@@ -17397,6 +17429,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
         "updatedAt": "2026-06-08T06:08:21.898Z"
+      },
+      {
+        "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:43:42.980Z",
+        "updatedAt": "2026-06-18T01:43:42.980Z"
+      },
+      {
+        "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:43:42.737Z",
+        "updatedAt": "2026-06-18T01:43:42.737Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
