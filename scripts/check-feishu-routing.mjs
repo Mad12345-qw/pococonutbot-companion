@@ -1,0 +1,142 @@
+import { extractImageGenerationIntent } from "../src/image-intent.js";
+import { FeishuBot } from "../src/feishu.js";
+import { isProjectCreateRequest } from "../src/project-engine.js";
+import { getReplyDeliveryPreference } from "../src/utils.js";
+
+const bot = Object.create(FeishuBot.prototype);
+bot.config = {
+  feishuBotName: "小椰",
+  displayName: "小椰",
+  feishuBotAliases: [],
+  feishuMentionTargets: {
+    "珠珠-SPM": "ou_test_zhuzhu"
+  },
+  bochaSearchFreshness: "noLimit",
+  selfAppearanceDescription: "",
+  selfSelfieStyle: ""
+};
+
+function classify(text, options = {}) {
+  const linkContext = options.linkContext ? "[Feishu document] referenced content" : "";
+  const projectRequest = isProjectCreateRequest(text);
+  const selfieRequest = bot.extractSelfieGenerationPrompt(text);
+  const songRequest = bot.extractSongRequest(text);
+  const webSearchRequest = bot.extractWebSearchRequest(text);
+  const imageRequest = extractImageGenerationIntent(text, {
+    botNames: [bot.config.feishuBotName, bot.config.displayName]
+  });
+  const shouldUseWebSearch = webSearchRequest.requested && !bot.shouldPreferLinkReadingOverSearch({
+    text,
+    linkContext,
+    request: webSearchRequest
+  }) && !imageRequest.requested;
+
+  if (projectRequest) return "project";
+  if (selfieRequest.requested) return "selfie";
+  if (songRequest.requested) return "song";
+  if (imageRequest.requested) return "image_generation";
+  if (shouldUseWebSearch) {
+    return webSearchRequest.githubTrending ? "web_search:github" : "web_search";
+  }
+  if (linkContext) return "ai_reply:link_context";
+  return "ai_reply";
+}
+
+function assertEqual(name, actual, expected) {
+  if (actual !== expected) {
+    throw new Error(`${name}: expected ${expected}, got ${actual}`);
+  }
+  console.log(`ok ${name}: ${actual}`);
+}
+
+const routeCases = [
+  {
+    name: "referenced summary does not become search card",
+    text: "看看这个，总结一下",
+    options: { linkContext: true },
+    route: "ai_reply:link_context"
+  },
+  {
+    name: "referenced document summary does not become search card",
+    text: "看看这篇文档，整理重点",
+    options: { linkContext: true },
+    route: "ai_reply:link_context"
+  },
+  {
+    name: "explicit search remains web card",
+    text: "搜一下 今天黄金价格",
+    route: "web_search"
+  },
+  {
+    name: "price noun remains web card",
+    text: "看看今天黄金价格",
+    route: "web_search"
+  },
+  {
+    name: "weather remains web card",
+    text: "查下明天上海天气",
+    route: "web_search"
+  },
+  {
+    name: "github trending remains specialized web card",
+    text: "今天 GitHub 热榜前三",
+    route: "web_search:github"
+  },
+  {
+    name: "world cup poll remains web card",
+    text: "世界杯决赛投票支持谁",
+    route: "web_search"
+  },
+  {
+    name: "song request wins over normal chat",
+    text: "唱一首",
+    route: "song"
+  },
+  {
+    name: "named song request wins over normal chat",
+    text: "点歌 泡沫 邓紫棋",
+    route: "song"
+  },
+  {
+    name: "selfie request wins over generic image generation",
+    text: "拍一张你自拍照看看",
+    route: "selfie"
+  },
+  {
+    name: "generic image generation stays image route",
+    text: "帮我生成一张世界杯赛程海报",
+    route: "image_generation"
+  },
+  {
+    name: "project command stays project route",
+    text: "新建项目：给客户做一个新品发布方案",
+    route: "project"
+  },
+  {
+    name: "ordinary chat stays ai reply",
+    text: "你觉得这个方案怎么样",
+    route: "ai_reply"
+  }
+];
+
+for (const item of routeCases) {
+  assertEqual(item.name, classify(item.text, item.options), item.route);
+}
+
+const deliveryCases = [
+  ["text preference", "这段用文字回复就行", "text"],
+  ["tts saving preference", "不用走tts，省点token", "text"],
+  ["voice preference", "这段用语音回复", "voice"],
+  ["default delivery", "正常聊两句", ""]
+];
+
+for (const [name, text, expected] of deliveryCases) {
+  assertEqual(name, getReplyDeliveryPreference(text), expected);
+}
+
+const mentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好的，你来看看这个。", {
+  mentionTargets: [{ id: "ou_incoming_zhuzhu", name: "珠珠-SPM" }]
+});
+assertEqual("mention delivery resolves target", String(mentionTargets.length), "1");
+
+console.log("Feishu routing checks passed.");

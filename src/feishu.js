@@ -764,7 +764,14 @@ export class FeishuBot {
       rawMessageText,
       text: safeUserText
     });
-    const shouldUseWebSearch = webSearchRequest.requested && !this.shouldPreferLinkReadingOverSearch({
+    const imageIntent = extractImageGenerationIntent(safeUserText, {
+      botNames: [
+        this.config.feishuBotName || "",
+        this.config.displayName || "",
+        "小椰"
+      ]
+    });
+    const shouldUseWebSearch = webSearchRequest.requested && !imageIntent.requested && !this.shouldPreferLinkReadingOverSearch({
       text: safeUserText,
       linkContext,
       request: webSearchRequest
@@ -853,13 +860,6 @@ export class FeishuBot {
       return;
     }
 
-    const imageIntent = extractImageGenerationIntent(safeUserText, {
-      botNames: [
-        this.config.feishuBotName || "",
-        this.config.displayName || "",
-        "小椰"
-      ]
-    });
     if (imageIntent.requested) {
       this.handleImageRequest({
         messageId: message.message_id,
@@ -1665,10 +1665,14 @@ export class FeishuBot {
   resolveOutgoingMentionTargets(text = "", mentionInfo = {}) {
     if (!this.hasExplicitMentionDeliveryRequest(text)) return [];
     const byId = new Map();
+    const names = new Set();
     const add = (target) => {
       if (!target || !isValidMentionId(target.id)) return;
       const id = String(target.id).trim();
-      if (!byId.has(id)) byId.set(id, { id, name: normalizeMentionName(target.name) || "用户" });
+      const name = normalizeMentionName(target.name) || "用户";
+      if (byId.has(id) || names.has(name)) return;
+      byId.set(id, { id, name });
+      names.add(name);
     };
 
     for (const target of mentionInfo.mentionTargets || []) add(target);
