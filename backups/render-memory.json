@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T08:22:07.593Z",
+  "exportedAt": "2026-06-18T08:32:07.886Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -20400,8 +20400,8 @@
     "settings": [
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
-        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":1,\"home\":4},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"draw\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\"},\"updatedAt\":\"2026-06-18T07:54:44.111Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"阿根廷\"}",
-        "updatedAt": "2026-06-18T07:54:44.221Z"
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":1,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"draw\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\"},\"updatedAt\":\"2026-06-18T08:32:03.496Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"阿根廷\"}",
+        "updatedAt": "2026-06-18T08:32:03.610Z"
       },
       {
         "key": "gpt.enabled",
