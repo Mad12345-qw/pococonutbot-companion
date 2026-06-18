@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T03:51:30.497Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-18T03:57:45.551Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17355,6 +17355,38 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T03:49:27.075Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "开始多模态了么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c028842e4bcc21aafe0e8c5c41",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:56:30.885Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对，网页端好像有图了，猫格测试都识图了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-18T03:56:36.169Z"
       }
     ],
     "memories": [
@@ -18936,7 +18968,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-18T02:19:08.862Z"
+        "updatedAt": "2026-06-18T03:56:30.653Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -18946,7 +18978,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-18T02:19:08.638Z"
+        "updatedAt": "2026-06-18T03:56:30.420Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
