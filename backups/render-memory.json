@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T06:29:15.269Z",
+  "exportedAt": "2026-06-18T06:39:27.058Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -18009,6 +18009,74 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T06:18:34.494Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "世界杯 阿根廷vs法国 投票",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0d40294488b3febb37efe5024",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:32:17.858Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：世界杯 阿根廷vs法国 投票\n搜索结果中未找到\"阿根廷vs法国\"的投票相关内容，所有结果均涉及2026美加墨世界杯阿根廷对阵阿尔及利亚的比赛（梅西上演帽子戏法，阿根廷3-0取胜），未涉及法国队。摘要如下： • 搜索结果中无\"阿根廷vs法国\"投票内容，所有结果均指向阿根廷vs阿尔及利亚 • 2026世界杯J组首轮，阿根廷3-0战胜阿尔及利亚，梅西帽子戏法 • 《队报》评分：梅西9分全队最高，麦卡利斯特、德保罗7分 • 阿根廷门将大马丁在比赛中亦有评分（具体分数未提及） • 阿尔及利亚门将卢卡·齐达内（齐达内之子）出场 提示：如需了解2026世界杯中阿根廷与法国的小组对阵、淘汰赛对阵或相关投票信息，建议进一步明确搜索关键词（如\"2026世界杯法国队赛程\"\"阿根廷法国淘汰赛\"等）。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:32:32.918Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0d5f79b0bcb11d86f5df279f5",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T06:33:02.668Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天天气\n• 北京：6月18日白天多云转阴，傍晚至前半夜有分散性雷阵雨，最高气温31°C，夜间最低24°C。（来源：@气象北京） • 北京怀柔：6月18日多云转阴，傍晚至夜间有分散性雷阵雨；19日阴有雷阵雨，局地伴7级以上短时大风和冰雹。（来源：新京报） • 山东烟台开发区：今天夜间至明天白天多云间阴，21~30°C；19日夜间至20日白天阴，局部有雷雨或阵雨。（来源：开发区气象台） • 安徽当涂：今天夜里多云，明天白天多云转阴有分散性阵雨或雷雨，23~31°C；19日阴有大雨、局部暴雨。（来源：当涂县政府） • 西藏比如（那曲）：6月18日雷阵雨转小雨，5~18°C，未来一周多以小雨为主。（来源：博查） ⚠️ 备注：搜索结果未提供\"今天\"的统一定位信息，各地天气差异较大，请根据所在城市参考对应条目。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T06:33:17.077Z"
       }
     ],
     "memories": [
@@ -18700,7 +18768,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T06:18:20.150Z"
+        "updatedAt": "2026-06-18T06:33:02.447Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18710,7 +18778,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T06:18:19.925Z"
+        "updatedAt": "2026-06-18T06:33:02.225Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -20074,8 +20142,8 @@
     "settings": [
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
-        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":2,\"away\":1,\"home\":0},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"draw\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\"},\"updatedAt\":\"2026-06-18T06:20:18.513Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"法国\"}",
-        "updatedAt": "2026-06-18T06:20:18.621Z"
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":1,\"away\":2,\"home\":0},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\"},\"updatedAt\":\"2026-06-18T06:32:48.951Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"法国\"}",
+        "updatedAt": "2026-06-18T06:32:49.061Z"
       },
       {
         "key": "gpt.enabled",
