@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T01:06:58.371Z",
+  "exportedAt": "2026-06-18T01:26:57.377Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -16619,6 +16619,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T00:57:37.539Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+        "role": "user",
+        "modality": "text",
+        "content": "豆包输入法应该要无敌了，赶紧用起来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00cded08a8b32086b733a6370",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:21:58.766Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+        "role": "user",
+        "modality": "text",
+        "content": "语音输入的时候逆天，无感知的实时性和准确度",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00c99e4484b17c0b994418be8",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:23:05.349Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "user",
+        "modality": "text",
+        "content": "是哪里来的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00c45dd0b0c36e14a84ec74c7",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_f39258d4f6faecc14fde152cfe94efa7",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:23:56.800Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈，刚才那串歌单就是发给你的\"战书\"呀 😄 结果一长串打下来直接把我打趴了，喘不过气来哈哈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7"
+        },
+        "createdAt": "2026-06-18T01:24:01.997Z"
       }
     ],
     "memories": [
@@ -18411,6 +18483,46 @@
         "metadata": {},
         "createdAt": "2026-06-17T16:56:14.184Z",
         "updatedAt": "2026-06-17T16:56:14.184Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:21:58.536Z",
+        "updatedAt": "2026-06-18T01:23:05.133Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_c122a3c9fd58dfcd29275d56d5a80ce2",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:21:58.164Z",
+        "updatedAt": "2026-06-18T01:23:04.914Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:23:56.579Z",
+        "updatedAt": "2026-06-18T01:23:56.579Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:23:56.359Z",
+        "updatedAt": "2026-06-18T01:23:56.359Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
