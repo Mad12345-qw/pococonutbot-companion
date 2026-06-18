@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T04:19:49.058Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T04:29:59.351Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17519,6 +17519,40 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T04:18:00.454Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "查查今天天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c036ca8b0a8b131412c63dd41d",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T04:20:58.075Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天天气\n以下是今日天气相关要点（来源：搜索结果）： • 🗓️ 日期与地区：搜索结果中天气预报日期为 2026年6月17日（周三），主要涉及北京、烟台开发区、西藏比如等地。请注意：搜索结果日期是未来的，请以实际当天天气为准。 • ☀️ 北京今天：晴间多云，蓝天上线，傍晚山区有分散性雷阵雨，最高气温约 31°C，最低约 21°C，紫外线较强，注意防晒补水。（来源：北京青年报） • 🌧️ 北京明后天：18日多云转阴，傍晚有分散性雷阵雨，最高 31°C；19日（端午节）受冷空气影响，有全市性雷阵雨，局地对流较强。（来源：气象北京） • 🌊 烟台开发区：今夜间到明天多云间阴，21~30°C；19日夜间到20日白天阴，局部有雷雨或阵雨或雾，雷雨时阵风7~9级。（来源：开发区气象台） • ⚠️ 不确定提示：以上均来源于2026年6月17–18日的搜索结果，不能代表您查询当天的真实天气，建议查看实时气象数据（如中国天气网、当地气象台）获取最新信息。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T04:21:08.446Z"
       }
     ],
     "memories": [
@@ -18210,7 +18244,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T04:17:50.972Z"
+        "updatedAt": "2026-06-18T04:20:57.862Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18220,7 +18254,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T04:17:50.746Z"
+        "updatedAt": "2026-06-18T04:20:57.648Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
