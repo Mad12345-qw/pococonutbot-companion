@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T02:04:50.768Z",
+  "exportedAt": "2026-06-18T02:14:50.275Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -17056,6 +17056,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T01:56:17.683Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容：智谱 BigModel 个人套餐页\n\n**平台**：智谱 BigModel（bigmodel.cn）\n\n**页面主标题**：即刻与 GLM 一起 Coding\n\n---\n\n## 套餐类型切换\n- 个人套餐（当前选中）\n- 团队套餐\n\n## 计费方式\n- 连续包月\n- 连续包季 **9折**\n- 连续包年 **8折**\n\n---\n\n## 套餐卡片\n\n### 1. Lite\n- 标签：连续包季 9 折\n- 当前价：**¥44.1/月**\n- 原价：~~¥49/月~~\n- 下个季度续费金额：¥132.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：基础用量额度\n\n### 2. Pro 🔥（最受欢迎）\n- 标签：连续包季 9 折\n- 当前价：**¥134.1/月**\n- 原价：~~¥149/月~~\n- 下个季度续费金额：¥402.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：**5x Lite 用量额度** + Lite 全量权益\n\n### 3. Max（量大管饱）\n- 标签：连续包季 9 折\n- 当前价：**¥422.1/月**\n- 原价：~~¥469/月~~\n- 下个季度续费金额：¥1266.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：**20x Lite 用量额度** + Pro 全量权益\n\n---\n\n**备注**：\n- 三个套餐按钮均显示\"抢购人数过多，请刷新再试\"，处于不可购买状态\n- 页面顶部 LOGO：Z 智谱 | BigModel\n- 右侧有汉堡菜单按钮",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c01722cecacc03dffb5d2c9b9f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "# 图片内容：智谱 BigModel 个人套餐页\n\n**平台**：智谱 BigModel（bigmodel.cn）\n\n**页面主标题**：即刻与 GLM 一起 Coding\n\n---\n\n## 套餐类型切换\n- 个人套餐（当前选中）\n- 团队套餐\n\n## 计费方式\n- 连续包月\n- 连续包季 **9折**\n- 连续包年 **8折**\n\n---\n\n## 套餐卡片\n\n### 1. Lite\n- 标签：连续包季 9 折\n- 当前价：**¥44.1/月**\n- 原价：~~¥49/月~~\n- 下个季度续费金额：¥132.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：基础用量额度\n\n### 2. Pro 🔥（最受欢迎）\n- 标签：连续包季 9 折\n- 当前价：**¥134.1/月**\n- 原价：~~¥149/月~~\n- 下个季度续费金额：¥402.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：**5x Lite 用量额度** + Lite 全量权益\n\n### 3. Max（量大管饱）\n- 标签：连续包季 9 折\n- 当前价：**¥422.1/月**\n- 原价：~~¥469/月~~\n- 下个季度续费金额：¥1266.3\n- 按钮状态：抢购人数过多，请刷新再试\n- 权益：**20x Lite 用量额度** + Pro 全量权益\n\n---\n\n**备注**：\n- 三个套餐按钮均显示\"抢购人数过多，请刷新再试\"，处于不可购买状态\n- 页面顶部 LOGO：Z 智谱 | BigModel\n- 右侧有汉堡菜单按钮",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T02:11:50.367Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "居然给钱都给不出去",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c01739d0cacc3d559c10c27d0a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T02:11:54.055Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "海外版随便买",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0106cef884b178f788e157fdc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T02:14:31.284Z"
       }
     ],
     "memories": [
@@ -18467,7 +18527,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-17T16:59:26.461Z"
+        "updatedAt": "2026-06-18T02:14:31.061Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -18477,7 +18537,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-17T16:59:26.242Z"
+        "updatedAt": "2026-06-18T02:14:30.837Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -18597,7 +18657,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-17T10:09:41.242Z"
+        "updatedAt": "2026-06-18T02:11:53.835Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -18607,7 +18667,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-17T10:09:41.017Z"
+        "updatedAt": "2026-06-18T02:11:53.614Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
