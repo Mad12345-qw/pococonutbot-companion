@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T02:41:20.688Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T03:41:30.192Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17168,6 +17168,173 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-18T02:19:19.854Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] [MiaoBTI 猫格测试](https://miaobti-cat.github.io/miaobti/miaobti_v2.html)\nhttps://miaobti-cat.github.io/miaobti/miaobti_v2.html",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://miaobti-cat.github.io/miaobti/miaobti_v2.html"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c02217954a0b2b4b619ed7c3ce",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-18T03:33:22.063Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "user",
+        "modality": "text",
+        "content": "[MiaoBTI 猫格测试](https://miaobti-cat.github.io/miaobti/miaobti_v2.html)\n[Link content]\n[Web page] https://miaobti-cat.github.io/miaobti/miaobti_v2.html\nMiaoBTI 猫格测试 \n \n \n \n \n \n \n 🐱\n\n MiaoBTI 猫格测试\n\n 测测你家主子是哪种猫格？\n\n \n 没养过猫？想象你未来的主子，或遇到没把握的题直接跳过~\n \n\n \n 你家主子是？ \n \n ♂ 公猫 \n ♀ 母猫 \n \n\n \n\n 开始测试 \n \n\n \n \n \n \n\n \n\n 已答 0 / 16 题\n\n 第 1 题\n\n \n\n \n\n \n\n \n \n \n ENTJ\n\n \n\n \n\n \n\n \n\n \n \n \n 🤍 \n 0 \n \n \n\n \n \n 发送 \n \n\n \n\n \n \n 🎯 关于我们\n\n \n \n MiaoBTI 策划\n\n 黄小虎老师\n\n \n \n\n \n AI 赋能业务\n\n 江老师\n\n \n \n\n \n\n \n\n \n 📤 分享结果 \n 📋 复制文案 \n \n\n 🔄 再测一次",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c02217954a0b2b4b619ed7c3ce",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "linkContext": "[Web page] https://miaobti-cat.github.io/miaobti/miaobti_v2.html\nMiaoBTI 猫格测试 \n \n \n \n \n \n \n 🐱\n\n MiaoBTI 猫格测试\n\n 测测你家主子是哪种猫格？\n\n \n 没养过猫？想象你未来的主子，或遇到没把握的题直接跳过~\n \n\n \n 你家主子是？ \n \n ♂ 公猫 \n ♀ 母猫 \n \n\n \n\n 开始测试 \n \n\n \n \n \n \n\n \n\n 已答 0 / 16 题\n\n 第 1 题\n\n \n\n \n\n \n\n \n \n \n ENTJ\n\n \n\n \n\n \n\n \n\n \n \n \n 🤍 \n 0 \n \n \n\n \n \n 发送 \n \n\n \n\n \n \n 🎯 关于我们\n\n \n \n MiaoBTI 策划\n\n 黄小虎老师\n\n \n \n\n \n AI 赋能业务\n\n 江老师\n\n \n \n\n \n\n \n\n \n 📤 分享结果 \n 📋 复制文案 \n \n\n 🔄 再测一次",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:33:23.006Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "作图软件的信息你直接文字发给我去搜索",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c023a978c98b3b2eaaabed11ed",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:34:38.295Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边模型服务刚刚有点挤，没接稳这句话。你等几秒再发一次，我再回你。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T03:34:42.264Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "作图软件的信息你直接文字发给我去搜索",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0238808490b17411f13395d0f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:35:19.769Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？哪个作图软件，你把名字发我，我去搜",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T03:35:29.164Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "你用的作图工具，使用的是哪家的服务",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0234c4eca0b2246f1dbf83af8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:36:07.802Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边模型服务刚刚有点挤，没接稳这句话。你等几秒再发一次，我再回你。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T03:36:10.588Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "你用的作图工具，使用的是哪家的服务",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c02cc4d20a0b48e12ffe273946",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T03:38:22.190Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边模型服务刚刚有点挤，没接稳这句话。你等几秒再发一次，我再回你。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-18T03:38:25.291Z"
       }
     ],
     "memories": [
@@ -18533,6 +18700,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T03:33:22.785Z",
+        "updatedAt": "2026-06-18T03:33:22.785Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T03:33:22.550Z",
+        "updatedAt": "2026-06-18T03:33:22.550Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
         "key": "interaction.style.roleplay",
         "value": "用户接受带有强势/命令/冒犯风格的扮演互动，喜欢被骂、被凶",
@@ -18780,6 +18967,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T07:33:29.112Z",
         "updatedAt": "2026-06-17T07:36:39.776Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T03:34:38.069Z",
+        "updatedAt": "2026-06-18T03:38:21.974Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T03:34:37.839Z",
+        "updatedAt": "2026-06-18T03:38:21.759Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
