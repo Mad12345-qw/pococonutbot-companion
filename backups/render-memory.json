@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T05:16:06.832Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T05:26:17.232Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -17817,6 +17817,46 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-18T05:14:36.706Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 提取\n\n**平台/品牌**：StepFun 开放平台\n**Slogan**：I build with models, I create my agent!\n\n## 主标题\n- **Step Plan 限时免费体验**\n- **海量 Token 放送中！**\n\n## 副标题说明\n- 一键订阅，轻松接入 Step 模型全家桶系列\n- 内置 Step 3.7 Flash，面向生产级 Agent 的高效率 Flash 模型！\n\n## 底部行动区\n- 创作新阶，此刻开启！扫码注册 ≫\n- **一键领取 15 天免费体验，累计最高可获 120 天！**\n\n## 视觉元素\n- 中央为透明 3D 玻璃质感的「左右箭头」造型，箭头上有蓝色代码/字符纹理（可见片段如 \"ugnav\"、\"llas\"、\"t\" 等，装饰性文字）\n- 右下角为二维码（用于扫码注册）\n\n---\n**信息密度摘要**：StepFun 推出\"Step Plan\"限时免费活动，主打 Step 3.7 Flash 模型（面向生产级 Agent），通过扫码注册可领 15 天免费体验，累计最高 120 天。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c03b2b078b0b32eed1867aa785",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 提取\n\n**平台/品牌**：StepFun 开放平台\n**Slogan**：I build with models, I create my agent!\n\n## 主标题\n- **Step Plan 限时免费体验**\n- **海量 Token 放送中！**\n\n## 副标题说明\n- 一键订阅，轻松接入 Step 模型全家桶系列\n- 内置 Step 3.7 Flash，面向生产级 Agent 的高效率 Flash 模型！\n\n## 底部行动区\n- 创作新阶，此刻开启！扫码注册 ≫\n- **一键领取 15 天免费体验，累计最高可获 120 天！**\n\n## 视觉元素\n- 中央为透明 3D 玻璃质感的「左右箭头」造型，箭头上有蓝色代码/字符纹理（可见片段如 \"ugnav\"、\"llas\"、\"t\" 等，装饰性文字）\n- 右下角为二维码（用于扫码注册）\n\n---\n**信息密度摘要**：StepFun 推出\"Step Plan\"限时免费活动，主打 Step 3.7 Flash 模型（面向生产级 Agent），通过扫码注册可领 15 天免费体验，累计最高 120 天。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:19:25.304Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "text",
+        "content": "但是最近plan没以前实在了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0c4ed3c8a4b3fa9e980b11805",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T05:20:08.008Z"
       }
     ],
     "memories": [
@@ -19369,6 +19409,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
         "updatedAt": "2026-06-17T15:21:37.685Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T05:19:25.079Z",
+        "updatedAt": "2026-06-18T05:20:07.785Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T05:19:24.739Z",
+        "updatedAt": "2026-06-18T05:20:07.562Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
