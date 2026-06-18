@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T00:26:57.877Z",
+  "exportedAt": "2026-06-18T00:46:57.573Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -15289,6 +15289,146 @@
           "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
         },
         "createdAt": "2026-06-18T00:23:53.225Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c079001d8b8c4af131820653e5",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_429a9657e94c357802b1b0e1a14eee12",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:38:09.214Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 喜欢你 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "喜欢你",
+          "defaulted": true,
+          "replyToUserId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12"
+        },
+        "createdAt": "2026-06-18T00:38:58.531Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首周杰伦的晴天",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07a8dc6cacb222601a8e5c966",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_19a11d6043b7d6ac623140e155d940b8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:40:05.179Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 晴天 - 周杰伦",
+        "metadata": {
+          "singer": "周杰伦",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "晴天",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
+        },
+        "createdAt": "2026-06-18T00:41:04.755Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首周杰伦的搁浅",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07bde288b0c37ff548bd8ef3f",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_3b0349ac8d5057b53c67865d6a1049ca",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:43:35.084Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "user",
+        "modality": "text",
+        "content": "CD 播放器",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c07ba9de0a8b48c3c09de326da",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_19a11d6043b7d6ac623140e155d940b8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T00:43:53.277Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈 CD播放器这个梗笑死~ 确实有那味儿了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_19a11d6043b7d6ac623140e155d940b8"
+        },
+        "createdAt": "2026-06-18T00:43:59.678Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 搁浅 - 周杰伦",
+        "metadata": {
+          "singer": "周杰伦",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "搁浅",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca"
+        },
+        "createdAt": "2026-06-18T00:44:32.006Z"
       }
     ],
     "memories": [
@@ -16940,7 +17080,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:07:37.497Z",
-        "updatedAt": "2026-06-18T00:23:49.735Z"
+        "updatedAt": "2026-06-18T00:43:52.977Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -16950,7 +17090,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T00:07:37.257Z",
-        "updatedAt": "2026-06-18T00:23:49.521Z"
+        "updatedAt": "2026-06-18T00:43:52.677Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -16991,6 +17131,46 @@
         "metadata": {},
         "createdAt": "2026-06-17T17:51:21.109Z",
         "updatedAt": "2026-06-17T17:51:21.109Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T00:43:34.861Z",
+        "updatedAt": "2026-06-18T00:43:34.861Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_3b0349ac8d5057b53c67865d6a1049ca",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T00:43:34.638Z",
+        "updatedAt": "2026-06-18T00:43:34.638Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T00:38:08.993Z",
+        "updatedAt": "2026-06-18T00:38:08.993Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_429a9657e94c357802b1b0e1a14eee12",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T00:38:08.748Z",
+        "updatedAt": "2026-06-18T00:38:08.748Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
