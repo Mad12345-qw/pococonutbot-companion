@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import { extractImageGenerationIntent } from "./image-intent.js";
 import { buildSearchCard, buildWorldCupPollResultCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
+import { buildPremiumPollCard, buildPremiumSearchCard, renderPremiumSearchCardImage } from "./feishu-premium-card-renderer.js";
 import { buildSystemPrompt } from "./persona.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
@@ -543,6 +544,7 @@ export class FeishuBot {
       title: value.title,
       operator
     });
+    const responseCard = await this.buildWorldCupPollResponseCard(poll);
     return {
       toast: {
         type: "info",
@@ -552,9 +554,28 @@ export class FeishuBot {
       },
       card: {
         type: "raw",
-        data: buildWorldCupPollResultCard(poll)
+        data: responseCard
       }
     };
+  }
+
+  async buildWorldCupPollResponseCard(poll = {}) {
+    try {
+      const visual = renderPremiumSearchCardImage({
+        query: poll.title || "世界杯投票",
+        summary: "每个人只保留最后一次选择。",
+        results: [],
+        poll
+      });
+      const imageKey = await this.uploadImage(visual);
+      return buildPremiumPollCard({ imageKey, poll });
+    } catch (error) {
+      logEvent("warn", "Feishu premium poll card fallback used", {
+        pollId: poll.pollId || "",
+        error: error.message
+      });
+      return buildWorldCupPollResultCard(poll);
+    }
   }
 
   extractCardActionOperatorId(event = {}, payload = {}) {
@@ -981,7 +1002,7 @@ export class FeishuBot {
       logEvent("info", "Feishu web search started", { chatId, userId, query: request.query, freshness: request.freshness });
       const search = await this.webSearch.search(request.query, { freshness: request.freshness });
       const summary = await this.generateWebSearchSummary(request.query, search.results);
-      const card = this.buildWebSearchCard({ query: request.query, search, summary });
+      const card = await this.buildWebSearchCard({ query: request.query, search, summary });
       await this.replyCard(messageId, card);
       await this.storage.addMessage({
         chatId,
@@ -1045,8 +1066,27 @@ export class FeishuBot {
     return lines.join("\n");
   }
 
-  buildWebSearchCard({ query, search, summary }) {
-    return buildSearchCard({ query, search, summary });
+  async buildWebSearchCard({ query, search, summary }) {
+    try {
+      const visual = renderPremiumSearchCardImage({
+        query,
+        results: search.results || [],
+        summary
+      });
+      const imageKey = await this.uploadImage(visual);
+      return buildPremiumSearchCard({
+        imageKey,
+        query,
+        results: search.results || [],
+        kind: visual.kind
+      });
+    } catch (error) {
+      logEvent("warn", "Feishu premium search card fallback used", {
+        query,
+        error: error.message
+      });
+      return buildSearchCard({ query, search, summary });
+    }
   }
 
   classifyWebSearchCard(query = "", results = []) {

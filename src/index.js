@@ -49,6 +49,7 @@ app.get("/health", (_req, res) => {
     feishuSongReply: Boolean(config.songApiEnabled && config.songApiToken),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     feishuCardTemplates: true,
+    feishuPremiumCards: true,
     feishuWorldCupPolls: true,
     linkReading: Boolean(config.linkReadingEnabled),
     voiceReplyDetails: {
