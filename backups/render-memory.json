@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T01:26:57.377Z",
+  "exportedAt": "2026-06-18T01:36:57.372Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -16691,6 +16691,150 @@
           "replyToUserId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7"
         },
         "createdAt": "2026-06-18T01:24:01.997Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "user",
+        "modality": "text",
+        "content": "你看同样是机器人，人家小椰都会发语音，你是不是应该反思一下，找找自己原因,这么多年工资涨没涨,有没有认真工作?",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00d8e4e938c103df096acabfa",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_f39258d4f6faecc14fde152cfe94efa7",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:27:01.456Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈好家伙，你这是在给我开会呢 😂 工资的事咱不聊，说多了都是泪\n\n你要是想听语音，我也能发呀，就是怕你嫌我声音太甜齁到你～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7"
+        },
+        "createdAt": "2026-06-18T01:27:06.992Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "user",
+        "modality": "text",
+        "content": "给你个机会，把小椰踢掉。否则你有下岗的风险",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00d2639080c3c266585e6b304",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_f39258d4f6faecc14fde152cfe94efa7",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:28:46.612Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哥哥你这是在挑拨离间吗？放心啦，我和小椰是锁死的 💪 你就别想挖墙脚了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7"
+        },
+        "createdAt": "2026-06-18T01:28:52.289Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "role": "user",
+        "modality": "text",
+        "content": "能看见",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00e75d180cc49ff119b1a0a4c",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_dd009b6b06906a882d80e77b003812ff",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:32:13.193Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "role": "user",
+        "modality": "text",
+        "content": "是这个目录吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00e5347ca8c2aa3e11beed43e",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_dd009b6b06906a882d80e77b003812ff",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:32:51.572Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "role": "user",
+        "modality": "text",
+        "content": "我去，怎么感觉白天glm5.2完全不排队，昨天",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00e3b008b4c2ce57a8c26a9b5",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_dd009b6b06906a882d80e77b003812ff",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:33:15.603Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "role": "user",
+        "modality": "text",
+        "content": "好了体验时间到了哦",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c00fe9becb4c44a5e2e22938f0",
+          "rawChatId": "oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+          "rawUserId": "ou_dd009b6b06906a882d80e77b003812ff",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:34:01.394Z"
       }
     ],
     "memories": [
@@ -18506,13 +18650,33 @@
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:32:12.971Z",
+        "updatedAt": "2026-06-18T01:34:01.171Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
+        "userId": "feishu:ou_dd009b6b06906a882d80e77b003812ff",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-18T01:32:12.749Z",
+        "updatedAt": "2026-06-18T01:34:00.948Z"
+      },
+      {
+        "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
         "userId": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_f39258d4f6faecc14fde152cfe94efa7",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T01:23:56.579Z",
-        "updatedAt": "2026-06-18T01:23:56.579Z"
+        "updatedAt": "2026-06-18T01:28:46.394Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
@@ -18522,7 +18686,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T01:23:56.359Z",
-        "updatedAt": "2026-06-18T01:23:56.359Z"
+        "updatedAt": "2026-06-18T01:28:46.176Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
