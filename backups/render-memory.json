@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T07:11:20.836Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-18T07:21:32.037Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -18179,6 +18179,142 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-18T06:52:10.443Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天黄金价格",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0de916fcacb304ba654e21265",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T07:13:05.834Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天黄金价格\n📌 今日黄金价格速览（2026年6月18日） • 现货黄金：早盘高开反弹，盘中突破4300美元/盎司，报约4299美元/盎司，日内涨0.98%（腾讯新闻）。另有报道显示日内跌幅达1%，报价4286.22美元/盎司（汇通财经），数据时点不同存在差异。 • 昨夜波动：受美联储鹰派决议影响，金价曾暴跌逾2%，最低触及4224美元/盎司。 • COMEX黄金期货：最新报4339.50美元/盎司，日内跌0.34%（汇通财经，6月17日数据）。 • 国内金饰：6月18日多品牌小幅下调——周生生1309元/克（↓7元）、老庙黄金1310元/克（↓3元）、周大福维持1312元/克。 • 国内基础金价：黄金9999报938.50元/克，日内跌0.21%（金投网，6月17日数据）。 ⚠️ 提示：搜索结果时间点横跨6月17–18日，数据存在波动；以上价格仅供参考，请以官方实时报价为准。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T07:13:33.173Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天武汉天气",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0de59dd084b347c4db0126445",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T07:14:00.498Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天武汉天气\n以下是武汉今日及未来几天的天气概况: • 今日(6月18日,周四):白天阴天有阵雨或雷阵雨,夜间转大雨、局地暴雨并伴有雷电,气温 24~31°C,偏东风 2~3 级、阵风 4~5 级。 • 6月19日(周五):阴天有中到大雨、局地暴雨并伴有雷电,气温 24~28°C。 • 6月20~22日:进入梅雨集中期,持续较强降雨,20 日夜间至 22 日白天有大到暴雨、局地大暴雨,可能伴有短时强降水和 8~10 级雷暴大风,累计雨量 200~300 毫米、局地 400 毫米以上。 • 气温与体感:未来几天最低气温 22~25°C,最高 27~33°C,高温高湿叠加,体感闷热(昨日体感已达 35.6°C)。 • 出行提示:雨天路滑、能见度低,建议随身携带雨具,避开低洼积水路段,驾车减速慢行;武汉中考将于 6 月 20~22 日举行,考生请预留充足时间,提前一小时以上出发。 📎 数据来源:中国天气网、武汉市气象台(经腾讯新闻、网易新闻、今日头条等转载报道)。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T07:14:32.354Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "世界杯 阿根廷vs法国 投票",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0df8ea9c94b112911ab16e574",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T07:16:53.946Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：世界杯 阿根廷vs法国 投票\n以下是关于\"世界杯 阿根廷 vs 法国 投票\"的搜索结果摘要： • 搜索结果与查询不完全匹配：所有返回结果均为 阿根廷 vs 阿尔及利亚 的世界杯小组赛（2026年6月16日，J组），未找到\"阿根廷 vs 法国\"的投票相关页面。 • 比赛实际结果：阿根廷 3-0 战胜阿尔及利亚，梅西进球。地点为美国堪萨斯城体育场。（来源：网易、西部网/新华社报道） • 赛前分析观点一：即嗨体育\"足球说书人\"看好阿根廷主胜，但让平/让负（让1.25球），比分建议 2-1 或 1-0，认为阿根廷历届世界杯首场赛事大胜不多。（来源：即嗨体育） • 赛前分析观点二：即嗨体育\"张胆说足球\"认为阿根廷最多一球小胜，指出指数从 1.5 降至 1.25，机构对其净胜两球信心不足；并提到阿根廷中卫老化、塔利亚菲科可能缺席首战、首发阵型未定（5-3-2 或 4-4-2）。（来源：即嗨体育） • 澳客网友方案：推荐阿根廷主胜（让球胜），比分参考 2-0、2-1。（来源：澳客网） ⚠️ 注意：搜索结果中未出现\"阿根廷 vs 法国\"的对阵或投票内容，该场比赛在2026世界杯小组赛阶段并未发生（两队分处不同小组）。如需法国队相关赛事投票信息，建议重新检索。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T07:17:17.570Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "今天 AI新闻",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c0df77a34a4b1750f57b4742a3",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T07:17:50.958Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天 AI新闻\n• DeepSeek 完成 500 亿元首轮融资,刷新国产大模型单轮融资纪录。梁文锋个人出资 200 亿,腾讯跟投 100 亿,宁德时代 50 亿,京东、网易、IDG 各 30 亿(来源:爱范儿/腾讯网 6 月 17 日)。 • OpenAI 2025 财报曝光:营收 130.7 亿美元,净亏损达 385.3 亿美元(爱范儿)。 • SpaceX 据传以 600 亿美元收购 AI 编程工具 Cursor(爱范儿)。 • 微信支付推出\"AI 专属卡\",支持 Agent 闭环消费、主账户完全隔离,最快本周上线;支付宝同日上线 AI 版,智能体\"阿宝\"提供万种服务(腾讯网/爱范儿)。 • 小米 MiMo Claw 正式版发布,支持千次连续工具调用,Token 消耗较同类产品降低 40%–60%;智谱开源 GLM-5.2,主打 1M 无损上下文(腾讯网)。 • 千问发布 Qwen-Robot 三款模型(导航/操作/物理预测);字节豆包日活破 2 亿但日收入不足百万,战略资源向企业端倾斜(爱范儿/腾讯网)。 • 苹果 iPhone 18 标准版据称配 12GB 内存以支持更强 Siri;AirPods 明年或将搭载摄像头(爱范儿,需注意为\"曝\")。 来源主要为 6 月 17–18 日的爱范儿、腾讯网等早报,信息密度较高但部分条目(苹果、SpaceX)为爆料,尚未官方确认。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-18T07:18:11.780Z"
       }
     ],
     "memories": [
@@ -18870,7 +19006,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-18T06:51:42.831Z"
+        "updatedAt": "2026-06-18T07:17:50.727Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -18880,7 +19016,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-18T06:51:42.614Z"
+        "updatedAt": "2026-06-18T07:17:50.496Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
@@ -20244,8 +20380,8 @@
     "settings": [
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
-        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":3,\"away\":2,\"home\":2},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\"},\"updatedAt\":\"2026-06-18T07:10:24.600Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
-        "updatedAt": "2026-06-18T07:10:24.710Z"
+        "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":4,\"away\":1,\"home\":2},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"draw\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\"},\"updatedAt\":\"2026-06-18T07:17:31.640Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
+        "updatedAt": "2026-06-18T07:17:31.750Z"
       },
       {
         "key": "gpt.enabled",
