@@ -3,7 +3,6 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { worldCupPollId } from "./feishu-card-templates.js";
-import { truncate } from "./utils.js";
 
 const WIDTH = 900;
 const HEIGHT = 1120;
@@ -18,7 +17,13 @@ function premiumFontFiles() {
 }
 
 function safeText(value = "", max = 160) {
-  return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
+  const cleaned = String(value || "")
+    .replace(/\.\.\.\[truncated\]/gi, "")
+    .replace(/\[truncated\]/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (cleaned.length <= max) return cleaned;
+  return `${cleaned.slice(0, Math.max(1, max - 1)).trimEnd()}…`;
 }
 
 function xml(value = "") {
@@ -30,21 +35,24 @@ function xml(value = "") {
 }
 
 function lines(text = "", maxChars = 24, maxLines = 2) {
-  const raw = safeText(text, maxChars * maxLines + 12);
+  const raw = safeText(text, maxChars * maxLines + 16);
   const output = [];
   let current = "";
   for (const char of raw) {
     const charWidth = /[A-Za-z0-9 .,/%:+-]/.test(char) ? 0.55 : 1;
     const currentWidth = [...current].reduce((sum, item) => sum + (/[A-Za-z0-9 .,/%:+-]/.test(item) ? 0.55 : 1), 0);
     if (currentWidth + charWidth > maxChars && current) {
-      output.push(current);
+      output.push(current.trimEnd());
       current = char;
       if (output.length >= maxLines) break;
     } else {
       current += char;
     }
   }
-  if (current && output.length < maxLines) output.push(current);
+  if (current && output.length < maxLines) output.push(current.trimEnd());
+  if (output.length === maxLines && textWidth(raw) > maxChars * maxLines) {
+    output[maxLines - 1] = fitLine(output[maxLines - 1], maxChars);
+  }
   return output;
 }
 
@@ -88,16 +96,24 @@ function splitMetricValue(value = "") {
 }
 
 function summaryBullets(text = "", limit = 3) {
-  const raw = String(text || "").trim();
+  const raw = safeText(text, 320)
+    .replace(/以下是根据搜索结果整理的?/g, "")
+    .replace(/综合多个地区[，,、]?\s*仅供参考/g, "多地天气，仅供参考")
+    .replace(/天气信息/g, "天气")
+    .trim();
   if (!raw) return [];
   const byLine = raw
     .split(/\n+/)
-    .map((line) => line.replace(/^\s*(?:[-*•]|\d+[.)、])\s*/, "").trim())
+    .map((line) => line.replace(/^\s*(?:(?:[-*•]|\d+[.)、])\s*)+/, "").trim())
     .filter(Boolean);
   const items = byLine.length > 1
     ? byLine
     : raw.split(/[。！？?]\s*/).map((line) => line.trim()).filter(Boolean);
-  return items.slice(0, limit).map((item) => safeText(item, 82));
+  return items
+    .map((item) => item.replace(/^\s*(?:(?:[-*•]|\d+[.)、])\s*)+/, "").trim())
+    .filter((item) => item && !/^(?:天气)?[（(]?多地天气[，,、]?\s*仅供参考[）)]?$/.test(item))
+    .slice(0, limit)
+    .map((item) => safeText(item, 44));
 }
 
 function extractNumbers(text = "") {
@@ -203,10 +219,10 @@ function baseSvg({ kind, title, subtitle, metrics = [], bullets = [], poll = nul
   }).join("");
 
   const bulletRows = bullets.slice(0, 3).map((item, index) => {
-    const y = 650 + index * 78;
+    const y = 638 + index * 102;
     return `
       <circle cx="92" cy="${y - 10}" r="9" fill="${p.accent}" opacity="${0.9 - index * 0.18}"/>
-      ${textBlock({ text: item, x: 122, y, size: 30, weight: 560, fill: "#1F2937", maxChars: 29, maxLines: 1 })}
+      ${textBlock({ text: item, x: 122, y, size: 27, weight: 560, fill: "#1F2937", maxChars: 24, maxLines: 2, lineHeight: 1.24 })}
     `;
   }).join("");
 
@@ -243,7 +259,7 @@ function baseSvg({ kind, title, subtitle, metrics = [], bullets = [], poll = nul
     <circle cx="668" cy="268" r="58" fill="${p.accent2}" opacity="0.2" filter="url(#soft)"/>
     <text x="86" y="124" font-size="26" font-weight="700" fill="#64748B">${xml(p.eyebrow)}</text>
     ${textBlock({ text: title, x: 86, y: 190, size: 54, weight: 820, fill: "#0F172A", maxChars: 10, maxLines: 1 })}
-    ${textBlock({ text: subtitle, x: 86, y: 246, size: 29, weight: 520, fill: "#475569", maxChars: 18, maxLines: 2 })}
+    ${textBlock({ text: subtitle, x: 86, y: 246, size: 28, weight: 520, fill: "#475569", maxChars: 16, maxLines: 2 })}
     <rect x="86" y="304" width="176" height="50" rx="25" fill="#0F172A"/>
     <text x="174" y="338" text-anchor="middle" font-size="24" font-weight="800" fill="#FFFFFF">${xml(fitLine(p.title, 6))}</text>
     ${renderKindHeroMark(kind, p)}
@@ -304,10 +320,11 @@ function dataForKind({ query, results, summary, poll }) {
   const bullets = summaryBullets(summary, 3);
   const numbers = extractNumbers(text);
   if (kind === "weather") {
+    const multiRegion = /多个地区|多地|综合/.test(summary);
     return {
       kind,
       title: safeText(query.replace(/查下|查询|今天|今日/g, "").trim() || "天气速览", 32),
-      subtitle: bullets[0] || "天气、降雨和体感已经整理好。",
+      subtitle: multiRegion ? "多地天气，仅供参考" : bullets[0] || "天气、降雨和体感已整理好。",
       metrics: [
         { label: "体感", value: numbers.find((item) => /℃|度/.test(item)) || numbers[0] || "待确认" },
         { label: "降雨", value: numbers.find((item) => /%|％/.test(item)) || "看实况" },
