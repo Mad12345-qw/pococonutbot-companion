@@ -73,6 +73,9 @@ class PostgresStorage {
       connectionString: databaseUrl,
       ssl: databaseSsl ? { rejectUnauthorized: false } : undefined
     });
+    this.pool.on("error", (error) => {
+      console.error("Postgres pool idle client error:", error.message);
+    });
   }
 
   async init() {
