@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-18T01:54:50.278Z",
+  "exportedAt": "2026-06-18T02:04:50.768Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -17036,6 +17036,26 @@
           "replyToUserId": "feishu:ou_7a60a031ded003e92f581e62c1d1a18b"
         },
         "createdAt": "2026-06-18T01:54:11.559Z"
+      },
+      {
+        "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
+        "userId": "feishu:ou_7a60a031ded003e92f581e62c1d1a18b",
+        "role": "user",
+        "modality": "text",
+        "content": "退了...[不看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c014d1130f0c2d8e0dc926ee3f",
+          "rawChatId": "oc_8ec2db0ad4e682ae6572608e4d108899",
+          "rawUserId": "ou_7a60a031ded003e92f581e62c1d1a18b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-18T01:56:17.683Z"
       }
     ],
     "memories": [
@@ -17627,7 +17647,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T01:53:36.357Z",
-        "updatedAt": "2026-06-18T01:54:08.477Z"
+        "updatedAt": "2026-06-18T01:56:17.461Z"
       },
       {
         "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
@@ -17637,7 +17657,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T01:53:36.107Z",
-        "updatedAt": "2026-06-18T01:54:08.259Z"
+        "updatedAt": "2026-06-18T01:56:17.239Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
