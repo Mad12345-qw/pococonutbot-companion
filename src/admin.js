@@ -705,8 +705,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
         imageTimeoutMs: config.imageTimeoutMs,
         imageUnderstandingTimeoutMs: config.imageUnderstandingTimeoutMs,
         webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
-        webSearchProvider: config.bochaApiKey ? "bocha" : "",
-        bochaSearchCount: config.bochaSearchCount,
+        webSearchResultCount: config.bochaSearchCount,
         voiceRecognition: Boolean(config.sttEnabled && config.sttApiKey && config.sttApiUrl)
       }
     });

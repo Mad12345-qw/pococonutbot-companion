@@ -346,6 +346,58 @@ function compactLines(lines = []) {
   return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
 }
 
+function uniqueCardItems(items = []) {
+  return [...new Set(items.map((item) => String(item || "").trim()).filter(Boolean))];
+}
+
+function sourceLabel(item = {}) {
+  return cardText([item.siteName, item.publishedAt].filter(Boolean).join(" | "), 140);
+}
+
+function summaryBullets(text = "", limit = 4) {
+  const raw = String(text || "").trim();
+  if (!raw) return [];
+  const lines = raw
+    .split(/\n+/)
+    .map((line) => line.replace(/^\s*(?:[-*•]|\d+[.)、])\s*/, "").trim())
+    .filter(Boolean);
+  if (lines.length > 1) return lines.slice(0, limit).map((line) => cardText(line, 170));
+  return raw
+    .split(/[。！？!?]\s*/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .slice(0, limit)
+    .map((line) => cardText(line, 170));
+}
+
+function cardActionButtons(results = [], limit = 3) {
+  return results
+    .filter((item) => /^https?:\/\//i.test(item.url))
+    .slice(0, limit)
+    .map((item, index) => ({
+      tag: "button",
+      text: {
+        tag: "plain_text",
+        content: `\u6765\u6e90 ${item.index || index + 1}`
+      },
+      type: index === 0 ? "primary" : "default",
+      url: item.url
+    }));
+}
+
+function cardNote(results = []) {
+  const sourceCount = results.filter((item) => item.url).length;
+  return {
+    tag: "note",
+    elements: [
+      {
+        tag: "plain_text",
+        content: `已整理 ${sourceCount} 个来源`
+      }
+    ]
+  };
+}
+
 export class FeishuBot {
   constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, webSearch }) {
     this.config = config;
@@ -781,7 +833,7 @@ export class FeishuBot {
         userId,
         role: "assistant",
         modality: "card",
-        content: `Web search card: ${request.query}\n${summary}`,
+        content: `联网资料卡：${request.query}\n${summary}`,
         metadata: {
           platform: "feishu",
           replyToUserId: userId,
@@ -840,6 +892,29 @@ export class FeishuBot {
 
   buildWebSearchCard({ query, search, summary }) {
     const results = search.results.slice(0, 5);
+    const kind = this.classifyWebSearchCard(query, results);
+    if (kind === "price") return this.buildPriceSearchCard({ query, results, summary });
+    if (kind === "news") return this.buildNewsSearchCard({ query, results, summary });
+    return this.buildReferenceSearchCard({ query, results, summary });
+  }
+
+  classifyWebSearchCard(query = "", results = []) {
+    const text = [
+      query,
+      ...results.slice(0, 4).flatMap((item) => [item.title, item.summary, item.snippet, item.siteName])
+    ].join("\n");
+    if (/(?:\u4ef7\u683c|\u884c\u60c5|\u62a5\u4ef7|\u91d1\u4ef7|\u9ec4\u91d1|\u767d\u94f6|\u6c47\u7387|\u80a1\u4ef7|\u80a1\u7968|\u6307\u6570|\u6cb9\u4ef7|\u5229\u7387|CPI|PPI|BTC|USDT|\u6bd4\u7279\u5e01|\u4eba\u6c11\u5e01|\u7f8e\u5143|\u6da8|\u8dcc)/i.test(text)) {
+      return "price";
+    }
+    if (/(?:\u65b0\u95fb|\u8981\u95fb|\u65e5\u62a5|\u4eca\u5929|\u4eca\u65e5|\u6700\u65b0|\u8fd1\u671f|\u6700\u8fd1|\u52a8\u6001|\u8fdb\u5c55|\u53d1\u5e03|\u66f4\u65b0|\u70ed\u641c|\u7a81\u53d1|\u4e8b\u4ef6)/i.test(text)) {
+      return "news";
+    }
+    return "reference";
+  }
+
+  buildNewsSearchCard({ query, results, summary }) {
+    const bullets = summaryBullets(summary, 4);
+    const lead = bullets.shift() || cardText(summary, 200);
     const elements = [
       {
         tag: "div",
@@ -847,50 +922,245 @@ export class FeishuBot {
           tag: "lark_md",
           content: compactLines([
             `**${cardText(query, 120)}**`,
-            cardText(summary, 1200)
+            lead
+          ])
+        }
+      },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            "**\u4eca\u65e5\u4e3b\u7ebf**",
+            ...bullets.map((item) => `- ${item}`)
+          ])
+        }
+      },
+      { tag: "hr" },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: "**\u91cd\u70b9\u65b0\u95fb**"
+        }
+      }
+    ];
+
+    for (const item of results.slice(0, 4)) {
+      elements.push({
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            `**${String(item.index).padStart(2, "0")}  ${cardText(item.title, 120)}**`,
+            sourceLabel(item),
+            cardText(item.summary || item.snippet, 220)
+          ])
+        }
+      });
+    }
+
+    const actions = cardActionButtons(results, 3);
+    if (actions.length) elements.push({ tag: "action", actions });
+    elements.push(cardNote(results));
+
+    return {
+      config: {
+        wide_screen_mode: true
+      },
+      header: {
+        template: "orange",
+        title: {
+          tag: "plain_text",
+          content: "\u4eca\u65e5\u641c\u7d22\u65e5\u62a5"
+        }
+      },
+      elements
+    };
+  }
+
+  buildPriceSearchCard({ query, results, summary }) {
+    const signals = this.extractPriceSignals({ query, results, summary });
+    const bullets = summaryBullets(summary, 4);
+    const elements = [
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            `**${cardText(query, 120)}**`,
+            cardText(bullets[0] || summary, 220)
+          ])
+        }
+      },
+      {
+        tag: "column_set",
+        flex_mode: "none",
+        background_style: "grey",
+        columns: [
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: compactLines([
+                    "**\u6700\u65b0\u4fe1\u53f7**",
+                    signals.primaryNumber
+                  ])
+                }
+              }
+            ]
+          },
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: compactLines([
+                    "**\u884c\u60c5\u65b9\u5411**",
+                    signals.trend
+                  ])
+                }
+              }
+            ]
+          },
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: compactLines([
+                    "**\u4e3b\u8981\u6765\u6e90**",
+                    signals.source
+                  ])
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            "**\u9a71\u52a8\u56e0\u7d20**",
+            ...bullets.slice(0, 4).map((item) => `- ${item}`)
           ])
         }
       },
       { tag: "hr" }
     ];
 
-    for (const item of results) {
+    const marketItems = results.slice(0, 4).map((item) => compactLines([
+      `**${item.index}. ${cardText(item.title, 110)}**`,
+      sourceLabel(item),
+      cardText(item.summary || item.snippet, 190)
+    ]));
+    if (marketItems.length) {
+      elements.push({
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines(["**\u884c\u60c5\u53c2\u8003**", ...marketItems])
+        }
+      });
+    }
+
+    const actions = cardActionButtons(results, 3);
+    if (actions.length) elements.push({ tag: "action", actions });
+    elements.push(cardNote(results));
+
+    return {
+      config: {
+        wide_screen_mode: true
+      },
+      header: {
+        template: signals.trendType === "down" ? "red" : signals.trendType === "mixed" ? "yellow" : "green",
+        title: {
+          tag: "plain_text",
+          content: "\u4ef7\u683c\u6307\u6807\u5361"
+        }
+      },
+      elements
+    };
+  }
+
+  extractPriceSignals({ query = "", results = [], summary = "" }) {
+    const text = [query, summary, ...results.flatMap((item) => [item.title, item.summary, item.snippet])].join("\n");
+    const numbers = uniqueCardItems(
+      (text.match(/[+-]?\d+(?:\.\d+)?\s*(?:\u5143\/\u514b|\u5143\/\u65a4|\u7f8e\u5143\/\u76ce\u53f8|\u7f8e\u5143|\u5143|\u6e2f\u5143|\u70b9|%|\uff05|\u4e07\u5143|\u4ebf\u5143|\u4e07|\u4ebf|\u514b|\u5428|\u6876|BTC|USDT)/gi) || [])
+        .map((item) => cardText(item, 40))
+    );
+    const up = /(?:\u4e0a\u6da8|\u6da8|\u98d9\u5347|\u8d70\u9ad8|\u4e0a\u884c|\u521b\u65b0\u9ad8|\u5347\u7834|\u7ad9\u4e0a|\u6da8\u5e45)/.test(text);
+    const down = /(?:\u4e0b\u8dcc|\u8dcc|\u56de\u843d|\u8d70\u4f4e|\u4e0b\u884c|\u964d|\u8dcc\u5e45)/.test(text);
+    const trendType = up && down ? "mixed" : down ? "down" : up ? "up" : "flat";
+    const trend =
+      trendType === "mixed" ? "\u6ce2\u52a8\u52a0\u5927" :
+      trendType === "down" ? "\u56de\u843d\u6216\u8d70\u4f4e" :
+      trendType === "up" ? "\u4e0a\u884c\u6216\u504f\u5f3a" :
+      "\u7b49\u5f85\u660e\u786e\u4fe1\u53f7";
+    const source = cardText(results.find((item) => item.siteName)?.siteName || results[0]?.displayUrl || results[0]?.url || "\u6765\u6e90\u5f85\u6838\u5bf9", 60);
+    return {
+      primaryNumber: numbers[0] || "\u672a\u68c0\u51fa\u660e\u786e\u6570\u5b57",
+      trend,
+      trendType,
+      source
+    };
+  }
+
+  buildReferenceSearchCard({ query, results, summary }) {
+    const bullets = summaryBullets(summary, 4);
+    const elements = [
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: compactLines([
+            `**${cardText(query, 120)}**`,
+            ...bullets.map((item) => `- ${item}`)
+          ])
+        }
+      },
+      { tag: "hr" },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: "**\u53ef\u53c2\u8003\u8d44\u6599**"
+        }
+      }
+    ];
+
+    for (const item of results.slice(0, 5)) {
       elements.push({
         tag: "div",
         text: {
           tag: "lark_md",
           content: compactLines([
             `**${item.index}. ${cardText(item.title, 120)}**`,
-            cardText(item.summary || item.snippet, 260),
-            cardText([item.siteName, item.publishedAt].filter(Boolean).join(" | "), 120)
+            sourceLabel(item),
+            cardText(item.summary || item.snippet, 230)
           ])
         }
       });
     }
 
-    const actions = results
-      .filter((item) => /^https?:\/\//i.test(item.url))
-      .slice(0, 3)
-      .map((item) => ({
-        tag: "button",
-        text: {
-          tag: "plain_text",
-          content: `\u6765\u6e90 ${item.index}`
-        },
-        type: item.index === 1 ? "primary" : "default",
-        url: item.url
-      }));
+    const actions = cardActionButtons(results, 3);
     if (actions.length) elements.push({ tag: "action", actions });
-
-    elements.push({
-      tag: "note",
-      elements: [
-        {
-          tag: "plain_text",
-          content: `Bocha Web Search | ${results.length} results`
-        }
-      ]
-    });
+    elements.push(cardNote(results));
 
     return {
       config: {
@@ -900,7 +1170,7 @@ export class FeishuBot {
         template: "blue",
         title: {
           tag: "plain_text",
-          content: "\u8054\u7f51\u641c\u7d22\u7ed3\u679c"
+          content: "\u8d44\u6599\u68c0\u7d22\u5361"
         }
       },
       elements
