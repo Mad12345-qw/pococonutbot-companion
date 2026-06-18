@@ -40,6 +40,7 @@ Delivery is separate from intent routing:
 | --- | --- |
 | Outgoing @ mention target is resolvable | Rich text post with mention nodes; no TTS. |
 | User explicitly asks for text or "不要语音/省点 TTS" | Text bubbles. |
+| Link/document/reference summary with readable context | Text bubbles by default, because dense summaries are easier to read than voice. |
 | User explicitly asks for voice | Voice/audio if TTS works. |
 | Default normal AI reply | Voice reply first, fallback to text. |
 | Card/song/image/project routes | Their route-specific output; do not TTS the card/song/image result. |
@@ -65,6 +66,11 @@ Use web search when the user asks for outside/current info:
 Do not treat bare `看看` as web search. It is only web search when paired with a
 hard outside-info noun such as price, weather, GitHub trending, World Cup, or
 an explicit search verb.
+
+When a message is quoted/replied to, include the visible referenced message text
+before fetched URL/document content. The quoted text is usually what the user
+means by "this"; links inside that quoted message are supporting material, not a
+replacement for the visible text.
 
 ### Image creation vs web search cards
 

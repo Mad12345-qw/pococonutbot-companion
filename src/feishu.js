@@ -940,7 +940,7 @@ export class FeishuBot {
       return;
     }
 
-    const deliveryPreference = getReplyDeliveryPreference(safeUserText);
+    const deliveryPreference = this.resolveReplyDeliveryPreference(safeUserText, { linkContext });
     const sentAsSpeech = deliveryPreference === "text" ? false : await this.replySpeech(message.message_id, safeReply);
     if (!sentAsSpeech) {
       for (const chunk of splitChatBubbles(safeReply, 1800)) {
@@ -1860,16 +1860,19 @@ export class FeishuBot {
   async describeIncomingLinks({ chatId, message, content = {}, rawMessageText = "", text = "" }) {
     if (!this.config.linkReadingEnabled) return "";
     try {
-      const urls = await this.collectMessageUrls({ chatId, message, content, rawMessageText, text });
-      if (!urls.length) return "";
+      const { urls, textSections } = await this.collectMessageLinkContext({ chatId, message, content, rawMessageText, text });
+      if (!urls.length && !textSections.length) return "";
 
-      logEvent("info", "Feishu link reading started", {
-        chatId,
-        messageId: message.message_id || "",
-        urls: urls.length
-      });
+      if (urls.length) {
+        logEvent("info", "Feishu link reading started", {
+          chatId,
+          messageId: message.message_id || "",
+          urls: urls.length,
+          textSections: textSections.length
+        });
+      }
 
-      const sections = [];
+      const sections = [...textSections];
       for (const url of urls.slice(0, 5)) {
         try {
           const section = await this.readLinkContent(url);
@@ -1890,6 +1893,7 @@ export class FeishuBot {
           chatId,
           messageId: message.message_id || "",
           urls: urls.length,
+          textSections: textSections.length,
           chars: output.length
         });
       }
@@ -1904,7 +1908,7 @@ export class FeishuBot {
     }
   }
 
-  async collectMessageUrls({ chatId = "", message, content = {}, rawMessageText = "", text = "" }) {
+  async collectMessageLinkContext({ chatId = "", message, content = {}, rawMessageText = "", text = "" }) {
     const direct = [
       ...extractUrls(text),
       ...extractUrls(rawMessageText),
@@ -1915,6 +1919,7 @@ export class FeishuBot {
     ];
 
     const referenced = [];
+    const textSections = [];
     if (direct.length === 0 && this.looksLikeLinkReadingRequest(text)) {
       const ids = uniqueStrings([
         message.parent_id,
@@ -1925,12 +1930,24 @@ export class FeishuBot {
       ]).filter((id) => id !== message.message_id);
       for (const id of ids.slice(0, 2)) {
         const ref = await this.fetchFeishuMessage(id);
+        const refText = this.extractReadableTextFromFeishuMessage(ref);
+        if (refText) {
+          textSections.push(`[Referenced Feishu message]\n${truncate(refText, 6000)}`);
+        }
         referenced.push(...this.extractUrlsFromFeishuMessage(ref));
       }
       referenced.push(...await this.recentStoredLinkUrls(chatId));
     }
 
-    return normalizeLinkCandidates([...direct, ...referenced]);
+    return {
+      urls: normalizeLinkCandidates([...direct, ...referenced]),
+      textSections: uniqueStrings(textSections)
+    };
+  }
+
+  async collectMessageUrls(args) {
+    const context = await this.collectMessageLinkContext(args);
+    return context.urls;
   }
 
   async recentStoredLinkUrls(chatId) {
@@ -2026,6 +2043,14 @@ export class FeishuBot {
       ...extractFeishuDocxIdsDeep(content).map((id) => `feishu-docx:${id}`),
       ...extractFeishuWikiTokensDeep(content).map((token) => `feishu-wiki:${token}`)
     ]);
+  }
+
+  extractReadableTextFromFeishuMessage(message = {}) {
+    const content = parseContent(message.content);
+    const raw = message.message_type === "post"
+      ? flattenPostContent(content)
+      : (content.text || flattenGenericContent(content));
+    return stripAtTags(raw).trim();
   }
 
   async fetchFeishuMessage(messageId) {
@@ -2136,6 +2161,13 @@ export class FeishuBot {
       "[Link content]",
       truncate(linkContext, this.config.linkReadingMaxChars || 12000)
     ].filter(Boolean).join("\n");
+  }
+
+  resolveReplyDeliveryPreference(text = "", { linkContext = "" } = {}) {
+    const explicit = getReplyDeliveryPreference(text);
+    if (explicit) return explicit;
+    if (linkContext && looksLikeLongFormReadingRequest(text)) return "text";
+    return "";
   }
 
   extractSelfieGenerationPrompt(text = "") {

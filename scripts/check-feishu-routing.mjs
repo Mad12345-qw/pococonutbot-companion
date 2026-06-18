@@ -127,16 +127,35 @@ const deliveryCases = [
   ["text preference", "这段用文字回复就行", "text"],
   ["tts saving preference", "不用走tts，省点token", "text"],
   ["voice preference", "这段用语音回复", "voice"],
-  ["default delivery", "正常聊两句", ""]
+  ["default delivery", "正常聊两句", ""],
+  ["link summary defaults to text", "看看这个，总结一下", "text", "[Referenced Feishu message]\n核心框架：角色、任务、背景、要求、输出格式。"]
 ];
 
-for (const [name, text, expected] of deliveryCases) {
-  assertEqual(name, getReplyDeliveryPreference(text), expected);
+for (const [name, text, expected, linkContext = ""] of deliveryCases) {
+  const actual = linkContext
+    ? bot.resolveReplyDeliveryPreference(text, { linkContext })
+    : getReplyDeliveryPreference(text);
+  assertEqual(name, actual, expected);
 }
 
 const mentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好的，你来看看这个。", {
   mentionTargets: [{ id: "ou_incoming_zhuzhu", name: "珠珠-SPM" }]
 });
 assertEqual("mention delivery resolves target", String(mentionTargets.length), "1");
+
+bot.fetchFeishuMessage = async () => ({
+  message_type: "text",
+  content: JSON.stringify({
+    text: "@月亮 请你调用 lark-cli 来阅读。\n核心框架：角色、任务、背景、要求、输出格式。\nhttps://example.com/doc"
+  })
+});
+bot.recentStoredLinkUrls = async () => [];
+const quotedContext = await bot.collectMessageLinkContext({
+  chatId: "feishu:test",
+  message: { message_id: "om_current", parent_id: "om_parent" },
+  text: "看看这个，总结一下"
+});
+assertEqual("quoted text is included before links", String(quotedContext.textSections.some((item) => item.includes("核心框架"))), "true");
+assertEqual("quoted links are still collected", String(quotedContext.urls.includes("https://example.com/doc")), "true");
 
 console.log("Feishu routing checks passed.");
