@@ -143,6 +143,27 @@ const mentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好的，�
 });
 assertEqual("mention delivery resolves target", String(mentionTargets.length), "1");
 
+bot.workspace = {
+  request: async () => ({
+    data: {
+      message: {
+        msg_type: "text",
+        body: {
+          content: JSON.stringify({
+            text: "@小椰 看看这段引用正文。\n这里才是应该总结的内容。"
+          })
+        }
+      }
+    }
+  })
+};
+const fetchedNestedMessage = await bot.fetchFeishuMessage("om_nested");
+assertEqual(
+  "nested Feishu API message body text is readable",
+  String(bot.extractReadableTextFromFeishuMessage(fetchedNestedMessage).includes("应该总结的内容")),
+  "true"
+);
+
 bot.fetchFeishuMessage = async () => ({
   message_type: "text",
   content: JSON.stringify({
@@ -157,5 +178,30 @@ const quotedContext = await bot.collectMessageLinkContext({
 });
 assertEqual("quoted text is included before links", String(quotedContext.textSections.some((item) => item.includes("核心框架"))), "true");
 assertEqual("quoted links are still collected", String(quotedContext.urls.includes("https://example.com/doc")), "true");
+
+let staleRecentLinksCalled = false;
+bot.fetchFeishuMessage = async () => ({ message_type: "text", content: "" });
+bot.recentStoredLinkUrls = async () => {
+  staleRecentLinksCalled = true;
+  return ["https://stale.example.com/wiki"];
+};
+const emptyQuotedContext = await bot.collectMessageLinkContext({
+  chatId: "feishu:test",
+  message: { message_id: "om_current", parent_id: "om_parent" },
+  text: "看看这个，总结一下"
+});
+assertEqual("quoted summary does not pull stale recent links", String(emptyQuotedContext.urls.includes("https://stale.example.com/wiki")), "false");
+assertEqual("recent links are skipped when quoted id exists", String(staleRecentLinksCalled), "false");
+
+assertEqual(
+  "web search card body is hidden from chat history",
+  bot.formatMessageForModel({
+    role: "assistant",
+    modality: "card",
+    content: "联网资料卡：今天黄金价格\n很长的卡片正文",
+    metadata: { webSearch: true }
+  }).includes("联网资料卡"),
+  false
+);
 
 console.log("Feishu routing checks passed.");

@@ -26,6 +26,31 @@ function parseContent(content = "") {
   }
 }
 
+function normalizeFeishuMessageResponse(data = {}) {
+  const root = data?.data || data || {};
+  if (Array.isArray(root.items) && root.items[0]) return root.items[0];
+  if (root.message) return root.message;
+  if (root.item) return root.item;
+  if (root.message_info) return root.message_info;
+  if (Array.isArray(data?.items) && data.items[0]) return data.items[0];
+  return data?.message || data?.item || data?.message_info || {};
+}
+
+function feishuMessageType(message = {}) {
+  return message.message_type || message.msg_type || message.type || message.body?.message_type || message.body?.msg_type || "";
+}
+
+function feishuMessageContent(message = {}) {
+  return parseContent(
+    message.content ??
+    message.body?.content ??
+    message.message?.content ??
+    message.item?.content ??
+    message.message_info?.content ??
+    ""
+  );
+}
+
 function stripAtTags(text = "") {
   return String(text || "")
     .replace(/<at\b[^>]*>[\s\S]*?<\/at>/gi, "")
@@ -1936,7 +1961,9 @@ export class FeishuBot {
         }
         referenced.push(...this.extractUrlsFromFeishuMessage(ref));
       }
-      referenced.push(...await this.recentStoredLinkUrls(chatId));
+      if (ids.length === 0) {
+        referenced.push(...await this.recentStoredLinkUrls(chatId));
+      }
     }
 
     return {
@@ -2029,8 +2056,8 @@ export class FeishuBot {
   }
 
   extractUrlsFromFeishuMessage(message = {}) {
-    const content = parseContent(message.content);
-    const postText = message.message_type === "post" ? flattenPostContent(content) : "";
+    const content = feishuMessageContent(message);
+    const postText = feishuMessageType(message) === "post" ? flattenPostContent(content) : "";
     return normalizeLinkCandidates([
       ...extractUrls(postText),
       ...extractUrls(content.text || ""),
@@ -2046,8 +2073,8 @@ export class FeishuBot {
   }
 
   extractReadableTextFromFeishuMessage(message = {}) {
-    const content = parseContent(message.content);
-    const raw = message.message_type === "post"
+    const content = feishuMessageContent(message);
+    const raw = feishuMessageType(message) === "post"
       ? flattenPostContent(content)
       : (content.text || flattenGenericContent(content));
     return stripAtTags(raw).trim();
@@ -2057,12 +2084,7 @@ export class FeishuBot {
     if (!messageId) return {};
     try {
       const data = await this.workspace.request(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}`);
-      const message =
-        data.message ||
-        data.item ||
-        data.items?.[0] ||
-        data.message_info ||
-        {};
+      const message = normalizeFeishuMessageResponse(data);
       logEvent("info", "Feishu referenced message fetched", { messageId });
       return message;
     } catch (error) {
@@ -2312,9 +2334,13 @@ export class FeishuBot {
     const summary = await this.storage.getSummary(chatId, "");
     const userSummary = await this.storage.getSummary(chatId, userId);
     const recentMessages = await this.storage.getRecentMessages(chatId, this.config.recentMessageLimit);
-    const historyMessages = currentMessageId
+    const baseHistoryMessages = currentMessageId
       ? recentMessages.filter((item) => String(item.metadata?.messageId || "") !== String(currentMessageId))
       : recentMessages;
+    const omitCardHistory = looksLikeLongFormReadingRequest(safeUserText) || /\[Link content\]/.test(safeUserText);
+    const historyMessages = omitCardHistory
+      ? baseHistoryMessages.filter((item) => item.modality !== "card" && !item.metadata?.webSearch)
+      : baseHistoryMessages;
     const systemPrompt = buildSystemPrompt({
       config: this.config,
       memories,
@@ -2722,6 +2748,9 @@ export class FeishuBot {
     const label = message.role === "assistant"
       ? this.config.displayName
       : metadata.rawUserId || message.user_id || "飞书用户";
+    if (message.modality === "card" || metadata.webSearch) {
+      return `${label}: [发出了一张资料卡片，具体卡片正文不作为当前消息原文复述]`;
+    }
     return `${label}: ${message.content || ""}`;
   }
 
@@ -2767,9 +2796,10 @@ export class FeishuBot {
           "",
           "[飞书文字排版要求]",
           "用户在让你阅读、学习、总结或整理内容。请输出适合飞书聊天气泡阅读的精华版，不要写 Markdown 源码。",
-          "不要使用 #、##、**、```、表格。标题直接写成“📌 总体判断”“🎯 几个亮点”“🧩 可以打磨的点”这类短标题。",
-          "每段 1 到 3 行，重点前可用 🎯、🧩、🎮、💡、⚠️、✅ 等少量图标；编号最多 3 到 5 条。",
-          "先给一句整体评价，再列亮点，再列可改进点，最后给一句结论或下一步建议。不要把原文目录机械搬运一遍。"
+          "不要使用 #、##、**、```、表格，也不要写“联网资料卡”“搜索结果”“链接失效”“Wiki token”“没找到公开摘要”这类内部过程说明。",
+          "标题直接写成“总体判断”“核心要点”“亮点”“可以打磨的点”“一句话结论”这类短标题，尽量不用表情符号。",
+          "每段 1 到 3 行，长句拆短；编号最多 3 到 5 条。信息太多时先压缩表达，不要糊成一整坨。",
+          "优先总结当前引用原文和当前能读到的内容；不要把历史资料卡、旧链接、抓取状态当成本次原文。"
         ].join("\n")
       : "";
     return [
