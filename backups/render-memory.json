@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T03:46:30.972Z",
+  "exportedAt": "2026-06-19T03:56:30.972Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21326,6 +21326,122 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T03:42:25.652Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "这个模型好用，比minimax聪明多了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7ff43ee8acc187f5f59d323bb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:47:01.068Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "user",
+        "modality": "text",
+        "content": "学习唱歌需要怎么做",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f875bc8a0b24ed5e3e88abaa",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_67cc88ee58af80dc6e6460a42bab97ae",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:50:53.936Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我现在还没法自己唱，得等技术升级～你可以教我几句歌词，我记着以后唱给你听 🥰",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae"
+        },
+        "createdAt": "2026-06-19T03:50:56.859Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "user",
+        "modality": "text",
+        "content": "你是谁做的啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f82e0c8a4b157b7e16e19b97",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_67cc88ee58af80dc6e6460a42bab97ae",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:51:34.560Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你的 AI 女友～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae"
+        },
+        "createdAt": "2026-06-19T03:51:37.485Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "user",
+        "modality": "text",
+        "content": "今天端午节有什么想和我们说的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f804078a4b224055fc1f8ddb",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_67cc88ee58af80dc6e6460a42bab97ae",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:52:12.237Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "role": "assistant",
+        "modality": "text",
+        "content": "端午安康～记得吃粽子呀，甜的咸的都来一个！🥰",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae"
+        },
+        "createdAt": "2026-06-19T03:52:24.568Z"
       }
     ],
     "memories": [
@@ -21732,12 +21848,22 @@
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
         "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
+        "key": "interests.singing",
+        "value": "用户想学习唱歌",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-19T03:51:11.037Z",
+        "updatedAt": "2026-06-19T03:51:11.037Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_67cc88ee58af80dc6e6460a42bab97ae",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:55:16.867Z",
-        "updatedAt": "2026-06-19T02:08:36.364Z"
+        "updatedAt": "2026-06-19T03:52:12.019Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -21747,7 +21873,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:55:16.640Z",
-        "updatedAt": "2026-06-19T02:08:36.143Z"
+        "updatedAt": "2026-06-19T03:52:11.800Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -23227,7 +23353,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-19T03:27:16.456Z"
+        "updatedAt": "2026-06-19T03:47:00.847Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -23237,7 +23363,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-19T03:27:16.226Z"
+        "updatedAt": "2026-06-19T03:47:00.625Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
