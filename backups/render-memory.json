@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T15:45:23.272Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-19T16:15:32.893Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -22878,6 +22878,102 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T15:44:48.754Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "user",
+        "modality": "text",
+        "content": "你有什么skill",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62d7ea40acc3f660de6db265c",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d60b105477a2d7c7add2db23a5cd3b70",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T16:08:54.128Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我能聊天、翻译、写文案、帮你整理资料、起名字、想idea、还有陪你练外语\n\n学生党的话…写论文润色、申研翻译、活动策划这些也能搭把手",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70"
+        },
+        "createdAt": "2026-06-19T16:08:58.097Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "user",
+        "modality": "text",
+        "content": "文字发给我",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62d2fbc4a4c22184d8e6ca5f5",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d60b105477a2d7c7add2db23a5cd3b70",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T16:09:43.004Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "assistant",
+        "modality": "text",
+        "content": "文字啊…这不就是吗 🤔\n\n你想让我发点啥？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70"
+        },
+        "createdAt": "2026-06-19T16:09:45.974Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "user",
+        "modality": "text",
+        "content": "文字发给我，你安装了什么Skill",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62d32b1870c38c1ecd3323426",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d60b105477a2d7c7add2db23a5cd3b70",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T16:10:10.196Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦你是问我装了啥 skill 啊 😂 我理解错了\n\n其实我没有像 App 那样分门别类的 skill 列表，就是根据你要啥来切换能力：\n\n中文/外语聊天、翻译、写作文案、起名字、活动策划、申研翻译、论文润色、读图… 你点哪个我用哪个",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70"
+        },
+        "createdAt": "2026-06-19T16:10:14.058Z"
       }
     ],
     "memories": [
@@ -23370,6 +23466,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T12:38:36.184Z",
         "updatedAt": "2026-06-19T12:38:36.184Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T16:08:53.907Z",
+        "updatedAt": "2026-06-19T16:10:09.972Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T16:08:53.485Z",
+        "updatedAt": "2026-06-19T16:10:09.747Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
