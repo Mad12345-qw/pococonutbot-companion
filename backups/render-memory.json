@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T08:36:41.075Z",
+  "exportedAt": "2026-06-19T12:06:39.741Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21960,6 +21960,180 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T08:29:54.172Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "user",
+        "modality": "text",
+        "content": "在搞了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c674f7c2d38b2923e79381b90f",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_e06e699262729758bf5eea5e8f3c5541",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:03:43.522Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "坐等上线",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c674daaf4acb2c5f8f55f5cb83",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:04:09.870Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首泡沫～",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c674a1db130b343a1d4bb853a4",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_e06e699262729758bf5eea5e8f3c5541",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:04:32.290Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "泡沫～",
+          "replyToUserId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541"
+        },
+        "createdAt": "2026-06-19T12:04:34.098Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c674b068cacb4a76e45abe26c1",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:04:48.144Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "邓紫棋 句号",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-19T12:04:49.596Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "user",
+        "modality": "text",
+        "content": "唱这首，歌名：泡沫 ，歌手：邓紫棋",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c67494864a0b1ccc04fdf091d3",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_e06e699262729758bf5eea5e8f3c5541",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:05:15.700Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "user",
+        "modality": "text",
+        "content": "/总结",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c674733c8a0c459ea488818b69",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66151593abc5a16866d728c9eee2c483",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:05:58.368Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "assistant",
+        "modality": "text",
+        "content": "当前这条消息是“/总结”，但群里最近没有你指定要总结的原文内容，所以这次没什么可总结的🙂\n\n如果你有具体的内容想让我帮忙整理，可以直接贴出来或者发个链接，我再帮你梳理～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66151593abc5a16866d728c9eee2c483"
+        },
+        "createdAt": "2026-06-19T12:06:07.587Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541"
+        },
+        "createdAt": "2026-06-19T12:06:09.489Z"
       }
     ],
     "memories": [
@@ -22671,7 +22845,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:53:23.042Z",
-        "updatedAt": "2026-06-19T05:07:01.728Z"
+        "updatedAt": "2026-06-19T12:04:47.920Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -22681,7 +22855,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:53:22.807Z",
-        "updatedAt": "2026-06-19T05:07:01.507Z"
+        "updatedAt": "2026-06-19T12:04:47.695Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -22711,7 +22885,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:58:05.780Z",
-        "updatedAt": "2026-06-19T05:04:18.377Z"
+        "updatedAt": "2026-06-19T12:05:15.472Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -22721,7 +22895,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:58:05.557Z",
-        "updatedAt": "2026-06-19T05:04:18.149Z"
+        "updatedAt": "2026-06-19T12:05:15.243Z"
       },
       {
         "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
@@ -23741,7 +23915,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.700Z",
-        "updatedAt": "2026-06-18T09:22:49.567Z"
+        "updatedAt": "2026-06-19T12:05:58.141Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -23751,7 +23925,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.482Z",
-        "updatedAt": "2026-06-18T09:22:49.348Z"
+        "updatedAt": "2026-06-19T12:05:57.913Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
