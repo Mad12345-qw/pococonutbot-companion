@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T05:16:39.441Z",
+  "exportedAt": "2026-06-19T05:26:40.625Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21847,6 +21847,20 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T05:16:17.404Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "GitHub 热门仓库 Top 3\n1. google-research/timesfm（Python · 844 stars today）：TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.\n2. n0-computer/iroh（Rust · 369 stars today）：IP addresses break, dial keys instead. Modular networking stack in Rust.\n3. freeCodeCamp/freeCodeCamp（TypeScript · 417 stars today）：freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer science for free.",
+        "metadata": {
+          "platform": "feishu",
+          "resultCount": 3,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "githubTrending": true
+        },
+        "createdAt": "2026-06-19T05:16:38.621Z"
       }
     ],
     "memories": [
