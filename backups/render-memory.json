@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T16:15:32.893Z",
+  "exportedAt": "2026-06-19T16:35:34.645Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -22974,6 +22974,38 @@
           "replyToUserId": "feishu:ou_d60b105477a2d7c7add2db23a5cd3b70"
         },
         "createdAt": "2026-06-19T16:10:14.058Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "告诉我这个套餐我怎么选择最划算",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62934218a0c184e394a9ffe1d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T16:27:11.903Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看到你分享的表情包故事了~ 9套+1套草稿收了900，这波又用心又赚到，挺值的！\n\n关于你问的套餐怎么选最划算，我需要先了解下你手头有哪些套餐选项才能给你具体建议。你能告诉我现在有的套餐内容吗？比如按套数定价、按风格分类、还是按使用场景分的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-19T16:27:18.693Z"
       }
     ],
     "memories": [
@@ -25015,7 +25047,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-19T15:44:48.527Z"
+        "updatedAt": "2026-06-19T16:27:11.686Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25025,7 +25057,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-19T15:44:48.185Z"
+        "updatedAt": "2026-06-19T16:27:11.452Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
