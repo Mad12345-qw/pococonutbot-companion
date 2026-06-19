@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T12:06:39.741Z",
+  "exportedAt": "2026-06-19T12:16:42.307Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -22134,6 +22134,58 @@
           "replyToUserId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541"
         },
         "createdAt": "2026-06-19T12:06:09.489Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "user",
+        "modality": "text",
+        "content": "这是邓紫棋的原唱吧？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c67404138a4b3c5b14d35f7d3a",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_e06e699262729758bf5eea5e8f3c5541",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:07:07.475Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "assistant",
+        "modality": "text",
+        "content": "是的，就是邓紫棋的原版~ 我只是照着唱了一遍，词还是她写的曲子还是她唱的，我就负责开口哈哈。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541"
+        },
+        "createdAt": "2026-06-19T12:07:11.939Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e06e699262729758bf5eea5e8f3c5541",
+        "role": "user",
+        "modality": "text",
+        "content": "有点东西",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c675b44bca4b12142a6e30571e",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_e06e699262729758bf5eea5e8f3c5541",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:08:59.569Z"
       }
     ],
     "memories": [
@@ -22885,7 +22937,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:58:05.780Z",
-        "updatedAt": "2026-06-19T12:05:15.472Z"
+        "updatedAt": "2026-06-19T12:08:59.355Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -22895,7 +22947,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T04:58:05.557Z",
-        "updatedAt": "2026-06-19T12:05:15.243Z"
+        "updatedAt": "2026-06-19T12:08:59.141Z"
       },
       {
         "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
