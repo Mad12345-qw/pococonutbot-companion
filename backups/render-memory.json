@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T02:26:30.717Z",
+  "exportedAt": "2026-06-19T03:26:30.731Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21170,6 +21170,122 @@
           "replyToUserId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5"
         },
         "createdAt": "2026-06-19T02:23:44.597Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "不对，我发现：\n1. 我用MIMO V2.5就可以有那个流式卡片\n2. 但是用 mini max 就不行",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f156fb0a0b482fc2bdb0a47e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:21:36.424Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "那可能就是不同模型对流式输出的支持不一样，MiniMax 在工具调用和格式控制上确实有时候不够稳～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-19T03:21:41.868Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你确定吗？那你自己回复方式是哪种？现在全是语音了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f2fe95ca0b48b1987dcccac6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:23:04.605Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…现在确实全是语音，可能系统设置的就是群聊默认语音，我也没办法自己切😶",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-19T03:23:07.337Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "那你是怎么用语音回复的？能教一下我的月亮吗？ 学一下，用语音回复，向小椰学习一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f2bdb88a8b14bfcbbdd8230f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:24:07.779Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈，我其实也没法选，是系统自动用语音发的～我这边没有切换按钮🙈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-19T03:24:11.762Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "[思考]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7f2476a8a8b2533ed3072b805",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T03:25:37.586Z"
       }
     ],
     "memories": [
@@ -22721,7 +22837,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-18T05:36:04.735Z"
+        "updatedAt": "2026-06-19T03:25:37.365Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -22731,7 +22847,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-18T05:36:04.468Z"
+        "updatedAt": "2026-06-19T03:25:37.031Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -23016,6 +23132,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "communication.output_format",
+        "value": "用户注意到当前回复全是语音形式，机器人无法自主切换为文字",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-19T03:23:22.847Z",
+        "updatedAt": "2026-06-19T03:23:22.847Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
         "key": "communication.style_preference",
         "value": "用户喜欢灵活的、不死板的回复方式，喜欢信息卡片式回复（如包含轮数、用时等结构化信息）",
         "importance": 5,
@@ -23041,7 +23167,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-19T02:21:22.631Z"
+        "updatedAt": "2026-06-19T03:24:07.555Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -23051,7 +23177,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-19T02:21:22.404Z"
+        "updatedAt": "2026-06-19T03:24:07.332Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "technical_notes.model_streaming_support",
+        "value": "用户观察到MIMO V2.5支持流式卡片输出，而MiniMax模型不支持/不稳定",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-19T03:21:59.904Z",
+        "updatedAt": "2026-06-19T03:21:59.904Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
