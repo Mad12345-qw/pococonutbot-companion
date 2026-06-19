@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T06:26:40.775Z",
+  "exportedAt": "2026-06-19T08:36:41.075Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21940,6 +21940,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T06:18:03.132Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "如果不能用搞给代理就解决了啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c7b917014a4c4a275180599954",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T08:29:54.172Z"
       }
     ],
     "memories": [
@@ -24001,7 +24021,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-17T16:49:43.350Z"
+        "updatedAt": "2026-06-19T08:29:53.936Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -24011,7 +24031,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-17T16:49:43.120Z"
+        "updatedAt": "2026-06-19T08:29:53.577Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
