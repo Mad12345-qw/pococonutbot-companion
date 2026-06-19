@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T12:36:40.232Z",
+  "exportedAt": "2026-06-19T12:46:40.735Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -22310,6 +22310,38 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T12:35:11.608Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "总结整理本群上下文，\n[Link content]\n[Referenced Feishu message]\nfile_v3_0012q_87216e42-bd0c-4dce-b5f5-40ff52cce9bg\n\n[Referenced Feishu message]\n/总结",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c67cab0a0a0b2ee20f01ff41b4",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "[Referenced Feishu message]\nfile_v3_0012q_87216e42-bd0c-4dce-b5f5-40ff52cce9bg\n\n[Referenced Feishu message]\n/总结",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:38:36.639Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n大家在群里聊了端午祝福、唱歌学习、我是谁做的，还有人发了 AtomCollide 的端午海报。\n\n核心要点\n• AtomCollide AI Agent Lab 出了张端午祝福海报，传统元素加科技感。\n• 有人想学唱歌，有人在群里互相点。\n\n亮点\n• 海报把端午习俗和品牌调性结合得不错。\n• 群里氛围轻松，有人回应点赞。\n\n可以打磨的点\n• 群消息有点散，没明确主题。\n\n一句话结论\n主要是节日祝福和日常闲聊，附带一张品牌海报。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-19T12:38:49.443Z"
       }
     ],
     "memories": [
@@ -22782,6 +22814,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.448Z",
         "updatedAt": "2026-06-19T02:16:11.448Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T12:38:36.413Z",
+        "updatedAt": "2026-06-19T12:38:36.413Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T12:38:36.184Z",
+        "updatedAt": "2026-06-19T12:38:36.184Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
