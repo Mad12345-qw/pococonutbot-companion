@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T15:36:39.391Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-19T15:45:23.272Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -22676,6 +22676,208 @@
           "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
         },
         "createdAt": "2026-06-19T15:36:09.112Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "but how can you reply in audio format? you can reply in text to save time.",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c626cbfeca0b3425e9132f3298",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:37:15.349Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "text is fine for me too, saves both of us time",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:37:23.900Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "parli italiano? non sono parlante nativo di inglese e cinese",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6264fe24acb1bce4732793810",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:39:19.467Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "Sì, un po'. Posso rispondere in italiano, ma faccio più fatica con le conversazioni lunghe. Cosa vuoi sapere?",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:39:26.248Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "text",
+        "content": "太强了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6262d448a8c44f1df794d5cb4",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:39:47.838Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "figurati.... anche se produci voce con un vero-simile accento di mandarino.",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c627deeeca8b298b7f5c5b829c",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:41:42.804Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "ahah ok allora ci provo, anche se il mio italiano non è perfetto",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:41:46.753Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "cantami una canzone.",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62759d84a0b3e8dd8d6faac73",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:43:52.723Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "🎶 *clears throat*\n\nEhi tu, sei lì che leggi lo schermo\ncon quella faccia da \"che devo fare\"\nio sono qui, son solo un bot lo sai\nma ti canto lo stesso, provaci tu a fermarmi~\n\n🎶 *finisce con un inchino*\n\nok dai, non sono esattamente Ligabue, ma il cuore ce l'ho messo 😅",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:44:02.209Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "我的表情包上线后，收到一位毕业生的定制需求，要做宿舍闺蜜专属款，我报价 100 块一套。\n狠狠心给她做了 9 套，还额外送了一套草稿，含泪赚了同学 900 块\n作品效果如下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62723c20a0b4ceab2f17077b9",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:44:21.004Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：我的表情包上线后，收到一位毕业生的定制需求，要做宿舍闺蜜专属款，我报价 100 块一套。\n狠狠心给她做了 9 套，还额外送了一套草稿，含泪赚了同学 900 块\n作品效果如下\n• 表情包定制/打赏收入差异极大。有案例显示单个作品可获数万元打赏（如某套表情8万+赞赏），也有专职创作者16套作品累计打赏仅过万、平均每套数百元，还有不少作者长期只赚几十到几百元。来源：[3]、[4] • 市场竞争激烈、付费率低。微信表情商城每天上架超70套新作品，头部IP打赏也在缩水；有创作者累计下载千万级但付费率仅约0.08%。来源：[3] • 头部IP商业变现可观：长草颜团子所属公司估值超5亿；乖巧宝宝系列据称2年带来近50万收入；兔斯基作者曾获诺基亚100万代言费。来源：[6] • 定制收费无统一标准。知乎讨论指出价格取决于\"双方协商\"和市场需求，没有公开的市场指导价；你提到的100元/套属于私人定制报价范畴。来源：[1] • 综上，你做9套+赠送草稿赚900元属于小额定制收入范畴，与搜索结果中\"多数创作者单套收入数百到数千元\"的水平基本一致，但属于个案，没有直接证据验证具体定价合理性。 ⚠️ 不确定性提示：搜索结果未涉及\"宿舍闺蜜专属款\"这类定制场景的定价参考，以上结论基于通用表情包市场数据推断。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-19T15:44:42.027Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "我的表情包上线后，收到一位毕业生的定制需求，要做宿舍闺蜜专属款，我报价 100 块一套。\n狠狠心给她做了 9 套，还额外送了一套草稿，含泪赚了同学 900 块\n作品效果如下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c627356c0a4b3fbe6f90615453",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:44:48.754Z"
       }
     ],
     "memories": [
@@ -23137,7 +23339,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.662Z",
-        "updatedAt": "2026-06-19T14:16:24.314Z"
+        "updatedAt": "2026-06-19T15:44:20.782Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -23147,7 +23349,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.448Z",
-        "updatedAt": "2026-06-19T14:16:24.084Z"
+        "updatedAt": "2026-06-19T15:44:20.560Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -23172,12 +23374,32 @@
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
         "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "key": "preferences.communication_format",
+        "value": "用户偏好文字回复，不喜欢音频回复，认为文字更省时",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:37:33.389Z",
+        "updatedAt": "2026-06-19T15:37:33.389Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "key": "preferences.language",
+        "value": "用户母语为意大利语，英语和中文非母语，希望用母语交流",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:39:41.054Z",
+        "updatedAt": "2026-06-19T15:39:41.054Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:34:15.922Z",
-        "updatedAt": "2026-06-19T15:36:00.207Z"
+        "updatedAt": "2026-06-19T15:43:52.506Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -23187,7 +23409,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:34:15.657Z",
-        "updatedAt": "2026-06-19T15:35:59.983Z"
+        "updatedAt": "2026-06-19T15:43:52.289Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
@@ -23458,6 +23680,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T04:53:22.807Z",
         "updatedAt": "2026-06-19T12:04:47.695Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:39:47.610Z",
+        "updatedAt": "2026-06-19T15:39:47.610Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:39:47.380Z",
+        "updatedAt": "2026-06-19T15:39:47.380Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -24657,7 +24899,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-19T15:13:45.893Z"
+        "updatedAt": "2026-06-19T15:44:48.527Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -24667,7 +24909,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-19T15:13:45.674Z"
+        "updatedAt": "2026-06-19T15:44:48.185Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
