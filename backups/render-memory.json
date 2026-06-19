@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T12:16:42.307Z",
+  "exportedAt": "2026-06-19T12:36:40.232Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -22186,6 +22186,130 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-19T12:08:59.569Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "user",
+        "modality": "text",
+        "content": "/总结",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6723ea94a4c297cec8225b55e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66151593abc5a16866d728c9eee2c483",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:32:25.540Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "user",
+        "modality": "text",
+        "content": "/总结",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c67209a0cacc4f1ccfaaf0e84e",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_66151593abc5a16866d728c9eee2c483",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:32:41.109Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你这条消息我没法读懂想要什么内容。\n\n需要的话，可以直接发你想让我学习或总结的原文，我就能开始整理了～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66151593abc5a16866d728c9eee2c483"
+        },
+        "createdAt": "2026-06-19T12:32:46.324Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书aily可以不过要开飞书会员，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6721bd7ca0b3ce17f232620f5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:33:01.281Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好咧～\n\n所以结论就是：想用飞书 Aily 是可以的，但得开通飞书会员才行。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-19T12:33:05.539Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我以前用过，可以监控所有飞书消息，跟安装一个监控一样。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c673d2218a0b4c34032ec2b025",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:34:13.042Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "user",
+        "modality": "text",
+        "content": "嗯呐  我也是因为收费 就你自己搞了哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c673941e0a4c194d1178554c19",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66151593abc5a16866d728c9eee2c483",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T12:35:11.608Z"
       }
     ],
     "memories": [
@@ -22568,6 +22692,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T03:42:25.157Z",
         "updatedAt": "2026-06-19T03:42:25.157Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T12:32:40.894Z",
+        "updatedAt": "2026-06-19T12:32:40.894Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T12:32:40.668Z",
+        "updatedAt": "2026-06-19T12:32:40.668Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -23967,7 +24111,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.700Z",
-        "updatedAt": "2026-06-19T12:05:58.141Z"
+        "updatedAt": "2026-06-19T12:35:11.383Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -23977,7 +24121,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.482Z",
-        "updatedAt": "2026-06-19T12:05:57.913Z"
+        "updatedAt": "2026-06-19T12:35:11.159Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -24247,7 +24391,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-19T08:29:53.936Z"
+        "updatedAt": "2026-06-19T12:34:12.823Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -24257,7 +24401,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-19T08:29:53.577Z"
+        "updatedAt": "2026-06-19T12:34:12.604Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
