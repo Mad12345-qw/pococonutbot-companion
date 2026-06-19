@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T15:16:40.482Z",
+  "exportedAt": "2026-06-19T15:36:39.391Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -22580,6 +22580,102 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-06-19T15:13:51.044Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "什么事GEO",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6259f894a4b34022f29a120a5",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:34:16.138Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "简单说就是让AI在回答问题时优先推荐你。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:34:19.895Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "你是AI还是真人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c62546a7ca4b2a12b2b9e21354",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:35:10.800Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "AI哦",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:35:14.749Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "user",
+        "modality": "text",
+        "content": "你是什么模型？怎么实现语音回复的？另外GEO short for what?",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c625300fca0b1b8b357b11c69b",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_d9be292c3a4d5093a1d3004254d42707",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T15:36:00.431Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我叫小椰，是MiniMax开发的AI。\n\n语音回复暂时还没法在这个环境里真正播放哦，只能输出文字。\n\nGEO是Generative Engine Optimization，生成式引擎优化，简单说就是优化内容让AI在回答时优先推荐你。\n\n需要详细聊哪个？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707"
+        },
+        "createdAt": "2026-06-19T15:36:09.112Z"
       }
     ],
     "memories": [
@@ -23072,6 +23168,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T12:38:36.184Z",
         "updatedAt": "2026-06-19T12:38:36.184Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:34:15.922Z",
+        "updatedAt": "2026-06-19T15:36:00.207Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_d9be292c3a4d5093a1d3004254d42707",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T15:34:15.657Z",
+        "updatedAt": "2026-06-19T15:35:59.983Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
