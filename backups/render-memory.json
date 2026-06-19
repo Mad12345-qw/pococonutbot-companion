@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T05:26:40.625Z",
+  "exportedAt": "2026-06-19T05:46:39.897Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -21861,6 +21861,45 @@
           "githubTrending": true
         },
         "createdAt": "2026-06-19T05:16:38.621Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://www.npmjs.com/package/@hongmaple0820/scale-engine  我做的工作流，下载量破5000了[烟花]\nhttps://www.npmjs.com/package/@hongmaple0820/scale-engine",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.npmjs.com/package/@hongmaple0820/scale-engine"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c793efd54a0c44c6f384cc858a",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-19T05:43:38.293Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "https://www.npmjs.com/package/@hongmaple0820/scale-engine  我做的工作流，下载量破5000了[烟花]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c793efd54a0c44c6f384cc858a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-19T05:43:39.030Z"
       }
     ],
     "memories": [
@@ -23373,6 +23412,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T07:07:01.874Z",
         "updatedAt": "2026-06-08T07:07:22.840Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T05:43:38.812Z",
+        "updatedAt": "2026-06-19T05:43:38.812Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-19T05:43:38.568Z",
+        "updatedAt": "2026-06-19T05:43:38.568Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
