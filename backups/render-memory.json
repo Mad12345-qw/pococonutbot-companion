@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T11:43:23.211Z",
+  "exportedAt": "2026-06-20T11:53:23.436Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -24483,6 +24483,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T11:38:08.611Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "skills_all_part04有损坏文件",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c53a2c674a0c1ee4d22dee16e8",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T11:51:33.677Z"
       }
     ],
     "memories": [
@@ -24885,6 +24905,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T03:42:25.157Z",
         "updatedAt": "2026-06-19T03:42:25.157Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T11:51:33.461Z",
+        "updatedAt": "2026-06-20T11:51:33.461Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T11:51:33.183Z",
+        "updatedAt": "2026-06-20T11:51:33.183Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
