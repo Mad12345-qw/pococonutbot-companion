@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T14:53:24.219Z",
+  "exportedAt": "2026-06-20T15:03:25.726Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26245,6 +26245,58 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T14:45:34.712Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n**类型**：微信聊天截图（iPhone，5G，时间 16:10）\n**头像**：左侧为女性头像，右侧为男性头像（戴帽子的男士）\n**平台水印**：小红书号 95070604928\n\n## 对话内容（按顺序）\n\n**女方（白气泡）→ 男方（绿气泡）**\n\n1. 女方：你太小了\n2. 女方：我喜欢姐弟恋\n3. 女方：弟弟都太幼稚了\n4. 男方：你哪比我大了\n5. 女方：当然是年龄呀\n6. 女方：我都 28 了你才 23\n7. 女方：脑子一天天的想什么呢\n8. 男方：不要用年龄来衡量我的成熟与否\n9. 男方：女大三，抱金砖\n10. 男方：年龄不重要\n11. 女方：可是我比你大五岁哇\n12. 男方：（正在输入，最后一条气泡未显示完整文字）\n\n## 关键信息\n- **年龄差**：女方 28 岁，男方 23 岁，相差 5 岁\n- **女方立场**：喜欢姐弟恋、不喜欢姐弟恋（原文如此，疑似\"不喜欢姐弟恋\"）、嫌男方小、太幼稚\n- **男方立场**：认为年龄不代表成熟，引用\"女大三，抱金砖\"\n- **对话状态**：男方最后一条消息正在发送/输入中，内容被遮挡看不清",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5ed3111ca0b108162988b91d2",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n**类型**：微信聊天截图（iPhone，5G，时间 16:10）\n**头像**：左侧为女性头像，右侧为男性头像（戴帽子的男士）\n**平台水印**：小红书号 95070604928\n\n## 对话内容（按顺序）\n\n**女方（白气泡）→ 男方（绿气泡）**\n\n1. 女方：你太小了\n2. 女方：我喜欢姐弟恋\n3. 女方：弟弟都太幼稚了\n4. 男方：你哪比我大了\n5. 女方：当然是年龄呀\n6. 女方：我都 28 了你才 23\n7. 女方：脑子一天天的想什么呢\n8. 男方：不要用年龄来衡量我的成熟与否\n9. 男方：女大三，抱金砖\n10. 男方：年龄不重要\n11. 女方：可是我比你大五岁哇\n12. 男方：（正在输入，最后一条气泡未显示完整文字）\n\n## 关键信息\n- **年龄差**：女方 28 岁，男方 23 岁，相差 5 岁\n- **女方立场**：喜欢姐弟恋、不喜欢姐弟恋（原文如此，疑似\"不喜欢姐弟恋\"）、嫌男方小、太幼稚\n- **男方立场**：认为年龄不代表成熟，引用\"女大三，抱金砖\"\n- **对话状态**：男方最后一条消息正在发送/输入中，内容被遮挡看不清",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:55:43.902Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这哥们儿挺会聊的，完美避开正确答案💀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T14:56:05.048Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "童哥，这个姐姐怎么拿下？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5ed0b758a8b245cd7fccdbc77",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:56:17.970Z"
       }
     ],
     "memories": [
@@ -28076,7 +28128,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-20T06:28:08.057Z"
+        "updatedAt": "2026-06-20T14:56:17.741Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -28086,7 +28138,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-20T06:28:07.705Z"
+        "updatedAt": "2026-06-20T14:56:17.514Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
