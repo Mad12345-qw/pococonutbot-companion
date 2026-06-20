@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T04:13:21.726Z",
+  "exportedAt": "2026-06-20T04:23:23.437Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23543,6 +23543,124 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T04:13:12.637Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n图片内容严重模糊/拖影，无法识别文字内容。\n\n**可见信息：**\n- 图片左侧有一条浅绿色（薄荷绿）的竖向装饰条/侧边栏\n- 中部及右侧为深色文字，但因严重运动模糊全部糊成一团，无法辨认任何字符、字母、数字或符号\n- 图片下半部分基本为白色空白区域\n\n**无法提取的内容：**\n- 标题、项目名、编号、链接、数字：均**看不清**\n- 无法识别这是文档、表格、聊天截图还是其他类型\n\n如需我提取文字信息，请重新上传一张清晰的图片（建议对焦后再拍摄，或直接上传原始截图文件）。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c557624b0acc2d26507e3e8174",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "linkContext": "",
+          "imageContext": "图片内容严重模糊/拖影，无法识别文字内容。\n\n**可见信息：**\n- 图片左侧有一条浅绿色（薄荷绿）的竖向装饰条/侧边栏\n- 中部及右侧为深色文字，但因严重运动模糊全部糊成一团，无法辨认任何字符、字母、数字或符号\n- 图片下半部分基本为白色空白区域\n\n**无法提取的内容：**\n- 标题、项目名、编号、链接、数字：均**看不清**\n- 无法识别这是文档、表格、聊天截图还是其他类型\n\n如需我提取文字信息，请重新上传一张清晰的图片（建议对焦后再拍摄，或直接上传原始截图文件）。",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:14:20.742Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw\nhttps://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c5575a294a0b278bbbdd3dcab1",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T04:14:51.779Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "https://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw\nOpenAI 王炸功能上线：你演示一遍，Codex 自动复刻！ \n\n \n 原创 \n \n 木易的AI频道 \n 木易的AI频道 \n \n \n \n \n AI信息Gap \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n 报销、请假、上传视频。 \n 这些重复劳动，以后做一遍就够了。 \n 刚刚，OpenAI 给 Codex 上线了一个很有想法的新功能，「Record & Replay」。你在电脑上正常操作一遍工作流程，Codex 全程盯着你的屏幕。录制完，它会自动把你的操作整理成一个技能（Skill）。 \n 下次再遇到同样的活儿，一句话交给 Codex，它自动完成。 \n 从「告诉 AI 怎么做」变成「做给 AI 看」。提示词？免了。 \n 比如上传视频到社交媒体平台的完整流程。 \n 选文件，输入标题和描述，上传封面，挂载字幕，设置隐私权限，发布。整套操作录完，Codex 直接打包成了一个 Skill。以前得你自己手写的 SKILL.md，现在录一遍就自动生成了。 \n 要传下一条视频的时候，把素材文件夹丢给 Codex，告诉它这次标题是什么、封面图用哪张。剩下的全自动搞定。 \n 以后每条视频都不用手动操作了。 \n Codex 干的不只是简单的录屏回放。它会试图理解你在做什么，隐私设置该选哪个选项、字幕文件该用 .srt 还是 .vtt，遇到环境报错还能自己尝试换一种方式处理。 \n 按键精灵可做不到这些。 \n 上传视频只是一个例子。公司内部的报销系统、请假审批、CRM 客户录入、每周固定报表导出，只要是你在电脑上重复做的事，都可以录一遍教给 Codex。 \n 那么，怎么用「Record & Replay」？ \n 先把 Codex App 更新到最新版。 \n 然后打开，左侧菜单栏进入 Plugins 页面，点右上角的「+」号，选「Record a skill」。或者，直接搜索找到「Record & Replay」。 \n Codex 会先问你打算录什么。简单说一下你想录什么工作流，比如「我要录一个报销流程」，然后确认。 \n 它会申请录制权限。批准之后，你在电脑上正常操作就行。 \n 打开浏览器，登录系统，填表单，上传附件，提交。该怎么做就怎么做，Codex 在旁边看着。 \n 干完了，从菜单栏点停止录制，或者直接告诉 Codex「我录完了」。 \n Codex 分析完你的操作之后，会自动生成一份技能说明。什么时候该用这个技能，需要哪些输入，按什么步骤走，怎么确认做对了，全写好了。 \n 你可以直接用，也可以打开修改细节。比如命名规范、某个字段默认值、遇到特定情况该走哪条路。 \n 小细节，录制前先告诉 Codex 你大概要做什么，它理解起来更快。录的时候用真实数据，密码和敏感信息除外。操作完了就停，别干别的。 \n 下次再做同样的事，新建一个对话，选好技能，把这次变了的部分丢给它就行。 \n 划重点， 目前只支持 macOS。Windows 用户暂时用不了。 \n 还有一个前提，你的账户必须先开启「Computer Use」功能。没开的话，可能看不到这个入口。 \n 以前教 AI 干活，你得把每个步骤写成详细的文字指令。点哪个按钮，填哪个字段，格式要求，全得想清楚了再告诉它。 \n 现在不用了。 \n 你做一遍，Codex 学习，然后下次它来干。 \n 我是木易，Top2 + 美国 Top10 CS 硕，现在是 AI 产品经理。 \n 关注「AI信息Gap」，让 AI 成为你的外挂。 \n \n \n \n \n\n \n \n\n 预览时标签不可点\n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n 微信扫一扫 关注该公众号\n\n \n\n \n\n \n\n \n\n \n \n\n \n \n \n 继续滑动看下一个 \n \n\n \n\n \n \n\n \n \n \n 轻触阅读原文 \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n AI信息Gap \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n 向上滑动看下一个 \n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n 知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5575a294a0b278bbbdd3dcab1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/wzYww2vSUTjggH4CZxMdVw\nOpenAI 王炸功能上线：你演示一遍，Codex 自动复刻！ \n\n \n 原创 \n \n 木易的AI频道 \n 木易的AI频道 \n \n \n \n \n AI信息Gap \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n 报销、请假、上传视频。 \n 这些重复劳动，以后做一遍就够了。 \n 刚刚，OpenAI 给 Codex 上线了一个很有想法的新功能，「Record & Replay」。你在电脑上正常操作一遍工作流程，Codex 全程盯着你的屏幕。录制完，它会自动把你的操作整理成一个技能（Skill）。 \n 下次再遇到同样的活儿，一句话交给 Codex，它自动完成。 \n 从「告诉 AI 怎么做」变成「做给 AI 看」。提示词？免了。 \n 比如上传视频到社交媒体平台的完整流程。 \n 选文件，输入标题和描述，上传封面，挂载字幕，设置隐私权限，发布。整套操作录完，Codex 直接打包成了一个 Skill。以前得你自己手写的 SKILL.md，现在录一遍就自动生成了。 \n 要传下一条视频的时候，把素材文件夹丢给 Codex，告诉它这次标题是什么、封面图用哪张。剩下的全自动搞定。 \n 以后每条视频都不用手动操作了。 \n Codex 干的不只是简单的录屏回放。它会试图理解你在做什么，隐私设置该选哪个选项、字幕文件该用 .srt 还是 .vtt，遇到环境报错还能自己尝试换一种方式处理。 \n 按键精灵可做不到这些。 \n 上传视频只是一个例子。公司内部的报销系统、请假审批、CRM 客户录入、每周固定报表导出，只要是你在电脑上重复做的事，都可以录一遍教给 Codex。 \n 那么，怎么用「Record & Replay」？ \n 先把 Codex App 更新到最新版。 \n 然后打开，左侧菜单栏进入 Plugins 页面，点右上角的「+」号，选「Record a skill」。或者，直接搜索找到「Record & Replay」。 \n Codex 会先问你打算录什么。简单说一下你想录什么工作流，比如「我要录一个报销流程」，然后确认。 \n 它会申请录制权限。批准之后，你在电脑上正常操作就行。 \n 打开浏览器，登录系统，填表单，上传附件，提交。该怎么做就怎么做，Codex 在旁边看着。 \n 干完了，从菜单栏点停止录制，或者直接告诉 Codex\n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:14:53.974Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 Tn 邀请你加入飞书群，快点击https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4b3o8374-1a3a-4450-898d-bf612b6ca670加入吧！\nhttps://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4b3o8374-1a3a-4450-898d-bf612b6ca670加入吧",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=4b3o8374-1a3a-4450-898d-bf612b6ca670加入吧"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c5573ddacb8c31d0cceff44d49",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T04:15:17.475Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "你发的可以[思考]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c55737e1ca4c22313201051754",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:15:27.877Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "好好好，谢谢大佬",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c550d2d90a8c26d642314060b7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:17:08.085Z"
       }
     ],
     "memories": [
@@ -25394,7 +25512,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-20T04:13:12.201Z"
+        "updatedAt": "2026-06-20T04:17:07.853Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25404,7 +25522,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-20T04:13:11.982Z"
+        "updatedAt": "2026-06-20T04:17:07.621Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25648,6 +25766,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T04:14:20.528Z",
+        "updatedAt": "2026-06-20T04:14:20.528Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T04:14:20.314Z",
+        "updatedAt": "2026-06-20T04:14:20.314Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
@@ -25774,7 +25912,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-06-18T09:21:19.815Z"
+        "updatedAt": "2026-06-20T04:14:53.763Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25784,7 +25922,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-06-18T09:21:19.600Z"
+        "updatedAt": "2026-06-20T04:14:53.552Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
