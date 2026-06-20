@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T15:13:24.171Z",
+  "exportedAt": "2026-06-20T15:23:23.836Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26317,6 +26317,38 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T15:07:14.813Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "user",
+        "modality": "text",
+        "content": "童哥，那她是不是不喜欢咱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5ea531d4acb1d7dd7807c7fef",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_3204d469307450013d2bd8bf57b34505",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T15:16:20.147Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_3204d469307450013d2bd8bf57b34505",
+        "role": "assistant",
+        "modality": "text",
+        "content": "也不是不喜欢，可能是还没看见你的好。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3204d469307450013d2bd8bf57b34505"
+        },
+        "createdAt": "2026-06-20T15:16:31.733Z"
       }
     ],
     "memories": [
@@ -28128,7 +28160,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.798Z",
-        "updatedAt": "2026-06-20T14:45:34.480Z"
+        "updatedAt": "2026-06-20T15:16:19.920Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -28138,7 +28170,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:45.578Z",
-        "updatedAt": "2026-06-20T14:45:34.214Z"
+        "updatedAt": "2026-06-20T15:16:19.677Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
