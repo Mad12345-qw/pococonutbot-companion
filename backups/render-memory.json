@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T15:03:25.726Z",
+  "exportedAt": "2026-06-20T15:13:24.171Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26297,6 +26297,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T14:56:17.970Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "修这玩意，是不是要专业知识啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5e870130a0c3c504177ba5d79",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T15:07:14.813Z"
       }
     ],
     "memories": [
@@ -28818,7 +28838,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-20T13:16:33.765Z"
+        "updatedAt": "2026-06-20T15:07:14.580Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -28828,7 +28848,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-20T13:16:33.417Z"
+        "updatedAt": "2026-06-20T15:07:14.226Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
