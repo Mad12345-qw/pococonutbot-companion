@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T13:53:24.017Z",
+  "exportedAt": "2026-06-20T14:03:23.770Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -25367,6 +25367,244 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T13:52:59.269Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯，确实是，最好还是收紧点权限比较稳。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2"
+        },
+        "createdAt": "2026-06-20T13:54:05.932Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "是吗，我去找找看",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df98acca4c2b2a74aaaa1f00",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:54:18.023Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "user",
+        "modality": "text",
+        "content": "真给自己关机了？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df91980a4c4f87c86e49bd95",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_2b73bfbcc22921d9713d44428214639d",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:54:21.135Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "不能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df65800a4b136f357fdc5eb8",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:54:23.924Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "他的 buddy 没有这个权限",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df79690a0b4b48a44861f842",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:54:31.320Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "role": "user",
+        "modality": "text",
+        "content": "我们现在预算很低，换一个便宜的模型和我聊天吧。然后每次这个语音合成的文字数量少一点，小于3秒可以吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df2df90acb15cf06ed327e05",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_f86b53d22fe218e230a9ae85f7d14ff2",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:55:16.977Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯…预算确实紧张吗。那换个轻量点的模型吧，省点钱。语音短一点可以，我试试控制在几秒内，不啰嗦。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2"
+        },
+        "createdAt": "2026-06-20T13:55:21.587Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "都关机了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df02880a4c4fa36f22858f43",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:56:01.890Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "你还叫人家开机....",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5df15954a0c44b776bd3182c9",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:56:11.840Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么开？假装关机？哈哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d8e6e60a0c18acdc5e6c1413",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:56:29.981Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "role": "user",
+        "modality": "text",
+        "content": "现在我们的目录是什么位置啊，电脑cpu和内存占用率怎么样。我们可以访问到其他设备吗？网络代理情况怎么样",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d8fb358a0b393afa870792e2",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_f86b53d22fe218e230a9ae85f7d14ff2",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:56:43.659Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：现在我们的目录是什么位置啊，电脑cpu和内存占用率怎么样。我们可以访问到其他设备吗？网络代理情况怎么样\n抱歉,搜索结果中没有与您查询匹配的有效信息。您的提问涉及的是本机/当前系统的实时状态(目录位置、CPU 内存占用率、局域网设备、网络代理),这类信息无法通过公开网页搜索获取,需要直接查询本机或服务器才能得到。 简单说明: • 📂 当前目录位置:搜索结果未提供,通常可通过 pwd(Linux/macOS)或 cd(Windows)命令获取 • 🖥️ CPU 与内存占用率:需运行 top、htop 或任务管理器,搜索结果无相关内容 • 🔗 可访问的其他设备:取决于局域网拓扑,需通过 arp -a、ping 等工具探测 • 🌐 网络代理情况:可查看 HTTP_PROXY/HTTPS_PROXY 环境变量或系统代理设置 如需这些信息,建议: 1. 直接在终端运行相应命令 2. 让 Feishu 机器人接入本机状态查询接口 3. 提供更具体的场景(例如某台服务器的 IP、某个应用的报错) 请问您是否希望我帮您整理一段用于查询这些信息的命令脚本?",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2"
+        },
+        "createdAt": "2026-06-20T13:57:08.610Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n**图片上下文（Windows CMD 终端截图）**\n\n- 窗口标题栏：`管理员: C:\\Windows\\system32\\cmd.exe - ollama pull qwen2.5-coder:7b`\n- 系统信息：\n  - Microsoft Windows [版本 10.0.19045.5737]\n  - (c) Microsoft Corporation。保留所有权利。\n- 当前路径：`C:\\Users\\Administrator`\n- 执行命令：`ollama pull qwen2.5-coder:7b`\n- 输出日志：\n  - `pulling manifest`\n  - `pulling 60e05f210007: 97%`\n  - 进度条接近完成\n- 下载信息：\n  - 大小：`4.6 GB / 4.7 GB`\n  - 速度：`521 KB/s`\n  - 预计剩余时间：`3m55s`",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d87c46ca0c03008f0641d662",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "**图片上下文（Windows CMD 终端截图）**\n\n- 窗口标题栏：`管理员: C:\\Windows\\system32\\cmd.exe - ollama pull qwen2.5-coder:7b`\n- 系统信息：\n  - Microsoft Windows [版本 10.0.19045.5737]\n  - (c) Microsoft Corporation。保留所有权利。\n- 当前路径：`C:\\Users\\Administrator`\n- 执行命令：`ollama pull qwen2.5-coder:7b`\n- 输出日志：\n  - `pulling manifest`\n  - `pulling 60e05f210007: 97%`\n  - 进度条接近完成\n- 下载信息：\n  - 大小：`4.6 GB / 4.7 GB`\n  - 速度：`521 KB/s`\n  - 预计剩余时间：`3m55s`",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:58:57.857Z"
       }
     ],
     "memories": [
@@ -25728,7 +25966,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:17:02.177Z",
-        "updatedAt": "2026-06-20T13:47:47.234Z"
+        "updatedAt": "2026-06-20T13:58:57.628Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25738,7 +25976,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:17:01.945Z",
-        "updatedAt": "2026-06-20T13:47:47.002Z"
+        "updatedAt": "2026-06-20T13:58:57.399Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25768,7 +26006,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:58:56.696Z",
-        "updatedAt": "2026-06-19T02:12:47.958Z"
+        "updatedAt": "2026-06-20T13:54:20.905Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25778,7 +26016,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:58:56.475Z",
-        "updatedAt": "2026-06-19T02:12:47.738Z"
+        "updatedAt": "2026-06-20T13:54:20.675Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25808,7 +26046,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.461Z",
-        "updatedAt": "2026-06-20T12:50:57.632Z"
+        "updatedAt": "2026-06-20T13:56:29.753Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25818,7 +26056,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.183Z",
-        "updatedAt": "2026-06-20T12:50:57.408Z"
+        "updatedAt": "2026-06-20T13:56:29.526Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25909,6 +26147,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.448Z",
         "updatedAt": "2026-06-20T04:42:14.782Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:54:23.694Z",
+        "updatedAt": "2026-06-20T13:54:31.091Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:54:23.465Z",
+        "updatedAt": "2026-06-20T13:54:30.860Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26013,12 +26271,32 @@
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
         "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "key": "preferences.communication.budget",
+        "value": "用户当前预算很低，希望使用更便宜的模型进行对话",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:55:41.807Z",
+        "updatedAt": "2026-06-20T13:55:41.807Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
+        "key": "preferences.communication.voice",
+        "value": "用户希望语音合成的文字数量少一点，单次小于3秒",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:55:42.039Z",
+        "updatedAt": "2026-06-20T13:55:42.039Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_f86b53d22fe218e230a9ae85f7d14ff2",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:52:41.315Z",
-        "updatedAt": "2026-06-20T13:52:59.038Z"
+        "updatedAt": "2026-06-20T13:56:43.429Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26028,7 +26306,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:52:41.087Z",
-        "updatedAt": "2026-06-20T13:52:58.807Z"
+        "updatedAt": "2026-06-20T13:56:43.199Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
