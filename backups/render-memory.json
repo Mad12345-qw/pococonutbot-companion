@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-19T18:15:33.175Z",
+  "exportedAt": "2026-06-20T02:35:32.686Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23070,6 +23070,27 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-19T18:13:38.972Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 https://vcnvmnln7wit.feishu.cn/wiki/RCVbwmYFXiLGxOkifdvc2qO3nwg 这个技能\nhttps://vcnvmnln7wit.feishu.cn/wiki/RCVbwmYFXiLGxOkifdvc2qO3nwg\nfeishu-wiki:RCVbwmYFXiLGxOkifdvc2qO3nwg",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/RCVbwmYFXiLGxOkifdvc2qO3nwg"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c6bf5f004a0b03f02e8de6b8a2",
+          "wikiTokens": [
+            "RCVbwmYFXiLGxOkifdvc2qO3nwg"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T02:32:24.114Z"
       }
     ],
     "memories": [
