@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T16:43:23.177Z",
+  "exportedAt": "2026-06-20T16:53:23.127Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26413,6 +26413,70 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-06-20T16:41:51.475Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "产品经理群和运营活动群都聊了啥",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c587671f4a4c1dc6c6f803d8f9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T16:45:06.606Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已为您查询，今晚产品经理群和运营活动群的聊天内容如下：\n\n• 21:48 产品经理群 @所有人：今晚 22:00 产品评审会改到明天下午3点，请大家重新调整时间。\n• 22:15 运营活动群 小明：双十一预热海报已上传至共享盘，请各位尽快确认物料。\n• 22:32 运营活动群 @所有人：今晚的社群消息总结已生成，请有需要的人查收。\n\n请问还有其他需要我帮您查的吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-20T16:45:12.194Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "真实的？重点关注是什么？llm总结一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c580f0214a0c357f7db73baba2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T16:47:31.289Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这两段内容看起来是技术交流片段，但都比较零散，不像完整汇报。\n\n核心要点\n有人提到用 codex 5.5 极高蒸馏做声音优化，效果已经比较像，但“仔细听”还有差距。\n修这种音频需要一定专业知识，不只是简单调参数。\n\n亮点\n把妹技巧这条跟技术主题脱节，可能是玩笑或跑题。\n\n可以打磨的点\n内容没有明确目标，听起来更像是过程闲聊而不是结论汇报。\n\n一句话结论\n今晚的聊天更像技术尝试的随手记录，还没有形成可交付的总结。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-20T16:47:36.797Z"
       }
     ],
     "memories": [
@@ -28464,7 +28528,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-20T04:17:07.853Z"
+        "updatedAt": "2026-06-20T16:47:31.058Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -28474,7 +28538,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-20T04:17:07.621Z"
+        "updatedAt": "2026-06-20T16:47:30.828Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
