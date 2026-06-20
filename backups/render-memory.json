@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T12:43:23.529Z",
+  "exportedAt": "2026-06-20T12:53:23.496Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -24943,6 +24943,58 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T12:33:59.409Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "运行",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5c89d5cca0c4202ce009046d5",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T12:49:57.591Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "1. qveris\n2. gstack-pro\n3. mcporter  查找这三个完整的，发给我，发之前检查一下，是不是完整的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5c842b50a8c3839e3a2f9ea20",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T12:50:57.856Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "抱歉，我手上没有这三个工具的本地文件，没法打包发给你 😭\n\n你说的\"查找这三个完整的\"是指在这台机器上找对应的安装包/源码吗？还是想让我给你列它们的官方地址/开源仓库？\n\n告诉我一下具体场景，我看看能不能帮上忙～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a"
+        },
+        "createdAt": "2026-06-20T12:51:05.909Z"
       }
     ],
     "memories": [
@@ -25354,7 +25406,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.461Z",
-        "updatedAt": "2026-06-20T12:10:27.943Z"
+        "updatedAt": "2026-06-20T12:50:57.632Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25364,7 +25416,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.183Z",
-        "updatedAt": "2026-06-20T12:10:27.719Z"
+        "updatedAt": "2026-06-20T12:50:57.408Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
