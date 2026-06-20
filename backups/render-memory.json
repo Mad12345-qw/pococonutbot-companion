@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T15:23:23.836Z",
+  "exportedAt": "2026-06-20T16:43:23.177Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26349,6 +26349,70 @@
           "replyToUserId": "feishu:ou_3204d469307450013d2bd8bf57b34505"
         },
         "createdAt": "2026-06-20T15:16:31.733Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "你今天晚上的社群消息总结汇报呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c586cf8f8a8c49de19e811821a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T16:39:06.403Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "群聊里有人说今晚的汇报还没交，你问我要不要我帮你按这个对话梳理一版今晚的社群总结？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-20T16:39:12.878Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "需要输出图片版本的，把多个社群的消息汇总整理给我 ，你查一下你的定时任务23点的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5869057900b32c55678206c23",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T16:40:34.561Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：出图片版本的，把多个社群的消息汇总整理给我 ，你查一下你的定时任务23点的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-20T16:41:51.475Z"
       }
     ],
     "memories": [
@@ -28680,7 +28744,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-20T12:32:56.549Z"
+        "updatedAt": "2026-06-20T16:40:34.331Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -28690,7 +28754,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-20T12:32:56.338Z"
+        "updatedAt": "2026-06-20T16:40:34.101Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29303,8 +29367,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
-        "summary": "用户（ou_768b...）连续分享了多份飞书文档链接，内容围绕\"AI智能体部署实战手册\"和\"AI提示词工程\"两大主题：\n\n**关系进展**：首次互动，用户主动分享资源，未提出具体问题，处于单向投喂阶段。\n\n**用户当前状态**：用户为AI实践者/内容创作者，已投入120天深度踩坑，整理了系统化的部署与提示词方法论，具备输出能力。\n\n**重要偏好**：\n- 关注AI智能体部署实战与避坑经验\n- 重视结构化提示词（采用CRISPE原则，含Role/Profile/Goals/Constraints/Skills/Workflows等模块）\n- 内容生产场景偏向知乎平台风格（口语化、专业、约1600字）\n- 风格干货导向，强调可落地、可直接喂给智能体\n\n**未完成事项**：用户尚未收到回应或进一步互动指令，等待助手对分享内容做出反馈或提出后续协作方向。\n\n**关键资源**：\n- 部署实战手册（Wiki：PVEZwzqNc...、WJ3owcCy...）\n- 提示词科普文档（JcDdwTB2...）\n- 词元字典V5.1（LZEew9OX...）",
-        "updatedAt": "2026-06-19T15:14:21.718Z"
+        "summary": "用户（ou_768b...）连续分享多份飞书文档，主题为\"AI智能体部署实战手册\"与\"AI提示词工程\"。\n\n**关系进展**：首次互动，用户单向投喂资源，未提出具体问题，尚未收到助手反馈。\n\n**用户当前状态**：AI实践者/内容创作者，120天深度踩坑后整理系统化方法论，具备输出能力。\n\n**重要偏好**：\n- 关注AI智能体部署避坑经验\n- 结构化提示词（CRISPE原则：Role/Profile/Goals/Constraints/Skills/Workflows）\n- 内容生产偏知乎风格（口语化专业、约1600字、干货导向、可直接喂智能体）\n\n**未完成事项**：等待助手对分享内容做出反馈或提出后续协作方向。\n\n**关键资源**：部署手册（Wiki: PVEZwzqNc、WJ3owcCy）、提示词科普文档（JcDdwTB2）、词元字典V5.1（LZEew9OX）。",
+        "updatedAt": "2026-06-20T16:39:33.878Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
