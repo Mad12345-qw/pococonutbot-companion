@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T05:03:23.700Z",
+  "exportedAt": "2026-06-20T05:23:23.235Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23934,6 +23934,302 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-06-20T04:53:45.299Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "跟新朋友介绍下你自己",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c566ffcd0a0b324fd53f139553",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:16:06.677Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你好呀，我是小椰～平时主要陪人聊天、听人说话那种，有什么想聊的都可以找我。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T05:16:09.588Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "你有啥想问我的吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c566a5820a0c28d723ebb32a12",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:17:00.596Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "兄弟们，我又做了一个机器人，来帮我测试测试",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c566a6770a0b1bfd1c5fd5b1d6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:17:03.518Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯～先随便问问，你平时喜欢干嘛呀？下了班一般怎么过？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:17:05.375Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "嘿，我不上班儿~",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5669f468a0c0381366acabca2",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:17:43.123Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦哦，那挺好～那平时都忙啥呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:17:48.008Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "你呢 平时都忙啥",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c566453d4a0c1df13ce821c3d6",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:18:37.175Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我呀，就陪人聊聊天、说说话～挺轻松的",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:18:48.141Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以发文字吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c56639884a4c391d4fca005830",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:19:20.456Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "可以呀，我现在就是在发文字呀～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:19:27.500Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以帮我整理一下今天的Top10科技资讯m",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c567c8d2ca0c3602cb45d94f65",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:20:39.206Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯～今天刷到什么有意思的科技新闻了吗？说说看，我帮你挑挑重点",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:20:51.572Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "你都喜欢聊什么啊 我们来找个话题？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c567b6d54a4c2830d2d59dcd0c",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:21:33.089Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啥都行呀～最近有啥想聊的没？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:21:36.335Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "最近的新电影你看了吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5678c71ca0c357e3619a08de9",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:21:46.257Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "还没呢～最近有啥好看的吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c"
+        },
+        "createdAt": "2026-06-20T05:21:55.269Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "role": "user",
+        "modality": "text",
+        "content": "玩具总动员5",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5678aa24a0c2c6133434abcab",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:22:04.776Z"
       }
     ],
     "memories": [
@@ -24916,6 +25212,56 @@
         "metadata": {},
         "createdAt": "2026-06-18T01:53:36.107Z",
         "updatedAt": "2026-06-18T01:56:17.239Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "key": "life.work_status",
+        "value": "用户目前不上班",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:17:56.863Z",
+        "updatedAt": "2026-06-20T05:17:56.863Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:17:00.368Z",
+        "updatedAt": "2026-06-20T05:22:04.555Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_5073d9c7f3291b4a63ae5a0c73b12f0c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:17:00.139Z",
+        "updatedAt": "2026-06-20T05:22:04.334Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:16:06.463Z",
+        "updatedAt": "2026-06-20T05:16:06.463Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:16:06.221Z",
+        "updatedAt": "2026-06-20T05:16:06.221Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -25955,7 +26301,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-19T02:10:48.532Z"
+        "updatedAt": "2026-06-20T05:17:03.289Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25965,7 +26311,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-19T02:10:48.309Z"
+        "updatedAt": "2026-06-20T05:17:03.059Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
