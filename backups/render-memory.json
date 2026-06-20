@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T05:23:23.235Z",
+  "exportedAt": "2026-06-20T05:33:22.798Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -24230,6 +24230,127 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T05:22:04.776Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首歌听听",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c560f33f8a4b140497ad5aa9b1",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:24:51.093Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "邓紫棋 光年之外",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T05:24:52.528Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱首泡沫",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c560dde84a0b2c25414b9af582",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:25:08.361Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T05:26:02.563Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "童哥，帮我追到小椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c561c0a34a8b1a1c9a8b201ca4",
+          "rawChatId": "oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:29:19.889Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？追到我是什么意思呀～我是AI哦，童哥是在开玩笑吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T05:29:23.206Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "童哥，现在追我的女孩子比你的还多，怎么办，不知道选哪个了？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c561195b938b12faa9f58b7c05",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T05:32:43.496Z"
       }
     ],
     "memories": [
@@ -25251,7 +25372,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T05:16:06.463Z",
-        "updatedAt": "2026-06-20T05:16:06.463Z"
+        "updatedAt": "2026-06-20T05:29:19.667Z"
       },
       {
         "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
@@ -25261,7 +25382,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T05:16:06.221Z",
-        "updatedAt": "2026-06-20T05:16:06.221Z"
+        "updatedAt": "2026-06-20T05:29:19.446Z"
+      },
+      {
+        "chatId": "feishu:oc_8f87308b94eb6facd9958bbaa6f6c7f6",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "relationships.interest",
+        "value": "on_fedc94dafd98c6900d41d7cdd2ee5a7c 对小椰有好感，希望追求/接近小椰",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-20T05:29:34.730Z",
+        "updatedAt": "2026-06-20T05:29:34.730Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -26301,7 +26432,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-20T05:17:03.289Z"
+        "updatedAt": "2026-06-20T05:32:43.269Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -26311,7 +26442,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-20T05:17:03.059Z"
+        "updatedAt": "2026-06-20T05:32:43.041Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
