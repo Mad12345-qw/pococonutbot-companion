@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T04:23:23.437Z",
+  "exportedAt": "2026-06-20T04:33:22.910Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23661,6 +23661,90 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T04:17:08.085Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "role": "user",
+        "modality": "text",
+        "content": "这个是什么功能？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5526de80acc3758bc3ddd2a70",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_f069dce49d9aa1a5d992ee17792e0929",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:26:45.256Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "role": "user",
+        "modality": "text",
+        "content": "提示词字典？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c552781cca0c2a5fdfef526d69",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_f069dce49d9aa1a5d992ee17792e0929",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:27:04.671Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "role": "assistant",
+        "modality": "text",
+        "content": "呃…我不是字典哦，就是个聊天 AI，没法给你打包导出文件 🙏\n\n你想要啥资料？告诉我具体内容，我尽量帮你查查～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929"
+        },
+        "createdAt": "2026-06-20T04:27:09.704Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "role": "user",
+        "modality": "text",
+        "content": "我刚才是看到您上传了那么些的压缩包，可以用来做什么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5520aa8930c282012732c8637",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_f069dce49d9aa1a5d992ee17792e0929",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:28:26.247Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "role": "assistant",
+        "modality": "text",
+        "content": "呃…我没有上传过压缩包哦，可能是别人发的或者你记混啦 🙏\n\n你截图或者转发给我看看？我帮你瞅瞅是啥～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929"
+        },
+        "createdAt": "2026-06-20T04:28:33.520Z"
       }
     ],
     "memories": [
@@ -24233,6 +24317,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T15:34:15.657Z",
         "updatedAt": "2026-06-19T15:43:52.289Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T04:26:45.033Z",
+        "updatedAt": "2026-06-20T04:28:26.032Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_f069dce49d9aa1a5d992ee17792e0929",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T04:26:44.678Z",
+        "updatedAt": "2026-06-20T04:28:25.816Z"
       },
       {
         "chatId": "feishu:oc_1b655ea1785886e016303b8a804b870f",
