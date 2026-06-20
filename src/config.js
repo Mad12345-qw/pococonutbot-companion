@@ -102,6 +102,7 @@ export const config = {
   feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
   feishuBotName: asCleanText(process.env.FEISHU_BOT_NAME || process.env.BOT_DISPLAY_NAME, "小椰"),
   feishuBotAliases: asList(process.env.FEISHU_BOT_ALIASES),
+  feishuOutgoingMentionsEnabled: asBoolean(process.env.FEISHU_OUTGOING_MENTIONS_ENABLED, false),
   feishuMentionTargets: asJsonObject(process.env.FEISHU_MENTION_TARGETS_JSON, {}),
   feishuProjectFolderToken: process.env.FEISHU_PROJECT_FOLDER_TOKEN || process.env.FEISHU_DRIVE_FOLDER_TOKEN || "",
   feishuDocBaseUrl: (process.env.FEISHU_DOC_BASE_URL || "https://www.feishu.cn").replace(/\/+$/, ""),

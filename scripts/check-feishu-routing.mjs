@@ -8,6 +8,7 @@ bot.config = {
   feishuBotName: "小椰",
   displayName: "小椰",
   feishuBotAliases: [],
+  feishuOutgoingMentionsEnabled: false,
   feishuMentionTargets: {
     "珠珠-SPM": "ou_test_zhuzhu"
   },
@@ -141,7 +142,14 @@ for (const [name, text, expected, linkContext = ""] of deliveryCases) {
 const mentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好的，你来看看这个。", {
   mentionTargets: [{ id: "ou_incoming_zhuzhu", name: "珠珠-SPM" }]
 });
-assertEqual("mention delivery resolves target", String(mentionTargets.length), "1");
+assertEqual("outgoing mentions are disabled by default", String(mentionTargets.length), "0");
+
+bot.config.feishuOutgoingMentionsEnabled = true;
+const enabledMentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好的，你来看看这个。", {
+  mentionTargets: [{ id: "ou_incoming_zhuzhu", name: "珠珠-SPM" }]
+});
+assertEqual("mention delivery can be re-enabled explicitly", String(enabledMentionTargets.length), "1");
+bot.config.feishuOutgoingMentionsEnabled = false;
 
 bot.workspace = {
   request: async () => ({

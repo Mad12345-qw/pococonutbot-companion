@@ -943,23 +943,25 @@ export class FeishuBot {
     });
 
     const safeReply = safeAssistantReply;
-    const mentionTargets = this.resolveOutgoingMentionTargets(safeUserText, mentionInfo);
-    if (mentionTargets.length > 0) {
-      await this.replyPostMention(message.message_id, safeReply, mentionTargets);
-      if (this.config.autoMemory) {
-        await this.updateMemoryAndSummary({
-          chatId,
-          userId,
-          userText: storedUserText,
-          assistantText: reply,
-          currentUser,
-          skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
-        });
+    if (this.config.feishuOutgoingMentionsEnabled) {
+      const mentionTargets = this.resolveOutgoingMentionTargets(safeUserText, mentionInfo);
+      if (mentionTargets.length > 0) {
+        await this.replyPostMention(message.message_id, safeReply, mentionTargets);
+        if (this.config.autoMemory) {
+          await this.updateMemoryAndSummary({
+            chatId,
+            userId,
+            userText: storedUserText,
+            assistantText: reply,
+            currentUser,
+            skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
+          });
+        }
+        return;
       }
-      return;
     }
 
-    if (this.hasExplicitMentionDeliveryRequest(safeUserText)) {
+    if (this.config.feishuOutgoingMentionsEnabled && this.hasExplicitMentionDeliveryRequest(safeUserText)) {
       const notice = "我可以帮你 @ 人，但需要你在消息里真的 @ 一下对方，或者先在 Render 配置 FEISHU_MENTION_TARGETS_JSON，把名字和 open_id 对上。";
       await this.replyText(message.message_id, notice);
       return;
@@ -1688,6 +1690,7 @@ export class FeishuBot {
   }
 
   resolveOutgoingMentionTargets(text = "", mentionInfo = {}) {
+    if (!this.config.feishuOutgoingMentionsEnabled) return [];
     if (!this.hasExplicitMentionDeliveryRequest(text)) return [];
     const byId = new Map();
     const names = new Set();
