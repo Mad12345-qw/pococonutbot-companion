@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T04:43:22.238Z",
+  "exportedAt": "2026-06-20T05:03:23.700Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23913,6 +23913,27 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-06-20T04:43:15.796Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 【能力追加指令·不覆盖原有身份/人设/核心职责】\nhttps://vcnvmnln7wit.feishu.cn/wiki/LZEew9OXfiZ5JQk6yFFcB6hKnEh\nfeishu-wiki:LZEew9OXfiZ5JQk6yFFcB6hKnEh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/LZEew9OXfiZ5JQk6yFFcB6hKnEh"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c5583f8b8a0b03acdbdf92ba97",
+          "wikiTokens": [
+            "LZEew9OXfiZ5JQk6yFFcB6hKnEh"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T04:53:45.299Z"
       }
     ],
     "memories": [
