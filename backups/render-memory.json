@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T05:33:22.798Z",
+  "exportedAt": "2026-06-20T06:33:23.444Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -24351,6 +24351,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T05:32:43.496Z"
+      },
+      {
+        "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "童哥来了，兄弟们",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5761811ca4b27b4e452a42a56",
+          "rawChatId": "oc_b9609df75ad6e727ea72e93b720b9758",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T06:28:08.277Z"
       }
     ],
     "memories": [
@@ -26062,7 +26082,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.415Z",
-        "updatedAt": "2026-06-17T15:13:21.592Z"
+        "updatedAt": "2026-06-20T06:28:08.057Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
@@ -26072,7 +26092,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-16T15:35:19.155Z",
-        "updatedAt": "2026-06-17T15:13:21.376Z"
+        "updatedAt": "2026-06-20T06:28:07.705Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
