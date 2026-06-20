@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T12:53:23.496Z",
+  "exportedAt": "2026-06-20T13:23:23.007Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -24995,6 +24995,78 @@
           "replyToUserId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a"
         },
         "createdAt": "2026-06-20T12:51:05.909Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "不仔细听，已经很像了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d646fdca4c352ef60c1da008",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:16:33.981Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "我的电脑是Win10系统，请重新给我步骤，用大白话，不要用专业术语",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d626470a4c3beb1590c13249",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:17:02.401Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "这里我看不懂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d7cd614a8c1d67ae833cceeb",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T13:18:29.755Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好的，那就用大白话重讲一遍～\n\n第一步：装两个小工具\n1. 打开电脑浏览器，去这个网站：https://nodejs.org\n2. 点那个大大的绿色按钮下载（写着 LTS 那个）\n3. 下载好了双击安装，一直点\"下一步\"，最后点\"完成\"\n4. 装好以后，按住键盘上的 Win 键（就是左下角带小旗子的那个）+ R，输入 cmd，回车\n5. 在黑窗口里输入 node -v，能看到版本号就说明装好了\n\n第二步：装 Git（一个下载东西的工具）\n1. 同样浏览器去：https://git-scm.com\n2. 下载 Windows 版本，一路下一步装完\n\n第三步：把代码弄下来\n1. 在桌面上右键，选\"Git Bash Here\"\n2. 复制这行粘贴进去回车：\ngit clone https://github.com/503496348-ops/summoner.git\n3. 等它跑完，桌面上会多一个 summoner 文件夹\n\n第四步：装它需要的小零件\n1. 打开 summoner 文件夹，在空白处右键，选\"Git Bash Here\"\n2. 输入 npm install，回车，等它跑完（可能几分钟）\n\n第五步：跑起来\n1. 还在这个窗口里，输入 npm run dev，回车\n2. 等它出现一串网址（像 http://localhost:3000 这种）\n3. 浏览器打开那个网址，就能看到界面啦 🎉\n\n哪里卡住了告诉我，我帮你看～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T13:18:53.420Z"
       }
     ],
     "memories": [
@@ -25337,6 +25409,36 @@
         "metadata": {},
         "createdAt": "2026-06-07T11:55:53.325Z",
         "updatedAt": "2026-06-07T11:55:53.369Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "key": "learning.comfort_level",
+        "value": "对技术操作步骤不熟悉，需要详细的大白话分步指导",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:20:07.714Z",
+        "updatedAt": "2026-06-20T13:20:07.714Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:17:02.177Z",
+        "updatedAt": "2026-06-20T13:18:29.532Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T13:17:01.945Z",
+        "updatedAt": "2026-06-20T13:18:29.310Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -27416,7 +27518,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-19T06:18:02.905Z"
+        "updatedAt": "2026-06-20T13:16:33.765Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -27426,7 +27528,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-19T06:18:02.660Z"
+        "updatedAt": "2026-06-20T13:16:33.417Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
