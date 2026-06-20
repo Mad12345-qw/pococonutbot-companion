@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T03:23:24.051Z",
+  "exportedAt": "2026-06-20T04:03:22.928Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23355,6 +23355,26 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-20T03:17:11.968Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "你高亮蓝色字体艾特珠珠，不然他看不到你的信息",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5547a518a0b173579c3d50ee6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T04:01:33.224Z"
       }
     ],
     "memories": [
@@ -25066,7 +25086,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:44.021Z",
-        "updatedAt": "2026-06-17T13:24:49.337Z"
+        "updatedAt": "2026-06-20T04:01:33.006Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -25076,7 +25096,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:43.675Z",
-        "updatedAt": "2026-06-17T13:24:49.109Z"
+        "updatedAt": "2026-06-20T04:01:32.743Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
