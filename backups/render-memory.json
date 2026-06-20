@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T14:03:23.770Z",
+  "exportedAt": "2026-06-20T14:13:23.097Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -25605,6 +25605,354 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-20T13:58:57.857Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "这一步我改怎么操作？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5d959af0a8c0501da37c3afce",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:03:37.695Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "现在这一步不用你动，它在后台自己跑，等进度条跑完就行。跑到 100% 出来了会自己停，那时候我再告诉你下一步。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T14:03:44.830Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "已经完成，怎么下一步？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dacea08a0c4c6e77413a1cbb",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:05:27.972Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "拉完了对吧。下一步打开一个新的 cmd 窗口，输入这条回车就行：<br><br>ollama run qwen2.5-coder:7b<br><br>跑起来后跟我说一声，我再教你怎么往下接。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T14:07:02.365Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "user",
+        "modality": "text",
+        "content": "我擦了，他给自己关机了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dadfa9ca4c2a233c3acca701",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_2b73bfbcc22921d9713d44428214639d",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:07:28.287Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈？把自己关机的啊？那确实…这操作挺逗的。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2b73bfbcc22921d9713d44428214639d"
+        },
+        "createdAt": "2026-06-20T14:08:22.718Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "已经完成，下一步怎么搞？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5da8be8068c290055b43e52fe",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:08:33.310Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "拉完模型了对吧。下一步打开一个新的 cmd 窗口，输入这条回车：<br><br>ollama run qwen2.5-coder:7b<br><br>跑起来之后告诉我，我再教你接 Cursor。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T14:09:42.878Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "不知道，反正没动静了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5da6fb1d3cc280f840cc0c636",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:10:11.971Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "那你重新开个 cmd 窗口试试，输入 ollama run qwen2.5-coder:7b 回车看看。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T14:10:22.600Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "user",
+        "modality": "text",
+        "content": "我去了，这个机器人只会发语音😂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5da3ec9c6cc1ef2956b4f27e7",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_2b73bfbcc22921d9713d44428214639d",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:10:41.511Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈？那挺有意思的。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2b73bfbcc22921d9713d44428214639d"
+        },
+        "createdAt": "2026-06-20T14:10:46.428Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这是邓紫棋的声音吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dbf9e6ca4c392703fe9456a4",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:10:54.489Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "user",
+        "modality": "text",
+        "content": "敢不敢给我个文字，这语音英文我不会写啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dbcb178a4c2c721a974bf0ee",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_1469a2f533c9554d995c947180d027cc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:10:57.096Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "发不了文字，只能用语音。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_1469a2f533c9554d995c947180d027cc"
+        },
+        "createdAt": "2026-06-20T14:10:59.952Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "user",
+        "modality": "text",
+        "content": "对",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dbc5d84a0c437d5ee68515e7",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_2b73bfbcc22921d9713d44428214639d",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:11:10.375Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "大哥，我这是聊天机器人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5dba5144a0b3ffb33a1684d01",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:11:11.068Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "知道啦，这不是怕你跑了我没人陪嘛。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T14:11:18.912Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_2b73bfbcc22921d9713d44428214639d",
+        "role": "user",
+        "modality": "text",
+        "content": "笑死😂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5db3bfb8acc2681b3fe61354d",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_2b73bfbcc22921d9713d44428214639d",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:12:42.132Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "user",
+        "modality": "text",
+        "content": "把那个关了机的给它打开机开启一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5db35064a4c422485854eed76",
+          "rawChatId": "oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+          "rawUserId": "ou_4a2d0c19d847b413ce144274c9dc0b4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T14:12:44.988Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "关机了？先给它接上电源，按一下开机键，等个几秒看看指示灯亮不亮。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_4a2d0c19d847b413ce144274c9dc0b4a"
+        },
+        "createdAt": "2026-06-20T14:12:50.884Z"
       }
     ],
     "memories": [
@@ -25961,12 +26309,22 @@
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
         "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
+        "key": "learning.progress.ollama_setup",
+        "value": "用户已完成 ollama 模型拉取步骤，正在学习启动模型和接入 Cursor 编辑器",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-20T14:10:11.060Z",
+        "updatedAt": "2026-06-20T14:10:11.060Z"
+      },
+      {
+        "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
+        "userId": "feishu:ou_1469a2f533c9554d995c947180d027cc",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_1469a2f533c9554d995c947180d027cc",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:17:02.177Z",
-        "updatedAt": "2026-06-20T13:58:57.628Z"
+        "updatedAt": "2026-06-20T14:10:56.865Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -25976,7 +26334,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T13:17:01.945Z",
-        "updatedAt": "2026-06-20T13:58:57.399Z"
+        "updatedAt": "2026-06-20T14:10:56.634Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26006,7 +26364,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:58:56.696Z",
-        "updatedAt": "2026-06-20T13:54:20.905Z"
+        "updatedAt": "2026-06-20T14:12:41.902Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26016,7 +26374,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:58:56.475Z",
-        "updatedAt": "2026-06-20T13:54:20.675Z"
+        "updatedAt": "2026-06-20T14:12:41.672Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26046,7 +26404,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.461Z",
-        "updatedAt": "2026-06-20T13:56:29.753Z"
+        "updatedAt": "2026-06-20T14:12:44.758Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26056,7 +26414,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T11:51:33.183Z",
-        "updatedAt": "2026-06-20T13:56:29.526Z"
+        "updatedAt": "2026-06-20T14:12:44.526Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26086,7 +26444,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:50:49.444Z",
-        "updatedAt": "2026-06-19T02:08:54.186Z"
+        "updatedAt": "2026-06-20T14:11:10.837Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26096,7 +26454,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T01:50:49.223Z",
-        "updatedAt": "2026-06-19T02:08:53.958Z"
+        "updatedAt": "2026-06-20T14:11:10.606Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26136,7 +26494,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.662Z",
-        "updatedAt": "2026-06-20T04:42:15.002Z"
+        "updatedAt": "2026-06-20T14:10:54.258Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
@@ -26146,7 +26504,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T02:16:11.448Z",
-        "updatedAt": "2026-06-20T04:42:14.782Z"
+        "updatedAt": "2026-06-20T14:10:54.027Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
