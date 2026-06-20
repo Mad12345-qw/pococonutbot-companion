@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-20T02:35:32.686Z",
+  "exportedAt": "2026-06-20T02:55:32.643Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -23091,6 +23091,116 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-06-20T02:32:24.114Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] MOSS-TTS Local v1.5 on SGLang-Omni 在@我，吉他，猫... http://xhslink.com/o/8QlHu8xyKeG 复制后打开【小红书】查看笔记！\nhttp://xhslink.com/o/8QlHu8xyKeG",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "http://xhslink.com/o/8QlHu8xyKeG"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c6ba38044a4c2c560a9558f8ec",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T02:45:42.341Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "MOSS-TTS Local v1.5 on SGLang-Omni 在@我，吉他，猫... http://xhslink.com/o/8QlHu8xyKeG 复制后打开【小红书】查看笔记！\n[Link content]\n[Web page] http://xhslink.com/o/8QlHu8xyKeG\nMOSS-TTS Local v1.5 on SGLang-Omni - 小红书 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 创作中心 \n 业务合作 \n \n \n \n\n \n 发现 \n RED \n 直播 \n 发布 \n \n 通知 \n \n \n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n 更多 \n 关于我们 \n\n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n\n MOSS（Infra大猛子） \n 关注 \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1/20\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n MOSS（Infra大猛子） \n 关注 \n\n MOSS-TTS Local v1.5 on SGLang-Omni\n 在 @我，吉他，猫，LLM 和 @Ccyest 的带队下，SGLang-Omni Team 在过去两周密集支持并优化了 MOSS-TTS-Local-Transformer-v1.5 这一模型，并给出了非常 promising 的首发阶段性优化成果。后续我们将继续联合优化 MOSS-TTS 系列模型，为社区带来更好的推理服务体验。\n在 TTS/Omni 范式尚未收敛的时代，多阶段异构模型带来了显著的推理 Infra 挑战，挑战带来机遇，机遇带来激情。如果你对 TTS/Omni，乃至整个音视频理解和生成方向的推理性能优化有强烈的兴趣，欢迎加入MOSI Infra，也欢迎参与 SGLang-Omni 社区的开源工作！\n #大模型 #多模态人工智能 #TTS #MOSSTTS #OpenMOSS #SGLang #SGLangOmni #语音大模型 #aiinfra #AIInfra \n 59分钟前 江西 \n\n \n\n \n \n 加载中",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6ba38044a4c2c560a9558f8ec",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "linkContext": "[Web page] http://xhslink.com/o/8QlHu8xyKeG\nMOSS-TTS Local v1.5 on SGLang-Omni - 小红书 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 创作中心 \n 业务合作 \n \n \n \n\n \n 发现 \n RED \n 直播 \n 发布 \n \n 通知 \n \n \n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n 更多 \n 关于我们 \n\n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n\n MOSS（Infra大猛子） \n 关注 \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1/20\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n MOSS（Infra大猛子） \n 关注 \n\n MOSS-TTS Local v1.5 on SGLang-Omni\n \n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T02:45:44.137Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "欢迎大家关注我们在推理方面的一些性能优化！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c6ba0d514acc29974dae921f2e",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T02:45:57.081Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] MOSS-TTS Local v1.5 on SGLang-Omni 在@我，吉他，猫... http://xhslink.com/o/8QlHu8xyKeG 复制后打开【小红书】查看笔记！\nhttp://xhslink.com/o/8QlHu8xyKeG",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "http://xhslink.com/o/8QlHu8xyKeG"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c5440b020a4b255e006a8bd892",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-20T02:54:35.505Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "MOSS-TTS Local v1.5 on SGLang-Omni 在@我，吉他，猫... http://xhslink.com/o/8QlHu8xyKeG 复制后打开【小红书】查看笔记！\n小椰，帮我看看这个是什么？用大白话跟我讲一下\n[Link content]\n[Web page] http://xhslink.com/o/8QlHu8xyKeG\nMOSS-TTS Local v1.5 on SGLang-Omni - 小红书 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 创作中心 \n 业务合作 \n \n \n \n\n \n 发现 \n RED \n 直播 \n 发布 \n \n 通知 \n \n \n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n 更多 \n 关于我们 \n\n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n\n MOSS（Infra大猛子） \n 关注 \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1/20\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n MOSS（Infra大猛子） \n 关注 \n\n MOSS-TTS Local v1.5 on SGLang-Omni\n 在 @我，吉他，猫，LLM 和 @Ccyest 的带队下，SGLang-Omni Team 在过去两周密集支持并优化了 MOSS-TTS-Local-Transformer-v1.5 这一模型，并给出了非常 promising 的首发阶段性优化成果。后续我们将继续联合优化 MOSS-TTS 系列模型，为社区带来更好的推理服务体验。\n在 TTS/Omni 范式尚未收敛的时代，多阶段异构模型带来了显著的推理 Infra 挑战，挑战带来机遇，机遇带来激情。如果你对 TTS/Omni，乃至整个音视频理解和生成方向的推理性能优化有强烈的兴趣，欢迎加入MOSI Infra，也欢迎参与 SGLang-Omni 社区的开源工作！\n #大模型 #多模态人工智能 #TTS #MOSSTTS #OpenMOSS #SGLang #SGLangOmni #语音大模型 #aiinfra #AIInfra \n 1小时前 江西 \n\n \n\n \n \n 加载中",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c5440b020a4b255e006a8bd892",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "[Web page] http://xhslink.com/o/8QlHu8xyKeG\nMOSS-TTS Local v1.5 on SGLang-Omni - 小红书 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 创作中心 \n 业务合作 \n \n \n \n\n \n 发现 \n RED \n 直播 \n 发布 \n \n 通知 \n \n \n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n 更多 \n 关于我们 \n\n 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 \n © 2014-2026\n 行吟信息科技（上海）有限公司\n 地址：上海市黄浦区马当路388号C座\n 电话：9501-3888\n\n \n\n MOSS（Infra大猛子） \n 关注 \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1/20\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n MOSS（Infra大猛子） \n 关注 \n\n MOSS-TTS Local v1.5 on SGLang-Omni\n \n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-20T02:54:37.254Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "大白话版：\n\n有个团队叫 MOSS，搞了一个能本地跑的语音生成模型 v1.5（就是能让人说话、唱歌那种 TTS）。然后 SGLang-Omni 这个团队帮他们做了优化，让它跑得更快更流畅。\n\n说白了就是——\n\n• MOSS-TTS：文字转语音的 AI\n• SGLang-Omni：帮它加速的工具\n• 这次联姻：让 AI 说话/唱歌更顺溜了\n\n跟你之前用的 TTS 有点像，只不过这是开源的、自己电脑也能跑的那种～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-20T02:54:42.009Z"
       }
     ],
     "memories": [
@@ -23936,6 +24046,26 @@
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T02:45:43.923Z",
+        "updatedAt": "2026-06-20T02:45:56.860Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-20T02:45:43.693Z",
+        "updatedAt": "2026-06-20T02:45:56.640Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
         "userId": "feishu:ou_de66a3a52198e6f029b2e619d439c5ae",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_de66a3a52198e6f029b2e619d439c5ae",
@@ -24152,7 +24282,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-19T05:16:17.190Z"
+        "updatedAt": "2026-06-20T02:54:37.038Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -24162,7 +24292,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-19T05:16:16.975Z"
+        "updatedAt": "2026-06-20T02:54:36.794Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
