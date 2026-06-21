@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-21T06:53:24.477Z",
+  "exportedAt": "2026-06-21T07:03:23.657Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26580,6 +26580,26 @@
           "replyToUserId": "feishu:ou_5d2bd83aa1c860304c2aa1c9e0d889b4"
         },
         "createdAt": "2026-06-21T06:47:26.513Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "<p>太强啦  5.6出会第一时间上</p>",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c4cf2ab74a0c191f50ec6bc353",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-21T06:59:24.822Z"
       }
     ],
     "memories": [
@@ -28911,7 +28931,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-06-20T12:28:04.951Z"
+        "updatedAt": "2026-06-21T06:59:24.609Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -28921,7 +28941,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-06-20T12:28:04.641Z"
+        "updatedAt": "2026-06-21T06:59:24.352Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
