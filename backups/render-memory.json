@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-21T02:33:23.560Z",
+  "exportedAt": "2026-06-21T02:43:23.696Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26509,6 +26509,26 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-21T02:31:35.181Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7fd5b1cb7524cce7c746714c7443bf28",
+        "role": "user",
+        "modality": "text",
+        "content": "上午一直在修bug[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c40a77be4a0b15ff51f7ca64bc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_7fd5b1cb7524cce7c746714c7443bf28",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-21T02:38:25.926Z"
       }
     ],
     "memories": [
@@ -28871,6 +28891,26 @@
         "metadata": {},
         "createdAt": "2026-06-18T09:19:05.756Z",
         "updatedAt": "2026-06-18T09:29:05.358Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7fd5b1cb7524cce7c746714c7443bf28",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7fd5b1cb7524cce7c746714c7443bf28",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-21T02:38:25.693Z",
+        "updatedAt": "2026-06-21T02:38:25.693Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7fd5b1cb7524cce7c746714c7443bf28",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-21T02:38:25.347Z",
+        "updatedAt": "2026-06-21T02:38:25.347Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
