@@ -80,7 +80,21 @@ function readableUserName(info = {}, fallback = "") {
   return info.name || info.enName || info.email || fallback || "";
 }
 
-async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers = true }) {
+async function inferPrivateUserId(storage, chatId) {
+  const users = await storage.listUsers(chatId, 10);
+  const singleUser = users.length === 1 ? users.find((user) => rawFeishuId(user.user_id)) : null;
+  if (singleUser) return rawFeishuId(singleUser.user_id);
+
+  const messages = await storage.getRecentMessages(chatId, 30);
+  for (const message of messages.slice().reverse()) {
+    if (message.metadata?.chatType && message.metadata.chatType !== "p2p") continue;
+    const rawUserId = message.metadata?.rawUserId || rawFeishuId(message.user_id);
+    if (rawUserId && isFeishuUserId(rawUserId)) return rawUserId;
+  }
+  return "";
+}
+
+async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers = true, useChatList = false }) {
   if (!feishuWorkspace?.enabled) {
     throw new Error("Feishu app credentials are not configured.");
   }
@@ -88,18 +102,35 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
   const results = {
     chatsUpdated: 0,
     usersUpdated: 0,
+    visibleChats: 0,
     synced: [],
     skipped: [],
     errors: []
   };
+  const visibleChatNames = new Map();
+  if (useChatList) {
+    try {
+      const visibleChats = await feishuWorkspace.listChats(1000);
+      results.visibleChats = visibleChats.length;
+      for (const chat of visibleChats) {
+        const rawChatId = rawFeishuId(chat.chatId);
+        if (rawChatId && chat.name) visibleChatNames.set(rawChatId, chat.name);
+      }
+    } catch (error) {
+      results.errors.push({ chatId: "all", error: truncate(`List visible chats failed: ${error.message}`, 260) });
+    }
+  }
   for (const chatId of chatIds) {
     const rawChatId = rawFeishuId(chatId);
     const chatMemberNames = new Map();
     try {
       let chatName = "";
       if (isFeishuChatId(rawChatId)) {
-        const chatInfo = await feishuWorkspace.getChatInfo(rawChatId);
-        chatName = chatInfo.name;
+        chatName = visibleChatNames.get(rawChatId) || "";
+        if (!chatName && !useChatList) {
+          const chatInfo = await feishuWorkspace.getChatInfo(rawChatId);
+          chatName = chatInfo.name;
+        }
         if (includeUsers) {
           try {
             const members = await feishuWorkspace.listChatMembers(rawChatId, 500);
@@ -117,6 +148,18 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
         const userName = readableUserName(userInfo, rawChatId);
         chatName = userName ? `私聊：${userName}` : "";
       }
+      if (!chatName && isFeishuChatId(rawChatId)) {
+        const privateUserId = await inferPrivateUserId(storage, chatId);
+        if (privateUserId) {
+          try {
+            const userInfo = await feishuWorkspace.getUserInfo(privateUserId);
+            const userName = readableUserName(userInfo, privateUserId);
+            chatName = userName ? `私聊：${userName}` : "";
+          } catch (error) {
+            results.errors.push({ chatId, error: truncate(`Private chat user lookup failed: ${error.message}`, 260) });
+          }
+        }
+      }
       if (chatName) {
         await storage.setMemory(chatId, "", {
           key: CHAT_FEISHU_NAME_KEY,
@@ -126,7 +169,14 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
         results.chatsUpdated += 1;
         results.synced.push({ chatId, name: chatName });
       } else {
-        results.skipped.push({ chatId, reason: isFeishuChatId(rawChatId) ? "飞书返回了群信息，但没有群名称字段" : "不是可识别的飞书群聊或用户 ID" });
+        results.skipped.push({
+          chatId,
+          reason: isFeishuChatId(rawChatId) && useChatList
+            ? "这个历史聊天不在当前机器人可见群列表里，通常是机器人不在该群或应用不可访问"
+            : isFeishuChatId(rawChatId)
+              ? "飞书返回了群信息，但没有群名称字段"
+              : "不是可识别的飞书群聊或用户 ID"
+        });
       }
     } catch (error) {
       results.errors.push({ chatId, error: truncate(error.message, 260) });
@@ -745,6 +795,9 @@ function adminPage(config) {
       const skipped = result.skipped || [];
       const errors = result.errors || [];
       const lines = [];
+      if (result.visibleChats) {
+        lines.push("<strong>飞书可见群</strong><br />本次从飞书群列表拿到 " + escapeHtml(result.visibleChats) + " 个群。没有出现在这个列表里的历史聊天，通常无法自动同步群名。");
+      }
       if (synced.length) {
         lines.push("<strong>已同步</strong><br />" + synced.slice(0, 8).map((item) => escapeHtml(item.name) + " · " + escapeHtml(shortChatId(item.chatId))).join("<br />"));
       }
@@ -1327,7 +1380,8 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
         storage,
         feishuWorkspace,
         chatIds,
-        includeUsers: Boolean(includeUsers) && !all
+        includeUsers: Boolean(includeUsers) && !all,
+        useChatList: Boolean(all)
       });
       res.json({ ok: true, ...result });
     } catch (error) {
