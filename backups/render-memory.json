@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T12:53:39.073Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T13:03:45.074Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -33765,11 +33765,11 @@
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "",
         "key": "relationship.persona",
-        "value": "friend",
+        "value": "girlfriend",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T12:46:04.380Z",
-        "updatedAt": "2026-06-22T12:46:04.380Z"
+        "updatedAt": "2026-06-22T12:55:53.477Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
