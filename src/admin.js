@@ -157,9 +157,39 @@ function adminPage(config) {
     }
     .topbar h2 { margin: 0; font-size: 22px; }
     .topbar p { margin: 3px 0 0; color: var(--muted); }
+    .page-guide {
+      background: #10251f;
+      color: #f5fbf7;
+      border: 0;
+      padding: 18px;
+    }
+    .guide-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .guide-title h3 { margin: 0 0 4px; font-size: 18px; }
+    .guide-title p { margin: 0; color: #b9cbc3; }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .info-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: 116px;
+    }
+    .info-card b { display: block; font-size: 13px; margin-bottom: 6px; }
+    .info-card strong { display: block; font-size: 18px; margin-bottom: 6px; }
+    .info-card span { display: block; color: #c9d7d1; font-size: 12px; line-height: 1.5; }
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 340px;
+      grid-template-columns: minmax(0, 1fr) 360px;
       gap: 16px;
       align-items: start;
     }
@@ -170,7 +200,41 @@ function adminPage(config) {
       padding: 16px;
       margin-bottom: 16px;
     }
-    section h3 { margin: 0 0 12px; font-size: 15px; }
+    section h3 { margin: 0; font-size: 15px; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      color: var(--muted);
+      background: #f8faf8;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .explain {
+      background: #f4f8f6;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 10px 11px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .explain strong { color: var(--text); }
+    .split-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 120px 90px;
@@ -183,6 +247,22 @@ function adminPage(config) {
       display: grid;
       gap: 8px;
     }
+    .memory-item.persona {
+      border: 1px solid rgba(47,125,100,.35);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #f3faf7;
+      margin-bottom: 10px;
+    }
+    .memory-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .memory-title strong { color: var(--text); font-size: 13px; }
     .memory-meta {
       display: grid;
       grid-template-columns: 1fr 100px 110px;
@@ -218,6 +298,7 @@ function adminPage(config) {
     .log-row.error { background: #f8eaea; }
     .log-row.warn { background: #fff4da; }
     .muted { color: var(--muted); }
+    .mini-note { color: var(--muted); font-size: 12px; margin-top: 6px; }
     .status { min-height: 20px; color: var(--muted); }
     .setting-row {
       display: flex;
@@ -252,7 +333,7 @@ function adminPage(config) {
     .switch input:checked + .slider { background: var(--accent); }
     .switch input:checked + .slider:before { transform: translateX(20px); }
     @media (max-width: 920px) {
-      .shell, .grid { grid-template-columns: 1fr; }
+      .shell, .grid, .quick-grid, .split-two { grid-template-columns: 1fr; }
       .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
       .form-grid, .memory-meta { grid-template-columns: 1fr; }
     }
@@ -277,10 +358,50 @@ function adminPage(config) {
         </div>
         <button id="refreshBtn">刷新</button>
       </div>
+      <section class="page-guide">
+        <div class="guide-title">
+          <div>
+            <h3>小椰现在怎么想，主要看这四块</h3>
+            <p>先看人格和摘要，再看长期记忆。最近消息只是短期上下文。</p>
+          </div>
+          <span class="pill" id="scopePill">当前范围</span>
+        </div>
+        <div class="quick-grid">
+          <div class="info-card">
+            <b>人格模式</b>
+            <strong id="personaOverview">-</strong>
+            <span>决定小椰像女友、朋友还是助手。实际写入 relationship.persona。</span>
+          </div>
+          <div class="info-card">
+            <b>对话摘要</b>
+            <strong id="summaryOverview">-</strong>
+            <span>压缩这段聊天的长期背景。适合写“这个群主要在聊什么”。</span>
+          </div>
+          <div class="info-card">
+            <b>长期记忆</b>
+            <strong id="memoryOverview">-</strong>
+            <span>小椰明确记住的事实、偏好、关系设定。会长期影响回复。</span>
+          </div>
+          <div class="info-card">
+            <b>最近消息</b>
+            <strong id="messageOverview">-</strong>
+            <span>最近几十条原始聊天，只用于当前上下文，不等于长期记忆。</span>
+          </div>
+        </div>
+      </section>
       <div class="grid">
         <div>
           <section>
-            <h3>新增记忆</h3>
+            <div class="section-head">
+              <div>
+                <h3>新增一条长期记忆</h3>
+                <p>只有你确定要小椰长期记住时才加。临时聊天不用写这里。</p>
+              </div>
+              <span class="pill">长期生效</span>
+            </div>
+            <div class="explain">
+              常用 key：<strong>relationship.persona</strong> 控制人格，<strong>user.nickname</strong> 记录称呼，<strong>user.preference</strong> 记录偏好，<strong>style.reply</strong> 记录回复风格。
+            </div>
             <div class="form-grid">
               <input id="newKey" placeholder="key，例如 user.nickname" />
               <input id="newImportance" type="number" min="1" max="5" value="3" />
@@ -289,17 +410,33 @@ function adminPage(config) {
             <textarea id="newValue" placeholder="记忆内容，例如 用户喜欢被叫老板。"></textarea>
           </section>
           <section>
-            <h3>长期记忆</h3>
+            <div class="section-head">
+              <div>
+                <h3>长期记忆</h3>
+                <p>这里才是小椰真正“记住”的内容。importance 越高越重要。</p>
+              </div>
+              <span class="pill" id="memoryCountPill">0 条</span>
+            </div>
             <div id="memoryList" class="muted">暂无记忆</div>
           </section>
           <section>
-            <h3>项目</h3>
+            <div class="section-head">
+              <div>
+                <h3>项目记录</h3>
+                <p>机器人创建过的项目、文档和交付物。一般不影响人格。</p>
+              </div>
+            </div>
             <div id="projectList" class="config-list"></div>
           </section>
         </div>
         <div>
           <section>
-            <h3>人格</h3>
+            <div class="section-head">
+              <div>
+                <h3>人格和回复开关</h3>
+                <p>这里改的是当前聊天的小椰状态。</p>
+              </div>
+            </div>
             <div class="setting-row">
               <div>
                 <strong>GPT</strong>
@@ -327,25 +464,47 @@ function adminPage(config) {
               <option value="friend">亲密朋友</option>
               <option value="assistant">个人助理</option>
             </select>
-            <p class="muted">这里会写入当前聊天的 relationship.persona 记忆，立即影响后续回复。</p>
+            <p class="mini-note">这里会写入当前聊天的 <strong>relationship.persona</strong> 记忆，保存后立即影响后续回复。</p>
           </section>
           <section>
-            <h3>对话摘要</h3>
-            <textarea id="summary"></textarea>
+            <div class="section-head">
+              <div>
+                <h3>对话摘要</h3>
+                <p>给模型看的背景提要。写短一点、准一点，比堆历史消息更稳定。</p>
+              </div>
+              <span class="pill" id="summaryScopePill">公共摘要</span>
+            </div>
+            <textarea id="summary" placeholder="例如：这个群主要讨论 AI 机器人、飞书自动化和产品 Demo。小椰回复要自然、直接，优先解决当前问题。"></textarea>
             <div class="memory-actions" style="margin-top:8px">
               <button id="saveSummaryBtn" class="primary">保存摘要</button>
             </div>
           </section>
           <section>
-            <h3>最近消息</h3>
+            <div class="section-head">
+              <div>
+                <h3>最近消息</h3>
+                <p>短期上下文。看到“语音/图片/卡片”可以判断刚刚发生了什么。</p>
+              </div>
+              <span class="pill" id="messageCountPill">0 条</span>
+            </div>
             <div id="messages" class="messages"></div>
           </section>
           <section>
-            <h3>模型与接口</h3>
+            <div class="section-head">
+              <div>
+                <h3>模型与接口</h3>
+                <p>只看状态，不在这里改密钥。</p>
+              </div>
+            </div>
             <div id="runtimeConfig" class="config-list"></div>
           </section>
           <section>
-            <h3>运行日志</h3>
+            <div class="section-head">
+              <div>
+                <h3>运行日志</h3>
+                <p>排查“不回复、语音失败、图片失败”时先看这里。</p>
+              </div>
+            </div>
             <div id="runtimeLogs" class="logs"></div>
           </section>
           <p id="status" class="status"></p>
@@ -401,6 +560,31 @@ function adminPage(config) {
       return [name, username].filter(Boolean).join(" ") || "User " + user.user_id;
     }
 
+    function personaLabel(value) {
+      const labels = {
+        girlfriend: "AI 女友",
+        boyfriend: "AI 男友",
+        friend: "亲密朋友",
+        assistant: "个人助理"
+      };
+      return labels[value] || value || "未设置";
+    }
+
+    function selectedScopeLabel() {
+      if (selectedUserId === "__shared") return "正在看：群公共记忆";
+      if (selectedUserId && selectedUserId !== "__all") return "正在看：单个用户记忆";
+      return "正在看：全部记忆";
+    }
+
+    function memoryMeaning(key = "") {
+      if (key === "relationship.persona") return "人格模式：最影响小椰说话关系感";
+      if (key.startsWith("profile.")) return "用户档案：平台、身份或基础资料";
+      if (key.startsWith("user.")) return "用户偏好：称呼、习惯、喜好";
+      if (key.startsWith("style.")) return "回复风格：语气、长度、表达方式";
+      if (key.startsWith("bot.")) return "机器人设定：小椰自己的行为规则";
+      return "普通长期记忆";
+    }
+
     function renderUsers() {
       const el = document.getElementById("userList");
       if (!selectedChatId) {
@@ -436,9 +620,9 @@ function adminPage(config) {
     function renderState() {
       renderChats();
       renderUsers();
-      document.getElementById("chatTitle").textContent = selectedChatId ? "Chat " + selectedChatId : "选择一个聊天";
+      document.getElementById("chatTitle").textContent = selectedChatId ? "当前聊天：" + selectedChatId : "选择一个聊天";
       document.getElementById("meta").textContent =
-        "filter " + selectedUserId + " · trigger " + state.config.triggerMode + " · storage " + state.config.storage;
+        selectedScopeLabel() + " · 触发模式 " + state.config.triggerMode + " · 存储 " + state.config.storage;
 
       const gptEnabled = state.settings?.gptEnabled !== false;
       document.getElementById("gptSwitch").checked = gptEnabled;
@@ -454,13 +638,27 @@ function adminPage(config) {
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
       document.getElementById("summary").value = state.summary || "";
+      document.getElementById("scopePill").textContent = selectedScopeLabel();
+      document.getElementById("personaOverview").textContent = personaLabel(persona);
+      document.getElementById("summaryOverview").textContent = state.summary ? "已填写" : "暂无";
+      document.getElementById("memoryOverview").textContent = (state.memories?.length || 0) + " 条";
+      document.getElementById("messageOverview").textContent = (state.messages?.length || 0) + " 条";
+      document.getElementById("memoryCountPill").textContent = (state.memories?.length || 0) + " 条记忆";
+      document.getElementById("messageCountPill").textContent = (state.messages?.length || 0) + " 条消息";
+      document.getElementById("summaryScopePill").textContent = selectedUserId && selectedUserId !== "__all" && selectedUserId !== "__shared"
+        ? "当前用户摘要"
+        : "群公共摘要";
 
       const memoryEl = document.getElementById("memoryList");
       if (!state.memories.length) {
-        memoryEl.innerHTML = '<p class="muted">暂无长期记忆。</p>';
+        memoryEl.innerHTML = '<p class="muted">暂无长期记忆。小椰会主要依赖系统人格、对话摘要和最近消息来回复。</p>';
       } else {
         memoryEl.innerHTML = state.memories.map((memory, index) => (
-          '<div class="memory-item" data-index="' + index + '">' +
+          '<div class="memory-item ' + (memory.key === "relationship.persona" ? "persona" : "") + '" data-index="' + index + '">' +
+            '<div class="memory-title">' +
+              '<strong>' + escapeHtml(memoryMeaning(memory.key)) + '</strong>' +
+              '<span>' + (memory.user_id ? "绑定用户" : "群公共") + '</span>' +
+            '</div>' +
             '<div class="memory-meta">' +
               '<input class="memory-key" value="' + escapeHtml(memory.key) + '" />' +
               '<input class="memory-importance" type="number" min="1" max="5" value="' + escapeHtml(memory.importance) + '" />' +
