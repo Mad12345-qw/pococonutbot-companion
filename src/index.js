@@ -11,6 +11,7 @@ import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { FeishuBot } from "./feishu.js";
 import { FeishuBitableClient } from "./feishu-bitable.js";
+import { FeishuWorkspaceClient } from "./feishu-workspace.js";
 import { setupAdminRoutes } from "./admin.js";
 import { GitHubMemoryBackup } from "./github-backup.js";
 
@@ -77,7 +78,34 @@ const storage = createStorage(config);
 await storage.init();
 
 const feishuBitable = new FeishuBitableClient({ config });
-setupAdminRoutes(app, { config, storage, feishuBitable });
+let adminFeishuToken = "";
+let adminFeishuTokenExpiresAt = 0;
+async function adminFeishuTenantAccessToken() {
+  const now = Date.now();
+  if (adminFeishuToken && now < adminFeishuTokenExpiresAt - 60_000) return adminFeishuToken;
+
+  const response = await fetch("https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      app_id: config.feishuAppId,
+      app_secret: config.feishuAppSecret
+    })
+  });
+  const data = await response.json();
+  if (!response.ok || data.code !== 0) {
+    throw new Error(`Feishu tenant token failed: ${JSON.stringify(data).slice(0, 500)}`);
+  }
+
+  adminFeishuToken = data.tenant_access_token;
+  adminFeishuTokenExpiresAt = now + Number(data.expire || 3600) * 1000;
+  return adminFeishuToken;
+}
+const feishuWorkspace = new FeishuWorkspaceClient({
+  config,
+  getToken: adminFeishuTenantAccessToken
+});
+setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace });
 const bitableJobs = new Map();
 
 function publicBitableJob(job) {

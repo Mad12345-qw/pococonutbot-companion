@@ -103,6 +103,35 @@ export class FeishuWorkspaceClient {
     return "";
   }
 
+  async getChatInfo(chatId) {
+    if (!chatId) return {};
+    const data = await this.request(`/open-apis/im/v1/chats/${encodeURIComponent(chatId)}?user_id_type=open_id`);
+    const chat = data.chat || data;
+    return {
+      chatId,
+      name: chat.name || chat.chat_name || chat.title || "",
+      description: chat.description || "",
+      ownerId: chat.owner_id || chat.owner_open_id || "",
+      avatar: chat.avatar || chat.avatar_url || "",
+      raw: chat
+    };
+  }
+
+  async getUserInfo(userId) {
+    if (!userId) return {};
+    const data = await this.request(`/open-apis/contact/v3/users/${encodeURIComponent(userId)}?user_id_type=open_id`);
+    const user = data.user || data;
+    const name = user.name || user.nickname || user.en_name || user.enterprise_email || user.email || "";
+    return {
+      userId,
+      name,
+      enName: user.en_name || "",
+      email: user.enterprise_email || user.email || "",
+      avatar: user.avatar?.avatar_72 || user.avatar?.avatar_origin || "",
+      raw: user
+    };
+  }
+
   async request(path, { method = "GET", body, headers = {} } = {}) {
     const token = await this.getToken();
     const response = await fetch(`https://open.feishu.cn${path}`, {

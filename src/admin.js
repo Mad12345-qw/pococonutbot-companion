@@ -1,7 +1,10 @@
 import { getRuntimeLogs } from "./runtime-log.js";
+import { truncate } from "./utils.js";
 
 const CHAT_DISPLAY_NAME_KEY = "chat.display_name";
+const CHAT_FEISHU_NAME_KEY = "chat.feishu_name";
 const PERSONA_PROMPT_KEY = "relationship.persona_prompt";
+const USER_DISPLAY_NAME_KEY = "user.display_name";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -47,10 +50,98 @@ async function attachChatDisplayNames(storage, chats) {
       const memories = await storage.listMemories(chat.chat_id, 80);
       return {
         ...chat,
-        display_name: findScopedMemoryValue(memories, CHAT_DISPLAY_NAME_KEY)
+        display_name: findScopedMemoryValue(memories, CHAT_DISPLAY_NAME_KEY) || findScopedMemoryValue(memories, CHAT_FEISHU_NAME_KEY),
+        feishu_name: findScopedMemoryValue(memories, CHAT_FEISHU_NAME_KEY)
       };
     })
   );
+}
+
+function attachUserDisplayNames(users, memories) {
+  return users.map((user) => ({
+    ...user,
+    display_name: findScopedMemoryValue(memories, USER_DISPLAY_NAME_KEY, user.user_id)
+  }));
+}
+
+function rawFeishuId(platformScopedId = "") {
+  return String(platformScopedId || "").replace(/^feishu:/, "");
+}
+
+function isFeishuChatId(rawId = "") {
+  return /^oc_|^chat_/i.test(String(rawId || ""));
+}
+
+function isFeishuUserId(rawId = "") {
+  return /^(ou_|on_|union_|[a-z0-9_-]{8,})/i.test(String(rawId || "")) && !isFeishuChatId(rawId);
+}
+
+function readableUserName(info = {}, fallback = "") {
+  return info.name || info.enName || info.email || fallback || "";
+}
+
+async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers = true }) {
+  if (!feishuWorkspace?.enabled) {
+    throw new Error("Feishu app credentials are not configured.");
+  }
+
+  const results = {
+    chatsUpdated: 0,
+    usersUpdated: 0,
+    errors: []
+  };
+  for (const chatId of chatIds) {
+    const rawChatId = rawFeishuId(chatId);
+    try {
+      let chatName = "";
+      if (isFeishuChatId(rawChatId)) {
+        const chatInfo = await feishuWorkspace.getChatInfo(rawChatId);
+        chatName = chatInfo.name;
+      } else if (isFeishuUserId(rawChatId)) {
+        const userInfo = await feishuWorkspace.getUserInfo(rawChatId);
+        const userName = readableUserName(userInfo, rawChatId);
+        chatName = userName ? `私聊：${userName}` : "";
+      }
+      if (chatName) {
+        await storage.setMemory(chatId, "", {
+          key: CHAT_FEISHU_NAME_KEY,
+          value: chatName,
+          importance: 5
+        });
+        results.chatsUpdated += 1;
+      }
+    } catch (error) {
+      results.errors.push({ chatId, error: truncate(error.message, 260) });
+    }
+
+    if (!includeUsers) continue;
+    let users = [];
+    try {
+      users = await storage.listUsers(chatId, 300);
+    } catch (error) {
+      results.errors.push({ chatId, error: truncate(`List users failed: ${error.message}`, 260) });
+      continue;
+    }
+    for (const user of users) {
+      const userId = String(user.user_id || "");
+      const rawUserId = rawFeishuId(userId);
+      if (!rawUserId || !isFeishuUserId(rawUserId)) continue;
+      try {
+        const userInfo = await feishuWorkspace.getUserInfo(rawUserId);
+        const name = readableUserName(userInfo, "");
+        if (!name) continue;
+        await storage.setMemory(chatId, userId, {
+          key: USER_DISPLAY_NAME_KEY,
+          value: name,
+          importance: 5
+        });
+        results.usersUpdated += 1;
+      } catch (error) {
+        results.errors.push({ chatId, userId, error: truncate(error.message, 260) });
+      }
+    }
+  }
+  return results;
 }
 
 function isLocalRequest(req) {
@@ -429,6 +520,10 @@ function adminPage(config) {
           </div>
           <button id="saveChatNameBtn" class="primary">保存名称</button>
         </div>
+        <div class="memory-actions" style="margin-top:8px">
+          <button id="syncCurrentFeishuNamesBtn">从飞书同步当前聊天和成员名</button>
+          <button id="syncAllFeishuNamesBtn">同步左侧全部聊天名</button>
+        </div>
         <p class="mini-note" id="chatIdentityMeta"></p>
       </section>
       <section class="page-guide">
@@ -658,6 +753,7 @@ function adminPage(config) {
     }
 
     function userLabel(user) {
+      if (user.display_name) return user.display_name;
       const name = [user.first_name, user.last_name].filter(Boolean).join(" ");
       const username = user.username ? "@" + user.username : "";
       return [name, username].filter(Boolean).join(" ") || "User " + user.user_id;
@@ -705,6 +801,8 @@ function adminPage(config) {
       if (key === "relationship.persona") return "人格模式：最影响小椰说话关系感";
       if (key === "relationship.persona_prompt") return "人格提示词：定义关系归属和群聊边界";
       if (key === "chat.display_name") return "聊天显示名：只用于后台识别";
+      if (key === "chat.feishu_name") return "飞书同步名称：自动读取的群聊/私聊名称";
+      if (key === "user.display_name") return "飞书用户名称：自动读取的成员昵称";
       if (key.startsWith("profile.")) return "用户档案：平台、身份或基础资料";
       if (key.startsWith("user.")) return "用户偏好：称呼、习惯、喜好";
       if (key.startsWith("style.")) return "回复风格：语气、长度、表达方式";
@@ -755,7 +853,7 @@ function adminPage(config) {
       document.getElementById("chatDisplayName").value = state.chatDisplayName || "";
       document.getElementById("chatRawIdPill").textContent = selectedChatId ? shortChatId(selectedChatId) : "未选择";
       document.getElementById("chatIdentityMeta").textContent = selectedChatId
-        ? "原始 ID：" + selectedChatId
+        ? "原始 ID：" + selectedChatId + (chat?.feishu_name ? " · 飞书同步名：" + chat.feishu_name : "")
         : "先从左侧选择一个聊天。";
 
       const gptEnabled = state.settings?.gptEnabled !== false;
@@ -928,6 +1026,25 @@ function adminPage(config) {
       setStatus("已保存聊天显示名。");
       await load();
     });
+    document.getElementById("syncCurrentFeishuNamesBtn").addEventListener("click", async () => {
+      if (!selectedChatId) return setStatus("先选择一个聊天。");
+      setStatus("正在从飞书同步当前聊天和成员名...");
+      const result = await api("/api/admin/sync-feishu-names", {
+        method: "POST",
+        body: JSON.stringify({ chatId: selectedChatId, includeUsers: true })
+      });
+      setStatus("同步完成：聊天名 " + result.chatsUpdated + " 个，成员名 " + result.usersUpdated + " 个，失败 " + result.errors.length + " 个。");
+      await load();
+    });
+    document.getElementById("syncAllFeishuNamesBtn").addEventListener("click", async () => {
+      setStatus("正在从飞书同步左侧全部聊天名...");
+      const result = await api("/api/admin/sync-feishu-names", {
+        method: "POST",
+        body: JSON.stringify({ all: true, includeUsers: false })
+      });
+      setStatus("同步完成：聊天名 " + result.chatsUpdated + " 个，失败 " + result.errors.length + " 个。");
+      await load();
+    });
     document.getElementById("gptSwitch").addEventListener("change", async (event) => {
       const enabled = Boolean(event.target.checked);
       await api("/api/admin/settings", {
@@ -1007,7 +1124,7 @@ function adminPage(config) {
 </html>`;
 }
 
-export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
+export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace }) {
   const auth = adminAuth(config);
 
   app.get("/admin", auth, (_req, res) => {
@@ -1019,8 +1136,9 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
     const chats = await attachChatDisplayNames(storage, rawChats);
     const selectedChatId = String(req.query.chatId || chats[0]?.chat_id || "");
     const selectedUserId = String(req.query.userId || "__all");
-    const users = selectedChatId ? await storage.listUsers(selectedChatId, 300) : [];
+    const rawUsers = selectedChatId ? await storage.listUsers(selectedChatId, 300) : [];
     const allMemories = selectedChatId ? await storage.listMemories(selectedChatId, 500) : [];
+    const users = attachUserDisplayNames(rawUsers, allMemories);
     const memories = filterMemories(allMemories, selectedUserId).slice(0, 300);
     const targetUserId = memoryTargetUserId(selectedUserId);
     const summary = selectedChatId ? await storage.getSummary(selectedChatId, targetUserId) : "";
@@ -1140,6 +1258,33 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
       });
     }
     res.json({ ok: true });
+  });
+
+  app.post("/api/admin/sync-feishu-names", auth, async (req, res) => {
+    const { chatId = "", all = false, includeUsers = true } = req.body || {};
+    let chatIds = [];
+    if (all) {
+      const chats = await storage.listChats(100);
+      chatIds = chats.map((chat) => chat.chat_id).filter(Boolean);
+    } else if (chatId) {
+      chatIds = [String(chatId)];
+    }
+    if (!chatIds.length) {
+      res.status(400).json({ error: "chatId or all is required." });
+      return;
+    }
+
+    try {
+      const result = await syncFeishuNames({
+        storage,
+        feishuWorkspace,
+        chatIds,
+        includeUsers: Boolean(includeUsers) && !all
+      });
+      res.json({ ok: true, ...result });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   });
 
   app.post("/api/admin/persona-prompt", auth, async (req, res) => {
