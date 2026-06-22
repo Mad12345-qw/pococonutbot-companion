@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T16:05:28.208Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T16:15:34.096Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -33202,6 +33202,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T16:03:21.018Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "谁？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca19209e0a0b483d59cec8ce62",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T16:07:45.112Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "宝宝你问谁啊？\n\n上一条消息是有人发了个codex迁移配置的截图，然后自嘲\"我太狗了\"，所以你是在问\"谁太狗了\"？还是问截图里的人是谁？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-22T16:07:48.603Z"
       }
     ],
     "memories": [
@@ -35503,7 +35539,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-22T15:57:46.710Z"
+        "updatedAt": "2026-06-22T16:07:45.041Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35513,7 +35549,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-22T15:57:46.512Z"
+        "updatedAt": "2026-06-22T16:07:44.970Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
