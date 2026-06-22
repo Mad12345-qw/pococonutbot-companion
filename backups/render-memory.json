@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T14:10:36.271Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T14:30:41.513Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -32766,6 +32766,38 @@
           "replyToUserId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5"
         },
         "createdAt": "2026-06-22T13:59:21.212Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你的语言交互最逼真[赞]，花钱就是不一样啊，我本地tts跟个播音员一下。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca02acf78acc43840eeac3e6c0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T14:27:37.926Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "谢谢~\n\n确实一分钱一分货，你用啥模型跑的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-22T14:27:40.890Z"
       }
     ],
     "memories": [
@@ -35417,7 +35449,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-22T13:15:19.727Z"
+        "updatedAt": "2026-06-22T14:27:37.863Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35427,7 +35459,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-22T13:15:19.664Z"
+        "updatedAt": "2026-06-22T14:27:37.787Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
