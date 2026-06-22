@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T09:48:56.975Z",
+  "exportedAt": "2026-06-22T09:58:56.614Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -31582,6 +31582,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T09:43:06.717Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "别说别人攻击了，我现在装最新版的hermes，很多命令都直接拒绝",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca4253a9160c354d1fa9b5a955",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T09:56:22.729Z"
       }
     ],
     "memories": [
@@ -34223,7 +34243,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-22T09:38:58.997Z"
+        "updatedAt": "2026-06-22T09:56:22.506Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -34233,7 +34253,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-22T09:38:58.766Z"
+        "updatedAt": "2026-06-22T09:56:22.216Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
