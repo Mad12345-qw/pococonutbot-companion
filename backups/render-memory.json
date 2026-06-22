@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T03:43:23.843Z",
+  "exportedAt": "2026-06-22T03:53:24.076Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -28377,6 +28377,270 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T03:40:37.708Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "嗯呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbebb6280acc3f0846a9274d7d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:43:28.363Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "刚装上，还不知道有啥用？和我们现在养好的虾，能对接上么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbeb6a494bcb223b145df1d16c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:44:13.913Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "role": "user",
+        "modality": "text",
+        "content": "我的是对接飞书",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbeb2f50cacb1b970b639f5cea",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_b4f964742ca2148a0da246d84d6cd1ce",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:45:14.404Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "role": "user",
+        "modality": "text",
+        "content": "生成每周周报，写的还蛮好的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbeb27774a4b27eb978ef7aa0b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_b4f964742ca2148a0da246d84d6cd1ce",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:45:20.507Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "role": "user",
+        "modality": "text",
+        "content": "生成的周报，我再用clauds再验证一次",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbeb32130b8b3901590f3c6052",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_b4f964742ca2148a0da246d84d6cd1ce",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:45:41.183Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "这个应该算是独立的智能体，与我们现有的养的虾没关系吧，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf4ce3a4a4b1f746bbbd65abc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:46:49.939Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf4a8bbcb0b159f65c5344a00",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_b4f964742ca2148a0da246d84d6cd1ce",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:47:23.082Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "能接上  不踩脚 是一种互补关系，因为你的虾都是独立的，你用workbuddy的专家团队功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf48f0dca4c3f81add8685ec5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:47:54.982Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "这个回调为啥要设置是加密的，不懂就问",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf457a7090c45a5fd2627df6e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:49:22.219Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "回调加密主要是为了数据安全，防偷窥、防篡改的，设置里有说明的可以看下，选\"加密\"更稳～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-22T03:49:29.664Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "接到飞书上，你的独立虾作业完成后 再群里@\nworkbuddy  让她的专家团队来审计修正",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf435604b0c240b865c1c00f5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:49:52.321Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "表情包系列",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf5ebd84b0c367ba76c89fd0a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:50:37.869Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "所以需要加密回调方式吗？\n\n可是他这个key是从哪来的呢？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf5d57fc84c3873d64efb40be",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:51:28.870Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个 key 是飞书那边自动生成的，在开发者后台创建应用时就会分配一对 App ID 和 App Secret，加密回调就是用这对密钥验签的～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-22T03:51:34.765Z"
       }
     ],
     "memories": [
@@ -30388,7 +30652,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-17T15:30:24.157Z"
+        "updatedAt": "2026-06-22T03:46:49.722Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30398,7 +30662,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-17T15:30:23.927Z"
+        "updatedAt": "2026-06-22T03:46:49.505Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30748,7 +31012,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-22T03:39:35.492Z"
+        "updatedAt": "2026-06-22T03:50:37.651Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30758,7 +31022,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-22T03:39:35.279Z"
+        "updatedAt": "2026-06-22T03:50:37.433Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30838,7 +31102,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-22T03:40:37.488Z"
+        "updatedAt": "2026-06-22T03:51:28.643Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30848,7 +31112,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-22T03:40:37.268Z"
+        "updatedAt": "2026-06-22T03:51:28.418Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30978,7 +31242,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-22T03:34:47.230Z"
+        "updatedAt": "2026-06-22T03:43:28.137Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30988,7 +31252,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-22T03:34:47.006Z"
+        "updatedAt": "2026-06-22T03:43:27.909Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T03:45:14.188Z",
+        "updatedAt": "2026-06-22T03:47:22.862Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b4f964742ca2148a0da246d84d6cd1ce",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T03:45:13.972Z",
+        "updatedAt": "2026-06-22T03:47:22.641Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
