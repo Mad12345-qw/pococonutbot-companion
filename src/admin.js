@@ -88,6 +88,8 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
   const results = {
     chatsUpdated: 0,
     usersUpdated: 0,
+    synced: [],
+    skipped: [],
     errors: []
   };
   for (const chatId of chatIds) {
@@ -122,6 +124,9 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
           importance: 5
         });
         results.chatsUpdated += 1;
+        results.synced.push({ chatId, name: chatName });
+      } else {
+        results.skipped.push({ chatId, reason: isFeishuChatId(rawChatId) ? "飞书返回了群信息，但没有群名称字段" : "不是可识别的飞书群聊或用户 ID" });
       }
     } catch (error) {
       results.errors.push({ chatId, error: truncate(error.message, 260) });
@@ -540,6 +545,7 @@ function adminPage(config) {
           <button id="syncCurrentFeishuNamesBtn">从飞书同步当前聊天和成员名</button>
           <button id="syncAllFeishuNamesBtn">同步左侧全部聊天名</button>
         </div>
+        <div id="syncReport" class="explain" style="display:none;margin-top:10px"></div>
         <p class="mini-note" id="chatIdentityMeta"></p>
       </section>
       <section class="page-guide">
@@ -726,6 +732,30 @@ function adminPage(config) {
 
     function setStatus(text) {
       document.getElementById("status").textContent = text || "";
+    }
+
+    function renderSyncReport(result) {
+      const el = document.getElementById("syncReport");
+      if (!result) {
+        el.style.display = "none";
+        el.innerHTML = "";
+        return;
+      }
+      const synced = result.synced || [];
+      const skipped = result.skipped || [];
+      const errors = result.errors || [];
+      const lines = [];
+      if (synced.length) {
+        lines.push("<strong>已同步</strong><br />" + synced.slice(0, 8).map((item) => escapeHtml(item.name) + " · " + escapeHtml(shortChatId(item.chatId))).join("<br />"));
+      }
+      if (skipped.length) {
+        lines.push("<strong>未拿到名称</strong><br />" + skipped.slice(0, 8).map((item) => escapeHtml(shortChatId(item.chatId)) + " · " + escapeHtml(item.reason || "")).join("<br />"));
+      }
+      if (errors.length) {
+        lines.push("<strong>失败原因</strong><br />" + errors.slice(0, 8).map((item) => escapeHtml(shortChatId(item.chatId || item.userId || "")) + " · " + escapeHtml(item.error || "")).join("<br />"));
+      }
+      el.innerHTML = lines.join("<br /><br />") || "飞书没有返回可同步的名称。";
+      el.style.display = "block";
     }
 
     function renderChats() {
@@ -1049,6 +1079,7 @@ function adminPage(config) {
         method: "POST",
         body: JSON.stringify({ chatId: selectedChatId, includeUsers: true })
       });
+      renderSyncReport(result);
       setStatus("同步完成：聊天名 " + result.chatsUpdated + " 个，成员名 " + result.usersUpdated + " 个，失败 " + result.errors.length + " 个。");
       await load();
     });
@@ -1058,6 +1089,7 @@ function adminPage(config) {
         method: "POST",
         body: JSON.stringify({ all: true, includeUsers: false })
       });
+      renderSyncReport(result);
       setStatus("同步完成：聊天名 " + result.chatsUpdated + " 个，失败 " + result.errors.length + " 个。");
       await load();
     });
