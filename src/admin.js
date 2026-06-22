@@ -1129,7 +1129,7 @@ function adminPage(config) {
 
     function splitAlwaysReplyUsers(value = "") {
       return String(value || "")
-        .split(/[,\n，]+/)
+        .split(/[,，\\s]+/)
         .map((item) => item.trim())
         .filter(Boolean);
     }
@@ -1500,7 +1500,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
   app.post("/api/admin/always-reply-users", auth, async (req, res) => {
     const { value = "" } = req.body || {};
     const normalized = String(value || "")
-      .split(/[,\n，]+/)
+      .split(/[,，\s]+/)
       .map((item) => item.trim())
       .filter(Boolean)
       .join(", ");
