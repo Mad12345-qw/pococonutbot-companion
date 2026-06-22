@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T13:50:32.913Z",
+  "exportedAt": "2026-06-22T14:00:33.618Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -32714,6 +32714,58 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T13:47:49.817Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_73768142e80d517f9bea33e28615e82a",
+        "role": "user",
+        "modality": "text",
+        "content": "汽水",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca7943550a4c2a1e4678d18b15",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_73768142e80d517f9bea33e28615e82a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:50:43.855Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5",
+        "role": "user",
+        "modality": "text",
+        "content": "总结下群内最近讨论的内容，给我重点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca7b41d4f9cb3c65949abfda64",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_b58224e595397d94fe464b7b72bfa7d5",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:59:14.468Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n群里主要在聊世界杯、工作搭子和工作流自动化。\n\n核心要点\n• 西班牙那场比赛大家觉得挺难的\n• 有人以前做过飞书机器人，现在没时间打理了\n• workbuddy 能同时接飞书和微信，用户端直接聊就行\n• 后台用小程序配置，不影响日常使用\n\n一句话结论\n从赛事聊到工具，最后停在 workbuddy 能不能多端打通的问题上。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5"
+        },
+        "createdAt": "2026-06-22T13:59:21.212Z"
       }
     ],
     "memories": [
@@ -35095,7 +35147,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T13:36:35.071Z",
-        "updatedAt": "2026-06-22T13:36:35.071Z"
+        "updatedAt": "2026-06-22T13:50:43.788Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35105,7 +35157,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T13:36:34.948Z",
-        "updatedAt": "2026-06-22T13:36:34.948Z"
+        "updatedAt": "2026-06-22T13:50:43.719Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35466,6 +35518,26 @@
         "metadata": {},
         "createdAt": "2026-06-22T03:45:13.972Z",
         "updatedAt": "2026-06-22T04:06:56.531Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:59:14.397Z",
+        "updatedAt": "2026-06-22T13:59:14.397Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_b58224e595397d94fe464b7b72bfa7d5",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:59:14.301Z",
+        "updatedAt": "2026-06-22T13:59:14.301Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
