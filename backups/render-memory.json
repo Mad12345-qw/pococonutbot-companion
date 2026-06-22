@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T07:08:56.698Z",
+  "exportedAt": "2026-06-22T08:48:55.261Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -30816,6 +30816,72 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-22T07:05:41.642Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "看看今天的星座运势图\n[Link content]\n[Web page] https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\nTencent Cloud CodeBuddy",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbb292db4a8b10bc732d6ea735",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "[Web page] https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\nTencent Cloud CodeBuddy",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T08:47:02.946Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：今天的星座运势图\n📅 今日星座运势要点(2026年6月22日) • ⚠️ 说明:搜索结果中并未直接提供今日的\"运势图片/配图\",以下为文字版的运势参考,图片来源请直接访问原网址。 • 🔭 本周星象整体走势(腾讯新闻):\"先抑后扬\",周中后(周四起)行动力与沟通效率提升,周末摩羯满月推动事务收尾。 • ♈ 白羊座:周初表达有感染力、易说服他人;但满月落在事业宫,关键节点压力较大,需稳重应对。 • ♉ 金牛座:工作目标逐渐清晰,跨领域合作受认可;财运是本周亮点,稳健理财开始见到收益,但要警惕社交场合的\"朋友推荐\"陷阱。 • ♋ 巨蟹座:日运显示今日运势不佳,易因沉默或沟通不到位产生误会,建议先稳住关系,及时回复消息。 • 📎 更多完整十二星座日运可参考: • 易星网日运:https://www.3169.net/xz/xzys/20260622/133993.html • 苏珊米勒日运(搜狐):https://www.sohu.com/a/1039625989_122743304 • 本周运势详析(腾讯新闻):https://news.qq.com/rain/a/20260621A09O8800 • ❓ 不确定项:搜索结果未提供可直接展示的运势图片链接,需自行打开上述网站查看配图。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-22T08:47:55.110Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "还是你处事老道啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbb20c5b090c3454077f10140f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T08:48:41.438Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈 过奖啦～帮到你就好 😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-22T08:48:44.156Z"
       }
     ],
     "memories": [
@@ -32867,7 +32933,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T04:40:41.808Z"
+        "updatedAt": "2026-06-22T08:47:02.726Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -32877,7 +32943,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T04:40:41.583Z"
+        "updatedAt": "2026-06-22T08:47:02.484Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -33437,7 +33503,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-22T03:58:44.775Z"
+        "updatedAt": "2026-06-22T08:48:41.208Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -33447,7 +33513,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-22T03:58:44.548Z"
+        "updatedAt": "2026-06-22T08:48:40.982Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
