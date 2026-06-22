@@ -5,6 +5,7 @@ const CHAT_DISPLAY_NAME_KEY = "chat.display_name";
 const CHAT_FEISHU_NAME_KEY = "chat.feishu_name";
 const PERSONA_PROMPT_KEY = "relationship.persona_prompt";
 const USER_DISPLAY_NAME_KEY = "user.display_name";
+const FEISHU_ALWAYS_REPLY_USERS_SETTING = "feishu.always_reply_user_ids";
 
 function escapeHtml(value = "") {
   return String(value)
@@ -697,6 +698,15 @@ function adminPage(config) {
                 <span class="slider"></span>
               </label>
             </div>
+            <div class="persona-editor">
+              <label for="alwaysReplyUsers">指定用户优先回复</label>
+              <textarea id="alwaysReplyUsers" placeholder="例如：410351, 用户410351, feishu:ou_xxx。命中的用户在群里发普通消息也会触发回复。"></textarea>
+              <div class="memory-actions" style="margin-top:8px">
+                <button id="addSelectedAlwaysReplyUserBtn" type="button">加入左侧选中的用户</button>
+                <button id="saveAlwaysReplyUsersBtn" class="primary" type="button">保存白名单</button>
+              </div>
+              <p class="mini-note">这里保存后立即生效，不用去 Render 改环境变量。多个用户用逗号或换行分隔。</p>
+            </div>
             <hr style="border:0;border-top:1px solid var(--line);margin:14px 0" />
             <select id="persona">
               <option value="girlfriend">AI 女友</option>
@@ -965,6 +975,7 @@ function adminPage(config) {
       document.getElementById("smartRepliesSwitchMeta").textContent = smartRepliesEnabled
         ? "开启：普通群聊先由 AI 判断是否适合回复"
         : "关闭：群聊只响应 @、指令、私聊和明确任务";
+      document.getElementById("alwaysReplyUsers").value = state.settings?.alwaysReplyUserIds || "";
 
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
@@ -1116,6 +1127,13 @@ function adminPage(config) {
       return selectedUserId && selectedUserId !== "__all" && selectedUserId !== "__shared" ? selectedUserId : "";
     }
 
+    function splitAlwaysReplyUsers(value = "") {
+      return String(value || "")
+        .split(/[,\n，]+/)
+        .map((item) => item.trim())
+        .filter(Boolean);
+    }
+
     document.getElementById("refreshBtn").addEventListener("click", load);
     document.getElementById("saveChatNameBtn").addEventListener("click", async () => {
       if (!selectedChatId) return setStatus("先选择一个聊天。");
@@ -1163,6 +1181,24 @@ function adminPage(config) {
         body: JSON.stringify({ smartRepliesEnabled: enabled })
       });
       setStatus(enabled ? "智能插话已开启。" : "智能插话已关闭。");
+      await load();
+    });
+    document.getElementById("addSelectedAlwaysReplyUserBtn").addEventListener("click", () => {
+      const userId = selectedMemoryUserId();
+      if (!userId) return setStatus("先在左侧用户列表选择一个具体用户。");
+      const input = document.getElementById("alwaysReplyUsers");
+      const values = splitAlwaysReplyUsers(input.value);
+      if (!values.includes(userId)) values.push(userId);
+      input.value = values.join(", ");
+      setStatus("已加入左侧选中的用户，记得点保存白名单。");
+    });
+    document.getElementById("saveAlwaysReplyUsersBtn").addEventListener("click", async () => {
+      const value = splitAlwaysReplyUsers(document.getElementById("alwaysReplyUsers").value).join(", ");
+      await api("/api/admin/always-reply-users", {
+        method: "POST",
+        body: JSON.stringify({ value })
+      });
+      setStatus("已保存指定用户优先回复白名单。");
       await load();
     });
     document.getElementById("addMemoryBtn").addEventListener("click", async () => {
@@ -1252,6 +1288,10 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
     const gptEnabled = String(await storage.getSetting("gpt.enabled", "true")).toLowerCase() !== "false";
     const smartRepliesEnabled =
       String(await storage.getSetting("smart_replies.enabled", config.smartClassifierEnabled ? "true" : "false")).toLowerCase() !== "false";
+    const alwaysReplyUserIds = await storage.getSetting(
+      FEISHU_ALWAYS_REPLY_USERS_SETTING,
+      (config.feishuAlwaysReplyUserIds || []).join(", ")
+    );
     const persona =
       (targetUserId
         ? allMemories.find((memory) => memory.key === "relationship.persona" && String(memory.user_id || "") === targetUserId)?.value
@@ -1275,7 +1315,8 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
       chatDisplayName,
       settings: {
         gptEnabled,
-        smartRepliesEnabled
+        smartRepliesEnabled,
+        alwaysReplyUserIds
       },
       logs: getRuntimeLogs(80),
       config: {
@@ -1283,7 +1324,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
         companionMode: config.companionMode,
         triggerMode: config.triggerMode,
         smartReplyConfidenceThreshold: config.smartReplyConfidenceThreshold,
-        feishuAlwaysReplyUserIds: (config.feishuAlwaysReplyUserIds || []).join(", "),
+        feishuAlwaysReplyUserIds: alwaysReplyUserIds,
         storage: config.databaseUrl ? "postgres" : "json-file",
         primaryModel: config.aiModel,
         primaryCompatibility: config.aiCompatibility,
@@ -1454,5 +1495,16 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
       response.smartRepliesEnabled = smartRepliesEnabled;
     }
     res.json(response);
+  });
+
+  app.post("/api/admin/always-reply-users", auth, async (req, res) => {
+    const { value = "" } = req.body || {};
+    const normalized = String(value || "")
+      .split(/[,\n，]+/)
+      .map((item) => item.trim())
+      .filter(Boolean)
+      .join(", ");
+    await storage.setSetting(FEISHU_ALWAYS_REPLY_USERS_SETTING, normalized);
+    res.json({ ok: true, value: normalized });
   });
 }

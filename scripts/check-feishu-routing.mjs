@@ -18,6 +18,9 @@ bot.config = {
   feishuAlwaysReplyUserIds: ["410351", "用户410351"],
   ownerUserIds: []
 };
+bot.storage = {
+  getSetting: async (_key, fallback) => fallback
+};
 
 function classify(text, options = {}) {
   const linkContext = options.linkContext ? "[Feishu document] referenced content" : "";
@@ -161,7 +164,7 @@ const madCandidates = bot.senderIdentityCandidates({
     }
   }
 });
-assertEqual("always reply user whitelist matches tenant user id", String(bot.isAlwaysReplyUser(madCandidates)), "true");
+assertEqual("always reply user whitelist matches tenant user id", String(await bot.isAlwaysReplyUser(madCandidates)), "true");
 bot.config.feishuOutgoingMentionsEnabled = false;
 
 bot.workspace = {

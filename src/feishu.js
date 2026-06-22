@@ -766,7 +766,7 @@ export class FeishuBot {
     const songRequest = this.extractSongRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
-    const alwaysReplyUser = this.isAlwaysReplyUser(senderIdentityCandidates);
+    const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
     const explicitReply =
       chatType === "p2p" ||
       alwaysReplyUser ||
@@ -1652,11 +1652,15 @@ export class FeishuBot {
     return uniqueReplyIdentities(values);
   }
 
-  isAlwaysReplyUser(candidates = []) {
-    const whitelist = uniqueReplyIdentities([
+  async isAlwaysReplyUser(candidates = []) {
+    const configuredDefault = [
       ...(this.config.feishuAlwaysReplyUserIds || []),
       ...(this.config.ownerUserIds || [])
-    ]);
+    ].join(",");
+    const storedValue = await this.storage.getSetting("feishu.always_reply_user_ids", configuredDefault);
+    const whitelist = uniqueReplyIdentities(String(storedValue || "")
+      .split(/[,\n，]+/)
+      .map((item) => item.trim()));
     if (!whitelist.length) return false;
     const candidateSet = new Set(candidates);
     return whitelist.some((item) => candidateSet.has(item));
