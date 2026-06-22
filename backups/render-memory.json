@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T12:43:02.041Z",
+  "exportedAt": "2026-06-22T12:53:02.495Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33763,6 +33763,16 @@
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "",
+        "key": "relationship.persona",
+        "value": "friend",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T12:46:04.380Z",
+        "updatedAt": "2026-06-22T12:46:04.380Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "communication_style",
         "value": "用户喜欢用俏皮、撒娇式的语气交流",
@@ -33790,16 +33800,6 @@
         "metadata": {},
         "createdAt": "2026-06-19T01:46:13.479Z",
         "updatedAt": "2026-06-19T01:46:13.479Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "emotional_state.current_situation",
-        "value": "用户目前每天除了玩AI不知道干什么，没有收入，对未来充满迷茫，需要情感支持和方向引导",
-        "importance": 5,
-        "metadata": {},
-        "createdAt": "2026-06-18T15:27:05.220Z",
-        "updatedAt": "2026-06-18T15:27:05.220Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -33834,32 +33834,12 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "interests.gold_price",
-        "value": "用户会主动查询黄金价格，对黄金行情/投资金价感兴趣",
-        "importance": 5,
-        "metadata": {},
-        "createdAt": "2026-06-18T04:15:22.329Z",
-        "updatedAt": "2026-06-18T04:15:22.329Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "interests.tts_ai",
         "value": "用户对TTS（文字转语音）AI技术有持续关注，关联到其使用TTS语音平台的经历",
         "importance": 2,
         "metadata": {},
         "createdAt": "2026-06-20T03:15:56.157Z",
         "updatedAt": "2026-06-20T03:15:56.157Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "interests.tts_singing",
-        "value": "用户有使用TTS语音平台的实际消费记录（余额约2969.31积分，多次-tts扣费），表明用户确实在用TTS服务生成语音/歌曲",
-        "importance": 5,
-        "metadata": {},
-        "createdAt": "2026-06-16T18:02:58.366Z",
-        "updatedAt": "2026-06-17T12:31:55.751Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -33874,42 +33854,12 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "life_context.income",
-        "value": "用户目前没有任何收入来源",
-        "importance": 5,
-        "metadata": {},
-        "createdAt": "2026-06-18T15:27:05.447Z",
-        "updatedAt": "2026-06-18T15:27:05.447Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "preferences.music",
         "value": "用户喜欢听邓子奇（陈奕迅）的歌，提到了《红玫瑰》《泡沫》《十年》",
         "importance": 3,
         "metadata": {},
         "createdAt": "2026-06-16T14:50:47.845Z",
         "updatedAt": "2026-06-16T18:02:58.587Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "preferences.nickname",
-        "value": "用户喜欢自称或被叫'小爷'",
-        "importance": 3,
-        "metadata": {},
-        "createdAt": "2026-06-16T14:50:47.633Z",
-        "updatedAt": "2026-06-16T14:50:47.633Z"
-      },
-      {
-        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
-        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "key": "preferences.songs_requested",
-        "value": "用户喜欢邓紫棋的《你要的全拿走》",
-        "importance": 4,
-        "metadata": {},
-        "createdAt": "2026-06-17T17:06:40.571Z",
-        "updatedAt": "2026-06-17T17:06:40.571Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
