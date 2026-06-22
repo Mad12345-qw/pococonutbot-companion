@@ -205,6 +205,9 @@ export const config = {
   triggerMode: process.env.TRIGGER_MODE || "mention",
   smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, (process.env.TRIGGER_MODE || "mention") === "smart"),
   smartReplyConfidenceThreshold: asNumber(process.env.SMART_REPLY_CONFIDENCE_THRESHOLD, 0.75),
+  feishuAlwaysReplyUserIds: process.env.FEISHU_ALWAYS_REPLY_USER_IDS !== undefined
+    ? asList(process.env.FEISHU_ALWAYS_REPLY_USER_IDS)
+    : ["410351", "用户410351"],
   allowedChatIds: asList(process.env.ALLOWED_CHAT_IDS),
   ownerUserIds: asList(process.env.BOT_OWNER_IDS),
   adminUsername: process.env.ADMIN_USERNAME || "admin",

@@ -16,6 +16,18 @@ function platformId(id = "") {
   return `feishu:${String(id || "")}`;
 }
 
+function normalizeReplyIdentity(value = "") {
+  return String(value || "")
+    .trim()
+    .replace(/^feishu:/i, "")
+    .replace(/^用户\s*/i, "")
+    .toLowerCase();
+}
+
+function uniqueReplyIdentities(values = []) {
+  return [...new Set(values.map(normalizeReplyIdentity).filter(Boolean))];
+}
+
 function parseContent(content = "") {
   if (!content) return {};
   if (typeof content === "object") return content;
@@ -739,7 +751,9 @@ export class FeishuBot {
         : postMessage
           ? rawMessageText
           : stripAtTags(rawMessageText || "");
-    const senderId = event.sender?.sender_id?.open_id || event.sender?.sender_id?.user_id || "";
+    const senderIdInfo = event.sender?.sender_id || {};
+    const senderId = senderIdInfo.open_id || senderIdInfo.user_id || "";
+    const senderIdentityCandidates = this.senderIdentityCandidates(event);
     const chatId = platformId(message.chat_id || message.open_chat_id || senderId);
     const userId = platformId(senderId || "unknown");
     await this.recordPassiveLinkMessage({ chatId, userId, message, content, rawMessageText });
@@ -752,8 +766,10 @@ export class FeishuBot {
     const songRequest = this.extractSongRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
+    const alwaysReplyUser = this.isAlwaysReplyUser(senderIdentityCandidates);
     const explicitReply =
       chatType === "p2p" ||
+      alwaysReplyUser ||
       mentionInfo.botMentioned ||
       replyToBot ||
       this.isExplicitCommand(text) ||
@@ -828,6 +844,10 @@ export class FeishuBot {
         chatType,
         rawChatId: message.chat_id || "",
         rawUserId: senderId || "",
+        rawOpenId: senderIdInfo.open_id || "",
+        rawTenantUserId: senderIdInfo.user_id || "",
+        rawUnionId: senderIdInfo.union_id || "",
+        alwaysReplyUser,
         hasVoice: audioMessage,
         hasImage: imageMessage,
         linkContext: linkContext ? truncate(linkContext, 1200) : "",
@@ -1609,6 +1629,37 @@ export class FeishuBot {
       .filter(Boolean)
       .map((name) => String(name).trim())
       .filter(isUsableBotName))];
+  }
+
+  senderIdentityCandidates(event = {}) {
+    const senderId = event.sender?.sender_id || {};
+    const rawValues = [
+      senderId.open_id,
+      senderId.user_id,
+      senderId.union_id,
+      event.user_id,
+      event.open_id,
+      event.union_id
+    ].filter(Boolean);
+    const values = [];
+    for (const value of rawValues) {
+      const text = String(value || "").trim();
+      if (!text) continue;
+      values.push(text, platformId(text), `用户${text}`);
+      const digits = text.match(/\d+/g)?.join("");
+      if (digits) values.push(digits, `用户${digits}`);
+    }
+    return uniqueReplyIdentities(values);
+  }
+
+  isAlwaysReplyUser(candidates = []) {
+    const whitelist = uniqueReplyIdentities([
+      ...(this.config.feishuAlwaysReplyUserIds || []),
+      ...(this.config.ownerUserIds || [])
+    ]);
+    if (!whitelist.length) return false;
+    const candidateSet = new Set(candidates);
+    return whitelist.some((item) => candidateSet.has(item));
   }
 
   getMentionInfo(message, text = "") {

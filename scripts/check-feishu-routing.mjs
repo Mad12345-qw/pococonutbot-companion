@@ -14,7 +14,9 @@ bot.config = {
   },
   bochaSearchFreshness: "noLimit",
   selfAppearanceDescription: "",
-  selfSelfieStyle: ""
+  selfSelfieStyle: "",
+  feishuAlwaysReplyUserIds: ["410351", "用户410351"],
+  ownerUserIds: []
 };
 
 function classify(text, options = {}) {
@@ -149,6 +151,17 @@ const enabledMentionTargets = bot.resolveOutgoingMentionTargets("@珠珠-SPM 好
   mentionTargets: [{ id: "ou_incoming_zhuzhu", name: "珠珠-SPM" }]
 });
 assertEqual("mention delivery can be re-enabled explicitly", String(enabledMentionTargets.length), "1");
+
+const madCandidates = bot.senderIdentityCandidates({
+  sender: {
+    sender_id: {
+      open_id: "ou_test_mad",
+      user_id: "410351",
+      union_id: "on_test_mad"
+    }
+  }
+});
+assertEqual("always reply user whitelist matches tenant user id", String(bot.isAlwaysReplyUser(madCandidates)), "true");
 bot.config.feishuOutgoingMentionsEnabled = false;
 
 bot.workspace = {

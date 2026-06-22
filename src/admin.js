@@ -1045,6 +1045,7 @@ function adminPage(config) {
         ["识图提取超时", cfg.imageUnderstandingTimeoutMs ? cfg.imageUnderstandingTimeoutMs + " ms" : "未配置"],
         ["生图状态", cfg.imageGeneration ? "已开启" : "未开启"],
         ["语音识别", cfg.voiceRecognition ? "已开启" : "未开启"],
+        ["指定用户优先回复", cfg.feishuAlwaysReplyUserIds || "未配置"],
         ["飞书项目文件夹", cfg.feishuProjectFolder ? "已配置" : "未配置"]
       ].map(row => (
         '<div class="config-row"><b>' + escapeHtml(row[0]) + '</b><div>' + escapeHtml(row[1]) + '</div></div>'
@@ -1282,6 +1283,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
         companionMode: config.companionMode,
         triggerMode: config.triggerMode,
         smartReplyConfidenceThreshold: config.smartReplyConfidenceThreshold,
+        feishuAlwaysReplyUserIds: (config.feishuAlwaysReplyUserIds || []).join(", "),
         storage: config.databaseUrl ? "postgres" : "json-file",
         primaryModel: config.aiModel,
         primaryCompatibility: config.aiCompatibility,
