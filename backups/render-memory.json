@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T03:13:23.283Z",
+  "exportedAt": "2026-06-22T03:23:24.324Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -27639,6 +27639,72 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T03:13:09.533Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以让他修复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbecb00e0b0c2b511fb6b08a2e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:13:40.155Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 先优化文案,确保生图文字不出现乱码;然后再生图:规格21:9,商务风,艺术字体,文案:\nhttps://github.com/langchain-ai/langchain\nhttps://github.com/flame-xie/clickprompt\nhttps://github.com/jbilcke-hf/ai-comic-factory\nhttps://github.com/HVision-NKU/StoryDiffusion\nhttps://github.com/paul-gauthier/aider",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/langchain-ai/langchain",
+            "https://github.com/flame-xie/clickprompt",
+            "https://github.com/jbilcke-hf/ai-comic-factory",
+            "https://github.com/HVision-NKU/StoryDiffusion",
+            "https://github.com/paul-gauthier/aider",
+            "https://github.com/continuedev/continue",
+            "https://github.com/footystream/football-prediction",
+            "https://github.com/deep-soccer/soccer-prediction"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cbedddbb8b8b1a2505ce9b6c30",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-22T03:17:13.461Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "先优化文案,确保生图文字不出现乱码;然后再生图:规格21:9,商务风,艺术字体,文案:\n**\"AI探索交流相关群\" 周报**\n**统计周期：\"2026-06-19\" ~ \"2026-06-22\"（3天）**\n\n---\n\n**📊 数据概览**\n| 群 | 总消息 | 文本 | 活跃度 |\n|----|--------|------|--------|\n| \"AI探索交流群-Codex加油站\" | 50 | 46 | ★★★★★ |\n| \"AI探索交流群-音乐达人\" | 50 | 32 | ★★★★★ |\n| \"AI探索交流群-微笑驿站\" | 49 | 23 | ★★★★☆ |\n| \"AI探索交流1群\" | 48 | 28 | ★★★★☆ |\n| \"AI探索交流2群\" | 48 | 36 | ★★★★☆ |\n\n---\n\n**🔥 核心话题 TOP 10**\n\n**#1 \"词元字典\" | 9.5分**\n- **来源**：\"AI探索交流2群\"\n- **情报**：\"陈龙（宇锋）发布词元字典，包含12大篇章+100+模板。核心理念：元数据建模。核心公式：角色+任务+背景+要求+输出格式。\"\n- **同业对比**：[LangChain Prompt Hub](https://github.com/langchain-ai/langchain) / [ClickPrompt](https://github.com/flame-xie/clickprompt)\n- **数据溯源**：`oc_1b1326f`\n- **关键术语**：`\"词元字典\"` / `\"陈龙（宇锋）\"` / `\"元数据建模\"` / `\"12大篇章\"`\n\n**#2 \"召物少年-Summoner\" | 9.2分**\n- **来源**：\"AI探索交流2群\"、\"AI探索交流4群\"\n- **情报**：\"AI驱动小说转漫画平台。输入文字小说，自动完成剧情拆解、角色ID锁定、漫画分格生成。角色质感接近商用。\"\n- **同业对比**：[AI-Comic-Factory](https://github.com/jbilcke-hf/ai-comic-factory) / [StoryDiffusion](https://github.com/HVision-NKU/StoryDiffusion)\n- **数据溯源**：`oc_1b1326f`\n- **关键术语**：`\"召物少年-Summoner\"` / `\"小说转漫画\"` / `\"角色ID锁定\"`\n\n**#3 \"Claude Code\" | 9.0分**\n- **来源**：\"AI探索交流1群\"、\"AI探索交流2群\"、\"AI探索交流群-Codex加油站\"\n- **情报**：\"Anthropic官方推出的编程CLI工具。仅通过npm分发，专注终端原生交互。代码重构能力极强。\"\n- **同业对比**：[Aider](https://github.com/paul-gauthier/aider) / [Continue](https://github.com/continuedev/continue)\n- **数据溯源**：`oc_e6107a9`\n- **关键术语**：`\"Claude Code\"` / `\"Anthropic\"` / `\"npm\"`\n\n**#4 \"足球预测集成模型\" | 8.8分**\n- **来源**：\"AI探索交流群-Codex加油站\"\n- **情报**：\"基于27维滚动窗口特征工程，采用随机森林+XGBoost+逻辑回归三重集成投票模型。支持17个联赛。\"\n- **同业对比**：[FootyStream](https://github.com/footystream/football-prediction) / [DeepSoccer](https://github.com/deep-soccer/soccer-prediction)\n- **数据溯源**：`oc_7dd2d4a`\n- **关键术语**：`\"足球预测集成模型\"` / `\"随机森林\"` / `\"XGBoost\"` / `\"27维特征\"`\n\n**#5 \"CCD闪光照\" | 8.5分**\n- **来源**：\"AI探索交流群-Codex加油站\"、\"AI探索交流群-微笑驿站\"\n- **情报**：\"复古相机质感生图风格。强调黑珍珠暗金色调、细腻颗粒感、深夜忧郁氛围。审美从华丽转向港风Noir。\"\n- **关键术语**：`\"CCD闪光照\"` / `\"黑珍珠暗金\"` / `\"港风Noir\"`\n\n**#6 \"Pro 10元日卡\" | 8.3分**\n- **来源**：\"AI探索交流群-Codex加油站\"\n- **情报**：\"API转发站价格战策略。上线10元日卡，消耗倍率压至0.1。日租灵活性成核心竞争力。\"\n- **关键术语**：`\"Pro 10元日卡\"` / `\"倍率0.1\"` / `\"API转发站\"`\n\n**#7 \"汽水音乐人互助认证\" | 8.0分**\n- **来源**：\"AI探索交流群-音乐达人\"、\"AI探索交流群-音乐人认证互帮1\"\n- **情报**：\"群内互助点赞收藏，撬动平台流量推荐，快速完成音乐人认证。志同道合、以拿证为目标。\"\n- **关键术语**：`\"汽水音乐人互助认证\"` / `\"流量推荐\"`\n\n**#8 \"AgentRAG\" | 7.8分**\n- **来源**：\"AI探索交流1群\"、\"AI探索交流2群\"、\"AI探索交流3群\"\n- **情报**：\"极简主义Agent架构讨论。反对复杂编排，回归好切块+原文定位+单Agent直读。\"\n- **关键术语**：`\"AgentRAG\"` / `\"好切块\"` / `\"原文定位\"`\n\n**#9 \"小云客服\" | 7.5分**\n- **来源**：\"AI探索交流群-Codex加油站\"\n- **情报**：\"自动化运维机器人。处理429报错、余额核对等高频查询。解决实际问题是王道。\"\n- **关键术语**：`\"小云客服\"` / `\"429报错\"` / `\"自动化运维\"`\n\n**#10 \"表情包智能体\" | 7.2分**\n- **来源**：\"AI探索交流群-微笑驿站\"\n- **情报**：\"AI生成表情包、梗图平台。调教Prompt产出专属风格，分享海量素材与出图技巧。\"\n- **关键术语**：`\"表情包智能体\"` / `\"梗图\"` / `\"调教Prompt\"`\n\n---\n\n**💡 核心洞察**\n1. **\"Prompt方法论崛起\"**：从找现成到学建模的范式转移，词元字典标志着元数据建模时代来临\n2. **\"垂直赛道爆发\"**：小说转漫画、音乐人认证、表情包全面开花，AI渗透内容创作全链路\n3. **\"价格战白热化\"**：日卡+低倍率成API转发标配，存量博弈时代来临\n4. **\"开源追赶商业\"**：Aider/StoryDiffusion/AI-Comic-Factory快速追赶\n\n---\n\n**数据来源**：15群共484条消息，去重后91条\n**采集工具**：`feishu-group-intelligence` v1.0\n**采集时间**：\"2026-06-22\"\n\n---\n[Link content]\n[Web page] https://github.com/langchain-ai/langchain\nGitHub - langchain-ai/langchain: The agent engineering platform. · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Small and medium teams \n Startups \n Nonprofits \n \n\n BY USE CASE App Modernization \n DevSecOps \n DevOps \n CI/CD \n View all use cases \n \n\n BY INDUSTRY Healthcare \n Financial services \n Manufacturing \n Government \n View all industries \n \n\n View all solutions \n\n Resources EXPLORE BY TOPIC AI \n Software Development \n DevOps \n Security \n View all topics \n \n\n EXPLORE BY TYPE Customer stories \n Events & webinars \n Ebooks & reports \n Business insights \n GitHub Skills \n \n\n SUPPORT & SERVICES Documentation \n Customer support \n Community forum \n Trust center \n Partners \n \n\n View all resources \n\n Open Source COMMUNITY GitHub Sponsors Fund open source developers \n \n \n\n PROGRAMS Security Lab \n Maintainer Community \n Accelerator \n GitHub Stars \n Archive Program \n \n\n REPOSITORIES Topics \n Trending \n Collections \n \n\n \n\n Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform \n \n \n\n AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features \n \n Copilot for Business Enterprise-grade AI features \n \n Premium Support Enterprise-grade 24/7 support \n \n \n\n \n\n Pricing \n \n\n \n\n \n \n\n \n \n \n \n \n \n \n \n\n Search or jump to... \n \n \n \n\n \n\n \n\n \n \n \n Search code, repositories, users, issues, pull requests...\n\n \n \n \n --> \n \n \n \n Search\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n Clear \n \n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n\n \n \n Search syntax tips \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n Provide feedback\n \n\n \n \n\n \n \n \n \n \n\n \n\n \n\n \n --> \n We read every piece of feedback, and take your input very seriously.\n\n \n \n Include my email address so I can be contacted \n \n\n \n Cancel\n \n Submit feedback\n \n\n \n\n \n \n \n \n \n \n \n \n Saved searches\n \n\n Use saved searches to filter your results more quickly\n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n\n \n --> \n \n\n \n\n \n Name \n \n \n \n \n \n\n \n Query \n \n \n\n \n To see all available qualifiers, see our documentation .\n \n\n \n\n \n \n\n \n\n \n Cancel\n \n Create saved search\n \n\n \n \n \n\n \n\n \n \n Sign in\n \n \n\n \n Sign up\n \n\n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n Resetting focus \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n You signed in with another tab or window. Reload to refresh your session. \n You signed out in another tab or window. Reload to refresh your session. \n You switched accounts on another tab or window. Reload to refresh your session. \n\n \n \n \n Dismiss alert \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n {{ message }}\n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n langchain-ai\n \n / \n \n langchain \n \n\n Public \n \n\n \n\n \n \n \n \n\n \n \n \n Notifications\n You must be signed in to change notification settings \n\n \n\n \n \n \n Fork\n 23.2k \n \n \n\n \n \n \n \n \n Star\n 140k \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n Code \n \n\n \n \n\n \n \n \n \n \n \n Issues \n 329 \n\n \n \n\n \n \n \n \n \n \n Pull requests \n 90 \n\n \n \n\n \n \n \n \n \n \n Discussions \n \n\n \n \n\n \n \n \n \n \n \n Actions \n \n\n \n \n\n \n \n \n \n \n \n Security and quality \n 9 \n\n \n \n\n \n \n \n \n \n \n Insights \n \n\n \n \n\n \n \n \n \n \n \n Additional navigation options \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Code\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Issues\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Pull requests\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Discussions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Actions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Security and quality\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Insights\n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n\n langchain-ai/langchain\n\n \n \n \n \n \n   master \n\n \n\n Branches Tags \n \n\n \n \n Go to file \n\n Code Open more actions menu \n\n \n Folders and files\n Name Name Last commit message \n Last commit date \n Latest commit\n  \n \n History\n 16,309 Commits \n 16,309 Commits \n\n .devcontainer \n\n .devcontainer \n\n  \n  \n\n .github \n\n .github \n\n  \n  \n\n .vscode \n\n .vscode \n\n  \n  \n\n libs \n\n libs \n\n  \n  \n\n .dockerignore \n\n .dockerignore \n\n  \n  \n\n .editorconfig \n\n .editorconfig \n\n  \n  \n\n .gitattributes \n\n .gitattributes \n\n  \n  \n\n .gitignore \n\n .gitignore \n\n  \n  \n\n .markdownlint.json \n\n .markdownlint.json \n\n  \n  \n\n .mcp.json \n\n .mcp.json \n\n  \n  \n\n .pre-commit-config.yaml \n\n .pre-commit-config.yaml \n\n  \n  \n\n AGENTS.md \n\n AGENTS.md \n\n  \n  \n\n CITATION.cff \n\n CITATION.cff \n\n  \n  \n\n CLAUDE.md \n\n CLAUDE.md \n\n  \n  \n\n LICENSE \n\n LICENSE \n\n  \n  \n\n README.md \n\n README.md \n\n  \n  \n\n View all files \n \n Repository files navigation\n README \n Code of conduct \n Contributing \n MIT license \n Security \n \n \n \n \n \n \n \n \n \n\n \n The agent engineering platform.\n \n\n \n \n \n \n \n\n \n LangChain is a framework for building agents and LLM-powered applications. It helps you chain together interoperable components and third-party integrations to simplify AI application development — all while future-proofing decisions as the underlying technology evolves.\n\n Tip\n Just getting started? Check out Deep Agents — a higher-level package built on LangChain for agents that have built-in capabilites for common usage patterns such as planning, subagents, file system usage, and more.\n\n Quickstart\n \n\n uv add langchain \n\n from langchain . chat_models import init_chat_model \n\n model = init_chat_model ( \"openai:gpt-5.5\" )\n result = model . invoke ( \"Hello, world!\" ) \n\n If you're looking for more advanced customization or agent orchestration, check out LangGraph , our framework for building controllable agent workflows.\n\n For an equivalent JS/TS library, check out LangChain.js .\n\n Tip\n For developing, debugging, and deploying AI agents and LLM applications, see LangSmith .\n\n LangChain ecosystem\n \n\n While the LangChain framework can be used standalone, it also integrates seamlessly with any LangChain product, giving developers a full suite of tools when building LLM applications.\n\n \n Deep Agents — Build agents that can plan, use subagents, and leverage file systems for complex tasks\n\n LangGraph — Build agents that can reliably handle complex tasks with our low-level agent orchestration framework\n\n Integrations — Chat & embedding models, tools & toolkits, and more\n\n LangSmith — Agent evals, observability, and debugging for LLM apps\n\n LangSmith Deployment — Deploy and scale agents with a purpose-built platform for long-running, stateful workflows\n\n \n Why use LangChain?\n \n\n LangChain helps developers build applications powered by LLMs through a standard interface for models, embeddings, vector stores, and more.\n\n \n Real-time data augmentation — Easily connect LLMs to diverse data sources and external/internal systems, drawing from LangChain's vast library of integrations with model providers, tools, vector stores, retrievers, and more\n\n Model interoperability — Swap models in and out as your engineering team experiments to find the best choice for your application's needs. As the industry frontier evolves, adapt quickly — LangChain's abstractions keep you moving without losing momentum\n\n Rapid prototyping — Quickly build and iterate on LLM applications with LangChain's modular, component-based architecture. Test different approaches and workflows without rebuilding from scratch, accelerating your development cycle\n\n Production-ready features — Deploy reliable applications with built-in support for monitoring, evaluation, and debugging through integrations like LangSmith. Scale with confidence using battle-tested patterns and best practices\n\n Vibrant community and ecosystem — Leverage a rich ecosystem of integrations, templates, and community-contributed components. Benefit from continuous improvements and stay up-to-date with the latest AI developments through an active open-source community\n\n Flexible abstraction layers — Work at the level of abstraction that suits your needs — from high-level chains for quick starts to low-level components for fine-grained control. LangChain grows with your application's complexity\n\n \n \n Resources\n \n\n \n Documentation — conceptual overviews and guides\n\n LangChain ecosystem overview — how LangChain, LangGraph, and Deep Agents fit together\n\n API reference — complete reference for all public classes, functions, and types\n\n Discussions — community forum for technical questions, ideas, and feedback\n\n LangChain Academy — comprehensive, free courses on LangChain libraries and products, made by the LangChain team\n\n Contributing Guide — how to contribute and find good first issues\n\n Code of Conduct — community guidelines and standards\n\n \n\n \n \n\n \n \n \n \n About\n\n \n The agent engineering platform.\n \n\n \n \n \n \n \n docs.langchain.com/langchain/ \n \n \n\n Topics\n\n \n \n \n python\n \n \n open-source\n \n \n enterprise\n \n \n framework\n \n \n typescript\n \n \n ai\n \n \n gemini\n \n \n openai\n \n \n multiagent\n \n \n agents\n \n \n ai-agents\n \n \n rag\n \n \n pydantic\n \n \n llm\n \n \n generative-ai\n \n \n chatgpt\n \n \n langchain\n \n \n anthropic\n \n \n langgraph\n \n \n deepagents\n \n \n\n \n\n Resources\n\n \n \n \n \n \n Readme\n \n\n \n License\n\n \n \n \n \n \n MIT license\n \n \n\n Code of conduct\n\n \n \n \n \n \n Code of conduct\n \n \n\n Contributing\n\n \n \n \n \n \n Contributing\n \n \n\n Security policy\n\n \n \n \n \n \n Security policy\n \n \n\n \n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n \n \n \n Activity \n\n \n \n \n \n Custom properties \n\n Stars\n\n \n \n \n \n 140k \n stars \n\n Watchers\n\n \n \n \n \n 891 \n watching \n\n Forks\n\n \n \n \n \n 23.2k \n forks \n\n \n \n Report repository\n \n\n \n\n \n\n \n \n \n \n Releases\n 1,287 \n\n \n \n \n \n \n \n langchain-core==1.4.8 \n \n Latest\n \n\n Jun 18, 2026 \n\n \n\n \n + 1,286 releases \n\n \n\n \n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n \n \n \n Contributors \n\n \n \n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n Languages\n\n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n Python \n 99.2% \n \n \n\n \n \n \n \n \n Makefile \n 0.5% \n \n \n\n \n \n \n \n \n Shell \n 0.2% \n \n \n\n \n \n \n \n \n XSLT \n 0.1% \n \n \n\n \n \n \n \n \n HTML \n 0.0% \n \n \n\n \n \n \n \n \n Dockerfile \n 0.0% \n \n \n\n \n\n \n\n \n\n \n \n\n \n \n\n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n Footer\n\n \n\n \n \n \n \n \n \n \n \n &copy; 2026 GitHub, Inc.\n \n \n\n \n Footer navigation\n\n \n\n \n Terms \n \n\n \n Privacy \n \n\n \n Security \n \n\n \n Status \n \n\n \n Community \n \n\n \n Docs \n \n\n \n Contact \n \n\n \n \n \n Manage cookies\n \n \n\n \n \n \n Do not share my personal information\n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n You can’t perform that action at this time.\n\n[Web page] https://github.com/jbilcke-hf/ai-comic-factory\nGitHub - jbilcke-hf/ai-comic-factory: Generate comic panels using a LLM + SDXL. Powered by Hugging Face 🤗 · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbedddbb8b8b1a2505ce9b6c30",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "[Web page] https://github.com/langchain-ai/langchain\nGitHub - langchain-ai/langchain: The agent engineering platform. · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Sma\n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T03:17:18.292Z"
       }
     ],
     "memories": [
@@ -29690,7 +29756,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T03:13:09.306Z"
+        "updatedAt": "2026-06-22T03:17:17.852Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29700,7 +29766,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T03:13:09.033Z"
+        "updatedAt": "2026-06-22T03:17:17.555Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30010,7 +30076,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-22T02:26:19.672Z"
+        "updatedAt": "2026-06-22T03:13:39.926Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -30020,7 +30086,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-22T02:26:19.458Z"
+        "updatedAt": "2026-06-22T03:13:39.695Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
