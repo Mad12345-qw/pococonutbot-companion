@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T14:44:39.154Z",
+  "exportedAt": "2026-06-22T14:49:23.540Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -33924,6 +33924,16 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
         "updatedAt": "2026-06-08T06:08:21.898Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "",
+        "key": "chat.feishu_name",
+        "value": "MOSS Builders #001",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T14:44:39.167Z",
+        "updatedAt": "2026-06-22T14:44:39.167Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
