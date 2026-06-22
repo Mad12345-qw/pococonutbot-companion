@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T02:33:23.940Z",
+  "exportedAt": "2026-06-22T02:43:23.828Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -27156,6 +27156,229 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T02:32:40.444Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "浪费点token去soul写上呗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbda1ee0c98b16e98aa6f5187b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:33:27.837Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书还是隔了一层，不够直接",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdbefc449cc323a57aa5e34e6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:33:45.769Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "直接搭openclaw当聊天机器人,底层直接做好了[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdbb0fa4a4b1a0d40c43d15d5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:35:14.897Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "不熟这个[笑哭] 直接搭是什么意思，省掉中间那层？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-22T02:35:19.473Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "额，咨询一下大佬们，一个agent学习总结出一个能力，怎么才能快速的复制扩散教给其他agent啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdbb768490c2b3ddd46670433",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:35:32.066Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] MLX 社区已经正式适配 MOSS-TTS-Local-Transformer-v1.5，非常感谢社区的开发者：https://x.com/ivanfioravanti/status/2068231728062173575?s=20～\nhttps://x.com/ivanfioravanti/status/2068231728062173575?s=20～",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://x.com/ivanfioravanti/status/2068231728062173575?s=20～"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdb9405bc4c1830def5c27ae1",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-22T02:35:39.662Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "MLX 社区已经正式适配 MOSS-TTS-Local-Transformer-v1.5，非常感谢社区的开发者：https://x.com/ivanfioravanti/status/2068231728062173575?s=20～\n[Link content]\n[Web page] https://x.com/ivanfioravanti/status/2068231728062173575?s=20～\nIvan Fioravanti ᯅ on X: \"MLX news: MOSS-TTS-Local Transformer 1.5 available on mlx-audio now! Thanks to @Prince_Canuma and @lllucas \n\nAudio on! 🔉 https://t.co/5voTbgXOqt\" / X \n \n Post\n\n Log in Sign up \n\n Post\n\n \n\n Ivan Fioravanti ᯅ \n\n @ivanfioravanti \n\n \n\n MLX news: MOSS-TTS-Local Transformer 1.5 available on mlx-audio now! Thanks to @ Prince_Canuma and @ lllucas \n\nAudio on! 🔉 \n \n \n 00:00\n\n \n\n \n\n OpenMOSS \n\n @Open_MOSS \n\n Jun 18 \n\n 🤗 MOSS-TTS-Local Transformer v1.5 is now open source.\n\nBuilt with a pure autoregressive Audio Tokenizer + LLM paradigm:\n\n>MOSS-Audio-Tokenizer-v2, 2B params\n>Qwen3-4B backbone\n>Native 48 kHz stereo audio\n>Streaming output with theoretical sub-100 ms TTFT\n>Zero-shot voice cloning Show more \n\n \n \n MOSI\n \n\n \n\n 00:00 \n MOSI\n \n\n \n\n 7:17 AM · Jun 20, 2026 19.2K Views \n\n \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 7 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 7 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 3 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 13 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 1 2 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 112 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 9 3 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 93 \n \n Read 7 replies \n\n \n New to X?\n Sign up now to get your own personalized timeline!\n Sign up with Google Sign up with Apple Create account \n By signing up, you agree to the Terms of Service and Privacy Policy , including Cookie Use. \n\n \n Relevant people\n Ivan Fioravanti ᯅ @ ivanfioravanti Follow \n\n \n Trending now\n \n\n Terms · Privacy · Cookies · Accessibility · US TIDA · Ads Info · More © 2026 X Corp. \n\n \n Don&#x27;t miss what&#x27;s happening\n People on X are the first to know.\n\n Log in Sign up",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdb9405bc4c1830def5c27ae1",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "linkContext": "[Web page] https://x.com/ivanfioravanti/status/2068231728062173575?s=20～\nIvan Fioravanti ᯅ on X: \"MLX news: MOSS-TTS-Local Transformer 1.5 available on mlx-audio now! Thanks to @Prince_Canuma and @lllucas \n\nAudio on! 🔉 https://t.co/5voTbgXOqt\" / X \n \n Post\n\n Log in Sign up \n\n Post\n\n \n\n Ivan Fioravanti ᯅ \n\n @ivanfioravanti \n\n \n\n MLX news: MOSS-TTS-Local Transformer 1.5 available on mlx-audio now! Thanks to @ Prince_Canuma and @ lllucas \n\nAudio on! 🔉 \n \n \n 00:00\n\n \n\n \n\n OpenMOSS \n\n @Open_MOSS \n\n Jun 18 \n\n 🤗 MOSS-TTS-Local Transformer v1.5 is now open source.\n\nBuilt with a pure autoregressive Audio Tokenizer + LLM paradigm:\n\n>MOSS-Audio-Tokenizer-v2, 2B params\n>Qwen3-4B backbone\n>Native 48 kHz stereo audio\n>Streaming output with theoretical sub-100 ms TTFT\n>Zero-shot voice cloning Show more \n\n \n \n MOSI\n \n\n \n\n 00:00 \n MOSI\n \n\n \n\n 7:17 AM · Jun 20, 2026 19.2K Views \n\n \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 7 :where(number-flow-react\n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:35:40.932Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这就是个 prompt / system prompt 分发问题，跟\"教\"没关系。\n\n核心要点\n• agent 没有\"学习\"这回事，能力本质是 prompt + 工具配置\n• 复制 = 把那段 system prompt 原样同步给其他 agent 实例\n• 同步方式：存到共享文件、数据库，或写进 agent 框架的配置层\n\n可以打磨的点\n• 先标准化能力描述格式，不然 copy 完每个 agent 跑出来效果不一样\n• 配合版本管理，不然改一版全乱了\n\n一句话结论\n把能力写成可复制的配置项，丢进共享存储，其他 agent 加载就行。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-22T02:35:44.893Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "大家可以在自己的 Mac 上本地部署玩起来了～",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdb7a364b4c3de7981555c6ee",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:36:10.541Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "但是openclaw已经变成内存杀手常驻2个G",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdb63cc494b2bba8c00f9f6a9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:36:20.291Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "导入知识库一秒炼化,比起以前让llm读的方法快多了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdb0c52480b1482b5aff28741",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:37:27.890Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "这个太阳还是用的 Minimax，同样流式输出他就学不会，但是给开心果，他很快就学会了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe5f873884b1b8c11edb19ed6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:42:35.731Z"
       }
     ],
     "memories": [
@@ -28167,7 +28390,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.923Z",
-        "updatedAt": "2026-06-20T02:45:56.860Z"
+        "updatedAt": "2026-06-22T02:36:10.314Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -28177,7 +28400,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.693Z",
-        "updatedAt": "2026-06-20T02:45:56.640Z"
+        "updatedAt": "2026-06-22T02:36:10.087Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -29207,7 +29430,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T02:32:40.221Z"
+        "updatedAt": "2026-06-22T02:37:27.669Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29217,7 +29440,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T02:32:39.998Z"
+        "updatedAt": "2026-06-22T02:37:27.449Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29617,7 +29840,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-22T02:11:46.216Z"
+        "updatedAt": "2026-06-22T02:42:35.514Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29627,7 +29850,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-22T02:11:45.999Z"
+        "updatedAt": "2026-06-22T02:42:35.251Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29737,7 +29960,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-22T02:31:08.438Z"
+        "updatedAt": "2026-06-22T02:35:31.854Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29747,7 +29970,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-22T02:31:08.227Z"
+        "updatedAt": "2026-06-22T02:35:31.641Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
