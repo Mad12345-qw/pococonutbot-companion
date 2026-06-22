@@ -117,6 +117,30 @@ export class FeishuWorkspaceClient {
     };
   }
 
+  async listChatMembers(chatId, limit = 500) {
+    if (!chatId) return [];
+    const members = [];
+    let pageToken = "";
+    do {
+      const params = new URLSearchParams({
+        member_id_type: "open_id",
+        page_size: String(Math.min(Math.max(Number(limit) || 100, 1), 100))
+      });
+      if (pageToken) params.set("page_token", pageToken);
+      const data = await this.request(`/open-apis/im/v1/chats/${encodeURIComponent(chatId)}/members?${params.toString()}`);
+      members.push(...(data.items || []));
+      pageToken = data.page_token || "";
+      if (!data.has_more || members.length >= limit) break;
+    } while (pageToken);
+
+    return members.slice(0, limit).map((member) => ({
+      memberId: member.member_id || member.open_id || member.user_id || "",
+      name: member.name || member.member_name || member.user_name || member.nickname || "",
+      tenantKey: member.tenant_key || "",
+      raw: member
+    }));
+  }
+
   async getUserInfo(userId) {
     if (!userId) return {};
     const data = await this.request(`/open-apis/contact/v3/users/${encodeURIComponent(userId)}?user_id_type=open_id`);

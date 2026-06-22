@@ -92,11 +92,24 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
   };
   for (const chatId of chatIds) {
     const rawChatId = rawFeishuId(chatId);
+    const chatMemberNames = new Map();
     try {
       let chatName = "";
       if (isFeishuChatId(rawChatId)) {
         const chatInfo = await feishuWorkspace.getChatInfo(rawChatId);
         chatName = chatInfo.name;
+        if (includeUsers) {
+          try {
+            const members = await feishuWorkspace.listChatMembers(rawChatId, 500);
+            for (const member of members) {
+              const memberId = rawFeishuId(member.memberId);
+              const memberName = readableUserName(member, "");
+              if (memberId && memberName) chatMemberNames.set(memberId, memberName);
+            }
+          } catch (error) {
+            results.errors.push({ chatId, error: truncate(`List chat members failed: ${error.message}`, 260) });
+          }
+        }
       } else if (isFeishuUserId(rawChatId)) {
         const userInfo = await feishuWorkspace.getUserInfo(rawChatId);
         const userName = readableUserName(userInfo, rawChatId);
@@ -127,8 +140,11 @@ async function syncFeishuNames({ storage, feishuWorkspace, chatIds, includeUsers
       const rawUserId = rawFeishuId(userId);
       if (!rawUserId || !isFeishuUserId(rawUserId)) continue;
       try {
-        const userInfo = await feishuWorkspace.getUserInfo(rawUserId);
-        const name = readableUserName(userInfo, "");
+        let name = chatMemberNames.get(rawUserId) || "";
+        if (!name && !isFeishuChatId(rawChatId)) {
+          const userInfo = await feishuWorkspace.getUserInfo(rawUserId);
+          name = readableUserName(userInfo, "");
+        }
         if (!name) continue;
         await storage.setMemory(chatId, userId, {
           key: USER_DISPLAY_NAME_KEY,
