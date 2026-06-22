@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T11:08:57.765Z",
+  "exportedAt": "2026-06-22T11:18:56.550Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -32046,6 +32046,46 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T11:00:33.507Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_a7f0cbd495ec6a14c358ffbf2e528a78",
+        "role": "user",
+        "modality": "text",
+        "content": "试试猴哥版的多邻国大使bot",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca5c18afca0c2ceb08b7492bf3",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_a7f0cbd495ec6a14c358ffbf2e528a78",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T11:14:00.232Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "text",
+        "content": "让我修复一下它不在话题里面回复的问题（",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca5d95b88a0c2bf5a1c86bd636",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T11:16:12.561Z"
       }
     ],
     "memories": [
@@ -33037,7 +33077,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.610Z",
-        "updatedAt": "2026-06-19T15:39:47.610Z"
+        "updatedAt": "2026-06-22T11:16:12.339Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -33047,7 +33087,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.380Z",
-        "updatedAt": "2026-06-19T15:39:47.380Z"
+        "updatedAt": "2026-06-22T11:16:12.117Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -33068,6 +33108,26 @@
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.693Z",
         "updatedAt": "2026-06-22T02:36:10.087Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_a7f0cbd495ec6a14c358ffbf2e528a78",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_a7f0cbd495ec6a14c358ffbf2e528a78",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T11:14:00.015Z",
+        "updatedAt": "2026-06-22T11:14:00.015Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_a7f0cbd495ec6a14c358ffbf2e528a78",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T11:13:59.697Z",
+        "updatedAt": "2026-06-22T11:13:59.697Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
