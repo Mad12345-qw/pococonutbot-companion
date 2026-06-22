@@ -1,5 +1,8 @@
 import { getRuntimeLogs } from "./runtime-log.js";
 
+const CHAT_DISPLAY_NAME_KEY = "chat.display_name";
+const PERSONA_PROMPT_KEY = "relationship.persona_prompt";
+
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -25,6 +28,29 @@ function filterMemories(memories, selectedUserId) {
     return memories.filter((memory) => String(memory.user_id || "") === String(selectedUserId));
   }
   return memories;
+}
+
+function findScopedMemoryValue(memories, key, userId = "") {
+  const targetUserId = String(userId || "");
+  if (targetUserId) {
+    const userValue = memories.find((memory) => {
+      return memory.key === key && String(memory.user_id || "") === targetUserId;
+    })?.value;
+    if (userValue) return userValue;
+  }
+  return memories.find((memory) => memory.key === key && !memory.user_id)?.value || "";
+}
+
+async function attachChatDisplayNames(storage, chats) {
+  return Promise.all(
+    chats.map(async (chat) => {
+      const memories = await storage.listMemories(chat.chat_id, 80);
+      return {
+        ...chat,
+        display_name: findScopedMemoryValue(memories, CHAT_DISPLAY_NAME_KEY)
+      };
+    })
+  );
 }
 
 function isLocalRequest(req) {
@@ -230,6 +256,36 @@ function adminPage(config) {
       margin-bottom: 12px;
     }
     .explain strong { color: var(--text); }
+    .identity-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 120px;
+      gap: 10px;
+      align-items: end;
+    }
+    .identity-panel label,
+    .persona-editor label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .scope-warning {
+      margin: 10px 0;
+      border: 1px solid #ead8a6;
+      background: #fff8e6;
+      color: #7b5a12;
+      border-radius: 7px;
+      padding: 9px 10px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .template-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 8px 0;
+    }
     .split-two {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -333,7 +389,7 @@ function adminPage(config) {
     .switch input:checked + .slider { background: var(--accent); }
     .switch input:checked + .slider:before { transform: translateX(20px); }
     @media (max-width: 920px) {
-      .shell, .grid, .quick-grid, .split-two { grid-template-columns: 1fr; }
+      .shell, .grid, .quick-grid, .split-two, .identity-panel, .template-grid { grid-template-columns: 1fr; }
       .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
       .form-grid, .memory-meta { grid-template-columns: 1fr; }
     }
@@ -358,6 +414,23 @@ function adminPage(config) {
         </div>
         <button id="refreshBtn">刷新</button>
       </div>
+      <section>
+        <div class="section-head">
+          <div>
+            <h3>当前聊天名称</h3>
+            <p>这里改的是后台里给你看的名字，不影响飞书真实群名，也不影响机器人回复。</p>
+          </div>
+          <span class="pill" id="chatRawIdPill">未选择</span>
+        </div>
+        <div class="identity-panel">
+          <div>
+            <label for="chatDisplayName">显示成你看得懂的名称</label>
+            <input id="chatDisplayName" placeholder="例如：Demo Day 群 / 童哥私聊 / 小椰测试群" />
+          </div>
+          <button id="saveChatNameBtn" class="primary">保存名称</button>
+        </div>
+        <p class="mini-note" id="chatIdentityMeta"></p>
+      </section>
       <section class="page-guide">
         <div class="guide-title">
           <div>
@@ -465,6 +538,19 @@ function adminPage(config) {
               <option value="assistant">个人助理</option>
             </select>
             <p class="mini-note">这里会写入当前聊天的 <strong>relationship.persona</strong> 记忆，保存后立即影响后续回复。</p>
+            <div class="persona-editor">
+              <div class="scope-warning" id="personaScopeWarning"></div>
+              <label for="personaPrompt">人格提示词</label>
+              <textarea id="personaPrompt" placeholder="例如：你是张三的 AI 女友，只对张三使用亲密陪伴口吻；在群里对其他成员保持普通朋友边界。"></textarea>
+              <div class="template-grid">
+                <button type="button" data-persona-template="girlfriend">套用 AI 女友边界模板</button>
+                <button type="button" data-persona-template="assistant">套用 AI 助理边界模板</button>
+              </div>
+              <div class="memory-actions">
+                <button id="savePersonaPromptBtn" class="primary">保存人格提示词</button>
+              </div>
+              <p class="mini-note">这会写入 <strong>relationship.persona_prompt</strong>。如果左侧选中具体用户，就只绑定给这个人；如果选“群公共”，会影响整个聊天。</p>
+            </div>
           </section>
           <section>
             <div class="section-head">
@@ -539,9 +625,11 @@ function adminPage(config) {
       }
       el.innerHTML = state.chats.map(chat => {
         const active = String(chat.chat_id) === String(selectedChatId) ? " active" : "";
+        const label = displayChatName(chat);
+        const rawId = shortChatId(chat.chat_id);
         return '<button class="chat-row' + active + '" data-chat="' + escapeHtml(chat.chat_id) + '">' +
-          '<strong>' + escapeHtml(chat.chat_id) + '</strong>' +
-          '<span>' + chat.message_count + ' messages · ' + chat.memory_count + ' memories</span>' +
+          '<strong>' + escapeHtml(label) + '</strong>' +
+          '<span>' + escapeHtml(rawId) + ' · ' + chat.message_count + ' messages · ' + chat.memory_count + ' memories</span>' +
           '</button>';
       }).join("");
       for (const row of el.querySelectorAll(".chat-row")) {
@@ -554,10 +642,47 @@ function adminPage(config) {
       }
     }
 
+    function shortChatId(chatId = "") {
+      const cleaned = String(chatId || "").replace(/^feishu:/, "");
+      if (!cleaned) return "未选择";
+      return cleaned.length > 18 ? cleaned.slice(0, 18) + "..." : cleaned;
+    }
+
+    function displayChatName(chat) {
+      if (!chat) return selectedChatId ? "聊天 " + shortChatId(selectedChatId) : "选择一个聊天";
+      return chat.display_name || "聊天 " + shortChatId(chat.chat_id);
+    }
+
+    function selectedChat() {
+      return (state.chats || []).find((chat) => String(chat.chat_id) === String(selectedChatId)) || null;
+    }
+
     function userLabel(user) {
       const name = [user.first_name, user.last_name].filter(Boolean).join(" ");
       const username = user.username ? "@" + user.username : "";
       return [name, username].filter(Boolean).join(" ") || "User " + user.user_id;
+    }
+
+    function selectedUserLabel() {
+      if (selectedUserId === "__shared") return "群公共";
+      if (!selectedUserId || selectedUserId === "__all") return "这个聊天";
+      const user = (state.users || []).find((item) => String(item.user_id) === String(selectedUserId));
+      return user ? userLabel(user) : "用户 " + selectedUserId;
+    }
+
+    function personaScopeText() {
+      if (selectedUserId && selectedUserId !== "__all" && selectedUserId !== "__shared") {
+        return "当前会只绑定给「" + selectedUserLabel() + "」。适合写：小椰是谁的 AI 女友/AI 助理，以及在群里对其他人的边界。";
+      }
+      return "当前会写到群公共，会影响这个聊天里的所有人。要设置“是谁的 AI 女友/助理”，请先在左侧用户列表点具体的人。";
+    }
+
+    function personaTemplate(type) {
+      const user = selectedUserLabel();
+      if (type === "assistant") {
+        return "你是 " + user + " 的 AI 助理，优先帮他整理信息、提醒事项、搜索资料和推进任务；在群聊里对其他成员保持普通协作口吻，不把自己设定成所有人的私人助理。";
+      }
+      return "你是 " + user + " 的 AI 女友，只对这个用户使用亲密、陪伴、撒娇但有边界的口吻；在群聊里对其他成员保持自然朋友口吻，不把自己设定成所有人的女友。";
     }
 
     function personaLabel(value) {
@@ -578,6 +703,8 @@ function adminPage(config) {
 
     function memoryMeaning(key = "") {
       if (key === "relationship.persona") return "人格模式：最影响小椰说话关系感";
+      if (key === "relationship.persona_prompt") return "人格提示词：定义关系归属和群聊边界";
+      if (key === "chat.display_name") return "聊天显示名：只用于后台识别";
       if (key.startsWith("profile.")) return "用户档案：平台、身份或基础资料";
       if (key.startsWith("user.")) return "用户偏好：称呼、习惯、喜好";
       if (key.startsWith("style.")) return "回复风格：语气、长度、表达方式";
@@ -620,9 +747,16 @@ function adminPage(config) {
     function renderState() {
       renderChats();
       renderUsers();
-      document.getElementById("chatTitle").textContent = selectedChatId ? "当前聊天：" + selectedChatId : "选择一个聊天";
+      const chat = selectedChat();
+      const chatName = displayChatName(chat);
+      document.getElementById("chatTitle").textContent = selectedChatId ? "当前聊天：" + chatName : "选择一个聊天";
       document.getElementById("meta").textContent =
         selectedScopeLabel() + " · 触发模式 " + state.config.triggerMode + " · 存储 " + state.config.storage;
+      document.getElementById("chatDisplayName").value = state.chatDisplayName || "";
+      document.getElementById("chatRawIdPill").textContent = selectedChatId ? shortChatId(selectedChatId) : "未选择";
+      document.getElementById("chatIdentityMeta").textContent = selectedChatId
+        ? "原始 ID：" + selectedChatId
+        : "先从左侧选择一个聊天。";
 
       const gptEnabled = state.settings?.gptEnabled !== false;
       document.getElementById("gptSwitch").checked = gptEnabled;
@@ -637,6 +771,8 @@ function adminPage(config) {
 
       const persona = state.persona || state.config.companionMode || "girlfriend";
       document.getElementById("persona").value = persona;
+      document.getElementById("personaPrompt").value = state.personaPrompt || "";
+      document.getElementById("personaScopeWarning").textContent = personaScopeText();
       document.getElementById("summary").value = state.summary || "";
       document.getElementById("scopePill").textContent = selectedScopeLabel();
       document.getElementById("personaOverview").textContent = personaLabel(persona);
@@ -653,8 +789,10 @@ function adminPage(config) {
       if (!state.memories.length) {
         memoryEl.innerHTML = '<p class="muted">暂无长期记忆。小椰会主要依赖系统人格、对话摘要和最近消息来回复。</p>';
       } else {
-        memoryEl.innerHTML = state.memories.map((memory, index) => (
-          '<div class="memory-item ' + (memory.key === "relationship.persona" ? "persona" : "") + '" data-index="' + index + '">' +
+        memoryEl.innerHTML = state.memories.map((memory, index) => {
+          const importantMemory = ["relationship.persona", "relationship.persona_prompt", "chat.display_name"].includes(memory.key);
+          return (
+          '<div class="memory-item ' + (importantMemory ? "persona" : "") + '" data-index="' + index + '">' +
             '<div class="memory-title">' +
               '<strong>' + escapeHtml(memoryMeaning(memory.key)) + '</strong>' +
               '<span>' + (memory.user_id ? "绑定用户" : "群公共") + '</span>' +
@@ -670,7 +808,8 @@ function adminPage(config) {
               '<button class="delete-memory danger">删除</button>' +
             '</div>' +
           '</div>'
-        )).join("");
+          );
+        }).join("");
         bindMemoryActions();
       }
 
@@ -780,6 +919,15 @@ function adminPage(config) {
     }
 
     document.getElementById("refreshBtn").addEventListener("click", load);
+    document.getElementById("saveChatNameBtn").addEventListener("click", async () => {
+      if (!selectedChatId) return setStatus("先选择一个聊天。");
+      await api("/api/admin/chat-name", {
+        method: "POST",
+        body: JSON.stringify({ chatId: selectedChatId, displayName: document.getElementById("chatDisplayName").value })
+      });
+      setStatus("已保存聊天显示名。");
+      await load();
+    });
     document.getElementById("gptSwitch").addEventListener("change", async (event) => {
       const enabled = Boolean(event.target.checked);
       await api("/api/admin/settings", {
@@ -834,6 +982,25 @@ function adminPage(config) {
       await load();
     });
 
+    for (const button of document.querySelectorAll("[data-persona-template]")) {
+      button.addEventListener("click", () => {
+        document.getElementById("personaPrompt").value = personaTemplate(button.dataset.personaTemplate);
+      });
+    }
+    document.getElementById("savePersonaPromptBtn").addEventListener("click", async () => {
+      if (!selectedChatId) return setStatus("先选择一个聊天。");
+      await api("/api/admin/persona-prompt", {
+        method: "POST",
+        body: JSON.stringify({
+          chatId: selectedChatId,
+          userId: selectedMemoryUserId(),
+          prompt: document.getElementById("personaPrompt").value
+        })
+      });
+      setStatus(selectedMemoryUserId() ? "已保存这个用户的人格提示词。" : "已保存群公共人格提示词。");
+      await load();
+    });
+
     load().catch(error => setStatus(error.message));
   </script>
 </body>
@@ -848,7 +1015,8 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
   });
 
   app.get("/api/admin/state", auth, async (req, res) => {
-    const chats = await storage.listChats(100);
+    const rawChats = await storage.listChats(100);
+    const chats = await attachChatDisplayNames(storage, rawChats);
     const selectedChatId = String(req.query.chatId || chats[0]?.chat_id || "");
     const selectedUserId = String(req.query.userId || "__all");
     const users = selectedChatId ? await storage.listUsers(selectedChatId, 300) : [];
@@ -870,6 +1038,8 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
         : "") ||
       allMemories.find((memory) => memory.key === "relationship.persona" && !memory.user_id)?.value ||
       config.companionMode;
+    const chatDisplayName = findScopedMemoryValue(allMemories, CHAT_DISPLAY_NAME_KEY);
+    const personaPrompt = findScopedMemoryValue(allMemories, PERSONA_PROMPT_KEY, targetUserId);
 
     res.json({
       selectedChatId,
@@ -881,6 +1051,8 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
       messages,
       projects,
       persona,
+      personaPrompt,
+      chatDisplayName,
       settings: {
         gptEnabled,
         smartRepliesEnabled
@@ -947,6 +1119,46 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable }) {
     }
 
     await storage.deleteMemory(chatId, userId, key);
+    res.json({ ok: true });
+  });
+
+  app.post("/api/admin/chat-name", auth, async (req, res) => {
+    const { chatId, displayName = "" } = req.body || {};
+    if (!chatId) {
+      res.status(400).json({ error: "chatId is required." });
+      return;
+    }
+
+    const value = String(displayName || "").trim();
+    if (!value) {
+      await storage.deleteMemory(chatId, "", CHAT_DISPLAY_NAME_KEY);
+    } else {
+      await storage.setMemory(chatId, "", {
+        key: CHAT_DISPLAY_NAME_KEY,
+        value,
+        importance: 5
+      });
+    }
+    res.json({ ok: true });
+  });
+
+  app.post("/api/admin/persona-prompt", auth, async (req, res) => {
+    const { chatId, userId = "", prompt = "" } = req.body || {};
+    if (!chatId) {
+      res.status(400).json({ error: "chatId is required." });
+      return;
+    }
+
+    const value = String(prompt || "").trim();
+    if (!value) {
+      await storage.deleteMemory(chatId, userId, PERSONA_PROMPT_KEY);
+    } else {
+      await storage.setMemory(chatId, userId, {
+        key: PERSONA_PROMPT_KEY,
+        value,
+        importance: 5
+      });
+    }
     res.json({ ok: true });
   });
 

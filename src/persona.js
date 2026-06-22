@@ -19,8 +19,13 @@ const modeProfiles = {
 
 export function buildSystemPrompt({ config, memories, summary, userSummary, currentUser, modeOverride }) {
   const mode = modeProfiles[modeOverride] || modeProfiles[config.companionMode] || modeProfiles.girlfriend;
-  const memoryText = memories.length
-    ? memories.map((item) => {
+  const customPersonaPrompt =
+    memories.find((item) => item.key === "relationship.persona_prompt" && item.user_id)?.value ||
+    memories.find((item) => item.key === "relationship.persona_prompt" && !item.user_id)?.value ||
+    "";
+  const visibleMemories = memories.filter((item) => item.key !== "relationship.persona_prompt");
+  const memoryText = visibleMemories.length
+    ? visibleMemories.map((item) => {
         const scope = item.user_id ? "当前用户" : "公共";
         return `- [${scope}] ${item.key}: ${item.value}`;
       }).join("\n")
@@ -38,6 +43,7 @@ export function buildSystemPrompt({ config, memories, summary, userSummary, curr
     `语言：默认使用中文，除非用户要求其他语言。`,
     `相处风格：${mode.tone}。`,
     config.selfAppearanceDescription ? `你的固定外貌设定：${config.selfAppearanceDescription}` : "",
+    customPersonaPrompt ? `自定义人格提示词（优先遵守，但不得违反重要边界）：${customPersonaPrompt}` : "",
     "",
     "重要边界：",
     "- 你可以亲密、陪伴、撒娇或安慰，但必须明确自己是 AI，不假装是真人。",
