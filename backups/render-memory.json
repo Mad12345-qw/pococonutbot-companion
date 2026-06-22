@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T04:43:23.967Z",
+  "exportedAt": "2026-06-22T04:53:24.940Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -30257,6 +30257,58 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T04:41:10.098Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "我说你的界面怎么那么简洁呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbf95f10ca8b15c0e09fa213ee",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T04:44:41.449Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "群里那个work Buddy bot不在线啦？想问问它搭建的细节",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbfa8d050b4b144d7604e504a5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T04:47:36.500Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "那个 bot 是不是你自己搭的呀？要不你直接告诉我你想了解哪部分，我帮你看看怎么弄～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-22T04:47:46.352Z"
       }
     ],
     "memories": [
@@ -32978,7 +33030,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-22T04:27:01.450Z"
+        "updatedAt": "2026-06-22T04:47:36.289Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -32988,7 +33040,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-22T04:27:01.231Z"
+        "updatedAt": "2026-06-22T04:47:36.076Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
