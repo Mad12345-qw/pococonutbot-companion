@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T14:40:41.898Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-22T14:44:39.154Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -32890,6 +32890,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T14:34:02.821Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "你的声音怎么做来着？开源的地方在哪来着？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca0d51724a4c3abaa489da8e49",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T14:42:11.217Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这位朋友在问我的语音方案怎么做的、开源资源在哪。\n\n核心要点\n• 我是 MiniMax 家的 MiniMax-M3，不是开源模型\n• 声音这部分是平台自带的，没法单独给你仓库\n• 如果你想本地跑 TTS，可以看看 GPT-SoVITS、CosyVoice 这类开源项目，效果已经不错了\n\n一句话结论\n我能聊但不能拆给你，想本地玩建议去试 CosyVoice 或 GPT-SoVITS。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_23bdabc77d91e92974609906b0049094"
+        },
+        "createdAt": "2026-06-22T14:42:17.345Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "怪好玩",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca0efb2d4acc3d52ef99ef3f9b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T14:43:40.658Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca0ef7dc0a8c034bb6b9926df9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T14:43:43.928Z"
       }
     ],
     "memories": [
@@ -34224,6 +34296,16 @@
         "updatedAt": "2026-06-22T13:24:25.636Z"
       },
       {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "user.display_name",
+        "value": "用户410351",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T14:44:35.020Z",
+        "updatedAt": "2026-06-22T14:44:35.020Z"
+      },
+      {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "communication_style.likes_praise",
@@ -34785,6 +34867,16 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "",
+        "key": "chat.feishu_name",
+        "value": "AI探索交流1群",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T14:41:18.407Z",
+        "updatedAt": "2026-06-22T14:41:20.519Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_0645268cb6b27321633fe425fab5f604",
@@ -34951,7 +35043,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.917Z",
-        "updatedAt": "2026-06-22T14:33:11.917Z"
+        "updatedAt": "2026-06-22T14:43:43.855Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -34961,7 +35053,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.742Z",
-        "updatedAt": "2026-06-22T14:33:11.742Z"
+        "updatedAt": "2026-06-22T14:43:43.784Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35212,6 +35304,16 @@
         "metadata": {},
         "createdAt": "2026-06-18T09:18:44.379Z",
         "updatedAt": "2026-06-18T09:18:44.379Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "user.display_name",
+        "value": "用户410351",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T14:41:32.117Z",
+        "updatedAt": "2026-06-22T14:41:32.418Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
