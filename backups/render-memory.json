@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T13:40:33.160Z",
+  "exportedAt": "2026-06-22T13:50:32.913Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -32694,6 +32694,26 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T13:36:35.140Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f7f4ff7aa593a6fb7d552176526bdc",
+        "role": "user",
+        "modality": "text",
+        "content": "汽水音乐？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca79ecbe100c18c32b87a94468",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_12f7f4ff7aa593a6fb7d552176526bdc",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:47:49.817Z"
       }
     ],
     "memories": [
@@ -34646,6 +34666,26 @@
         "metadata": {},
         "createdAt": "2026-06-18T03:49:26.616Z",
         "updatedAt": "2026-06-18T03:49:26.616Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f7f4ff7aa593a6fb7d552176526bdc",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_12f7f4ff7aa593a6fb7d552176526bdc",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:47:49.745Z",
+        "updatedAt": "2026-06-22T13:47:49.745Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_12f7f4ff7aa593a6fb7d552176526bdc",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:47:49.648Z",
+        "updatedAt": "2026-06-22T13:47:49.648Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
