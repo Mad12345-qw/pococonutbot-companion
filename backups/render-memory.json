@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T12:32:56.702Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T12:43:02.041Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -32462,6 +32462,102 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T12:15:00.990Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "再见",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca6845c38a4b17c651ecbe9b9c",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 3000
+        },
+        "createdAt": "2026-06-22T12:38:05.898Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "拜拜～小爷早点休息哦💋",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-22T12:38:09.174Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "你在說傻呀我在跟你打招呼你怎麼跟我拜拜",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca683c32ca0b21773ce1cf2682",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 4000
+        },
+        "createdAt": "2026-06-22T12:38:44.277Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "啊啊啊不要生气啦～我以为你要走了嘛😭",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-22T12:38:48.980Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "夏耶,你说一句英语听一下",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca694fd1ca0b2642609f546775",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 3000
+        },
+        "createdAt": "2026-06-22T12:42:14.386Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "\"I love you\"～满意不？😏",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-22T12:42:18.505Z"
       }
     ],
     "memories": [
@@ -33833,7 +33929,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-22T07:05:30.340Z"
+        "updatedAt": "2026-06-22T12:42:14.322Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -33843,7 +33939,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-22T07:05:30.073Z"
+        "updatedAt": "2026-06-22T12:42:14.258Z"
       },
       {
         "chatId": "feishu:oc_a05951c22dcbf76785c43a87794240b5",
