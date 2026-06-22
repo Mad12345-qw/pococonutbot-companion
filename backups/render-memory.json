@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T14:57:16.163Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T15:17:23.535Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -35324,6 +35324,16 @@
         "metadata": {},
         "createdAt": "2026-06-22T14:41:32.117Z",
         "updatedAt": "2026-06-22T14:41:32.418Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "user.nickname",
+        "value": "Mad",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T15:09:45.759Z",
+        "updatedAt": "2026-06-22T15:10:05.174Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
