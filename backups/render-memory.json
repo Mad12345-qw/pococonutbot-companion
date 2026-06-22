@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T13:30:33.687Z",
+  "exportedAt": "2026-06-22T13:40:33.160Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -32674,6 +32674,26 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-22T13:24:29.324Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_73768142e80d517f9bea33e28615e82a",
+        "role": "user",
+        "modality": "text",
+        "content": "最近世界杯 西班牙给我打蹲下了  正好你这给我回了血条  让我接着干",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca7eb2770a8c1d261f6ed4d1e5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_73768142e80d517f9bea33e28615e82a",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:36:35.140Z"
       }
     ],
     "memories": [
@@ -35026,6 +35046,26 @@
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
         "updatedAt": "2026-06-22T04:17:20.099Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_73768142e80d517f9bea33e28615e82a",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_73768142e80d517f9bea33e28615e82a",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:36:35.071Z",
+        "updatedAt": "2026-06-22T13:36:35.071Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_73768142e80d517f9bea33e28615e82a",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-22T13:36:34.948Z",
+        "updatedAt": "2026-06-22T13:36:34.948Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
