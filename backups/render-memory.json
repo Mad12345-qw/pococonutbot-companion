@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T05:13:24.121Z",
+  "exportedAt": "2026-06-22T05:23:24.826Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -30641,6 +30641,65 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T05:11:03.345Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "积分实在不够还可以去报名参加腾讯黑客松比赛，可以薅个2000积分用用。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cb809f65ca4b136dfb7a451fff",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T05:13:28.680Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\nhttps://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cb800139d38c1da756959346e7",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-22T05:15:31.540Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\n[Link content]\n[Web page] https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\nTencent Cloud CodeBuddy",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cb800139d38c1da756959346e7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "linkContext": "[Web page] https://www.codebuddy.cn/events/invite?inviteCode=qa1gav5ui\nTencent Cloud CodeBuddy",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T05:15:32.696Z"
       }
     ],
     "memories": [
@@ -33032,7 +33091,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-22T04:38:03.809Z"
+        "updatedAt": "2026-06-22T05:15:32.481Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -33042,7 +33101,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-22T04:38:03.588Z"
+        "updatedAt": "2026-06-22T05:15:32.266Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -33362,7 +33421,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-22T05:11:03.135Z"
+        "updatedAt": "2026-06-22T05:13:28.453Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -33372,7 +33431,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-22T05:11:02.925Z"
+        "updatedAt": "2026-06-22T05:13:28.186Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
