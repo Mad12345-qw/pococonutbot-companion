@@ -65,6 +65,37 @@ function attachUserDisplayNames(users, memories) {
   }));
 }
 
+function splitAlwaysReplyUsersValue(value = "") {
+  return String(value || "")
+    .split(/[,，\s]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+async function expandAlwaysReplyUsers(storage, value = "") {
+  const entries = splitAlwaysReplyUsersValue(value);
+  if (!entries.length) return "";
+
+  const expanded = [...entries];
+  const entrySet = new Set(entries.map((item) => item.toLowerCase()));
+  const knownIds = new Set(expanded.map((item) => item.toLowerCase()));
+  const chats = await storage.listChats(100);
+  for (const chat of chats) {
+    const memories = await storage.listMemories(chat.chat_id, 500);
+    for (const memory of memories) {
+      if (memory.key !== USER_DISPLAY_NAME_KEY || !memory.user_id || !memory.value) continue;
+      if (!entrySet.has(String(memory.value).trim().toLowerCase())) continue;
+      const userId = String(memory.user_id).trim();
+      const normalizedUserId = userId.toLowerCase();
+      if (!knownIds.has(normalizedUserId)) {
+        expanded.push(userId);
+        knownIds.add(normalizedUserId);
+      }
+    }
+  }
+  return expanded.join(", ");
+}
+
 function rawFeishuId(platformScopedId = "") {
   return String(platformScopedId || "").replace(/^feishu:/, "");
 }
@@ -1499,11 +1530,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
 
   app.post("/api/admin/always-reply-users", auth, async (req, res) => {
     const { value = "" } = req.body || {};
-    const normalized = String(value || "")
-      .split(/[,，\s]+/)
-      .map((item) => item.trim())
-      .filter(Boolean)
-      .join(", ");
+    const normalized = await expandAlwaysReplyUsers(storage, value);
     await storage.setSetting(FEISHU_ALWAYS_REPLY_USERS_SETTING, normalized);
     res.json({ ok: true, value: normalized });
   });
