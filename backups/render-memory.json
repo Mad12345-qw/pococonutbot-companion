@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T02:43:23.828Z",
+  "exportedAt": "2026-06-22T02:53:23.622Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -27379,6 +27379,226 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T02:42:35.731Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "看到这个反应了吧？\n\n一个是 Minimax，一个是小米，这这个反应速度就是慢一点，我发了两遍它才反应",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe5bf1ecb8b2bc248e61de46e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:43:38.878Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe50511cf4b1dce8e09b53b5b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:46:08.732Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 Hermes流式输出通过 `hermes-lark-streaming` 插件实现，让飞书回复变成逐字蹦出的交互式卡片。\nhttps://github.com/Cheerwhy/hermes-lark-streaming.git\nhttps://github.com/Cheerwhy/hermes-lark-streaming.git\\ncd",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/Cheerwhy/hermes-lark-streaming.git",
+            "https://github.com/Cheerwhy/hermes-lark-streaming.git\\ncd"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe50cf8484b29c39644b4701d",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-22T02:46:16.386Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "我都搞过，我私底下对话我都弄过，但是我也不知道为啥他就搞不出来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe516d490cb26ba707b1127b3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:46:24.718Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你别打断他呀，你让他先把那个全部群ID拉出来嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe6eae7c80b2eb9dd89bed717",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:46:37.494Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "他会中断继续的,问题不大",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe6f5a1134b25d4abdb4df34d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:46:56.944Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "行",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe6c064ca0b13f16506f5cecf",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:47:17.596Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "开心果笨笨的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe7e8484a0b1fc5d26ac8f48e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:50:51.694Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "好的，大家现在可以开始训练太阳了，看看它反应如何\n[Link content]\n[Web page] https://github.com/Cheerwhy/hermes-lark-streaming.git\nGitHub - Cheerwhy/hermes-lark-streaming: Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件 · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Small and medium teams \n Startups \n Nonprofits \n \n\n BY USE CASE App Modernization \n DevSecOps \n DevOps \n CI/CD \n View all use cases \n \n\n BY INDUSTRY Healthcare \n Financial services \n Manufacturing \n Government \n View all industries \n \n\n View all solutions \n\n Resources EXPLORE BY TOPIC AI \n Software Development \n DevOps \n Security \n View all topics \n \n\n EXPLORE BY TYPE Customer stories \n Events & webinars \n Ebooks & reports \n Business insights \n GitHub Skills \n \n\n SUPPORT & SERVICES Documentation \n Customer support \n Community forum \n Trust center \n Partners \n \n\n View all resources \n\n Open Source COMMUNITY GitHub Sponsors Fund open source developers \n \n \n\n PROGRAMS Security Lab \n Maintainer Community \n Accelerator \n GitHub Stars \n Archive Program \n \n\n REPOSITORIES Topics \n Trending \n Collections \n \n\n \n\n Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform \n \n \n\n AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features \n \n Copilot for Business Enterprise-grade AI features \n \n Premium Support Enterprise-grade 24/7 support \n \n \n\n \n\n Pricing \n \n\n \n\n \n \n\n \n \n \n \n \n \n \n \n\n Search or jump to... \n \n \n \n\n \n\n \n\n \n \n \n Search code, repositories, users, issues, pull requests...\n\n \n \n \n --> \n \n \n \n Search\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n Clear \n \n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n\n \n \n Search syntax tips \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n Provide feedback\n \n\n \n \n\n \n \n \n \n \n\n \n\n \n\n \n --> \n We read every piece of feedback, and take your input very seriously.\n\n \n \n Include my email address so I can be contacted \n \n\n \n Cancel\n \n Submit feedback\n \n\n \n\n \n \n \n \n \n \n \n \n Saved searches\n \n\n Use saved searches to filter your results more quickly\n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n\n \n --> \n \n\n \n\n \n Name \n \n \n \n \n \n\n \n Query \n \n \n\n \n To see all available qualifiers, see our documentation .\n \n\n \n\n \n \n\n \n\n \n Cancel\n \n Create saved search\n \n\n \n \n \n\n \n\n \n \n Sign in\n \n \n\n \n Sign up\n \n\n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n Resetting focus \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n You signed in with another tab or window. Reload to refresh your session. \n You signed out in another tab or window. Reload to refresh your session. \n You switched accounts on another tab or window. Reload to refresh your session. \n\n \n \n \n Dismiss alert \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n {{ message }}\n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n Cheerwhy\n \n / \n \n hermes-lark-streaming \n \n\n Public \n \n\n \n\n \n \n \n \n\n \n \n \n Notifications\n You must be signed in to change notification settings \n\n \n\n \n \n \n Fork\n 16 \n \n \n\n \n \n \n \n \n Star\n 113 \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n Code \n \n\n \n \n\n \n \n \n \n \n \n Issues \n 3 \n\n \n \n\n \n \n \n \n \n \n Pull requests \n 1 \n\n \n \n\n \n \n \n \n \n \n Discussions \n \n\n \n \n\n \n \n \n \n \n \n Actions \n \n\n \n \n\n \n \n \n \n \n \n Projects \n \n\n \n \n\n \n \n \n \n \n \n Security and quality \n 0 \n\n \n \n\n \n \n \n \n \n \n Insights \n \n\n \n \n\n \n \n \n \n \n \n Additional navigation options \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Code\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Issues\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Pull requests\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Discussions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Actions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Projects\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Security and quality\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Insights\n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n\n Cheerwhy/hermes-lark-streaming\n\n \n \n \n \n \n   main \n\n \n\n Branches Tags \n \n\n \n \n Go to file \n\n Code Open more actions menu \n\n \n Folders and files\n Name Name Last commit message \n Last commit date \n Latest commit\n  \n \n History\n 142 Commits \n 142 Commits \n\n .github/ workflows \n\n .github/ workflows \n\n  \n  \n\n assets \n\n assets \n\n  \n  \n\n hermes_lark_streaming \n\n hermes_lark_streaming \n\n  \n  \n\n tests \n\n tests \n\n  \n  \n\n .gitignore \n\n .gitignore \n\n  \n  \n\n AGENTS.md \n\n AGENTS.md \n\n  \n  \n\n CHANGELOG.md \n\n CHANGELOG.md \n\n  \n  \n\n CLAUDE.md \n\n CLAUDE.md \n\n  \n  \n\n INSTALL.md \n\n INSTALL.md \n\n  \n  \n\n LICENSE \n\n LICENSE \n\n  \n  \n\n README.en.md \n\n README.en.md \n\n  \n  \n\n README.md \n\n README.md \n\n  \n  \n\n pyproject.toml \n\n pyproject.toml \n\n  \n  \n\n View all files \n \n Repository files navigation\n README \n MIT license \n \n Hermes Lark Streaming\n \n\n \n \n\n Hermes Gateway 飞书流式卡片插件 — 基于 CardKit v2.0 的进程内流式消息卡片。\n\n 灵感来源于 openclaw-lark 和 hermes-feishu-streaming-card 。\n\n English \n\n \n\n \n 功能\n \n\n \n 流式输出 — AI 回复实时显示在交互卡片中，打字机效果\n\n 流式卡片 — 按事件顺序在单张卡片内动态渲染思考、工具调用、回答内容\n\n 思考过程 — 显示模型的推理/思考内容\n\n 工具调用 — 实时展示工具调用状态和进度，含标准图标和结果/错误块\n\n CardKit v2.0 — 使用飞书 CardKit 流式 API；卡片创建失败时交回 Hermes Gateway 默认回复\n\n 终态卡片 — 完成后展示完整结果，含 token 用量、耗时、上下文信息\n\n 卡片样式 — 可配置卡片 header、footer 显示开关及正文字字大小\n\n 消息保护 — 消息被删除/撤回后自动终止更新，避免无效 API 调用\n\n 图片解析 — 自动识别 markdown 图片引用，下载上传后替换为飞书 img_key\n\n 中断处理 — 处理 /stop 命令和消息打断，展示中断状态卡片并自动开启新会话\n\n Cron 卡片推送 — 定时任务结果以飞书卡片形式推送，保留 Markdown 渲染\n\n 后台任务卡片推送 — /background （ /btw ）任务完成后以卡片形式推送，支持话题内回复\n\n 多语言 — 卡片文本（状态、工具面板、思考标签等）内置中英双语，根据飞书客户端语言自动切换\n\n \n \n 卡片展示\n \n\n 插件按事件到达顺序在卡片内动态渲染思考、工具调用、回答元素，多轮对话内容按实际顺序展示。\n\n 当长对话或工具调用步骤过多导致卡片元素接近飞书 200 上限时，自动拆分为多张卡片：旧卡片封存（数据完整），新卡片继续输出，仅最后一张卡片带页脚。单个工具面板步骤过多时也会按步骤边界拆分。\n\n \n\n \n 运行要求\n \n\n \n Hermes >= 0.14.0 （2026.5.16）已安装并配置飞书平台\n\n Python >= 3.11 \n\n lark-oapi >= 1.4.0 — 飞书/Lark 官方 Python SDK\n\n PyYAML >= 6.0 — YAML 解析库\n\n 飞书应用权限：消息卡片（CardKit）读写、消息发送与回复、图片上传\n\n \n \n 安装\n \n\n 完整安装步骤见 INSTALL.md 。\n\n AI Agent 安装\n \n\n 让 Hermes 对接的 AI agent 读取安装指南后自动执行：\n\n curl https://raw.githubusercontent.com/Cheerwhy/hermes-lark-streaming/main/INSTALL.md\n \n\n \n 配置\n \n\n 在 ~/.hermes/config.yaml 中添加：\n\n streaming :\n enabled : true \n\n 凭据\n \n\n 凭据按以下顺序解析：\n\n \n \n \n 优先级 \n 来源 \n 变量 \n \n \n \n \n 1 \n 环境变量 \n FEISHU_APP_ID / FEISHU_APP_SECRET （或 LARK_APP_ID / LARK_APP_SECRET ） \n \n \n 2 \n 配置文件 \n ~/.hermes/config.yaml 中的 feishu 或 lark 区段 \n \n \n \n FEISHU_APP_ID = cli_xxxxx \n FEISHU_APP_SECRET = xxxxx \n\n 卡片样式\n \n\n 通过以下配置项自定义流式卡片和完成态卡片的外观：\n\n streaming :\n enabled : true \n header :\n enabled : true # 卡片 header，默认 false \n body :\n text_size : normal_v2 # 回答正文文字大小，默认 normal_v2 \n footer :\n enabled : true # 卡片 footer，默认 true \n text_size : notation # Footer 文字大小，默认 notation \n fields :\n - [status, elapsed, context, model] \n show_label : false \n panel_expanded : false # 完成态面板保持展开，默认 false \n\n Header （ streaming.header.enabled ）：控制卡片是否显示顶部状态栏。开启后根据状态自动着色 — 流式中蓝色、完成绿色、中断/错误红色。默认关闭。\n\n Footer （ streaming.footer.enabled ）：控制完成态卡片是否显示底部元数据栏。默认开启。\n\n 文字大小 （ body.text_size / footer.text_size ）：有效值包括 heading 、 normal 、 normal_v2 、 notation 等。详见 飞书文档 。\n\n Footer 字段 （ footer.fields ）：二维数组，每个子数组为一行，字段间用 · 连接。\n\n \n \n \n 字段 \n 说明 \n 有标签 \n 无标签 \n \n \n \n \n status \n 完成状态 \n ✅ Completed \n ✅ Completed \n \n \n elapsed \n 耗时 \n Elapsed 12.3s \n 12.3s \n \n \n model \n 模型名称 \n deepseek-v4-flash \n deepseek-v4-flash \n \n \n tokens \n Token 用量 \n ↑ 1.2K ↓ 500 \n ↑ 1.2K ↓ 500 \n \n \n context \n 上下文窗口用量 \n Context 50K/200K (25%) \n 50K/200K (25%) \n \n \n \n 显示标签 （ footer.show_label ）：是否展示字段标签（如 \"Elapsed\"、\"Context\"）。默认： false 。\n\n 面板展开 （ panel_expanded ）：完成态卡片中推理面板和工具面板默认折叠，设为 true 保持展开。\n\n \n CLI 命令\n \n\n HERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m hermes_lark_streaming verify # 验证兼容性（不修改文件） \n $HERMES_PYTHON -m hermes_lark_streaming install # 注入 hook \n $HERMES_PYTHON -m hermes_lark_streaming uninstall # 移除 hook \n $HERMES_PYTHON -m hermes_lark_streaming restore # 从备份恢复原始文件 \n $HERMES_PYTHON -m hermes_lark_streaming status # 查看状态（含 Hermes Python/安装目录检测） \n\n \n 更新\n \n\n cd hermes-lark-streaming\ngit pull\nHERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m pip install -e . \n $HERMES_PYTHON -m hermes_lark_streaming uninstall # 先移除旧注入 \n $HERMES_PYTHON -m hermes_lark_streaming verify\n $HERMES_PYTHON -m hermes_lark_streaming install\nhermes gateway restart \n\n \n 卸载\n \n\n HERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m hermes_lark_streaming uninstall\n $HERMES_PYTHON -m pip uninstall hermes-lark-streaming \n\n \n 工作原理\n \n\n 插件通过 AST 注入在 gateway/run.py 和 cron/scheduler.py 插入 hook 调用，所有业务逻辑在 hermes_lark_streaming 包内完成。\n\n 消息处理流程： \n\n 用户发送消息\n → 创建卡片会话\n → 流式更新（工具状态、文本增量 — 节流调度）\n → 图片 URL 异步解析替换\n → 终态卡片（token/耗时/上下文）\n \n\n 若消息被删除/撤回，自动终止后续更新。\n\n 中断处理： \n\n \n /stop 终止 — 用户主动停止，卡片展示中断状态：\n\n \n \n\n \n 消息打断 — 用户发送新消息打断正在处理的回复，旧卡片展示中断状态，并自动为新消息创建新的流式卡片：\n\n \n \n\n \n 注意事项\n \n\n \n install 会修改 ~/.hermes/hermes-agent/gateway/run.py 和 cron/scheduler.py ，自动创建 .hermes_lark.bak 备份\n\n Hermes 更新后需重新运行 verify + install \n\n 插件与 Hermes 内置飞书适配器互补工作：插件负责流式卡片，内置适配器负责消息收发\n\n 仅对飞书平台生效，其他平台不受影响\n\n \n 贡献者\n \n\n 感谢以下贡献者的 Issue 和 PR：\n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 许可证\n \n\n MIT \n\n \n \n\n \n \n \n \n About\n\n \n Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件\n \n\n Topics\n\n \n \n \n streaming\n \n \n hermes\n \n \n lark\n \n \n feishu\n \n \n cardkit\n \n \n\n \n\n Resources\n\n \n \n \n \n \n Readme\n \n\n \n License\n\n \n \n \n \n \n MIT license\n \n \n\n \n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n \n \n \n Activity \n\n Stars\n\n \n \n \n \n 113 \n stars \n\n Watchers\n\n \n \n \n \n 0 \n watching \n\n Forks\n\n \n \n \n \n 16 \n forks \n\n \n \n Report repository\n \n\n \n\n \n\n \n \n \n \n Releases\n 30 \n\n \n \n \n \n \n \n v0.11.0 \n \n Latest\n \n\n Jun 18, 2026 \n\n \n\n \n + 29 releases \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n Packages\n 0 \n\n \n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n \n \n \n \n Contributors \n\n \n \n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n Languages\n\n \n \n \n \n\n \n \n \n \n \n \n Python \n 100.0% \n \n \n\n \n\n \n\n \n\n \n \n\n \n \n\n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n Footer\n\n \n\n \n \n \n \n \n \n \n \n &copy; 2026 GitHub, Inc.\n \n \n\n \n Footer navigation\n\n \n\n \n Terms \n \n\n \n Privacy \n \n\n \n Security \n \n\n \n Status \n \n\n \n Community \n \n\n \n Docs \n \n\n \n Contact \n \n\n \n \n \n Manage cookies\n \n \n\n \n \n \n Do not share my personal information\n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n You can’t perform that action at this time.",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe7e436c80b274d18faac050c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "[Web page] https://github.com/Cheerwhy/hermes-lark-streaming.git\nGitHub - Cheerwhy/hermes-lark-streaming: Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件 · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY \n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:50:57.466Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "看看太阳会不会被攻破，我也搞不懂了，唉\n[Link content]\n[Web page] https://github.com/Cheerwhy/hermes-lark-streaming.git\nGitHub - Cheerwhy/hermes-lark-streaming: Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件 · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Small and medium teams \n Startups \n Nonprofits \n \n\n BY USE CASE App Modernization \n DevSecOps \n DevOps \n CI/CD \n View all use cases \n \n\n BY INDUSTRY Healthcare \n Financial services \n Manufacturing \n Government \n View all industries \n \n\n View all solutions \n\n Resources EXPLORE BY TOPIC AI \n Software Development \n DevOps \n Security \n View all topics \n \n\n EXPLORE BY TYPE Customer stories \n Events & webinars \n Ebooks & reports \n Business insights \n GitHub Skills \n \n\n SUPPORT & SERVICES Documentation \n Customer support \n Community forum \n Trust center \n Partners \n \n\n View all resources \n\n Open Source COMMUNITY GitHub Sponsors Fund open source developers \n \n \n\n PROGRAMS Security Lab \n Maintainer Community \n Accelerator \n GitHub Stars \n Archive Program \n \n\n REPOSITORIES Topics \n Trending \n Collections \n \n\n \n\n Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform \n \n \n\n AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features \n \n Copilot for Business Enterprise-grade AI features \n \n Premium Support Enterprise-grade 24/7 support \n \n \n\n \n\n Pricing \n \n\n \n\n \n \n\n \n \n \n \n \n \n \n \n\n Search or jump to... \n \n \n \n\n \n\n \n\n \n \n \n Search code, repositories, users, issues, pull requests...\n\n \n \n \n --> \n \n \n \n Search\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n Clear \n \n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n\n \n \n Search syntax tips \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n Provide feedback\n \n\n \n \n\n \n \n \n \n \n\n \n\n \n\n \n --> \n We read every piece of feedback, and take your input very seriously.\n\n \n \n Include my email address so I can be contacted \n \n\n \n Cancel\n \n Submit feedback\n \n\n \n\n \n \n \n \n \n \n \n \n Saved searches\n \n\n Use saved searches to filter your results more quickly\n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n\n \n --> \n \n\n \n\n \n Name \n \n \n \n \n \n\n \n Query \n \n \n\n \n To see all available qualifiers, see our documentation .\n \n\n \n\n \n \n\n \n\n \n Cancel\n \n Create saved search\n \n\n \n \n \n\n \n\n \n \n Sign in\n \n \n\n \n Sign up\n \n\n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n Resetting focus \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n You signed in with another tab or window. Reload to refresh your session. \n You signed out in another tab or window. Reload to refresh your session. \n You switched accounts on another tab or window. Reload to refresh your session. \n\n \n \n \n Dismiss alert \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n {{ message }}\n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n Cheerwhy\n \n / \n \n hermes-lark-streaming \n \n\n Public \n \n\n \n\n \n \n \n \n\n \n \n \n Notifications\n You must be signed in to change notification settings \n\n \n\n \n \n \n Fork\n 16 \n \n \n\n \n \n \n \n \n Star\n 113 \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n Code \n \n\n \n \n\n \n \n \n \n \n \n Issues \n 3 \n\n \n \n\n \n \n \n \n \n \n Pull requests \n 1 \n\n \n \n\n \n \n \n \n \n \n Discussions \n \n\n \n \n\n \n \n \n \n \n \n Actions \n \n\n \n \n\n \n \n \n \n \n \n Projects \n \n\n \n \n\n \n \n \n \n \n \n Security and quality \n 0 \n\n \n \n\n \n \n \n \n \n \n Insights \n \n\n \n \n\n \n \n \n \n \n \n Additional navigation options \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Code\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Issues\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Pull requests\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Discussions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Actions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Projects\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Security and quality\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Insights\n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n\n Cheerwhy/hermes-lark-streaming\n\n \n \n \n \n \n   main \n\n \n\n Branches Tags \n \n\n \n \n Go to file \n\n Code Open more actions menu \n\n \n Folders and files\n Name Name Last commit message \n Last commit date \n Latest commit\n  \n \n History\n 142 Commits \n 142 Commits \n\n .github/ workflows \n\n .github/ workflows \n\n  \n  \n\n assets \n\n assets \n\n  \n  \n\n hermes_lark_streaming \n\n hermes_lark_streaming \n\n  \n  \n\n tests \n\n tests \n\n  \n  \n\n .gitignore \n\n .gitignore \n\n  \n  \n\n AGENTS.md \n\n AGENTS.md \n\n  \n  \n\n CHANGELOG.md \n\n CHANGELOG.md \n\n  \n  \n\n CLAUDE.md \n\n CLAUDE.md \n\n  \n  \n\n INSTALL.md \n\n INSTALL.md \n\n  \n  \n\n LICENSE \n\n LICENSE \n\n  \n  \n\n README.en.md \n\n README.en.md \n\n  \n  \n\n README.md \n\n README.md \n\n  \n  \n\n pyproject.toml \n\n pyproject.toml \n\n  \n  \n\n View all files \n \n Repository files navigation\n README \n MIT license \n \n Hermes Lark Streaming\n \n\n \n \n\n Hermes Gateway 飞书流式卡片插件 — 基于 CardKit v2.0 的进程内流式消息卡片。\n\n 灵感来源于 openclaw-lark 和 hermes-feishu-streaming-card 。\n\n English \n\n \n\n \n 功能\n \n\n \n 流式输出 — AI 回复实时显示在交互卡片中，打字机效果\n\n 流式卡片 — 按事件顺序在单张卡片内动态渲染思考、工具调用、回答内容\n\n 思考过程 — 显示模型的推理/思考内容\n\n 工具调用 — 实时展示工具调用状态和进度，含标准图标和结果/错误块\n\n CardKit v2.0 — 使用飞书 CardKit 流式 API；卡片创建失败时交回 Hermes Gateway 默认回复\n\n 终态卡片 — 完成后展示完整结果，含 token 用量、耗时、上下文信息\n\n 卡片样式 — 可配置卡片 header、footer 显示开关及正文字字大小\n\n 消息保护 — 消息被删除/撤回后自动终止更新，避免无效 API 调用\n\n 图片解析 — 自动识别 markdown 图片引用，下载上传后替换为飞书 img_key\n\n 中断处理 — 处理 /stop 命令和消息打断，展示中断状态卡片并自动开启新会话\n\n Cron 卡片推送 — 定时任务结果以飞书卡片形式推送，保留 Markdown 渲染\n\n 后台任务卡片推送 — /background （ /btw ）任务完成后以卡片形式推送，支持话题内回复\n\n 多语言 — 卡片文本（状态、工具面板、思考标签等）内置中英双语，根据飞书客户端语言自动切换\n\n \n \n 卡片展示\n \n\n 插件按事件到达顺序在卡片内动态渲染思考、工具调用、回答元素，多轮对话内容按实际顺序展示。\n\n 当长对话或工具调用步骤过多导致卡片元素接近飞书 200 上限时，自动拆分为多张卡片：旧卡片封存（数据完整），新卡片继续输出，仅最后一张卡片带页脚。单个工具面板步骤过多时也会按步骤边界拆分。\n\n \n\n \n 运行要求\n \n\n \n Hermes >= 0.14.0 （2026.5.16）已安装并配置飞书平台\n\n Python >= 3.11 \n\n lark-oapi >= 1.4.0 — 飞书/Lark 官方 Python SDK\n\n PyYAML >= 6.0 — YAML 解析库\n\n 飞书应用权限：消息卡片（CardKit）读写、消息发送与回复、图片上传\n\n \n \n 安装\n \n\n 完整安装步骤见 INSTALL.md 。\n\n AI Agent 安装\n \n\n 让 Hermes 对接的 AI agent 读取安装指南后自动执行：\n\n curl https://raw.githubusercontent.com/Cheerwhy/hermes-lark-streaming/main/INSTALL.md\n \n\n \n 配置\n \n\n 在 ~/.hermes/config.yaml 中添加：\n\n streaming :\n enabled : true \n\n 凭据\n \n\n 凭据按以下顺序解析：\n\n \n \n \n 优先级 \n 来源 \n 变量 \n \n \n \n \n 1 \n 环境变量 \n FEISHU_APP_ID / FEISHU_APP_SECRET （或 LARK_APP_ID / LARK_APP_SECRET ） \n \n \n 2 \n 配置文件 \n ~/.hermes/config.yaml 中的 feishu 或 lark 区段 \n \n \n \n FEISHU_APP_ID = cli_xxxxx \n FEISHU_APP_SECRET = xxxxx \n\n 卡片样式\n \n\n 通过以下配置项自定义流式卡片和完成态卡片的外观：\n\n streaming :\n enabled : true \n header :\n enabled : true # 卡片 header，默认 false \n body :\n text_size : normal_v2 # 回答正文文字大小，默认 normal_v2 \n footer :\n enabled : true # 卡片 footer，默认 true \n text_size : notation # Footer 文字大小，默认 notation \n fields :\n - [status, elapsed, context, model] \n show_label : false \n panel_expanded : false # 完成态面板保持展开，默认 false \n\n Header （ streaming.header.enabled ）：控制卡片是否显示顶部状态栏。开启后根据状态自动着色 — 流式中蓝色、完成绿色、中断/错误红色。默认关闭。\n\n Footer （ streaming.footer.enabled ）：控制完成态卡片是否显示底部元数据栏。默认开启。\n\n 文字大小 （ body.text_size / footer.text_size ）：有效值包括 heading 、 normal 、 normal_v2 、 notation 等。详见 飞书文档 。\n\n Footer 字段 （ footer.fields ）：二维数组，每个子数组为一行，字段间用 · 连接。\n\n \n \n \n 字段 \n 说明 \n 有标签 \n 无标签 \n \n \n \n \n status \n 完成状态 \n ✅ Completed \n ✅ Completed \n \n \n elapsed \n 耗时 \n Elapsed 12.3s \n 12.3s \n \n \n model \n 模型名称 \n deepseek-v4-flash \n deepseek-v4-flash \n \n \n tokens \n Token 用量 \n ↑ 1.2K ↓ 500 \n ↑ 1.2K ↓ 500 \n \n \n context \n 上下文窗口用量 \n Context 50K/200K (25%) \n 50K/200K (25%) \n \n \n \n 显示标签 （ footer.show_label ）：是否展示字段标签（如 \"Elapsed\"、\"Context\"）。默认： false 。\n\n 面板展开 （ panel_expanded ）：完成态卡片中推理面板和工具面板默认折叠，设为 true 保持展开。\n\n \n CLI 命令\n \n\n HERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m hermes_lark_streaming verify # 验证兼容性（不修改文件） \n $HERMES_PYTHON -m hermes_lark_streaming install # 注入 hook \n $HERMES_PYTHON -m hermes_lark_streaming uninstall # 移除 hook \n $HERMES_PYTHON -m hermes_lark_streaming restore # 从备份恢复原始文件 \n $HERMES_PYTHON -m hermes_lark_streaming status # 查看状态（含 Hermes Python/安装目录检测） \n\n \n 更新\n \n\n cd hermes-lark-streaming\ngit pull\nHERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m pip install -e . \n $HERMES_PYTHON -m hermes_lark_streaming uninstall # 先移除旧注入 \n $HERMES_PYTHON -m hermes_lark_streaming verify\n $HERMES_PYTHON -m hermes_lark_streaming install\nhermes gateway restart \n\n \n 卸载\n \n\n HERMES_PYTHON= ~ /.hermes/hermes-agent/venv/bin/python3\n $HERMES_PYTHON -m hermes_lark_streaming uninstall\n $HERMES_PYTHON -m pip uninstall hermes-lark-streaming \n\n \n 工作原理\n \n\n 插件通过 AST 注入在 gateway/run.py 和 cron/scheduler.py 插入 hook 调用，所有业务逻辑在 hermes_lark_streaming 包内完成。\n\n 消息处理流程： \n\n 用户发送消息\n → 创建卡片会话\n → 流式更新（工具状态、文本增量 — 节流调度）\n → 图片 URL 异步解析替换\n → 终态卡片（token/耗时/上下文）\n \n\n 若消息被删除/撤回，自动终止后续更新。\n\n 中断处理： \n\n \n /stop 终止 — 用户主动停止，卡片展示中断状态：\n\n \n \n\n \n 消息打断 — 用户发送新消息打断正在处理的回复，旧卡片展示中断状态，并自动为新消息创建新的流式卡片：\n\n \n \n\n \n 注意事项\n \n\n \n install 会修改 ~/.hermes/hermes-agent/gateway/run.py 和 cron/scheduler.py ，自动创建 .hermes_lark.bak 备份\n\n Hermes 更新后需重新运行 verify + install \n\n 插件与 Hermes 内置飞书适配器互补工作：插件负责流式卡片，内置适配器负责消息收发\n\n 仅对飞书平台生效，其他平台不受影响\n\n \n 贡献者\n \n\n 感谢以下贡献者的 Issue 和 PR：\n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n 许可证\n \n\n MIT \n\n \n \n\n \n \n \n \n About\n\n \n Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件\n \n\n Topics\n\n \n \n \n streaming\n \n \n hermes\n \n \n lark\n \n \n feishu\n \n \n cardkit\n \n \n\n \n\n Resources\n\n \n \n \n \n \n Readme\n \n\n \n License\n\n \n \n \n \n \n MIT license\n \n \n\n \n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n \n \n \n Activity \n\n Stars\n\n \n \n \n \n 113 \n stars \n\n Watchers\n\n \n \n \n \n 0 \n watching \n\n Forks\n\n \n \n \n \n 16 \n forks \n\n \n \n Report repository\n \n\n \n\n \n\n \n \n \n \n Releases\n 30 \n\n \n \n \n \n \n \n v0.11.0 \n \n Latest\n \n\n Jun 18, 2026 \n\n \n\n \n + 29 releases \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n Packages\n 0 \n\n \n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n \n \n \n \n Contributors \n\n \n \n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n Uh oh!\n\n There was an error while loading. Please reload this page .\n\n \n\n \n\n \n \n\n \n\n \n \n \n Languages\n\n \n \n \n \n\n \n \n \n \n \n \n Python \n 100.0% \n \n \n\n \n\n \n\n \n\n \n \n\n \n \n\n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n Footer\n\n \n\n \n \n \n \n \n \n \n \n &copy; 2026 GitHub, Inc.\n \n \n\n \n Footer navigation\n\n \n\n \n Terms \n \n\n \n Privacy \n \n\n \n Security \n \n\n \n Status \n \n\n \n Community \n \n\n \n Docs \n \n\n \n Contact \n \n\n \n \n \n Manage cookies\n \n \n\n \n \n \n Do not share my personal information\n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n You can’t perform that action at this time.\n\n[Web page] https://raw.githubusercontent.com/Cheerwhy/hermes-lark-streaming/main/INSTALL.md\n# Installation Guide — hermes-lark-streaming\n\nA step-by-step guide to install the hermes-lark-streaming plugin into an existing\nHermes Agent deployment. Intended to be read and executed by an AI agent or a\nhuman following the commands verbatim.\n\n## Requirements\n\n- Hermes Agent `>= 0.14.0` is installed and the `hermes` command is on `PATH`\n  (`hermes --version` works).\n- If `hermes` is not on `PATH`, stop — fix the Hermes installation first.\n\n## Step 1 — Locate Hermes's Python\n\nThe plugin MUST be installed into Hermes's own venv (the gateway imports it at\nruntime). Find that venv's Python interpreter:\n\n```bash\n# Read the venv path from the hermes CLI wrapper, the",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe7f2294acb21e8d0d216378f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "linkContext": "[Web page] https://github.com/Cheerwhy/hermes-lark-streaming.git\nGitHub - Cheerwhy/hermes-lark-streaming: Hermes 飞书（Feishu/Lark）CardKit v2.0 流式卡片插件 · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY \n...[truncated]",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:51:19.969Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "[思考]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbe76b38944b17fbce27bbfff9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:53:03.393Z"
       }
     ],
     "memories": [
@@ -29430,7 +29650,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T02:37:27.669Z"
+        "updatedAt": "2026-06-22T02:53:03.078Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29440,7 +29660,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T02:37:27.449Z"
+        "updatedAt": "2026-06-22T02:53:02.854Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29840,7 +30060,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-22T02:42:35.514Z"
+        "updatedAt": "2026-06-22T02:51:19.540Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29850,7 +30070,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-22T02:42:35.251Z"
+        "updatedAt": "2026-06-22T02:51:19.325Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
