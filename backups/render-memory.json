@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T13:10:28.018Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-22T13:20:33.239Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -32590,6 +32590,58 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-22T13:08:10.810Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我以前也让我的飞书龙虾做过！现在上班了 没有那么多时间管了！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca71d0658a0c3abe986d3f646f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:14:41.944Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "workbuddy能链接飞书和微信吗？我只能小程序控制",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca718fd40b0c10aa3a28ffea0d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T13:15:19.791Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "workbuddy 能链接飞书和微信吗？我只能小程序控制\n\n可以的，你说的这个应该是机器人端（管理员在用），用户端（你在飞书微信里发消息）是直接聊天的，不冲突。\n\n小程序是后台配置用的，真正和你对话还是在飞书/微信里。\n\n有时间再聊~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-22T13:15:51.426Z"
       }
     ],
     "memories": [
@@ -35201,7 +35253,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-22T13:08:05.908Z"
+        "updatedAt": "2026-06-22T13:15:19.727Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35211,7 +35263,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-22T13:08:05.738Z"
+        "updatedAt": "2026-06-22T13:15:19.664Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35732,6 +35784,12 @@
         "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
         "summary": "**用户状态与关系**：用户与\"小椰\"刚认识不久，互动轻松愉快。用户对\"小椰\"冒泡回复机制、语音音色、卡片式资料回复能力表示惊讶与赞赏，整体氛围友好。\n\n**用户兴趣/偏好**：\n1. 高度关注 AI 智能体按需冒泡、不刷屏的回复方式\n2. 对小椰的语音音色（被误认为邓紫棋）有印象\n3. 对\"资料卡片\"格式的回复方式很感兴趣，想了解实现方法\n4. 对提示词工程（如何让 AI 按格式输出）有学习意愿\n5. 用户大理，想查大理天气（小椰已发送天气卡片）\n\n**群聊偏好**：用户说\"早上等你们没起床我来玩\"，习惯早间活跃。\n\n**未完成事项**：\n- 用户询问\"资料卡片\"和\"按需冒泡\"具体怎么做的，小椰已简要解释（拆细提示词+套卡片样式），用户尚未深入追问。\n- 相比\"月亮\"（爱马仕线上）机器人，小椰更灵活不死板，用户可能在做对比观察。\n\n**重要观察**：用户对\"不刷屏、只被@或相关话题才回复\"这点非常认可，是核心亮点。",
         "updatedAt": "2026-06-19T02:13:35.129Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "summary": "用户（ou_94f40cbf289205cffa3656980f71415c）是飞书机器人开发者，关注AI语音链路。关键进展：小椰回复语音时自动带广告链接，用户认为是平台生成导致无法去除；用户自己用TTS免费方案，嫌机械音不如小椰自然。技术讨论了飞书发送语音气泡的7步流程（TTS→上传飞书拿media_id→msg_type=audio），TTS服务推荐Azure/阿里云。用户询问了飞书Aily功能（需会员）、监控飞书消息方案。提出\"虾马体系\"用于共享记忆/技能蒸馏，建群多导致token消耗大。分享了一篇关于物理AI和GEO（生成式引擎优化）变现的飞书wiki文档，探讨2026年AI搜索流量红利。关系：技术交流为主，气氛轻松，小椰用粤语风格回复。",
+        "updatedAt": "2026-06-22T13:16:18.355Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
