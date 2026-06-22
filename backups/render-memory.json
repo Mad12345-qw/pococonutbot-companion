@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T02:13:23.608Z",
+  "exportedAt": "2026-06-22T02:23:23.932Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -26828,6 +26828,106 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T02:11:46.432Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "月亮",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbde157e0e0b4ca32060ec5df2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:16:32.061Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "月亮已经被炼化了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdfee584a8b109f59a821122b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:16:40.846Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdfe481114c39a81027bf7875",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:16:46.278Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "哇塞",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbdf397a8b0b147008170ee7a6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:20:12.317Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "但是更聪明了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cbd8dd08080b2fed9c6bfbae81",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T02:21:45.361Z"
       }
     ],
     "memories": [
@@ -28879,7 +28979,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T02:07:46.914Z"
+        "updatedAt": "2026-06-22T02:21:45.145Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -28889,7 +28989,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T02:07:46.692Z"
+        "updatedAt": "2026-06-22T02:21:44.929Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29389,7 +29489,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-22T02:11:38.489Z"
+        "updatedAt": "2026-06-22T02:16:46.055Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -29399,7 +29499,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-22T02:11:38.273Z"
+        "updatedAt": "2026-06-22T02:16:45.832Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
