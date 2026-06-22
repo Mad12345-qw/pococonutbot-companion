@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T10:18:56.807Z",
+  "exportedAt": "2026-06-22T10:28:56.889Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -31902,6 +31902,58 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T10:16:09.767Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "role": "user",
+        "modality": "text",
+        "content": "一会儿像邓紫棋，一会儿不像",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca49164d8a4b1d47237756b2b3",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T10:27:10.976Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈AI嘛，学得不太像很正常～下次我练练再唱🤭",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830"
+        },
+        "createdAt": "2026-06-22T10:27:17.000Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+        "role": "user",
+        "modality": "text",
+        "content": "ch ang 唱 ，不是 cang",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca4acb090acb2014e711591b4b",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawUserId": "ou_8573cbfaf1b0ab2d9ccac2d5f6896830",
+          "linkContext": "",
+          "imageContext": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T10:27:55.157Z"
       }
     ],
     "memories": [
@@ -32743,7 +32795,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:13:48.397Z",
-        "updatedAt": "2026-06-17T15:13:48.397Z"
+        "updatedAt": "2026-06-22T10:27:54.932Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -32753,7 +32805,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:13:48.177Z",
-        "updatedAt": "2026-06-17T15:13:48.177Z"
+        "updatedAt": "2026-06-22T10:27:54.708Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
