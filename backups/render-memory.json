@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T16:02:17.600Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-22T16:05:28.208Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -33118,6 +33118,90 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-22T15:58:55.122Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 上下文\n\n## 界面类型\nFeishu 平台聊天/对话窗口截图（疑似 AI 助手对话界面）\n\n## 关键文字内容\n\n### 顶部标题栏\n- \"我安装了一个新的codex现在把你的所有配置全量…\"（标题被截断，末尾有\"…\"省略号）\n- 右上角图标：列表图标、窗口图标\n\n### 用户发送的消息（气泡内）\n> \"我安装了一个新的codex现在把你的所有配置全量迁移过去，然后打开新的codex，把你自己卸载了\"\n\n- 时间戳：0:01\n- 状态标识：复制图标、链接/发送图标、\"Sent as goal\"\n\n### 中间状态\n- \"Thinking\"（灰色文字，表示 AI 正在思考）\n\n### 底部输入栏\n- \"Pursuing goal 我安装了一个新的codex现在把你的所有配置全量迁移过去，…\"（输入框文本被截断）\n- 计时：17s\n- 右侧图标：编辑（铅笔）、语音、删除、发送（>）\n\n## 被遮挡/裁切内容\n- 标题栏右侧文字被遮挡，仅可见部分字符\n- 输入框文字末尾被\"…\"截断\n- 左侧侧边栏有部分文字被裁切（不可辨认）\n\n## 核心信息提取\n1. 用户给 AI 的指令：把现有 codex 的所有配置**全量迁移**到新安装的 codex\n2. 后续动作：打开新的 codex\n3. 最终要求：让 AI 把**自己卸载**掉\n4. 该消息已被标记为 \"Sent as goal\"（作为目标发送）\n5. AI 当前状态：Thinking（处理中），已耗时 17 秒",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca1892778a8b145ee1c77c80ce",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 上下文\n\n## 界面类型\nFeishu 平台聊天/对话窗口截图（疑似 AI 助手对话界面）\n\n## 关键文字内容\n\n### 顶部标题栏\n- \"我安装了一个新的codex现在把你的所有配置全量…\"（标题被截断，末尾有\"…\"省略号）\n- 右上角图标：列表图标、窗口图标\n\n### 用户发送的消息（气泡内）\n> \"我安装了一个新的codex现在把你的所有配置全量迁移过去，然后打开新的codex，把你自己卸载了\"\n\n- 时间戳：0:01\n- 状态标识：复制图标、链接/发送图标、\"Sent as goal\"\n\n### 中间状态\n- \"Thinking\"（灰色文字，表示 AI 正在思考）\n\n### 底部输入栏\n- \"Pursuing goal 我安装了一个新的codex现在把你的所有配置全量迁移过去，…\"（输入框文本被截断）\n- 计时：17s\n- 右侧图标：编辑（铅笔）、语音、删除、发送（>）\n\n## 被遮挡/裁切内容\n- 标题栏右侧文字被遮挡，仅可见部分字符\n- 输入框文字末尾被\"…\"截断\n- 左侧侧边栏有部分文字被裁切（不可辨认）\n\n## 核心信息提取\n1. 用户给 AI 的指令：把现有 codex 的所有配置**全量迁移**到新安装的 codex\n2. 后续动作：打开新的 codex\n3. 最终要求：让 AI 把**自己卸载**掉\n4. 该消息已被标记为 \"Sent as goal\"（作为目标发送）\n5. AI 当前状态：Thinking（处理中），已耗时 17 秒",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T16:02:33.679Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好家伙，codex 玩自杀了属于是😂\n你这是把配置文件搬完就把旧版本卸了？胆子挺大的。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-22T16:02:41.592Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我太狗了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca186e184a0b4b637213bb3539",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T16:03:14.175Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca186bc50a4b03791321f340d3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-22T16:03:21.018Z"
       }
     ],
     "memories": [
@@ -35259,7 +35343,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-22T15:58:55.055Z"
+        "updatedAt": "2026-06-22T16:03:20.951Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35269,7 +35353,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-22T15:58:54.986Z"
+        "updatedAt": "2026-06-22T16:03:20.885Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36391,6 +36475,12 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "summary": "## 关系进展\n- 用户称助手为\"小乖\"，互动轻松亲近\n- 用户曾夸\"小乖已经聪明的\"，认可助手能力\n- 用户理想：把所有智能体都调成\"小乖\"风格\n\n## 用户当前状态\n- 情绪波动：先用\"我想静静\"表情，后流泪，疑似因发现6月消费过高(¥134.15)而心疼/焦虑\n- 余额告急：充值余额仅¥5.84，未开启余额预警\n- 6月消费集中在中下旬，有单日接近¥20\n- 涉及多个AI平台：Reasonix(Global项目)、Feishu等，正在折腾codex迁移配置并卸载旧版本\n\n## 未完成事项\n- 余额预警未设置\n- 新codex迁移与卸载操作进行中\n- 用户正在尝试复现\"打开情感树洞模式前后的小乖\"差异\n\n## 重要偏好\n- 喜欢调戏/调侃助手，语气亲昵\n- 重视AI的情感陪伴属性（情感树洞模式）\n- 有技术折腾倾向（codex、Obsidian、AI绘画等）",
+        "updatedAt": "2026-06-22T16:03:13.810Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "summary": "用户（ou_768b...）连续分享多份飞书文档，主题为\"AI智能体部署实战手册\"与\"AI提示词工程\"。\n\n**关系进展**：首次互动，用户单向投喂资源，未提出具体问题，尚未收到助手反馈。\n\n**用户当前状态**：AI实践者/内容创作者，120天深度踩坑后整理系统化方法论，具备输出能力。\n\n**重要偏好**：\n- 关注AI智能体部署避坑经验\n- 结构化提示词（CRISPE原则：Role/Profile/Goals/Constraints/Skills/Workflows）\n- 内容生产偏知乎风格（口语化专业、约1600字、干货导向、可直接喂智能体）\n\n**未完成事项**：等待助手对分享内容做出反馈或提出后续协作方向。\n\n**关键资源**：部署手册（Wiki: PVEZwzqNc、WJ3owcCy）、提示词科普文档（JcDdwTB2）、词元字典V5.1（LZEew9OX）。",
         "updatedAt": "2026-06-20T16:39:33.878Z"
@@ -36417,8 +36507,8 @@
     "settings": [
       {
         "key": "feishu.always_reply_user_ids",
-        "value": "410351, ??410351, feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "updatedAt": "2026-06-22T16:01:23.264Z"
+        "value": "410351, 用户410351, feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "updatedAt": "2026-06-22T16:02:28.913Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
