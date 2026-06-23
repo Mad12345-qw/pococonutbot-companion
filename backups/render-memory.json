@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T11:45:33.690Z",
+  "exportedAt": "2026-06-23T12:45:34.479Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36223,6 +36223,51 @@
           "replyToUserId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206"
         },
         "createdAt": "2026-06-23T11:41:27.595Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\nhttps://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\nfeishu-wiki:NrjJwu89diliBwkh7NjcpDYynvf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c93ae1bb0bcb4c3ba52dea717e",
+          "wikiTokens": [
+            "NrjJwu89diliBwkh7NjcpDYynvf"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-23T12:37:38.627Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n[Link content]\n[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jpg\n\n1632f5dee4b778e0fc6faab4b01aa00f.jpg\n\ne1c7089a7cad636c30d0f7af67c9f23a.jpg\n\n175ffd3293039d3eddb8f79f0bc9a905.jpg\n\nbc7cfc68231bf2d31da4ba7e27222272.jpg\n\n1bc0d92308c2724c270e5adaba50481f.jpg\n\n79b256c430ffbf1dcbfb5fa18db15dd7.jpg\n\n7fac70f1ea314948424aff8eaee1fc26.jpg\n\n411d8fe0119b7be1752e6c204c0751c6.jpg\n\nc82881b24dc346e225520a3c3d7d2caf.jpg\n\n90e196d48a81b83c22e947262f6458d6.jpg\n\n0f2994051597940ffb8babd53f64fe22.jpg\n\na0beb28d4e55cf7c382e980bcc80bb8e.jpg\n\nf00b5fa2969abc2eccb8c4f1ca001960.jpg\n\nfbc85c2f3b7b540890796b938fd8714a.png\n\n961b32e35c428c6c4fd6d7137a2115e0.jpg\n\n1d80c79474579d9a8cdf9c7e1123ca66.jpg\n\n681832bd254e1135139007e1642ad1e3.jpg\n\ne6a395aa26a20e609e42eb540afa1ada.jpg\n\nf6e5fdea391bd5a8d202fe1e2985584b.jpg\n\n38dd921e8742b61bc84067a7d8ab19af.jpg\n\n1a0a9392fceb44a38ffa983259ff733f.jpg\n\n7fa6b8b62ef8208d7d52df065f7dbbb6.jpg\n\n1149ff993f8afbbc5fe9f001baceed62.jpg\n\n6 款 AI 视频工具：能力拆解 + GitHub 仓库 / Agent 技能资源汇总\n01 Grok（xAI 马斯克旗下）\n注核心能力\n最长生成 30 秒视频；支持 50 条批量出片；可直接上传真人素材；单条成本仅 0.4 元，主打高性价比\n开源 & 技能仓库\n官方基础大模型仓库（Grok-1 基座）https://github.com/xai-org/grok-1\n\n只开放早期文本基座权重，视频生成模块官方并未开源\n智能体一键调用视频工作流（适配 Claude/Cursor Agent）https://github.com/Rion-Wu-tech/grok-video-workflow\n\n封装了 Grok 视频 API 调用逻辑，可直接作为智能体 Skill 使用\n官方视频 API：仅提供线上接口，无法本地私有化部署\n02 Sora2（OpenAI）\n核心能力\n官宣原版 Sora9 底下架；Sora2 当前稳定可用；是否开源、延期均为未知\n开源 & 技能仓库\n⚠️ OpenAI 官方 Sora/Sora2 全程闭源，无官方 GitHub 仓库\n社区开源复现项目（Open-Sora，对标 Sora 架构）https://github.com/hpcaitech/Open-Sora 社区热度最高的开源平替，可本地部署，用来替代 Sora 做视频生成\n第三方 Agent 调用封装：无官方 Skill，只能自行封装 OpenAI API 接口调用 Sora2\n03 可灵 Kling（快手旗下）\n核心能力\n全能型工具；视频画质优秀；多人物角色互动自然；画面风格全程统一；不会出现 “降智画面崩坏”\n开源 & 技能仓库\n官方 Agent 专用 Kling Skill（直接给智能体调用）https://clawhub.ai/klingai-dev/klingai 完美适配 Claude Code、Cursor、Codex 等智能体，一键接入视频生成能力\n官方模型本体：闭源不公开完整权重；仅对外开放 REST API，支持程序化调用\n社区第三方调用 SDK：GitHub 可搜到各类 Python 封装项目，无官方主仓库\n04 PixVerse\n核心能力\n硬核物理引擎；打斗、法术特效、高速运动高燃场景渲染真实；定价为 Seedance 一半；1 分钟快速出片\n开源 & 技能仓库\n官方组织 GitHub 主页https://github.com/pixverse-ai 官方全量代码、模型参数开源，支持本地部署\n官方 CLI 命令行工具（Agent 直接调用） npm 全局安装：npm install -g pixverse-ai-cli 配套仓库：https://github.com/pixverse-ai/pixverse-ai-cli\nMCP 协议智能体专用 Skill（对接 Claude 系列）https://lobehub.com/plugins/pixverseai-pixverse-mcp 标准化技能包，无需自己写接口逻辑\n05 Vidu（生数科技 × 清华，国产小 Sora）\n核心能力\n圈内公认国产 Sora；视频画质拉满；动漫、漫剧生成为强项；价格为即梦一半\n开源 & 技能仓库\n官方模型本体：核心权重闭源，仅开放 API 商用调用\nComfyUI 可视化节点（本地工作流调用 Vidu 接口）https://github.com/1zhangyy1/comfyui-vidu-nodes\n第三方 CLI 调用工具：https://github.com/Saerdna/vidu-cli 可嵌入自动化脚本、智能体流程中执行生成任务\n06 万相 Wan（阿里通义万相）\n核心能力\n文案 / 图片 / 视频全链路一站式生成；人物互动自然；支持快速 / 高清双模式自由切换\n开源 & 技能仓库\n官方开源视频模型主仓库（Wan2.1 / Wan2.2）https://github.com/Wan-Video/Wan2.1https://github.com/Wan-Video/Wan2.2 阿里完全开源，权重 + 推理代码公开，可消费级显卡本地私有化部署\n官方组织主页：https://github.com/Wan-Video 包含全部图像、视频生成开源项目\n智能体使用：可基于官方开源代码自行封装 Skill，也可直接调用阿里魔搭官方 API\n选型建议（适配你智能体 / Agent 场景）\n优先拿来直接当 Skill 给 AI 智能体调用 可灵（官方现成 Skill） > PixVerse（官方 MCP 插件） > Grok（现成调用工作流）\n想要本地离线部署、不依赖云端付费 API 万相 Wan（阿里完整开源） > PixVerse（全开源） > Open-Sora（Sora 开源平替）\n主打动漫 / 二次元内容：优先 Vidu + 可灵\n打斗、高速动作视频：优先 PixVerse\n\nAI智能体踩坑经验交流区\n\n\n\n已满\n\n\n已满\n\n\n\n已满\n\n\n未满\n\n\n\n未满\n\n\n新群\n\n\n\n新群\n\n\n新群\n\n\n\n新群\n\n\n新群\n\nAI变现交流区\n\n\n\n行业垂直社群\n\n\n行业垂直社群\n\n\n\n\n\n\n技术极客社区-需要审核方可加入 了解详情与申请入口【T3-学习文档-组织升级】 Open Build\n\nimage.png\n\n\n\n\n[Feishu wiki] NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jpg\n\n1632f5dee4b778e0fc6faab4b01aa00f.jpg\n\ne1c7089a7cad636c30d0f7af67c9f23a.jpg\n\n175ffd3293039d3eddb8f79f0bc9a905.jpg\n\nbc7cfc68231bf2d31da4ba7e27222272.jpg\n\n1bc0d92308c2724c270e5adaba50481f.jpg\n\n79b256c430ffbf1dcbfb5fa18db15dd7.jpg\n\n7fac70f1ea314948424aff8eaee1fc26.jpg\n\n411d8fe0119b7be1752e6c204c0751c6.jpg\n\nc82881b24dc346e225520a3c3d7d2caf.jpg\n\n90e196d48a81b83c22e947262f6458d6.jpg\n\n0f2994051597940ffb8babd53f64fe22.jpg\n\na0beb28d4e55cf7c382e980bcc80bb8e.jpg\n\nf00b5fa2969abc2eccb8c4f1ca001960.jpg\n\nfbc85c2f3b7b540890796b938fd8714a.png\n\n961b32e35c428c6c4fd6d7137a2115e0.jpg\n\n1d80c79474579d9a8cdf9c7e1123ca66.jpg\n\n681832bd254e1135139007e1642ad1e3.jpg\n\ne6a395aa26a20e609e42eb540afa1ada.jpg\n\nf6e5fdea391bd5a8d202fe1e2985584b.jpg\n\n38dd921e8742b61bc84067a7d8ab19af.jpg\n\n1a0a9392fceb44a38ffa983259ff733f.jpg\n\n7fa6b8b62ef8208d7d52df065f7dbbb6.jpg\n\n1149ff993f8afbbc5fe9f001baceed62.jpg\n\n6 款 AI 视频工具：能力拆解 + GitHub 仓库 / Agent 技能资源汇总\n01 Grok（xAI 马斯克旗下）\n注核心能力\n最长生成 30 秒视频；支持 50 条批量出片；可直接上传真人素材；单条成本仅 0.4 元，主打高性价比\n开源 & 技能仓库\n官方基础大模型仓库（Grok-1 基座）https://github.com/xai-org/grok-1\n\n只开放早期文本基座权重，视频生成模块官方并未开源\n智能体一键调用视频工作流（适配 Claude/Cursor Agent）https://github.com/Rion-Wu-tech/grok-video-workflow\n\n封装了 Grok 视频 API 调用逻辑，可直接作为智能体 Skill 使用\n官方视频 API：仅提供线上接口，无法本地私有化部署\n02 Sora2（OpenAI）\n核心能力\n官宣原版 Sora9 底下架；Sora2 当前稳定可用；是否开源、延期均为未知\n开源 & 技能仓库\n⚠️ OpenAI 官方 Sora/Sora2 全程闭源，无官方 GitHub 仓库\n社区开源复现项目（Open-Sora，对标 Sora 架构）https://github.com/hpcaitech/Open-Sora 社区热度最高的开源平替，可本地部署，用来替代 Sora 做视频生成\n第三方 Agent 调用封装：无官方 Skill，只能自行封装 OpenAI API 接口调用 Sora2\n03 可灵 Kling（快手旗下）\n核心能力\n全能型工具；视频画质优秀；多人物角色互动自然；画面风格全程统一；不会出现 “降智画面崩坏”\n开源 & 技能仓库\n官方 Agent 专用 Kling Skill（直接给智能体调用）https://clawhub.ai/klingai-dev/klingai 完美适配 Claude Code、Cursor、Codex 等智能体，一键接入视频生成能力\n官方模型本体：闭源不公开完整权重；仅对外开放 REST API，支持程序化调用\n社区第三方调用 SDK：GitHub 可搜到各类 Python 封装项目，无官方主仓库\n04 PixVerse\n核心能力\n硬核物理引擎；打斗、法术特效、高速运动高燃场景渲染真实；定价为 Seedance 一半；1 分钟快速出片\n开源 & 技能仓库\n官方组织 GitHub 主页https://github.com/pixverse-ai 官方全量代码、模型参数开源，支持本地部署\n官方 CLI 命令行工具（Agent 直接调用） npm 全局安装：npm install -g pixverse-ai-cli 配套仓库：https://github.com/pixverse-ai/pixverse-ai-cli\nMCP 协议智能体专用 Skill（对接 Claude 系列）https://lobehub.com/plugins/pixverseai-pixverse-mcp 标准化技能包，无需自己写接口逻辑\n05 Vidu（生数科技 × 清华，国产小 Sora）\n核心能力\n圈内公认国产 Sora；视频画质拉满；动漫、漫剧生成为强项；价格为即梦一半\n开源 & 技能仓库\n官方模型本体：核心权重闭源，仅开放 API 商用调用\nComfyUI 可视化节点（本地工作流调用 Vidu 接口）https://github.com/1zhangyy1/comfyui-vidu-nodes\n第三方 CLI 调用工具：https://github.com/Saerdna/vidu-cli 可嵌入自动化脚本、智能体流程中执行生成任务\n06 万相 Wan（阿里通义万相）\n核心能力\n文案 / 图片 / 视频全链路一站式生成；人物互动自然；支持快速 / 高清双模式自由切换\n开源 & 技能仓库\n官方开源视频模型主仓库（Wan2.1 / Wan2.2）https://github.com/Wan-Video/Wan2.1https://github.com/Wan-Video/Wan2.2 阿里完全开源，权重 + 推理代码公开，可消费级显卡本地私有化部署\n官方组织主页：https://github.com/Wan-Video 包含全部图像、视频生成开源项目\n智能体使用：可基于官方开源代码自行封装 Skill，也可直接调用阿里魔搭官方 API\n选型建议（适配你智能体 / Agent 场景）\n优先拿来直接当 Skill 给 AI 智能体调用 可灵（官方现成 Skill） > PixVerse（官方 MCP 插件） > Grok（现成调用工作流）\n想要本地离线部署、不依赖云端付费 API 万相 Wan（阿里完整开源） > PixVerse（全开源） > Open-Sora（Sora 开源平替）\n主打动漫 / 二次元内容：优先 Vidu + 可灵\n打斗、高速动作视频：优先 PixVerse\n\nAI智能体踩坑经验交流区\n\n\n\n已满\n\n\n已满\n\n\n\n已满\n\n\n未满\n\n\n\n未满\n\n\n新群\n\n\n\n新群\n\n\n新群\n\n\n\n新群\n\n\n新群\n\nAI变现交流区\n\n\n\n行业垂直社群\n\n\n行业垂直社群\n\n\n\n\n\n\n技术极客社区-需要审核方可加入 了解详情与申请入口【T3-学习文档-组织升级】 Open Build\n\nimage.png",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c93ae1bb0bcb4c3ba52dea717e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jp\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T12:37:42.628Z"
       }
     ],
     "memories": [
@@ -38644,7 +38689,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-22T16:03:20.951Z"
+        "updatedAt": "2026-06-23T12:37:42.499Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38654,7 +38699,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-22T16:03:20.885Z"
+        "updatedAt": "2026-06-23T12:37:42.423Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
