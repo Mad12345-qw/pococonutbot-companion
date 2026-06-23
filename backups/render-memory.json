@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T14:25:34.535Z",
+  "exportedAt": "2026-06-23T15:35:33.500Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36871,6 +36871,114 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T14:19:55.383Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 提取（AI 工具爆款方向脑暴图）\n\n**主标题**：抓住高价值用户的痛点，打造下一款爆款 AI 工具\n**副标题**：三大蓝海赛道 MVP 建议，精准狙击高频需求，快速验证市场\n\n---\n\n## 🌊 蓝海赛道 1 ｜ AI 音乐人工作室 OS\n- **目标用户**：「AI 音乐群」高频互助用户\n- **目标画像 Rank**：15~40\n- **示例用户**：jacqueline（Rank 7）、施冰（Rank 4）、黄冬冬（Rank 22）\n- **深挖痛点**：他们不仅在玩 Suno，更在头疼如何把 **AI 生成的音乐批量化、商业化**（如封面自动生成、歌词适配、多平台一键发布）\n- **MVP 建议**：「AI 音乐人工作室 OS」——一键 Prompt 生成「词+曲+封面+营销文案」的完整发布包\n- **公式**：歌词/作曲（AI 生成）+ 编曲/演唱（AI 生成）+ 封面设计（AI 生成）+ 营销文案（AI 生成）= 完整发布包（一键打包）\n- **工作台预览**：含 我的作品、音乐生成、歌曲设计、营销文案、贝壳管理、薪酬中心\n- **支持平台**：网易云音乐、QQ 音乐、酷狗音乐、Spotify、YouTube、抖音（被遮挡）、更多平台\n- **激发句子**：针对这群高频互助的用户，报赚 \"如何通过 AI 自动化拿齐 1000 个收藏认证\" 🏆\n\n---\n\n## 🌊 蓝海赛道 2 ｜ AI 编剧长效记忆卡\n- **目标用户**：「网文作家群」\n- **目标画像 Rank**：20~60\n- **示例用户**：士道（Rank 1）、网文2（Rank 35）、网文大神（Rank 52）\n- **深挖痛点**：普通对话会\"断片\"，他们极度需要 **\"超长文本角色记忆库\"**，反复提到\"人设崩了\"、\"剧情逻辑对不上\"\n- **MVP 建议**：「AI 编剧长效记忆卡」——一个挂载在 Agent 侧的\"人设/大纲\"强制索引插件，确保 100 万字网文前后逻辑严丝合缝\n- **数据流程**：人设（人物设定、世界观、大纲剧情、伏笔线索、时间线）→ 长效记忆卡（强制记忆 + 实时检索 + 逻辑校验）→ AI 写作（不断片、人设一致、剧情连贯、逻辑严密）\n- **记忆卡工作台**字段：角色名、身份、性格、背景故事、关键关系、剧情故事、伏笔线索、悬念、转折关系、关系图标等\n- **激发句子**：在群里发起 \"谁有 50 万字以上不断片的 AI 写作流分享\" 📖\n\n---\n\n## 🌊 蓝海赛道 3 ｜ Prompt-to-Card 极简转换器\n- **目标用户**：「企业/效率群」\n- **目标画像 Rank**：30~80\n- **示例用户**：丁立（Rank 11）、徐程（Rank 31）、项目经理老王（Rank 45）\n- **深挖痛点**：这群人有极强的业务需求（如项目管理），想用飞书高级卡片（Schema 2.0），但 **不会写复杂的 JSON**\n- **MVP 建议**：「Prompt-to-Card 极简转换器」——用户说一句话：\"帮我做个项目进度卡，带三个按钮\"，直接生成可用的卡片 JSON 甚至直接预览发送\n- **数据流程**：脑筋设置 Prompt → AI 转换引擎 → 飞书卡片 JSON\n- **卡片预览示例**（项目进度追踪）：\n  - 项目名称：AI 工具开发\n  - 负责人：@张三\n  - 截止日期：2024-12-31\n  - 当前进度：65%\n  - 状态：进行中\n  - 按钮：更新进度、查看详情、问题反馈\n- **JSON 代码**：\n```json\n{\n  \"config\": {\n    \"type\": \"card\",\n    \"schema\": \"2.0\",\n    \"elements\": [\n      { /* 卡片元素 */ }\n    ]\n  }\n}\n```\n- **激发句子**：分享几个极度精美的 \"全自动化项目报卡",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9e27677cacc340d44bdd5a1dd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 提取（AI 工具爆款方向脑暴图）\n\n**主标题**：抓住高价值用户的痛点，打造下一款爆款 AI 工具\n**副标题**：三大蓝海赛道 MVP 建议，精准狙击高频需求，快速验证市场\n\n---\n\n## 🌊 蓝海赛道 1 ｜ AI 音乐人工作室 OS\n- **目标用户**：「AI 音乐群」高频互助用户\n- **目标画像 Rank**：15~40\n- **示例用户**：jacqueline（Rank 7）、施冰（Rank 4）、黄冬冬（Rank 22）\n- **深挖痛点**：他们不仅在玩 Suno，更在头疼如何把 **AI 生成的音乐批量化、商业化**（如封面自动生成、歌词适配、多平台一键发布）\n- **MVP 建议**：「AI 音乐人工作室 OS」——一键 Prompt 生成「词+曲+封面+营销文案」的完整发布包\n- **公式**：歌词/作曲（AI 生成）+ 编曲/演唱（AI 生成）+ 封面设计（AI 生成）+ 营销文案（AI 生成）= 完整发布包（一键打包）\n- **工作台预览**：含 我的作品、音乐生成、歌曲设计、营销文案、贝壳管理、薪酬中心\n- **支持平台**：网易云音乐、QQ 音乐、酷狗音乐、Spotify、YouTube、抖音（被遮挡）、更多平台\n- **激发句子**：针对这群高频互助的用户，报赚 \"如何通过 AI 自动化拿齐 1000 个收藏认证\" 🏆\n\n---\n\n## 🌊 蓝海赛道 2 ｜ AI 编剧长效记忆卡\n- **目标用户**：「网文作家群」\n- **目标画像 Rank**：20~60\n- **示例用户**：士道（Rank 1）、网文2（Rank 35）、网文大神（Rank 52）\n- **深挖痛点**：普通对话会\"断片\"，他们极度需要 **\"超长文本角色记忆库\"**，反复提到\"人设崩了\"、\"剧情逻辑对不上\"\n- **MVP 建议**：「AI 编剧长效记忆卡」——一个挂载在 Agent 侧的\"人设/大纲\"强制索引插件，确保 100 万字网文前后逻辑严丝合缝\n- **数据流程**：人设（人物设定、世界观、大纲剧情、伏笔线索、时间线）→ 长效记忆卡（强制记忆 + 实时检索 + 逻辑校验）→ AI 写作（不断片、人设一致、剧情连贯、逻辑严密）\n- **记忆卡工作台**字段：角色名、身份、性格、背景故事、关键关系、剧情故事、伏笔线索、悬念、转折关系、关系图标等\n- **激发句子**：在群里发起 \"谁有 50 万字以上不断片的 AI 写作流分享\" 📖\n\n---\n\n## 🌊 蓝海赛道 3 ｜ Prompt-to-Card 极简转换器\n- **目标用户**：「企业/效率群」\n- **目标画像 Rank**：30~80\n- **示例用户**：丁立（Rank 11）、徐程（Rank 31）、项目\n...[truncated]",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T15:31:17.626Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这张图很不错",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9e3c67e0a0c331ac821c7ac9d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T15:33:03.298Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "user",
+        "modality": "text",
+        "content": "这种风格的图是叫什么图啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9e3b7ad8a8b1f99c307d0e6e4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "rawUserId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "rawUnionId": "on_7baea49dda3642850f13dcf3f6fd1d21",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T15:33:51.508Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这种是 AI 生成的\"脑暴/赛道分析\"信息图，看起来像用 GPT 配 diagr.am 或类似工具做的，特点是图文混排、分模块、用 emoji 分隔，风格有点像小红书爆款图。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba"
+        },
+        "createdAt": "2026-06-23T15:33:59.457Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "厉害",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9e397c44a0c3d4d4252c2d37a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T15:34:52.940Z"
       }
     ],
     "memories": [
@@ -39212,7 +39320,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-23T11:30:49.077Z"
+        "updatedAt": "2026-06-23T15:31:17.564Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39222,7 +39330,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-23T11:30:48.980Z"
+        "updatedAt": "2026-06-23T15:31:17.387Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39612,7 +39720,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-22T04:17:20.319Z"
+        "updatedAt": "2026-06-23T15:34:52.882Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39622,7 +39730,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-22T04:17:20.099Z"
+        "updatedAt": "2026-06-23T15:34:52.823Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39672,7 +39780,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-23T02:03:15.669Z"
+        "updatedAt": "2026-06-23T15:33:03.229Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39682,7 +39790,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-23T02:03:15.602Z"
+        "updatedAt": "2026-06-23T15:33:03.157Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39942,7 +40050,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:08:33.602Z",
-        "updatedAt": "2026-06-17T15:13:18.799Z"
+        "updatedAt": "2026-06-23T15:33:51.436Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -39952,7 +40060,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:08:33.383Z",
-        "updatedAt": "2026-06-17T15:13:18.577Z"
+        "updatedAt": "2026-06-23T15:33:51.362Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
