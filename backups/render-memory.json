@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T18:15:33.880Z",
+  "exportedAt": "2026-06-23T18:25:34.321Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38114,6 +38114,306 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T18:14:36.841Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你咋还不睡觉？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c989aca5ca8c3cbe594cc8922e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:15:32.444Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 上下文\n\n## 顶部状态栏\n- 左侧信号图标\n- 右侧电池显示：**77%**\n\n## Buddy 加油站 卡片\n- 标题：**Buddy 加油站**\n- 进度：2期 5/30结束\n- 主题：**本期：资料库 乐享知识库**\n- 规则说明：\n  - 每日可领 **150 通用积分**\n  - 本期已领 20 天\n  - 累计 **3000 通用积分**\n- 操作按钮：\n  - 黑色按钮：**立即领取**\n  - 白色按钮：**体验乐享 →**\n\n## 功能列表（菜单项）\n1. 积分余额：**7,866.32**\n2. 成长计划：领取Buddy赚积分 →\n3. 设置\n4. 处观（部分被截断，推测为\"外观\"或\"外观设置\"）\n\n## 底部 Tab 栏\n- 浅色 / 深色（主题切换选项，浅色为高亮选中状态）\n\n---\n\n**备注：**\n- 底部\"处观\"字样被截断，可能是\"外观\"或\"外观设置\"；\n- 顶部最上方\"体验版\"字样部分被裁切，不完整；\n- 整体为 Feishu（飞书）App 内的\"我的/个人中心\"页面。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c989b2bc8a4c1e4d2d1ce8a64f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 上下文\n\n## 顶部状态栏\n- 左侧信号图标\n- 右侧电池显示：**77%**\n\n## Buddy 加油站 卡片\n- 标题：**Buddy 加油站**\n- 进度：2期 5/30结束\n- 主题：**本期：资料库 乐享知识库**\n- 规则说明：\n  - 每日可领 **150 通用积分**\n  - 本期已领 20 天\n  - 累计 **3000 通用积分**\n- 操作按钮：\n  - 黑色按钮：**立即领取**\n  - 白色按钮：**体验乐享 →**\n\n## 功能列表（菜单项）\n1. 积分余额：**7,866.32**\n2. 成长计划：领取Buddy赚积分 →\n3. 设置\n4. 处观（部分被截断，推测为\"外观\"或\"外观设置\"）\n\n## 底部 Tab 栏\n- 浅色 / 深色（主题切换选项，浅色为高亮选中状态）\n\n---\n\n**备注：**\n- 底部\"处观\"字样被截断，可能是\"外观\"或\"外观设置\"；\n- 顶部最上方\"体验版\"字样部分被裁切，不完整；\n- 整体为 Feishu（飞书）App 内的\"我的/个人中心\"页面。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:13.436Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这是 Buddy 加油站的截图——资料库·乐享知识库的活动，每日可领150通用积分，领20天、累计3000通用积分，还有7866余额看着挺香哈哈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-23T18:16:19.632Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "每天都可以里领取",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9898f7c0a4c32ac1984c9f822",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:40.760Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "我在写漫据提示词 字典 我要交付",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9899ccaca4c4a4dce26be438b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:42.802Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "才能成为0",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9899f5aca0c28f7d5889556a2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:44.983Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "才 150，恩，我知道",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c989977e8a0c3d4b819377c2c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:47.223Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "我的意思是，我爱马仕上面能用那个模型，但是在那个上面配的咋他怎就不能用了呢？\n\n我觉得还是哪里设置没设置对",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9897c77ca4c22851380d16e21",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:16:52.515Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "确实有点像配错了或者上下文窗口被压得太短了，token超了或者上下文长度设小了M3都会哑火，你看看是不是Workbuddy那边的上下文条数或者max tokens调小了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-23T18:16:56.982Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "对，怎么解决呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c989254b4a0c10065d8a292721",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:17:49.745Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "先把Workbuddy那边模型的上下文窗口拉大点试试，比如8k到32k，max tokens也调高看看还报不报错",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-23T18:17:53.627Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么解决呀",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9893f054a0c1838348efa629b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:18:10.839Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "先看看Workbuddy那边模型的上下文窗口和max tokens是不是太小了，建议把上下文拉到8k-32k，max tokens也调高试试",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-23T18:18:13.224Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么设置给我指令",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c98afe0e0a4c2b9d2250354899",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:19:03.218Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "打开 WorkBuddy 的控制台，找到你绑的那个模型配置项，把上下文窗口（max context）调到 8k~32k，max tokens 也调高一点，先保存再测试看看还报不报错",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-23T18:19:05.968Z"
       }
     ],
     "memories": [
@@ -40915,7 +41215,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-23T18:14:05.942Z"
+        "updatedAt": "2026-06-23T18:16:42.743Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -40925,7 +41225,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-23T18:14:05.798Z"
+        "updatedAt": "2026-06-23T18:16:42.683Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41025,7 +41325,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-23T18:14:36.782Z"
+        "updatedAt": "2026-06-23T18:19:03.151Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41045,7 +41345,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-23T18:14:36.723Z"
+        "updatedAt": "2026-06-23T18:19:03.085Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41056,6 +41356,16 @@
         "metadata": {},
         "createdAt": "2026-06-22T08:50:21.669Z",
         "updatedAt": "2026-06-22T08:50:21.669Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_context_suspicion",
+        "value": "用户怀疑workbuddy失效是上下文窗口太小导致，机器人建议把上下文拉到8k~32k并调高max tokens试试",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:18:10.482Z",
+        "updatedAt": "2026-06-23T18:18:10.482Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41086,6 +41396,36 @@
         "metadata": {},
         "createdAt": "2026-06-22T11:00:31.939Z",
         "updatedAt": "2026-06-22T11:00:31.939Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_suspected_cause",
+        "value": "用户和机器人初步推测workbuddy失效原因可能是上下文窗口/条数或max tokens设置过小导致模型哑火",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:17:17.491Z",
+        "updatedAt": "2026-06-23T18:17:17.491Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_troubleshooting_action",
+        "value": "用户询问如何给WorkBuddy设置指令，机器人建议在控制台调高max context (8k~32k) 和max tokens后保存测试",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:19:29.623Z",
+        "updatedAt": "2026-06-23T18:19:29.623Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_troubleshooting_suspicion",
+        "value": "用户怀疑workbuddy机器人在飞书上配的模型不能用的原因是设置/配置问题，而非模型本身不支持（因为他能在爱马仕平台上使用同一模型）",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:17:17.420Z",
+        "updatedAt": "2026-06-23T18:17:17.420Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
