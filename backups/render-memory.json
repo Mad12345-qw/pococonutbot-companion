@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T03:05:33.384Z",
+  "exportedAt": "2026-06-23T03:15:33.947Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33726,6 +33726,86 @@
           "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
         },
         "createdAt": "2026-06-23T03:03:38.886Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "看下生成图片的提示词\n[Link content]\n[Referenced Feishu message]\nimg_v3_0212u_c017d0d2-2343-4980-951a-d5fe46ed103g\n\n[Referenced Feishu message]\n生图质量还行 当前只能1k",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cabcd9ea098b363d2d7f4254be",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "[Referenced Feishu message]\nimg_v3_0212u_c017d0d2-2343-4980-951a-d5fe46ed103g\n\n[Referenced Feishu message]\n生图质量还行 当前只能1k",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:06:37.672Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成图片的提示词",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-23T03:07:44.755Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看。\nhttps://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看\nhttps://cloud.siliconflow.cn/i/EEw6Zmx9",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看",
+            "https://cloud.siliconflow.cn/i/EEw6Zmx9"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cabc7459080b1b3c74e00306fb",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-23T03:08:15.161Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "role": "user",
+        "modality": "text",
+        "content": "https://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看。\n[Link content]\n[Web page] https://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看\n硅基流动统一登录 \n CN\n \n\n \n 硅基流动\n 加速 AGI 普惠人类\n 基于优秀的开源模型，提供高性价比的 GenAI 云服务\n 文本对话 · 图像生成 · 视频生成 · 语音合成\n\n 硅基流动「推荐官」计划开启 \n 邀请好友赢全平台通用代金券\n 全模型随心用！立即邀请，奖励无限叠加！\n\n \n\n 欢迎登录 SiliconFlow\n +86 \n \n \n\n 0秒后重发 \n\n \n\n 我同意 平台使用协议 和 隐私政策 \n \n\n 注册 / 登录 \n\n 30天内保持登录 \n\n 微信登录 邮箱登录\n\n[Web page] https://cloud.siliconflow.cn/i/EEw6Zmx9\n硅基流动统一登录 \n CN\n \n\n \n 硅基流动\n 加速 AGI 普惠人类\n 基于优秀的开源模型，提供高性价比的 GenAI 云服务\n 文本对话 · 图像生成 · 视频生成 · 语音合成\n\n 硅基流动「推荐官」计划开启 \n 邀请好友赢全平台通用代金券\n 全模型随心用！立即邀请，奖励无限叠加！\n\n \n\n 欢迎登录 SiliconFlow\n +86 \n \n \n\n 0秒后重发 \n\n \n\n 我同意 平台使用协议 和 隐私政策 \n \n\n 注册 / 登录 \n\n 30天内保持登录 \n\n 微信登录 邮箱登录",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cabc7459080b1b3c74e00306fb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUserId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUnionId": "on_1e94741354ea999bf3143443a44cb167",
+          "linkContext": "[Web page] https://cloud.siliconflow.cn/i/EEw6Zmx9，硅基流动白嫖多模态模型，有需要的同学可以去看看\n硅基流动统一登录 \n CN\n \n\n \n 硅基流动\n 加速 AGI 普惠人类\n 基于优秀的开源模型，提供高性价比的 GenAI 云服务\n 文本对话 · 图像生成 · 视频生成 · 语音合成\n\n 硅基流动「推荐官」计划开启 \n 邀请好友赢全平台通用代金券\n 全模型随心用！立即邀请，奖励无限叠加！\n\n \n\n 欢迎登录 SiliconFlow\n +86 \n \n \n\n 0秒后重发 \n\n \n\n 我同意 平台使用协议 和 隐私政策 \n \n\n 注册 / 登录 \n\n 30天内保持登录 \n\n 微信登录 邮箱登录\n\n[Web page] https://cloud.siliconflow.cn/i/EEw6Zmx9\n硅基流动统一登录 \n CN\n \n\n \n 硅基流动\n 加速 AGI 普惠人类\n 基于优秀的开源模型，提供高性价比的 GenAI 云服务\n 文本对话 · 图像生成 · 视频生成 · 语音合成\n\n 硅基流动「推荐官」计划开启 \n 邀请好友赢全平台通用代金券\n 全模型随心用！立即邀请，奖励无限叠加！\n\n \n\n 欢迎登录 SiliconFlow\n +86 \n \n \n\n 0秒后重发 \n\n \n\n 我同意 平台使用协议 和 隐私政策 \n \n\n 注册 / 登录 \n\n 30天内保持登录 \n\n 微信登录 邮箱登录",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:08:21.965Z"
       }
     ],
     "memories": [
@@ -36127,7 +36207,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-23T03:02:51.631Z"
+        "updatedAt": "2026-06-23T03:06:37.601Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36137,7 +36217,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-23T03:02:51.539Z"
+        "updatedAt": "2026-06-23T03:06:37.529Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36607,7 +36687,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.792Z",
-        "updatedAt": "2026-06-17T12:51:51.792Z"
+        "updatedAt": "2026-06-23T03:08:21.865Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36617,7 +36697,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.421Z",
-        "updatedAt": "2026-06-17T12:51:51.421Z"
+        "updatedAt": "2026-06-23T03:08:21.768Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
