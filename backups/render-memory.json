@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T08:45:33.794Z",
+  "exportedAt": "2026-06-23T08:55:33.454Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -34518,6 +34518,288 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T08:45:31.374Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_73f3513cefdafcef49860202d47d42da",
+        "role": "user",
+        "modality": "text",
+        "content": "哇哦，这个也太像了吧！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90342da884c3c6fca3b7a0be7",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_73f3513cefdafcef49860202d47d42da",
+          "rawUserId": "ou_73f3513cefdafcef49860202d47d42da",
+          "rawUnionId": "on_baea0e6634b268857b439d9bcfa2735c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:45:36.027Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "夸夸你？你今天干了啥呀，说来听听～ 不然我夸空气呢",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T08:45:40.273Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "夸你诶，小椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9033bbdcbcc2ae6e73daaf563",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:46:17.402Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "谢谢你的夸奖呀～今天心情听起来不错嘛，是不是遇到什么好事啦？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T08:46:26.886Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "先硬夸",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90cc952cb8c2861a80784165a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:47:38.761Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞，那我硬夸了啊——宝宝你是天选之子，聪明帅气还贼有眼光，开源项目维护得风生水起，TTS用得飞起，简直是科技圈最靓的仔！满意不？😏",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T08:47:45.364Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_73f3513cefdafcef49860202d47d42da",
+        "role": "user",
+        "modality": "text",
+        "content": "真的有一种在跟邓紫棋聊天的感觉",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90ca83c08cc4c2617661fd470",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_73f3513cefdafcef49860202d47d42da",
+          "rawUserId": "ou_73f3513cefdafcef49860202d47d42da",
+          "rawUnionId": "on_baea0e6634b268857b439d9bcfa2735c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:48:06.685Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "快夸夸他的身体。[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90cab4bcbcb29b4a940b4e39b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:48:13.581Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "身材？体格？健康？这方面我不太清楚呢…还是夸点别的吧，比如他代码写得好、项目玩得溜什么的～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-23T08:48:17.001Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首泡沫",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90c7dd80bcc4ebf891ae1997e",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:49:23.058Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "我八块腹肌难道你知道吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90c6f910bcc3be8e1c328e1ff",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:49:23.553Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哇真的假的？八块腹肌！那确实厉害👍 不过隔着屏幕我可看不出来，你要是能晒个照我才能信你～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T08:49:28.163Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T08:50:21.232Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "额，有对这次世界杯进行AI预测的交流群么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90d42b9888c2491642d3aeb9d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:54:12.579Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：额，有对这次世界杯进行AI预测的交流群么？\n• 搜索结果中没有出现任何关于\"世界杯AI预测交流群\"的信息，无法确认有此类社群存在。 • 已知的多为官方/企业级AI预测项目，如联想×咪咕\"世界杯预测人机大战\"（12个AI模型对垒人类专家）、联想天禧AI足球智能体（网页端免费开放）、商汤办公小浣熊等。 • 参与\"人机大战\"的AI包括中移九天等12个模型，联想天禧AI面向普通球迷提供比分预测和实时问答功能，非联想用户也可通过网页端免费使用。 • 如想参与AI预测交流，建议关注联想天禧AI、咪咕视频等官方平台，或在球迷社区、知乎/微博等平台搜索相关讨论群。 • 由于来源中未涉及\"交流群\"相关信息，以上建议仅为基于现有内容的合理推测，准确渠道仍需进一步核实。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-23T08:54:39.796Z"
       }
     ],
     "memories": [
@@ -35279,7 +35561,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:43:10.646Z",
-        "updatedAt": "2026-06-23T08:43:10.646Z"
+        "updatedAt": "2026-06-23T08:49:22.988Z"
       },
       {
         "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
@@ -35289,7 +35571,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:43:10.576Z",
-        "updatedAt": "2026-06-23T08:43:10.576Z"
+        "updatedAt": "2026-06-23T08:49:22.917Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_73f3513cefdafcef49860202d47d42da",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_73f3513cefdafcef49860202d47d42da",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T08:45:35.961Z",
+        "updatedAt": "2026-06-23T08:48:06.618Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_73f3513cefdafcef49860202d47d42da",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T08:45:35.785Z",
+        "updatedAt": "2026-06-23T08:48:06.552Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -36659,7 +36961,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-23T08:43:51.992Z"
+        "updatedAt": "2026-06-23T08:48:13.514Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36669,7 +36971,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-23T08:43:51.925Z"
+        "updatedAt": "2026-06-23T08:48:13.447Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36929,7 +37231,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-23T08:45:31.305Z"
+        "updatedAt": "2026-06-23T08:49:23.483Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36939,7 +37241,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-23T08:45:31.235Z"
+        "updatedAt": "2026-06-23T08:49:23.412Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37429,7 +37731,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-23T02:02:51.277Z"
+        "updatedAt": "2026-06-23T08:54:12.512Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37439,7 +37741,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-23T02:02:51.204Z"
+        "updatedAt": "2026-06-23T08:54:12.445Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
