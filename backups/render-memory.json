@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T03:55:36.256Z",
+  "exportedAt": "2026-06-23T04:15:33.737Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33926,6 +33926,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T03:47:37.051Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "role": "user",
+        "modality": "text",
+        "content": "#2026中国智造B2B品牌出海峰会 专家阵容重磅亮相🔥\nGoogle、LinkedIn、Yandex三大海外平台核心专家+标杆企业营销负责人齐聚杭州\n直面多平台投放、AI赋能营销、新兴市场开发、品牌本地化痛点\n\n✅拆解AI时代B2B品牌信任逻辑\n✅把握多渠道流量长效转化打法\n✅学习头部品牌全球化落地经验\n\n⏰7月1日 杭州绿谷景澜酒店\n👇席位稀缺，扫码锁定交流机会\n邀约人：Leo",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9433d62ca4b1f573d12ee24e2",
+          "rawChatId": "oc_b370d47fae4430fda8501e7676d0d3f0",
+          "rawOpenId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUserId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUnionId": "on_106d2446ebff32e889df4f42b386f0b8",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T04:13:08.979Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这是一个面向 B2B 企业的品牌出海行业峰会，主打海外投放和 AI 营销，主会场在杭州。\n\n核心要点\n• 时间地点：7月1日，杭州绿谷景澜酒店\n• 嘉宾：Google、LinkedIn、Yandex 三大平台专家 + 头部企业营销负责人\n• 议题：AI 时代的 B2B 信任逻辑、多渠道流量转化、海外本地化落地\n• 形式：扫码报名，名额有限\n\n亮点\n嘉宾含金量高，三大平台齐聚适合做海外投放的企业取经。\n\n适合谁\n正在做或准备做品牌出海、想了解多平台投放和 AI 营销的 B2B 负责人和操盘手。\n\n可以留意的点\n没有明确票价和议程细节，扫码前可以先确认下参会门槛和具体议程时间。\n\n一句话结论\n典型的 B2B 出海圈闭门交流局，对有海外业务的企业有参考价值，普通围观价值不高。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_942bbc2bd8b574832f624b71471005d5"
+        },
+        "createdAt": "2026-06-23T04:15:17.837Z"
       }
     ],
     "memories": [
@@ -35738,6 +35774,26 @@
         "metadata": {},
         "createdAt": "2026-06-18T09:20:31.307Z",
         "updatedAt": "2026-06-18T09:22:21.655Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T04:13:08.908Z",
+        "updatedAt": "2026-06-23T04:13:08.908Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T04:13:08.816Z",
+        "updatedAt": "2026-06-23T04:13:08.816Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
