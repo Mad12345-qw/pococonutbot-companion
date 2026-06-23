@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T04:25:34.216Z",
+  "exportedAt": "2026-06-23T07:55:33.411Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -34022,6 +34022,42 @@
           "replyToUserId": "feishu:ou_942bbc2bd8b574832f624b71471005d5"
         },
         "createdAt": "2026-06-23T04:19:01.138Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "看看这个是干嘛的？\n[Link content]\n[Referenced Feishu message]\n🔥 TRAE AI 创造力大赛火热进行中｜单作品最高 35 万现金\n报名通过即得价值 99 元 TRAE 中国版优速通会员！\nimg\nimg_v3_0212u_194b5285-601d-4db9-8163-b5090e65fa4g\ntext\n请升级至最新版本客户端，以查看内容",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c97f2359c94c19ca9d7c112d4f",
+          "rawChatId": "oc_4f5f294f132c713ba1f0b25639f6359a",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Referenced Feishu message]\n🔥 TRAE AI 创造力大赛火热进行中｜单作品最高 35 万现金\n报名通过即得价值 99 元 TRAE 中国版优速通会员！\nimg\nimg_v3_0212u_194b5285-601d-4db9-8163-b5090e65fa4g\ntext\n请升级至最新版本客户端，以查看内容",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T07:55:01.144Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "应该是飞书卡片之类的消息，目前看到的文字内容是「🔥 TRAE AI 创造力大赛火热进行中｜单作品最高 35 万现金 报名通过即得价值 99 元 TRAE 中国版优速通会员！」。\n\n后面那张图我这边读不到，显示的是「请升级至最新版本客户端，以查看内容」，可能是卡片或者加密图片，得你在客户端点开看。\n\n所以光凭现在的文字，能确认的就是：TRAE 办了个 AI 创造力大赛，单作品最高奖金 35 万，报名通过送一张价值 99 元的 TRAE 中国版优速通会员。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T07:55:21.515Z"
       }
     ],
     "memories": [
@@ -34984,6 +35020,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
         "updatedAt": "2026-06-08T06:08:21.898Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T07:55:01.074Z",
+        "updatedAt": "2026-06-23T07:55:01.074Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T07:55:00.969Z",
+        "updatedAt": "2026-06-23T07:55:00.969Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
