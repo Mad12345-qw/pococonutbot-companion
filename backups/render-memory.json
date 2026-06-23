@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-22T16:15:34.096Z",
+  "exportedAt": "2026-06-23T00:55:34.082Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33238,6 +33238,30 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-22T16:07:48.603Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "<p>漫剧赛道，别人都收钱割韭菜，我开源，还把自己扒光了让你们看清楚每个细节和流程</p>",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca9358210b8c296d10200a612d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T00:47:53.533Z"
       }
     ],
     "memories": [
@@ -35739,7 +35763,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-22T12:00:14.043Z"
+        "updatedAt": "2026-06-23T00:47:53.463Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35749,7 +35773,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-22T12:00:13.820Z"
+        "updatedAt": "2026-06-23T00:47:53.374Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
