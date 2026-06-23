@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T04:15:33.737Z",
+  "exportedAt": "2026-06-23T04:25:34.216Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33962,6 +33962,66 @@
           "replyToUserId": "feishu:ou_942bbc2bd8b574832f624b71471005d5"
         },
         "createdAt": "2026-06-23T04:15:17.837Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文 OCR 提取\n\n**活动名称**：智启新程·AI领航——2026中国智造B2B品牌出海峰会暨易海创腾中东海客中心开业仪式\n\n**时间**：2026年7月1日 下午13:30-17:30\n**地点**：杭州·绿谷景澜酒店2楼\n\n---\n\n## 组织机构（Organizational Structure）\n\n**指导单位**：杭州市商务局、上城区商务局、钱塘智慧城管委会\n\n**主办单位**：易海创腾\n\n**协办单位**：浙江省跨境电子商务协会、浙江省制造业企业品牌促进会、浙江省中小企业协会联合会、杭州市跨境电商协会、跨境百人会、宁波市跨境电子商务协会、无锡市电子商务协会、武汉市跨境电子商务协会、Google Ads、LinkedIn、Yandex、Google Cloud、杭州银行\n\n---\n\n## 活动亮点（Event Highlights）\n\n- **01 四星资源聚合，打造出海链路**：政企+商协会领导+出海标杆+优配服务商，强打通链路闭环，从目标市场切入海外私域流量，一站式解决资源信息问题。\n- **02 AI驱动×数字营销双引擎**：「最初于论坛」：紧抓\"AI技术如何转化为生产力\"、\"如何开展全球营销\"两大议题，从智能化到科技革命抢占营销战场，从智造到工具塑造增长解决方案，一次搞定。\n- **03 官方一手情报，预占2026先机**：官方解读中东&沙特等热门市场出海策略、区域市场入门服、商数据化决议，帮企业抢占全球市场B端掘金之人一步。\n\n---\n\n## 特邀嘉宾（Special Guest）\n\n- 张正龙 — 易海创腾创始人兼CEO\n- 刘步驰 — Google大中华区新客户业务部经理\n- 黄浩 — LinkedIn(领英)华东方案\n- 唐洁华 — Yandex大中华区渠道负责人\n- 孙亚菲 — 乌海集团营销总监\n- 郭锐锋 — Google Cloud中国企业业务部华东区负责人\n\n---\n\n## 活动流程（Event Programme）\n\n| 时间 | 环节 |\n|---|---|\n| 13:00-13:30 | 签到&办公宣参观 |\n| 13:30-13:35 | 峰会开场（主持人：@王薇） |\n| 13:35-13:40 | 领导致辞（嘉宾：易海创腾品牌升级） |\n| 13:40-14:20 | 立足以帆，链接全球——中国品牌全球化增长方法论（@王志成，易海创腾创始人兼CEO） |\n| 14:20-14:50 | 头部平台协同布局：从\"被链接\"到\"被信任\"——Google眼中的B2B品牌出海（@刘步驰，Google大中华区新客户业务部经理） |\n| 14:50-15:20 | AI时代，品牌如何被看见？——被用户爱上的是品牌力（@黄浩，LinkedIn领英大中华区业务总经理） |\n| 15:20-15:50 | 洞悉俄罗斯市场——B2B消费市场数据全景解析（@黄洁华，Yandex大中华区渠道负责人） |\n| 15:50-16:10 | 标杆企业经验分享：中国企业出海：全球化品牌塑造与本地化运营（@孙亚菲，乌海集团营销总监） |\n| 16:10-16:30 | AI技术应用：重构出海企业的AI创新底层（@郭锐锋，Google Cloud中国企业业务部华东区负责人） |\n| 16:30-17:00 | 圆桌对话：从工具到生态，B2B海外营销AI布局背后有哪些考量？ |\n| 17:00-17:30 | 自由交流 |\n\n**底部**：扫码报名（易海创腾二维码）\n\n---\n\n## 战略合作（部分可识别）\n\n- 绿谷云港 / YUGUO 禹果跨境 / 袋鼠易仓\n- 跨个冷 / Yiwugo / 蚂蚁云\n- E6Plus / 易芽科技 / 兴蓝\n- AVASK / 公众号（被遮挡/看不清）\n\n## 媒体合作（部分可识别）\n\n- ebay / 百润巡舱 / 大数跨境\n\n---\n\n**核心信息**：杭州7月1日下午B2B品牌出海峰会，含中东海客中心开业仪式，议",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9430dc74a0b13e12ec3843f02",
+          "rawChatId": "oc_b370d47fae4430fda8501e7676d0d3f0",
+          "rawOpenId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUserId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUnionId": "on_106d2446ebff32e889df4f42b386f0b8",
+          "linkContext": "",
+          "imageContext": "# 图片上下文 OCR 提取\n\n**活动名称**：智启新程·AI领航——2026中国智造B2B品牌出海峰会暨易海创腾中东海客中心开业仪式\n\n**时间**：2026年7月1日 下午13:30-17:30\n**地点**：杭州·绿谷景澜酒店2楼\n\n---\n\n## 组织机构（Organizational Structure）\n\n**指导单位**：杭州市商务局、上城区商务局、钱塘智慧城管委会\n\n**主办单位**：易海创腾\n\n**协办单位**：浙江省跨境电子商务协会、浙江省制造业企业品牌促进会、浙江省中小企业协会联合会、杭州市跨境电商协会、跨境百人会、宁波市跨境电子商务协会、无锡市电子商务协会、武汉市跨境电子商务协会、Google Ads、LinkedIn、Yandex、Google Cloud、杭州银行\n\n---\n\n## 活动亮点（Event Highlights）\n\n- **01 四星资源聚合，打造出海链路**：政企+商协会领导+出海标杆+优配服务商，强打通链路闭环，从目标市场切入海外私域流量，一站式解决资源信息问题。\n- **02 AI驱动×数字营销双引擎**：「最初于论坛」：紧抓\"AI技术如何转化为生产力\"、\"如何开展全球营销\"两大议题，从智能化到科技革命抢占营销战场，从智造到工具塑造增长解决方案，一次搞定。\n- **03 官方一手情报，预占2026先机**：官方解读中东&沙特等热门市场出海策略、区域市场入门服、商数据化决议，帮企业抢占全球市场B端掘金之人一步。\n\n---\n\n## 特邀嘉宾（Special Guest）\n\n- 张正龙 — 易海创腾创始人兼CEO\n- 刘步驰 — Google大中华区新客户业务部经理\n- 黄浩 — LinkedIn(领英)华东方案\n- 唐洁华 — Yandex大中华区渠道负责人\n- 孙亚菲 — 乌海集团营销总监\n- 郭锐锋 — Google Cloud中国企业业务部华东区负责人\n\n---\n\n## 活动流程（Event Programme）\n\n| 时间 | 环节 |\n|---|---|\n| 13:00-13:30 | 签到&办公宣参观 |\n| 13:30-13:35 | 峰会开场（主持人：@王薇） |\n| 13:35-13:40 | 领导致辞（嘉宾：易海创腾品牌升级） |\n| 13:40-14:20 | 立足以帆，链接全球——中国品牌全球化增长方法论（@王志成，易海创腾创始人兼CEO） |\n| 14:20-14:50 | 头部平台协同布局：从\"被链接\"到\"被信任\"——Google眼中的B2B品牌出海（@刘步驰，Google大中华区新客户业务部经理） |\n| 14:50-15:20 | AI时代，品牌如何被看见？——被用户爱上的是品牌力（@黄浩，LinkedIn领英大中华区业务总经理） |\n| 1\n...[truncated]",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T04:18:55.357Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "role": "user",
+        "modality": "text",
+        "content": "邓紫棋[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c94deb5c4b4b1f8f6bd23c8242",
+          "rawChatId": "oc_b370d47fae4430fda8501e7676d0d3f0",
+          "rawOpenId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUserId": "ou_942bbc2bd8b574832f624b71471005d5",
+          "rawUnionId": "on_106d2446ebff32e889df4f42b386f0b8",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T04:18:57.984Z"
+      },
+      {
+        "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
+        "userId": "feishu:ou_942bbc2bd8b574832f624b71471005d5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈哈 这图也太可爱了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_942bbc2bd8b574832f624b71471005d5"
+        },
+        "createdAt": "2026-06-23T04:19:01.138Z"
       }
     ],
     "memories": [
@@ -35783,7 +35843,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T04:13:08.908Z",
-        "updatedAt": "2026-06-23T04:13:08.908Z"
+        "updatedAt": "2026-06-23T04:18:57.916Z"
       },
       {
         "chatId": "feishu:oc_b370d47fae4430fda8501e7676d0d3f0",
@@ -35793,7 +35853,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T04:13:08.816Z",
-        "updatedAt": "2026-06-23T04:13:08.816Z"
+        "updatedAt": "2026-06-23T04:18:57.849Z"
       },
       {
         "chatId": "feishu:oc_b9609df75ad6e727ea72e93b720b9758",
