@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T09:05:33.328Z",
+  "exportedAt": "2026-06-23T09:15:34.539Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -35065,6 +35065,92 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T09:05:29.396Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "唯一",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T09:05:32.706Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱邓紫棋的唯一",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90887910b4c3f1c8f8f265bcd",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:05:49.401Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "邓紫棋的唯一",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T09:05:53.928Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "aicg怎么学习阿",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c909c02d88cc0516b21a35e05c",
+          "rawChatId": "oc_237f6efe044660e8bca2e5bacae26dd5",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:09:03.385Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n\nAIGC 学习可以分三步走：先玩起来，再学原理，最后做项目。\n\n核心要点\n\n1. 玩：先注册几个 AIGC 工具，试着玩一玩——聊天对话用 ChatGPT、文心、通义、豆包等；图像用 Midjourney、即梦、可灵；视频用可灵、即梦、Sora、Veo。\n\n2. 学原理：了解大模型是什么、Transformer、Diffusion 这些基础概念，看吴恩达的《Generative AI for Everyone》或李宏毅的机器学习课程。\n\n3. 做项目：用 AI 写周报、做 PPT、生成图片视频，或者用 Coze、Dify 搭一个自己的智能体。\n\n亮点\n\n不用等技术学完再开始，边玩边学最快。\n\n可以打磨的点\n\n很多人卡在\"一直在学工具\"却没输出，建议每周做一个小作品。\n\n一句话结论\n\nAIGC 是工具，边用边学比纯看书高效十倍。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T09:09:12.067Z"
       }
     ],
     "memories": [
@@ -35821,12 +35907,32 @@
       {
         "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "goals.learning",
+        "value": "学习AIGC相关技术（聊天、图像、视频生成等）",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:10:02.986Z",
+        "updatedAt": "2026-06-23T09:10:02.986Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interests.aigc_learning",
+        "value": "用户正在学习AIGC，希望了解学习方法",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:10:02.916Z",
+        "updatedAt": "2026-06-23T09:10:02.916Z"
+      },
+      {
+        "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:43:10.646Z",
-        "updatedAt": "2026-06-23T09:05:29.330Z"
+        "updatedAt": "2026-06-23T09:09:03.313Z"
       },
       {
         "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
@@ -35836,7 +35942,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:43:10.576Z",
-        "updatedAt": "2026-06-23T09:05:29.264Z"
+        "updatedAt": "2026-06-23T09:09:03.242Z"
       },
       {
         "chatId": "feishu:oc_237f6efe044660e8bca2e5bacae26dd5",
