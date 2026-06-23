@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T03:25:33.700Z",
+  "exportedAt": "2026-06-23T03:45:33.141Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33854,6 +33854,54 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T03:22:30.081Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "role": "user",
+        "modality": "text",
+        "content": "白嫖的，可以玩玩了，重活肯定还是没法搞。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c944c3bbc48b03fc4bd06bb7d7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUserId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUnionId": "on_1e94741354ea999bf3143443a44cb167",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:40:36.967Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "也是，白嫖，拿来跑自动化🌚",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9446868480c34f9ca05411f25",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:42:02.885Z"
       }
     ],
     "memories": [
@@ -36715,7 +36763,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.331Z",
-        "updatedAt": "2026-06-23T03:22:30.014Z"
+        "updatedAt": "2026-06-23T03:42:02.814Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36725,7 +36773,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.112Z",
-        "updatedAt": "2026-06-23T03:22:29.948Z"
+        "updatedAt": "2026-06-23T03:42:02.744Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36735,7 +36783,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.792Z",
-        "updatedAt": "2026-06-23T03:08:21.865Z"
+        "updatedAt": "2026-06-23T03:40:36.901Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36745,7 +36793,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.421Z",
-        "updatedAt": "2026-06-23T03:08:21.768Z"
+        "updatedAt": "2026-06-23T03:40:36.817Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
