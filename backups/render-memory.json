@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T02:05:33.665Z",
+  "exportedAt": "2026-06-23T02:15:33.973Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33642,6 +33642,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T02:04:51.377Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 502: {\"error\":{\"message\":\"Upstream service temporarily unavailable\",\"type\":\"upstream_error\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-06-23T02:09:39.603Z"
       }
     ],
     "memories": [
