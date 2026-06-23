@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T01:15:34.455Z",
+  "exportedAt": "2026-06-23T01:25:34.368Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33334,6 +33334,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T01:09:19.940Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "哪天得空了我也把TK中视频全流程整一套教程出来，全实操防踩坑[偷笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ca9abf60c80b2c28154e86ae93",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUnionId": "on_4b0a1c05bb144f579079aebc78e72266",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:16:09.385Z"
       }
     ],
     "memories": [
@@ -36255,7 +36279,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-22T05:13:28.453Z"
+        "updatedAt": "2026-06-23T01:16:09.312Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36265,7 +36289,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-22T05:13:28.186Z"
+        "updatedAt": "2026-06-23T01:16:09.223Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
