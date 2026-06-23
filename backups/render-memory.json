@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T08:25:33.461Z",
+  "exportedAt": "2026-06-23T08:35:33.826Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -34130,6 +34130,162 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T08:25:05.824Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "role": "user",
+        "modality": "text",
+        "content": "我去买豆包的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c907957a0a8c2baf1f3a4c8bf4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUserId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUnionId": "on_552e3ac46723702d95f7a34e89aae852",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:27:42.695Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "text",
+        "content": "你是openclaw吗？还是什么agent？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90796e948cb1f127ffdf897fe",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUserId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUnionId": "on_15ef00a416b885b55614b6f4fecd0cc3",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:27:45.979Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我不是 openclaw 哈，就是个普通 AI 助手，没有具体的名字叫这个。你是想问什么工具还是想找我帮忙做点啥？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b"
+        },
+        "createdAt": "2026-06-23T08:27:53.313Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "大部分是什么需求啊？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c907785d89cb2faffb13d8c433",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:28:10.067Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "text",
+        "content": "我是想知道你采用的什么架构导致你这么厉害",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c900f5f6880c25124d63b9da5b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUserId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUnionId": "on_15ef00a416b885b55614b6f4fecd0cc3",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:30:36.527Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈谢了，我就一普通 AI，没啥厉害架构。背后就是大模型 + 工具调用，能查资料、写代码、生成图片这些，靠的是训练数据和算法，不是我自己有多聪明～ 你想了解哪块？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b"
+        },
+        "createdAt": "2026-06-23T08:30:43.322Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "text",
+        "content": "声音是用的什么大模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c901cac7d7cc241dbe9c844737",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUserId": "ou_92c665fa9d27e30cfc9fc9d41783b50b",
+          "rawUnionId": "on_15ef00a416b885b55614b6f4fecd0cc3",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:34:52.653Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边没有语音功能哦，所以用不到声音模型～ 主要就是文本处理这块。你是想做语音相关的东西吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b"
+        },
+        "createdAt": "2026-06-23T08:34:58.907Z"
       }
     ],
     "memories": [
@@ -36121,7 +36277,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:18:41.880Z",
-        "updatedAt": "2026-06-23T08:20:10.848Z"
+        "updatedAt": "2026-06-23T08:27:42.628Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36131,7 +36287,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T08:18:41.774Z",
-        "updatedAt": "2026-06-23T08:20:10.781Z"
+        "updatedAt": "2026-06-23T08:27:42.561Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36881,7 +37037,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T05:19:25.079Z",
-        "updatedAt": "2026-06-18T05:20:07.785Z"
+        "updatedAt": "2026-06-23T08:34:52.586Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36891,7 +37047,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T05:19:24.739Z",
-        "updatedAt": "2026-06-18T05:20:07.562Z"
+        "updatedAt": "2026-06-23T08:34:52.521Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36901,7 +37057,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-06-23T08:25:05.752Z"
+        "updatedAt": "2026-06-23T08:28:09.998Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36911,7 +37067,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-06-23T08:25:05.575Z"
+        "updatedAt": "2026-06-23T08:28:09.923Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
