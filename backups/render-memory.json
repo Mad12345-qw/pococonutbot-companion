@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T09:15:34.539Z",
+  "exportedAt": "2026-06-23T09:25:33.369Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -35151,6 +35151,130 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-23T09:09:12.067Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "“背后人物” 真实还原 (Persona Reconstruction)\n\n 针对 Top 36 金牌 Lead，我正通过其历史发言还原其 “数字人格”：\n\n\n- 田楠 (Rank 1)：技术底座的布道者。语气沉稳，关注系统整体架构，是社群中公认的 “答疑库”。\n\n- 李渔樵 (Rank 2)：跨界连接者。活跃于几乎所有 AI 群，擅长把技术概念转化为应用场景，可能具有极强的商务扩展背景。\n\n- 陈龙 (Rank 3)：实战派文档专家。频繁分享长篇攻略，对飞书生态极其熟悉，是典型的 “效率狂人”。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90a409e088b4a9a79fc2eabc1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:15:41.807Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n\n你在做一份\"数字人格还原\"，把 Top 36 金牌 Lead 按发言风格提炼成可识别的角色标签。\n\n核心要点\n\n• 田楠：技术布道者，语气稳，定位是社群的\"答疑库\"\n• 李渔樵：跨界连接者，活跃各群，擅长把技术转成应用场景，疑似有商务背景\n• 陈龙：实战派文档专家，熟飞书生态，典型的\"效率狂人\"\n\n亮点\n\n三个人提炼出了三个完全不同的人格原型——技术、内容、商务，互不重叠，辨识度挺高。\n\n可以打磨的点\n\n• 可以给每个角色加一句\"识别信号\"，比如看到什么发言/行为就能判断是他\n• \"可能具有极强的商务扩展背景\"这种推测可以标出来区分事实和猜测\n• 田楠、陈龙偏内容输出型，李渔樵偏资源连接型，可以考虑在三人之外加一个\"资源/信息枢纽\"标签\n\n一句话结论\n\n人格标签已经立住了，下一步可以把\"如何识别\"也写进去，让别人一眼能对上号。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-23T09:15:56.630Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "恐怖如斯",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90a4330ca0b218cfca408aea5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:16:54.294Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "训练的邓紫棋的语音啊。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c91492b6cb8b03a8b46f526236",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:23:16.538Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一下泡沫",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c914660bcb4b4aa751d3871ec5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:23:28.737Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 泡沫 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "泡沫",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-23T09:24:24.887Z"
       }
     ],
     "memories": [
@@ -37422,7 +37546,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-22T10:16:09.535Z"
+        "updatedAt": "2026-06-23T09:16:54.227Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37432,7 +37556,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-22T10:16:09.304Z"
+        "updatedAt": "2026-06-23T09:16:54.160Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "work.community_role",
+        "value": "用户活跃于AI探索交流1群，关注社群Lead人物画像与角色分析，可能承担社群运营或研究类工作",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:16:53.953Z",
+        "updatedAt": "2026-06-23T09:16:53.953Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "work.lead_persona_analysis",
+        "value": "用户正在对 Top 36 金牌 Lead 做'数字人格还原'分析，已完成田楠(技术布道者/答疑库)、李渔樵(跨界连接者/商务背景)、陈龙(实战派文档专家/效率狂人)三人标签提炼",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:16:53.881Z",
+        "updatedAt": "2026-06-23T09:16:53.881Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38183,6 +38327,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.112Z",
         "updatedAt": "2026-06-23T03:42:02.744Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:23:16.468Z",
+        "updatedAt": "2026-06-23T09:23:28.666Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:23:16.374Z",
+        "updatedAt": "2026-06-23T09:23:28.596Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
