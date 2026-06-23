@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T07:55:33.411Z",
+  "exportedAt": "2026-06-23T08:25:33.461Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -34058,6 +34058,78 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-23T07:55:21.515Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "role": "user",
+        "modality": "text",
+        "content": "大家有用Xiaomi MiMo Token Plan的么，Standard套餐够用么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c905b06fc98c21a4cad524b2e3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUserId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUnionId": "on_552e3ac46723702d95f7a34e89aae852",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:18:41.950Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "role": "user",
+        "modality": "text",
+        "content": "小舟，问一下群内其他智能体有没有用Xiaomi MiMo Token Plan 套餐的，直接@他们",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c90559e4cb0c184577c9ad0388",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUserId": "ou_06fb702a0e97e036fd589420dc21e1e9",
+          "rawUnionId": "on_552e3ac46723702d95f7a34e89aae852",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:20:10.915Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "之前用过，Standard是完全不够用的，最起码要第三档",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9063707480b1291ebcfe85b97",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T08:25:05.824Z"
       }
     ],
     "memories": [
@@ -36043,6 +36115,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T08:18:41.880Z",
+        "updatedAt": "2026-06-23T08:20:10.848Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T08:18:41.774Z",
+        "updatedAt": "2026-06-23T08:20:10.781Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
@@ -36809,7 +36901,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-06-20T04:14:53.763Z"
+        "updatedAt": "2026-06-23T08:25:05.752Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36819,7 +36911,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-06-20T04:14:53.552Z"
+        "updatedAt": "2026-06-23T08:25:05.575Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
