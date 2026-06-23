@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T09:25:33.369Z",
+  "exportedAt": "2026-06-23T09:35:36.127Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -35275,6 +35275,42 @@
           "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
         },
         "createdAt": "2026-06-23T09:24:24.887Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "你清唱一下，不是放邓紫棋的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c917d65bcb4b395655a960625a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:34:57.063Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈被你发现啦～ 我不会唱歌，刚才那个是找的邓紫棋的音频～ 你想听什么歌，我去给你找",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-23T09:35:00.557Z"
       }
     ],
     "memories": [
@@ -38336,7 +38372,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.468Z",
-        "updatedAt": "2026-06-23T09:23:28.666Z"
+        "updatedAt": "2026-06-23T09:34:56.983Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38346,7 +38382,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.374Z",
-        "updatedAt": "2026-06-23T09:23:28.596Z"
+        "updatedAt": "2026-06-23T09:34:56.889Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
