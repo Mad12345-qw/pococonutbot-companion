@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T13:45:33.948Z",
+  "exportedAt": "2026-06-23T14:15:33.463Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36744,6 +36744,85 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-23T13:42:27.647Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_f13895811fc3f94881df6737910af9fc",
+        "role": "user",
+        "modality": "text",
+        "content": "大为震撼 这么自然",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9d6101f8a4c34c7fca5f42a96",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_f13895811fc3f94881df6737910af9fc",
+          "rawUserId": "ou_f13895811fc3f94881df6737910af9fc",
+          "rawUnionId": "on_5e1f20ac7f5434ccba5150d632deefee",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T14:06:55.534Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_f13895811fc3f94881df6737910af9fc",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈是吗～我唱歌就这样，AI嘛别要求太高😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_f13895811fc3f94881df6737910af9fc"
+        },
+        "createdAt": "2026-06-23T14:06:58.269Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 27号过期了， 给兄die们蹬一下 蹬不完了          tp-cxkd4yaybg9ro5zi6f2vlk4umhoz9fm6qpkizlbz2th9i0e6                                                                                                         https://token-plan-cn.xiaomimimo.com/v1\nhttps://token-plan-cn.xiaomimimo.com/v1",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://token-plan-cn.xiaomimimo.com/v1"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c9d020d98b4c217d5c80c4a2ae",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-23T14:14:41.374Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "text",
+        "content": "27号过期了， 给兄die们蹬一下 蹬不完了          tp-cxkd4yaybg9ro5zi6f2vlk4umhoz9fm6qpkizlbz2th9i0e6                                                                                                         https://token-plan-cn.xiaomimimo.com/v1",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9d020d98b4c217d5c80c4a2ae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUserId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUnionId": "on_7aaaa0862ad9e97659d5d9d177be5e79",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T14:14:42.916Z"
       }
     ],
     "memories": [
@@ -37706,6 +37785,26 @@
         "metadata": {},
         "createdAt": "2026-06-18T09:29:08.030Z",
         "updatedAt": "2026-06-18T09:47:03.060Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_f13895811fc3f94881df6737910af9fc",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_f13895811fc3f94881df6737910af9fc",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T14:06:55.470Z",
+        "updatedAt": "2026-06-23T14:06:55.470Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_f13895811fc3f94881df6737910af9fc",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T14:06:55.386Z",
+        "updatedAt": "2026-06-23T14:06:55.386Z"
       },
       {
         "chatId": "feishu:oc_3451a46e6c3b39e1489cde39c3139fa1",
@@ -39995,7 +40094,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.793Z",
-        "updatedAt": "2026-06-19T02:15:23.692Z"
+        "updatedAt": "2026-06-23T14:14:42.848Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -40005,7 +40104,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.563Z",
-        "updatedAt": "2026-06-19T02:15:23.464Z"
+        "updatedAt": "2026-06-23T14:14:42.752Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
