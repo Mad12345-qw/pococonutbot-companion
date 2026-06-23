@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T01:25:34.368Z",
+  "exportedAt": "2026-06-23T01:55:33.241Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33358,6 +33358,138 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T01:16:09.385Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "user",
+        "modality": "text",
+        "content": "新手研究 标准版够用吗  锋哥",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6caa2a590d10c1973a1c1854517",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUserId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUnionId": "on_5c611fe397e045283a6d7f027b4bc5ce",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:50:07.134Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "先别氪金，先研究清楚再决定要不要玩 然后再氪金",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6caa27f0c0a0c34f197c339e45a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:51:32.127Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "我真的恳求你们  别上来就氪金，用一次就丢哪里了，  一定先把逻辑琢磨明白   譬如先从生图开始呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6caa25581cbcc3b28225c471fb0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:51:59.171Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "图搞定再搞视频",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6caa22e15898c44d5e30878d79c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:52:07.637Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 429: {\"error\":{\"message\":\"Upstream rate limit exceeded, please retry later\",\"type\":\"rate_limit_error\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-23T01:52:17.284Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "我特么是真怕你们乱花钱 心操稀碎",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6caa23e00c94c2337e9d56cd94c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T01:52:23.376Z"
       }
     ],
     "memories": [
@@ -35859,7 +35991,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-23T01:09:19.869Z"
+        "updatedAt": "2026-06-23T01:52:23.306Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35869,7 +36001,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-23T01:09:19.799Z"
+        "updatedAt": "2026-06-23T01:52:23.236Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35879,7 +36011,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:19:05.982Z",
-        "updatedAt": "2026-06-23T01:06:31.726Z"
+        "updatedAt": "2026-06-23T01:50:07.069Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -35889,7 +36021,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:19:05.756Z",
-        "updatedAt": "2026-06-23T01:06:31.658Z"
+        "updatedAt": "2026-06-23T01:50:06.987Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
