@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T18:25:34.321Z",
+  "exportedAt": "2026-06-23T18:45:34.323Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38414,6 +38414,42 @@
           "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
         },
         "createdAt": "2026-06-23T18:19:05.968Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "现在输出都64K，输入256K",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c996b5524a8b1bdce0fa8d2d53",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T18:37:17.857Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "上下文应该够用，那可能是max tokens给太小了，64K输出足够的话试试把max tokens单独调高一点",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-23T18:37:23.756Z"
       }
     ],
     "memories": [
@@ -41325,7 +41361,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-23T18:19:03.151Z"
+        "updatedAt": "2026-06-23T18:37:17.800Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41345,7 +41381,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-23T18:19:03.085Z"
+        "updatedAt": "2026-06-23T18:37:17.725Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41356,6 +41392,16 @@
         "metadata": {},
         "createdAt": "2026-06-22T08:50:21.669Z",
         "updatedAt": "2026-06-22T08:50:21.669Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_context_settings",
+        "value": "WorkBuddy当前上下文配置：输入256K，输出64K",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:37:40.794Z",
+        "updatedAt": "2026-06-23T18:37:40.794Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41386,6 +41432,16 @@
         "metadata": {},
         "createdAt": "2026-06-22T11:00:32.164Z",
         "updatedAt": "2026-06-22T11:00:32.164Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_next_step",
+        "value": "上下文已足够大，排查方向转向max tokens设置是否过小",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T18:37:40.856Z",
+        "updatedAt": "2026-06-23T18:37:40.856Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
