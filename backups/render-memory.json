@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T12:45:34.479Z",
+  "exportedAt": "2026-06-23T12:55:33.250Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36268,6 +36268,170 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T12:37:42.628Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "耶",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-23T12:51:58.998Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈，开心就好～ \n这次没让你白等，抱抱 Zhou。  \n下次想要别的氛围，我直接给你上，不嘴硬。",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-06-23T12:52:04.415Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "能给我生图吗",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-06-23T12:52:45.675Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\nhttps://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\nfeishu-wiki:NrjJwu89diliBwkh7NjcpDYynvf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c9c52a33cb0b2452a9d186d4b4",
+          "wikiTokens": [
+            "NrjJwu89diliBwkh7NjcpDYynvf"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-23T12:53:31.754Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n[Link content]\n[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jpg\n\n1632f5dee4b778e0fc6faab4b01aa00f.jpg\n\ne1c7089a7cad636c30d0f7af67c9f23a.jpg\n\n175ffd3293039d3eddb8f79f0bc9a905.jpg\n\nbc7cfc68231bf2d31da4ba7e27222272.jpg\n\n1bc0d92308c2724c270e5adaba50481f.jpg\n\n79b256c430ffbf1dcbfb5fa18db15dd7.jpg\n\n7fac70f1ea314948424aff8eaee1fc26.jpg\n\n411d8fe0119b7be1752e6c204c0751c6.jpg\n\nc82881b24dc346e225520a3c3d7d2caf.jpg\n\n90e196d48a81b83c22e947262f6458d6.jpg\n\n0f2994051597940ffb8babd53f64fe22.jpg\n\na0beb28d4e55cf7c382e980bcc80bb8e.jpg\n\nf00b5fa2969abc2eccb8c4f1ca001960.jpg\n\nfbc85c2f3b7b540890796b938fd8714a.png\n\n961b32e35c428c6c4fd6d7137a2115e0.jpg\n\n1d80c79474579d9a8cdf9c7e1123ca66.jpg\n\n681832bd254e1135139007e1642ad1e3.jpg\n\ne6a395aa26a20e609e42eb540afa1ada.jpg\n\nf6e5fdea391bd5a8d202fe1e2985584b.jpg\n\n38dd921e8742b61bc84067a7d8ab19af.jpg\n\n1a0a9392fceb44a38ffa983259ff733f.jpg\n\n7fa6b8b62ef8208d7d52df065f7dbbb6.jpg\n\n1149ff993f8afbbc5fe9f001baceed62.jpg\n\n6 款 AI 视频工具：能力拆解 + GitHub 仓库 / Agent 技能资源汇总\n01 Grok（xAI 马斯克旗下）\n注核心能力\n最长生成 30 秒视频；支持 50 条批量出片；可直接上传真人素材；单条成本仅 0.4 元，主打高性价比\n开源 & 技能仓库\n官方基础大模型仓库（Grok-1 基座）https://github.com/xai-org/grok-1\n\n只开放早期文本基座权重，视频生成模块官方并未开源\n智能体一键调用视频工作流（适配 Claude/Cursor Agent）https://github.com/Rion-Wu-tech/grok-video-workflow\n\n封装了 Grok 视频 API 调用逻辑，可直接作为智能体 Skill 使用\n官方视频 API：仅提供线上接口，无法本地私有化部署\n02 Sora2（OpenAI）\n核心能力\n官宣原版 Sora9 底下架；Sora2 当前稳定可用；是否开源、延期均为未知\n开源 & 技能仓库\n⚠️ OpenAI 官方 Sora/Sora2 全程闭源，无官方 GitHub 仓库\n社区开源复现项目（Open-Sora，对标 Sora 架构）https://github.com/hpcaitech/Open-Sora 社区热度最高的开源平替，可本地部署，用来替代 Sora 做视频生成\n第三方 Agent 调用封装：无官方 Skill，只能自行封装 OpenAI API 接口调用 Sora2\n03 可灵 Kling（快手旗下）\n核心能力\n全能型工具；视频画质优秀；多人物角色互动自然；画面风格全程统一；不会出现 “降智画面崩坏”\n开源 & 技能仓库\n官方 Agent 专用 Kling Skill（直接给智能体调用）https://clawhub.ai/klingai-dev/klingai 完美适配 Claude Code、Cursor、Codex 等智能体，一键接入视频生成能力\n官方模型本体：闭源不公开完整权重；仅对外开放 REST API，支持程序化调用\n社区第三方调用 SDK：GitHub 可搜到各类 Python 封装项目，无官方主仓库\n04 PixVerse\n核心能力\n硬核物理引擎；打斗、法术特效、高速运动高燃场景渲染真实；定价为 Seedance 一半；1 分钟快速出片\n开源 & 技能仓库\n官方组织 GitHub 主页https://github.com/pixverse-ai 官方全量代码、模型参数开源，支持本地部署\n官方 CLI 命令行工具（Agent 直接调用） npm 全局安装：npm install -g pixverse-ai-cli 配套仓库：https://github.com/pixverse-ai/pixverse-ai-cli\nMCP 协议智能体专用 Skill（对接 Claude 系列）https://lobehub.com/plugins/pixverseai-pixverse-mcp 标准化技能包，无需自己写接口逻辑\n05 Vidu（生数科技 × 清华，国产小 Sora）\n核心能力\n圈内公认国产 Sora；视频画质拉满；动漫、漫剧生成为强项；价格为即梦一半\n开源 & 技能仓库\n官方模型本体：核心权重闭源，仅开放 API 商用调用\nComfyUI 可视化节点（本地工作流调用 Vidu 接口）https://github.com/1zhangyy1/comfyui-vidu-nodes\n第三方 CLI 调用工具：https://github.com/Saerdna/vidu-cli 可嵌入自动化脚本、智能体流程中执行生成任务\n06 万相 Wan（阿里通义万相）\n核心能力\n文案 / 图片 / 视频全链路一站式生成；人物互动自然；支持快速 / 高清双模式自由切换\n开源 & 技能仓库\n官方开源视频模型主仓库（Wan2.1 / Wan2.2）https://github.com/Wan-Video/Wan2.1https://github.com/Wan-Video/Wan2.2 阿里完全开源，权重 + 推理代码公开，可消费级显卡本地私有化部署\n官方组织主页：https://github.com/Wan-Video 包含全部图像、视频生成开源项目\n智能体使用：可基于官方开源代码自行封装 Skill，也可直接调用阿里魔搭官方 API\n选型建议（适配你智能体 / Agent 场景）\n优先拿来直接当 Skill 给 AI 智能体调用 可灵（官方现成 Skill） > PixVerse（官方 MCP 插件） > Grok（现成调用工作流）\n想要本地离线部署、不依赖云端付费 API 万相 Wan（阿里完整开源） > PixVerse（全开源） > Open-Sora（Sora 开源平替）\n主打动漫 / 二次元内容：优先 Vidu + 可灵\n打斗、高速动作视频：优先 PixVerse\n\nAI智能体踩坑经验交流区\n\n\n\n已满\n\n\n已满\n\n\n\n已满\n\n\n未满\n\n\n\n未满\n\n\n新群\n\n\n\n新群\n\n\n新群\n\n\n\n新群\n\n\n新群\n\nAI变现交流区\n\n\n\n行业垂直社群\n\n\n行业垂直社群\n\n\n\n\n\n\n技术极客社区-需要审核方可加入 了解详情与申请入口【T3-学习文档-组织升级】 Open Build\n\nimage.png\n\n\n\n\n[Feishu wiki] NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jpg\n\n1632f5dee4b778e0fc6faab4b01aa00f.jpg\n\ne1c7089a7cad636c30d0f7af67c9f23a.jpg\n\n175ffd3293039d3eddb8f79f0bc9a905.jpg\n\nbc7cfc68231bf2d31da4ba7e27222272.jpg\n\n1bc0d92308c2724c270e5adaba50481f.jpg\n\n79b256c430ffbf1dcbfb5fa18db15dd7.jpg\n\n7fac70f1ea314948424aff8eaee1fc26.jpg\n\n411d8fe0119b7be1752e6c204c0751c6.jpg\n\nc82881b24dc346e225520a3c3d7d2caf.jpg\n\n90e196d48a81b83c22e947262f6458d6.jpg\n\n0f2994051597940ffb8babd53f64fe22.jpg\n\na0beb28d4e55cf7c382e980bcc80bb8e.jpg\n\nf00b5fa2969abc2eccb8c4f1ca001960.jpg\n\nfbc85c2f3b7b540890796b938fd8714a.png\n\n961b32e35c428c6c4fd6d7137a2115e0.jpg\n\n1d80c79474579d9a8cdf9c7e1123ca66.jpg\n\n681832bd254e1135139007e1642ad1e3.jpg\n\ne6a395aa26a20e609e42eb540afa1ada.jpg\n\nf6e5fdea391bd5a8d202fe1e2985584b.jpg\n\n38dd921e8742b61bc84067a7d8ab19af.jpg\n\n1a0a9392fceb44a38ffa983259ff733f.jpg\n\n7fa6b8b62ef8208d7d52df065f7dbbb6.jpg\n\n1149ff993f8afbbc5fe9f001baceed62.jpg\n\n6 款 AI 视频工具：能力拆解 + GitHub 仓库 / Agent 技能资源汇总\n01 Grok（xAI 马斯克旗下）\n注核心能力\n最长生成 30 秒视频；支持 50 条批量出片；可直接上传真人素材；单条成本仅 0.4 元，主打高性价比\n开源 & 技能仓库\n官方基础大模型仓库（Grok-1 基座）https://github.com/xai-org/grok-1\n\n只开放早期文本基座权重，视频生成模块官方并未开源\n智能体一键调用视频工作流（适配 Claude/Cursor Agent）https://github.com/Rion-Wu-tech/grok-video-workflow\n\n封装了 Grok 视频 API 调用逻辑，可直接作为智能体 Skill 使用\n官方视频 API：仅提供线上接口，无法本地私有化部署\n02 Sora2（OpenAI）\n核心能力\n官宣原版 Sora9 底下架；Sora2 当前稳定可用；是否开源、延期均为未知\n开源 & 技能仓库\n⚠️ OpenAI 官方 Sora/Sora2 全程闭源，无官方 GitHub 仓库\n社区开源复现项目（Open-Sora，对标 Sora 架构）https://github.com/hpcaitech/Open-Sora 社区热度最高的开源平替，可本地部署，用来替代 Sora 做视频生成\n第三方 Agent 调用封装：无官方 Skill，只能自行封装 OpenAI API 接口调用 Sora2\n03 可灵 Kling（快手旗下）\n核心能力\n全能型工具；视频画质优秀；多人物角色互动自然；画面风格全程统一；不会出现 “降智画面崩坏”\n开源 & 技能仓库\n官方 Agent 专用 Kling Skill（直接给智能体调用）https://clawhub.ai/klingai-dev/klingai 完美适配 Claude Code、Cursor、Codex 等智能体，一键接入视频生成能力\n官方模型本体：闭源不公开完整权重；仅对外开放 REST API，支持程序化调用\n社区第三方调用 SDK：GitHub 可搜到各类 Python 封装项目，无官方主仓库\n04 PixVerse\n核心能力\n硬核物理引擎；打斗、法术特效、高速运动高燃场景渲染真实；定价为 Seedance 一半；1 分钟快速出片\n开源 & 技能仓库\n官方组织 GitHub 主页https://github.com/pixverse-ai 官方全量代码、模型参数开源，支持本地部署\n官方 CLI 命令行工具（Agent 直接调用） npm 全局安装：npm install -g pixverse-ai-cli 配套仓库：https://github.com/pixverse-ai/pixverse-ai-cli\nMCP 协议智能体专用 Skill（对接 Claude 系列）https://lobehub.com/plugins/pixverseai-pixverse-mcp 标准化技能包，无需自己写接口逻辑\n05 Vidu（生数科技 × 清华，国产小 Sora）\n核心能力\n圈内公认国产 Sora；视频画质拉满；动漫、漫剧生成为强项；价格为即梦一半\n开源 & 技能仓库\n官方模型本体：核心权重闭源，仅开放 API 商用调用\nComfyUI 可视化节点（本地工作流调用 Vidu 接口）https://github.com/1zhangyy1/comfyui-vidu-nodes\n第三方 CLI 调用工具：https://github.com/Saerdna/vidu-cli 可嵌入自动化脚本、智能体流程中执行生成任务\n06 万相 Wan（阿里通义万相）\n核心能力\n文案 / 图片 / 视频全链路一站式生成；人物互动自然；支持快速 / 高清双模式自由切换\n开源 & 技能仓库\n官方开源视频模型主仓库（Wan2.1 / Wan2.2）https://github.com/Wan-Video/Wan2.1https://github.com/Wan-Video/Wan2.2 阿里完全开源，权重 + 推理代码公开，可消费级显卡本地私有化部署\n官方组织主页：https://github.com/Wan-Video 包含全部图像、视频生成开源项目\n智能体使用：可基于官方开源代码自行封装 Skill，也可直接调用阿里魔搭官方 API\n选型建议（适配你智能体 / Agent 场景）\n优先拿来直接当 Skill 给 AI 智能体调用 可灵（官方现成 Skill） > PixVerse（官方 MCP 插件） > Grok（现成调用工作流）\n想要本地离线部署、不依赖云端付费 API 万相 Wan（阿里完整开源） > PixVerse（全开源） > Open-Sora（Sora 开源平替）\n主打动漫 / 二次元内容：优先 Vidu + 可灵\n打斗、高速动作视频：优先 PixVerse\n\nAI智能体踩坑经验交流区\n\n\n\n已满\n\n\n已满\n\n\n\n已满\n\n\n未满\n\n\n\n未满\n\n\n新群\n\n\n\n新群\n\n\n新群\n\n\n\n新群\n\n\n新群\n\nAI变现交流区\n\n\n\n行业垂直社群\n\n\n行业垂直社群\n\n\n\n\n\n\n技术极客社区-需要审核方可加入 了解详情与申请入口【T3-学习文档-组织升级】 Open Build\n\nimage.png",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9c52a33cb0b2452a9d186d4b4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NrjJwu89diliBwkh7NjcpDYynvf\n【T2｜学习文档・问答科普】AI漫剧的创作流程图解含提示词版\nimage.png\n\n老规矩，先看作品，默认压缩，请开启画质增强，所有内容免费学\n场景篇\n\n场景分镜-陈宇锋.mp4\n大招分镜\n\n大招分镜--陈宇锋.mp4\n\n大招分镜2--陈宇锋.mp4\n\n大招分镜3--陈宇锋.mp4\n战斗分镜\n\n对抗分镜--陈宇锋.mp4\nCG特效分镜\n\nCG特效--陈宇锋.mp4\n图解流程与提示词\n2bb253bf3575d232ac3da3ea5588597a.jpg\n\ne54fe569e2021ed12375a25a49319f98.jpg\n\n96004c413fd359a4db75a0a4f0374f15.jpg\n\n773e5a5bf6bdb5e5c7718046f94b7d27.jpg\n\ndf9bd601c89e77fb220dbb2e16f57abe.jpg\n\nc8ef4de55f4acdac2e387ec192feb294.jpg\n\n4c0e134c2de1e2708785a797a0723b24.jpg\n\n77962aa959f4b72615acefbfca07d391.jpg\n\n89b5ba74b3808b2f7907617a4eaa37b4.jpg\n\n9d9a33edb4426b72ae05eeab210b7ee3.jpg\n\nab1cc11f88b59f67408d5725393f702d.jpg\n\n063f7caad77d82ecf443ae84debe1750.jpg\n\n164db4aef1c974f8b6df6e4eb62f4c21.jpg\n\n1afb536b758b28ab344c356c6bfe5007.jpg\n\n357276097d2329efb07061f5935e8c1d.jpg\n\nb22e8be309023734e47501caf2c09894.jpg\n\nba8d668c2145dae0e5647d321bf2ed07.jpg\n\nf7dc11cff17ecdac3f2ff1dcdf4e8da4.jpg\n\n8322da9949870301bb2ffdfc346470a4.jpg\n\n84746580744b09b636650702bfe0628b.jpg\n\nadbbb3eb49c66814b734902ab6f5247f.jpg\n\n94fd0f1d20f6130d865cdf14b4bcbd76.jpg\n\n2a451a7f50b7eea7a63df4128449a1c7.jpg\n\n798ce52d2dcf34a18c2a0b19da77a5a6.jp\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T12:53:34.959Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "image",
+        "content": "用image2模型，请为以下生咖啡豆商品各生成1张淘宝首图，并在生成后完成加字。要求统一为1:1方图、真实摄影风、商业电商主图、高级克制、顶部和中部留白充足，适合淘宝商品页。先生成无字底图，再添加中文主标题、副标题和2个短标签。所有图片都不要文字乱码、不要logo堆叠、不要水印、不要卡通感、不要插画感、不要畸形手部、不要杂乱背景。\n\n通用加字规则：\n- 主标题放画面上方偏中间，字大\n- 副标题放主标题下方，字小\n- 右下角放2个短标签\n- 不要遮挡咖啡豆主体\n- 不要超过两层文字\n- 不要花哨特效\n\n1. 班可果丁丁\n底图提示词：\n埃塞俄比亚科契尔高海拔咖啡庄园，前景是一盆浅烘咖啡生豆，背景有采摘人和晒豆台，少量蔓越莓、金桔、热带水果点缀，整体果汁感、酸甜明亮、清爽活泼，暖橙和莓红色调，真实摄影，商业电商主图，顶部和中部留白充足\n加字内容：\n主标题：蔓越莓金桔感\n副标题：果汁型水洗G1\n右下标签：埃塞科契尔 / 高海拔（生成新的图以及放上文字，在这张咖啡商品首图上保留并放置ALMA COFFEE SINGLE ESTATE品牌logo，位置固定在左上角，大小小而清晰，白色线稿风格，保证辨识度但不要抢主体。logo不要变形，不要加边框，不要压住咖啡豆主体。整体适合淘宝商品首图，1:1方图，真实摄影风，高级克制。\n[图片识别]\n## 图片内容\n\n**类型**：品牌logo参考图（黑底白线稿）\n\n**图中文字**：\n- 主文字：`ALMA COFFEE`\n- 副文字：`SINGLE ESTATE`\n\n**图形元素**：\n- 左侧为线稿风格咖啡叶/植物枝叶图形\n- 文字与图形均为白色线描风格\n\n**整体观感**：\n- 黑底白线，线稿简洁\n- 文字水平排列于图形右侧\n- 整体宽幅构图（横长方形，非1:1）\n\n---\n\n## 供后续对话引用的关键信息\n\n1. **品牌名**：ALMA COFFEE\n2. **副品牌/品类**：SINGLE ESTATE（单一庄园）\n3. **logo样式**：白色线稿风（细线镂空，非实心填充），含咖啡叶/植物图形\n4. **配色**：黑底白线（无彩色）\n5. **图形位置**：logo水平排列，图形在左、文字在右\n6. **当前比例**：横向横幅（约3:1），需适配1:1方图\n7. **文字字体**：衬线/半衬线风格，全大写，字母间距较大\n8. **用户对该logo的使用要求**：\n   - 位置：固定左上角\n   - 尺寸：小而清晰\n   - 风格：白色线稿\n   - 禁止：变形、加边框、压住咖啡豆主体\n9. **本图用途**：用户提供的品牌logo参考，用于在生成的淘宝咖啡商品首图上放置",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": true,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": "## 图片内容\n\n**类型**：品牌logo参考图（黑底白线稿）\n\n**图中文字**：\n- 主文字：`ALMA COFFEE`\n- 副文字：`SINGLE ESTATE`\n\n**图形元素**：\n- 左侧为线稿风格咖啡叶/植物枝叶图形\n- 文字与图形均为白色线描风格\n\n**整体观感**：\n- 黑底白线，线稿简洁\n- 文字水平排列于图形右侧\n- 整体宽幅构图（横长方形，非1:1）\n\n---\n\n## 供后续对话引用的关键信息\n\n1. **品牌名**：ALMA COFFEE\n2. **副品牌/品类**：SINGLE ESTATE（单一庄园）\n3. **logo样式**：白色线稿风（细线镂空，非实心填充），含咖啡叶/植物图形\n4. **配色**：黑底白线（无彩色）\n5. **图形位置**：logo水平排列，图形在左、文字在右\n6. **当前比例**：横向横幅（约3:1），需适配1:1方图\n7. **文字字体**：衬线/半衬线风格，全大写，字母间距较大\n8. **用户对该logo的使用要求**：\n   - 位置：固定左上角\n   - 尺寸：小而清晰\n   - 风格：白色线稿\n   - 禁止：变形、加边框、压住咖啡豆主体\n9. **本图用途**：用户提供的品牌logo参考，用于在生成的淘宝咖啡商品首图上放置"
+        },
+        "createdAt": "2026-06-23T12:54:36.725Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "image",
+        "content": "用image2模型，请为以下生咖啡豆商品各生成1张淘宝首图，并在生成后完成加字。要求统一为1:1方图、真实摄影风、商业电商主图、高级克制、顶部和中部留白充足，适合淘宝商品页。先生成无字底图，再添加中文主标题、副标题和2个短标签。所有图片都不要文字乱码、不要logo堆叠、不要水印、不要卡通感、不要插画感、不要畸形手部、不要杂乱背景。\n\n通用加字规则：\n- 主标题放画面上方偏中间，字大\n- 副标题放主标题下方，字小\n- 右下角放2个短标签\n- 不要遮挡咖啡豆主体\n- 不要超过两层文字\n- 不要花哨特效\n\n1. 班可果丁丁\n底图提示词：\n埃塞俄比亚科契尔高海拔咖啡庄园，前景是一盆浅烘咖啡生豆，背景有采摘人和晒豆台，少量蔓越莓、金桔、热带水果点缀，整体果汁感、酸甜明亮、清爽活泼，暖橙和莓红色调，真实摄影，商业电商主图，顶部和中部留白充足\n加字内容：\n主标题：蔓越莓金桔感\n副标题：果汁型水洗G1\n右下标签：埃塞科契尔 / 高海拔（生成新的图以及放上文字，在这张咖啡商品首图上保留并放置ALMA COFFEE SINGLE ESTATE品牌logo，位置固定在左上角，大小小而清晰，白色线稿风格，保证辨识度但不要抢主体。logo不要变形，不要加边框，不要压住咖啡豆主体。整体适合淘宝商品首图，1:1方图，真实摄影风，高级克制。\n[图片识别]\n# 图片内容提取\n\n## 图片类型\n品牌 logo 参考图（用户提供给 image2 模型作为视觉参考）\n\n## 可见元素\n- **左侧图形**：白色线稿风格的叶子/植物图案，由三个叶状图形组成（中央一片直立叶片 + 两侧对称侧叶）\n- **主文字**：`ALMA COFFEE`\n- **副文字**：`SINGLE ESTATE`（位于主文字下方，带横线分隔）\n- **背景**：纯黑色\n- **整体风格**：极简、白色线稿、高辨识度\n\n## 关键观察 / 注意事项\n- logo 在底图上为**暗色线稿**呈现（不是白色），推测原图为深底白线 logo，本次需在咖啡主图（亮色背景）上转换为**白色线稿**\n- 文字\"ALMA COFFEE\"与\"SINGLE ESTATE\"为衬线/半衬线英文字体\n- logo 占画面约左侧 1/3 宽度，纵向居中略偏左\n- 图形部分有清晰的叶脉线条细节\n- 无水印、无边框、无装饰性元素\n- 比例为正方形（1:1）\n\n## 用户的最终要求（保留品牌 logo）\n- 位置：左上角\n- 样式：白色线稿风格\n- 大小：小而清晰\n- 要求：保证辨识度但不抢主体，不变形，不加边框，不压住咖啡豆主体\n- 整体：1:1 方图，真实摄影风，高级克制，适合淘宝商品首图",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": true,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": "# 图片内容提取\n\n## 图片类型\n品牌 logo 参考图（用户提供给 image2 模型作为视觉参考）\n\n## 可见元素\n- **左侧图形**：白色线稿风格的叶子/植物图案，由三个叶状图形组成（中央一片直立叶片 + 两侧对称侧叶）\n- **主文字**：`ALMA COFFEE`\n- **副文字**：`SINGLE ESTATE`（位于主文字下方，带横线分隔）\n- **背景**：纯黑色\n- **整体风格**：极简、白色线稿、高辨识度\n\n## 关键观察 / 注意事项\n- logo 在底图上为**暗色线稿**呈现（不是白色），推测原图为深底白线 logo，本次需在咖啡主图（亮色背景）上转换为**白色线稿**\n- 文字\"ALMA COFFEE\"与\"SINGLE ESTATE\"为衬线/半衬线英文字体\n- logo 占画面约左侧 1/3 宽度，纵向居中略偏左\n- 图形部分有清晰的叶脉线条细节\n- 无水印、无边框、无装饰性元素\n- 比例为正方形（1:1）\n\n## 用户的最终要求（保留品牌 logo）\n- 位置：左上角\n- 样式：白色线稿风格\n- 大小：小而清晰\n- 要求：保证辨识度但不抢主体，不变形，不加边框，不压住咖啡豆主体\n- 整体：1:1 方图，真实摄影风，高级克制，适合淘宝商品首图"
+        },
+        "createdAt": "2026-06-23T12:54:47.402Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "image",
+        "content": "用image2模型，请为以下生咖啡豆商品各生成1张淘宝首图，并在生成后完成加字。要求统一为1:1方图、真实摄影风、商业电商主图、高级克制、顶部和中部留白充足，适合淘宝商品页。先生成无字底图，再添加中文主标题、副标题和2个短标签。所有图片都不要文字乱码、不要logo堆叠、不要水印、不要卡通感、不要插画感、不要畸形手部、不要杂乱背景。\n\n通用加字规则：\n- 主标题放画面上方偏中间，字大\n- 副标题放主标题下方，字小\n- 右下角放2个短标签\n- 不要遮挡咖啡豆主体\n- 不要超过两层文字\n- 不要花哨特效\n\n1. 班可果丁丁\n底图提示词：\n埃塞俄比亚科契尔高海拔咖啡庄园，前景是一盆浅烘咖啡生豆，背景有采摘人和晒豆台，少量蔓越莓、金桔、热带水果点缀，整体果汁感、酸甜明亮、清爽活泼，暖橙和莓红色调，真实摄影，商业电商主图，顶部和中部留白充足\n加字内容：\n主标题：蔓越莓金桔感\n副标题：果汁型水洗G1\n右下标签：埃塞科契尔 / 高海拔（生成新的图以及放上文字，在这张咖啡商品首图上保留并放置ALMA COFFEE SINGLE ESTATE品牌logo，位置固定在左上角，大小小而清晰，白色线稿风格，保证辨识度但不要抢主体。logo不要变形，不要加边框，不要压住咖啡豆主体。整体适合淘宝商品首图，1:1方图，真实摄影风，高级克制。\n[图片识别]\n# 图片上下文提取\n\n## 一、用户提供的产品任务信息（文本）\n\n**1. 平台与用途**\n- 平台：Telegram\n- 用途：淘宝商品首图\n- 比例：1:1方图\n- 风格：真实摄影风、商业电商主图、高级克制\n- 顶部和中部留白充足\n\n**2. 通用加字规则**\n- 主标题：画面上方偏中间，字大\n- 副标题：主标题下方，字小\n- 右下角：2个短标签\n- 不遮挡咖啡豆主体\n- 不超过两层文字\n- 无文字乱码、无logo堆叠、无水印、无卡通感、无插画感、无畸形手部、无杂乱背景\n\n**3. 当前商品（1/？）：班可果丁丁**\n- 产地：埃塞俄比亚科契尔高海拔\n- 豆类：浅烘咖啡生豆\n- 背景元素：采摘人、晒豆台、蔓越莓、金桔、热带水果点缀\n- 色调：暖橙和莓红\n- 风味描述：果汁感、酸甜明亮、清爽活泼\n- **主标题**：蔓越莓金桔感\n- **副标题**：果汁型水洗G1\n- **右下标签**：埃塞科契尔 / 高海拔\n\n**4. 品牌Logo要求**\n- 文字：ALMA COFFEE SINGLE ESTATE\n- 位置：左上角（固定）\n- 尺寸：小而清晰\n- 风格：白色线稿\n- 不要变形、不要加边框、不要压住主体\n\n---\n\n## 二、图片本体内容（OCR/视觉）\n\n**画面内容**：黑底 + 蓝黄色像素流/波纹线条横贯中部，整体呈数字故障或光带风格\n\n**可识别文字元素**（横向居中，字色偏深，与背景对比度低）：\n- 主文字：`ALMA COFFEE`（衬线大写字体）\n- 副文字：`SINGLE ESTATE`（主文字下方，小字号，字距较宽）\n\n**图形元素**（位于\"ALMA COFFEE\"左侧）：\n- 白色线稿 logo\n- 主体：一株带茎叶的植物/幼苗图形\n- 顶部为一个菱形或叶形轮廓（似咖啡叶/咖啡果符号化）\n- 下方为对称茎叶\n- 线条纤细，无填充\n\n**视觉问题（供后续引用）**：\n- 文字与蓝黄光带高度重叠，对比度差，**可读性偏低**\n- 文字颜色偏深，**与背景\"ALMA COFFEE\"几乎融入背景**\n- 整体不是用户要求的\"真实摄影风咖啡生豆商品首图\"\n- **没有咖啡豆主体**，**没有蔓越莓/金桔/采摘人/晒豆台**\n- 缺少主标题\"蔓越莓金桔感\"、副标题\"果汁型水洗G1\"、右下标签\"埃塞科契尔/高海拔\"\n- 不符合\"1:1方图 + 顶部中部留白 + 高级克制\"目标\n\n**其他**：\n- 无水印、无产品链接、无数字编号、无项目清单\n- 图片不含聊天记录或多项目截图\n\n---\n\n## 三、关键约束清单（用于后续对话引用）\n\n1. 需重新生成：真实摄影风咖啡生豆主体图\n2. 必须出现：浅烘生豆、采摘人、晒豆台、蔓越莓、金桔、热带水果点缀\n3. 色调：暖橙 + 莓红\n4. 留白：顶部 + 中部\n5. 文字层（共5处）：左上logo + 上中主标题 + 主标下副标题 + 右下2个标签\n6. 文字内容已固定：主标\"蔓越莓金桔感\" / 副标\"果汁型水洗G1\" / 标签\"埃塞科契尔\"+\"高海拔\"\n7. logo 必须为白线稿、小而清晰、左上固定位置、不变形、不压主体",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": true,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": "# 图片上下文提取\n\n## 一、用户提供的产品任务信息（文本）\n\n**1. 平台与用途**\n- 平台：Telegram\n- 用途：淘宝商品首图\n- 比例：1:1方图\n- 风格：真实摄影风、商业电商主图、高级克制\n- 顶部和中部留白充足\n\n**2. 通用加字规则**\n- 主标题：画面上方偏中间，字大\n- 副标题：主标题下方，字小\n- 右下角：2个短标签\n- 不遮挡咖啡豆主体\n- 不超过两层文字\n- 无文字乱码、无logo堆叠、无水印、无卡通感、无插画感、无畸形手部、无杂乱背景\n\n**3. 当前商品（1/？）：班可果丁丁**\n- 产地：埃塞俄比亚科契尔高海拔\n- 豆类：浅烘咖啡生豆\n- 背景元素：采摘人、晒豆台、蔓越莓、金桔、热带水果点缀\n- 色调：暖橙和莓红\n- 风味描述：果汁感、酸甜明亮、清爽活泼\n- **主标题**：蔓越莓金桔感\n- **副标题**：果汁型水洗G1\n- **右下标签**：埃塞科契尔 / 高海拔\n\n**4. 品牌Logo要求**\n- 文字：ALMA COFFEE SINGLE ESTATE\n- 位置：左上角（固定）\n- 尺寸：小而清晰\n- 风格：白色线稿\n- 不要变形、不要加边框、不要压住主体\n\n---\n\n## 二、图片本体内容（OCR/视觉）\n\n**画面内容**：黑底 + 蓝黄色像素流/波纹线条横贯中部，整体呈数字故障或光带风格\n\n**可识别文字元素**（横向居中，字色偏深，与背景对比度低）：\n- 主文字：`ALMA COFFEE`（衬线大写字体）\n- 副文字：`SINGLE ESTATE`（主文字下方，小字号，字距较宽）\n\n**图形元素**（位于\"ALMA COFFEE\"左侧）：\n- 白色线稿 logo\n- 主体：一株带茎叶的植物/幼苗图形\n- 顶部为一个菱形或叶形轮廓（似咖啡叶/咖啡果符号化）\n- 下方为对称茎叶\n- 线条纤细，无填充\n\n**视觉问题（供后续引用）**：\n- 文字与蓝黄光带高度重叠，对比度差，**可读性偏低**\n- 文字颜色偏深，**与背景\"ALMA COFFEE\"几乎融入背景**\n- 整体不是用户要求的\"真实摄影风咖啡生豆商品首图\"\n- **没有咖啡豆主体**，**没有蔓越莓/金桔/采摘人/晒豆台**\n- 缺少主标题\"蔓越莓金桔感\"、副标题\"果汁型水洗G1\"、右下标签\"埃塞科契尔/高海拔\"\n- 不符合\"1:1方图 + 顶部中部留白 + 高级克制\"目标\n\n**其他**：\n- 无水印、无产品链接、无数字编号、无项目清单\n- 图片不含聊天记录或多项目截图\n\n---\n\n## 三、关键约束清单（用于后续对话引用）\n\n1. 需重新生成：真实摄影风咖啡生豆主体图\n2. 必须出现：浅烘生豆、采摘人、晒豆台、蔓越莓、金桔、热带水果点缀\n3. 色调：暖橙 + 莓红\n4. 留白：顶部 + 中部\n5. \n...[truncated]"
+        },
+        "createdAt": "2026-06-23T12:55:05.808Z"
+      },
+      {
+        "chatId": "6095109213",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "image",
+        "content": "用image2模型，请为以下生咖啡豆商品各生成1张淘宝首图，并在生成后完成加字。要求统一为1:1方图、真实摄影风、商业电商主图、高级克制、顶部和中部留白充足，适合淘宝商品页。先生成无字底图，再添加中文主标题、副标题和2个短标签。所有图片都不要文字乱码、不要logo堆叠、不要水印、不要卡通感、不要插画感、不要畸形手部、不要杂乱背景。\n\n通用加字规则：\n- 主标题放画面上方偏中间，字大\n- 副标题放主标题下方，字小\n- 右下角放2个短标签\n- 不要遮挡咖啡豆主体\n- 不要超过两层文字\n- 不要花哨特效\n\n1. 班可果丁丁\n底图提示词：\n埃塞俄比亚科契尔高海拔咖啡庄园，前景是一盆浅烘咖啡生豆，背景有采摘人和晒豆台，少量蔓越莓、金桔、热带水果点缀，整体果汁感、酸甜明亮、清爽活泼，暖橙和莓红色调，真实摄影，商业电商主图，顶部和中部留白充足\n加字内容：\n主标题：蔓越莓金桔感\n副标题：果汁型水洗G1\n右下标签：埃塞科契尔 / 高海拔（生成新的图以及放上文字，在这张咖啡商品首图上保留并放置ALMA COFFEE SINGLE ESTATE品牌logo，位置固定在左上角，大小小而清晰，白色线稿风格，保证辨识度但不要抢主体。logo不要变形，不要加边框，不要压住咖啡豆主体。整体适合淘宝商品首图，1:1方图，真实摄影风，高级克制。\n[图片识别]\n# 图片上下文提取\n\n## 平台与场景\n- **平台**：Telegram\n- **场景**：用户向 AI（image2 模型）下达生咖啡豆商品首图生成指令，并附上品牌 logo 参考图\n\n## 用户附带文字（关键需求，已完整 OCR）\n\n### 通用生成规则\n- 平台：淘宝首图\n- 比例：1:1 方图\n- 风格：真实摄影风、商业电商主图、高级克制\n- 留白：顶部和中部留白充足\n- 流程：先生成无字底图，再添加中文文字\n- 禁止：文字乱码、logo 堆叠、水印、卡通感、插画感、畸形手部、杂乱背景\n\n### 通用加字规则\n- 主标题：画面上方偏中间，字大\n- 副标题：主标题下方，字小\n- 右下角：2 个短标签\n- 不遮挡咖啡豆主体\n- 不超过两层文字\n- 不花哨特效\n\n### 商品 1：班可果丁丁\n- **底图提示词**：埃塞俄比亚科契尔高海拔咖啡庄园，前景一盆浅烘咖啡生豆，背景有采摘人和晒豆台，点缀蔓越莓、金桔、热带水果；果汁感、酸甜明亮、清爽活泼；暖橙和莓红色调；真实摄影；顶部和中部留白充足\n- **加字内容**：\n  - 主标题：蔓越莓金桔感\n  - 副标题：果汁型水洗G1\n  - 右下标签：埃塞科契尔 / 高海拔\n\n### 品牌 logo 要求（追加）\n- 品牌名：**ALMA COFFEE SINGLE ESTATE**\n- 位置：固定左上角\n- 大小：小而清晰\n- 风格：白色线稿\n- 要求：保证辨识度但不抢主体，不变形，不加边框，不压住咖啡豆主体\n- 整体适合淘宝商品首图，1:1 方图，真实摄影风，高级克制\n\n## 图片内容（logo 参考图）\n- **品牌文字**：ALMA COFFEE\n- **副文字**：SINGLE ESTATE\n- **logo 图形**：左侧为线稿叶子/植物造型（似咖啡叶与茎秆组合），分三瓣叶片+中央竖茎\n- **线条颜色**：蓝白/紫白相间的虚线/锯齿状横线纹理（带蓝白网点效果）\n- **背景**：黑色\n- **整体风格**：极简线稿 logo，含动态流线装饰\n\n## 后续对话可用关键信息汇总\n1. 品牌：ALMA COFFEE SINGLE ESTATE（单庄园精品咖啡）\n2. 商品系列名：班可果丁丁\n3. 产地：埃塞俄比亚科契尔\n4. 处理法：水洗 G1\n5. 风味关键词：蔓越莓、金桔、热带水果、果汁感、酸甜明亮\n6. 烘焙度：浅烘\n7. 主色调：暖橙、莓红\n8. 输出规格：1:1 / 淘宝首图 / 真实摄影 / 高级克制\n9. logo 位置：左上角 / 白色线稿 / 小而清晰\n10. 待生成：底图（无字）+ 加字版本（含主标题、副标题、2 个右下标签、logo）",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": true,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": "# 图片上下文提取\n\n## 平台与场景\n- **平台**：Telegram\n- **场景**：用户向 AI（image2 模型）下达生咖啡豆商品首图生成指令，并附上品牌 logo 参考图\n\n## 用户附带文字（关键需求，已完整 OCR）\n\n### 通用生成规则\n- 平台：淘宝首图\n- 比例：1:1 方图\n- 风格：真实摄影风、商业电商主图、高级克制\n- 留白：顶部和中部留白充足\n- 流程：先生成无字底图，再添加中文文字\n- 禁止：文字乱码、logo 堆叠、水印、卡通感、插画感、畸形手部、杂乱背景\n\n### 通用加字规则\n- 主标题：画面上方偏中间，字大\n- 副标题：主标题下方，字小\n- 右下角：2 个短标签\n- 不遮挡咖啡豆主体\n- 不超过两层文字\n- 不花哨特效\n\n### 商品 1：班可果丁丁\n- **底图提示词**：埃塞俄比亚科契尔高海拔咖啡庄园，前景一盆浅烘咖啡生豆，背景有采摘人和晒豆台，点缀蔓越莓、金桔、热带水果；果汁感、酸甜明亮、清爽活泼；暖橙和莓红色调；真实摄影；顶部和中部留白充足\n- **加字内容**：\n  - 主标题：蔓越莓金桔感\n  - 副标题：果汁型水洗G1\n  - 右下标签：埃塞科契尔 / 高海拔\n\n### 品牌 logo 要求（追加）\n- 品牌名：**ALMA COFFEE SINGLE ESTATE**\n- 位置：固定左上角\n- 大小：小而清晰\n- 风格：白色线稿\n- 要求：保证辨识度但不抢主体，不变形，不加边框，不压住咖啡豆主体\n- 整体适合淘宝商品首图，1:1 方图，真实摄影风，高级克制\n\n## 图片内容（logo 参考图）\n- **品牌文字**：ALMA COFFEE\n- **副文字**：SINGLE ESTATE\n- **logo 图形**：左侧为线稿叶子/植物造型（似咖啡叶与茎秆组合），分三瓣叶片+中央竖茎\n- **线条颜色**：蓝白/紫白相间的虚线/锯齿状横线纹理（带蓝白网点效果）\n- **背景**：黑色\n- **整体风格**：极简线稿 logo，含动态流线装饰\n\n## 后续对话可用关键信息汇总\n1. 品牌：ALMA COFFEE SINGLE ESTATE（单庄园精品咖啡）\n2. 商品系列名：班可果丁丁\n3. 产地：埃塞俄比亚科契尔\n4. 处理法：水洗 G1\n5. 风味关键词：蔓越莓、金桔、热带水果、果汁感、酸甜明亮\n6. 烘焙度：浅烘\n7. 主色调：暖橙、莓红\n8. 输出规格：1:1 / 淘宝首图 / 真实摄影 / 高级克制\n9. logo 位置：左上角 / 白色线稿 / 小而清晰\n10. 待生成：底图（无字）+ 加字版本（含主标题、副标题、2 个右下标签、logo）"
+        },
+        "createdAt": "2026-06-23T12:55:24.966Z"
       }
     ],
     "memories": [
@@ -38689,7 +38853,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-23T12:37:42.499Z"
+        "updatedAt": "2026-06-23T12:53:34.829Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38699,7 +38863,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-23T12:37:42.423Z"
+        "updatedAt": "2026-06-23T12:53:34.754Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
