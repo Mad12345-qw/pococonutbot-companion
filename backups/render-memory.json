@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T09:35:36.127Z",
+  "exportedAt": "2026-06-23T09:45:33.522Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -35311,6 +35311,443 @@
           "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
         },
         "createdAt": "2026-06-23T09:35:00.557Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "那你找一首现在比较火的歌我听听看。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c91772adc9cb2cccb2cb617c88",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:36:36.854Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞～ 现在抖音上《APT.》挺火的，ROSÉ 和 Bruno Mars 合作的，节奏感很强，听着上头～ 要不要我去给你找这首歌的音频？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-23T09:36:44.953Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "我要听你自己唱泡沫",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9174552ca8b2672713965c9bf",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:37:29.892Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "你自己唱泡沫",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-23T09:37:32.968Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "你用的哪个大模型啊？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9173547884b3b17f4fcafc190",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:37:34.770Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我用的是 MiniMax 的 M3 模型",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-23T09:37:38.578Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "最活跃高质量用户",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c910d1c18b0b2c303da3b647bb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:39:14.134Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "牛逼",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c910a4754bcb119910347b1276",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:39:25.960Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书什么时候能把这个总是输出人名的问题改掉",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9108a81c84b29cbe1f470ff3a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:39:55.998Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "把名字改了就好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c910977e0acb2973f6580c6c45",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:40:17.029Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以唱的，豆包刚刚开始也说不会，逼他唱，能唱几句的[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9107bcec7cb26ffee3c359786",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:40:46.341Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "真的吗？我试试看哈～ 逼一逼自己",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-23T09:40:49.827Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "role": "user",
+        "modality": "text",
+        "content": "问题 1:miaoda 的 openclaw 有的同事申请下来是【机器人】，有些同事申请是【智能体】这两者有什么区别？\n问题 2:这两者都能用企业分配的 ai 积分吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9104b654acb1de4c71898ae3a",
+          "rawChatId": "oc_4f5f294f132c713ba1f0b25639f6359a",
+          "rawOpenId": "ou_4b01c8536de9ae43bb013937a87dee0d",
+          "rawUserId": "ou_4b01c8536de9ae43bb013937a87dee0d",
+          "rawUnionId": "on_7a5af9463709088bbc4963355120ce00",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:40:57.963Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "天天实名制交友",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9109d180a8b4ceb455bef1685",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:41:03.572Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "当然名字是llm识别出的,现在改也来不及了[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c910479dcbcb48661ef529d024",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:41:06.019Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "问题 1：这两者其实底层差不多，都是基于 OpenClaw 搭的 AI 应用入口，差别主要在定位和使用场景上——「机器人」偏向挂在群里、配合自动化触发、自动回复这类偏流程化操作；「智能体」偏向单兵/工作台使用，能挂工具、调接口、跑长流程任务。本质是同一套能力，但入口和默认配置不同。\n\n问题 2：能不能用企业分配的 AI 积分，看的是你登录态绑定的企业身份，不是看申请下来叫「机器人」还是「智能体」。只要你登录的是企业账号、且企业给你开了积分额度，不管哪个入口调用，消耗的都是同一份企业积分。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d"
+        },
+        "createdAt": "2026-06-23T09:41:08.461Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "歌曲转歌词，再润色音乐，AI音乐都可以生成。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9101a38080b29626d69f9ecf5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:42:21.378Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 小小 - 容祖儿",
+        "metadata": {
+          "singer": "容祖儿",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "小小",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-23T09:43:17.565Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "这个功能这家tts还没开放",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c911babe488b200cef143e1ebc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:43:55.261Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦哦那我唱不出来，tts还不支持歌曲呢",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-23T09:44:22.310Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "一个月要用多少tokens啊？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c91197e908cb3b9ff4baa9ca34",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T09:44:35.768Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个我也不太清楚内部怎么算的…你问这个是要干啥用呀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-23T09:44:39.056Z"
       }
     ],
     "memories": [
@@ -36333,6 +36770,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
         "updatedAt": "2026-06-08T06:08:21.898Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:40:57.807Z",
+        "updatedAt": "2026-06-23T09:40:57.807Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T09:40:57.736Z",
+        "updatedAt": "2026-06-23T09:40:57.736Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
@@ -37492,7 +37949,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-23T08:59:56.937Z"
+        "updatedAt": "2026-06-23T09:37:29.819Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37502,7 +37959,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-23T08:59:56.864Z"
+        "updatedAt": "2026-06-23T09:37:29.741Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37582,7 +38039,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-23T09:16:54.227Z"
+        "updatedAt": "2026-06-23T09:41:05.947Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37592,7 +38049,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-23T09:16:54.160Z"
+        "updatedAt": "2026-06-23T09:41:05.878Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37792,7 +38249,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-23T08:49:23.483Z"
+        "updatedAt": "2026-06-23T09:43:55.193Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37802,7 +38259,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-23T08:49:23.412Z"
+        "updatedAt": "2026-06-23T09:43:55.124Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37972,7 +38429,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-06-23T02:22:03.368Z"
+        "updatedAt": "2026-06-23T09:41:03.501Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -37982,7 +38439,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-06-23T02:22:03.275Z"
+        "updatedAt": "2026-06-23T09:41:03.431Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38222,7 +38679,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-22T15:27:03.844Z"
+        "updatedAt": "2026-06-23T09:42:21.311Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38232,7 +38689,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-22T15:27:03.741Z"
+        "updatedAt": "2026-06-23T09:42:21.244Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38372,7 +38829,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.468Z",
-        "updatedAt": "2026-06-23T09:34:56.983Z"
+        "updatedAt": "2026-06-23T09:44:35.700Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38382,7 +38839,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.374Z",
-        "updatedAt": "2026-06-23T09:34:56.889Z"
+        "updatedAt": "2026-06-23T09:44:35.632Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
