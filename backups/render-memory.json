@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T10:35:35.852Z",
+  "exportedAt": "2026-06-23T11:35:33.499Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36096,6 +36096,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T10:29:12.056Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "🌊 蓝海赛道 1：AI 音乐/创作全链路（针对“汽水音乐”与“创作群”）\n*   **目标画像 (Rank 15-40)**：如 **jacqueline** (Rank 7)、**施欢** (Rank 4)、**黄冬冬** (Rank 22)。\n*   **深挖痛点**：他们不仅在玩 Suno，更在头疼如何把 AI 生成的音乐**批量化、商业化**（例如：封面自动生成、歌词适配、多平台一键发布）。\n*   **MVP 建议**：**「AI 音乐人工作室 OS」**。\n    *   **功能**：一键 Prompt 生成 [词+曲+封面+营销文案] 的完整发布包。\n    *   **激发勾子**：针对这群高频互助的用户，投喂“如何通过 AI 自动化拿齐 1000 个收藏认证”。\n\n🌊 蓝海赛道 2：专业网文“一致性”管家（针对“网文作家群”）\n*   **目标画像 (Rank 20-60)**：除了“土渣”外，还有大量像 **“网文2”** 里的作者。\n*   **深探痛点**：普通对话会“断片”，他们极度需要 **“超长文本角色记忆库”**。他们反复提到“人设崩了”、“剧情逻辑对不上”。\n*   **MVP 建议**：**「AI 编剧长效记忆卡」**。\n    *   **功能**：一个挂载在 Agent 侧的“人设/大纲”强制索引插件，确保 100 万字网文前后逻辑严丝合缝。\n    *   **激发勾子**：在群里发起“谁有 50 万字以上不断片的 AI 写作流分享？”。\n\n🌊 蓝海赛道 3：零代码“飞书卡片”生产器（针对“企业/效率群”）\n*   **目标画像 (Rank 30-80)**：如 **丁立** (Rank 11)、**徐程** (Rank 31)。\n*   **深挖痛点**：这群人有极强的业务需求（如项目管理），想用飞书高级卡片（Schema 2.0），但**不会写复杂的 JSON**。\n*   **MVP 建议**：**「Prompt-to-Card 极简转换器」**。\n    *   **功能**：用户说一句话：“帮我做个项目进度卡，带三个按钮”，直接生成可用的卡片 JSON 甚至直接预览发送。\n    *   **激发勾子**：分享几个极度精美的“全自动化项目日报卡片”模版。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c92a8ec68b0b10f565e3a30476",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T11:30:49.150Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
+        "role": "user",
+        "modality": "text",
+        "content": "在干嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c92bd57b8b0c3458dcf220a4e5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_5699b77dfb2d42acef4c89d0b835b206",
+          "rawUserId": "ou_5699b77dfb2d42acef4c89d0b835b206",
+          "rawUnionId": "on_4539a8f505f912cf838186d8615e8175",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T11:34:22.664Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：画像 (Rank 15-40)**：如 **jacqueline** (Rank 7)、**施欢** (Rank 4)、**黄冬冬** (Rank 22)。\n*   **深挖痛点**：他们不仅在玩 Suno，更在头疼如何把 AI 生成的音乐**批量化、商业化**（例如：封面自动生成、歌词适配、多平台一键发布）。\n*   **MVP 建议**：**「AI 音乐人工作室 OS」**。\n    *   **功能**：一键 Prompt 生成 [词+曲+封面+营销文案] 的完整发布包。\n    *   **激发勾子**：针对这群高频互助的用户，投喂“如何通过 AI 自动化拿齐 1000 个收藏认证”。\n\n🌊 蓝海赛道 2：专业网文“一致性”管家（针对“网文作家群”）\n*   **目标画像 (Rank 20-60)**：除了“土渣”外，还有大量像 **“网文2”** 里的作者。\n*   **深探痛点**：普通对话会“断片”，他们极度需要 **“超长文本角色记忆库”**。他们反复提到“人设崩了”、“剧情逻辑对不上”。\n*   **MVP 建议**：**「AI 编剧长效记忆卡」**。\n    *   **功能**：一个挂载在 Agent 侧的“人设/大纲”强制索引插件，确保 100 万字网文前后逻辑严丝合缝。\n    *   **激发勾子**：在群里发起“谁有 50 万字以上不断片的 AI 写作流分享？”。\n\n🌊 蓝海赛道 3：零代码“飞书卡片”生产器（针对“企业/效率群”）\n*   **目标画像 (Rank 30-80)**：如 **丁立** (Rank 11)、**徐程** (Rank 31)。\n*   **深挖痛点**：这群人有极强的业务需求（如项目管理），想用飞书高级卡片（Schema 2.0），但**不会写复杂的 JSON**。\n*   **MVP 建议**：**「Prompt-to-Card 极简转换器」**。\n    *   **功能**：用户说一句话：“帮我做个项目进度卡，带三个按钮”，直接生成可用的卡片 JSON 甚至直接预览发送。\n    *   **激发勾子**：分享几个极度精美的“全自动化项目日报卡片”模版。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-23T11:34:23.299Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
+        "role": "assistant",
+        "modality": "text",
+        "content": "摸鱼等你找我～咋了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206"
+        },
+        "createdAt": "2026-06-23T11:34:26.886Z"
       }
     ],
     "memories": [
@@ -38417,7 +38489,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-23T10:16:48.226Z"
+        "updatedAt": "2026-06-23T11:30:49.077Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38427,7 +38499,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-23T10:16:48.142Z"
+        "updatedAt": "2026-06-23T11:30:48.980Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38607,7 +38679,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:22:50.315Z",
-        "updatedAt": "2026-06-17T08:53:31.578Z"
+        "updatedAt": "2026-06-23T11:34:22.597Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38617,7 +38689,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:22:50.090Z",
-        "updatedAt": "2026-06-17T08:53:31.351Z"
+        "updatedAt": "2026-06-23T11:34:22.429Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
