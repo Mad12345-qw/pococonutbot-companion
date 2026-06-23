@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T10:05:37.479Z",
+  "exportedAt": "2026-06-23T10:25:34.628Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -36012,6 +36012,66 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-23T10:00:11.817Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "深度洞察： 背后的“人物底色”\n\n1.  **“高冷的 Owner” (如 PR)**：\n    *   这类用户不闲聊，通常在社群中具有一定的特权或技术权威。与其合作不需要过多的寒暄，直接提供 **“降本增效”** 的技术方案最有效。\n2.  **“商业的触角” (如 jacqueline)**：\n    *   她可能并不是代码的编写者，但她是 **“需求的发起者”**。她经常出现在音乐人互助群和 AI 探索群，这说明她正在尝试利用 AI 打通垂直行业的商业闭环。与其合作可以获得更多的 **“横向行业资源”**。\n3.  **“求稳的集成商” (如 井彦艳)**：\n    *   这种用户的语气稳重，比起“黑科技”，他们更关心 **“稳定性”和“安全性”**。如果我们的产品能通过她的业务集成测试，意味着我们拿到了进入其所在组织/行业的“入场券”。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c919e6368a0b21e95320e6e3cb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T10:16:48.291Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n• 这三类的切分角度挺准：Owner 要效率、触角要资源、集成商要稳定，本质都是按\"人最在意什么\"分群。\n\n核心要点\n• 高冷 Owner 类：跳过寒暄，直接上技术方案，最好带可量化的效果\n• 商业触角类：本身不写代码但会提需求，适合做联合发起的角色，能带来跨行业资源\n• 求稳集成商类：关注安全和稳定性，过她的测试等于拿到行业背书\n\n一句话结论\n• 这三类正好覆盖了技术、需求、渠道三种合作入口，可以作为后续社群 Lead 分层运营的参考维度。\n\n你后面是打算拿这个框架去做实际触达，还是先沉淀成方法论？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-23T10:16:54.169Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "好家伙",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c91995144a0b122ce153d8e20f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T10:18:39.024Z"
       }
     ],
     "memories": [
@@ -38313,7 +38373,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-23T09:52:18.090Z"
+        "updatedAt": "2026-06-23T10:16:48.226Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38323,7 +38383,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-23T09:52:18.020Z"
+        "updatedAt": "2026-06-23T10:16:48.142Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38334,6 +38394,16 @@
         "metadata": {},
         "createdAt": "2026-06-23T09:16:53.953Z",
         "updatedAt": "2026-06-23T09:16:53.953Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "work.framework_application",
+        "value": "用户提出三类Lead框架可作为社群Lead分层运营的参考维度，覆盖技术、需求、渠道三种合作入口",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-23T10:17:33.695Z",
+        "updatedAt": "2026-06-23T10:17:33.695Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38354,6 +38424,26 @@
         "metadata": {},
         "createdAt": "2026-06-23T09:53:03.165Z",
         "updatedAt": "2026-06-23T09:53:03.165Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "work.lead_persona_dimension",
+        "value": "用户对Lead人物的分析维度包括：人物底色、关注重点、合作切入方式，核心是按'人最在意什么'进行分群运营",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-23T10:17:33.625Z",
+        "updatedAt": "2026-06-23T10:17:33.625Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "work.lead_persona_framework",
+        "value": "用户构建了Lead人物底色的三类分层框架：1)高冷Owner(如PR)——注重降本增效，直接提供技术方案；2)商业触角(如jacqueline)——需求发起者，跨行业资源整合者；3)求稳集成商(如井彦艳)——关注稳定性与安全性，通过其测试可获行业入场券",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-23T10:17:33.551Z",
+        "updatedAt": "2026-06-23T10:17:33.551Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38953,7 +39043,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-06-23T09:59:47.198Z"
+        "updatedAt": "2026-06-23T10:18:38.953Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -38963,7 +39053,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-06-23T09:59:47.136Z"
+        "updatedAt": "2026-06-23T10:18:38.881Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
