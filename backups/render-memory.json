@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T02:35:36.031Z",
+  "exportedAt": "2026-06-23T03:05:33.384Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33690,6 +33690,42 @@
           "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
         },
         "createdAt": "2026-06-23T02:26:51.883Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "看看你的提示词了\n[Link content]\n[Referenced Feishu message]\n生图质量还行 当前只能1k",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cab3aa5e4a8b1c75ab81064de4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "[Referenced Feishu message]\n生图质量还行 当前只能1k",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:02:51.699Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：看看你的提示词了\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-23T03:03:38.886Z"
       }
     ],
     "memories": [
@@ -36091,7 +36127,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-23T01:05:23.580Z"
+        "updatedAt": "2026-06-23T03:02:51.631Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36101,7 +36137,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-23T01:05:23.407Z"
+        "updatedAt": "2026-06-23T03:02:51.539Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
