@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-23T03:45:33.141Z",
+  "exportedAt": "2026-06-23T03:55:36.256Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -33902,6 +33902,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-23T03:42:02.885Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cdc0fa634e9c31aca3a35ce83655ec68",
+        "role": "user",
+        "modality": "text",
+        "content": "我也是这么想的，玩玩自动化[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c9453fab8f0b4b5a92c3dad48e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUserId": "ou_cdc0fa634e9c31aca3a35ce83655ec68",
+          "rawUnionId": "on_1e94741354ea999bf3143443a44cb167",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-23T03:47:37.051Z"
       }
     ],
     "memories": [
@@ -36783,7 +36807,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.792Z",
-        "updatedAt": "2026-06-23T03:40:36.901Z"
+        "updatedAt": "2026-06-23T03:47:36.980Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -36793,7 +36817,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:51:51.421Z",
-        "updatedAt": "2026-06-23T03:40:36.817Z"
+        "updatedAt": "2026-06-23T03:47:36.909Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
