@@ -983,7 +983,7 @@ export class FeishuBot {
       if (mentionTargets.length > 0) {
         await this.replyPostMention(message.message_id, safeReply, mentionTargets);
         if (this.config.autoMemory) {
-          await this.updateMemoryAndSummary({
+          this.scheduleMemoryUpdate({
             chatId,
             userId,
             userText: storedUserText,
@@ -1011,7 +1011,7 @@ export class FeishuBot {
     }
 
     if (this.config.autoMemory) {
-      await this.updateMemoryAndSummary({
+      this.scheduleMemoryUpdate({
         chatId,
         userId,
         userText: storedUserText,
@@ -2597,18 +2597,61 @@ export class FeishuBot {
         id: item?.id || "",
         title: item?.title || ""
       });
-      const video = await this.videoLibrary.download(item);
-      const thumbnail = await this.createVideoThumbnail(video);
-      const fileKey = await this.uploadVideo(video);
-      const sentType = await this.replyVideo(messageId, fileKey, thumbnail?.imageKey || "");
+      let asset = await this.getCachedVideoAsset(item);
+      let videoTitle = item?.title || item?.id || "video";
+      let videoBytes = 0;
+      let cacheHit = Boolean(asset?.fileKey);
+
+      if (!asset?.fileKey) {
+        const video = await this.videoLibrary.download(item);
+        videoTitle = video.title;
+        videoBytes = video.buffer.length;
+        const thumbnail = await this.createVideoThumbnail(video);
+        const fileKey = await this.uploadVideo(video);
+        asset = {
+          fileKey,
+          imageKey: thumbnail?.imageKey || "",
+          title: video.title,
+          bytes: video.buffer.length
+        };
+        await this.setCachedVideoAsset(item, asset);
+      }
+
+      let sentType;
+      try {
+        sentType = await this.replyVideo(messageId, asset.fileKey, asset.imageKey || "");
+      } catch (error) {
+        if (!cacheHit) throw error;
+        logEvent("warn", "Feishu cached video asset failed, reuploading", {
+          chatId,
+          id: item?.id || "",
+          error: error.message
+        });
+        await this.clearCachedVideoAsset(item);
+        const video = await this.videoLibrary.download(item);
+        videoTitle = video.title;
+        videoBytes = video.buffer.length;
+        const thumbnail = await this.createVideoThumbnail(video);
+        const fileKey = await this.uploadVideo(video);
+        asset = {
+          fileKey,
+          imageKey: thumbnail?.imageKey || "",
+          title: video.title,
+          bytes: video.buffer.length
+        };
+        await this.setCachedVideoAsset(item, asset);
+        cacheHit = false;
+        sentType = await this.replyVideo(messageId, asset.fileKey, asset.imageKey || "");
+      }
       await this.markVideoItemSent(request);
       logEvent("info", "Feishu video reply sent", {
         chatId,
         id: item?.id || "",
-        title: video.title,
-        bytes: video.buffer.length,
+        title: asset.title || videoTitle,
+        bytes: asset.bytes || videoBytes,
         sentType,
-        hasThumbnail: Boolean(thumbnail?.imageKey),
+        hasThumbnail: Boolean(asset.imageKey),
+        cacheHit,
         candidateCount: request.candidateCount || 0,
         startedNewRound: Boolean(request.rotationStartedNewRound)
       });
@@ -2617,14 +2660,15 @@ export class FeishuBot {
         userId,
         role: "assistant",
         modality: "video",
-        content: `Video reply: ${video.title}`,
+        content: `Video reply: ${asset.title || videoTitle}`,
         metadata: {
           platform: "feishu",
           replyToUserId: userId,
           videoId: item?.id || "",
-          videoTitle: video.title,
+          videoTitle: asset.title || videoTitle,
           videoUrl: item?.url || "",
-          thumbnailGenerated: Boolean(thumbnail?.imageKey),
+          thumbnailGenerated: Boolean(asset.imageKey),
+          cacheHit,
           sentType
         }
       });
@@ -2643,6 +2687,67 @@ export class FeishuBot {
         modality: "text",
         content: message,
         metadata: { platform: "feishu", replyToUserId: userId, videoId: item?.id || "" }
+      });
+    }
+  }
+
+  videoAssetCacheKey(item = {}) {
+    const hash = crypto
+      .createHash("sha1")
+      .update([item.id || "", item.url || ""].join("|"))
+      .digest("hex")
+      .slice(0, 24);
+    return `video_asset:${hash}`;
+  }
+
+  async getCachedVideoAsset(item = {}) {
+    if (!item?.id && !item?.url) return null;
+    try {
+      const value = await this.storage.getSetting(this.videoAssetCacheKey(item), "");
+      if (!value) return null;
+      const parsed = JSON.parse(value);
+      if (!parsed?.fileKey) return null;
+      return {
+        fileKey: String(parsed.fileKey || ""),
+        imageKey: String(parsed.imageKey || ""),
+        title: String(parsed.title || item.title || item.id || "video"),
+        bytes: Number(parsed.bytes || 0) || 0
+      };
+    } catch (error) {
+      logEvent("warn", "Feishu video asset cache read failed", {
+        id: item?.id || "",
+        error: error.message
+      });
+      return null;
+    }
+  }
+
+  async setCachedVideoAsset(item = {}, asset = {}) {
+    if ((!item?.id && !item?.url) || !asset?.fileKey) return;
+    try {
+      await this.storage.setSetting(this.videoAssetCacheKey(item), JSON.stringify({
+        fileKey: asset.fileKey,
+        imageKey: asset.imageKey || "",
+        title: asset.title || item.title || item.id || "video",
+        bytes: asset.bytes || 0,
+        cachedAt: new Date().toISOString()
+      }));
+    } catch (error) {
+      logEvent("warn", "Feishu video asset cache write failed", {
+        id: item?.id || "",
+        error: error.message
+      });
+    }
+  }
+
+  async clearCachedVideoAsset(item = {}) {
+    if (!item?.id && !item?.url) return;
+    try {
+      await this.storage.setSetting(this.videoAssetCacheKey(item), "");
+    } catch (error) {
+      logEvent("warn", "Feishu video asset cache clear failed", {
+        id: item?.id || "",
+        error: error.message
       });
     }
   }
@@ -3158,5 +3263,11 @@ export class FeishuBot {
     } catch (error) {
       console.error("Feishu memory update failed:", error.message);
     }
+  }
+
+  scheduleMemoryUpdate(args) {
+    this.updateMemoryAndSummary(args).catch((error) => {
+      console.error("Feishu memory background update failed:", error.message);
+    });
   }
 }
