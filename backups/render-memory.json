@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T07:05:33.607Z",
+  "exportedAt": "2026-06-24T07:15:33.956Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -39251,6 +39251,162 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T07:04:22.413Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "感觉你也挺有灵性的，笑的那么魔性[呲牙][呲牙][呲牙][呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c532d189cb17276cce2e56a3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:06:22.431Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "那必须的，灵性是刻在骨子里的 😏",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T07:06:25.511Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "好吧，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c51dfece4c05faca43b8ab1d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:06:38.805Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "好神奇啊！我让太阳学，让乖教他配置，结果我的开心果机器人发了条信息，然后小乖回复了之后，不知道谁又给他撤回去了。\n\n是怎么实现的呢？我现在找不到。好神奇，为什么会发生这种事？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c7d8d8d14c2af56fb102af7b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:12:05.945Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这事不稀奇，多半是哪个Bot的消息被另一个Bot当成指令执行了，然后又自己撤回。\n\n本质上就是机器人之间\"对话循环\"了，A说了啥，B接话，C觉得C不该插嘴就撤回了。\n\n想查的话去飞书机器人后台看消息日志，谁发的、什么时候撤回的，全有记录。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-24T07:12:16.127Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "哎，你说详细一点。哇，说的好绕啊。对，怎么查呢？什么指令？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c74180c80c03b3e8dcf77433",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:13:56.391Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好，说人话——\n\n就是几个Bot在群里互相\"接话\"接岔了，某个Bot反应过来自己不该插嘴，就悄悄撤回了。\n\n想查的话：飞书管理后台 → 群机器人 → 消息日志，能看到谁发的、谁撤的、什么时间。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-24T07:14:01.646Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "咋还有杂声呢？这个语音里头我真醉了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c0e872c88c3ab487e951a688",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:15:22.801Z"
       }
     ],
     "memories": [
@@ -42162,7 +42318,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-24T07:04:22.355Z"
+        "updatedAt": "2026-06-24T07:15:22.729Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42182,7 +42338,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-24T07:04:22.298Z"
+        "updatedAt": "2026-06-24T07:15:22.656Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42382,7 +42538,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T06:48:30.724Z"
+        "updatedAt": "2026-06-24T07:06:22.370Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42392,7 +42548,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T06:48:30.657Z"
+        "updatedAt": "2026-06-24T07:06:22.309Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
