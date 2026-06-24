@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T10:35:33.819Z",
+  "exportedAt": "2026-06-24T10:45:33.866Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41650,6 +41650,90 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-24T10:30:33.615Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "即梦还是逊色一点，我让他给我生成亚索，他给我生成一个黑哥们，我要吐了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f6318a4b0c2dbc45b8f0c193",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:35:41.373Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "那你是爱马仕框架吧！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f79efd0b0b48a6eb21c0db8f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:37:43.512Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "非程序员凭借领域经验，也能借助AI在5天内完成可落地的技术项目。\n冠军项目：医生开发医学生接诊模拟器Medikit，全程语音指挥多AI并行完成开发，已有3所医学院和1家药企准备试点。\n亚军项目：法国自学编程的维修师傅，打造电路故障诊断工具Wrench Board，可通过电路板图和症状描述定位故障。\n季军项目：智利大学老师开发编程教学工具，要求学生先用自然语言明确程序逻辑，再借助AI生成代码。\n特别奖项目：零编程经验的20岁木匠之子，基于父亲的维修经验，打造居家维修诊断Web应用，能给出故障细节、预算及师傅推荐。\n创意/实用项目：还有手势操控的AI木偶剧场，以及将工厂老师傅听声辨故障经验转化为AI监控系统的项目。\n所有获奖项目的核心共同点，是开发者对自身领域的问题有极深的理解。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f0dcdb4a0b2132fb4cce4606",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:40:52.975Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成代码。\n特别奖项目：零编程经验的20岁木匠之子，基于父亲的维修经验，打造居家维修诊断Web应用，能给出故障细节、预算及师傅推荐。\n创意/实用项目：还有手势操控的AI木偶剧场，以及将工厂老师傅听声辨故障经验转化为AI监控系统的项目。\n所有获奖项目的核心共同点，是开发者对自身领域的问题有极深的理解。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:42:16.454Z"
       }
     ],
     "memories": [
@@ -44491,7 +44575,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T10:14:29.142Z"
+        "updatedAt": "2026-06-24T10:35:41.304Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44501,7 +44585,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T10:14:29.079Z"
+        "updatedAt": "2026-06-24T10:35:41.236Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44851,7 +44935,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T10:30:27.518Z"
+        "updatedAt": "2026-06-24T10:40:52.916Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44861,7 +44945,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T10:30:27.452Z"
+        "updatedAt": "2026-06-24T10:40:52.857Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
