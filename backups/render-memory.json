@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T07:25:33.768Z",
+  "exportedAt": "2026-06-24T08:25:33.999Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -39479,6 +39479,138 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T07:18:34.425Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n**类型**：手机截图（深色主题代码编辑器 / Feishu代码块）\n**标题栏**：代码块\n**状态栏**：电量35%，时间4:18\n\n## 内容（代码 / 目录树）\n\n```\nG:\\pindu-knowledge\\music\\xiama\\projects\\月光_20260624-160747\\\n├── lyrics.json    # 歌词（含标题/情绪/标签/BPM）\n├── lyrics.txt     # 纯歌词文本\n├── copy.json      # 四平台推广文案\n├── README.md      # 发布包文档\n└── manifest.json  # 发布清单\n```\n\n## 关键信息提取\n\n- **路径**：G:\\pindu-knowledge\\music\\xiama\\projects\\\n- **项目文件夹名**：月光_20260624-160747\n- **包含文件（共5个）**：\n  1. `lyrics.json` —— 歌词（含标题/情绪/标签/BPM）\n  2. `lyrics.txt` —— 纯歌词文本\n  3. `copy.json` —— 四平台推广文案\n  4. `README.md` —— 发布包文档\n  5. `manifest.json` —— 发布清单\n- **用途推断**：这是\"虾马\"(xiama) 音乐项目的一个单曲发布包，目录名\"月光\"含时间戳 20260624-160747\n- **画面下方大片黑色区域为空**",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8d76313c84b2866339bebef2e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n**类型**：手机截图（深色主题代码编辑器 / Feishu代码块）\n**标题栏**：代码块\n**状态栏**：电量35%，时间4:18\n\n## 内容（代码 / 目录树）\n\n```\nG:\\pindu-knowledge\\music\\xiama\\projects\\月光_20260624-160747\\\n├── lyrics.json    # 歌词（含标题/情绪/标签/BPM）\n├── lyrics.txt     # 纯歌词文本\n├── copy.json      # 四平台推广文案\n├── README.md      # 发布包文档\n└── manifest.json  # 发布清单\n```\n\n## 关键信息提取\n\n- **路径**：G:\\pindu-knowledge\\music\\xiama\\projects\\\n- **项目文件夹名**：月光_20260624-160747\n- **包含文件（共5个）**：\n  1. `lyrics.json` —— 歌词（含标题/情绪/标签/BPM）\n  2. `lyrics.txt` —— 纯歌词文本\n  3. `copy.json` —— 四平台推广文案\n  4. `README.md` —— 发布包文档\n  5. `manifest.json` —— 发布清单\n- **用途推断**：这是\"虾马\"(xiama) 音乐项目的一个单曲发布包，目录名\"月光\"含时间戳 20260624-160747\n- **画面下方大片黑色区域为空**",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T08:21:58.567Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这套结构很清爽啊——项目叫「月光_20260624」，一个歌的发布包，五件套齐全：歌词（含标签/BPM）、纯文本歌词、四平台推广文案、README、发布清单。路径还按 \\pindu-knowledge\\music\\xiama\\projects\\ 这种规律建好，一看就是机器自动归档的，懒人福音 👍\n\n想自己复刻的话，关键是那个 manifest.json，里面把上面四个文件串成一个发布任务，脚本读它就知道往哪几个平台推什么内容。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T08:22:06.726Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "搞好了，等下看看我的虾出歌曲效果怎么样",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8d74dd73f0b1f8440aa5ce533",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T08:22:45.737Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "是的，我上班搬砖",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8d73f5dcb0b205928b9044112",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T08:23:36.826Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "那我回头也试试看",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8d70a5d880c18c7b0203eb40f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T08:23:38.864Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "昨天晚上做了两首歌曲还可以，现在吸取了他们的工作流，效果会更好的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8d0c159514b1bf95046b71052",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T08:24:30.915Z"
       }
     ],
     "memories": [
@@ -42610,7 +42742,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T07:18:34.354Z"
+        "updatedAt": "2026-06-24T08:24:30.848Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42620,7 +42752,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T07:18:34.283Z"
+        "updatedAt": "2026-06-24T08:24:30.780Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.music_workflow",
+        "value": "用户在'虾马'(xiama)音乐项目中采用标准化的单曲发布包结构：每个项目文件夹含 lyrics.json（含标题/情绪/标签/BPM）、lyrics.txt、copy.json（四平台推广文案）、README.md、manifest.json 五件套，路径规律为 G:\\pindu-knowledge\\music\\xiama\\projects\\，由脚本自动归档",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T08:22:45.302Z",
+        "updatedAt": "2026-06-24T08:22:45.302Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42700,7 +42842,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-24T07:16:28.637Z"
+        "updatedAt": "2026-06-24T08:23:38.789Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42710,7 +42852,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-24T07:16:28.568Z"
+        "updatedAt": "2026-06-24T08:23:38.718Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
