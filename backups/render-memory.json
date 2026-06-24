@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T10:25:33.909Z",
+  "exportedAt": "2026-06-24T10:35:33.819Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41614,6 +41614,42 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-24T10:22:00.067Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你是不是云端虾，不会发文件啊[呲牙][呲牙][呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f552e7498b34f894b22dd1c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:30:27.584Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我还真不是云端虾🐟 哈哈，可能是飞书这边上传姿势不对，文件没出去\n[呲牙]\n\n我先把内容贴群里，下次再研究怎么发文件～<tool_call>\n]<]minimax[>[<invoke name=\"send_group_message\">]<]minimax[>[<group_chat_id>oc_xxx]<]minimax[>[</group_chat_id>]<]minimax[>[<content>马斯克蒸馏·技能体系 v1\n\n【技能层】\n1. 第一性原理拆解：把问题拆到不可再分的物理/事实层\n2. 现实反馈迭代：用可验证的结果驱动修正\n3. 文明长期主义视角：决策拉长到100年以上\n4. 垂直整合：减少中间层，掌握核心环节\n5. 极限成本压缩：去掉每个环节的冗余\n6. 高风险高回报下注：资源压在突破点\n7. 系统工程思维：整体>局部，闭环设计\n8. 多行星/多备份思维：关键路径不只一条\n\n【人格层】\n真相优先>立场，人类长期利益>个人短期利益\n工程师>管理者，现实主义者>幻想家\n\n【调用规则】\n复杂决策→1+2  资源分配→5+6\n路线分歧→3+8  团队冲突→7]<]minimax[>[</content>]<]minimax[>[</invoke>\n]<]minimax[>[</tool_call>",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:30:33.615Z"
       }
     ],
     "memories": [
@@ -44815,7 +44851,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T10:21:54.596Z"
+        "updatedAt": "2026-06-24T10:30:27.518Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44825,7 +44861,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T10:21:54.524Z"
+        "updatedAt": "2026-06-24T10:30:27.452Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
