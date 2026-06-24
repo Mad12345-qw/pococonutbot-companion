@@ -140,17 +140,22 @@ export class VideoLibraryClient {
     return this.cache;
   }
 
-  async findMatch(text = "") {
-    if (!this.shouldCheck(text)) return null;
+  async findMatches(text = "") {
+    if (!this.shouldCheck(text)) return [];
     const value = normalizeText(text);
     const command = String(text || "").trim().match(/^\/(?:video|mv|media)(?:\s+(.+))?$/i);
     const query = normalizeText(command?.[1] || text);
     const items = await this.loadLibrary();
 
-    return items.find((item) => {
+    return items.filter((item) => {
       const keywords = asArray(item.keywords).map(normalizeText).filter(Boolean);
       return keywords.some((keyword) => value.includes(keyword) || query.includes(keyword));
-    }) || null;
+    });
+  }
+
+  async findMatch(text = "") {
+    const matches = await this.findMatches(text);
+    return matches[0] || null;
   }
 
   async download(item) {

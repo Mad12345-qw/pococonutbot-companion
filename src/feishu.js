@@ -765,7 +765,7 @@ export class FeishuBot {
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
-    const videoRequest = await this.extractVideoRequest(text);
+    const videoRequest = await this.extractVideoRequest(text, chatId);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
@@ -1626,21 +1626,90 @@ export class FeishuBot {
     return { requested: false, query: "", defaulted: false };
   }
 
-  async extractVideoRequest(text = "") {
+  async extractVideoRequest(text = "", chatId = "") {
     const raw = String(text || "").trim();
     if (!raw || !this.videoLibrary?.enabled || !this.videoLibrary.shouldCheck(raw)) {
       return { requested: false, item: null };
     }
 
     try {
-      const item = await this.videoLibrary.findMatch(raw);
-      return item ? { requested: true, item } : { requested: false, item: null };
+      const items = await this.videoLibrary.findMatches(raw);
+      if (!items.length) return { requested: false, item: null };
+      const selection = await this.selectRotatingVideoItem({ chatId, items });
+      return selection?.item
+        ? { requested: true, ...selection, candidateCount: items.length }
+        : { requested: false, item: null };
     } catch (error) {
       logEvent("error", "Feishu video library lookup failed", {
         error: error.message
       });
       return { requested: false, item: null };
     }
+  }
+
+  videoRotationKey(chatId = "") {
+    const hash = crypto
+      .createHash("sha1")
+      .update(String(chatId || "global"))
+      .digest("hex")
+      .slice(0, 24);
+    return `video_rotation:${hash}`;
+  }
+
+  parseVideoRotationState(value = "") {
+    try {
+      const parsed = JSON.parse(String(value || "{}"));
+      return {
+        used: Array.isArray(parsed.used) ? parsed.used.map(String).filter(Boolean) : [],
+        lastId: parsed.lastId ? String(parsed.lastId) : ""
+      };
+    } catch {
+      return { used: [], lastId: "" };
+    }
+  }
+
+  randomItem(items = []) {
+    if (!items.length) return null;
+    return items[crypto.randomInt(0, items.length)];
+  }
+
+  async selectRotatingVideoItem({ chatId, items }) {
+    const candidates = items.filter((item) => item?.id);
+    if (!candidates.length) return null;
+
+    const ids = candidates.map((item) => String(item.id));
+    const key = this.videoRotationKey(chatId);
+    const state = this.parseVideoRotationState(await this.storage.getSetting(key, "{}"));
+    let used = state.used.filter((id) => ids.includes(id));
+    let available = candidates.filter((item) => !used.includes(String(item.id)));
+    let startedNewRound = false;
+
+    if (!available.length) {
+      used = [];
+      startedNewRound = true;
+      available = candidates.filter((item) => String(item.id) !== state.lastId);
+      if (!available.length) available = candidates;
+    }
+
+    return {
+      item: this.randomItem(available),
+      rotationKey: key,
+      rotationUsedBefore: used,
+      rotationCandidateIds: ids,
+      rotationStartedNewRound: startedNewRound
+    };
+  }
+
+  async markVideoItemSent({ rotationKey, rotationUsedBefore = [], rotationCandidateIds = [], item }) {
+    if (!rotationKey || !item?.id) return;
+    const ids = rotationCandidateIds.map(String);
+    const used = rotationUsedBefore.filter((id) => ids.includes(id));
+    const id = String(item.id);
+    if (!used.includes(id)) used.push(id);
+    await this.storage.setSetting(rotationKey, JSON.stringify({
+      used,
+      lastId: id
+    }));
   }
 
   cleanSongQuery(text = "") {
@@ -2532,13 +2601,16 @@ export class FeishuBot {
       const thumbnail = await this.createVideoThumbnail(video);
       const fileKey = await this.uploadVideo(video);
       const sentType = await this.replyVideo(messageId, fileKey, thumbnail?.imageKey || "");
+      await this.markVideoItemSent(request);
       logEvent("info", "Feishu video reply sent", {
         chatId,
         id: item?.id || "",
         title: video.title,
         bytes: video.buffer.length,
         sentType,
-        hasThumbnail: Boolean(thumbnail?.imageKey)
+        hasThumbnail: Boolean(thumbnail?.imageKey),
+        candidateCount: request.candidateCount || 0,
+        startedNewRound: Boolean(request.rotationStartedNewRound)
       });
       await this.storage.addMessage({
         chatId,
