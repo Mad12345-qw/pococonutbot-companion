@@ -70,7 +70,7 @@ services:
       - key: TTS_TELEGRAM_MODE
         value: voice
       - key: FEISHU_TTS_VOICE_ID
-        value: "2066888673848201216"
+        value: "2069785710897926144"
       - key: FEISHU_TTS_MAX_INPUT_CHARS
         value: "1200"
       - key: SONG_API_ENABLED
