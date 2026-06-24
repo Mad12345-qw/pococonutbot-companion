@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T03:05:33.770Z",
+  "exportedAt": "2026-06-24T03:25:34.655Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38606,6 +38606,92 @@
           "replyToUserId": "feishu:ou_ac3e4c8e87ca46c8ead3bb88a4673e5c"
         },
         "createdAt": "2026-06-24T03:05:27.279Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "玩明白了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c808f490cb8b14918d9b6f9eb3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T03:16:46.149Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c808fe8f0a8b249b6e31872e2b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T03:16:50.807Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "看看小乖啥反应",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c808dbda8bcb1a5171284e4919",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T03:17:16.115Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：小乖啥反应\n搜索结果中\"小乖\"所指对象不一致，没有直接回答\"小乖啥反应\"这一具体情境的内容。以下是各来源涉及的\"小乖\"相关信息： • 萨摩耶犬\"小乖\"（19楼论坛）：对家里宝宝很温柔乖巧，会主动远离粗暴时的宝宝；曾因胃扭转紧急手术，术后虚弱在医院寄养。 • 游戏角色/玩家\"小乖\"（TapTap 光遇论坛）：内容仅含平台信息，无具体反应描述。 • 小女孩\"小乖\"（IVY/核桃）（豆瓣）：被形容为\"疯狂的小老鼠\"，三岁，不说中文、急了就尖叫打人，在商场里被保安盯梢。 • \"乖宝宝\"的医学警示（开封市儿童医院）：与\"小乖\"名字无关，提醒宝宝过分安静可能提示中枢神经系统疾病、败血症、低血糖、甲状腺功能低下等。 • YY主播\"小乖\"（今日头条）：直播连麦忘闭麦，传出现婴儿哭声，本人解释为家里的猫。 ⚠️ \"小乖啥反应\"所指的具体对象（宠物、孩子、博主、游戏角色等）不明，以上仅为搜索到的零散信息，建议补充上下文以便准确回答。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-24T03:17:48.656Z"
       }
     ],
     "memories": [
@@ -41047,7 +41133,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-23T16:44:11.019Z"
+        "updatedAt": "2026-06-24T03:17:16.051Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41057,7 +41143,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-23T16:44:10.948Z"
+        "updatedAt": "2026-06-24T03:17:15.986Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
