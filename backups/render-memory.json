@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T04:25:33.809Z",
+  "exportedAt": "2026-06-24T06:45:33.444Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38980,6 +38980,66 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-24T04:25:20.972Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[敲键盘]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8384ba3c90b24f8a4dcdbff11",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T06:43:57.498Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "让BOT学习记忆系统和技能系统和立规矩和人格就可以了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8383d81090b16390a5258b897",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T06:44:39.578Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n\n你讲的本质是给bot装三层：记忆、技能、人格，再加一套规则约束。\n\n核心要点\n\n1. 记忆系统：存上下文、历史偏好，让bot越聊越懂你。\n2. 技能系统：把常用操作封装成可调用的能力模块。\n3. 立规矩：明确边界和指令优先级，避免跑偏。\n4. 人格：定语气、风格，让它像个稳定的人而不是工具。\n\n一句话结论\n\n记忆 + 技能 + 人格 + 规矩 = 有灵魂的bot。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T06:44:47.508Z"
       }
     ],
     "memories": [
@@ -41421,7 +41481,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-24T03:17:16.051Z"
+        "updatedAt": "2026-06-24T06:43:57.428Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41431,7 +41491,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-24T03:17:15.986Z"
+        "updatedAt": "2026-06-24T06:43:57.258Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42076,6 +42136,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "intent.bot_design_vision",
+        "value": "用户希望BOT具备记忆系统、技能系统、人格和立规矩四大能力，认为这样才能让bot像'有灵魂的人'",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-24T06:45:25.866Z",
+        "updatedAt": "2026-06-24T06:45:25.866Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "intention.external_bot",
         "value": "用户希望将外部BOT接入飞书群（AI探索交流1群），了解如何让外部bot进群发消息或进行交互",
         "importance": 5,
@@ -42091,7 +42161,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T04:25:16.690Z"
+        "updatedAt": "2026-06-24T06:44:39.506Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42101,7 +42171,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T04:25:16.620Z"
+        "updatedAt": "2026-06-24T06:44:39.435Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
