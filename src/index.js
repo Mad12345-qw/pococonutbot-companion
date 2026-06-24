@@ -50,6 +50,7 @@ app.get("/health", (_req, res) => {
     feishuVoiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.feishuTtsVoiceId),
     feishuSongReply: Boolean(config.songApiEnabled && config.songApiToken),
     feishuVideoLibrary: Boolean(config.videoLibraryEnabled && config.videoLibraryUrl),
+    feishuVideoRotation: true,
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     feishuCardTemplates: true,
     feishuPremiumCards: true,
