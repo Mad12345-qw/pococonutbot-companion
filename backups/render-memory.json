@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T15:37:42.760Z",
+  "exportedAt": "2026-06-24T15:57:43.876Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43382,6 +43382,48 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-24T15:23:29.179Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "清唱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8b88a310a0b042f88ea099175",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T15:48:58.279Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "video",
+        "content": "Video reply: Xiaoye acappella 08",
+        "metadata": {
+          "videoId": "xiaoye-acappella-08",
+          "cacheHit": true,
+          "platform": "feishu",
+          "sentType": "media",
+          "videoUrl": "https://szygumin.icu/xiaoye-media/videos/xiaoye-acappella-08.mp4",
+          "videoTitle": "Xiaoye acappella 08",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "thumbnailGenerated": true
+        },
+        "createdAt": "2026-06-24T15:49:00.514Z"
       }
     ],
     "memories": [
@@ -44883,7 +44925,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-24T15:15:43.580Z"
+        "updatedAt": "2026-06-24T15:48:58.214Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -44893,7 +44935,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-24T15:15:43.515Z"
+        "updatedAt": "2026-06-24T15:48:58.133Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -47503,8 +47545,8 @@
       },
       {
         "key": "video_rotation:5cbe06657acffc41a94d9587",
-        "value": "{\"used\":[\"xiaoye-acappella-01\",\"xiaoye-acappella-07\"],\"lastId\":\"xiaoye-acappella-07\"}",
-        "updatedAt": "2026-06-24T14:59:22.819Z"
+        "value": "{\"used\":[\"xiaoye-acappella-01\",\"xiaoye-acappella-07\",\"xiaoye-acappella-08\"],\"lastId\":\"xiaoye-acappella-08\"}",
+        "updatedAt": "2026-06-24T15:49:00.448Z"
       },
       {
         "key": "video_rotation:ba360bff349fdec114482229",
