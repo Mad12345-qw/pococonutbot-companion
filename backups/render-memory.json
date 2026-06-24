@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T10:45:33.866Z",
+  "exportedAt": "2026-06-24T10:55:33.936Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41734,6 +41734,30 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-24T10:42:16.454Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "这是黑客松获奖作品都是不懂编程用语音交互控制智能体编写的作品",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f3809a484b49ab14c4ed9391",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:54:42.211Z"
       }
     ],
     "memories": [
@@ -44935,7 +44959,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T10:40:52.916Z"
+        "updatedAt": "2026-06-24T10:54:42.153Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44945,7 +44969,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T10:40:52.857Z"
+        "updatedAt": "2026-06-24T10:54:42.067Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
