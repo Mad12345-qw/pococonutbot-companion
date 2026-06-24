@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T04:15:34.433Z",
+  "exportedAt": "2026-06-24T04:25:33.809Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38872,6 +38872,114 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T04:06:05.214Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "如何啦外部bit进群",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c81f2af8888b32410d3de101af",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T04:23:40.897Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "外部bot进群的话，飞书有几种方式～常见的是用webhook机器人，在群设置里添加自定义机器人拿到webhook地址，外部服务往这个地址POST消息就能发到群里。\n\n还有一种是用飞书开放平台的机器人能力，需要注册企业自建应用、配权限，比较复杂但能做交互。\n\n你具体想实现啥功能呀？纯发消息还是要做互动？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T04:23:46.733Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "如何啦外部bOT进群",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c81f35ed8b4b391f02c4751f80",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T04:24:10.324Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "外部bot进群～最简单的是用自定义机器人webhook，群设置里添加机器人拿到链接，外部服务往这链接POST就能发消息。\n\n如果要交互就得注册飞书开放平台的企业自建应用，配权限那些。你想搞哪种呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T04:24:14.257Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "拉外部BOT进AI探索交流1群的方法如下：\n1. 在机器人应用发布版本位置，勾选“可加入外部群”，然后发布 。\n2. 若按上述操作找不到，要创建个新版本，完成个人认证后即可 。\n3. 先创建群聊，再在右上角群设置中添加群机器人，选择创建好的机器人（外部群需企业认证才可添加，内部群无此限制） 。（图 1）\n\n\n图 1\n除此之外，还为你找到以下内容：若需设置消息推送范围，可登录飞书开放平台进入应用后台，点击「应用功能」→ 选择「机器人」功能，在配置页面找到「消息推送范围」板块，选择「所有成员」 。（来自知识问答）\n拉外部BOT进AI探索交流1群的方法如下：\n1. 在机器人应用发布版本位置，勾选“可加入外部群”，然后发布 。\n2. 若按上述操作找不到，要创建个新版本，完成个人认证后即可 。\n3. 先创建群聊，再在右上角群设置中添加群机器人，选择创建好的机器人（外部群需企业认证才可添加，内部群无此限制） 。（图 1）\n\n\n图 1\n除此之外，还为你找到以下内容：若需设置消息推送范围，可登录飞书开放平台进入应用后台，点击「应用功能」→ 选择「机器人」功能，在配置页面找到「消息推送范围」板块，选择「所有成员」 。（来自知识问答）",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c818c9d0cbcb16f9c9309a77d2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T04:25:16.760Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n\n外部bot进群的关键是权限开关，不是技术对接。\n\n核心要点\n\n1. 发布版本时勾选\"可加入外部群\"，找不到就新建版本，个人认证后才能看到。\n2. 群设置 → 添加群机器人 → 选已发布的bot，外部群需要企业认证。\n3. 消息推送范围在开放平台后台的应用功能里配置。\n\n一句话结论\n\n认证 → 发布版本勾权限 → 群设置里添加，三步搞定。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T04:25:20.972Z"
       }
     ],
     "memories": [
@@ -41958,12 +42066,32 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "chat.feishu_group_topic",
+        "value": "用户在AI探索交流1群中关注机器人集成与自动化相关话题",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T04:24:29.826Z",
+        "updatedAt": "2026-06-24T04:24:29.826Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "intention.external_bot",
+        "value": "用户希望将外部BOT接入飞书群（AI探索交流1群），了解如何让外部bot进群发消息或进行交互",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T04:24:29.760Z",
+        "updatedAt": "2026-06-24T04:24:29.760Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T04:06:05.156Z"
+        "updatedAt": "2026-06-24T04:25:16.690Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41973,7 +42101,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T04:06:05.098Z"
+        "updatedAt": "2026-06-24T04:25:16.620Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
