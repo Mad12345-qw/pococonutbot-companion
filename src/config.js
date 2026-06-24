@@ -190,6 +190,15 @@ export const config = {
         "\u9093\u7d2b\u68cb \u591a\u8fdc\u90fd\u8981\u5728\u4e00\u8d77",
         "\u9093\u7d2b\u68cb \u6765\u81ea\u5929\u5802\u7684\u9b54\u9b3c"
       ],
+  videoLibraryUrl: process.env.VIDEO_LIBRARY_URL || "https://szygumin.icu/xiaoye-media/library.json",
+  videoLibraryEnabled: asBoolean(process.env.VIDEO_LIBRARY_ENABLED, true),
+  videoLibraryTimeoutMs: asNumber(process.env.VIDEO_LIBRARY_TIMEOUT_MS, 8000),
+  videoLibraryCacheMs: asNumber(process.env.VIDEO_LIBRARY_CACHE_MS, 300000),
+  videoLibraryDownloadTimeoutMs: asNumber(process.env.VIDEO_LIBRARY_DOWNLOAD_TIMEOUT_MS, 120000),
+  videoLibraryMaxBytes: asNumber(process.env.VIDEO_LIBRARY_MAX_BYTES, 30 * 1024 * 1024),
+  videoLibraryTriggerHints: asList(process.env.VIDEO_LIBRARY_TRIGGER_HINTS).length
+    ? asList(process.env.VIDEO_LIBRARY_TRIGGER_HINTS)
+    : ["\u6e05\u5531", "\u53d1\u89c6\u9891", "\u6765\u6bb5\u89c6\u9891", "\u89c6\u9891"],
   databaseUrl: process.env.DATABASE_URL || "",
   databaseSsl: asBoolean(process.env.DB_SSL, false),
   displayName: asCleanText(process.env.BOT_DISPLAY_NAME, "小椰"),

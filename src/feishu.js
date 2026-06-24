@@ -484,7 +484,7 @@ function cardNote(results = []) {
 }
 
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, webSearch }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
@@ -492,6 +492,7 @@ export class FeishuBot {
     this.speechToText = speechToText;
     this.textToSpeech = textToSpeech;
     this.songClient = songClient;
+    this.videoLibrary = videoLibrary;
     this.webSearch = webSearch;
     this.token = null;
     this.tokenExpiresAt = 0;
@@ -764,6 +765,7 @@ export class FeishuBot {
     const text = this.stripBotName(rawText);
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
+    const videoRequest = await this.extractVideoRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
@@ -775,6 +777,7 @@ export class FeishuBot {
       this.isExplicitCommand(text) ||
       webSearchRequest.requested ||
       songRequest.requested ||
+      videoRequest.requested ||
       selfieRequest.requested ||
       projectRequest ||
       this.config.triggerMode === "all";
@@ -877,6 +880,18 @@ export class FeishuBot {
         text: selfieRequest.prompt
       }).catch((error) => {
         logEvent("error", "Feishu selfie image background task failed", { chatId, error: error.message });
+      });
+      return;
+    }
+
+    if (videoRequest.requested) {
+      this.handleVideoRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: videoRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu video background task failed", { chatId, error: error.message });
       });
       return;
     }
@@ -1609,6 +1624,23 @@ export class FeishuBot {
     }
 
     return { requested: false, query: "", defaulted: false };
+  }
+
+  async extractVideoRequest(text = "") {
+    const raw = String(text || "").trim();
+    if (!raw || !this.videoLibrary?.enabled || !this.videoLibrary.shouldCheck(raw)) {
+      return { requested: false, item: null };
+    }
+
+    try {
+      const item = await this.videoLibrary.findMatch(raw);
+      return item ? { requested: true, item } : { requested: false, item: null };
+    } catch (error) {
+      logEvent("error", "Feishu video library lookup failed", {
+        error: error.message
+      });
+      return { requested: false, item: null };
+    }
   }
 
   cleanSongQuery(text = "") {
@@ -2482,6 +2514,64 @@ export class FeishuBot {
     }
   }
 
+  async handleVideoRequest({ messageId, chatId, userId, request }) {
+    if (!this.videoLibrary?.enabled) {
+      await this.replyText(messageId, "\u89c6\u9891\u7d20\u6750\u5e93\u8fd8\u6ca1\u914d\u7f6e\u597d\u3002");
+      return;
+    }
+
+    const item = request.item;
+    try {
+      logEvent("info", "Feishu video request started", {
+        chatId,
+        userId,
+        id: item?.id || "",
+        title: item?.title || ""
+      });
+      const video = await this.videoLibrary.download(item);
+      const fileKey = await this.uploadVideo(video);
+      const sentType = await this.replyVideo(messageId, fileKey);
+      logEvent("info", "Feishu video reply sent", {
+        chatId,
+        id: item?.id || "",
+        title: video.title,
+        bytes: video.buffer.length,
+        sentType
+      });
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "video",
+        content: `Video reply: ${video.title}`,
+        metadata: {
+          platform: "feishu",
+          replyToUserId: userId,
+          videoId: item?.id || "",
+          videoTitle: video.title,
+          videoUrl: item?.url || "",
+          sentType
+        }
+      });
+    } catch (error) {
+      logEvent("error", "Feishu video request failed", {
+        chatId,
+        id: item?.id || "",
+        error: error.message
+      });
+      const message = this.formatVideoFailureMessage(error);
+      await this.replyText(messageId, message);
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "text",
+        content: message,
+        metadata: { platform: "feishu", replyToUserId: userId, videoId: item?.id || "" }
+      });
+    }
+  }
+
   async handleSongRequest({ messageId, chatId, userId, request }) {
     if (!this.songClient?.enabled) {
       await this.replyText(messageId, "\u70b9\u6b4c\u63a5\u53e3\u8fd8\u6ca1\u914d\u7f6e\u597d\u3002");
@@ -2561,6 +2651,17 @@ export class FeishuBot {
       return `\u8fd9\u9996\u6b4c\u6587\u4ef6\u592a\u5927\u4e86\uff0c\u98de\u4e66\u8fd9\u8fb9\u4e0d\u592a\u597d\u53d1\u6210\u8bed\u97f3\u6c14\u6ce1\u3002\u6362\u9996\u77ed\u4e00\u70b9\u7684\u6211\u518d\u8bd5\u8bd5\u3002`;
     }
     return `\u8fd9\u9996\u6b4c\u6682\u65f6\u6ca1\u53d1\u51fa\u6765\uff0c\u6211\u8fd9\u8fb9\u70b9\u6b4c\u63a5\u53e3\u521a\u521a\u6ca1\u62ff\u7a33\u3002\u4f60\u7a0d\u540e\u518d\u8bd5\u4e00\u4e0b\uff0c\u6216\u8005\u6362\u4e2a\u66f4\u660e\u786e\u7684\u6b4c\u540d\u3002`;
+  }
+
+  formatVideoFailureMessage(error) {
+    const detail = String(error?.message || "");
+    if (/too large|30m|size/i.test(detail)) {
+      return "\u8fd9\u6bb5\u89c6\u9891\u6587\u4ef6\u592a\u5927\u4e86\uff0c\u98de\u4e66\u6682\u65f6\u4e0d\u592a\u597d\u76f4\u63a5\u53d1\u3002\u6211\u6362\u4e00\u4e2a\u77ed\u4e00\u70b9\u7684\u7d20\u6750\u518d\u8bd5\u3002";
+    }
+    if (/download|HTTP|non-JSON|library/i.test(detail)) {
+      return "\u8fd9\u6bb5\u89c6\u9891\u7d20\u6750\u521a\u624d\u6ca1\u62ff\u7a33\uff0c\u7a0d\u540e\u518d\u53d1\u4e00\u6b21\u201c\u6e05\u5531\u201d\u6211\u91cd\u65b0\u8bd5\u3002";
+    }
+    return "\u89c6\u9891\u521a\u521a\u6ca1\u53d1\u51fa\u6765\uff0c\u6211\u8fd9\u8fb9\u7d20\u6750\u901a\u9053\u6ca1\u63a5\u7a33\uff0c\u7a0d\u540e\u518d\u8bd5\u4e00\u4e0b\u3002";
   }
 
   formatAiFailureMessage(error) {
@@ -2669,6 +2770,35 @@ export class FeishuBot {
     return response;
   }
 
+  async replyFile(messageId, fileKey) {
+    if (!messageId || !fileKey) return;
+    const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "file",
+      content: JSON.stringify({ file_key: fileKey })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async replyVideo(messageId, fileKey) {
+    if (!messageId || !fileKey) return "";
+    try {
+      const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+        msg_type: "media",
+        content: JSON.stringify({ file_key: fileKey })
+      });
+      this.rememberBotMessage(response);
+      return "media";
+    } catch (error) {
+      logEvent("warn", "Feishu media reply failed, falling back to file", {
+        messageId,
+        error: error.message
+      });
+      await this.replyFile(messageId, fileKey);
+      return "file";
+    }
+  }
+
   async replySpeech(messageId, text) {
     if (!messageId || !this.textToSpeech?.isEnabled(this.config.feishuTtsVoiceId)) return false;
 
@@ -2751,6 +2881,37 @@ export class FeishuBot {
     return fileKey;
   }
 
+  async uploadVideo(video) {
+    const token = await this.tenantAccessToken();
+    const blob = new Blob([video.buffer], { type: video.contentType || "video/mp4" });
+    const form = new FormData();
+    form.append("file_type", "mp4");
+    form.append("file_name", video.fileName || "xiaoye-video.mp4");
+    form.append("file", blob, video.fileName || "xiaoye-video.mp4");
+
+    let response;
+    try {
+      response = await fetch("https://open.feishu.cn/open-apis/im/v1/files", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: form
+      });
+    } catch (error) {
+      logEvent("error", "Feishu video upload fetch failed", { error: error.message });
+      throw new Error(`Feishu video upload fetch failed: ${error.message}`);
+    }
+
+    const data = await response.json();
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu video upload failed: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    const fileKey = data.data?.file_key;
+    if (!fileKey) {
+      throw new Error(`Feishu video upload did not return file_key: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    return fileKey;
+  }
+
   async downloadMessageResource({ messageId, fileKey, type = "file", maxBytes = 25 * 1024 * 1024 }) {
     const token = await this.tenantAccessToken();
     const url =
@@ -2808,6 +2969,9 @@ export class FeishuBot {
       : metadata.rawUserId || message.user_id || "飞书用户";
     if (message.modality === "card" || metadata.webSearch) {
       return `${label}: [发出了一张资料卡片，具体卡片正文不作为当前消息原文复述]`;
+    }
+    if (message.modality === "video") {
+      return `${label}: [发出了一个视频素材：${metadata.videoTitle || message.content || "video"}]`;
     }
     return `${label}: ${message.content || ""}`;
   }

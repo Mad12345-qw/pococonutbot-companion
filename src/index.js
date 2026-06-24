@@ -6,6 +6,7 @@ import { ImageGenerationClient } from "./image-client.js";
 import { SpeechToTextClient } from "./stt-client.js";
 import { TextToSpeechClient } from "./tts-client.js";
 import { SongClient } from "./song-client.js";
+import { VideoLibraryClient } from "./video-library.js";
 import { BochaWebSearchClient } from "./web-search-client.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
@@ -48,6 +49,7 @@ app.get("/health", (_req, res) => {
     voiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.ttsVoiceId),
     feishuVoiceReply: Boolean(config.ttsEnabled && config.ttsApiKey && config.feishuTtsVoiceId),
     feishuSongReply: Boolean(config.songApiEnabled && config.songApiToken),
+    feishuVideoLibrary: Boolean(config.videoLibraryEnabled && config.videoLibraryUrl),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     feishuCardTemplates: true,
     feishuPremiumCards: true,
@@ -353,8 +355,9 @@ const imageGenerator = new ImageGenerationClient(config);
 const speechToText = new SpeechToTextClient(config);
 const textToSpeech = new TextToSpeechClient(config);
 const songClient = new SongClient(config);
+const videoLibrary = new VideoLibraryClient(config);
 const webSearch = new BochaWebSearchClient(config);
-const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, webSearch });
+const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch });
 feishuBot.setupRoutes(app);
 const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
 await telegramBot.start();
