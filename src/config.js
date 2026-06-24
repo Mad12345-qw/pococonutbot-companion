@@ -196,6 +196,7 @@ export const config = {
   videoLibraryCacheMs: asNumber(process.env.VIDEO_LIBRARY_CACHE_MS, 300000),
   videoLibraryDownloadTimeoutMs: asNumber(process.env.VIDEO_LIBRARY_DOWNLOAD_TIMEOUT_MS, 120000),
   videoLibraryMaxBytes: asNumber(process.env.VIDEO_LIBRARY_MAX_BYTES, 30 * 1024 * 1024),
+  videoLibraryPrewarmOnStart: asBoolean(process.env.VIDEO_LIBRARY_PREWARM_ON_START, true),
   videoLibraryTriggerHints: asList(process.env.VIDEO_LIBRARY_TRIGGER_HINTS).length
     ? asList(process.env.VIDEO_LIBRARY_TRIGGER_HINTS)
     : ["\u6e05\u5531", "\u53d1\u89c6\u9891", "\u6765\u6bb5\u89c6\u9891", "\u89c6\u9891"],
@@ -228,6 +229,8 @@ export const config = {
   githubBackupIntervalMinutes: asNumber(process.env.GITHUB_BACKUP_INTERVAL_MINUTES, 30),
   restoreMemoryFromGithub: asBoolean(process.env.RESTORE_MEMORY_FROM_GITHUB, true),
   autoMemory: asBoolean(process.env.AUTO_MEMORY, true),
+  feishuTimingLogsEnabled: asBoolean(process.env.FEISHU_TIMING_LOGS_ENABLED, true),
+  feishuTimingMinMs: asNumber(process.env.FEISHU_TIMING_MIN_MS, 0),
   recentMessageLimit: asNumber(process.env.RECENT_MESSAGE_LIMIT, 24),
   memoryLimit: asNumber(process.env.MEMORY_LIMIT, 24),
   maxReplyChars: asNumber(process.env.MAX_REPLY_CHARS, 3600),

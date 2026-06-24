@@ -515,6 +515,42 @@ export class FeishuBot {
     return Boolean(this.config.feishuAppId && this.config.feishuAppSecret);
   }
 
+  startTiming(label, meta = {}) {
+    if (!this.config.feishuTimingLogsEnabled) return null;
+    const now = Date.now();
+    return {
+      label,
+      startedAt: now,
+      lastAt: now,
+      steps: {},
+      meta: { ...meta }
+    };
+  }
+
+  addTimingMeta(timing, meta = {}) {
+    if (!timing) return;
+    timing.meta = { ...timing.meta, ...meta };
+  }
+
+  markTiming(timing, step) {
+    if (!timing || !step) return;
+    const now = Date.now();
+    timing.steps[step] = (timing.steps[step] || 0) + Math.max(0, now - timing.lastAt);
+    timing.lastAt = now;
+  }
+
+  finishTiming(timing, meta = {}) {
+    if (!timing) return;
+    const totalMs = Math.max(0, Date.now() - timing.startedAt);
+    if (totalMs < (this.config.feishuTimingMinMs || 0)) return;
+    logEvent("info", `${timing.label} timing`, {
+      ...timing.meta,
+      ...meta,
+      totalMs,
+      steps: timing.steps
+    });
+  }
+
   setupRoutes(app) {
     app.post("/feishu/events", async (req, res) => {
       try {
@@ -736,6 +772,7 @@ export class FeishuBot {
   }
 
   async handleMessage(payload) {
+    const timing = this.startTiming("Feishu message");
     const event = payload.event || {};
     const message = event.message || {};
 
@@ -752,12 +789,20 @@ export class FeishuBot {
         : postMessage
           ? rawMessageText
           : stripAtTags(rawMessageText || "");
+    this.markTiming(timing, "prepareTextMs");
     const senderIdInfo = event.sender?.sender_id || {};
     const senderId = senderIdInfo.open_id || senderIdInfo.user_id || "";
     const senderIdentityCandidates = this.senderIdentityCandidates(event);
     const chatId = platformId(message.chat_id || message.open_chat_id || senderId);
     const userId = platformId(senderId || "unknown");
+    this.addTimingMeta(timing, {
+      chatId,
+      messageId: message.message_id || "",
+      messageType: message.message_type || "",
+      chatType: message.chat_type || ""
+    });
     await this.recordPassiveLinkMessage({ chatId, userId, message, content, rawMessageText });
+    this.markTiming(timing, "passiveLinkMs");
 
     const chatType = message.chat_type || "";
     const mentionInfo = this.getMentionInfo(message, rawMessageText || content.text || rawText);
@@ -769,6 +814,7 @@ export class FeishuBot {
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
+    this.markTiming(timing, "routeDetectMs");
     const explicitReply =
       chatType === "p2p" ||
       alwaysReplyUser ||
@@ -808,6 +854,7 @@ export class FeishuBot {
       rawMessageText,
       text: safeUserText
     });
+    this.markTiming(timing, "linkContextMs");
     const imageIntent = extractImageGenerationIntent(safeUserText, {
       botNames: [
         this.config.feishuBotName || "",
@@ -823,6 +870,7 @@ export class FeishuBot {
     const contextualUserText = this.withLinkContext(safeUserText, linkContext);
     const imageDataUrl = imageMessage ? await this.downloadImageMessage(message, content) : "";
     if (imageMessage && !imageDataUrl) return;
+    this.markTiming(timing, "imageDownloadMs");
     const imageContext = imageMessage
       ? await this.describeIncomingImages({
           chatId,
@@ -832,6 +880,7 @@ export class FeishuBot {
           messageId: message.message_id
         })
       : "";
+    this.markTiming(timing, "imageContextMs");
     const storedUserText = this.withImageContext(contextualUserText, imageContext, "请看这张图片并自然回复。");
 
     await this.upsertUserProfileMemory(chatId, userId, currentUser);
@@ -858,6 +907,7 @@ export class FeishuBot {
         voiceDurationMs: audioMessage ? Number(content.duration || 0) : 0
       }
     });
+    this.markTiming(timing, "storeUserMs");
 
     if (projectRequest) {
       this.projectEngine.createProjectFromBrief({
@@ -869,6 +919,7 @@ export class FeishuBot {
         logEvent("error", "Feishu project workflow failed", { chatId, error: error.message });
         await this.replyText(message.message_id, `项目工作流失败了：${truncate(error.message, 600)}`);
       });
+      this.finishTiming(timing, { route: "project" });
       return;
     }
 
@@ -881,6 +932,7 @@ export class FeishuBot {
       }).catch((error) => {
         logEvent("error", "Feishu selfie image background task failed", { chatId, error: error.message });
       });
+      this.finishTiming(timing, { route: "selfie" });
       return;
     }
 
@@ -893,6 +945,7 @@ export class FeishuBot {
       }).catch((error) => {
         logEvent("error", "Feishu video background task failed", { chatId, error: error.message });
       });
+      this.finishTiming(timing, { route: "video" });
       return;
     }
 
@@ -905,6 +958,7 @@ export class FeishuBot {
       }).catch((error) => {
         logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
       });
+      this.finishTiming(timing, { route: "song" });
       return;
     }
 
@@ -917,6 +971,7 @@ export class FeishuBot {
       }).catch((error) => {
         logEvent("error", "Feishu web search background task failed", { chatId, error: error.message });
       });
+      this.finishTiming(timing, { route: "web_search" });
       return;
     }
 
@@ -929,6 +984,7 @@ export class FeishuBot {
       }).catch((error) => {
         logEvent("error", "Feishu image background task failed", { chatId, error: error.message });
       });
+      this.finishTiming(timing, { route: "image_generation" });
       return;
     }
 
@@ -936,6 +992,7 @@ export class FeishuBot {
       const shouldReply = await this.shouldReplyToSmartCandidate({ chatId, safeUserText, hasImage: imageMessage });
       if (!shouldReply) return;
     }
+    this.markTiming(timing, "smartDecisionMs");
 
     let reply;
     try {
@@ -947,6 +1004,7 @@ export class FeishuBot {
         imageDataUrl,
         currentMessageId: message.message_id || ""
       });
+      this.markTiming(timing, "aiReplyMs");
     } catch (error) {
       if (imageMessage) {
         logEvent("error", "Feishu image reply failed", {
@@ -966,6 +1024,7 @@ export class FeishuBot {
         });
         reply = this.formatAiFailureMessage(error);
       }
+      this.markTiming(timing, "aiReplyMs");
     }
     const safeAssistantReply = this.cleanAssistantReply(redactSensitive(reply));
     await this.storage.addMessage({
@@ -976,6 +1035,7 @@ export class FeishuBot {
       content: safeAssistantReply,
       metadata: { platform: "feishu", replyToUserId: userId }
     });
+    this.markTiming(timing, "storeAssistantMs");
 
     const safeReply = safeAssistantReply;
     if (this.config.feishuOutgoingMentionsEnabled) {
@@ -992,6 +1052,7 @@ export class FeishuBot {
             skipMemoryExtraction: this.isTransientStyleRequest(safeUserText)
           });
         }
+        this.finishTiming(timing, { route: "mention_post", replyChars: safeReply.length });
         return;
       }
     }
@@ -999,6 +1060,7 @@ export class FeishuBot {
     if (this.config.feishuOutgoingMentionsEnabled && this.hasExplicitMentionDeliveryRequest(safeUserText)) {
       const notice = "我可以帮你 @ 人，但需要你在消息里真的 @ 一下对方，或者先在 Render 配置 FEISHU_MENTION_TARGETS_JSON，把名字和 open_id 对上。";
       await this.replyText(message.message_id, notice);
+      this.finishTiming(timing, { route: "mention_notice" });
       return;
     }
 
@@ -1009,6 +1071,7 @@ export class FeishuBot {
         await this.replyText(message.message_id, chunk);
       }
     }
+    this.markTiming(timing, "deliveryMs");
 
     if (this.config.autoMemory) {
       this.scheduleMemoryUpdate({
@@ -1020,6 +1083,13 @@ export class FeishuBot {
         skipMemoryExtraction: this.isTransientStyleRequest(safeUserText) || Boolean(deliveryPreference)
       });
     }
+    this.finishTiming(timing, {
+      route: "ai_reply",
+      delivery: sentAsSpeech ? "speech" : "text",
+      replyChars: safeReply.length,
+      hasLinkContext: Boolean(linkContext),
+      hasImageContext: Boolean(imageContext)
+    });
   }
 
   extractWebSearchRequest(text = "") {
@@ -2589,6 +2659,11 @@ export class FeishuBot {
       return;
     }
 
+    const timing = this.startTiming("Feishu video reply", {
+      chatId,
+      messageId,
+      id: request.item?.id || ""
+    });
     const item = request.item;
     try {
       logEvent("info", "Feishu video request started", {
@@ -2598,16 +2673,20 @@ export class FeishuBot {
         title: item?.title || ""
       });
       let asset = await this.getCachedVideoAsset(item);
+      this.markTiming(timing, "cacheReadMs");
       let videoTitle = item?.title || item?.id || "video";
       let videoBytes = 0;
       let cacheHit = Boolean(asset?.fileKey);
 
       if (!asset?.fileKey) {
         const video = await this.videoLibrary.download(item);
+        this.markTiming(timing, "downloadVideoMs");
         videoTitle = video.title;
         videoBytes = video.buffer.length;
         const thumbnail = await this.createVideoThumbnail(video);
+        this.markTiming(timing, "thumbnailMs");
         const fileKey = await this.uploadVideo(video);
+        this.markTiming(timing, "uploadVideoMs");
         asset = {
           fileKey,
           imageKey: thumbnail?.imageKey || "",
@@ -2615,11 +2694,13 @@ export class FeishuBot {
           bytes: video.buffer.length
         };
         await this.setCachedVideoAsset(item, asset);
+        this.markTiming(timing, "cacheWriteMs");
       }
 
       let sentType;
       try {
         sentType = await this.replyVideo(messageId, asset.fileKey, asset.imageKey || "");
+        this.markTiming(timing, "replyVideoMs");
       } catch (error) {
         if (!cacheHit) throw error;
         logEvent("warn", "Feishu cached video asset failed, reuploading", {
@@ -2628,11 +2709,15 @@ export class FeishuBot {
           error: error.message
         });
         await this.clearCachedVideoAsset(item);
+        this.markTiming(timing, "cacheClearMs");
         const video = await this.videoLibrary.download(item);
+        this.markTiming(timing, "reDownloadVideoMs");
         videoTitle = video.title;
         videoBytes = video.buffer.length;
         const thumbnail = await this.createVideoThumbnail(video);
+        this.markTiming(timing, "reThumbnailMs");
         const fileKey = await this.uploadVideo(video);
+        this.markTiming(timing, "reUploadVideoMs");
         asset = {
           fileKey,
           imageKey: thumbnail?.imageKey || "",
@@ -2640,10 +2725,13 @@ export class FeishuBot {
           bytes: video.buffer.length
         };
         await this.setCachedVideoAsset(item, asset);
+        this.markTiming(timing, "reCacheWriteMs");
         cacheHit = false;
         sentType = await this.replyVideo(messageId, asset.fileKey, asset.imageKey || "");
+        this.markTiming(timing, "reReplyVideoMs");
       }
       await this.markVideoItemSent(request);
+      this.markTiming(timing, "rotationWriteMs");
       logEvent("info", "Feishu video reply sent", {
         chatId,
         id: item?.id || "",
@@ -2672,6 +2760,14 @@ export class FeishuBot {
           sentType
         }
       });
+      this.markTiming(timing, "storeVideoMessageMs");
+      this.finishTiming(timing, {
+        ok: true,
+        sentType,
+        cacheHit,
+        hasThumbnail: Boolean(asset.imageKey),
+        candidateCount: request.candidateCount || 0
+      });
     } catch (error) {
       logEvent("error", "Feishu video request failed", {
         chatId,
@@ -2680,6 +2776,8 @@ export class FeishuBot {
       });
       const message = this.formatVideoFailureMessage(error);
       await this.replyText(messageId, message);
+      this.markTiming(timing, "fallbackTextMs");
+      this.finishTiming(timing, { ok: false, error: error.message });
       await this.storage.addMessage({
         chatId,
         userId,
@@ -2688,6 +2786,81 @@ export class FeishuBot {
         content: message,
         metadata: { platform: "feishu", replyToUserId: userId, videoId: item?.id || "" }
       });
+    }
+  }
+
+  async prewarmVideoLibrary() {
+    if (!this.videoLibrary?.enabled) return;
+    const timing = this.startTiming("Feishu video prewarm");
+    let total = 0;
+    let skipped = 0;
+    let uploaded = 0;
+    let failed = 0;
+
+    try {
+      const items = await this.videoLibrary.loadLibrary();
+      total = items.length;
+      this.markTiming(timing, "loadLibraryMs");
+
+      for (const item of items) {
+        if (!item?.id || !item?.url) continue;
+        const cached = await this.getCachedVideoAsset(item);
+        if (cached?.fileKey) {
+          skipped += 1;
+          continue;
+        }
+
+        try {
+          const itemTiming = this.startTiming("Feishu video prewarm item", {
+            id: item.id,
+            title: item.title || ""
+          });
+          const video = await this.videoLibrary.download(item);
+          this.markTiming(itemTiming, "downloadVideoMs");
+          const thumbnail = await this.createVideoThumbnail(video);
+          this.markTiming(itemTiming, "thumbnailMs");
+          const fileKey = await this.uploadVideo(video);
+          this.markTiming(itemTiming, "uploadVideoMs");
+          const asset = {
+            fileKey,
+            imageKey: thumbnail?.imageKey || "",
+            title: video.title,
+            bytes: video.buffer.length
+          };
+          await this.setCachedVideoAsset(item, asset);
+          this.markTiming(itemTiming, "cacheWriteMs");
+          this.finishTiming(itemTiming, {
+            ok: true,
+            hasThumbnail: Boolean(asset.imageKey),
+            bytes: asset.bytes
+          });
+          uploaded += 1;
+        } catch (error) {
+          failed += 1;
+          logEvent("warn", "Feishu video prewarm item failed", {
+            id: item.id,
+            error: error.message
+          });
+        }
+      }
+
+      this.finishTiming(timing, {
+        ok: failed === 0,
+        total,
+        skipped,
+        uploaded,
+        failed
+      });
+    } catch (error) {
+      this.finishTiming(timing, {
+        ok: false,
+        total,
+        skipped,
+        uploaded,
+        failed,
+        error: error.message
+      });
+      throw error;
     }
   }
 
@@ -3001,25 +3174,40 @@ export class FeishuBot {
   async replySpeech(messageId, text) {
     if (!messageId || !this.textToSpeech?.isEnabled(this.config.feishuTtsVoiceId)) return false;
 
+    const timing = this.startTiming("Feishu speech reply", {
+      messageId,
+      textChars: String(text || "").length
+    });
     try {
       const speech = await this.textToSpeech.synthesize(text, {
         voiceId: this.config.feishuTtsVoiceId,
         maxInputChars: this.config.feishuTtsMaxInputChars
       });
+      this.markTiming(timing, "ttsSynthesizeMs");
       const opus = await convertWavToOpus(speech.buffer, { fileName: "reply.opus" });
+      this.markTiming(timing, "opusConvertMs");
       const fileKey = await this.uploadAudio({
         buffer: opus.buffer,
         contentType: opus.contentType,
         fileName: opus.fileName,
         durationMs: speech.durationMs
       });
+      this.markTiming(timing, "uploadAudioMs");
       await this.replyAudio(messageId, fileKey, speech.durationMs);
+      this.markTiming(timing, "replyAudioMs");
+      this.finishTiming(timing, {
+        ok: true,
+        speechBytes: speech.buffer.length,
+        opusBytes: opus.buffer.length,
+        durationMs: speech.durationMs
+      });
       return true;
     } catch (error) {
       logEvent("error", "Feishu text-to-speech reply failed", {
         messageId,
         error: error.message
       });
+      this.finishTiming(timing, { ok: false, error: error.message });
       return false;
     }
   }

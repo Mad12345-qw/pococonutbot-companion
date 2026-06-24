@@ -51,6 +51,7 @@ app.get("/health", (_req, res) => {
     feishuSongReply: Boolean(config.songApiEnabled && config.songApiToken),
     feishuVideoLibrary: Boolean(config.videoLibraryEnabled && config.videoLibraryUrl),
     feishuVideoRotation: true,
+    feishuVideoPrewarm: Boolean(config.videoLibraryPrewarmOnStart),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     feishuCardTemplates: true,
     feishuPremiumCards: true,
@@ -360,5 +361,10 @@ const videoLibrary = new VideoLibraryClient(config);
 const webSearch = new BochaWebSearchClient(config);
 const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch });
 feishuBot.setupRoutes(app);
+if (config.videoLibraryPrewarmOnStart) {
+  feishuBot.prewarmVideoLibrary().catch((error) => {
+    console.error("Feishu video library prewarm failed:", error.message);
+  });
+}
 const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
 await telegramBot.start();
