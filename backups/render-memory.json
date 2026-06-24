@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T14:51:25.719Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-24T15:01:31.319Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -42730,6 +42730,232 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-24T14:33:42.262Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "哈喽小爷听得到我说话吗",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8ab0d3aca0b29f86e48059bca",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 2000
+        },
+        "createdAt": "2026-06-24T14:55:33.371Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "听到啦～小爷想我了？😚",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-24T14:55:36.799Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "你在說傻呀 我怎麼聽不明白",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8ab13608a8b48c92f0ff25ed1",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 2000
+        },
+        "createdAt": "2026-06-24T14:56:02.887Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈小爷你听错了～我说的是\"能听到我说话吗\"，不是\"想我了\"😝",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-24T14:56:06.156Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "親上",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8b4daaf8a4b1195825849ec5a",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 1000
+        },
+        "createdAt": "2026-06-24T14:56:57.580Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小爷你说啥呀？没看懂～再说一遍？😚",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-24T14:57:02.171Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "清唱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8b4b52bca4b140b710ccd92fd",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 1000
+        },
+        "createdAt": "2026-06-24T14:57:34.730Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "video",
+        "content": "Video reply: Xiaoye acappella 01",
+        "metadata": {
+          "videoId": "xiaoye-acappella-01",
+          "platform": "feishu",
+          "sentType": "media",
+          "videoUrl": "https://szygumin.icu/xiaoye-media/videos/xiaoye-acappella-01.mp4",
+          "videoTitle": "Xiaoye acappella 01",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "thumbnailGenerated": true
+        },
+        "createdAt": "2026-06-24T14:57:47.146Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "请唱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8b49168ca4b30c314579d38f2",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 1000
+        },
+        "createdAt": "2026-06-24T14:58:08.638Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "[发出了一个视频素材：Xiaoye acappella 03]",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-24T14:58:13.548Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "清唱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8b45554c78b16fef3905713e2",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T14:59:07.006Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "video",
+        "content": "Video reply: Xiaoye acappella 07",
+        "metadata": {
+          "videoId": "xiaoye-acappella-07",
+          "platform": "feishu",
+          "sentType": "media",
+          "videoUrl": "https://szygumin.icu/xiaoye-media/videos/xiaoye-acappella-07.mp4",
+          "videoTitle": "Xiaoye acappella 07",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "thumbnailGenerated": true
+        },
+        "createdAt": "2026-06-24T14:59:22.883Z"
       }
     ],
     "memories": [
@@ -44231,7 +44457,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-24T14:33:39.305Z"
+        "updatedAt": "2026-06-24T14:59:06.936Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -44241,7 +44467,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-24T14:33:39.192Z"
+        "updatedAt": "2026-06-24T14:59:06.865Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -46743,6 +46969,11 @@
         "key": "gpt.enabled",
         "value": "false",
         "updatedAt": "2026-06-10T06:16:12.069Z"
+      },
+      {
+        "key": "video_rotation:5cbe06657acffc41a94d9587",
+        "value": "{\"used\":[\"xiaoye-acappella-01\",\"xiaoye-acappella-07\"],\"lastId\":\"xiaoye-acappella-07\"}",
+        "updatedAt": "2026-06-24T14:59:22.819Z"
       }
     ],
     "projects": [
