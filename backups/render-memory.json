@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T14:03:40.647Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-24T14:13:46.919Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -42610,6 +42610,90 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-24T13:58:58.006Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "清唱",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8a7507ccacb2c3f040a2a89e4",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T14:04:00.902Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "video",
+        "content": "Video reply: Xiaoye acappella test",
+        "metadata": {
+          "videoId": "xiaoye-acappella-test",
+          "platform": "feishu",
+          "sentType": "media",
+          "videoUrl": "https://szygumin.icu/xiaoye-media/videos/xiaoye-acappella-test.mp4",
+          "videoTitle": "Xiaoye acappella test",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "thumbnailGenerated": true
+        },
+        "createdAt": "2026-06-24T14:04:12.220Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 我做的工作流越来越好用了，全程不用使用任何命令形式，agent会自动识别你的意图，比如自动建立loop长任务目标，自动选择合适的技能去完成任务，自动落文档，维护文档，做好产出资源治理，遵守相关约束门禁，反幻觉，自进化，记忆增强，知识库积累等等 \nhttps://mp.weixin.qq.com/s/11wwwHXwEtcNQM6l6Ju2zQ",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/11wwwHXwEtcNQM6l6Ju2zQ"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c8a18b18cb4b4c0ea87b9069fa",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-24T14:10:53.929Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "我做的工作流越来越好用了，全程不用使用任何命令形式，agent会自动识别你的意图，比如自动建立loop长任务目标，自动选择合适的技能去完成任务，自动落文档，维护文档，做好产出资源治理，遵守相关约束门禁，反幻觉，自进化，记忆增强，知识库积累等等 \n\nhttps://mp.weixin.qq.com/s/11wwwHXwEtcNQM6l6Ju2zQ\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/11wwwHXwEtcNQM6l6Ju2zQ\n知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8a18b18cb4b4c0ea87b9069fa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/11wwwHXwEtcNQM6l6Ju2zQ\n知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T14:10:57.319Z"
       }
     ],
     "memories": [
@@ -44101,7 +44185,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-24T13:58:50.400Z"
+        "updatedAt": "2026-06-24T14:04:00.837Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -44111,7 +44195,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-24T13:58:50.297Z"
+        "updatedAt": "2026-06-24T14:04:00.772Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -44721,7 +44805,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.812Z",
-        "updatedAt": "2026-06-19T05:43:38.812Z"
+        "updatedAt": "2026-06-24T14:10:57.248Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44731,7 +44815,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.568Z",
-        "updatedAt": "2026-06-19T05:43:38.568Z"
+        "updatedAt": "2026-06-24T14:10:57.049Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
