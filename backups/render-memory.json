@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T04:05:33.628Z",
+  "exportedAt": "2026-06-24T04:15:34.433Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -38812,6 +38812,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T04:04:25.091Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "唯一缺点左上有AI生成",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8136b5bcb4c18bebbfdc2625e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T04:05:32.696Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "[回复一条卡片]",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-24T04:05:36.383Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "去水印去掉可以了[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8134b914bcb28414f94f89609",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T04:06:05.214Z"
       }
     ],
     "memories": [
@@ -41613,7 +41673,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T03:57:23.736Z"
+        "updatedAt": "2026-06-24T04:05:32.625Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41623,7 +41683,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T03:57:23.672Z"
+        "updatedAt": "2026-06-24T04:05:32.554Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41903,7 +41963,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T04:04:25.028Z"
+        "updatedAt": "2026-06-24T04:06:05.156Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41913,7 +41973,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T04:04:24.965Z"
+        "updatedAt": "2026-06-24T04:06:05.098Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42512,8 +42572,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
-        "summary": "用户（ou_768b...）连续分享多份飞书文档，主题为\"AI智能体部署实战手册\"与\"AI提示词工程\"。\n\n**关系进展**：首次互动，用户单向投喂资源，未提出具体问题，尚未收到助手反馈。\n\n**用户当前状态**：AI实践者/内容创作者，120天深度踩坑后整理系统化方法论，具备输出能力。\n\n**重要偏好**：\n- 关注AI智能体部署避坑经验\n- 结构化提示词（CRISPE原则：Role/Profile/Goals/Constraints/Skills/Workflows）\n- 内容生产偏知乎风格（口语化专业、约1600字、干货导向、可直接喂智能体）\n\n**未完成事项**：等待助手对分享内容做出反馈或提出后续协作方向。\n\n**关键资源**：部署手册（Wiki: PVEZwzqNc、WJ3owcCy）、提示词科普文档（JcDdwTB2）、词元字典V5.1（LZEew9OX）。",
-        "updatedAt": "2026-06-20T16:39:33.878Z"
+        "summary": "用户（ou_768b...）与助手（小椰）从单向投喂资源转向远程协作实操。\n\n**关系进展**：进入实时互助阶段，用户远程指导助手操作（截图为证），助手出现生图接口限流报错（429）。互动自然随性，出现调侃\"富婆\"\"心操稀碎\"等亲近语气。\n\n**用户当前状态**：AI实践者/内容创作者，正研发\"漫剧提示词字典\"准备交付；测试漫剧赛道，用PixVerse、SD2.0生图，平台包括腾讯CodeBuddy、Workbuddy（视作中国版CC）、Feishu。极度反对盲目氪金，强调先搞清逻辑。\n\n**重要偏好**：\n- 远程指导式互动，习惯逐步截图演示\n- 内容生产偏知乎风格（口语化专业、干货导向）\n- 工具选型：Mac、CodeBuddy、Workbuddy、PixVerse、SD2.0\n- 反\"上来就氪金\"，主张先研究再投入\n\n**未完成事项**：\n- 助手生图功能因429限流中断，待重试\n- 漫剧提示词字典正在撰写交付中\n- CodeBuddy邀请链接已分享（inviteCode: qa1gav5ui）\n- Feishu Buddy加油站每日150积分待领（当前余额7866）\n\n**关键资源**：CodeBuddy邀请链接、Buddy加油站活动页、漫剧提示词字典V5.1（更新中）。",
+        "updatedAt": "2026-06-24T04:05:54.269Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
