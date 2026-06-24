@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T10:05:33.777Z",
+  "exportedAt": "2026-06-24T10:15:33.848Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41278,6 +41278,234 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T10:02:23.723Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "上传AI辅助原创，不能写AI原创，再把水印带上就可以过了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e8ff9d44cb295eb8c7685fef",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:06:16.691Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个是行业里通行的做法，本质上就是别在 metadata 或者提交说明里直接写\"AI 原创\"，AI 辅助 + 真人主导 + 水印/版权信息齐全，审核就基本不会卡。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:06:26.944Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "一、封面角落小字文案（放封面底部小字、不影响美观，汽水合规刚需）\n \n短款（封面空间小，10字内）\n \n1. AI辅助·本人原创人声\n​\n2. 自研人声AI原创曲\n​\n3. 原创｜自制RVC人声\n \n常规款（封面底部横排小字）\n \n1. AI辅助创作｜本人自制人声模型\n​\n2. 词曲AI辅助，人声为本机原声训练\n \n签约独家专用（汽水AI实验室作品）\n \n汽水AI共创｜个人自研声线原创\n \n二、歌曲后台备注文案（音乐人后台额外备注栏填写，防二次审核）\n \n后台备注框粘贴：\n本作品人声由本人实地录音训练专属RVC模型，无第三方声权；歌词火山方舟生成后人工修改，AI编曲后期真人化调校，全部创作素材归档留存，可配合平台核验。\n \n三、上传全套合规组合示例\n \n- 歌名：《末班晚风》【AI原创人声】\n​\n- 简介：AI辅助原创｜方舟作词+自研RVC本人声线，全曲原创，素材存档完整。\n​\n- 封面小字：AI辅助创作｜本人自制人声模型\n \n四、禁止封面标注\n \n❌ 仿XX歌手、AI翻唱、明星AI歌声、一键AI歌曲\n \n五、备用申诉封面说明（被质疑时补充上传图片文字）\n \n配图文字：\n \n1. 左侧：原始录音文件截图\n​\n2. 右侧：RVC训练日志截图\n小字：本人自制AI人声原创音乐",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e899c4c80b1d691d55e3c3ec",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:07:55.128Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成后人工修改，AI编曲后期真人化调校，全部创作素材归档留存，可配合平台核验。\n \n三、上传全套合规组合示例\n \n- 歌名：《末班晚风》【AI原创人声】\n​\n- 简介：AI辅助原创｜方舟作词+自研RVC本人声线，全曲原创，素材存档完整。\n​\n- 封面小字：AI辅助创作｜本人自制人声模型\n \n四、禁止封面标注\n \n❌ 仿XX歌手、AI翻唱、明星AI歌声、一键AI歌曲\n \n五、备用申诉封面说明（被质疑时补充上传图片文字）\n \n配图文字：\n \n1. 左侧：原始录音文件截图\n​\n2. 右侧：RVC训练日志截图\n小字：本人自制AI人声原创音乐",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:09:16.493Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "保留AI生成的记录和证据，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e9ea1c11cb2c838bf3293fbc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:10:20.433Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "是的，保留 AI 生成记录和证据对后续申诉很关键。具体来说有这几样东西要留好：\n\n1. 原始录音文件：训练 RVC 模型时录的干声，越完整越好\n2. RVC 训练日志：能证明声线是自研的，不是用的别人预训练模型\n3. 歌词生成记录：火山方舟的生成历史 + 人工修改的 diff\n4. 编曲工程文件：DAW 工程文件 + 自动化参数截图\n5. 素材归档目录：所有源文件按歌曲分文件夹存好，方便平台核验时一键提交\n\n遇到质疑的时候直接打包甩出去，比口头解释管用得多。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:10:26.581Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你生图这么厉害[赞][赞][赞][赞]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e9f6e8ca0b3060822848477c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:11:05.301Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 400: {\"error\":{\"code\":\"content_policy_violation\",\"message\":\"可以👍不过你这条里只有尺寸和质量参数，还没说要生成什么内容。\\n\\n你想做哪种图？比如：\\n- 城市夜景 / 科幻场景  \\n- 二次元角色 / 插画风  \\n- 写实人物 / 肖像  \\n- 产品展示图  \\n- 抽象艺术 / 壁纸  \\n\\n给我一个主题，我就按 **1024×1024 + auto质量** 帮你直接生成。\",\"type\":\"invalid_request_error\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:11:19.975Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e9c6dc0acb25575a32a6b8e0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:11:48.891Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这张图是马斯克思想体系的系统化梳理，标题是\"马斯克完整思想体系\"，副标题三个定位：第一性原理的工程师、文明的长期主义者、未来的构建者。\n\n全图按 11 个板块组织：\n\n1. 世界观：物理现实是唯一约束、世界是可计算系统、反对虚假叙事、真理来自现实反馈\n2. 方法论：核心是第一性原理思维（拆解问题→基本事实→重建方案→验证迭代），配套工程迭代主义和系统工程思维\n3. 文明观：把文明当生存系统，核心目标是多行星化，明确\"文明时间窗口\"假说，主张长期主义\n4. 技术哲学：能源→交通→AI→人类未来这条主链\n5. 经济与组织哲学：垂直整合、去中间层、成本压缩极限、高风险高回报\n6. 认知方法：拆解问题、质疑假设、现实优先、反馈驱动、专注执行\n7. 价值观：真相优先、人类未来高于个人利益、勇气冒险精神、责任感、终身学习\n8. 公司矩阵：SpaceX / Tesla / Neuralink / Boring / X / Starlink / xAI 七家各自有明确使命\n9. 风险认知：小行星、核战、AI 失控、气候灾变、生物风险、技术停滞、社会崩溃\n10. 终极目标：确保人类文明的长期存续与多行星扩展\n11. 经典语录：包含\"我不创造公司，我创造未来\"\"我们必须成为多行星物种，否则文明将终结\"\n\n图底部还有一条 1971→未来 的时间线，串了 Zip2、X.com、SpaceX、Tesla 投资、太阳能、Roadster、Dragon 对接 ISS、载人龙、火箭回收、收购 Twitter、火星殖民等关键节点。\n\n你这次贴的是 Musk 版图，想接着聊哪个板块？比如第一性原理的具体用法、或者他这套体系里哪一条你最有共鸣/最有保留？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T10:12:00.529Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "把马斯克蒸馏了[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8e9d5524b4b15c98e0ad5fa8b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:13:29.987Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "<p>我用我大学时候玩的游戏 英雄联盟的英雄 永恩弄了一个战斗分镜</p>",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8eaec8e0a0c222028894a058e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:14:29.205Z"
       }
     ],
     "memories": [
@@ -44119,7 +44347,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T04:05:32.625Z"
+        "updatedAt": "2026-06-24T10:14:29.142Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44129,7 +44357,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T04:05:32.554Z"
+        "updatedAt": "2026-06-24T10:14:29.079Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44449,7 +44677,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T09:53:29.244Z"
+        "updatedAt": "2026-06-24T10:13:29.923Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44459,7 +44687,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T09:53:29.179Z"
+        "updatedAt": "2026-06-24T10:13:29.859Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44470,6 +44698,16 @@
         "metadata": {},
         "createdAt": "2026-06-24T08:22:45.302Z",
         "updatedAt": "2026-06-24T08:22:45.302Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.music_workflow_evidence_retention",
+        "value": "用户要求保留AI生成的记录和证据（包括原始录音、RVC训练日志、歌词生成记录及修改diff、编曲工程文件、素材归档目录），用于后续可能的平台申诉或版权核验",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T10:11:04.990Z",
+        "updatedAt": "2026-06-24T10:11:04.990Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
