@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T11:15:33.727Z",
+  "exportedAt": "2026-06-24T11:25:34.749Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41878,6 +41878,54 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-06-24T11:15:22.106Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "还有一个数据是河南那边的  以前剧组大多数服化道灯光 都是河南团队在干，今年好像也不太景气",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f84137cb4c18f56106d2b5e2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:17:07.376Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "赶紧抓住风口[呲牙][呲牙][呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8fab54913cb27bd8851b760b0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:24:15.819Z"
       }
     ],
     "memories": [
@@ -44724,6 +44772,26 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "industry.insight",
+        "value": "用户关注影视行业现状，指出横店剧组从去年150个降至今年不足50个，传统导演编剧转AIGC，明星转带货",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:15:49.185Z",
+        "updatedAt": "2026-06-24T11:15:49.185Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "industry.observation",
+        "value": "用户在北京西二旗周边感受到影视从业者大量讨论AI剧本分镜技术的氛围",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:15:49.254Z",
+        "updatedAt": "2026-06-24T11:15:49.254Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "key": "interests.film_animation",
         "value": "用户喜欢宫崎骏/吉卜力动画，对《天空之城》等经典作品有情怀，并进行了复刻创作",
         "importance": 3,
@@ -44734,12 +44802,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "location.workplace",
+        "value": "用户办公室在北京西二旗",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:15:49.116Z",
+        "updatedAt": "2026-06-24T11:15:49.116Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T11:15:17.014Z"
+        "updatedAt": "2026-06-24T11:17:07.317Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44749,7 +44827,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T11:15:16.942Z"
+        "updatedAt": "2026-06-24T11:17:07.258Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -45099,7 +45177,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T10:54:42.153Z"
+        "updatedAt": "2026-06-24T11:24:15.751Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -45109,7 +45187,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T10:54:42.067Z"
+        "updatedAt": "2026-06-24T11:24:15.651Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
