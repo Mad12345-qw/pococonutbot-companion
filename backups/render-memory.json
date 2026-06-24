@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T15:57:43.876Z",
+  "exportedAt": "2026-06-24T16:07:43.455Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43424,6 +43424,78 @@
           "thumbnailGenerated": true
         },
         "createdAt": "2026-06-24T15:49:00.514Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "MiMo-V2.5-Pro UltraSpeed真够快。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8bbd6d10a4b3472e266e4b3ae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUnionId": "on_4b0a1c05bb144f579079aebc78e72266",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T16:01:03.785Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 提取\n\n**类型**：性能基准测试截图\n\n## 左侧面板\n- **标题**：思考 TPS\n- **数值**：639 tokens/s\n- **详情**：24.0s · 15631 tokens\n\n## 右侧面板\n- **标题**：输出 TPS\n- **数值**：1015 tokens/s（高亮橙色）\n- **详情**：22.6s · 23067 tokens",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8bbb3f24b0b3c14e32bf68f8e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUnionId": "on_4b0a1c05bb144f579079aebc78e72266",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 提取\n\n**类型**：性能基准测试截图\n\n## 左侧面板\n- **标题**：思考 TPS\n- **数值**：639 tokens/s\n- **详情**：24.0s · 15631 tokens\n\n## 右侧面板\n- **标题**：输出 TPS\n- **数值**：1015 tokens/s（高亮橙色）\n- **详情**：22.6s · 23067 tokens",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T16:01:49.467Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06b95225fa6e871e951c536921d31ea1",
+        "role": "user",
+        "modality": "text",
+        "content": "当一个软件（Obsidian）的老板，开始亲自讨好AI\n\n流浪土土\n@liulangtutu\n·\n16小时\n这两天我在GitHub上刷到一个仓库，star数已经三万七千多了，叫obsidian-skills。\n我以为也就是普普通通的skill，直到我看了一眼作者\nkepano。\n你可能觉得这个名字陌生，不过没关系，你只需要知道这个人叫 Steph Ango, 是 Obsidian 的 CEO。\n图像\n这不是普通爱好者自己折腾的 skill，而是 Obsidian 的老板亲自下场给 Obsidian 写了一套给 AI 用的说明书。\n我还是很惊讶的，不是因为这个 skill 多么有技术含量，而是一个工具的创始人，亲自下场琢磨”怎么让AI更好的用我的工具“，这个信号比 36000 个 star 更吸引人。\n关于 skill 本身我们就不多说了，我们说下这个仓库里的 5 个 skill 都是干什么的。\n第一个叫obsidian-markdown，教AI写Obsidian风味的markdown。你可能觉得 markdownwn 谁不会啊？ 但是你知道 Obsidian 为了笔记内容更丰富，自创了一些指令，比如连接[[这样]]、嵌入![[这样]]、还有十三种callout提示框、属性、Mermaid图、LaTeX公式。AI 当然能写出来markdown，但那只是普普通通的markdownn。而装备了这个skill，AI 就可以写出原汁原味的 Obsidian markdown。\n第二个叫obsidian-bases，这个很有用。\nBases是Obsidian去年才出的功能，可以把我们零散的笔记变成一个能筛选、能排序、能算公式的数据库视图。支持表格视图、卡片视图、列表视图、地图视图。还能写if判断、算日期差、做求和求平均。\n但是Bases 的语法挺复杂的，是YAML格式，而且校验很严格，一个引号没写对就会报错，手写的话还是有点费精力的。\n但如果你装了这个skill，就可以直接跟AI说，把所有category是article的笔记拉出来，按时间排序，给我做一个视图。\nAI 会自己识别到该用 Bases 这个skill，只需要几秒，一个格式完全正确的.base文件就做好了，不需要去学习语法了，只需要跟 AI 说人话就好了。\n还有一个叫defuddle的skill，可以过滤掉网页里的广告和无关内容，只留下正文给AI看。毕竟现在网页上充满了边边角角的广告，有了这个，我们的笔记也更干净了。\n最后剩下两个一个是json-canvas，完整支持JSON Canvas格式（.canvas文件）。智能体能创建节点、连线、群组，实现可视化思维导图和项目画布的自动化构建。一个是obsidian-cli，让AI通过Obsidian官方CLI管理仓库、开发插件和主题。适合进阶用户实现自动化工作流。\n把这5个skill放在一起，AI 与你的笔记就可以无缝集成，无缝协作了，能读，能写，能查，能建视图，能存干净网页到笔记里。AI 从聊天窗口的直接住进了笔记里，变成了我们的笔记小助理。\n如果你已经在用Obsidian，又想让AI真正“懂”你的笔记库，而不是简单聊天，obsidian-skills 是目前最优雅、最本地化的解决方案。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cf44c6bc8a8c3b7d0b39beaa40",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_06b95225fa6e871e951c536921d31ea1",
+          "rawUserId": "ou_06b95225fa6e871e951c536921d31ea1",
+          "rawUnionId": "on_395a5134ab6e134edb3b1219be13bfbc",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T16:05:05.269Z"
       }
     ],
     "memories": [
@@ -45559,6 +45631,26 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06b95225fa6e871e951c536921d31ea1",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_06b95225fa6e871e951c536921d31ea1",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T16:05:05.202Z",
+        "updatedAt": "2026-06-24T16:05:05.202Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06b95225fa6e871e951c536921d31ea1",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T16:05:05.044Z",
+        "updatedAt": "2026-06-24T16:05:05.044Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
@@ -47065,7 +47157,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-24T09:54:19.946Z"
+        "updatedAt": "2026-06-24T16:01:49.397Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47075,7 +47167,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-24T09:54:19.882Z"
+        "updatedAt": "2026-06-24T16:01:49.327Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
