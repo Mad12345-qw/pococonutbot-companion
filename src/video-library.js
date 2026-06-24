@@ -1,4 +1,8 @@
+import { spawn } from "node:child_process";
 import path from "node:path";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import ffmpegPath from "ffmpeg-static";
 import { truncate } from "./utils.js";
 
 function asArray(value) {
@@ -40,6 +44,38 @@ function isHttpUrl(value = "") {
   } catch {
     return false;
   }
+}
+
+function runFfmpeg(args, timeoutMs = 60000) {
+  return new Promise((resolve, reject) => {
+    if (!ffmpegPath) {
+      reject(new Error("ffmpeg-static did not provide a binary path."));
+      return;
+    }
+
+    const child = spawn(ffmpegPath, args, { windowsHide: true });
+    const stderr = [];
+    const timer = setTimeout(() => {
+      child.kill("SIGKILL");
+      reject(new Error("FFmpeg timed out while extracting video thumbnail."));
+    }, timeoutMs);
+
+    child.stderr.on("data", (chunk) => stderr.push(chunk));
+    child.on("error", (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      if (code === 0) {
+        resolve();
+        return;
+      }
+
+      const detail = Buffer.concat(stderr).toString("utf8");
+      reject(new Error(`FFmpeg thumbnail extraction failed ${code}: ${truncate(detail, 800)}`));
+    });
+  });
 }
 
 export class VideoLibraryClient {
@@ -148,5 +184,32 @@ export class VideoLibraryClient {
       fileName: inferVideoFileName(item, item.url),
       title: item.title || item.id || "video"
     };
+  }
+
+  async createThumbnail(videoBuffer, options = {}) {
+    const tempDir = await mkdtemp(path.join(tmpdir(), "xiaoye-video-thumb-"));
+    const inputPath = path.join(tempDir, "input.mp4");
+    const outputPath = path.join(tempDir, "cover.jpg");
+
+    try {
+      await writeFile(inputPath, videoBuffer);
+      await runFfmpeg([
+        "-y",
+        "-ss", String(options.seekSeconds ?? 1),
+        "-i", inputPath,
+        "-frames:v", "1",
+        "-vf", "scale='min(720,iw)':-2",
+        "-q:v", "3",
+        outputPath
+      ]);
+
+      return {
+        buffer: await readFile(outputPath),
+        mimeType: "image/jpeg",
+        fileName: "cover.jpg"
+      };
+    } finally {
+      await rm(tempDir, { recursive: true, force: true });
+    }
   }
 }

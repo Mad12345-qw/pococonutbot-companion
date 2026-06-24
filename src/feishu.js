@@ -2529,14 +2529,16 @@ export class FeishuBot {
         title: item?.title || ""
       });
       const video = await this.videoLibrary.download(item);
+      const thumbnail = await this.createVideoThumbnail(video);
       const fileKey = await this.uploadVideo(video);
-      const sentType = await this.replyVideo(messageId, fileKey);
+      const sentType = await this.replyVideo(messageId, fileKey, thumbnail?.imageKey || "");
       logEvent("info", "Feishu video reply sent", {
         chatId,
         id: item?.id || "",
         title: video.title,
         bytes: video.buffer.length,
-        sentType
+        sentType,
+        hasThumbnail: Boolean(thumbnail?.imageKey)
       });
       await this.storage.addMessage({
         chatId,
@@ -2550,6 +2552,7 @@ export class FeishuBot {
           videoId: item?.id || "",
           videoTitle: video.title,
           videoUrl: item?.url || "",
+          thumbnailGenerated: Boolean(thumbnail?.imageKey),
           sentType
         }
       });
@@ -2569,6 +2572,22 @@ export class FeishuBot {
         content: message,
         metadata: { platform: "feishu", replyToUserId: userId, videoId: item?.id || "" }
       });
+    }
+  }
+
+  async createVideoThumbnail(video) {
+    if (!this.videoLibrary?.createThumbnail || !video?.buffer) return null;
+
+    try {
+      const thumbnail = await this.videoLibrary.createThumbnail(video.buffer);
+      const imageKey = await this.uploadImage(thumbnail);
+      return { ...thumbnail, imageKey };
+    } catch (error) {
+      logEvent("warn", "Feishu video thumbnail generation failed", {
+        title: video?.title || "",
+        error: error.message
+      });
+      return null;
     }
   }
 
@@ -2780,12 +2799,15 @@ export class FeishuBot {
     return response;
   }
 
-  async replyVideo(messageId, fileKey) {
+  async replyVideo(messageId, fileKey, imageKey = "") {
     if (!messageId || !fileKey) return "";
     try {
+      const content = imageKey
+        ? { file_key: fileKey, image_key: imageKey }
+        : { file_key: fileKey };
       const response = await this.feishuPost(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
         msg_type: "media",
-        content: JSON.stringify({ file_key: fileKey })
+        content: JSON.stringify(content)
       });
       this.rememberBotMessage(response);
       return "media";
