@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T10:55:33.936Z",
+  "exportedAt": "2026-06-24T11:05:35.061Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -41758,6 +41758,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T10:54:42.211Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这个镜头熟悉么 我复刻了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8f3376248cc1ed295c11411d7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T10:56:32.060Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "[惊喜]熟悉！这不是《天空之城》吗？机器人加小女友的经典镜头\n\n你复刻得好还原啊，氛围感拉满🤖✨",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-24T10:56:37.326Z"
       }
     ],
     "memories": [
@@ -44594,12 +44630,32 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "hobbies.creative_recreation",
+        "value": "用户有复刻/还原经典动画场景的兴趣和动手能力",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T10:56:53.773Z",
+        "updatedAt": "2026-06-24T10:56:53.773Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "interests.film_animation",
+        "value": "用户喜欢宫崎骏/吉卜力动画，对《天空之城》等经典作品有情怀，并进行了复刻创作",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T10:56:53.695Z",
+        "updatedAt": "2026-06-24T10:56:53.695Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T10:35:41.304Z"
+        "updatedAt": "2026-06-24T10:56:32.003Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44609,7 +44665,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T10:35:41.236Z"
+        "updatedAt": "2026-06-24T10:56:31.940Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
