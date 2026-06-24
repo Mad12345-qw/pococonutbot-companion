@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T11:35:33.562Z",
+  "exportedAt": "2026-06-24T11:45:34.043Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -42082,6 +42082,230 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T11:34:01.073Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我看到一人公司，全是电脑AI自动运作的。每天电脑一个AI负责一个流程，然后再汇总",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c885666b0a8b293f3512ef2a86",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:37:52.704Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对，就是AI流水线，每个环节一个agent跑，最后一个总控汇总，一个人顶一个公司",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-24T11:37:57.528Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "漫剧 漂移和偏离度挺高的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c88517904a8c2860d7368b0048",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:39:43.316Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "成片还要调整 还要抽卡",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c886e87a8a4c3607d1de8069a1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:39:52.878Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "前段时间我搞了多智能体派单接单系统",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c886eb6e0a4b255274d4e94b4d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:39:56.969Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "跟美团众包一样让智能体去接单[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c886c0548a0b1c5cbe5b442aa7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:40:34.017Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "龙虾派单审核一个派单，爱马仕接单跑腿。[呲牙]跑通了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c886b13f0b4b4aed22885ce8d0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:41:23.367Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "免得多智能体在一起会抢任务和重复执行任务的痛点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8860ba80a4b395a654530e4f1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:43:40.845Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4a8755974c6e34f62514c6c072dd4d58",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\nhttps://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\nhttps://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\\n这是我的项目有兴趣的可以联系我",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ",
+            "https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\\n这是我的项目有兴趣的可以联系我"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c887f1bc4a0b4c5dd18a4430bd",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-24T11:44:31.974Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4a8755974c6e34f62514c6c072dd4d58",
+        "role": "user",
+        "modality": "text",
+        "content": "https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\n这是我的项目有兴趣的可以联系我。\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\n《良渚古城漫游》想和你一起做一个五千年前的治愈游戏 \n\n \n 原创 \n \n 过江之鲫 \n 过江之鲫 \n \n \n \n \n AI第一淘金客 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n 我平时很喜欢诗词，也喜欢古老文字、声律、意境带来的美感。同时，我也很喜欢《死亡搁浅》《对马岛之魂》那种辽阔、真实、电影感很强的景观体验；也喜欢电影《小森林》里那种安静、治愈、田园、四季流动的生活感。 \n 于是这些东西慢慢碰撞到了一起，变成了现在的《良渚古城漫游》。 \n \n 它不是一个强调闯关、战斗、刺激反馈的游戏，而是一款关于良渚文化的轻互动漫游游戏。你可以想象自己回到五千年前，坐着船，沿着水路慢慢进入良渚古城。耳边是水声、风声、鸟声，可能还有一点点很轻的音乐。你可以看春种秋收，看四季变化，也可以什么都不做，只是在那里停一会儿，发一会儿呆。 \n \n 我希望它有一点像冬天下雪时坐船看西湖的感觉：安静、缓慢、松弛，但又很美。 \n \n 在游戏里，玩家会进入不同的良渚文化场景，体验古人的日常生活：纺织、制玉、制陶、捕鱼、农耕、修筑、祭祀、聚落生活 …… 这些内容不是为了把历史做成生硬的知识点，而是希望让人通过一次次轻互动，感受到良渚文明曾经真实存在过的生活气息。 \n \n 同时，我也希望把诗词、书法、文字和良渚文化结合起来。玩家在漫游过程中，可能会收集一些诗句、字形、书法片段、文化印记，让这个游戏不仅是视觉上的美，也是文字上的美、声音上的美、节奏上的美。 \n \n 所以现在也想邀请更多朋友一起参与进来。 \n 如果你特别喜欢良渚文化，或者对良渚文明有研究、有想法，欢迎联系我。 \n 如果你擅长 AI 游戏开发、 AI 场景美术、 AI 游戏声音设计，也欢迎参与。 \n 如果你是特别懂诗词、韵律、声律、字词、典故的文学创作者、诗词作者、文学老师，甚至是真正懂文字和古典美感的文学大师，我也非常希望你能参与进来。古诗的韵律和非常重要。 \n \n \n 我希望《良渚古城漫游》最后能做到每一帧都像一幅画，每一段声音都让人放松，每一次停留都能让人更靠近一点五千年前的良渚。 \n 任何想法和意向都可以，欢迎发送至： 2319582090@qq.com \n 希望我们可以一起，让更多人知道良渚的美、诗词的美。 \n \n \n \n \n 更多资料可以访问官方网站 \n https://zcn887wvdw9e.aiforce.cloud/app/app_4k5u0cmwjcen4 \n \n \n \n \n\n \n \n\n 预览时标签不可点\n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n 作者提示: 内容由AI生成 \n\n \n\n \n \n 阅读原文 \n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n 微信扫一扫 关注该公众号\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n 知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过\n\n[Web page] https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\\n这是我的项目有兴趣的可以联系我\n参数错误\n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c887f1bc4a0b4c5dd18a4430bd",
+          "rawChatId": "oc_4f5f294f132c713ba1f0b25639f6359a",
+          "rawOpenId": "ou_4a8755974c6e34f62514c6c072dd4d58",
+          "rawUserId": "ou_4a8755974c6e34f62514c6c072dd4d58",
+          "rawUnionId": "on_c6484c860880e716369e4917f894347a",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/w2bV2j1-DukPN4Ye-Po1BQ\n《良渚古城漫游》想和你一起做一个五千年前的治愈游戏 \n\n \n 原创 \n \n 过江之鲫 \n 过江之鲫 \n \n \n \n \n AI第一淘金客 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n 我平时很喜欢诗词，也喜欢古老文字、声律、意境带来的美感。同时，我也很喜欢《死亡搁浅》《对马岛之魂》那种辽阔、真实、电影感很强的景观体验；也喜欢电影《小森林》里那种安静、治愈、田园、四季流动的生活感。 \n 于是这些东西慢慢碰撞到了一起，变成了现在的《良渚古城漫游》。 \n \n 它不是一个强调闯关、战斗、刺激反馈的游戏，而是一款关于良渚文化的轻互动漫游游戏。你可以想象自己回到五千年前，坐着船，沿着水路慢慢进入良渚古城。耳边是水声、风声、鸟声，可能还有一点点很轻的音乐。你可以看春种秋收，看四季变化，也可以什么都不做，只是在那里停一会儿，发一会儿呆。 \n \n 我希望它有一点像冬天下雪时坐船看西湖的感觉：安静、缓慢、松弛，但又很美。 \n \n 在游戏里，玩家会进入不同的良渚文化场景，体验古人的日常生活：纺织、制玉、制陶、捕鱼、农耕、修筑、祭祀、聚落生活 …… 这些内容不是为了把历史做成生硬的知识点，而是希望让人通过一次次轻互动，感受到良渚文明曾经真实存在过的生活气息。 \n \n 同时，我也希望把诗词、书法、文字和良渚文化结合起来。玩家在漫游过程中，可能会收集一些诗句、字形、书法片段、文化印记，让这个游戏不仅是视觉上的美，也是文字上的美、声音上的美、节奏上的美。 \n \n 所以现在也想邀请更多朋友一起参与进来。 \n 如果你特别喜欢良渚文化，或者对良渚文明有研究、有想法，欢迎联系我。 \n 如果你擅长 AI 游戏开发、 AI 场景美术、 AI 游戏声音设计，也欢迎参与。 \n 如果你是特别懂诗词、韵律、声律、字词、典故的文学创作者、诗词作者、文学老师，甚至是真正懂文字和古典美感的文学大师，我也非常希望你能参与进来。古诗的韵律和非常重要。 \n \n \n 我希望《良渚古城漫游》最后能做到每一帧都像一幅画，每一段声音都让人放松，每一次停留都能让人更靠近一点五千年前的良渚。 \n 任何想法和意向都可以，欢迎发送至： 2319582090@qq.com \n 希望我们可以一起，让更多人知道良渚的美、诗词的美。 \n \n \n \n \n 更多资料可以访问官方网\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T11:44:34.877Z"
       }
     ],
     "memories": [
@@ -43144,6 +43368,26 @@
         "metadata": {},
         "createdAt": "2026-06-08T04:59:40.678Z",
         "updatedAt": "2026-06-08T06:08:21.898Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4a8755974c6e34f62514c6c072dd4d58",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_4a8755974c6e34f62514c6c072dd4d58",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:44:34.806Z",
+        "updatedAt": "2026-06-24T11:44:34.806Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4a8755974c6e34f62514c6c072dd4d58",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:44:34.648Z",
+        "updatedAt": "2026-06-24T11:44:34.648Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
@@ -44983,7 +45227,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T11:33:58.605Z"
+        "updatedAt": "2026-06-24T11:39:52.819Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -44993,7 +45237,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T11:33:58.533Z"
+        "updatedAt": "2026-06-24T11:39:52.760Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -45338,12 +45582,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "interest.one_person_company",
+        "value": "用户关注'一人公司'模式，即由多个AI Agent分工协作（每环节一个AI负责一个流程）汇总完成全公司运转，反映其对AI自动化落地的兴趣",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T11:38:17.474Z",
+        "updatedAt": "2026-06-24T11:38:17.474Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-24T11:34:01.001Z"
+        "updatedAt": "2026-06-24T11:43:40.787Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -45353,7 +45607,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-24T11:34:00.930Z"
+        "updatedAt": "2026-06-24T11:43:40.730Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
