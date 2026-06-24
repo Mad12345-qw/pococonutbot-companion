@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T15:27:37.192Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-24T15:37:42.760Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -47427,9 +47427,79 @@
         "updatedAt": "2026-06-10T06:16:12.069Z"
       },
       {
+        "key": "video_asset:07cebc6f0a783598ff2eafd2",
+        "value": "{\"fileKey\":\"file_v3_0012v_351b7fe9-515b-4b6f-b3a6-88f00861675g\",\"imageKey\":\"img_v3_0212v_a7384265-5280-4218-9728-0199175b6fcg\",\"title\":\"Xiaoye acappella 02\",\"bytes\":3589011,\"cachedAt\":\"2026-06-24T15:28:11.270Z\"}",
+        "updatedAt": "2026-06-24T15:28:11.672Z"
+      },
+      {
+        "key": "video_asset:56cacff7c4b7b558c695af84",
+        "value": "{\"fileKey\":\"file_v3_0012v_bc27e466-bd9b-4a5e-a15b-c865995e668g\",\"imageKey\":\"img_v3_0212v_5e061672-d3c4-4106-b6a3-abf92b77217g\",\"title\":\"Xiaoye acappella 07\",\"bytes\":2330720,\"cachedAt\":\"2026-06-24T15:29:30.949Z\"}",
+        "updatedAt": "2026-06-24T15:29:31.395Z"
+      },
+      {
+        "key": "video_asset:8947871be5f30d3763ea6834",
+        "value": "{\"fileKey\":\"file_v3_0012v_8b0b02c2-1d12-47bb-ac9d-9f69a42c5e1g\",\"imageKey\":\"img_v3_0212v_71f335cf-21e8-4501-8151-cfb8701e909g\",\"title\":\"Xiaoye acappella 13\",\"bytes\":1706090,\"cachedAt\":\"2026-06-24T15:31:09.506Z\"}",
+        "updatedAt": "2026-06-24T15:31:09.938Z"
+      },
+      {
+        "key": "video_asset:8bc2eb9639b1279f169f85ac",
+        "value": "{\"fileKey\":\"file_v3_0012v_d0814c8d-9388-4ea6-bab0-45a32265d83g\",\"imageKey\":\"img_v3_0212v_be856264-84fe-4a33-9455-94541dab175g\",\"title\":\"Xiaoye acappella 01\",\"bytes\":1795601,\"cachedAt\":\"2026-06-24T15:27:57.209Z\"}",
+        "updatedAt": "2026-06-24T15:27:57.612Z"
+      },
+      {
         "key": "video_asset:9a21c6da38c908ee77edf4c6",
         "value": "{\"fileKey\":\"file_v3_0012v_d16ed156-35de-460c-925a-a342ce391e2g\",\"imageKey\":\"img_v3_0212v_3697a3fc-d9f5-4a18-9f2d-f159e88f212g\",\"title\":\"Xiaoye acappella 10\",\"bytes\":2919221,\"cachedAt\":\"2026-06-24T15:19:55.142Z\"}",
         "updatedAt": "2026-06-24T15:19:55.702Z"
+      },
+      {
+        "key": "video_asset:9dcbcd6257f3648fd446cc52",
+        "value": "{\"fileKey\":\"file_v3_0012v_27375e4c-baca-4f3b-a886-d017a5bab2fg\",\"imageKey\":\"img_v3_0212v_76cd677d-bee8-4581-9978-38a8a83839dg\",\"title\":\"Xiaoye acappella 11\",\"bytes\":2877427,\"cachedAt\":\"2026-06-24T15:30:32.613Z\"}",
+        "updatedAt": "2026-06-24T15:30:33.060Z"
+      },
+      {
+        "key": "video_asset:a1a53ce25118a4202b66389a",
+        "value": "{\"fileKey\":\"file_v3_0012v_a7a2b5b8-a084-44bc-99f1-2cee519ba4fg\",\"imageKey\":\"img_v3_0212v_4549beab-1d12-470c-a73e-62b47c9d6abg\",\"title\":\"Xiaoye acappella 03\",\"bytes\":2613248,\"cachedAt\":\"2026-06-24T15:28:26.821Z\"}",
+        "updatedAt": "2026-06-24T15:28:27.256Z"
+      },
+      {
+        "key": "video_asset:a4cb26f2161532a5726113fc",
+        "value": "{\"fileKey\":\"file_v3_0012v_0ad23583-6cef-456a-968d-624bbee1d88g\",\"imageKey\":\"img_v3_0212v_8e8afc25-b3f9-44de-b612-14ebe9aa479g\",\"title\":\"Xiaoye acappella 09\",\"bytes\":3146502,\"cachedAt\":\"2026-06-24T15:30:13.559Z\"}",
+        "updatedAt": "2026-06-24T15:30:13.965Z"
+      },
+      {
+        "key": "video_asset:b36428c4ba6eb93cceae2740",
+        "value": "{\"fileKey\":\"file_v3_0012v_8d8c3551-0c94-4575-9b4f-c82bff4d5bbg\",\"imageKey\":\"img_v3_0212v_ee7417da-c2df-4338-9433-5e2a3111197g\",\"title\":\"Xiaoye acappella 06\",\"bytes\":2589090,\"cachedAt\":\"2026-06-24T15:29:17.672Z\"}",
+        "updatedAt": "2026-06-24T15:29:18.083Z"
+      },
+      {
+        "key": "video_asset:bd000630dc2318f18c19de06",
+        "value": "{\"fileKey\":\"file_v3_0012v_4e75a27f-32a0-43e0-b569-e5df736e98eg\",\"imageKey\":\"img_v3_0212v_d99b2842-0fae-4dcb-ab44-ab6b200a03bg\",\"title\":\"Xiaoye acappella 08\",\"bytes\":3561270,\"cachedAt\":\"2026-06-24T15:29:52.350Z\"}",
+        "updatedAt": "2026-06-24T15:29:52.774Z"
+      },
+      {
+        "key": "video_asset:be838ee4658b0c6ee5a9ee98",
+        "value": "{\"fileKey\":\"file_v3_0012v_b7decd41-e151-4209-b5ec-8b4155d81beg\",\"imageKey\":\"img_v3_0212v_c4e55ced-fbd9-45de-9f3b-67b5d066a5eg\",\"title\":\"Xiaoye acappella 04\",\"bytes\":2126576,\"cachedAt\":\"2026-06-24T15:28:41.592Z\"}",
+        "updatedAt": "2026-06-24T15:28:41.970Z"
+      },
+      {
+        "key": "video_asset:cd4f4e3f393bf09abc617754",
+        "value": "{\"fileKey\":\"file_v3_0012v_39b65364-fd6a-4545-8015-f56289d3cdfg\",\"imageKey\":\"img_v3_0212v_87564f76-4379-4002-8cef-cc287963d4ag\",\"title\":\"Xiaoye acappella 12\",\"bytes\":1706090,\"cachedAt\":\"2026-06-24T15:30:50.225Z\"}",
+        "updatedAt": "2026-06-24T15:30:50.601Z"
+      },
+      {
+        "key": "video_asset:d01b6364da4b2ac6e36e3bdf",
+        "value": "{\"fileKey\":\"file_v3_0012v_2f6a68ab-ed33-4f74-b2eb-746bcffc781g\",\"imageKey\":\"img_v3_0212v_6e379675-0fac-4a20-9eb2-46c59ecdaddg\",\"title\":\"Xiaoye acappella test\",\"bytes\":1918358,\"cachedAt\":\"2026-06-24T15:31:49.276Z\"}",
+        "updatedAt": "2026-06-24T15:31:49.685Z"
+      },
+      {
+        "key": "video_asset:d8a62564e65d031d5b2d3516",
+        "value": "{\"fileKey\":\"file_v3_0012v_eef92c90-0150-47ee-908f-b591337c3beg\",\"imageKey\":\"img_v3_0212v_5edf93d4-6fec-41aa-8b59-4516b38be91g\",\"title\":\"Xiaoye acappella 14\",\"bytes\":3046907,\"cachedAt\":\"2026-06-24T15:31:33.494Z\"}",
+        "updatedAt": "2026-06-24T15:31:33.905Z"
+      },
+      {
+        "key": "video_asset:deac788684cb81888c25aa91",
+        "value": "{\"fileKey\":\"file_v3_0012v_e9cfc600-1e1d-473b-a1a8-661f8d41e5eg\",\"imageKey\":\"img_v3_0212v_4f082f0c-c9b3-4b7c-b41e-848e747767cg\",\"title\":\"Xiaoye acappella 05\",\"bytes\":1784454,\"cachedAt\":\"2026-06-24T15:28:56.324Z\"}",
+        "updatedAt": "2026-06-24T15:28:56.768Z"
       },
       {
         "key": "video_rotation:5cbe06657acffc41a94d9587",
