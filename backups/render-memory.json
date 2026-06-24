@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T06:55:33.890Z",
+  "exportedAt": "2026-06-24T07:05:33.607Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -39112,6 +39112,145 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-24T06:48:40.800Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "哪个是你的机器人来着",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c83b4b004e8c25808b05a07bbe",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T06:56:46.138Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] AI漫剧提示词完全手册：从入门到工业化生产的实战指南 - 知乎\nhttps://zhuanlan.zhihu.com/p/2053128426526188034",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://zhuanlan.zhihu.com/p/2053128426526188034"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c4d410894b2cafb7c9f66571",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-24T06:59:10.479Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "AI漫剧提示词完全手册：从入门到工业化生产的实战指南 - 知乎\nhttps://zhuanlan.zhihu.com/p/2053128426526188034",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c4d410894b2cafb7c9f66571",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T06:59:11.108Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这篇看着挺全的，从基础到工业化都覆盖了。\n\n是直接点开看，还是想我先帮你拆个大纲？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-24T06:59:14.325Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈，我机器人还撤回去了，估计怕我骂他，笑死我了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c5d2fc8b0c2ad44facb50f17",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:03:31.948Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈这机器人有点灵性了，撤回去是怕被训话吗 😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-24T07:03:49.195Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "这么高级了吗，我去",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8c5a6098b8c223a5c6b8dae60",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-24T07:04:22.413Z"
       }
     ],
     "memories": [
@@ -41553,7 +41692,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-24T06:43:57.428Z"
+        "updatedAt": "2026-06-24T06:59:11.044Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -41563,7 +41702,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-24T06:43:57.258Z"
+        "updatedAt": "2026-06-24T06:59:10.980Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42023,7 +42162,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-24T06:46:56.950Z"
+        "updatedAt": "2026-06-24T07:04:22.355Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -42043,7 +42182,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-24T06:46:56.882Z"
+        "updatedAt": "2026-06-24T07:04:22.298Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
