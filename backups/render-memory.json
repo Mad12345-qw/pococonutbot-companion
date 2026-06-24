@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T14:15:57.853Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-24T14:36:03.355Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -42694,6 +42694,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T14:10:57.319Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "voice",
+        "content": "能听到我说话吗小爷",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6c8ae50190a0b4b87926253f216",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 2000
+        },
+        "createdAt": "2026-06-24T14:33:39.369Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "听到啦～小爷想我了？😚",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-24T14:33:42.262Z"
       }
     ],
     "memories": [
@@ -44170,6 +44206,16 @@
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.nickname_self",
+        "value": "用户自称或喜欢被称为'小爷'",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-24T14:34:24.591Z",
+        "updatedAt": "2026-06-24T14:34:24.591Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "preferences.tts_singing_usage",
         "value": "用户可能会让机器人翻唱/TTS生成歌曲",
         "importance": 3,
@@ -44185,7 +44231,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-24T14:04:00.837Z"
+        "updatedAt": "2026-06-24T14:33:39.305Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -44195,7 +44241,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-24T14:04:00.772Z"
+        "updatedAt": "2026-06-24T14:33:39.192Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
