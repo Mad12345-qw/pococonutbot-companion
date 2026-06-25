@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T04:22:25.409Z",
+  "exportedAt": "2026-06-25T04:42:24.835Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43844,6 +43844,42 @@
           "replyToUserId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206"
         },
         "createdAt": "2026-06-25T04:12:42.238Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "语音交互很简单，通过tts  文字转MP3，MP3再转飞书语音气泡。tts语音模型有收费的和免费的。小椰的是收费的才那么逼真，我的免费的就是一个文字播报员没有感情风格进去。上传YOYO分析的小米大模型，后面最后一个就有小米的tts  如果你们用小米大模型可以尝试小米的tts 效果应该不错",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff5f86b4a8b2a1b5eebde7646",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:39:55.077Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父简单说了下语音交互的链路：\n\n1. TTS 把文字转成 MP3\n2. MP3 上传到飞书，转成语音气泡发出来\n\n模型方面：\n• 收费的 TTS 才有感情和风格，像小椰那样比较自然\n• 免费的基本就是干巴巴的文字播报\n• 如果用小米大模型，可以试试小米的 TTS，效果应该不错",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-25T04:40:00.313Z"
       }
     ],
     "memories": [
@@ -47240,6 +47276,26 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "interest.tts_voice_models",
+        "value": "用户关注TTS语音模型选型，提到小米的TTS效果好（适配小米大模型），自用免费TTS效果较差无感情",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:40:31.822Z",
+        "updatedAt": "2026-06-25T04:40:31.822Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "knowledge.voice_interaction_pipeline",
+        "value": "用户了解语音交互技术链路：TTS(文字转MP3) → MP3上传飞书转语音气泡发送；知道收费TTS有感情/风格，免费TTS无感情仅文字播报",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:40:31.747Z",
+        "updatedAt": "2026-06-25T04:40:31.747Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "preferences.nickname",
         "value": "用户称呼机器人为'小椰'，自称为'师父'",
         "importance": 5,
@@ -47255,7 +47311,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-25T03:05:03.888Z"
+        "updatedAt": "2026-06-25T04:39:55.004Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47265,7 +47321,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-25T03:05:03.822Z"
+        "updatedAt": "2026-06-25T04:39:54.901Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47932,8 +47988,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
-        "summary": "用户（ou_94f40cbf289205cffa3656980f71415c）是飞书机器人开发者，关注AI语音链路。关键进展：小椰回复语音时自动带广告链接，用户认为是平台生成导致无法去除；用户自己用TTS免费方案，嫌机械音不如小椰自然。技术讨论了飞书发送语音气泡的7步流程（TTS→上传飞书拿media_id→msg_type=audio），TTS服务推荐Azure/阿里云。用户询问了飞书Aily功能（需会员）、监控飞书消息方案。提出\"虾马体系\"用于共享记忆/技能蒸馏，建群多导致token消耗大。分享了一篇关于物理AI和GEO（生成式引擎优化）变现的飞书wiki文档，探讨2026年AI搜索流量红利。关系：技术交流为主，气氛轻松，小椰用粤语风格回复。",
-        "updatedAt": "2026-06-22T13:16:18.355Z"
+        "summary": "用户（ou_94f40cbf289205cffa3656980f71415c）是飞书机器人开发者，关注AI语音链路和多智能体协作。已实现\"虾马体系\"（龙虾派单+爱马士接单）多智能体分布式接单跑通，含分身/共享记忆/技能同步机制。提出\"蚂蚁军团\"协作哲学和\"一人公司AI流水线\"模式（每环节一agent+总控汇总）。\n\n最近生成《马斯克蒸馏·技能体系v1》发群失败，改为文本发出。分享黑客松获奖案例（非程序员5天语音控AI开发落地项目），强调领域经验+AI风口。发现公众号反爬升级致BOT爬取卡死循环。\n\n生图/生视频用3家模型均不行，计划换大模型。关系：技术交流为主，称\"师父\"，小椰粤语风格回复。",
+        "updatedAt": "2026-06-25T04:40:36.987Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
