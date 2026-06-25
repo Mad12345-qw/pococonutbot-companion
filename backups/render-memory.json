@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T08:42:24.950Z",
+  "exportedAt": "2026-06-25T08:52:25.402Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44841,6 +44841,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-25T08:42:22.651Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "workbuddy 工作空间的文件我这边也看不到，可能需要开通一下对应的权限或文件可见性设置才能访问～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-25T08:42:29.210Z"
       }
     ],
     "memories": [
