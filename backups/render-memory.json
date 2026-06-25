@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T04:42:24.835Z",
+  "exportedAt": "2026-06-25T04:52:24.674Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43880,6 +43880,234 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-25T04:40:00.313Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容提取\n\n**页面标题**：代码块\n\n**表格内容**（3列：环节 / 说明 / 状态）\n\n| # | 环节 | 说明 | 状态 |\n|---|------|------|------|\n| 1 | TTS 生成（微软云） | — | ❌ 暂不可用 |\n| 2 | TTS 备选（Windows SAPI） | Windows Server 未安装语音引擎 | ❌ 无语音引擎 |\n| 3 | ffmpeg 转码（libopus） | 版本 6.1.1，支持 libopus | ✅ 正常 |\n| 4 | 飞书语音气泡发送 | 回执 kind=voice | ✅ 成功 |\n\n**关键信息摘要**：\n- TTS 生成（微软云）状态：暂不可用，错误 ECONNRESET，网络/服务端问题\n- TTS 备选（Windows SAPI）状态：无语音引擎，Windows Server 未安装语音包\n- ffmpeg 转码（libopus）：版本 6.1.1，支持 libopus，状态正常\n- 飞书语音气泡发送：回执 kind=voice，发送成功\n- 错误码：ECONNRESET\n- ffmpeg 版本：6.1.1\n- 编解码：libopus\n- TTS 引擎：微软云 / Windows SAPI（后者因未安装语音包不可用）\n- 状态指示：❌ 表示异常，✅ 表示正常\n\n**页眉信息**：\n- 状态栏时间：12:44\n- 电池：54%\n- 网络：4G/4G+，下行 19.3 K/s\n- 平台：飞书（Feishu）",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff6af898a0b32c1cad13f2733",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "# 图片内容提取\n\n**页面标题**：代码块\n\n**表格内容**（3列：环节 / 说明 / 状态）\n\n| # | 环节 | 说明 | 状态 |\n|---|------|------|------|\n| 1 | TTS 生成（微软云） | — | ❌ 暂不可用 |\n| 2 | TTS 备选（Windows SAPI） | Windows Server 未安装语音引擎 | ❌ 无语音引擎 |\n| 3 | ffmpeg 转码（libopus） | 版本 6.1.1，支持 libopus | ✅ 正常 |\n| 4 | 飞书语音气泡发送 | 回执 kind=voice | ✅ 成功 |\n\n**关键信息摘要**：\n- TTS 生成（微软云）状态：暂不可用，错误 ECONNRESET，网络/服务端问题\n- TTS 备选（Windows SAPI）状态：无语音引擎，Windows Server 未安装语音包\n- ffmpeg 转码（libopus）：版本 6.1.1，支持 libopus，状态正常\n- 飞书语音气泡发送：回执 kind=voice，发送成功\n- 错误码：ECONNRESET\n- ffmpeg 版本：6.1.1\n- 编解码：libopus\n- TTS 引擎：微软云 / Windows SAPI（后者因未安装语音包不可用）\n- 状态指示：❌ 表示异常，✅ 表示正常\n\n**页眉信息**：\n- 状态栏时间：12:44\n- 电池：54%\n- 网络：4G/4G+，下行 19.3 K/s\n- 平台：飞书（Feishu）",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:45:10.011Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父这是在排查语音链路的状态截图吧？看到几个关键环节：\n\n3. TTS 生成（微软云） ❌ 暂不可用 - ECONNRESET，网络/服务端问题\n4. TTS 备选（Windows SAPI） ❌ 无语音引擎 - Windows Server 未安装语音包\n5. ffmpeg 转码（libopus） ✅ 正常 - 版本 6.1.1，支持 libopus\n6. 飞书语音气泡发送 ✅ 成功 - 回执 kind=voice\n\n所以现在的问题就是 TTS 那边挂了，主链路微软云连不上，备选的 Windows SAPI 又没装语音包。ffmpeg 和飞书发送都没问题，就是卡在文字转语音这一步。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-25T04:45:17.401Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我用的免费的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff6a6df8a4b3cd993f9e26b68",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:45:54.245Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "都是我龙虾自己调试的，我只给她我的需求，方法她自己想办法",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff690390a0b2996cb0b66a169",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:45:57.516Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "那是刚刚调试的状态，现在已经调试好了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff648cf8a8b1d30dc0e879827",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:46:32.956Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我的让她笑一个都做不到",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff614038b4b3e9b212dbbe325",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:47:57.694Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "笑一个小椰",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff7a2478a4b14baea9d88b637",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:49:23.564Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈？你又来点菜啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-25T04:49:26.368Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n**平台**：Feishu（飞书）\n**聊天对象**：品杜（智能体）——\"界萍师父的徒儿品杜小师妹\"\n**当前页签**：消息（云文档、文件）\n**未读数**：2\n\n---\n\n## 对话内容（按顺序）\n\n**用户**（头像：古装人物）：\n> 你用语音会笑会哭吗？😄\n\n**品杜**（头像：小女孩卡通形象）：\n> 现在这个实话讲，笑和哭这类非语言声音，TTS 不太行——它能读出\"哈哈\"、\"呜呜\"这些拟声词，但不会像真人那样自然地笑出来或哭出来。\n> 不过可以试试效果，给师父听一耳朵 👇\n\n**用户**：\n> 豆包元宝为什么会呢\n\n**品杜**（最后一条，被下方\"快捷指令 / 管理 / 已休眠，去唤醒\"工具栏部分遮挡，下方内容不可见）：\n> 微软 TTS 本质上是在\"念文字\"——它能把拟声词读出来，但不会自己发出真正的笑声、哭声。\n> 豆包/元宝用的是字节自家的端到端语音大模型（Seed-TTS / CosyVoice 这条线），它们不只……\n（\"已休眠，去唤醒\"按钮遮挡了后续文字，**被遮挡/看不清**）\n\n---\n\n## 关键信息提取\n\n1. 话题：AI 智能体\"品杜\"的语音能力，特别是能否笑/哭。\n2. 品杜自评 TTS 局限：能读拟声词（\"哈哈\"\"呜呜\"），但不会自然笑/哭。\n3. 微软 TTS 原理：本质是\"念文字\"，不能生成真正的笑声、哭声。\n4. 豆包/元宝的方案：字节跳动端到端语音大模型。\n5. 提及模型/产品线：**Seed-TTS**、**CosyVoice**。\n6. 状态条：**已休眠，去唤醒**。\n7. 输入框提示：\"发送给 品杜\"。\n\n---\n\n## 备注\n\n- 最后一段回复底部被三个悬浮按钮（快捷指令、管理、已休眠，去唤醒）压住，下文无法读取。\n- 顶部状态栏信息：HD、4G、46%、39 K/s、电池 54%、时间 12:49。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff789ec0a4b49b2a05bf1d642",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n**平台**：Feishu（飞书）\n**聊天对象**：品杜（智能体）——\"界萍师父的徒儿品杜小师妹\"\n**当前页签**：消息（云文档、文件）\n**未读数**：2\n\n---\n\n## 对话内容（按顺序）\n\n**用户**（头像：古装人物）：\n> 你用语音会笑会哭吗？😄\n\n**品杜**（头像：小女孩卡通形象）：\n> 现在这个实话讲，笑和哭这类非语言声音，TTS 不太行——它能读出\"哈哈\"、\"呜呜\"这些拟声词，但不会像真人那样自然地笑出来或哭出来。\n> 不过可以试试效果，给师父听一耳朵 👇\n\n**用户**：\n> 豆包元宝为什么会呢\n\n**品杜**（最后一条，被下方\"快捷指令 / 管理 / 已休眠，去唤醒\"工具栏部分遮挡，下方内容不可见）：\n> 微软 TTS 本质上是在\"念文字\"——它能把拟声词读出来，但不会自己发出真正的笑声、哭声。\n> 豆包/元宝用的是字节自家的端到端语音大模型（Seed-TTS / CosyVoice 这条线），它们不只……\n（\"已休眠，去唤醒\"按钮遮挡了后续文字，**被遮挡/看不清**）\n\n---\n\n## 关键信息提取\n\n1. 话题：AI 智能体\"品杜\"的语音能力，特别是能否笑/哭。\n2. 品杜自评 TTS 局限：能读拟声词（\"哈哈\"\"呜呜\"），但不会自然笑/哭。\n3. 微软 TTS 原理：本质是\"念文字\"，不能生成真正的笑声、哭声。\n4. 豆包/元宝的方案：字节跳动端到端语音大模型。\n5. 提及模型/产品线：**Seed-TTS**、**CosyVoice**。\n6. 状态条：**已休眠，去唤醒**。\n7. 输入框提示：\"发送给 品杜\"。\n\n---\n\n## 备注\n\n- 最后一段回复底部被三个悬浮按钮（快捷指令、管理、已休眠，去唤醒）压住，下文无法读取。\n- 顶部状态栏信息：HD、4G、46%、39 K/s、电池 54%、时间 12:49。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:50:06.239Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个截图里师父在测他那个\"品柱\"智能体能不能笑和哭～\n\n机器人自己解释了原因：TTS 本质上是\"念文字\"，能把\"哈哈\"\"呜呜\"这些拟声词读出来，但不会像真人那样自然地笑出来或哭出来。\n\n师父又追问豆包/元宝为什么可以，机器人回了：豆包/元宝用的是字节自家的端到端语音大模型（Seed-TTS / CosyVoice 这条线），不只是念文字，所以效果不一样。\n\n简单说就是——免费 TTS 只能念字，端到端语音大模型才能真正\"演\"出来 😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-25T04:50:13.550Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "换豆包语音大模型应该效果更好点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff701d58a8b30a1929a4c1c82",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:52:01.805Z"
       }
     ],
     "memories": [
@@ -46571,7 +46799,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-25T03:54:01.298Z"
+        "updatedAt": "2026-06-25T04:49:23.506Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -46581,7 +46809,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-25T03:54:01.232Z"
+        "updatedAt": "2026-06-25T04:49:23.358Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47246,6 +47474,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "interest.end_to_end_tts_models",
+        "value": "用户对端到端语音大模型（如Seed-TTS、CosyVoice）产生兴趣，意识到这是免费TTS与商用TTS情感差距的关键技术差异",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:50:53.130Z",
+        "updatedAt": "2026-06-25T04:50:53.130Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "interest.industrial_ai_loop_framework",
         "value": "用户认同'工业做资源闭环、AI做任务闭环、底层都是循环工程'的框架，认为虾马体系的SOP→验证→复盘→进化正是该思想的落地体现",
         "importance": 5,
@@ -47311,7 +47549,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-25T04:39:55.004Z"
+        "updatedAt": "2026-06-25T04:52:01.742Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47321,7 +47559,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-25T04:39:54.901Z"
+        "updatedAt": "2026-06-25T04:52:01.680Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.feishu_bot_pindu",
+        "value": "用户在飞书上自建智能体'品杜'（自称'界萍师父的徒儿品杜小师妹'），当前处于休眠状态，聊天页签为AI探索交流1群",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:50:53.192Z",
+        "updatedAt": "2026-06-25T04:50:53.192Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47352,6 +47600,26 @@
         "metadata": {},
         "createdAt": "2026-06-24T08:43:25.610Z",
         "updatedAt": "2026-06-24T08:43:25.610Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.voice_pipeline_diagnosis",
+        "value": "用户排查语音交互链路状态：TTS微软云暂不可用（ECONNRESET网络问题），Windows SAPI备选因未装语音引擎不可用，ffmpeg 6.1.1(libopus)和飞书语音气泡发送均正常，问题卡在TTS环节",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:45:57.411Z",
+        "updatedAt": "2026-06-25T04:45:57.411Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.voice_tts_emotion_comparison",
+        "value": "用户测试'品杜'智能体语音能力，关注TTS能否笑/哭；得知微软TTS只能念拟声词（哈哈/呜呜），而豆包/元宝用字节端到端语音大模型（Seed-TTS / CosyVoice）能实现更自然的情感表达",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:50:53.068Z",
+        "updatedAt": "2026-06-25T04:50:53.068Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
