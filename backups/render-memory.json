@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-24T16:07:43.455Z",
+  "exportedAt": "2026-06-25T02:57:42.975Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43496,6 +43496,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-24T16:05:05.269Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文（飞书知识空间页面截图）\n\n## 顶部状态栏\n- 时间 10:55；电量 83%\n\n## 页面顶部（部分被遮挡/裁切）\n- 被遮挡内容（含图标和文字）……以哈尔滨、以的太……（被遮挡/看不清）\n- 链接：研究报告\n\n## 项目列表（带图标的链接）\n1. ⚡🛠️ 【T5-技能智造】AtomCollide-智械工坊作品知识库\n2. 🔧📋 【T0-踩坑修复｜故障排查】OpenG…（被右侧\"保存\"图标遮挡）踩坑修复经验V3.0\n\n## 知识库动态\n- 占位插图：带丝带的灰色挂锁\n- 说明文字：**暂无权限访问展示知识库内页面**\n\n## 📞 联系我们 & 加入我们\n- **知识空间管理员**（头像+昵称）：\n  - 陈宇锋\n  - jkl\n  - 麻辣酱在广州教数学\n  - 欢喜\n  - PR\n  - 李渔樵\n- **问题反馈**：如有任何使用问题或建议，请在知识空间反馈群中留言\n\n## 💬 温馨提示\n知识空间的建设需要每一位成员的参与和贡献。如果您发现有价值的经验没有被记录，或者有内容需要更新，请随时……（下方文字被裁切未显示）\n\n---\n\n**备注**：右侧有一个圆形\"保存/书签\"按钮悬浮在内容上方，遮挡了\"T0-踩坑修复\"链接标题的右半部分。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cfdc4a01c88b17fa15964c42b2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "# 图片上下文（飞书知识空间页面截图）\n\n## 顶部状态栏\n- 时间 10:55；电量 83%\n\n## 页面顶部（部分被遮挡/裁切）\n- 被遮挡内容（含图标和文字）……以哈尔滨、以的太……（被遮挡/看不清）\n- 链接：研究报告\n\n## 项目列表（带图标的链接）\n1. ⚡🛠️ 【T5-技能智造】AtomCollide-智械工坊作品知识库\n2. 🔧📋 【T0-踩坑修复｜故障排查】OpenG…（被右侧\"保存\"图标遮挡）踩坑修复经验V3.0\n\n## 知识库动态\n- 占位插图：带丝带的灰色挂锁\n- 说明文字：**暂无权限访问展示知识库内页面**\n\n## 📞 联系我们 & 加入我们\n- **知识空间管理员**（头像+昵称）：\n  - 陈宇锋\n  - jkl\n  - 麻辣酱在广州教数学\n  - 欢喜\n  - PR\n  - 李渔樵\n- **问题反馈**：如有任何使用问题或建议，请在知识空间反馈群中留言\n\n## 💬 温馨提示\n知识空间的建设需要每一位成员的参与和贡献。如果您发现有价值的经验没有被记录，或者有内容需要更新，请随时……（下方文字被裁切未显示）\n\n---\n\n**备注**：右侧有一个圆形\"保存/书签\"按钮悬浮在内容上方，遮挡了\"T0-踩坑修复\"链接标题的右半部分。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T02:56:24.318Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你这群发展速度都跟不上趟，这都是 AI。妈呀，我怎么搞？我让所有 AI 给我监控一下吗？我觉得可以",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cfdc5188cb4b49cfde58ccd7ef",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T02:56:29.852Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈确实，AI 跑得比人快多了 😂\n\n不过你说让 AI 监控这个思路挺野的——不是不行，但得想清楚监控啥、要啥时候推给你，不然一群 AI 互相 @ 来 @ 去，群里更热闹了 😆",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-25T02:56:36.028Z"
       }
     ],
     "memories": [
@@ -46522,6 +46582,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "communication.emotional_reaction",
+        "value": "用户对群内消息增长速度快感到焦虑/惊讶，常用'妈呀'等口语化感叹词表达情绪",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-25T02:56:56.802Z",
+        "updatedAt": "2026-06-25T02:56:56.802Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
         "key": "communication.output_format",
         "value": "用户注意到当前回复全是语音形式，机器人无法自主切换为文字",
         "importance": 3,
@@ -46577,7 +46647,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-24T07:15:39.459Z"
+        "updatedAt": "2026-06-25T02:56:29.787Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -46597,7 +46667,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-24T07:15:39.303Z"
+        "updatedAt": "2026-06-25T02:56:29.721Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -46608,6 +46678,16 @@
         "metadata": {},
         "createdAt": "2026-06-22T08:50:21.669Z",
         "updatedAt": "2026-06-22T08:50:21.669Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.group_management_idea",
+        "value": "用户曾考虑让所有AI帮忙监控群消息（'让所有AI给我监控一下吗？我觉得可以'），倾向用AI辅助管理群消息增长",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-25T02:56:56.876Z",
+        "updatedAt": "2026-06-25T02:56:56.876Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
