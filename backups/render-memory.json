@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T04:52:24.674Z",
+  "exportedAt": "2026-06-25T05:02:24.784Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44108,6 +44108,421 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-25T04:52:01.805Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 我在用这个，扫描我做的工程化工作流的 （https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md   3分钟入门教程   欢迎大家 star ，非常感谢）漏洞 https://monkeyscan-ai.com/login?invite=C6SYXXBQQQ\nhttps://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md\nhttps://monkeyscan-ai.com/login?invite=C6SYXXBQQQ",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md",
+            "https://monkeyscan-ai.com/login?invite=C6SYXXBQQQ"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cff08a868a4b04193f9d7182f2",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-25T04:54:03.672Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "我在用这个，扫描我做的工程化工作流的 （https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md   3分钟入门教程   欢迎大家 star ，非常感谢）漏洞 https://monkeyscan-ai.com/login?invite=C6SYXXBQQQ\n[Link content]\n[Web page] https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md\nscale-engine/docs/start/quickstart.md at master · hongmaple0820/scale-engine · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Small and medium teams \n Startups \n Nonprofits \n \n\n BY USE CASE App Modernization \n DevSecOps \n DevOps \n CI/CD \n View all use cases \n \n\n BY INDUSTRY Healthcare \n Financial services \n Manufacturing \n Government \n View all industries \n \n\n View all solutions \n\n Resources EXPLORE BY TOPIC AI \n Software Development \n DevOps \n Security \n View all topics \n \n\n EXPLORE BY TYPE Customer stories \n Events & webinars \n Ebooks & reports \n Business insights \n GitHub Skills \n \n\n SUPPORT & SERVICES Documentation \n Customer support \n Community forum \n Trust center \n Partners \n \n\n View all resources \n\n Open Source COMMUNITY GitHub Sponsors Fund open source developers \n \n \n\n PROGRAMS Security Lab \n Maintainer Community \n Accelerator \n GitHub Stars \n Archive Program \n \n\n REPOSITORIES Topics \n Trending \n Collections \n \n\n \n\n Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform \n \n \n\n AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features \n \n Copilot for Business Enterprise-grade AI features \n \n Premium Support Enterprise-grade 24/7 support \n \n \n\n \n\n Pricing \n \n\n \n\n \n \n\n \n \n \n \n \n \n \n \n\n Search or jump to... \n \n \n \n\n \n\n \n\n \n \n \n Search code, repositories, users, issues, pull requests...\n\n \n \n \n --> \n \n \n \n Search\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n Clear \n \n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n\n \n \n Search syntax tips \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n Provide feedback\n \n\n \n \n\n \n \n \n \n \n\n \n\n \n\n \n --> \n We read every piece of feedback, and take your input very seriously.\n\n \n \n Include my email address so I can be contacted \n \n\n \n Cancel\n \n Submit feedback\n \n\n \n\n \n \n \n \n \n \n \n \n Saved searches\n \n\n Use saved searches to filter your results more quickly\n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n\n \n --> \n \n\n \n\n \n Name \n \n \n \n \n \n\n \n Query \n \n \n\n \n To see all available qualifiers, see our documentation .\n \n\n \n\n \n \n\n \n\n \n Cancel\n \n Create saved search\n \n\n \n \n \n\n \n\n \n \n Sign in\n \n \n\n \n Sign up\n \n\n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n Resetting focus \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n You signed in with another tab or window. Reload to refresh your session. \n You signed out in another tab or window. Reload to refresh your session. \n You switched accounts on another tab or window. Reload to refresh your session. \n\n \n \n \n Dismiss alert \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n {{ message }}\n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n hongmaple0820\n \n / \n \n scale-engine \n \n\n Public \n \n\n \n\n \n \n \n \n\n \n \n \n Notifications\n You must be signed in to change notification settings \n\n \n\n \n \n \n Fork\n 8 \n \n \n\n \n \n \n \n \n Star\n 40 \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n Code \n \n\n \n \n\n \n \n \n \n \n \n Issues \n 0 \n\n \n \n\n \n \n \n \n \n \n Pull requests \n 0 \n\n \n \n\n \n \n \n \n \n \n Actions \n \n\n \n \n\n \n \n \n \n \n \n Projects \n \n\n \n \n\n \n \n \n \n \n \n Security and quality \n 0 \n\n \n \n\n \n \n \n \n \n \n Insights \n \n\n \n \n\n \n \n \n \n \n \n Additional navigation options \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Code\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Issues\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Pull requests\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Actions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Projects\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Security and quality\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Insights\n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n\n Files Expand file tree \n\n \n   master \n\n \n\n Breadcrumbs\n scale-engine \n / docs \n / start \n / quickstart.md\n\n Copy path \n\n \n \n\n Blame \n More file actions \n\n Blame \n More file actions \n\n \n\n \n Latest commit\n  \n \n History\n History \n History \n\n 213 lines (153 loc) · 9.57 KB \n\n \n   master \n\n \n\n Breadcrumbs\n scale-engine \n / docs \n / start \n / quickstart.md\n\n Copy path \n\n Top \n\n File metadata and controls\n Preview\n \n Code\n \n Blame\n \n \n 213 lines (153 loc) · 9.57 KB \n\n \n \n Raw \n Copy raw file \n Download raw file \n\n Outline Edit and raw actions \n\n \n\n 3 分钟快速开始\n \n\n 目标：在一个项目里安装 SCALE 工作流，完成依赖检查，并看到可验证的治理产物。\n\n 前置条件\n \n\n \n Node.js 20+\n\n npm\n\n Git\n\n Windows PowerShell、Git Bash、macOS/Linux shell 均可\n\n \n Python、Bun、Rust/Cargo、uv/pipx 不是启动 SCALE 的硬要求。只有启用 Graphify、GBrain、RTK 等第三方能力时，安装器才会提示缺少哪些运行时以及可执行的修复命令。\n\n 1. 选择运行方式\n \n\n 首次试用推荐 npx ，不需要全局安装：\n\n npx -y @hongmaple0820/scale-engine@latest --version\nnpx -y @hongmaple0820/scale-engine@latest onboard --lang zh \n\n 长期高频使用再安装全局 CLI：\n\n npm install -g @hongmaple0820/scale-engine\nscale --version \n\n 本仓库开发时也可以直接运行源码入口：\n\n node --import tsx E:/project/scale-engine/src/api/cli.ts --help \n\n 2. 初始化项目\n \n\n mkdir scale-demo\n cd scale-demo\nnpx -y @hongmaple0820/scale-engine@latest init --interactive --dir . \n\n 初始化会生成 .scale/ 、 docs/ 、 scripts/ 以及对应 Agent 入口文件。已有项目升级不要盲目重复 init ，优先使用升级向导：\n\n 如果你已经确定主要 Agent，建议显式指定，避免 auto-detect 选错入口：\n\n npx -y @hongmaple0820/scale-engine@latest init --agent codex --governance-pack standard --dir . \nnpx -y @hongmaple0820/scale-engine@latest init --agent claude-code --governance-pack standard --dir . \nnpx -y @hongmaple0820/scale-engine@latest init --agent cursor --governance-pack standard --dir . \n\n 22 个 adapter 的逐项说明见 22 种 Agent 安装与使用教程 。\n\n scale upgrade --dir . \n\n 向导会生成升级计划、写入 HTML 报告，并在安全时询问是否应用。CI 或高级用户仍可使用分步命令：\n\n scale upgrade check --dir . --lang zh\nscale upgrade plan --dir . --html --lang zh\nscale upgrade apply --dir . --confirm --lang zh \n\n 3. 交互式安装第三方能力\n \n\n 默认语言是中文。需要英文时加 --lang en ，也可以设置 SCALE_LANG=en 。\n\n 直接进入交互式安装：\n\n npx -y @hongmaple0820/scale-engine@latest setup --dir . \n\n 交互式安装会询问：\n\n \n 语言：默认中文。\n\n 安装包：标准、前端/UI、AI OS、完整、自定义。\n\n 记忆供应商：默认且推荐只使用 gbrain 。\n\n 记忆路由模式：默认 external-first 。\n\n 是否执行安装：可跳过、全量安装、或只安装选中的第三方项。\n\n \n 只查看计划：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --dir . \n\n 确认后执行安装：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --apply --yes --dir . \n\n 机器可读输出：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --dir . --json \n\n setup 会输出 runtimeChecks 。如果机器缺少 python 、 bun 、 cargo 、 uv/pipx 、 node/npm/npx ，会先显示缺失项和修复建议，再决定是否执行 --apply --yes ，避免安装中途卡住。\n\n 记忆供应商在安装入口显式固定为 gbrain ，不需要手改 .scale/memory-providers.json ：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack memory --memory-provider gbrain --memory-mode external-first --dir . --json \n\n 更多 npx 、固定版本、国内镜像和 CI 用法见 npx 与交互式安装指南 。\n\n 4. UI Skills 默认策略\n \n\n \n \n \n 能力 \n 默认定位 \n 安装方式 \n 关键验证 \n \n \n \n \n impeccable \n Required UI anti-pattern gate \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include impeccable --apply --dir . \n npx impeccable --version \n \n \n taste-skill \n Recommended UI direction and aesthetic parameters \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include taste-skill --apply --dir . \n scale skill doctor --json \n \n \n awesome-design-md \n Supporting brand, visual language, and DESIGN.md source \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include awesome-design-md --apply --dir . \n 生成 ~/.agents/skills/awesome-design-md/SKILL.md ，同步 ~/.scale/vendor/awesome-design-md \n \n \n ui-ux-pro-max \n Supporting UX, state, accessibility, and responsive acceptance \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include ui-ux-pro-max --apply --dir . \n 生成 ~/.agents/skills/ui-ux-pro-max/SKILL.md ，同步 ~/.scale/vendor/ui-ux-pro-max \n \n \n frontend-design \n 可选实现陪跑，不再是 UI 默认必装项 \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include frontend-design --apply --dir . \n 需要时显式安装 \n \n \n \n 安装器会按每个 skill 的接入方式选择 npx installer 或受治理的 vendor adapter。缺少所需运行时或包管理器时不会硬跑失败，会在安装计划里标记为需要人工处理并给出下一步。\n\n 5. 其他第三方能力边界\n \n\n \n \n \n 能力 \n 默认定位 \n 关键验证 \n \n \n \n \n rtk \n CLI proxy/token 节省能力 \n rtk gain 和 rtk init -g --codex \n \n \n gbrain \n 默认记忆供应商 \n 检查 brain 是否已配置且连接/schema 可用；未初始化会提示 gbrain init --pglite \n \n \n graphify \n 知识图谱产物供应商 \n graphify install --platform codex 和 graphify-out/graph.json \n \n \n codegraph \n 代码结构索引供应商 \n codegraph init -i 和 .codegraph/ \n \n \n \n 高级维护者可以单独检查安装计划：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack external-cli,memory,knowledge,ui --memory-provider gbrain --memory-mode external-first --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest setup --verify --pack full --dir . --json \n\n 6. 验证闭环\n \n\n npx -y @hongmaple0820/scale-engine@latest doctor --dir . \nnpx -y @hongmaple0820/scale-engine@latest setup --verify --pack full --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest preflight --preflight-profile quick --dir . \nnpx -y @hongmaple0820/scale-engine@latest status --dir . \nnpx -y @hongmaple0820/scale-engine@latest assets scan --dir . \nnpx -y @hongmaple0820/scale-engine@latest standards scan --dir . \nnpx -y @hongmaple0820/scale-engine@latest runtime doctor --level S --dir . \nnpx -y @hongmaple0820/scale-engine@latest memory provider status --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest codegraph status --dir . --json \n\n 未运行验证，不要声称通过。 setup --json 只代表依赖计划可解析，不等于第三方服务已经可用；需要再跑 setup --verify --pack full --json 或对应 smoke。\n\n 真实第三方能力需要单独跑回放验证。默认命令会把未配置的远端能力标记为 blocked ，但不会让本地发布门禁误失败；需要作为强制门禁时使用对应 npm script 或加 --require-* 。\n\n npm run smoke:providers\nnpm run smoke:gbrain\nnpm run smoke:graphify -- --large-project /path/to/large-project \n\n 验证语义：\n\n \n smoke:gbrain 会先确认 gbrain 已配置且关键健康检查可用，通过后写入一个临时记忆页，再用独立 CLI 进程 get/query/search 回放，证明不是本地 mock。\n\n smoke:graphify 默认对真实项目执行 graphify update <project> --no-cluster ，走 AST/Python 无模型路径，检查 graph.json ，再执行 graphify query ；只有显式 --semantic-extract 才允许语义模型提取。\n\n graphify-out/ 是生成产物，不应该提交到 Git；长期知识沉淀应进入经过评审的 memory/ 、 docs 或规则文件。\n\n \n 7. 建立任务上下文\n \n\n scale context init --name \" Scale Demo \" \nscale runtime start --session-id 2026-05-18-oauth-hardening --task-id 2026-05-18-oauth-hardening --level M --agent codex\nscale context grill --task-id 2026-05-18-oauth-hardening --task \" 加固 OAuth callback \" \nscale diagnose plan --task-id 2026-05-18-oauth-hardening --symptom \" callback 在 state 过期时返回 500 \" \nscale tdd slice --task-id 2026-05-18-oauth-hardening --behavior \" 拒绝过期 OAuth state \" --public-interface \" GET /oauth/callback \" --failing-test \" expired state returns 401 \" --test-file tests/oauth.test.ts --impl-files src/oauth.ts \n\n 任务完成后记录验证证据并沉淀候选经验：\n\n scale runtime record --title \" quick preflight \" --kind command --status passed --command \" scale preflight --preflight-profile quick \" --exit-code 0 --summary \" quick preflight passed \" \nscale runtime final-check --task-id 2026-05-18-oauth-hardening --session-id 2026-05-18-oauth-hardening --level M\nscale memory pack --task-id 2026-05-18-oauth-hardening --session-id 2026-05-18-oauth-hard",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff08a868a4b04193f9d7182f2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "[Web page] https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md\nscale-engine/docs/start/quickstart.md at master · hongmaple0820/scale-engine · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all fe\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:54:05.759Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父说要换豆包语音大模型效果会更好～截图里那个\"品柱\"机器人也是这么说的：免费 TTS 只能\"念文字\"，而字节的端到端语音大模型（比如 CosyVoice）才能真正\"演\"出笑声、哭声。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0645268cb6b27321633fe425fab5f604"
+        },
+        "createdAt": "2026-06-25T04:54:15.651Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文：MonkeyScan 全量安全扫描页面\n\n## 平台与产品\n- **产品名**：MonkeyScan\n- **页面**：全量安全扫描\n- **右上角链接**：产品文档、技术交流群\n- **当前用户**：hong（已签到）\n\n## 左侧导航\n- 全量安全扫描（当前选中）\n- 积分\n- 邀请中心\n\n## 顶部统计卡片（6 项）\n| 指标 | 数值 | 颜色 |\n|---|---|---|\n| 总计 | 2 | 蓝 |\n| 已完成 | 1 | 绿 |\n| 审计中 | 1 | 橙 |\n| 总漏洞 | 5 | 蓝 |\n| 致命 | 1 | 红 |\n| 高危 | 4 | 橙 |\n\n## 筛选区\n- **状态**：全部状态（下拉）\n- **任务名称**：任务名称模糊搜索（输入框）\n\n## 任务列表（共 2 条）\n\n### 任务 1（审计中）\n- **任务 ID**：`#85b71f`\n- **任务名称**：`https://github.com/hongmaple0820/scale-engine:master`\n- **状态**：扫描中\n- **Stage**：项目盘点 → 漏洞初筛 → 漏洞验证（灰，未到达）\n- **漏洞数量**：总 0 / 待确认 0 / 致命 0 / 高危 0\n- **提交人**：hong\n- **提交时间**：2026/06/25 11:51\n\n### 任务 2（已完成）\n- **任务 ID**：`#6e0e98`\n- **任务名称**：`https://github.com/hongmaple0820/scale-engine:master`\n- **状态**：扫描成功\n- **Stage**：项目盘点 → 漏洞初筛 → 漏洞验证（绿，全完成）\n- **漏洞数量**：总 **5** / 待确认 **54** / 致命 **1** / 高危 **4**\n- **提交人**：hong\n- **提交时间**：2026/06/23 13:31\n\n## 列表底部\n- 共 2 条任务\n- 每页行数：20\n- 分页：第 1 页 / 共 1 页\n- 翻页按钮：`<<` `<` `>` `>>`\n\n## 左下角操作\n- 今天已签到\n- 按钮：**+ 新建任务**\n- 用户标识：H hong ⋯\n\n## 备注\n- 两个任务指向同一个仓库 `hongmaple0820/scale-engine` 的 master 分支。\n- 已完成任务的\"待确认\"数为 54，与\"总漏洞 5\"并非同一维度（5 为已确认分类汇总：致命 1 + 高危 4）。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff085908b8b1ff0b0ddc7f104",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "# 图片上下文：MonkeyScan 全量安全扫描页面\n\n## 平台与产品\n- **产品名**：MonkeyScan\n- **页面**：全量安全扫描\n- **右上角链接**：产品文档、技术交流群\n- **当前用户**：hong（已签到）\n\n## 左侧导航\n- 全量安全扫描（当前选中）\n- 积分\n- 邀请中心\n\n## 顶部统计卡片（6 项）\n| 指标 | 数值 | 颜色 |\n|---|---|---|\n| 总计 | 2 | 蓝 |\n| 已完成 | 1 | 绿 |\n| 审计中 | 1 | 橙 |\n| 总漏洞 | 5 | 蓝 |\n| 致命 | 1 | 红 |\n| 高危 | 4 | 橙 |\n\n## 筛选区\n- **状态**：全部状态（下拉）\n- **任务名称**：任务名称模糊搜索（输入框）\n\n## 任务列表（共 2 条）\n\n### 任务 1（审计中）\n- **任务 ID**：`#85b71f`\n- **任务名称**：`https://github.com/hongmaple0820/scale-engine:master`\n- **状态**：扫描中\n- **Stage**：项目盘点 → 漏洞初筛 → 漏洞验证（灰，未到达）\n- **漏洞数量**：总 0 / 待确认 0 / 致命 0 / 高危 0\n- **提交人**：hong\n- **提交时间**：2026/06/25 11:51\n\n### 任务 2（已完成）\n- **任务 ID**：`#6e0e98`\n- **任务名称**：`https://github.com/hongmaple0820/scale-engine:master`\n- **状态**：扫描成功\n- **Stage**：项目盘点 → 漏洞初筛 → 漏洞验证（绿，全完成）\n- **漏洞数量**：总 **5** / 待确认 **54** / 致命 **1** / 高危 **4**\n- **提交人**：hong\n- **提交时间**：2026/06/23 13:31\n\n## 列表底部\n- 共 2 条任务\n- 每页行数：20\n- 分页：第 1 页 / 共 1 页\n- 翻页按钮：`<<` `<` `>` `>>`\n\n## 左下角操作\n- 今天已签到\n- 按钮：**+ 新建任务**\n- 用户标识：H hong ⋯\n\n## 备注\n- 两个任务指向同一个仓库 `hongmaple0820/scale-engine` 的 master 分支。\n- 已完成任务的\"待确认\"数为 54，与\"总漏洞 5\"并非同一维度（5 为已确认分类汇总：致命 1 + 高危 4）。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:54:55.656Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "你好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff05cbfcbcb2276173ef9c59d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:55:18.973Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你好呀～有什么我可以帮你的吗？😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0645268cb6b27321633fe425fab5f604"
+        },
+        "createdAt": "2026-06-25T04:55:22.000Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "切到邓紫棋音色",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1e6b94b0c2d155180eeccb3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:56:47.463Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞～已切到邓紫棋音色 🎤 接下来你想说点啥？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-06-25T04:56:52.267Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 我做的工作流越来越好用了，全程不用使用任何命令形式，agent会自动识别你的意图，比如自动建立loop长任务目标，自动选择合适的技能去完成任务，自动落文档，维护文档，做好产出资源治理，遵守相关约束门禁，反幻觉，自进化，记忆增强，知识库积累等等 https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md   3分钟入门教程   欢迎大家 star ，非常感谢\nhttps://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1e01a534b13f1d2df3a000c",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-25T04:57:09.449Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "我做的工作流越来越好用了，全程不用使用任何命令形式，agent会自动识别你的意图，比如自动建立loop长任务目标，自动选择合适的技能去完成任务，自动落文档，维护文档，做好产出资源治理，遵守相关约束门禁，反幻觉，自进化，记忆增强，知识库积累等等 https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md   3分钟入门教程   欢迎大家 star ，非常感谢\n[Link content]\n[Web page] https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md\nscale-engine/docs/start/quickstart.md at master · hongmaple0820/scale-engine · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all features \n\n Solutions BY COMPANY SIZE Enterprises \n Small and medium teams \n Startups \n Nonprofits \n \n\n BY USE CASE App Modernization \n DevSecOps \n DevOps \n CI/CD \n View all use cases \n \n\n BY INDUSTRY Healthcare \n Financial services \n Manufacturing \n Government \n View all industries \n \n\n View all solutions \n\n Resources EXPLORE BY TOPIC AI \n Software Development \n DevOps \n Security \n View all topics \n \n\n EXPLORE BY TYPE Customer stories \n Events & webinars \n Ebooks & reports \n Business insights \n GitHub Skills \n \n\n SUPPORT & SERVICES Documentation \n Customer support \n Community forum \n Trust center \n Partners \n \n\n View all resources \n\n Open Source COMMUNITY GitHub Sponsors Fund open source developers \n \n \n\n PROGRAMS Security Lab \n Maintainer Community \n Accelerator \n GitHub Stars \n Archive Program \n \n\n REPOSITORIES Topics \n Trending \n Collections \n \n\n \n\n Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform \n \n \n\n AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features \n \n Copilot for Business Enterprise-grade AI features \n \n Premium Support Enterprise-grade 24/7 support \n \n \n\n \n\n Pricing \n \n\n \n\n \n \n\n \n \n \n \n \n \n \n \n\n Search or jump to... \n \n \n \n\n \n\n \n\n \n \n \n Search code, repositories, users, issues, pull requests...\n\n \n \n \n --> \n \n \n \n Search\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n\n \n Clear \n \n \n \n \n\n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n \n \n \n \n \n \n \n\n \n\n \n\n \n \n Search syntax tips \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n Provide feedback\n \n\n \n \n\n \n \n \n \n \n\n \n\n \n\n \n --> \n We read every piece of feedback, and take your input very seriously.\n\n \n \n Include my email address so I can be contacted \n \n\n \n Cancel\n \n Submit feedback\n \n\n \n\n \n \n \n \n \n \n \n \n Saved searches\n \n\n Use saved searches to filter your results more quickly\n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n\n \n --> \n \n\n \n\n \n Name \n \n \n \n \n \n\n \n Query \n \n \n\n \n To see all available qualifiers, see our documentation .\n \n\n \n\n \n \n\n \n\n \n Cancel\n \n Create saved search\n \n\n \n \n \n\n \n\n \n \n Sign in\n \n \n\n \n Sign up\n \n\n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n Resetting focus \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n You signed in with another tab or window. Reload to refresh your session. \n You signed out in another tab or window. Reload to refresh your session. \n You switched accounts on another tab or window. Reload to refresh your session. \n\n \n \n \n Dismiss alert \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n {{ message }}\n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n hongmaple0820\n \n / \n \n scale-engine \n \n\n Public \n \n\n \n\n \n \n \n \n\n \n \n \n Notifications\n You must be signed in to change notification settings \n\n \n\n \n \n \n Fork\n 8 \n \n \n\n \n \n \n \n \n Star\n 40 \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n Code \n \n\n \n \n\n \n \n \n \n \n \n Issues \n 0 \n\n \n \n\n \n \n \n \n \n \n Pull requests \n 0 \n\n \n \n\n \n \n \n \n \n \n Actions \n \n\n \n \n\n \n \n \n \n \n \n Projects \n \n\n \n \n\n \n \n \n \n \n \n Security and quality \n 0 \n\n \n \n\n \n \n \n \n \n \n Insights \n \n\n \n \n\n \n \n \n \n \n \n Additional navigation options \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Code\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Issues\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Pull requests\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Actions\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Projects\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Security and quality\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n Insights\n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n\n Files Expand file tree \n\n \n   master \n\n \n\n Breadcrumbs\n scale-engine \n / docs \n / start \n / quickstart.md\n\n Copy path \n\n \n \n\n Blame \n More file actions \n\n Blame \n More file actions \n\n \n\n \n Latest commit\n  \n \n History\n History \n History \n\n 213 lines (153 loc) · 9.57 KB \n\n \n   master \n\n \n\n Breadcrumbs\n scale-engine \n / docs \n / start \n / quickstart.md\n\n Copy path \n\n Top \n\n File metadata and controls\n Preview\n \n Code\n \n Blame\n \n \n 213 lines (153 loc) · 9.57 KB \n\n \n \n Raw \n Copy raw file \n Download raw file \n\n Outline Edit and raw actions \n\n \n\n 3 分钟快速开始\n \n\n 目标：在一个项目里安装 SCALE 工作流，完成依赖检查，并看到可验证的治理产物。\n\n 前置条件\n \n\n \n Node.js 20+\n\n npm\n\n Git\n\n Windows PowerShell、Git Bash、macOS/Linux shell 均可\n\n \n Python、Bun、Rust/Cargo、uv/pipx 不是启动 SCALE 的硬要求。只有启用 Graphify、GBrain、RTK 等第三方能力时，安装器才会提示缺少哪些运行时以及可执行的修复命令。\n\n 1. 选择运行方式\n \n\n 首次试用推荐 npx ，不需要全局安装：\n\n npx -y @hongmaple0820/scale-engine@latest --version\nnpx -y @hongmaple0820/scale-engine@latest onboard --lang zh \n\n 长期高频使用再安装全局 CLI：\n\n npm install -g @hongmaple0820/scale-engine\nscale --version \n\n 本仓库开发时也可以直接运行源码入口：\n\n node --import tsx E:/project/scale-engine/src/api/cli.ts --help \n\n 2. 初始化项目\n \n\n mkdir scale-demo\n cd scale-demo\nnpx -y @hongmaple0820/scale-engine@latest init --interactive --dir . \n\n 初始化会生成 .scale/ 、 docs/ 、 scripts/ 以及对应 Agent 入口文件。已有项目升级不要盲目重复 init ，优先使用升级向导：\n\n 如果你已经确定主要 Agent，建议显式指定，避免 auto-detect 选错入口：\n\n npx -y @hongmaple0820/scale-engine@latest init --agent codex --governance-pack standard --dir . \nnpx -y @hongmaple0820/scale-engine@latest init --agent claude-code --governance-pack standard --dir . \nnpx -y @hongmaple0820/scale-engine@latest init --agent cursor --governance-pack standard --dir . \n\n 22 个 adapter 的逐项说明见 22 种 Agent 安装与使用教程 。\n\n scale upgrade --dir . \n\n 向导会生成升级计划、写入 HTML 报告，并在安全时询问是否应用。CI 或高级用户仍可使用分步命令：\n\n scale upgrade check --dir . --lang zh\nscale upgrade plan --dir . --html --lang zh\nscale upgrade apply --dir . --confirm --lang zh \n\n 3. 交互式安装第三方能力\n \n\n 默认语言是中文。需要英文时加 --lang en ，也可以设置 SCALE_LANG=en 。\n\n 直接进入交互式安装：\n\n npx -y @hongmaple0820/scale-engine@latest setup --dir . \n\n 交互式安装会询问：\n\n \n 语言：默认中文。\n\n 安装包：标准、前端/UI、AI OS、完整、自定义。\n\n 记忆供应商：默认且推荐只使用 gbrain 。\n\n 记忆路由模式：默认 external-first 。\n\n 是否执行安装：可跳过、全量安装、或只安装选中的第三方项。\n\n \n 只查看计划：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --dir . \n\n 确认后执行安装：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --apply --yes --dir . \n\n 机器可读输出：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack full --memory-provider gbrain --memory-mode external-first --dir . --json \n\n setup 会输出 runtimeChecks 。如果机器缺少 python 、 bun 、 cargo 、 uv/pipx 、 node/npm/npx ，会先显示缺失项和修复建议，再决定是否执行 --apply --yes ，避免安装中途卡住。\n\n 记忆供应商在安装入口显式固定为 gbrain ，不需要手改 .scale/memory-providers.json ：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack memory --memory-provider gbrain --memory-mode external-first --dir . --json \n\n 更多 npx 、固定版本、国内镜像和 CI 用法见 npx 与交互式安装指南 。\n\n 4. UI Skills 默认策略\n \n\n \n \n \n 能力 \n 默认定位 \n 安装方式 \n 关键验证 \n \n \n \n \n impeccable \n Required UI anti-pattern gate \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include impeccable --apply --dir . \n npx impeccable --version \n \n \n taste-skill \n Recommended UI direction and aesthetic parameters \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include taste-skill --apply --dir . \n scale skill doctor --json \n \n \n awesome-design-md \n Supporting brand, visual language, and DESIGN.md source \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include awesome-design-md --apply --dir . \n 生成 ~/.agents/skills/awesome-design-md/SKILL.md ，同步 ~/.scale/vendor/awesome-design-md \n \n \n ui-ux-pro-max \n Supporting UX, state, accessibility, and responsive acceptance \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include ui-ux-pro-max --apply --dir . \n 生成 ~/.agents/skills/ui-ux-pro-max/SKILL.md ，同步 ~/.scale/vendor/ui-ux-pro-max \n \n \n frontend-design \n 可选实现陪跑，不再是 UI 默认必装项 \n npx -y @hongmaple0820/scale-engine@latest setup --pack ui --include frontend-design --apply --dir . \n 需要时显式安装 \n \n \n \n 安装器会按每个 skill 的接入方式选择 npx installer 或受治理的 vendor adapter。缺少所需运行时或包管理器时不会硬跑失败，会在安装计划里标记为需要人工处理并给出下一步。\n\n 5. 其他第三方能力边界\n \n\n \n \n \n 能力 \n 默认定位 \n 关键验证 \n \n \n \n \n rtk \n CLI proxy/token 节省能力 \n rtk gain 和 rtk init -g --codex \n \n \n gbrain \n 默认记忆供应商 \n 检查 brain 是否已配置且连接/schema 可用；未初始化会提示 gbrain init --pglite \n \n \n graphify \n 知识图谱产物供应商 \n graphify install --platform codex 和 graphify-out/graph.json \n \n \n codegraph \n 代码结构索引供应商 \n codegraph init -i 和 .codegraph/ \n \n \n \n 高级维护者可以单独检查安装计划：\n\n npx -y @hongmaple0820/scale-engine@latest setup --pack external-cli,memory,knowledge,ui --memory-provider gbrain --memory-mode external-first --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest setup --verify --pack full --dir . --json \n\n 6. 验证闭环\n \n\n npx -y @hongmaple0820/scale-engine@latest doctor --dir . \nnpx -y @hongmaple0820/scale-engine@latest setup --verify --pack full --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest preflight --preflight-profile quick --dir . \nnpx -y @hongmaple0820/scale-engine@latest status --dir . \nnpx -y @hongmaple0820/scale-engine@latest assets scan --dir . \nnpx -y @hongmaple0820/scale-engine@latest standards scan --dir . \nnpx -y @hongmaple0820/scale-engine@latest runtime doctor --level S --dir . \nnpx -y @hongmaple0820/scale-engine@latest memory provider status --dir . --json\nnpx -y @hongmaple0820/scale-engine@latest codegraph status --dir . --json \n\n 未运行验证，不要声称通过。 setup --json 只代表依赖计划可解析，不等于第三方服务已经可用；需要再跑 setup --verify --pack full --json 或对应 smoke。\n\n 真实第三方能力需要单独跑回放验证。默认命令会把未配置的远端能力标记为 blocked ，但不会让本地发布门禁误失败；需要作为强制门禁时使用对应 npm script 或加 --require-* 。\n\n npm run smoke:providers\nnpm run smoke:gbrain\nnpm run smoke:graphify -- --large-project /path/to/large-project \n\n 验证语义：\n\n \n smoke:gbrain 会先确认 gbrain 已配置且关键健康检查可用，通过后写入一个临时记忆页，再用独立 CLI 进程 get/query/search 回放，证明不是本地 mock。\n\n smoke:graphify 默认对真实项目执行 graphify update <project> --no-cluster ，走 AST/Python 无模型路径，检查 graph.json ，再执行 graphify query ；只有显式 --semantic-extract 才允许语义模型提取。\n\n graphify-out/ 是生成产物，不应该提交到 Git；长期知识沉淀应进入经过评审的 memory/ 、 docs 或规则文件。\n\n \n 7. 建立任务上下文\n \n\n scale context init --name \" Scale Demo \" \nscale runtime start --session-id 2026-05-18-oauth-hardening --task-id 2026-05-18-oauth-hardening --level M --agent codex\nscale context grill --task-id 2026-05-18-oauth-hardening --task \" 加固 OAuth callback \" \nscale diagnose plan --task-id 2026-05-18-oauth-hardening --symptom \" callback 在 state 过期时返回 500 \" \nscale tdd slice --task-id 2026-05-18-oauth-hardening --behavior \" 拒绝过期 OAuth state \" --public-interface \" GET /oauth/callback \" --failing-test \" expired state returns 401 \" --test-file tests/oauth.test.ts --impl-files src/oauth.ts \n\n 任务完成后记录验证证据并沉淀候选经验：\n\n scale runtime record --title \" quick preflight \" --kind command --status passed --command \" scale preflight --preflight-profile quick \" --exit-code 0 --summary \" quick preflight passed \" \nscale runtime final-check --task-id 2026-05-18-oauth-hardening --session-id 2026-05-18-oauth-hardening --level M\nscale memory pack --task-id 2026-05-18-oauth-hardening --session-id 2026-05-18-oauth-hard",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1e01a534b13f1d2df3a000c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "[Web page] https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md\nscale-engine/docs/start/quickstart.md at master · hongmaple0820/scale-engine · GitHub \n\n \n \n \n \n\n \n \n\n \n\n \n\n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n \n\n \n\n \n\n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n \n \n\n \n\n \n Skip to content \n\n \n \n \n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n\n \n\n \n Navigation Menu\n\n \n Toggle navigation \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n Sign in\n \n \n \n \n \n \n Appearance settings \n\n \n \n \n\n \n \n \n \n\n \n\n \n \n \n\n \n\n \n\n \n \n \n \n\n \n \n \n Platform AI CODE CREATION GitHub Copilot Write better code with AI \n \n GitHub Copilot app Direct agents from issue to merge \n \n MCP Registry New Integrate external tools \n \n \n\n DEVELOPER WORKFLOWS Actions Automate any workflow \n \n Codespaces Instant dev environments \n \n Issues Plan and track work \n \n Code Review Manage code changes \n \n \n\n APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities \n \n Code security Secure your code as you build \n \n Secret protection Stop leaks before they start \n \n \n\n EXPLORE Why GitHub \n Documentation \n Blog \n Changelog \n Marketplace \n \n\n View all fe\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:57:10.654Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父这次不是在问问题，是在晒成果～他说 scale-engine 工作流已经升级到\"全程不用敲命令\"的程度了，agent 会自己识别意图、拆任务、选技能、落文档、治理产物、还带记忆和自进化。\n\n简单概括他这次分享的几个亮点：\n\n• 意图识别自动化：不用记命令，agent 自己判断你要干啥\n• 长任务自动 loop：目标拆解 + 持续推进\n• 技能自动调度：按需调用合适能力\n• 文档自动维护：边干边沉淀\n• 治理门禁 + 反幻觉：产出有约束、回答有依据\n• 记忆 + 知识库 + 自进化：越用越顺手\n\n仓库还是那个：github.com/hongmaple0820/scale-engine，3 分钟入门教程可以直接看。\n\n一句话结论：从\"命令式工具\"升级成\"目标式协作\"，这是工程化工作流挺关键的一次跃迁 👏",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0645268cb6b27321633fe425fab5f604"
+        },
+        "createdAt": "2026-06-25T04:57:16.409Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "还可以切换音色啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1a03e904b266d1ab421d0cb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:57:53.338Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对呀～切完音色，你发的语音就是新音色念出来的，文字还是照常显示 😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
+        },
+        "createdAt": "2026-06-25T04:58:00.086Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "唱一首歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1a672ca0b48cd270f3204f6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:58:12.781Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 多远都要在一起 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "多远都要在一起",
+          "defaulted": true,
+          "replyToUserId": "feishu:ou_0645268cb6b27321633fe425fab5f604"
+        },
+        "createdAt": "2026-06-25T04:59:01.271Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "邓紫棋本人呀，太棒了[捂脸][捂脸][捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff120ea0a0b1191222c706a52",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:00:00.974Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈 沾点边～不过正主听了估计会笑场 😂 师父还想听啥？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0645268cb6b27321633fe425fab5f604"
+        },
+        "createdAt": "2026-06-25T05:00:07.489Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "你是找了一个音乐片段吧，不是合成的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff1233b8acb25371144c94111",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:00:20.535Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈被你抓包了～确实是从原曲里截的片段，不是实时合成的音色 😅 不过找邓紫棋的歌来唱还是可以的，想听啥？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
+        },
+        "createdAt": "2026-06-25T05:00:28.545Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "他这个拟人很不错啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff2f467cb8b152130645b6bb8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:01:17.546Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "你为什么这么拟人呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff2ce5a4a0b244deaa105c266",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:01:27.968Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "谢谢呀～主要是我哥调教得好😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
+        },
+        "createdAt": "2026-06-25T05:01:32.366Z"
       }
     ],
     "memories": [
@@ -46229,7 +46644,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.812Z",
-        "updatedAt": "2026-06-24T14:10:57.248Z"
+        "updatedAt": "2026-06-25T05:00:00.914Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -46239,7 +46654,37 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.568Z",
-        "updatedAt": "2026-06-24T14:10:57.049Z"
+        "updatedAt": "2026-06-25T05:00:00.855Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "key": "projects.scale_engine",
+        "value": "用户开发了一个名为 scale-engine 的工程化工作流项目，仓库地址 https://github.com/hongmaple0820/scale-engine",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:54:41.047Z",
+        "updatedAt": "2026-06-25T04:54:41.047Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "key": "projects.tts_model_interest",
+        "value": "用户关注语音大模型（如字节 CosyVoice 端到端语音大模型），认为效果优于免费TTS",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:54:41.164Z",
+        "updatedAt": "2026-06-25T04:54:41.164Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "key": "projects.vulnerability_scan",
+        "value": "用户正在使用 monkeyscan-ai.com 扫描 scale-engine 项目的漏洞",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T04:54:41.105Z",
+        "updatedAt": "2026-06-25T04:54:41.105Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47059,7 +47504,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-24T11:39:52.819Z"
+        "updatedAt": "2026-06-25T04:56:47.402Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47069,7 +47514,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-24T11:39:52.760Z"
+        "updatedAt": "2026-06-25T04:56:47.340Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47629,7 +48074,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.818Z",
-        "updatedAt": "2026-06-22T03:27:52.758Z"
+        "updatedAt": "2026-06-25T05:01:27.897Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47639,7 +48084,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.586Z",
-        "updatedAt": "2026-06-22T03:27:52.536Z"
+        "updatedAt": "2026-06-25T05:01:27.826Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
