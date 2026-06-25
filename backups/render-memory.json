@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T06:42:24.880Z",
+  "exportedAt": "2026-06-25T08:42:24.950Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44817,6 +44817,30 @@
           "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
         },
         "createdAt": "2026-06-25T06:40:06.739Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "workbuddy 这个工作空间的文件，本地我怎么看到不到文件，大家能看到吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cfad0a9acb4b210ec0bbd7e526",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T08:42:22.651Z"
       }
     ],
     "memories": [
@@ -47138,7 +47162,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-24T09:48:06.304Z"
+        "updatedAt": "2026-06-25T08:42:22.564Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47148,7 +47172,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-24T09:48:06.232Z"
+        "updatedAt": "2026-06-25T08:42:22.470Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
