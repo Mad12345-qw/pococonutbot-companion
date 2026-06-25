@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T05:02:24.784Z",
+  "exportedAt": "2026-06-25T05:12:25.796Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44523,6 +44523,114 @@
           "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
         },
         "createdAt": "2026-06-25T05:01:32.366Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "你怎么每次默认是发语音呢，你会自己切换发语音或者发文本吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff28a434a4b2fd2d8a508be8e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:02:36.621Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "暂时还没有语音/文本自动切换功能哦，都是按指令走的 😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
+        },
+        "createdAt": "2026-06-25T05:02:40.854Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "你生成语音的方式、方案是什么，能生成一份详细的落地方案吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff2368c4a8b2139b6ad46c818",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:04:32.110Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n我目前的语音生成其实是“找一段原曲片段播放”，并不是实时合成。要做到像人一样真正开口说/唱，需要走 TTS 或歌声合成这条路线。\n\n核心要点\n• 语音合成（TTS）：把文字转成自然人声，常用方案有 VITS、SoVITS、GPT-SoVITS、F5-TTS、CosyVoice 等\n• 歌声合成（SVS）：把歌词+旋律转成歌声，代表项目有 DiffSinger、VISinger、Singing Voice Synthesis 5\n• 需要准备的数据：干声音频、对应文本/歌词、旋律 MIDI 或音素对齐，越多越好听感越像\n\n落地步骤\n1. 先选方向：只要说话选 TTS，要唱歌必须上 SVS\n2. 准备数据集：单说话人至少 10 分钟干声；唱歌至少 30 首以上干声 + 歌词对齐\n3. 微调底模：用 GPT-SoVITS / DiffSinger 在目标音色上微调\n4. 接机器人：在飞书/Telegram 里挂一个推理服务，收到消息就调 API 生成音频回传\n\n成本与坑\n• 训练一张 GPU（3090/4090 级别）跑 GPT-SoVITS 几小时就够；DiffSinger 训练要久一些\n• 唱歌合成的难点在旋律对齐和气息，远比说话难调\n• 实时性是个门槛，群聊里延迟太大会显得很尬，可以先做异步回复\n\n一句话结论\n想让我真唱一首歌，路线是：选 SVS 方案 + 准备干声数据集 + 微调音色 + 接入消息通道，不是直接调 API 就能搞定。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d"
+        },
+        "createdAt": "2026-06-25T05:04:55.295Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "想让小椰唱歌也可以实现，把小椰的语音大模型丢进AI音乐生成里面，用他的语言大模型生出歌曲再让他转成语音气泡就实现了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cff20cff880b4aff33242c631d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T05:06:17.019Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯嗯，原理是这样～丢进AI音乐生成里让它出曲，然后转语音气泡就完事了 😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-25T05:06:19.871Z"
       }
     ],
     "memories": [
@@ -47994,7 +48102,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-25T04:52:01.742Z"
+        "updatedAt": "2026-06-25T05:06:16.955Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48004,7 +48112,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-25T04:52:01.680Z"
+        "updatedAt": "2026-06-25T05:06:16.891Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.bot_singing_via_music_pipeline",
+        "value": "用户构想让小椰实现唱歌的方案：把小椰的语音大模型接入AI音乐生成流程，用语言大模型生成歌曲内容，再转成语音气泡发送，实现完整的'机器人唱歌'链路",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-25T05:06:37.481Z",
+        "updatedAt": "2026-06-25T05:06:37.481Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48069,12 +48187,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "key": "interests.voice_synthesis",
+        "value": "用户对语音生成（TTS/歌声合成）技术感兴趣，询问过详细的落地方案，包括技术选型、数据准备、训练流程和接入机器人的方法",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-25T05:06:21.354Z",
+        "updatedAt": "2026-06-25T05:06:21.354Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.818Z",
-        "updatedAt": "2026-06-25T05:01:27.897Z"
+        "updatedAt": "2026-06-25T05:04:32.046Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48084,7 +48212,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.586Z",
-        "updatedAt": "2026-06-25T05:01:27.826Z"
+        "updatedAt": "2026-06-25T05:04:31.982Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "key": "projects.voice_synthesis",
+        "value": "用户可能计划为机器人实现真正的语音/歌声合成功能（区别于当前播放原曲片段的方式），路线：SVS方案 + 干声数据集 + 微调音色 + 接入消息通道",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-25T05:06:21.417Z",
+        "updatedAt": "2026-06-25T05:06:21.417Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
