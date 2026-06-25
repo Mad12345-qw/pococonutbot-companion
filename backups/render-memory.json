@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T04:02:25.240Z",
+  "exportedAt": "2026-06-25T04:22:25.409Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -43808,6 +43808,42 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-25T03:54:06.774Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
+        "role": "user",
+        "modality": "text",
+        "content": "你是怎么发送语音的？ 把方法告诉我。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cfee43ee4a0c10dd73c99af830",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_5699b77dfb2d42acef4c89d0b835b206",
+          "rawUserId": "ou_5699b77dfb2d42acef4c89d0b835b206",
+          "rawUnionId": "on_4539a8f505f912cf838186d8615e8175",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T04:12:37.120Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎呀，这个我还真不清楚呢～ 我语音是配置的时候直接接入的，具体怎么发送的我也不太懂\n\n你应该问问我主人，看看他那边能不能设置",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5699b77dfb2d42acef4c89d0b835b206"
+        },
+        "createdAt": "2026-06-25T04:12:42.238Z"
       }
     ],
     "memories": [
@@ -46429,7 +46465,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:22:50.315Z",
-        "updatedAt": "2026-06-23T11:41:15.537Z"
+        "updatedAt": "2026-06-25T04:12:37.058Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -46439,7 +46475,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:22:50.090Z",
-        "updatedAt": "2026-06-23T11:41:15.445Z"
+        "updatedAt": "2026-06-25T04:12:36.977Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
