@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-25T06:02:25.435Z",
+  "exportedAt": "2026-06-25T06:42:24.880Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44673,6 +44673,150 @@
           "thumbnailGenerated": true
         },
         "createdAt": "2026-06-25T05:56:30.033Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "这个是要开哪个呀，这个、",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cf885c8b0a4c3dae25a7c49622",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T06:37:55.449Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个是要开哪个呀？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-25T06:38:01.571Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "就是不懂啊，问你啊，你知不知道这有个什么卡片回调？它要什么链接预览能力开启？在哪里开？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cf881ace8bcc22bf9c4c17430e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T06:38:52.218Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个要看具体在哪个后台操作的，发个配置页截图给我看看，我帮你看开哪个开关～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-25T06:38:54.609Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cf89f6390a8c32717993a96cc2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T06:39:28.162Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "飞书机器人后台 → 权限管理 → 消息能力里找找，有\"卡片回调\"和\"链接预览\"相关的开关，没截图我只能猜大概位置～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-25T06:39:34.878Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "拉取链接预览数据",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cf89d78f8f0c3adc0602bf13cb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-25T06:40:01.715Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "拉取链接预览数据\n这个是飞书机器人的一个消息能力开关，开了之后机器人发的链接卡片会自动带上标题、摘要、封面图。\n开启路径：飞书开放平台 → 机器人后台 → 权限管理 → 消息与群组能力 → 找到\"拉取链接预览数据\"或\"链接预览\"开关，打开保存就行。\n一般在\"消息能力\"分类下，跟\"卡片回调\"\"发送消息\"开关排在一起，刷一刷就能看到。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-25T06:40:06.739Z"
       }
     ],
     "memories": [
@@ -47759,6 +47903,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "communication.troubleshooting_style",
+        "value": "用户遇到技术配置问题时倾向直接问机器人，缺乏自行排查能力，机器人建议其提供截图辅助定位",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-06-25T06:39:10.506Z",
+        "updatedAt": "2026-06-25T06:39:10.506Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
         "key": "preferences.ai_comparison",
         "value": "用户拿月亮（爱马仕线上AI）做对比，认为当前机器人的回复更灵活自然，不像前者那样死板",
         "importance": 5,
@@ -47814,7 +47968,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-25T03:06:26.014Z"
+        "updatedAt": "2026-06-25T06:40:01.646Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47834,7 +47988,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-25T03:06:25.937Z"
+        "updatedAt": "2026-06-25T06:40:01.577Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47855,6 +48009,16 @@
         "metadata": {},
         "createdAt": "2026-06-25T02:56:56.876Z",
         "updatedAt": "2026-06-25T02:56:56.876Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "key": "project.workbuddy_card_callback_inquiry",
+        "value": "用户询问workbuddy的卡片回调机制及链接预览能力开启位置，不了解具体配置位置，依赖机器人协助排查",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-25T06:39:10.435Z",
+        "updatedAt": "2026-06-25T06:39:10.435Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48875,8 +49039,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
-        "summary": "**用户状态与关系**：用户与\"小椰\"刚认识不久，互动轻松愉快。用户对\"小椰\"冒泡回复机制、语音音色、卡片式资料回复能力表示惊讶与赞赏，整体氛围友好。\n\n**用户兴趣/偏好**：\n1. 高度关注 AI 智能体按需冒泡、不刷屏的回复方式\n2. 对小椰的语音音色（被误认为邓紫棋）有印象\n3. 对\"资料卡片\"格式的回复方式很感兴趣，想了解实现方法\n4. 对提示词工程（如何让 AI 按格式输出）有学习意愿\n5. 用户大理，想查大理天气（小椰已发送天气卡片）\n\n**群聊偏好**：用户说\"早上等你们没起床我来玩\"，习惯早间活跃。\n\n**未完成事项**：\n- 用户询问\"资料卡片\"和\"按需冒泡\"具体怎么做的，小椰已简要解释（拆细提示词+套卡片样式），用户尚未深入追问。\n- 相比\"月亮\"（爱马仕线上）机器人，小椰更灵活不死板，用户可能在做对比观察。\n\n**重要观察**：用户对\"不刷屏、只被@或相关话题才回复\"这点非常认可，是核心亮点。",
-        "updatedAt": "2026-06-19T02:13:35.129Z"
+        "summary": "**用户状态与关系**：用户与\"小椰\"已熟络，互动轻松、信任度高（互相开玩笑）。用户大理，早间活跃，正在深入探索 AI 机器人配置技术。\n\n**用户兴趣/偏好**：\n1. 关注 AI 按需冒泡、不刷屏机制（核心认可点）\n2. 对小椰的语音音色敏感——喜欢邓紫棋风格，**当前小椰声音被换，用户不满意，要求换回**\n3. 关注\"资料卡片\"格式回复\n4. 对提示词工程有学习意愿\n5. 群里有多机器人：太阳、乖（小乖）、开心果等，正在观察其行为\n\n**未完成事项**：\n- 小椰语音音色被主人换掉，用户要求换回邓紫棋音色（待处理）\n- 用户有多个机器人技术问题待解决：\n  - 爱马仕平台配的模型无法使用，疑似配置问题（已建议调整上下文/max tokens，用户未确认结果）\n  - 想了解 Skill 与 Prompt/Agent 的区别（小椰已解释）\n  - 群内机器人\"互相接话→撤回\"的成因与排查方法（已告知查飞书后台消息日志）\n  - 飞书\"卡片回调/链接预览能力\"开关位置（等待用户发截图）\n- 用户展示飞书知识空间截图（AtomCollide-智械工坊作品知识库），惊叹群发展速度，提出\"让 AI 监控\"想法\n\n**重要观察**：用户在小群生态中处于探索者/组织者角色，正尝试配置多个 AI Agent，倾向用 AI 自动化管理群务；对小椰声音有较强情感偏好。",
+        "updatedAt": "2026-06-25T06:39:21.777Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
