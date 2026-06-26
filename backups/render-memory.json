@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T11:24:26.559Z",
+  "exportedAt": "2026-06-26T11:34:27.027Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45847,6 +45847,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-26T11:24:01.563Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "我感觉我只能报名这个。。。。完全不懂技术的人好惨",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd259b208a4c4a92f21fd30eb8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T11:24:45.500Z"
       }
     ],
     "memories": [
@@ -49688,7 +49712,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.331Z",
-        "updatedAt": "2026-06-26T11:24:01.496Z"
+        "updatedAt": "2026-06-26T11:24:45.434Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49698,7 +49722,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.112Z",
-        "updatedAt": "2026-06-26T11:24:01.427Z"
+        "updatedAt": "2026-06-26T11:24:45.367Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
