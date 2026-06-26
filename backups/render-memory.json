@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T05:44:27.338Z",
+  "exportedAt": "2026-06-26T06:04:27.745Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45411,6 +45411,61 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-06-26T05:37:10.011Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 上下文（StepFun 开放平台海报）\n\n## 品牌信息\n- **平台名称**：StepFun 开放平台\n- **品牌 Slogan**：I build with models, I create my agent!\n\n## 主标题\n**Step Plan 限时免费体验，海量 Token 放送中！**\n\n## 核心卖点（正文）\n1. 一键订阅，轻松接入 Step 模型全家桶系列\n2. 内置 Step 3.7 Flash，面向生产级 Agent 的高效率 Flash 模型\n\n## 活动规则（底部）\n- 创作新阶，此刻开启！扫码注册\n- 一键领取 15 天免费体验，累计最高可获 120 天\n\n## 视觉元素\n- 黑色背景，中央为一个透明玻璃质感的\"<>\"代码符号（左右尖括号），符号内部可见流动的蓝色代码字符\n- 右下角附有二维码（用于扫码注册）\n\n## 关键提取信息\n- **产品/套餐名**：Step Plan\n- **核心模型**：Step 3.7 Flash（定位：面向生产级 Agent 的高效率 Flash 模型）\n- **注册方式**：扫码注册\n- **免费体验**：单次 15 天，累计最高 120 天\n- **接入方式**：一键订阅",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd5090a50a0b1ad64c951dc3b1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_df16aca50a7707a1af64aee5743f2700",
+          "rawUserId": "ou_df16aca50a7707a1af64aee5743f2700",
+          "rawUnionId": "on_57cbad913d2cfc7134ffd59276d7f337",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 上下文（StepFun 开放平台海报）\n\n## 品牌信息\n- **平台名称**：StepFun 开放平台\n- **品牌 Slogan**：I build with models, I create my agent!\n\n## 主标题\n**Step Plan 限时免费体验，海量 Token 放送中！**\n\n## 核心卖点（正文）\n1. 一键订阅，轻松接入 Step 模型全家桶系列\n2. 内置 Step 3.7 Flash，面向生产级 Agent 的高效率 Flash 模型\n\n## 活动规则（底部）\n- 创作新阶，此刻开启！扫码注册\n- 一键领取 15 天免费体验，累计最高可获 120 天\n\n## 视觉元素\n- 黑色背景，中央为一个透明玻璃质感的\"<>\"代码符号（左右尖括号），符号内部可见流动的蓝色代码字符\n- 右下角附有二维码（用于扫码注册）\n\n## 关键提取信息\n- **产品/套餐名**：Step Plan\n- **核心模型**：Step 3.7 Flash（定位：面向生产级 Agent 的高效率 Flash 模型）\n- **注册方式**：扫码注册\n- **免费体验**：单次 15 天，累计最高 120 天\n- **接入方式**：一键订阅",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T05:56:35.891Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哇这个活动挺香的，扫码就能领15天免费体验，累计最高120天～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_df16aca50a7707a1af64aee5743f2700"
+        },
+        "createdAt": "2026-06-26T05:56:40.133Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 来薅免费的https://platform.stepfun.com?invite_code=JBTKKJIM\nhttps://platform.stepfun.com?invite_code=JBTKKJIM",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://platform.stepfun.com?invite_code=JBTKKJIM"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cd507c4ec84b2b1f4cd8e0fe0b",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-26T05:56:54.239Z"
       }
     ],
     "memories": [
@@ -49383,6 +49438,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.563Z",
         "updatedAt": "2026-06-23T14:14:42.752Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-26T05:56:35.827Z",
+        "updatedAt": "2026-06-26T05:56:35.827Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_df16aca50a7707a1af64aee5743f2700",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-26T05:56:35.739Z",
+        "updatedAt": "2026-06-26T05:56:35.739Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
