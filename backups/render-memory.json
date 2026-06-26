@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T01:34:26.700Z",
+  "exportedAt": "2026-06-26T03:04:27.023Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -44925,6 +44925,42 @@
           "replyToUserId": "feishu:ou_b7832bba62dadeb68d0698d2acc3b1ea"
         },
         "createdAt": "2026-06-26T01:29:26.810Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_b7832bba62dadeb68d0698d2acc3b1ea",
+        "role": "user",
+        "modality": "text",
+        "content": "群里的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ceae3914ca8b3e2bce9638db7a",
+          "rawChatId": "oc_4f5f294f132c713ba1f0b25639f6359a",
+          "rawOpenId": "ou_b7832bba62dadeb68d0698d2acc3b1ea",
+          "rawUserId": "ou_b7832bba62dadeb68d0698d2acc3b1ea",
+          "rawUnionId": "on_e7a5042057edf46ec6df49f6af547a10",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T02:58:32.747Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_b7832bba62dadeb68d0698d2acc3b1ea",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好，那我先确认一下你说的「群里的」是哪个智能体，这个群我目前没看到叫「智能体」的具体应用列表。你可以告诉我它叫什么名字、或者把它的卡片/链接发我，我再帮你看它是怎么生成视频的。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b7832bba62dadeb68d0698d2acc3b1ea"
+        },
+        "createdAt": "2026-06-26T02:58:45.535Z"
       }
     ],
     "memories": [
@@ -46056,7 +46092,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-26T01:29:20.351Z",
-        "updatedAt": "2026-06-26T01:29:20.351Z"
+        "updatedAt": "2026-06-26T02:58:32.684Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
@@ -46066,7 +46102,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-26T01:29:20.259Z",
-        "updatedAt": "2026-06-26T01:29:20.259Z"
+        "updatedAt": "2026-06-26T02:58:32.521Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
