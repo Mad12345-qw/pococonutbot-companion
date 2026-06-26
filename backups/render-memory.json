@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T06:34:26.734Z",
+  "exportedAt": "2026-06-26T06:54:26.973Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45610,6 +45610,42 @@
           "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
         },
         "createdAt": "2026-06-26T06:31:09.706Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "打开支付宝搜  搜 AI支付宝\n填写邀请码即可\n\n邀请你体验 AI 版支付宝，打开支付宝 APP → 搜 「AI 版支付宝」→ 输入邀请码：6E2WI\n\n邀请你体验 AI 版支付宝，打开支付宝 APP → 搜 「AI 版支付宝」→ 输入邀请码：7KGSM\n\n邀请你体验 AI 版支付宝，打开支付宝 APP → 搜 「AI 版支付宝」→ 输入邀请码：8PUOQ\n\n邀请码自取",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd65d063ce0b4a4896dd4adfb1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T06:50:43.310Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞，谢谢分享～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-26T06:50:50.783Z"
       }
     ],
     "memories": [
@@ -48491,7 +48527,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-26T05:15:19.265Z"
+        "updatedAt": "2026-06-26T06:50:43.239Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48501,7 +48537,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-26T05:15:19.199Z"
+        "updatedAt": "2026-06-26T06:50:43.136Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
