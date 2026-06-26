@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T04:04:27.463Z",
+  "exportedAt": "2026-06-26T05:14:26.420Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45045,6 +45045,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-26T03:57:47.222Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "你这是咋配置的，视频是你生成的还是你找的素材",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd4e4c820b4b1d98a7d70cad27",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T05:14:15.646Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？哪个视频呀，我没发过视频诶，是不是把我跟别人发的搞混啦",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-26T05:14:18.918Z"
       }
     ],
     "memories": [
@@ -47926,7 +47962,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-23T16:12:33.881Z"
+        "updatedAt": "2026-06-26T05:14:15.577Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47936,7 +47972,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-23T16:12:33.722Z"
+        "updatedAt": "2026-06-26T05:14:15.482Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
