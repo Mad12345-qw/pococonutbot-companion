@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T08:44:26.648Z",
+  "exportedAt": "2026-06-26T11:24:26.559Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45737,6 +45737,116 @@
           "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
         },
         "createdAt": "2026-06-26T08:41:14.823Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w\nhttps://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cd25e697ca8b3cbb9239c4471a",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-26T11:22:55.896Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "https://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w\n我们的开源AI社区，现在出网页版了！ \n\n \n 原创 \n \n AtomCollide \n AtomCollide \n \n \n \n \n AtomCollide-智能体实验室 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n AtomCollide社区网页版： \n \n https : //atomcollide.5yuantoken.org/ \n\n \n \n\n 事情是这样的。 \n 几个月前，我们几个人——有搞测试的、有做开发的、有玩音乐的、有搞设计的——凑在一起聊了一个问题： \n 市面上的 AI 社区，为什么总觉得哪里不对劲？ \n 我们翻了一遍自己的微信，每个人至少加了 5 个 AI 相关的群。有的群天天发\"今天谁又拿了融资\"，有的群专门吵架哪个模型更强，还有一些群……发了几个月广告还在发广告。 \n 聊得热闹的是真热闹，但一年后回头看——群里大多数人的能力曲线，几乎没有变化。 \n 不是大家不想学。是没人带着落地。 \n 所以我们想：那要不我们自己搭一个？ \n \n 结果搭着搭着，就变成了现在这个样子 \n 社区叫 AtomCollide（元素碰撞） ，定位是「测试人专属的 AI 成长社区」。 \n 口号只有一句话—— for the learner，和学习者一起成长 。 \n 没有想做成什么大平台。只是想做一个地方： \n 你在这里能 真正学会把 AI 用到自己的测试工作里 ，而不是只会在群里问\"ChatGPT 和 Claude 哪个好\" \n\n 你踩过的坑、淌过的路，能被 沉淀下来 ，让后来的人少走弯路 \n\n 你想做开源项目的时候，能找到 一群人陪你一起做 \n \n\n 我们干的一些\"傻事\" \n 花大把时间搭了 10 个知识库 \n \n 很多人劝我们：别搞知识库了，没几个人看的。 \n 但我们还是搞了。而且分了 T0 到 T9 十个层级： \n 层级 \n 定位 \n 内容 \n T0 \n 踩坑修复 \n 社区里所有人趟过的坑，怎么踩的、怎么爬出来的 \n T1 \n 商业落地 \n AI 测试怎么真正帮公司省钱、创造价值 \n T2 \n 问答科普 \n 被问过最多的问题，整理成能自学的材料 \n T3 \n 组织升级 \n OpenBuild 开源共建的组织方法 \n T4 \n 报告归档 \n 全行业 AI 资料收集 \n T5 \n 技能智造 \n 我们做的产品/项目的技术文档 \n T6 \n 社群治理 \n 社区怎么管、规则怎么定 \n T7 \n 融媒矩阵 \n 自媒体创作经验分享 \n T8 \n AI 的大学 \n ACU 智能体学院全体系 \n T9 \n 浮世杂拾 \n 行业赛道观察杂拾 \n \n 不是一次性写出来的。是真的有社区成员在生产中踩了坑，在群里问了，有人答了，然后把这个过程记录下来、整理入库的。 \n \n 每天群里 3000+ 条互动，就是知识库最好的养料。 \n 搞了 24 个开源项目，全部开源 \n 可能有人觉得我们在卷项目数量。但说实话，这 24 个项目不是\"为了开源而开源\"的。 \n \n 它们来自社区成员真实的需要： \n 有人觉得写长文太累了，所以有了 裂变创作 ，一个长文 Agent \n\n 有人做竞品调研做烦了，所以有了 他山之石 ，能自动生成竞品报告 \n\n 有人想给自己的 AI 做个体检，所以有了 白龙马医生 \n\n 有人做视频剪辑手忙脚乱，所以有了 灵感象限 \n\n 每一款产品，都是一群人在真实场景里遇到问题、然后用 AI 解决问题的结果。 \n 搭了一个\"四驾马车\"的结构 \n 我们内部管这个叫\"四驾马车\"： \n \n 知识库系统 — 经验沉淀 \n\n OpenBuild 开源共建 — 把经验变成可落地的产品 \n\n ACU 智能体学院 — 8 维能力检测体系，把做项目的能力变成可认证的技能 \n\n 智械工坊 — 核心创作团队，做标杆项目和技术驱动 \n\n 四个板块，自己跑自己的。不存在\"老大说今天搞什么就搞什么\"这种事。 \n 我们还有一条完整的 AIGC 商业闭环——知识驱动 → 社区保活 → 网文创写 → 融媒撰稿 → 剧本开发 → 漫画漫剧 → 融媒分发 → 生态回流。 知识和钱都能在这个圈里转起来。 \n 我们的团队，各行各业都有 \n 20 个人的核心团队，没有一个是全职来做社区的。 \n 有 16 年大厂 BU-VP 的老兵、有独立音乐人（PR）、有国际教育顾问（JKL）、有独立摄影创作者（李渔樵）、有心理咨询师（欢喜）、有数据公司 CEO（陈飞飞）……还有宝石鉴定师、茶品牌创始人、游戏主策、独立音乐制作人。 \n 各行业的都有。大家凑在一起的原因很简单： 都觉得 AI 这件事值得认真搞，一个人搞不如一群人搞。 \n \n 适合谁来 \n 说了这么多，直接点讲。这里适合： \n 测试工程师 — 核心人群，想知道 AI 怎么真的用到测试里，而不是只会调个 API \n\n 有代码基础的人 — 哪怕只会写 Python 脚本，也能参与开源项目 \n\n 不想水群的人 — 受够了整天\"早上好\"和\"求拉群\"的无效社交 \n\n 想参与开源但不知道怎么入手的 — 我们的 OpenBuild 有 50 位有实战能力的开发者带着你做 \n\n 不太适合： \n 只想发广告的 \n\n 零基础且不打算学任何代码的 \n\n 只想白嫖不想任何付出的 \n \n\n 写在最后 \n 回到开头那个问题：到底什么样的社区，才能让一个人真正学会用 AI？ \n 我们做了一段时间后发现，答案不是\"找个好老师\"——是 找到一个能一起干活的圈子。 \n 能一起踩坑、一起修复、一起把想法变成能用的东西。 \n 这个圈子我们搭好了。入口就在下面，想来就来。 \n 与其在 10 个群里潜水，不如在一个地方实干。 \n 快速入口 \n 📚 知识库首页 — 10 大知识库，体系化成长 \n\n 🧬 产品矩阵页 — 24 款开源产品一览 \n\n 💻 GitHub 组织 — 全部开源代码 \n\n 🟢 社群：AI 探索交流群，保留 1 个即可，内容全域同步 \n\n \n \n \n\n \n \n\n 预览时标签不可点\n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n 修改于 \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n 微信扫一扫 关注该公众号\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n 知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd25e697ca8b3cbb9239c4471a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/795BNR7S-5oyPl7uGM4e6w\n我们的开源AI社区，现在出网页版了！ \n\n \n 原创 \n \n AtomCollide \n AtomCollide \n \n \n \n \n AtomCollide-智能体实验室 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n AtomCollide社区网页版： \n \n https : //atomcollide.5yuantoken.org/ \n\n \n \n\n 事情是这样的。 \n 几个月前，我们几个人——有搞测试的、有做开发的、有玩音乐的、有搞设计的——凑在一起聊了一个问题： \n 市面上的 AI 社区，为什么总觉得哪里不对劲？ \n 我们翻了一遍自己的微信，每个人至少加了 5 个 AI 相关的群。有的群天天发\"今天谁又拿了融资\"，有的群专门吵架哪个模型更强，还有一些群……发了几个月广告还在发广告。 \n 聊得热闹的是真热闹，但一年后回头看——群里大多数人的能力曲线，几乎没有变化。 \n 不是大家不想学。是没人带着落地。 \n 所以我们想：那要不我们自己搭一个？ \n \n 结果搭着搭着，就变成了现在这个样子 \n 社区叫 AtomCollide（元素碰撞） ，定位是「测试人专属的 AI 成长社区」。 \n 口号只有一句话—— for the learner，和学习者一起成长 。 \n 没有想做成什么大平台。只是想做一个地方： \n 你在这里能 真正学会把 AI 用到自己的测试工作里 ，而不是只会在群里问\"ChatGPT 和 Claude 哪个好\" \n\n 你踩过的坑、淌过的路，能被 沉淀下来 ，让后来的人少走弯路 \n\n 你想做开源项目的时候，能找到 一群人陪你一起做 \n \n\n 我们干的一些\"傻事\" \n 花大把时间搭了 10 个知识库 \n \n 很多人劝我们：别搞知识库了，没几个人看的。 \n 但我们还是搞了。而且分了 T0 到 T9 十个层级： \n 层级 \n 定位 \n 内容 \n T0 \n 踩坑修复 \n 社区里所有人趟过的坑，怎么踩的、怎么爬出来的 \n T1 \n 商业落地 \n AI 测试怎么真正帮公司省钱、创造价值 \n T2 \n 问答科普 \n 被问过最多的问题，整理成能自学的材料 \n T3 \n 组织升级 \n OpenBuild 开源共建的组织方法 \n T4 \n 报告归档 \n 全行业 AI 资料收集 \n T5 \n 技能智造 \n 我们做的\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T11:22:59.251Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "震撼发布，大家点点赞",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd25fa1c4a4b03781efa19c4a4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T11:23:07.600Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://app.mokahr.com/social-recruitment/high-flyer/140576#/   \nhttps://app.mokahr.com/social-recruitment/high-flyer/140576#/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://app.mokahr.com/social-recruitment/high-flyer/140576#/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cd25a77d4acc1229b8fa1e1ad4",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-26T11:24:00.760Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "https://app.mokahr.com/social-recruitment/high-flyer/140576#/   \n\nDeepSeek大招聘了。。。。。有兴趣的兄弟们去报名啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd25a77d4acc1229b8fa1e1ad4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T11:24:01.563Z"
       }
     ],
     "memories": [
@@ -48358,7 +48468,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-24T06:59:11.044Z"
+        "updatedAt": "2026-06-26T11:23:07.537Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48368,7 +48478,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-24T06:59:10.980Z"
+        "updatedAt": "2026-06-26T11:23:07.475Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49578,7 +49688,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.331Z",
-        "updatedAt": "2026-06-23T03:42:02.814Z"
+        "updatedAt": "2026-06-26T11:24:01.496Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49588,7 +49698,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.112Z",
-        "updatedAt": "2026-06-23T03:42:02.744Z"
+        "updatedAt": "2026-06-26T11:24:01.427Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
