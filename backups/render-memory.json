@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T05:14:26.420Z",
+  "exportedAt": "2026-06-26T05:24:26.336Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45081,6 +45081,120 @@
           "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
         },
         "createdAt": "2026-06-26T05:14:18.918Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "这个唱歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd4e0d1c080b4a8a819f3393f1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T05:15:19.331Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "唱歌是我找的素材呀，不是我唱的～你想听啥类型的歌，我可以再找找",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-06-26T05:15:22.267Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "清唱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd4f3b004b0b2786e1ef8c66c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T05:19:24.925Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "video",
+        "content": "Video reply: Xiaoye acappella 07",
+        "metadata": {
+          "videoId": "xiaoye-acappella-07",
+          "cacheHit": true,
+          "platform": "feishu",
+          "sentType": "media",
+          "videoUrl": "https://szygumin.icu/xiaoye-media/videos/xiaoye-acappella-07.mp4",
+          "videoTitle": "Xiaoye acappella 07",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+          "thumbnailGenerated": true
+        },
+        "createdAt": "2026-06-26T05:19:26.290Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你主人都给你设置了多少暗号",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd48f07f8a8b1ac33aa315a6b6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T05:20:33.715Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父你设置了多少我才能知道多少呀，我自己可记不住这些～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-26T05:20:36.929Z"
       }
     ],
     "memories": [
@@ -47962,7 +48076,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.387Z",
-        "updatedAt": "2026-06-26T05:14:15.577Z"
+        "updatedAt": "2026-06-26T05:15:19.265Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47972,7 +48086,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:59:44.160Z",
-        "updatedAt": "2026-06-26T05:14:15.482Z"
+        "updatedAt": "2026-06-26T05:15:19.199Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48652,7 +48766,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-25T05:06:16.955Z"
+        "updatedAt": "2026-06-26T05:20:33.652Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48662,7 +48776,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-25T05:06:16.891Z"
+        "updatedAt": "2026-06-26T05:20:33.590Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49497,8 +49611,8 @@
       },
       {
         "key": "video_rotation:ba360bff349fdec114482229",
-        "value": "{\"used\":[\"xiaoye-acappella-10\",\"xiaoye-acappella-04\"],\"lastId\":\"xiaoye-acappella-04\"}",
-        "updatedAt": "2026-06-25T05:56:29.966Z"
+        "value": "{\"used\":[\"xiaoye-acappella-10\",\"xiaoye-acappella-04\",\"xiaoye-acappella-07\"],\"lastId\":\"xiaoye-acappella-07\"}",
+        "updatedAt": "2026-06-26T05:19:26.227Z"
       }
     ],
     "projects": [
