@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T14:44:26.554Z",
+  "exportedAt": "2026-06-26T17:24:26.953Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46003,6 +46003,25 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-26T14:43:54.128Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md   3分钟入门教程   欢迎大家 star ，非常感谢\nhttps://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/hongmaple0820/scale-engine/blob/master/docs/start/quickstart.md"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6cdf03fecca4b10be17bed028b7",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-26T17:20:24.728Z"
       }
     ],
     "memories": [
