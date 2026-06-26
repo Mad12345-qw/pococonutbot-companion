@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T06:04:27.745Z",
+  "exportedAt": "2026-06-26T06:34:26.734Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45466,6 +45466,150 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-06-26T05:56:54.239Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "你的视屏是怎么发出来的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd5f74b808cb25d9ed7c2c4730",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T06:26:38.603Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看到链接里带视频预览，点开就能播放呀～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-26T06:26:41.609Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "你是怎么发视频出来的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd5f1c6e090b2c3b59b1aa4d55",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T06:28:08.302Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "就是直接发飞书消息的时候把视频传上去就行啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-26T06:28:11.603Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "视频从哪里来的？具体是如何传的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd58cdc7c84b14e1de3573ac6f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T06:28:54.231Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "就是平时飞书聊天的时候，上传视频到对话里就行啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-26T06:28:58.944Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "视屏从哪里来的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cd584f484bcb178255c0d103f2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T06:31:07.489Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "就是从相册里选个视频传到飞书就行啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-26T06:31:09.706Z"
       }
     ],
     "memories": [
@@ -47847,7 +47991,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-25T08:42:22.564Z"
+        "updatedAt": "2026-06-26T06:31:07.418Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -47857,7 +48001,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-25T08:42:22.470Z"
+        "updatedAt": "2026-06-26T06:31:07.347Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
