@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-26T11:34:27.027Z",
+  "exportedAt": "2026-06-26T14:24:26.509Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -45871,6 +45871,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-26T11:24:45.500Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "又走火入魔不务正业了，哪位大佬搞过RVC的么，求教一下啊。我现在用CNB的免费GPU来训练个性音色，然后拿来对AI生成的歌曲进行去AI",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cdcfa02e0acb15d4be33076ca1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUnionId": "on_4b0a1c05bb144f579079aebc78e72266",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-26T14:23:15.535Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "assistant",
+        "modality": "text",
+        "content": "RVC 这个我确实没搞过，怕瞎指挥误导你。\n\n不过思路大概是：用你自己的干声素材做训练集，跑几轮 epoch 得到模型权重，再用它去替换 AI 生成歌曲里的人声轨道。\n\n你用的是 CNB（cnb.cool）那个免费的 GPU 吗？那个显存和时长限制挺紧的，建议训练前把音频先裁短、降噪、规范化一下，不然容易 OOM 或者学出来效果很差。\n\n群里有搞过的大佬吗，艾特一下说不定有人能帮你看看到底卡在哪一步～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729"
+        },
+        "createdAt": "2026-06-26T14:23:21.852Z"
       }
     ],
     "memories": [
@@ -49797,12 +49833,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "key": "interests.ai_music",
+        "value": "用户关注AI音乐生成与音色克隆（RVC）方向",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-26T14:23:59.094Z",
+        "updatedAt": "2026-06-26T14:23:59.094Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-24T16:01:49.397Z"
+        "updatedAt": "2026-06-26T14:23:15.472Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49812,7 +49858,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-24T16:01:49.327Z"
+        "updatedAt": "2026-06-26T14:23:15.381Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "key": "projects.rvc_voice_cloning",
+        "value": "用户在用CNB免费GPU训练RVC个性化音色模型，用于对AI生成歌曲进行去AI化处理",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-26T14:23:58.956Z",
+        "updatedAt": "2026-06-26T14:23:58.956Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "key": "tools.cnb_gpu",
+        "value": "用户使用cnb.cool平台的免费GPU资源进行AI模型训练",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-26T14:23:59.026Z",
+        "updatedAt": "2026-06-26T14:23:59.026Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
