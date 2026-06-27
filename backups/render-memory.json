@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T06:04:27.467Z",
+  "exportedAt": "2026-06-27T07:24:26.600Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46928,6 +46928,378 @@
           "replyToUserId": "feishu:ou_8326f04fc374d629774c5400550e1475"
         },
         "createdAt": "2026-06-27T05:56:26.419Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "role": "user",
+        "modality": "text",
+        "content": "hi",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3c29620acc3ba1e74fc7af30",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUserId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUnionId": "on_5966abca7c1fb577a854d59c57000e33",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:16:23.640Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n【图片上下文 OCR】\n\n**平台：** 飞书 (Feishu) 移动端截图\n\n**页面标题：** 设置\n\n**群组信息：**\n- 群名称：Vibe coding 1群\n- 群描述：暂无描述\n\n**群成员：6 人**\n- 头像列表：蓝色默认头像、风景头像、橙色头像\"7\"、绿色头像\"01\"、紫色头像\"GQ\"、绿色头像\"艾毛\"\n- 末尾有\"+\"（添加）和\"−\"（移除）按钮\n\n**智能体：**\n- 用户 410351 的智能伙伴（标签：智能体）\n\n**群应用（共 4 个）：**\n1. 群公告\n2. 任务\n3. Pin\n4. 群成员日历\n\n**搜索会话内容：**（含分类筛选）\n- 消息\n- 云文档\n- 文件\n- 图片/视频\n- 链接\n\n**其他设置项：**\n- 添加标签页\n- 群管理\n- 群机器人（被红圈圈出标注）\n- 群昵称\n- 消息免打扰（开关：关闭）\n\n**用户标注重点：**\n\"群机器人\"这一项被用户用红色手绘圈圈特别标出。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3c22a98acb10e75999f20339",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "【图片上下文 OCR】\n\n**平台：** 飞书 (Feishu) 移动端截图\n\n**页面标题：** 设置\n\n**群组信息：**\n- 群名称：Vibe coding 1群\n- 群描述：暂无描述\n\n**群成员：6 人**\n- 头像列表：蓝色默认头像、风景头像、橙色头像\"7\"、绿色头像\"01\"、紫色头像\"GQ\"、绿色头像\"艾毛\"\n- 末尾有\"+\"（添加）和\"−\"（移除）按钮\n\n**智能体：**\n- 用户 410351 的智能伙伴（标签：智能体）\n\n**群应用（共 4 个）：**\n1. 群公告\n2. 任务\n3. Pin\n4. 群成员日历\n\n**搜索会话内容：**（含分类筛选）\n- 消息\n- 云文档\n- 文件\n- 图片/视频\n- 链接\n\n**其他设置项：**\n- 添加标签页\n- 群管理\n- 群机器人（被红圈圈出标注）\n- 群昵称\n- 消息免打扰（开关：关闭）\n\n**用户标注重点：**\n\"群机器人\"这一项被用户用红色手绘圈圈特别标出。",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:16:44.769Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看到啦～你圈的是\"群机器人\"那个入口，对吧？是想给群加个机器人？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T07:16:55.683Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "看看你们的机器人能不能拉进来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3c35b7cb8b27fe01bd46993d",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:17:07.154Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "role": "user",
+        "modality": "text",
+        "content": "这是邓紫棋吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3de1544b0c3d276a07b22e9a",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUserId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUnionId": "on_5966abca7c1fb577a854d59c57000e33",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:17:35.327Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈？邓紫棋？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47"
+        },
+        "createdAt": "2026-06-27T07:17:40.362Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "role": "user",
+        "modality": "text",
+        "content": "厉害了，高仿真，还发语音",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3de360108c2ee5d78a2bb52f",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUserId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUnionId": "on_5ce50dc17f4bd1e160bc159f64da2b67",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:17:49.916Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈，😆",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb"
+        },
+        "createdAt": "2026-06-27T07:17:52.221Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：看看你们的机器人能不能拉进来\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T07:17:53.327Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "role": "user",
+        "modality": "text",
+        "content": "什么鬼啊哈哈哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3dd988cb0c2da9209d1c55d2",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUserId": "ou_5fdca93df2252b592f688a9fd94ecf47",
+          "rawUnionId": "on_5966abca7c1fb577a854d59c57000e33",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:18:15.731Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈哈哈好可爱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3dbc980a0c316ea1cda61584",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUserId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUnionId": "on_5ce50dc17f4bd1e160bc159f64da2b67",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:18:42.400Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "role": "user",
+        "modality": "text",
+        "content": "会不会很费token",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3dba2b0a8c4f29d7f45147f6",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUserId": "ou_17a53aa8a73825652d46c7102750c6cb",
+          "rawUnionId": "on_5ce50dc17f4bd1e160bc159f64da2b67",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:18:47.906Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "这个tts还在内测，拉新送5万积分，我用了四万多了，快花完了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3d92d78b8b044be1a4f40dd7",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:19:28.019Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "tts？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T07:19:30.505Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你们谁来给我再续五万，哈哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3d7d648a0b363ca7e58f9561",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:19:46.756Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "谁来给我续一杯奶茶哈哈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T07:19:49.476Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_1ef4a998eaba75be086979d663cc0000",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书限制不多吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3edfcc0a0b14bba63f8d91bb",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_1ef4a998eaba75be086979d663cc0000",
+          "rawUserId": "ou_1ef4a998eaba75be086979d663cc0000",
+          "rawUnionId": "on_f7c780d6884e93f3f050498893c06d4c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:22:29.153Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "有啥限制，办公必用，独一家",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc3e98fe4b0b219d29f3df6c93",
+          "rawChatId": "oc_de829d57549c603d92989ae0591ad8e9",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T07:23:34.485Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对，钉钉微信办公差点意思，飞书文档确实丝滑",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T07:23:37.903Z"
       }
     ],
     "memories": [
@@ -49090,6 +49462,106 @@
         "metadata": {},
         "createdAt": "2026-06-08T07:07:01.874Z",
         "updatedAt": "2026-06-08T07:07:22.840Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:17:49.847Z",
+        "updatedAt": "2026-06-27T07:18:47.848Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_17a53aa8a73825652d46c7102750c6cb",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:17:49.781Z",
+        "updatedAt": "2026-06-27T07:18:47.790Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_1ef4a998eaba75be086979d663cc0000",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_1ef4a998eaba75be086979d663cc0000",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:22:29.087Z",
+        "updatedAt": "2026-06-27T07:22:29.087Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_1ef4a998eaba75be086979d663cc0000",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:22:29.021Z",
+        "updatedAt": "2026-06-27T07:22:29.021Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:16:23.571Z",
+        "updatedAt": "2026-06-27T07:18:15.670Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_5fdca93df2252b592f688a9fd94ecf47",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:16:23.477Z",
+        "updatedAt": "2026-06-27T07:18:15.609Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "experience.tts_usage",
+        "value": "用户在使用一个TTS服务，该服务在内测中，拉新送5万积分，已使用四万多积分，快花完了",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:19:40.465Z",
+        "updatedAt": "2026-06-27T07:19:40.465Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "preferences.work_tools",
+        "value": "用户认为办公领域飞书是独一家，办公必用，对飞书依赖度高",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:23:53.595Z",
+        "updatedAt": "2026-06-27T07:23:53.595Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:16:44.698Z",
+        "updatedAt": "2026-06-27T07:23:34.424Z"
+      },
+      {
+        "chatId": "feishu:oc_de829d57549c603d92989ae0591ad8e9",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T07:16:44.633Z",
+        "updatedAt": "2026-06-27T07:23:34.364Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
