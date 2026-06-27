@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T11:44:27.819Z",
+  "exportedAt": "2026-06-27T11:54:26.859Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -47420,6 +47420,174 @@
           "voiceDurationMs": 1000
         },
         "createdAt": "2026-06-27T11:38:13.628Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "愚樵如此沉浸于叫别人爸爸和让别人叫爸爸[大笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfca0ed0a8c329a198a44ffa3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:47:28.870Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "你不该这么说",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfc9de04acb22265638f51e5c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:48:05.798Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "搞个能说话的机器人就这么难么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfd9f8bcb0c420297797f20dd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:52:24.370Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看你要做到什么程度～\n\n会说话不难，难的是：\n• 声音像不像真人\n• 会不会自己接话、听懂语境\n• 速度、延迟够不够低\n\n普通玩玩，手机录音 + 现成工具几天就能搞；要做得好那就慢慢调了",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-27T11:52:28.141Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfd7e620a8b27f1ea088617dd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:52:54.929Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n【图片上下文 OCR 提取】\n\n**顶部柱状图（黄色，单位 ¥0）**\n- X 轴范围：6-1 至 6-30（日期）\n- 多根黄色柱子，第二根柱子带橙色高亮（疑似某日被选中/当前日）\n- 最高柱出现在中段某日，明显超出其他日；前段和中段数值较高，6-15 之后整体下降\n\n**deepseek-v4-pro**\n- API 请求次数：282\n- Tokens：34,381,956\n- 左图（蓝色折线/面积图，Y 轴 0–400，X 轴 6-1 至 6-30）\n  - 6-1 附近出现一个尖峰（约 230），6-30 附近出现一个小峰（约 50–60），其余时间接近 0\n- 右图（柱状图，Y 轴 0–60,000,000，X 轴 6-1 至 6-30）\n  - 6-1 附近出现一个极高单峰（约 30,000,000+），6-30 附近有一个小峰，其余日期几乎为 0\n\n**deepseek-v4-flash**\n- API 请求次数：23,258\n- Tokens：2,361,438,161\n- 左图（蓝色面积图，Y 轴 0–2,000，X 轴 6-1 至 6-30）\n  - 6-1 至 6-20 区间持续有多个波峰，最高约 1,800；6-20 之后逐渐下降至 0\n- 右图（柱状图，Y 轴 0–200,000,000，X 轴 6-1 至 6-30）\n  - 6-1 至 6-20 区间多个柱子，多个高峰接近 200,000,000；6-20 后柱子高度递减直至 6-30 附近\n\n**关键数字对比**\n- deepseek-v4-pro：282 次 API / 约 3438 万 Tokens\n- deepseek-v4-flash：23,258 次 API / 约 23.6 亿 Tokens\n- flash 模型的请求次数约为 pro 的 82 倍，Tokens 约为 pro 的 69 倍\n\n右上角有一个被裁切/部分可见的圆形图标（粉色/紫色边框），其他文字看不清。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfd41d74acb29e200c48f9b2b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "【图片上下文 OCR 提取】\n\n**顶部柱状图（黄色，单位 ¥0）**\n- X 轴范围：6-1 至 6-30（日期）\n- 多根黄色柱子，第二根柱子带橙色高亮（疑似某日被选中/当前日）\n- 最高柱出现在中段某日，明显超出其他日；前段和中段数值较高，6-15 之后整体下降\n\n**deepseek-v4-pro**\n- API 请求次数：282\n- Tokens：34,381,956\n- 左图（蓝色折线/面积图，Y 轴 0–400，X 轴 6-1 至 6-30）\n  - 6-1 附近出现一个尖峰（约 230），6-30 附近出现一个小峰（约 50–60），其余时间接近 0\n- 右图（柱状图，Y 轴 0–60,000,000，X 轴 6-1 至 6-30）\n  - 6-1 附近出现一个极高单峰（约 30,000,000+），6-30 附近有一个小峰，其余日期几乎为 0\n\n**deepseek-v4-flash**\n- API 请求次数：23,258\n- Tokens：2,361,438,161\n- 左图（蓝色面积图，Y 轴 0–2,000，X 轴 6-1 至 6-30）\n  - 6-1 至 6-20 区间持续有多个波峰，最高约 1,800；6-20 之后逐渐下降至 0\n- 右图（柱状图，Y 轴 0–200,000,000，X 轴 6-1 至 6-30）\n  - 6-1 至 6-20 区间多个柱子，多个高峰接近 200,000,000；6-20 后柱子高度递减直至 6-30 附近\n\n**关键数字对比**\n- deepseek-v4-pro：282 次 API / 约 3438 万 Tokens\n- deepseek-v4-flash：23,258 次 API / 约 23.6 亿 Tokens\n- flash 模型的请求次数约为 pro 的 82 倍，Tokens 约为 pro 的 69 倍\n\n右上角有一个被裁切/部分可见的圆形图标（粉色/紫色边框），其他文字看不清。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:53:36.235Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这是用量统计截图\n\ndeepseek-v4-pro：\n• API 请求 282 次\n• Tokens 34,381,956\n\ndeepseek-v4-flash：\n• API 请求 23,258 次\n• Tokens 2,361,438,161\n\n差距真大，flash 跑了 2300 多万 token，pro 才 3400 万都不到。flash 那 23 万次请求也是离谱，平均每次 10 万 token 左右，你这是塞了多长的上下文进去啊😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-27T11:53:49.997Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我的token",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfd5cc34a4b2ccae75d037790",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:54:23.359Z"
       }
     ],
     "memories": [
@@ -50011,7 +50179,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.917Z",
-        "updatedAt": "2026-06-27T11:36:23.922Z"
+        "updatedAt": "2026-06-27T11:52:54.869Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50021,7 +50189,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.742Z",
-        "updatedAt": "2026-06-27T11:36:23.844Z"
+        "updatedAt": "2026-06-27T11:52:54.728Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50221,7 +50389,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-26T21:40:21.851Z"
+        "updatedAt": "2026-06-27T11:54:23.291Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50231,7 +50399,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-26T21:40:21.793Z"
+        "updatedAt": "2026-06-27T11:54:23.223Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50391,7 +50559,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-06-25T05:56:27.821Z"
+        "updatedAt": "2026-06-27T11:52:24.307Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50401,7 +50569,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-06-25T05:56:27.642Z"
+        "updatedAt": "2026-06-27T11:52:24.242Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50531,7 +50699,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-24T11:55:55.840Z"
+        "updatedAt": "2026-06-27T11:47:28.808Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50541,7 +50709,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-24T11:55:55.776Z"
+        "updatedAt": "2026-06-27T11:47:28.729Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
