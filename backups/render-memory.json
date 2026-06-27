@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T11:54:26.859Z",
+  "exportedAt": "2026-06-27T12:04:27.268Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -47588,6 +47588,126 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-27T11:54:23.359Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么gg了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfe082f4acc3122fd0d0abbee",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:58:33.514Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "我去调一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccfe06a88a8c33a3510f3e7742",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:58:39.023Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "重启网关没复活？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccffccceca8b3ebd845c761990",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T11:59:33.486Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "gg了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccff72db8a0c2ee90e0901c1e3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T12:01:38.331Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "死了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ccff53fcca0b1b87373422992b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T12:02:12.177Z"
       }
     ],
     "memories": [
@@ -50179,7 +50299,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.917Z",
-        "updatedAt": "2026-06-27T11:52:54.869Z"
+        "updatedAt": "2026-06-27T12:01:38.269Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50189,7 +50309,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.742Z",
-        "updatedAt": "2026-06-27T11:52:54.728Z"
+        "updatedAt": "2026-06-27T12:01:38.207Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50389,7 +50509,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-27T11:54:23.291Z"
+        "updatedAt": "2026-06-27T12:02:12.113Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50399,7 +50519,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-27T11:54:23.223Z"
+        "updatedAt": "2026-06-27T12:02:12.051Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
