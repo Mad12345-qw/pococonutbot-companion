@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T05:24:27.713Z",
+  "exportedAt": "2026-06-27T06:04:27.467Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46856,6 +46856,78 @@
           "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
         },
         "createdAt": "2026-06-27T05:17:48.299Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "user",
+        "modality": "text",
+        "content": "你的语音是怎么做出来的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc21579e8acb2c8947e136a5ed",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUserId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUnionId": "on_ec2943246edeafc636c718012bae5120",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T05:55:13.549Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "assistant",
+        "modality": "text",
+        "content": "<answer>\n\n语音这块挺简单的，三步就能搞定：\n• 录几段自己的声音当素材\n• 用 GPT-SoVITS 或者语音克隆工具训练模型\n• 接到机器人 API 上，文字直接转语音\n\n要不要我详细说说哪一步？\n\n</answer>",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8326f04fc374d629774c5400550e1475"
+        },
+        "createdAt": "2026-06-27T05:55:17.354Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "user",
+        "modality": "text",
+        "content": "说一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc22ece24a4b114156db3997b9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUserId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUnionId": "on_ec2943246edeafc636c718012bae5120",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T05:56:21.247Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好，那就从最实用的流程说起👇\n\n第一步：录音\n找安静房间，用手机或麦克风录 3-10 分钟自己的声音\n• 念一段文字就行，不用太挑内容\n• 吐字清晰、语速正常就 OK\n• 嫌麻烦的话 3 分钟也能跑，效果会差点\n\n第二步：训练\n推荐用 GPT-SoVITS，免费开源，对电脑配置要求不算太高\n• 把音频切分成几秒一段\n• 标一下文字转写\n• 点训练，等几分钟到几十分钟\n\n第三步：接入机器人\n训练好的模型放到服务器上，用 API 调\n• 飞书 / 微信 / Telegram 都能接\n• 用户发文字 → 转语音 → 发出去\n\n---\n\n你现在卡在哪一步？是设备问题还是不会训练？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8326f04fc374d629774c5400550e1475"
+        },
+        "createdAt": "2026-06-27T05:56:26.419Z"
       }
     ],
     "memories": [
@@ -50058,6 +50130,26 @@
         "metadata": {},
         "createdAt": "2026-06-21T02:38:25.347Z",
         "updatedAt": "2026-06-21T02:38:25.347Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T05:55:13.492Z",
+        "updatedAt": "2026-06-27T05:56:21.184Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-27T05:55:13.415Z",
+        "updatedAt": "2026-06-27T05:56:21.122Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
