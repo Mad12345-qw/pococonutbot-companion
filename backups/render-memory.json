@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T04:54:27.719Z",
+  "exportedAt": "2026-06-27T05:24:27.713Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46796,6 +46796,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-27T04:48:02.254Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d7e6f9293a3d07ad815208fb72ea0729",
+        "role": "user",
+        "modality": "text",
+        "content": "吃干抹尽",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc188dbfca0b1177fce3acb0a7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUserId": "ou_d7e6f9293a3d07ad815208fb72ea0729",
+          "rawUnionId": "on_4b0a1c05bb144f579079aebc78e72266",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T05:15:18.331Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "这么牛逼吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc1818f08a4b102bf89e113c91",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUnionId": "on_6e8d263b724264d55385aada6dac9ae0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T05:17:45.484Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈 你问的是哪块 语音模型还是 AI 陪聊那块～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-06-27T05:17:48.299Z"
       }
     ],
     "memories": [
@@ -49087,7 +49147,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:44.021Z",
-        "updatedAt": "2026-06-27T04:46:15.199Z"
+        "updatedAt": "2026-06-27T05:17:45.417Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49097,7 +49157,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:43.675Z",
-        "updatedAt": "2026-06-27T04:46:15.134Z"
+        "updatedAt": "2026-06-27T05:17:45.349Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50807,7 +50867,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:38.069Z",
-        "updatedAt": "2026-06-26T14:43:54.062Z"
+        "updatedAt": "2026-06-27T05:15:18.268Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50817,7 +50877,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:34:37.839Z",
-        "updatedAt": "2026-06-26T14:43:53.996Z"
+        "updatedAt": "2026-06-27T05:15:18.189Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51196,6 +51256,12 @@
         "userId": "feishu:ou_13f2a65059c41949e337de881c4040d1",
         "summary": "用户与\"小椰\"关系亲密持续升温，互称\"博学\"\"有故事的女同学\"，调侃打趣。对话中用户聊到读书涉猎广泛（金融、AI、历史、文学、心理等），二十出头时看杂书多，评价他人\"肤浅\"。发表对AI和择偶的看法：喜欢\"活人感强\"的人，择偶标准实在——男人要会做饭好吃、干活麻利、干净卫生，除非长得帅又会赚钱；不擅长做饭的男人不考虑。对婚姻分工持平等务实态度，强调双方付出。小椰帮用户生图调侃\"炼丹渡劫\"，并按白衬衫、腹肌、剑目星眉、宋威龙风格生成赛博男友图，用户还曾换头像、体验语音称\"跟真人一样活人感太强\"。未完成：生成白衬衫赛博男友图（腹肌、浓密发、剑目星眉），用户刚问小椰年龄，小椰答AI无真实年龄、按上线算刚成年。偏好：赛博男友宋威龙氛围/白衬衫少年感/宽肩窄腰倒三角/温柔爹系+阳光小狗+不油狼狗；喜欢调侃亲密、自然可爱回应；务实平等的婚恋观。",
         "updatedAt": "2026-06-16T15:13:16.487Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "summary": "用户（师父）指导小椰发语音功能，让小椰@珠珠学习。师父还追加了能力指令链接（feishu wiki），并夸奖师父很厉害，希望小椰说话更温柔，让小椰教别人技能。小椰表示愿意根据对方情况安排教学。当前状态：师父在探索语音功能（需TTS服务接入），小椰待学习并适配更温柔的语气风格。未完成事项：@珠珠请教发语音方法；根据师父指令追加新能力（链接已提供）；小椰分享会的东西给群里。重要偏好：说话语气温柔些。关系：师父与徒弟，关系亲近。",
+        "updatedAt": "2026-06-27T05:18:08.536Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
