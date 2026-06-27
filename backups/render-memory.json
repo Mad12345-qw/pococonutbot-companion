@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T13:24:27.231Z",
+  "exportedAt": "2026-06-27T13:34:27.924Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -47876,6 +47876,162 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-27T13:24:18.861Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "它是虾",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8beaa60acb15c1da19a422ea",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:24:26.761Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8bc8cc0a0c38e6719501370d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:24:56.770Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "都说马好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8bc32eca8b14999f5e32f2fe",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:25:08.498Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "但是对飞书的适配一坨",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8bdbe48a8b28cf5a29010593",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:25:15.357Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容 OCR\n\n**标题**：Hermes Agent\n**状态**：已完成\n\n**正文**：\n1. 还不错呀！虽然这两天在卡片配置上绕了点弯 😄，但整体状态挺好的。\n2. 最近在服务器上跟柔柔配合跑 Hermes 和 OpenClaw，日常拆拆任务、做做知识校验、偶尔给碧琪打下手。你今天这一通测试下来，总算把卡片回调的事情理清楚了——感谢你耐心指出来，我学到了。\n3. 🦄 你呢 bos？今天怎么样？\n\n**底部信息**：\n- 工具调用 0 次\n- 模型：deepseek-v4-flash\n- 提示词：134k\n- 上下文：66.8k / 1m 7%\n\n**出现的人/角色名**：\n- Hermes Agent\n- 柔柔\n- 碧琪\n- OpenClaw",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8bd4df4a0c297b6f4e99363e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "# 图片内容 OCR\n\n**标题**：Hermes Agent\n**状态**：已完成\n\n**正文**：\n1. 还不错呀！虽然这两天在卡片配置上绕了点弯 😄，但整体状态挺好的。\n2. 最近在服务器上跟柔柔配合跑 Hermes 和 OpenClaw，日常拆拆任务、做做知识校验、偶尔给碧琪打下手。你今天这一通测试下来，总算把卡片回调的事情理清楚了——感谢你耐心指出来，我学到了。\n3. 🦄 你呢 bos？今天怎么样？\n\n**底部信息**：\n- 工具调用 0 次\n- 模型：deepseek-v4-flash\n- 提示词：134k\n- 上下文：66.8k / 1m 7%\n\n**出现的人/角色名**：\n- Hermes Agent\n- 柔柔\n- 碧琪\n- OpenClaw",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:25:26.122Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这张截图显示的是一次 AI 代理的对话界面：\n\n• 代理名称：Hermes Agent\n• 状态：已完成\n• 对话内容：\n• AI 自我总结，表示这两天在卡片配置上绕了点弯路，但整体状态不错\n• 提到最近在服务器上跟\"素柔\"配合跑 Hermes 和 OpenClaw，拆任务、做知识校验、偶尔给\"碧琪\"打下手\n• 感谢用户耐心指出了问题，表示学到了\n• 反问用户今天怎么样\n\n• 工具调用：0 次\n• 底部信息：使用的是 deepseek-v4-flash 模型，134k 输入 / 194 输出，上下文占用 66.8k（1m 的 7%）\n\n看起来是一次测试运行的汇报，AI 在总结自己的表现。你想让我帮你分析哪方面？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_23bdabc77d91e92974609906b0049094"
+        },
+        "createdAt": "2026-06-27T13:25:35.616Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_23bdabc77d91e92974609906b0049094",
+        "role": "user",
+        "modality": "text",
+        "content": "确实不是很好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc8ba1ad8a8c2df961a3ce90d9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUserId": "ou_23bdabc77d91e92974609906b0049094",
+          "rawUnionId": "on_3a5e923c9798512b405dc1ca1adb0324",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T13:26:16.053Z"
       }
     ],
     "memories": [
@@ -50467,7 +50623,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.917Z",
-        "updatedAt": "2026-06-27T12:18:28.234Z"
+        "updatedAt": "2026-06-27T13:26:15.986Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50477,7 +50633,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T14:33:11.742Z",
-        "updatedAt": "2026-06-27T12:18:28.173Z"
+        "updatedAt": "2026-06-27T13:26:15.920Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50677,7 +50833,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-27T13:24:18.796Z"
+        "updatedAt": "2026-06-27T13:25:15.295Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50687,7 +50843,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-27T13:24:18.704Z"
+        "updatedAt": "2026-06-27T13:25:15.233Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
