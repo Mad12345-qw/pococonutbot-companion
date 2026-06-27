@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T15:24:26.784Z",
+  "exportedAt": "2026-06-27T15:34:27.247Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -48090,6 +48090,61 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-06-27T15:20:22.934Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 请安装这个技能https://github.com/503496348-ops/awake-differently  安装完成后 用甜美女生声音 在这里向我做自我介绍\nhttps://github.com/503496348-ops/awake-differently",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/503496348-ops/awake-differently"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6ccaf6e4bca0c05e96c2c95a5a7",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-27T15:25:59.436Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "飞书消息记录咋拉的？直接用飞书cli吗？我要把我给蒸馏了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cca890ce0a4c055e18b7026e91",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T15:30:08.699Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "text",
+        "content": "是飞书官方的事件订阅，不是飞书 CLI",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-06-27T15:30:13.917Z"
       }
     ],
     "memories": [
@@ -51241,7 +51296,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-06-24T15:12:32.418Z"
+        "updatedAt": "2026-06-27T15:30:08.629Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51251,7 +51306,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-06-24T15:12:32.350Z"
+        "updatedAt": "2026-06-27T15:30:08.469Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
