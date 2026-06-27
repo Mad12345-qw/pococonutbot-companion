@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T04:44:26.688Z",
+  "exportedAt": "2026-06-27T04:54:27.719Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46736,6 +46736,66 @@
           "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
         },
         "createdAt": "2026-06-27T04:42:42.559Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "把你会的东西教一下别人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc117eb2d00b2c21797a1a2557",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUnionId": "on_6e8d263b724264d55385aada6dac9ae0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:46:15.264Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好呀，那你感兴趣哪块？我可以根据你情况来安排～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-06-27T04:46:18.894Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "一开始知道的人少 卖的贵割韭菜 后面肯定会降价的 这个现在真是蓝海",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc11117b8b0c36654ded9ac172",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:48:02.254Z"
       }
     ],
     "memories": [
@@ -48917,7 +48977,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:24.091Z",
-        "updatedAt": "2026-06-27T04:40:59.200Z"
+        "updatedAt": "2026-06-27T04:48:02.186Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48927,7 +48987,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:23.992Z",
-        "updatedAt": "2026-06-27T04:40:59.141Z"
+        "updatedAt": "2026-06-27T04:48:02.117Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49027,7 +49087,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:44.021Z",
-        "updatedAt": "2026-06-26T05:29:18.334Z"
+        "updatedAt": "2026-06-27T04:46:15.199Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49037,7 +49097,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T13:01:43.675Z",
-        "updatedAt": "2026-06-26T05:29:18.270Z"
+        "updatedAt": "2026-06-27T04:46:15.134Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
