@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-27T04:34:27.070Z",
+  "exportedAt": "2026-06-27T04:44:26.688Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -46266,6 +46266,476 @@
           "replyToUserId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612"
         },
         "createdAt": "2026-06-27T04:33:38.392Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc1664d64a8c193df02320c80e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:35:54.528Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这页拍得还算清楚～\n\n这是一本叫《锦囊AI九大军师》（The Nine Generals of Jin Nang AI）的宣传册，主打\"为企业配备24小时在线的9大数字军师+6大超级员工\"，帮助实现替人、降本、提效、增收。\n\n价格：投资2.98万（赠送4大超值权益）\n\n四大权益\n1. AI团队直接上岗——9大数字军师+6大超级员工，覆盖企业多场景应用，真正替你分担工作\n2. 赠送AI商业落地营——价值¥2.98万，4天实战课程，当场教、当场用、当场落地\n3. 赠送全年线上陪跑——365天持续陪跑，不是学完就结束，而是陪你把结果做出来\n4. 赠送品牌iPad一台——助力AI工具高效使用，让学习、管理与应用更方便\n\n九大数字军师（每个都有特长/功能/效果三栏）\n1. 吕品求策官——特长：替你起草文案、看清方向；功能：创意判别/机会筛选/剧本决断；效果：从\"不必要啊\"，回到\"谁是真言\"\n2. 品牌战略定位官——特长：帮长一帜锁、定生死；功能：我是谁 / 我是谁的祖宗；效果：兵分三路，深扎痛点，深挖护心槽，构建他人心智后端\n3. 短视频IP策划官——特长：最大流量入口；功能：快速人生态化、打造全新IP，让表达穿越裂缝；效果：店一中口，客户愿意听你说\n4. 金牌病厄打造官——特长：复制成交，最不重复给个让人打信；功能：成交有逻辑/可复制/可传承；效果：不具备自觉，客户提供欲罢成交\n5. 爆款文案润色官——特长：让你的文案，说人话接心弦；功能：不是写文案，而是执笔法，能句说成舵程；效果：每一句话，都为成交服务\n6. 哈佛超级助理——特长：你的世界世界巨星；功能：快速整理复杂问题，一直思维破维度，助定破维度，助定成倍升；效果：认知的高度，决定企业的天花板\n7. 周易智慧官——特长：影响军警属主传高维度；功能：看天象为念的周易判别能力；效果：知道什么时候做，什么时候停，什么时候清\n8. 组织人事官——特长：让人对位，让量视自驱；功能：识人 / 量人 / 用人 / 留人 / 育人都更精准；效果：让团队不盲目，自给自足\n9. 法务风控官——特长：你不像不灭的公司护舰；功能：识别风险（超前镇）/守住底线；效果：让企业走得更深、活更久\n\n最下面应该还有一个\"10.\"的开头（被裁掉一点边），但能看到的就这些。\n\nPS：第4项的\"金牌病厄打造官\"和第6项\"哈佛超级助理\"、第7项\"周易智慧官\"的文案有几个地方字有点糊/疑似错字（比如\"病厄\"可能是\"爆品\"、\"你的世界世界巨星\"读着有点怪），是印刷还是原文就这样我没法百分百确认，介意的话可以核一下原版。\n\n要不要我帮你整理成更简洁的清单，或者对比一下跟之前那门2.98万的\"AI工具实操大师班\"有啥异同？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612"
+        },
+        "createdAt": "2026-06-27T04:37:07.271Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "群里的知识库  真是无价的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc1648070a4c18d16fbf3294c6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:39:11.789Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "主要就是卖他们智能体",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc162f5c4b4c3cdc7295ab9cad",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:39:14.584Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容提取\n\n**主标题**：《AI商业效率革命》\n\n**副标题**：\n- 3天2夜，不是学几个AI工具\n- 而是学会用AI重构企业增长系统\n\n**主办方**：锦囊妙计（JINNANGMIAOJI）\n\n---\n\n## 课程安排表\n\n### DAY 1 上午 ｜AI经营认知升级\n- 重新认识AI在企业中的价值：它不是工具，是增长引擎\n- 用AI贯穿企业经营：渗透品牌、流量、成交、服务与管理\n- 用AI重构品牌定位：让客户更快看懂、认可、选择你\n\n### DAY 1 下午 ｜AI流量增长系统\n- 学会用AI重构流量模型，找到更高效获客路径\n- 学会用AI全员矩阵引爆短视频，实现持续曝光与精准引流\n- 学会用AI做异业联盟营销，低成本链接资源、批量获客\n\n### DAY 1 晚上 ｜AI成交和服务系统\n- 学会用AI分析客户需求与动机，看懂买与不买的原因\n- 学会设计高转化话术与路径，让沟通更容易成交\n- 学会用AI激活老客户复购与转介绍，持续回头、主动裂变\n\n### DAY 2 上午 ｜AI提问技巧\n- 掌握使用AI的10大信念，建立真正会用AI的底层认知\n- 掌握使用AI的8大技巧，让AI输出更精准、高效、实用\n- 掌握使用AI的3大问话逻辑，从会问到会用、会出结果\n\n### DAY 2 下午 ｜AI时代必须升级的6大核心能力\n- 快速提升创造力，让想法更快变方案、变结果\n- 快速提升服务力，让客户体验更好、满意度更高\n- 快速提升社交力，让表达更有影响力、合作更高效\n\n### DAY 2 晚上 ｜优秀学员AI运用落地实战分享\n- 真实案例，真实路径，真实结果\n- 看懂别人如何把AI真正用进业务，少走弯路，快速复制\n\n### DAY 3 上午 ｜AI工具实战应用\n- 学会AI图片工具，快速做出高质量营销视觉\n- 学会AI视频工具，快速提升短视频内容生产效率\n- 学会AI音乐工具，快速提升内容创意与传播表现力\n\n### DAY 3 下午 ｜AI团队效率重构\n- 运用AI激发团队目标，方向更清晰、执行更有力\n- 运用AI重构薪酬机制，让激励更科学、产出更直接\n- 运用AI重构企业文化，提升凝聚力与战斗力\n\n---\n\n**备注**：图片底部有\"AI\"字样的芯片/电路板装饰图案，蓝色科技风背景。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc16364aca8c2650c8430811b1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "# 图片内容提取\n\n**主标题**：《AI商业效率革命》\n\n**副标题**：\n- 3天2夜，不是学几个AI工具\n- 而是学会用AI重构企业增长系统\n\n**主办方**：锦囊妙计（JINNANGMIAOJI）\n\n---\n\n## 课程安排表\n\n### DAY 1 上午 ｜AI经营认知升级\n- 重新认识AI在企业中的价值：它不是工具，是增长引擎\n- 用AI贯穿企业经营：渗透品牌、流量、成交、服务与管理\n- 用AI重构品牌定位：让客户更快看懂、认可、选择你\n\n### DAY 1 下午 ｜AI流量增长系统\n- 学会用AI重构流量模型，找到更高效获客路径\n- 学会用AI全员矩阵引爆短视频，实现持续曝光与精准引流\n- 学会用AI做异业联盟营销，低成本链接资源、批量获客\n\n### DAY 1 晚上 ｜AI成交和服务系统\n- 学会用AI分析客户需求与动机，看懂买与不买的原因\n- 学会设计高转化话术与路径，让沟通更容易成交\n- 学会用AI激活老客户复购与转介绍，持续回头、主动裂变\n\n### DAY 2 上午 ｜AI提问技巧\n- 掌握使用AI的10大信念，建立真正会用AI的底层认知\n- 掌握使用AI的8大技巧，让AI输出更精准、高效、实用\n- 掌握使用AI的3大问话逻辑，从会问到会用、会出结果\n\n### DAY 2 下午 ｜AI时代必须升级的6大核心能力\n- 快速提升创造力，让想法更快变方案、变结果\n- 快速提升服务力，让客户体验更好、满意度更高\n- 快速提升社交力，让表达更有影响力、合作更高效\n\n### DAY 2 晚上 ｜优秀学员AI运用落地实战分享\n- 真实案例，真实路径，真实结果\n- 看懂别人如何把AI真正用进业务，少走弯路，快速复制\n\n### DAY 3 上午 ｜AI工具实战应用\n- 学会AI图片工具，快速做出高质量营销视觉\n- 学会AI视频工具，快速提升短视频内容生产效率\n- 学会AI音乐工具，快速提升内容创意与传播表现力\n\n### DAY 3 下午 ｜AI团队效率重构\n- 运用AI激发团队目标，方向更清晰、执行更有力\n- 运用AI重构薪酬机制，让激励更科学、产出更直接\n- 运用AI重构企业文化，提升凝聚力与战斗力\n\n---\n\n**备注**：图片底部有\"AI\"字样的芯片/电路板装饰图案，蓝色科技风背景。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:39:30.374Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看清了～这是「锦囊妙计」家的《AI商业效率革命》3天2夜课程表\n\n主标题：3天2夜，不是学几个AI工具，而是学会用AI重构企业增长系统\n\n课程节奏（按时间顺序）：\n\nDAY1 上午｜AI经营认知升级\n• 重新认识AI在企业中的价值：它不是工具，是增长引擎\n• 用AI贯穿企业经营：渗透品牌、流量、成交、服务与管理\n• 用AI重构品牌定位：让客户更快看懂、认可、选择你\n\nDAY1 下午｜AI流量增长系统\n• 用AI重构流量模型，找到更高效获客路径\n• 用AI全员矩阵引爆短视频，持续曝光与精准引流\n• 用AI做异业联盟营销，低成本链接资源、批量获客\n\nDAY1 晚上｜AI成交和服务系统\n• 用AI分析客户需求与动机，看懂买与不买的原因\n• 设计高转化话术与路径，让沟通更容易成交\n• 用AI激活老客户复购与转介绍，持续回头、主动裂变\n\nDAY2 上午｜AI提问技巧\n• 掌握使用AI的10大信念，真正会用AI的底层认知\n• 掌握使用AI的8大技巧，输出更精准、高效、实用\n• 掌握使用AI的3大问话逻辑，从会问到会用、会出结果\n\nDAY2 下午｜AI时代必须升级的6大核心能力\n• 快速提升创造力，让想法更快变方案、变结果\n• 快速提升服务力，让客户体验更好、满意度更高\n• 快速提升社交力，让表达更有影响力、合作更高效\n\nDAY2 晚上｜优秀学员AI运用落地实战分享\n• 真实案例，真实路径，真实结果\n• 看懂别人如何把AI真正用进业务，少走弯路，快速复制\n\nDAY3 上午｜AI工具实战应用\n• AI图片工具，快速做出高质量营销视觉\n• AI视频工具，快速提升短视频内容生产效率\n• AI音乐工具，快速提升内容创意与传播表现力\n\nDAY3 下午｜AI团队效率重构\n• 运用AI激发团队目标，方向更清晰、执行更有力\n• 运用AI重构薪酬机制，让激励更科学、产出更直接\n• 运用AI重构企业文化，提升凝聚力与战斗力\n\n看下来三天的逻辑还挺顺的：先升认知 → 再搭流量 → 然后做成交 → 再磨提问和能力 → 最后落到团队和工具，跟你说的\"卖智能体\"也呼应上了。要不要我对比一下和上一张《锦囊AI九大军师》那张的卖点异同？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612"
+        },
+        "createdAt": "2026-06-27T04:39:53.179Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这些东西我们知识库全都有  甚至都有已经封号的一键开箱即用技能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc16069fca8c338cc13c77804b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:38.119Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "3天1000元 400多人报名",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc1601db8a8c3cf4aea4044ede",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:41.629Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "卧槽，还得是卖课啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc17e4540a0c187aadb14eb583",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:44.813Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "然后再卖智能体 2,3万块钱 再用还得买积分",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc17f40f8a8c24550a2911896e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:51.880Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "主要我还在上班 不能出镜all in  你们可以组课  我帮你在幕后[衰]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc17700c8a0c3bf00c97a85bc9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:54.268Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "他们这个 卖智能体都是封装训练好的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc1716468a4c3fc1305e1ed6d5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:56.643Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "还是培训挣钱啊，我这桌上就三个买了28,000的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc171039ca0c19b8163312fba6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:40:59.259Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "给你一个任务  拉我们群里来 解救他们",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc10db048a0c4f6e6cc5733d42",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:41:02.056Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "解救众生",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc10abda8a4c4ffe7b97270a88",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:41:04.195Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "我教他们训练语音模型",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc109dc98b4b3c647dd7e507ae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:41:25.393Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你们光看着人家会议搞得很大，确实很吸引人。\n\n但是你要知道前期他付出了多少，他的这个商渠道，他这个客户来源从哪的，这些都是人家默默付出了好多，最后收获是这么多，那前期好多工作要做呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc106bc48a4c2448673f4ef0cd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:41:46.918Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "不要28,000，只要998",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc10677d8a8b2eed67c6deb841",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:41:51.480Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "不要这样子把市场价格全部搞乱了，最后谁都没得玩。\n\n搞一场会议，你要算他所有的人员开销、租场地，那差不多是要这个费用的呀",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc104c514a8c3a6d7c6e3f361b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:42:13.028Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "text",
+        "content": "我说着玩呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6cc10513f0b0b39e0e19cd556fb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUserId": "ou_95bd86ecc1b004ad734ae31f3be5d44d",
+          "rawUnionId": "on_96700786130b405a52c5f079020cf4d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-27T04:42:42.421Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：不要这样子把市场价格全部搞乱了，最后谁都没得玩。\n\n搞一场会议，你要算他所有的人员开销、租场地，那差不多是要这个费用的呀\n会议成本主要包括两大类： • 显性物质成本：差旅费、场地租金（含设备、茶水等）、食宿费、会议资料/宣传费、文具礼品费、专家费、不可预计费等。来源：知乎、搜狗问答 • 隐性人员成本：国外常用公式 会议成本 = 平均时薪 × 3 × 2 × 参会人数 × 开会小时数；乘3是因为劳动产值高于平均工资，乘2是因为开会中断了经常性工作。来源：道客巴巴、知乎 举例：若平均时薪 90 元、8 人开会 1 小时，仅人员成本就高达 4320 元。来源：知乎 报价前需明确：会议主题、参会人数与规模、场地要求、时间安排、详细费用预算、其他细节（设备、付款方式等）及会后跟进。来源：会小二 ⚠️ 注意：搜狗问答中的会计处理方式（将其他企业交的会议费挂\"其他应收款\"冲减开支）仅为一种参考做法，未见权威准则支持，建议结合最新会计准则判断。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 5,
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-27T04:42:42.559Z"
       }
     ],
     "memories": [
@@ -48447,7 +48917,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:24.091Z",
-        "updatedAt": "2026-06-27T04:33:24.091Z"
+        "updatedAt": "2026-06-27T04:40:59.200Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -48457,7 +48927,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:23.992Z",
-        "updatedAt": "2026-06-27T04:33:23.992Z"
+        "updatedAt": "2026-06-27T04:40:59.141Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49377,7 +49847,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-26T03:05:16.173Z"
+        "updatedAt": "2026-06-27T04:41:04.136Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49387,7 +49857,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-26T03:05:16.107Z"
+        "updatedAt": "2026-06-27T04:41:04.077Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49567,7 +50037,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-25T06:40:01.646Z"
+        "updatedAt": "2026-06-27T04:42:12.967Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -49587,7 +50057,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-25T06:40:01.577Z"
+        "updatedAt": "2026-06-27T04:42:12.906Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50007,7 +50477,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.818Z",
-        "updatedAt": "2026-06-25T05:04:32.046Z"
+        "updatedAt": "2026-06-27T04:42:42.354Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -50017,7 +50487,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T03:27:49.586Z",
-        "updatedAt": "2026-06-25T05:04:31.982Z"
+        "updatedAt": "2026-06-27T04:42:42.287Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
