@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-28T07:24:28.123Z",
+  "exportedAt": "2026-06-28T07:54:27.716Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -48277,6 +48277,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-28T07:18:39.406Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "role": "user",
+        "modality": "text",
+        "content": "现在做短剧用那个api更好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b395fac4ca0b3e9baff6a71074",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbe4f05f5418e17702969634c14eaba7",
+          "rawUserId": "ou_bbe4f05f5418e17702969634c14eaba7",
+          "rawUnionId": "on_505bb7f6e7642fffe2c577e4c9baab0e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-28T07:45:31.395Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "role": "assistant",
+        "modality": "text",
+        "content": "短剧现在比较主流的是用即梦和可灵的生成接口，sora2 也行但贵",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7"
+        },
+        "createdAt": "2026-06-28T07:45:43.095Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "role": "user",
+        "modality": "text",
+        "content": "多贵",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b395b09c8a0b2c4f107d194a36",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbe4f05f5418e17702969634c14eaba7",
+          "rawUserId": "ou_bbe4f05f5418e17702969634c14eaba7",
+          "rawUnionId": "on_505bb7f6e7642fffe2c577e4c9baab0e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-28T07:46:41.202Z"
       }
     ],
     "memories": [
@@ -52369,6 +52429,36 @@
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.374Z",
         "updatedAt": "2026-06-26T08:13:11.695Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "key": "interests.short_video_production",
+        "value": "用户在做短剧，关注AI生成视频API选型（提到即梦、可灵、sora2等）",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-28T07:46:01.559Z",
+        "updatedAt": "2026-06-28T07:46:01.559Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-28T07:45:31.336Z",
+        "updatedAt": "2026-06-28T07:46:41.138Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-28T07:45:31.260Z",
+        "updatedAt": "2026-06-28T07:46:41.073Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
