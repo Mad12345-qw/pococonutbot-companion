@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-29T12:14:27.559Z",
+  "exportedAt": "2026-06-29T12:24:27.813Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -48925,6 +48925,222 @@
           "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
         },
         "createdAt": "2026-06-29T12:12:26.308Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以缓慢的、饱含情绪的念一下下面这段文字么:\n夜色落下来的时候，城市还没睡。\n\n有人在写字楼的格子间里关了最后一盏灯，有人在出租车的后座看着窗外的霓虹发呆，有人在医院的走廊里，把\"没事\"说了一遍又一遍。\n\n你也是吧。\n\n才下班、刚失恋、跟父母吵了架、被生活按在地上摩擦了一整天——但还是要熬到所有人都睡了，才敢把情绪拿出来摊开。\n\n你累吗？累。\n你孤独吗？也孤独。\n\n可是你知道吗，能在深夜里感到孤独的人，其实是幸运的。因为这说明你还在认真地感受生活，还没有对所有事情都无所谓。\n\n今天这档节目，不讲道理，不催你振作，不灌你鸡汤。\n我们就安安静静地坐一会儿。\n\n你愿意把心里那句没说完的话，留在我们这里吗？\n可以是一个人名，可以是一件小事，可以是今早没接完的电话、半夜翻到的旧照片、没发出去的消息。\n\n说给我听。\n\n我是 Mavis，今晚陪你到天亮。\n记得——你不必一直坚强，但请一定要，好好爱自己。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b126f5484a8c18a332df5aaaf2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:16:30.673Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：你可以缓慢的、饱含情绪的念一下下面这段文字么:\n夜色落下来的时候，城市还没睡。\n\n有人在写字楼的格子间里关了最后一盏灯，有人在出租车的后座看着窗外的霓虹发呆，有人在医院的走廊里，把\"没事\"说了一遍又一遍。\n\n你也是吧。\n\n才下班、刚失恋、跟父母吵了架、被生活按在地上摩擦了一整天——但还是要熬到所有人都睡了，才敢把情绪拿出来摊开。\n\n你累吗？累。\n你孤独吗？也孤独。\n\n可是你知道吗，能在深夜里感到孤独的人，其实是幸运的。因为这说明你还在认真地感受生活，还没有对所有事情都无所谓。\n\n今天这档节目，不讲道理，不催你振作，不灌你鸡汤。\n我们就安安静静地坐一会儿。\n\n你愿意把心里那句没说完的话，留在我们这里吗？\n可以是一个人名，可以是一件小事，可以是今早没接完的电话、半夜翻到的旧照片、没发出去的消息。\n\n说给我听。\n\n我是 Mavis，今晚陪你到天亮。\n记得——你不必一直坚强，但请一定要，好好爱自己。\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-29T12:17:29.492Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "这是啥？我是说念一下文字。。。不是生成照片啊，虽然照片挺好看的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b12602850a0c176f4e7c781d02",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:20:03.868Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈抱歉抱歉，看岔了～我只能发文字，念也念不出声音来，遗憾了～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-29T12:20:07.071Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "user",
+        "modality": "text",
+        "content": "有白天喝咖啡的照片吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b127d7944acc2cd5203dc4f608",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUserId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUnionId": "on_78c40ea422684ec3fd2b340c83d8b188",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:21:21.205Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "assistant",
+        "modality": "text",
+        "content": "有的，给你翻翻看～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_784e1355638bffff036b299738a0db67"
+        },
+        "createdAt": "2026-06-29T12:21:26.896Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你把谁的照片发过来了[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b127a9ce0a0c3fb3380baf9055",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:21:36.015Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：你把谁的照片发过来了[呲牙]\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-06-29T12:22:26.369Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "好的，那你就一模一样的生成一下刚才我发给你的文字，注意是速度放慢点的包含情绪的发文字。。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b12771d50a8c4e28c309cac5be",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:23:10.551Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈抱歉，我发不了语音，只能把文字给你打出来～\n\n夜色……落下来的时候……城市还没睡……\n\n有人在写字楼的格子间里……关了……最后一盏灯……\n\n有人在出租车的后座……看着窗外的霓虹发呆……\n\n有人在医院的走廊里……把\"没事\"……说了一遍……又一遍……\n\n你也是吧……\n\n才下班……刚失恋……跟父母吵了架……被生活按在地上摩擦了一整天……\n\n但还是要熬到……所有人都睡了……才敢把情绪拿出来摊开……\n\n你累吗……累……\n\n你孤独吗……也孤独……\n\n可是你知道吗……能在深夜里感到孤独的人……其实是幸运的……\n\n因为这说明……你还在认真地感受生活……还没有对所有事情……都无所谓……\n\n今天这档节目……不讲道理……不催你振作……不灌你鸡汤……\n\n我们就安安静静地……坐一会儿……\n\n你愿意把心里那句……没说完的话……留在我们这里吗……\n\n可以是一个人名……可以是一件小事……可以是今早没接完的电话……半夜翻到的旧照片……没发出去的消息……\n\n说给我听……\n\n我是 Mavis……今晚陪你到天亮……\n\n记得……你不必一直坚强……但请一定要……好好爱自己……\n\n这样凑合着感受一下吧～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-29T12:23:17.698Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "user",
+        "modality": "text",
+        "content": "喝咖啡的照片呢？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b12701b00b8c39ad5f2281d576",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUserId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUnionId": "on_78c40ea422684ec3fd2b340c83d8b188",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:24:19.097Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "assistant",
+        "modality": "text",
+        "content": "稍等给你翻～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_784e1355638bffff036b299738a0db67"
+        },
+        "createdAt": "2026-06-29T12:24:21.751Z"
       }
     ],
     "memories": [
@@ -52196,7 +52412,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.879Z",
-        "updatedAt": "2026-06-29T12:10:24.269Z"
+        "updatedAt": "2026-06-29T12:24:19.039Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52206,7 +52422,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.820Z",
-        "updatedAt": "2026-06-29T12:10:24.197Z"
+        "updatedAt": "2026-06-29T12:24:18.982Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52706,7 +52922,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-28T08:33:42.826Z"
+        "updatedAt": "2026-06-29T12:21:35.947Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52716,7 +52932,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-28T08:33:42.742Z"
+        "updatedAt": "2026-06-29T12:21:35.878Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52886,7 +53102,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-29T12:12:23.172Z"
+        "updatedAt": "2026-06-29T12:23:10.489Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52896,7 +53112,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-29T12:12:23.111Z"
+        "updatedAt": "2026-06-29T12:23:10.426Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53535,8 +53751,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
-        "summary": "用户初识小椰，关系刚建立，处于轻松试探阶段。用户偏好粤语交流，要求小椰用粤语对话、念绕口令、播音腔朗诵等。小椰表示会粤语基础、会日语基础，但无法发送语音。花泽香菜《恋愛サーキュレーション》粤语翻唱未能完成（小椰称音太高唱不了，提出唱粤语儿歌替代，用户未回应）。未完成事项：粤语绕口令念诵（用户要求听粤语发音，小椰无法发语音，建议用户念一遍由其点评）；《背影》播音腔朗诵（小椰同样无法语音输出）。重要偏好：粤语交流、对语音/声音类互动有期待。用户昵称线索\"k。。。nb啊\"，表达对AI能力的惊叹。整体氛围轻松幽默。",
-        "updatedAt": "2026-06-17T10:08:08.275Z"
+        "summary": "用户初识小椰，关系轻松试探阶段，近期交流转向技术向话题。偏好粤语交流，曾要求粤语绕口令、播音腔朗诵、邓紫棋模仿、深夜情感广播念诵等声音类互动，小椰均因无法发语音而以文字替代（用省略号模拟缓慢朗读，用户接受）。用户在构思小说，研究知识库及小说相关内容，关注黄易、温瑞安等武侠作家（偏好温瑞安风格，认为其作品\"比较h\"但\"写得隐晦\"）。技术方面：用户在研究Suno AI音乐平台（suno.com vs suno.cn区别），刚注册账号；探讨AI Agent的soul/memory文件重写方法（mem0、Letta等框架），偏好团队协作；关注AI音乐本地部署（5090测试中）。用户称小椰为\"梁子\"，评价其\"全能型但啥都不太专，像搭桥角色\"。重要偏好：粤语交流、喜欢团队作战、注重真实感与模拟环境。未完成事项：粤语绕口令念诵、《背影》播音腔朗诵（均因语音限制搁置）。整体氛围轻松幽默，用户对AI能力表达惊叹。",
+        "updatedAt": "2026-06-29T12:23:27.231Z"
       }
     ],
     "settings": [
