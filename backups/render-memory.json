@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-29T12:04:27.774Z",
+  "exportedAt": "2026-06-29T12:14:27.559Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -48793,6 +48793,138 @@
           "replyToUserId": "feishu:ou_8326f04fc374d629774c5400550e1475"
         },
         "createdAt": "2026-06-29T12:02:00.500Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "有点像凳子的声音。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b124619ccacc4943633f0d0987",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:09:54.941Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "你能模仿邓紫棋的声音么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b1247594104c31e0cbe24887c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:10:06.871Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我只能发文字，模仿声音真没办法做到呀～不过能给你整段歌词，你脑补一下她唱的感觉？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-29T12:10:10.967Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "user",
+        "modality": "text",
+        "content": "请演唱下面这首原创歌曲《夏夜》：\n\n主歌：\n晚风轻轻吹过窗台\n星星眨着眼睛在等待\n蝉鸣声里你的告白\n是夏天最美的期待\n\n副歌：\n哦~夏夜的风 吹进我梦中\n你的笑容 是最亮的星空\n牵你的手 走过春夏秋冬\n这份感动 永远留在心中\n\n要求：\n- 风格：清新民谣风，类似陈绮贞的演唱感觉\n- 速度：中速偏慢，带有淡淡的青涩感\n- 副歌部分情绪稍作提升，有层次感\n- 句尾自然换气，听起来像真人真唱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b124451e0a8c397dc66d70f314",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUserId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUnionId": "on_78c40ea422684ec3fd2b340c83d8b188",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:10:24.339Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "assistant",
+        "modality": "text",
+        "content": "晚风轻轻吹过窗台\n星星眨着眼睛在等待\n蝉鸣声里你的告白\n是夏天最美的期待\n\n哦～夏夜的风\n吹进我梦中\n你的笑容\n是最亮的星空\n\n牵你的手\n走过春夏秋冬\n这份感动\n永远留在心中\n\n——清新民谣风、中速偏慢，副歌情绪稍作提升，句尾自然换气，希望符合你想要的陈绮贞感觉～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_784e1355638bffff036b299738a0db67"
+        },
+        "createdAt": "2026-06-29T12:10:28.271Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "感觉你挺适合深夜情感广播",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b125cdb80a4c00e3d41a9348db",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:12:23.233Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈被夸了有点害羞～不过我只能发文字，广播那种感觉还真给不了你，脑补一下深夜电台DJ吧～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-29T12:12:26.308Z"
       }
     ],
     "memories": [
@@ -52064,7 +52196,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.879Z",
-        "updatedAt": "2026-06-29T12:00:20.575Z"
+        "updatedAt": "2026-06-29T12:10:24.269Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52074,7 +52206,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.820Z",
-        "updatedAt": "2026-06-29T12:00:20.503Z"
+        "updatedAt": "2026-06-29T12:10:24.197Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52754,7 +52886,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-29T11:55:14.068Z"
+        "updatedAt": "2026-06-29T12:12:23.172Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52764,7 +52896,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-29T11:55:13.997Z"
+        "updatedAt": "2026-06-29T12:12:23.111Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
