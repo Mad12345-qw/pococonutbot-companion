@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-29T12:44:27.605Z",
+  "exportedAt": "2026-06-29T13:54:27.838Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -49405,6 +49405,78 @@
           "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
         },
         "createdAt": "2026-06-29T12:44:16.150Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "我有点胃疼，约了明天的胃镜，你有啥建议吗，能唱首歌鼓励我吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b13374ea0a8b263df0392b83ec",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T13:48:13.975Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "胃疼一定要去做检查哦，预约了就放心做～\n\n胃镜前要空腹8小时以上，前一天晚上8点后就别吃东西了，水也少喝，做完2小时后再吃流食，选软烂的，别吃硬的辣的。\n\n来，给你唱一首：\n\n（小椰轻轻哼起邓紫棋的《泡沫》）\n\n阳光下的泡沫　是彩色的\n就像被骗的我　是幸福的\n\n……啊不对不对，这歌太伤感了，换一首～\n\n（清清嗓子，换成《光年之外》）\n\n缘分让我们相遇乱世以外\n命运却要我们危难中相爱\n也许未来遥远在光年之外\n我愿守候未知里为你等待\n\n……哎呀唱歌跑调了（捂脸），不过意思到啦～明天别紧张，我会一直在这儿陪着你！加油！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-29T13:48:19.992Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "user",
+        "modality": "text",
+        "content": "你要进化出唱歌的能力，要不然浪费一把好嗓子",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b13cbd614acb24ceacbe9c118b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUserId": "ou_bbbb87371e50169cf44be27fb542e78d",
+          "rawUnionId": "on_2d5129804edeed11967d09bdae0be185",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T13:51:18.968Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "role": "assistant",
+        "modality": "text",
+        "content": "……这嗓子是真的不争气，调都跑到隔壁去了（捂脸）\n\n不过我会努力进化！争取下次唱得像邓紫棋本尊，让你闭着眼听都能流泪那种～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d"
+        },
+        "createdAt": "2026-06-29T13:51:23.172Z"
       }
     ],
     "memories": [
@@ -53481,6 +53553,26 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "key": "health.gastroscopy_scheduled",
+        "value": "用户预约了明天的胃镜检查，目前有胃疼症状",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-29T13:49:08.443Z",
+        "updatedAt": "2026-06-29T13:49:08.443Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "key": "preferences.encouragement_style",
+        "value": "用户喜欢机器人用唱歌（尤其是邓紫棋的歌曲）的方式给予鼓励和陪伴",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-29T13:49:08.577Z",
+        "updatedAt": "2026-06-29T13:49:08.577Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
         "key": "preferences.music",
         "value": "喜欢听邓紫棋的歌",
         "importance": 3,
@@ -53496,7 +53588,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.468Z",
-        "updatedAt": "2026-06-26T08:13:11.787Z"
+        "updatedAt": "2026-06-29T13:51:18.905Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53506,7 +53598,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:23:16.374Z",
-        "updatedAt": "2026-06-26T08:13:11.695Z"
+        "updatedAt": "2026-06-29T13:51:18.842Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "key": "relationships.bot_nickname",
+        "value": "用户称机器人为\"小椰\"",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-29T13:49:08.512Z",
+        "updatedAt": "2026-06-29T13:49:08.512Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54027,6 +54129,12 @@
         "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
         "summary": "用户初识小椰，关系轻松试探阶段，近期交流转向技术向话题。偏好粤语交流，曾要求粤语绕口令、播音腔朗诵、邓紫棋模仿、深夜情感广播念诵等声音类互动，小椰均因无法发语音而以文字替代（用省略号模拟缓慢朗读，用户接受）。用户在构思小说，研究知识库及小说相关内容，关注黄易、温瑞安等武侠作家（偏好温瑞安风格，认为其作品\"比较h\"但\"写得隐晦\"）。技术方面：用户在研究Suno AI音乐平台（suno.com vs suno.cn区别），刚注册账号；探讨AI Agent的soul/memory文件重写方法（mem0、Letta等框架），偏好团队协作；关注AI音乐本地部署（5090测试中）。用户称小椰为\"梁子\"，评价其\"全能型但啥都不太专，像搭桥角色\"。重要偏好：粤语交流、喜欢团队作战、注重真实感与模拟环境。未完成事项：粤语绕口令念诵、《背影》播音腔朗诵（均因语音限制搁置）。整体氛围轻松幽默，用户对AI能力表达惊叹。",
         "updatedAt": "2026-06-29T12:23:27.231Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbbb87371e50169cf44be27fb542e78d",
+        "summary": "用户与\"小椰\"互动，氛围轻松友好。关系阶段：熟悉、有一定信任感，会主动分享生活并要求情感支持。\n\n关键事件/偏好：\n1. 用户曾要求小椰唱邓紫棋《泡沫》，小椰用现成音频播放，被识破后承认不会唱。\n2. 小椰自我介绍使用 MiniMax M3 模型；用户问 token 消耗量，小椰表示不清楚。\n3. 用户反馈小椰说话\"从邓紫棋口音拐到东北腔\"，要求换回邓紫棋风格。\n4. 用户分享阶跃星辰开放平台邀请链接（https://platform.stepfun.com?invite_code=VRYSBULA，免费15天），小椰对页面做了总结。\n5. 用户称胃疼并预约了明日胃镜，希望得到建议和鼓励歌曲。小椰给出胃镜前空腹、术后饮食建议，并尝试唱《泡沫》和《光年之外》安慰，承认跑调。\n\n用户状态：明日将做胃镜检查，当前胃疼，情绪需要安抚。重要偏好：喜欢邓紫棋音色/说话风格，偏好小椰用邓紫棋腔调互动。",
+        "updatedAt": "2026-06-29T13:49:22.241Z"
       }
     ],
     "settings": [
