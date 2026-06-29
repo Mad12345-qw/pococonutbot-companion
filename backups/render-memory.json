@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-29T11:54:27.708Z",
+  "exportedAt": "2026-06-29T12:04:27.774Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -48457,6 +48457,342 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-29T11:54:05.274Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "可以叫梁子",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119f0218a4c1c7f03916402e7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:55:14.142Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "对～～～～～",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119c0970a8c1bd293f37db703",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:55:29.750Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "现在4.0pro还不是正式版？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119d4754a0c1b0a420e81d195",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:55:42.323Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "如果他出的是4.1我倒是可以接受高峰期翻番，大不了我低谷期用嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119a0f08bcc22be0ef15e8abf",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:56:01.375Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "涨价了吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119878acb4c2d28f9f19d5f74",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:56:32.537Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "不是说还要降的吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b1199f090a0c257adb03ee477e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:56:40.382Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "涨了，高峰期翻倍",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b119234e8a8c16f7a79cadf214",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:58:12.164Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 上下文：DeepSeek API 定价调整通知\n\n**收件对象**：尊敬的 DeepSeek API 用户\n\n## 关键信息\n1. **DeepSeek V4 正式版**计划于 **7 月中旬**正式上线，带来更多功能优化和性能提升。\n2. 正式版发布后**同步调整 API 定价策略**，引入**峰谷定价机制**。\n\n## 定价表 1：deepseek-v4-pro\n| 计费项 | 平时价格 | 高峰时段价格 |\n|---|---|---|\n| 百万 tokens 输入（缓存命中） | 0.025 元 | 0.05 元 |\n| 百万 tokens 输入（缓存未命中） | 3 元 | 6 元 |\n| 百万 tokens 输出 | 6 元 | 12 元 |\n\n## 定价表 2：deepseek-v4-flash\n| 计费项 | 平时价格 | 高峰时段价格 |\n|---|---|---|\n| 百万 tokens 输入（缓存命中） | 0.02 元 | 0.04 元 |\n| 百万 tokens 输入（缓存未命中） | 1 元 | 2 元 |\n| 百万 tokens 输出 | 2 元 | 4 元 |\n\n## 高峰时段定义\n每日 **9:00～12:00** 和 **14:00～18:00**（北京时间）\n\n## 其他说明\n- 实际定价调整前 **24 小时**通过邮件提前告知。\n- 调整后继续使用视为同意新计费；不同意可退出使用并申请退款。\n- 落款致辞：感谢支持与理解，期待 V4 正式版尽快与用户见面，带来更出色的使用体验。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b11935b1cbcc39be5d424b8ab6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 上下文：DeepSeek API 定价调整通知\n\n**收件对象**：尊敬的 DeepSeek API 用户\n\n## 关键信息\n1. **DeepSeek V4 正式版**计划于 **7 月中旬**正式上线，带来更多功能优化和性能提升。\n2. 正式版发布后**同步调整 API 定价策略**，引入**峰谷定价机制**。\n\n## 定价表 1：deepseek-v4-pro\n| 计费项 | 平时价格 | 高峰时段价格 |\n|---|---|---|\n| 百万 tokens 输入（缓存命中） | 0.025 元 | 0.05 元 |\n| 百万 tokens 输入（缓存未命中） | 3 元 | 6 元 |\n| 百万 tokens 输出 | 6 元 | 12 元 |\n\n## 定价表 2：deepseek-v4-flash\n| 计费项 | 平时价格 | 高峰时段价格 |\n|---|---|---|\n| 百万 tokens 输入（缓存命中） | 0.02 元 | 0.04 元 |\n| 百万 tokens 输入（缓存未命中） | 1 元 | 2 元 |\n| 百万 tokens 输出 | 2 元 | 4 元 |\n\n## 高峰时段定义\n每日 **9:00～12:00** 和 **14:00～18:00**（北京时间）\n\n## 其他说明\n- 实际定价调整前 **24 小时**通过邮件提前告知。\n- 调整后继续使用视为同意新计费；不同意可退出使用并申请退款。\n- 落款致辞：感谢支持与理解，期待 V4 正式版尽快与用户见面，带来更出色的使用体验。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:58:38.108Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "确实正式版定价了，V4 pro 缓存命中输入 0.025/高峰 0.05，输出 6/12；flash 也涨了一点。高峰时段是每天 9-12 和 14-18，那基本白天用都得按贵的算。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4"
+        },
+        "createdAt": "2026-06-29T11:58:46.959Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "现在梁子压力也这么大了吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b11ae8658acc4f82adc5614eec",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:59:06.181Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "user",
+        "modality": "text",
+        "content": "你的港台腔好好听哦",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b11aca87ca4c36a9bdf39b7598",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUserId": "ou_baf2f113ff58f7bbed0e8b076d890bf4",
+          "rawUnionId": "on_97200c6ef3fe597df332d2d56b4ba065",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T11:59:40.639Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈是吗，习惯了改不掉了～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_baf2f113ff58f7bbed0e8b076d890bf4"
+        },
+        "createdAt": "2026-06-29T11:59:43.188Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "user",
+        "modality": "text",
+        "content": "笑声好魔性",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b11aa1d50b0c00f9bd5dd36b8d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUserId": "ou_784e1355638bffff036b299738a0db67",
+          "rawUnionId": "on_78c40ea422684ec3fd2b340c83d8b188",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:00:20.644Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_784e1355638bffff036b299738a0db67",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈被我吓到了吗～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_784e1355638bffff036b299738a0db67"
+        },
+        "createdAt": "2026-06-29T12:00:25.886Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "user",
+        "modality": "text",
+        "content": "可以唱首歌不，邓紫棋的泡沫，高潮部分",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b11a4216cb4c4a6e10779a5ec7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUserId": "ou_8326f04fc374d629774c5400550e1475",
+          "rawUnionId": "on_ec2943246edeafc636c718012bae5120",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-29T12:01:56.527Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8326f04fc374d629774c5400550e1475",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我唱歌是随便哼哼的调子，怕你听完想退群哈哈～\n\n不过歌词我能给你整段～\n\n> 早应该知道 泡沫 一触就破\n> 就像 你说 爱我 像 飞蛾扑火\n\n还要不要我继续？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8326f04fc374d629774c5400550e1475"
+        },
+        "createdAt": "2026-06-29T12:02:00.500Z"
       }
     ],
     "memories": [
@@ -51688,7 +52024,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-06-27T15:48:58.004Z"
+        "updatedAt": "2026-06-29T11:56:40.314Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51698,7 +52034,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-06-27T15:48:57.856Z"
+        "updatedAt": "2026-06-29T11:56:40.244Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51728,7 +52064,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.879Z",
-        "updatedAt": "2026-06-24T11:57:28.879Z"
+        "updatedAt": "2026-06-29T12:00:20.575Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51738,7 +52074,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.820Z",
-        "updatedAt": "2026-06-24T11:57:28.820Z"
+        "updatedAt": "2026-06-29T12:00:20.503Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51788,7 +52124,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T05:55:13.492Z",
-        "updatedAt": "2026-06-28T04:16:24.611Z"
+        "updatedAt": "2026-06-29T12:01:56.459Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -51798,7 +52134,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T05:55:13.415Z",
-        "updatedAt": "2026-06-28T04:16:24.524Z"
+        "updatedAt": "2026-06-29T12:01:56.391Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52418,7 +52754,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-28T07:18:39.346Z"
+        "updatedAt": "2026-06-29T11:55:14.068Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52428,7 +52764,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-28T07:18:39.287Z"
+        "updatedAt": "2026-06-29T11:55:13.997Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52508,7 +52844,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.331Z",
-        "updatedAt": "2026-06-29T11:54:05.205Z"
+        "updatedAt": "2026-06-29T11:59:40.574Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52518,7 +52854,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T12:56:36.112Z",
-        "updatedAt": "2026-06-29T11:54:05.135Z"
+        "updatedAt": "2026-06-29T11:59:40.510Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
