@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T17:07:17.499Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-30T17:17:24.590Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -52818,6 +52818,103 @@
           "feishuIndexSynced": true
         },
         "createdAt": "2026-06-30T16:57:55.806Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK\nhttps://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b0bcc8b1938c3ddc33102b7114",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-30T17:08:54.160Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK\n[Link content]\n[Web page] https://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0bcc8b1938c3ddc33102b7114",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Web page] https://youtu.be/vif8NQcjVf0?si=RtPTYmCYWto4Z3wK\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T17:08:56.309Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：building the best GPU possible YouTube 技术笔记\n主题：building the best GPU possible\n视频：1 条\n- 1. Jensen Huang: NVIDIA - The $4 Trillion Company & the AI Revolution | Lex Fridman Podcast #494（Lex Fridman / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/BvW4wgzNAiiqMJkDxKzcdtc2nzc\nObsidian：已同步到 youtube/building-the-best-GPU-possible-Jensen-Huang-NVIDIA-The-4-Trillion-Company-the-AI.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "building the best GPU possible",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/BvW4wgzNAiiqMJkDxKzcdtc2nzc",
+          "obsidianPath": "youtube/building-the-best-GPU-possible-Jensen-Huang-NVIDIA-The-4-Trillion-Company-the-AI.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true
+        },
+        "createdAt": "2026-06-30T17:12:55.823Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "针对当前互联网热点（如 AI 高情商交互、陆家嘴阶层折叠、春季旅行分手潮等）挖掘出三个具有强冲击力的灵感主题。\n2. 灵感方案深度润色（爆款解析）\n\n🔥 主题一：【职场赛博悲剧】AI分身代开会，因“情商过高”被HR识破辞退\n- 爆款冲突点：员工因不够 AI “懂事”而失业。当人类的真诚在 AI 完美的情绪价值面前显得格格不入。\n- 【文案标题】：《我被开除了，因为我的 AI 分身比我更像一个合格的“奴隶”》\n- 【创意钩子】：碰瓷 GPT-4o 的高情商表现。对比“只会叹气的打工人”与“永远亢奋主动揽活的 AI”，引发关于职场生存底线的深度焦虑与共鸣。\n- 【小说/产品】：\n  - 标题：《双面打工人：我的 AI 替身篡了我的位》\n  - 产品：“摸鱼分身2.0”插件。主打“反向智能”，内置“疲惫感算法”，自动模拟已读乱回和死鱼眼神态，防止因 AI 表现太好被拆穿。\n🏙️ 主题二：【城市阶层折叠】外卖骑手合租金融区豪宅阳台，买断 3 小时睡眠\n- 爆款冲突点：350 元买下陆家嘴最贵的视野。在千万豪宅阳台上俯瞰自己刚送完外卖的写字楼。\n- 【文案标题】：《月租 350 元，他在陆家嘴豪宅阳台，睡了全中国最贵的一个午觉》\n- 【创意钩子】：碰瓷楼市新政与豪宅热抢。用 3 平米的阳台折叠床对抗千万级别的资产焦虑，极致的视觉反差与阶层错位。\n- 【小说/产品】：\n  - 标题：《寄生阳台：陆家嘴的隐形租客》\n  - 产品：“共享阳台”App。为 CBD 奔波的打工人提供按小时计费的景观喘息地，卖的是“最低成本的最高视野”",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0bd87e00a0b3c3d7b40d23c59",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T17:14:24.352Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这两个主题把\"AI替人\"和\"折叠空间\"都做成了有画面感的矛盾点，情绪钩子强，适合做短视频脚本或短篇开头。\n\n核心要点\n• 主题一靠\"AI比人更乖\"的反讽制造冲突，职场共鸣门槛低。\n• 主题二靠\"350块睡在千万阳台\"的视觉反差，阶层情绪一下就立住。\n• 都自带产品延伸：一个是反向摸鱼插件，一个是按小时卖景观。\n\n亮点\n• 钩子写得具体，不空喊，有画面、有数字、有场景。\n\n可以打磨的点\n• 主题一\"AI分身被识破\"这层如果只停在吐槽，深度会弱，最好后面接一段主角主动拆掉AI、反而被上司夸\"终于像个活人\"的反转。\n• 主题二\"共享阳台\"目前只是概念，需要补一个真实触点，比如阳台主为什么要出租、骑手为什么敢睡、物业会不会管，不然读者只看到猎奇。\n\n一句话结论\n两个选题都具备\"3秒抓住人\"的开头能力，往下走的关键是给冲突一个意外的落点，而不是停在情绪。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-30T17:14:31.582Z"
       }
     ],
     "memories": [
@@ -54389,7 +54486,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-30T16:56:56.151Z"
+        "updatedAt": "2026-06-30T17:08:56.240Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -54399,7 +54496,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-30T16:56:56.083Z"
+        "updatedAt": "2026-06-30T17:08:56.153Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -55499,7 +55596,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-30T16:38:44.418Z"
+        "updatedAt": "2026-06-30T17:14:24.283Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -55509,7 +55606,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-30T16:38:44.353Z"
+        "updatedAt": "2026-06-30T17:14:24.215Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
