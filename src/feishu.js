@@ -1496,22 +1496,6 @@ export class FeishuBot {
       sourceType: request.sourceType || "",
       hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl)
     });
-    const sendProgress = async (stage, text, meta = {}) => {
-      logEvent("info", "Feishu YouTube research progress", {
-        chatId,
-        stage,
-        ...meta
-      });
-      try {
-        await this.replyText(messageId, text);
-      } catch (error) {
-        logEvent("warn", "Feishu YouTube progress reply failed", {
-          chatId,
-          stage,
-          error: error.message
-        });
-      }
-    };
 
     try {
       logEvent("info", "Feishu YouTube research started", {
@@ -1522,20 +1506,8 @@ export class FeishuBot {
         hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl),
         topicHint: request.topicHint || ""
       });
-      const report = await this.buildYoutubeResearchReport(request, {
-        onProgress: async ({ stage, videos }) => {
-          if (stage === "transcripts_ready") {
-            await sendProgress("transcripts_ready", "\u5b57\u5e55\u62ff\u5230\u4e86\uff0c\u6211\u5f00\u59cb\u6574\u7406\u91cd\u70b9\u3002", {
-              videos: videos?.length || 0
-            });
-          }
-        }
-      });
+      const report = await this.buildYoutubeResearchReport(request);
       this.markTiming(timing, "buildReportMs");
-      await sendProgress("report_ready", "\u5185\u5bb9\u6574\u7406\u597d\u4e86\uff0c\u6211\u6b63\u5728\u751f\u6210\u98de\u4e66\u6587\u6863\u3002", {
-        topic: report.topic,
-        videos: report.videos.length
-      });
       const doc = await this.syncYoutubeResearchToFeishuDocument(report);
       this.markTiming(timing, "feishuDocumentMs");
       const pendingSync = { synced: false, notePath: "", topicPath: "", reason: "pending" };
