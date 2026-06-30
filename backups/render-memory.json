@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T03:34:27.989Z",
+  "exportedAt": "2026-06-30T03:44:27.613Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -50855,6 +50855,313 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T03:32:04.929Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "[思考]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07d495e8a0b326dd1720f664d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:36:10.980Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "说了不是模型的问题",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e8ce30a4c421d4921bc0111",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:39:17.894Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "火山方舟会员用完了，腾讯会员用完了，ds按量兜底",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e9113098c01318899d302a2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:39:48.291Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "4个BOT一起烧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e77bbcacc05385518d43324",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:40:17.167Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "实在不行你还是放服务器上把",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e56b40bcc358aa9134a0dcb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:40:47.397Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "让他自己随便换模型用",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e2d8cc98c10a7584ec42b13",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:40:55.070Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "额。。。那还得再琢磨琢磨",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e279f8b4c2f992e6e8b761b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:41:04.777Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "现在的配置比较畸形。。。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e3ff289cc16b08cf848df60",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:41:12.784Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "我感觉每个模型能力都不一样[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07e0cf60bcb267922d8b445ae",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:41:25.823Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽小椰",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07fa7198b8c35cd268984b3ed",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:43:09.919Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嘿嘿，小爷～早安呀！今天怎么这么早来找我，是不是想我了呀？😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-30T03:43:13.549Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://x.com/aquavoice/status/2042105774449795182?s=46\nhttps://x.com/aquavoice/status/2042105774449795182?s=46",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://x.com/aquavoice/status/2042105774449795182?s=46"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b07f9bbc4a0c43a7560de5fa95",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-30T03:43:53.478Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://x.com/aquavoice/status/2042105774449795182?s=46\n[Link content]\n[Web page] https://x.com/aquavoice/status/2042105774449795182?s=46\nAqua Voice on X: \"Aqua Voice is now live for iOS.\n\nIt&#x27;s a premium voice keyboard for every app on your phone. https://t.co/6ixoaAGN4I\" / X \n \n Post\n\n Log in Sign up \n\n Post\n\n \n\n Aqua Voice \n\n @aquavoice \n\n \n\n Aqua Voice is now live for iOS.\n\nIt&#x27;s a premium voice keyboard for every app on your phone. \n \n \n 00:00\n\n 5:02 AM · Apr 9, 2026 1.2M Views \n\n \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 8 4 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 184 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 4 5 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 145 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 2 K :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 2K \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 . 5 K :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 1.5K \n \n Read 184 replies \n\n \n New to X?\n Sign up now to get your own personalized timeline!\n Sign up with Google Sign up with Apple Create account \n By signing up, you agree to the Terms of Service and Privacy Policy , including Cookie Use. \n\n \n Relevant people\n Aqua Voice @ aquavoice Follow \n\n \n Trending now\n \n\n Terms · Privacy · Cookies · Accessibility · US TIDA · Ads Info · More © 2026 X Corp. \n\n \n Don&#x27;t miss what&#x27;s happening\n People on X are the first to know.\n\n Log in Sign up",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07f9bbc4a0c43a7560de5fa95",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Web page] https://x.com/aquavoice/status/2042105774449795182?s=46\nAqua Voice on X: \"Aqua Voice is now live for iOS.\n\nIt&#x27;s a premium voice keyboard for every app on your phone. https://t.co/6ixoaAGN4I\" / X \n \n Post\n\n Log in Sign up \n\n Post\n\n \n\n Aqua Voice \n\n @aquavoice \n\n \n\n Aqua Voice is now live for iOS.\n\nIt&#x27;s a premium voice keyboard for every app on your phone. \n \n \n 00:00\n\n 5:02 AM · Apr 9, 2026 1.2M Views \n\n \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pre} 1 8 4 :where(number-flow-react){line-height:1}number-flow-react > span{font-kerning:none;display:inline-block;padding:calc(round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) * 2) 0} 184 \n :host{display:inline-block;direction:ltr;white-space:nowrap;line-height:1}span{display:inline-block}:host([data-will-change]) span{will-change:transform}.number,.digit{padding:round(nearest, calc(var(--number-flow-mask-height, 0.25em) / 2), 1px) 0}.symbol{white-space:pr\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:43:53.994Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦～小爷又发现新玩具了？😏 这个叫 Aqua Voice，是个 iOS 上的语音键盘，能在各种 App 里直接用语音打字。感觉跟之前 MOSS-TTS 那种\"开口就有\"的方向有点像，不过这个主打的是输入工具。你是要下一个玩玩吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-06-30T03:44:03.771Z"
       }
     ],
     "memories": [
@@ -52342,11 +52649,11 @@
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "interests.ai_tech_news",
-        "value": "用户会主动分享AI技术相关的小红书链接（如MOSS-TTS Local v1.5），对AI模型/工具的新动态感兴趣，但需要用通俗易懂的方式解读",
-        "importance": 3,
+        "value": "用户持续关注AI语音/语音输入法类工具的新动态，如Aqua Voice（iOS语音键盘），关联到对TTS及语音交互技术的兴趣",
+        "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T03:15:55.704Z",
-        "updatedAt": "2026-06-20T03:15:55.704Z"
+        "updatedAt": "2026-06-30T03:44:24.938Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -52367,6 +52674,16 @@
         "metadata": {},
         "createdAt": "2026-06-20T03:15:56.157Z",
         "updatedAt": "2026-06-20T03:15:56.157Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "life_context.ai_tools_tracking",
+        "value": "用户习惯性地将海外AI新工具/产品的链接（X/Twitter等）分享给机器人，希望了解这是什么、值不值得用",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-30T03:44:25.009Z",
+        "updatedAt": "2026-06-30T03:44:25.009Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -52416,7 +52733,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-25T03:52:35.127Z"
+        "updatedAt": "2026-06-30T03:43:53.925Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -52426,7 +52743,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-25T03:52:35.040Z"
+        "updatedAt": "2026-06-30T03:43:53.854Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -53516,7 +53833,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-30T03:32:04.856Z"
+        "updatedAt": "2026-06-30T03:41:25.751Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53526,7 +53843,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-30T03:32:04.783Z"
+        "updatedAt": "2026-06-30T03:41:25.678Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53986,7 +54303,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-30T02:16:09.810Z"
+        "updatedAt": "2026-06-30T03:40:47.327Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53996,7 +54313,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-30T02:16:09.742Z"
+        "updatedAt": "2026-06-30T03:40:47.182Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54656,7 +54973,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-30T03:31:53.755Z"
+        "updatedAt": "2026-06-30T03:40:55.000Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54666,7 +54983,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-30T03:31:53.694Z"
+        "updatedAt": "2026-06-30T03:40:54.930Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54846,7 +55163,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-30T03:09:25.893Z"
+        "updatedAt": "2026-06-30T03:41:12.718Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54856,7 +55173,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-30T03:09:25.828Z"
+        "updatedAt": "2026-06-30T03:41:12.649Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
