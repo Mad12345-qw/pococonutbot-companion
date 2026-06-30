@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T16:52:03.568Z",
-  "reason": "startup",
+  "exportedAt": "2026-06-30T17:02:10.002Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -52757,6 +52757,67 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-06-30T16:44:54.279Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz\nhttps://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b0b1b9deca0c00724aec227d1a",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-30T16:56:54.814Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz\n[Link content]\n[Web page] https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0b1b9deca0c00724aec227d1a",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Web page] https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:56:56.220Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：to launch their first YouTube 技术笔记\n主题：to launch their first\n视频：1 条\n- 1. Starship V3: Everything you need to know!（Everyday Astronaut / en）\n飞书文档：生成失败，Feishu workspace API failed 403: {\"code\":1770040,\"msg\":\"no folder permission\",\"error\":{\"helps\":[{\"de\n...[truncated]\nObsidian：已同步到 youtube/to-launch-their-first-Starship-V3-Everything-you-need-to-know.md\n知识库目录：已归档\n正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。",
+        "metadata": {
+          "topic": "to launch their first",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "",
+          "obsidianPath": "youtube/to-launch-their-first-Starship-V3-Everything-you-need-to-know.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true
+        },
+        "createdAt": "2026-06-30T16:57:55.806Z"
       }
     ],
     "memories": [
@@ -54328,7 +54389,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-06-30T16:39:04.948Z"
+        "updatedAt": "2026-06-30T16:56:56.151Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -54338,7 +54399,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-06-30T16:39:04.876Z"
+        "updatedAt": "2026-06-30T16:56:56.083Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
