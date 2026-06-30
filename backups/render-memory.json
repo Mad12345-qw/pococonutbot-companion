@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-29T15:34:28.021Z",
+  "exportedAt": "2026-06-30T02:14:27.621Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -49621,6 +49621,75 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-29T15:32:03.725Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 玩多agent协调的朋友可以看下：https://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink\nhttps://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink\nfeishu-docx:QAZZdKjLWozOmNxr3nPcEGZYnUf",
+        "metadata": {
+          "docxIds": [
+            "QAZZdKjLWozOmNxr3nPcEGZYnUf"
+          ],
+          "linkUrls": [
+            "https://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b061df168bcb4af1818763a1e4",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-30T02:08:59.147Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "玩多agent协调的朋友可以看下：https://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink\n[Link content]\n[Feishu document] https://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink\nMultica Agent 协作平台部署指南\n\n\nMultica = 任务状态中枢：开源 Agent 协作平台（GitHub 38k+ ⭐），负责任务可视化、多 Agent 编排、实时进度追踪。用户仍在 Telegram / 飞书下发任务，Agent 自动在 Multica 建单并同步状态。\n一、Multica 是什么\nMultica 是一个开源的托管式 Agent 协作平台（GitHub 38k+ stars，Apache 2.0）。在当前架构中，它承担 任务状态中枢 的角色：\n把 Agent 当成真正的\"数字员工\"来管理\n任务可视化、进度追踪、多 Agent 协作\n与 Hermes、Claude、Kimi 等 CLI 原生集成\n\n当前定位：Multica 是任务看板，不是聊天入口。用户仍在 Telegram / 飞书下发任务，Agent 自动在 Multica 建单并更新进度。\n\n二、Multica 的核心好处\n1. 任务从\"黑盒\"变\"白盒\"\n\n\n\n没有 Multica\n用户说完任务后不知道执行到哪一步\nAgent 干完不汇报\n多任务并行时混乱\n\n\n有 Multica\nDashboard 实时显示 issue 状态、负责人、进度\n每个关键状态变更都有记录\n看板一目了然\n2. 多 Agent 可编排、可追踪\n支持 Squad（小队）、任务链（Stage）、@mention 触发\n可以把\"主Agent拆任务 → 写手Agent出稿 → 审阅Agent审核 → 执行Agent实现 → 主Agent终审\"变成可追踪的流水线\n通过结构化 @mention 语法，Agent 之间可以互相触发\n3. 与 Hermes 原生集成\nDaemon 自动检测本机安装的 CLI：hermes、claude、kimi、codex 等\n每个 Agent 可绑定不同 profile：custom_args: [\"-p\", \"enjolras\"]\n加载完整 profile 后，Agent 拥有 SOUL.md、370+ skills、记忆，能遵守复杂协作规则\n4. 实时进度可视化\nDashboard 有 Kanban 看板、Usage 统计、Agent 在线状态\n任务执行过程中能看到 tool 调用、耗时、输出摘要\n比飞书/Telegram 更适合\"看进度\"\n5. 开源 + 可私有部署\n源码在 github.com/multica-ai/multica\nGo 后端 + Next.js 前端 + PostgreSQL\n已 fork 源码，可按需定制\n6. 替代 Hermes Kanban 后的实际收益\n\n\n维度\n\n之前（Hermes Kanban）\n\n现在（Multica）\n\n采用率\n\n8 个已完成任务，0 个活跃\n\n多个 Agent 已注册并在线\n\n实时性\n\n手动更新\n\nWebSocket 实时同步\n\n多 Agent\n\n无\n\nSquad + @mention\n\n可扩展\n\n封闭\n\n开源可改\n\n三、部署架构示例\n\n\n关键原则：Daemon 必须跑在有 Agent CLI 的机器上，Multica Server 只跑服务。两者分离是架构基石。\n\n四、从零部署 Multica\n\n以下是从零部署 Multica 的完整流程。按顺序执行 4.1 → 4.7，每步验证通过后再继续。预计耗时 30-60 分钟。\n4.1 前置条件\n目标服务器：Ubuntu/Debian\nDocker + Docker Compose\nNode.js 20+（用于 CLI，服务器本身不需要）\nTailscale（用于跨机器访问，可选但推荐）\n4.2 安装 Docker\n\n# 安装 Docker 官方源\nsudo apt-get update\nsudo apt-get install -y ca-certificates curl gnupg\nsudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg\nsudo chmod a+r /etc/apt/keyrings/docker.gpg\n\necho \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release &amp;&amp; echo \"$VERSION_CODENAME\") stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n\nsudo apt-get update\nsudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin\n\n# 非 root 用户加入 docker 组\nsudo usermod -aG docker $USER\nnewgrp docker\n4.3 部署 Multica Server\n\n# 1. 进入项目目录（以 服务器 A为例）\ncd /path/to/multica\n\n# 2. 启动 Docker Compose\nsudo docker compose up -d\n\n# 3. 查看日志\nsudo docker compose logs -f backend\nsudo docker compose logs -f frontend\n4.4 默认服务端口\nFrontend：3000 — Web Dashboard\nBackend：8080 — REST API / WebSocket\nPostgreSQL：5432 — 数据库\n4.5 安装 Multica CLI\n\n# 在需要跑 Agent 的机器上安装 CLI\nnpm install -g multica\n\n# 登录到 Multica Server\nmultica login --api-url http://<server-ip>:8080\n# 按提示输入用户名/验证码（开发环境可用固定验证码）\n4.6 注册 Daemon\n\n# 初始化 daemon\nmultica daemon init\n\n# 编辑配置文件，指定 Server 地址\nmultica config set server.api_url http://<server-ip>:8080\n\n# 启动 daemon\nmultica daemon start\n\n# 设为 systemd 自启（推荐）\nsudo tee /etc/systemd/system/multica-daemon.service <<'EOF'\n[Unit]\nDescription=Multica Daemon\nAfter=network.target\n\n[Service]\nType=simple\nUser=<username>\nWorkingDirectory=/home/<username>/.multica\nExecStart=/usr/bin/multica daemon start\nRestart=always\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target\nEOF\n\nsudo systemctl daemon-reload\nsudo systemctl enable --now multica-daemon\nsudo systemctl status multica-daemon\n\n验证 Daemon 运行状态：systemctl status multica-daemon 应显示 active (running)。如果显示 failed，检查日志：journalctl -u multica-daemon -f\n4.7 注册 Agent\n\n# 列出本机可用 CLI\nmultica agent list-available\n\n# 注册一个 Hermes Agent\nmultica agent create \\\n  --name \"Agent-Alpha\" \\\n  --command \"hermes\" \\\n  --custom-args '[\"-p\", \"enjolras\"]' \\\n  --description \"运维 Agent，负责运维、安全、架构\"\n\n# 查看已注册 Agent\nmultica agent list\n\n五、常见踩坑记录\n\n以下问题均在实际部署中遇到。新部署时按此清单逐项检查，可避免重复踩坑。\n5.1 Daemon 连不上 Server\n现象： Daemon 状态 offline，Dashboard 看不到 Agent\n原因： Tailscale 策略阻止跨机器访问，或 Server 地址填错\n解法： 用 Tailscale IP（100.x.x.x）而不是公网 IP；检查 tailscale status\n5.2 Agent 执行时没有完整 profile\n现象： Agent 好像\"失忆\"，不遵守预设规则\n原因： 没有通过 custom_args 加载对应 profile\n解法： 注册时务必带 `--custom-args '[\"-p\", \"<profile>\"]'\n5.3 文档标题显示 Untitled\n现象： 飞书文档创建后标题是 Untitled\n原因： Markdown 格式导入时标题未被识别\n解法： 创建时传 <title>标题</title>，或创建后执行 docs +update --new-title \"标题\"\n5.4 CLI 登录提示验证码错误\n现象： 新用户登录 Multica 收不到验证码\n原因： 开发环境未开启邮件服务\n解法： Server 设置 APP_ENV=development，固定验证码为 888888\n\n六、最佳实践\n\n经过实际部署验证的最佳实践。遵循这 5 条原则，可确保 Multica 稳定运行。\nServer 与 Daemon 分离： Server 只跑服务，Daemon 跑在有 Agent CLI 的机器上\n每个 Agent 绑定独立 profile： 避免记忆和权限串台\n结构化 @mention： 用 @Agent名 任务描述 触发，而不是自然语言里随口一提\n飞书/Telegram 只做通知： 复杂进度和状态去 Multica Dashboard 看\n定期备份数据库： PostgreSQL 数据在 Server 上，建议每日快照\n\n七、附录：常用命令速查\n\n\n场景\n\n命令\n\n查看 Server 状态\n\ndocker compose ps\n\n查看 Backend 日志\n\ndocker compose logs -f backend\n\n查看 Daemon 状态\n\nmultica daemon status\n\n查看 Agent 列表\n\nmultica agent list\n\n手动触发 Agent 任务\n\nmultica issue create --title \"任务\" --agent \"Agent-Alpha\"",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b061df168bcb4af1818763a1e4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "[Feishu document] https://ndz4ymnq2g.feishu.cn/docx/QAZZdKjLWozOmNxr3nPcEGZYnUf?from=from_copylink\nMultica Agent 协作平台部署指南\n\n\nMultica = 任务状态中枢：开源 Agent 协作平台（GitHub 38k+ ⭐），负责任务可视化、多 Agent 编排、实时进度追踪。用户仍在 Telegram / 飞书下发任务，Agent 自动在 Multica 建单并同步状态。\n一、Multica 是什么\nMultica 是一个开源的托管式 Agent 协作平台（GitHub 38k+ stars，Apache 2.0）。在当前架构中，它承担 任务状态中枢 的角色：\n把 Agent 当成真正的\"数字员工\"来管理\n任务可视化、进度追踪、多 Agent 协作\n与 Hermes、Claude、Kimi 等 CLI 原生集成\n\n当前定位：Multica 是任务看板，不是聊天入口。用户仍在 Telegram / 飞书下发任务，Agent 自动在 Multica 建单并更新进度。\n\n二、Multica 的核心好处\n1. 任务从\"黑盒\"变\"白盒\"\n\n\n\n没有 Multica\n用户说完任务后不知道执行到哪一步\nAgent 干完不汇报\n多任务并行时混乱\n\n\n有 Multica\nDashboard 实时显示 issue 状态、负责人、进度\n每个关键状态变更都有记录\n看板一目了然\n2. 多 Agent 可编排、可追踪\n支持 Squad（小队）、任务链（Stage）、@mention 触发\n可以把\"主Agent拆任务 → 写手Agent出稿 → 审阅Agent审核 → 执行Agent实现 → 主Agent终审\"变成可追踪的流水线\n通过结构化 @mention 语法，Agent 之间可以互相触发\n3. 与 Hermes 原生集成\nDaemon 自动检测本机安装的 CLI：hermes、claude、kimi、codex 等\n每个 Agent 可绑定不同 profile：custom_args: [\"-p\", \"enjolras\"]\n加载完整 profile 后，Agent 拥有 SOUL.md、370+ skills、记忆，能遵守复杂协作规则\n4. 实时进度可视化\nDashboard 有 Kanban 看板、Usage 统计、Agent 在线状态\n任务执行过程中能看到 tool 调用、耗时、输出摘要\n比飞书/Telegram 更适合\"看进度\"\n5. 开源 + 可私有部署\n源码在 github.com/multica-ai/multica\nGo 后端 + Next.js 前端 + PostgreSQL\n已 fork 源码，可按需定制\n6.\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:09:01.696Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "我觉得很好用",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b062dbda894b304789306ec5cc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:13:17.415Z"
       }
     ],
     "memories": [
@@ -52732,7 +52801,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-27T11:47:28.808Z"
+        "updatedAt": "2026-06-30T02:13:17.351Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52742,7 +52811,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-27T11:47:28.729Z"
+        "updatedAt": "2026-06-30T02:13:17.288Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
