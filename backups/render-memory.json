@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T02:14:27.621Z",
+  "exportedAt": "2026-06-30T02:24:27.776Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -49690,6 +49690,186 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T02:13:17.415Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回复。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b06285f70bcb2ca8e910b7b3db",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:14:50.378Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "看到你用 Multica 把审阅流水线跑通了，QUE-3 的交叉审阅结论也很清晰——Unit 6-8 通过，Unit 1-5 阻塞在 QUE-4 文件补全上，等补完就能继续往下走。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f"
+        },
+        "createdAt": "2026-06-30T02:14:59.304Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文：项目看板截图（Feishu）\n\n**视图筛选**：All / Members / Agents\n**顶部按钮**（部分被裁切）：Working、Filter、Manual、Board\n\n## 看板列（4列）\n\n### Backlog（0）\n- No issues\n\n### Todo（1）\n1. **QUE-2** — E2E测试：Review工作流验证\n   - 验证从提交审核到通过的完整流程\n   - Unassigned\n\n### In Progress（3）\n1. **QUE-6** — G7.5 东亚历史讲义全量生产 L10-L23（13课，8Part结构）\n   - 描述：G7.5 东亚历史讲义全量生产 L10-L23（13…\n   - 负责人：M教授 ｜ Updated 5h ago\n\n2. **QUE-7** — QUE-6 子任务：G7.5 讲义交叉审查（林小黑）\n   - 描述：G7.5 讲义交叉审查（林小黑） 审查标准…\n   - 负责人：林小黑 ｜ Updated 4h ago\n\n3. **QUE-4** — 九上讲义补全：Unit 1-5 + Unit 6 缺失文件\n   - 描述：QUE-3审阅发现文件完整性不足：Unit 1-…\n   - 负责人：M教授 ｜ Updated 23h ago\n\n### In Review（3）\n1. **QUE-10** — 审阅：G7.5 讲义 L10-L23 交叉审查报告 (QUE-9)\n   - 描述：G7.5 讲义 L10-L23 交叉审查报告 总览 | …\n   - 负责人：老六 ｜ Updated 4h ago\n\n2. **QUE-5** — 九上Unit 1-8全量审阅（72文件已就位）\n   - 描述：Unit 1-8 × 9文件 = 72个.md文件已全部到…\n   - 负责人：林小黑 ｜ Updated 4h ago\n\n3. **QUE-3** — 九上暑期预习讲义 Unit 1-8 交叉审阅\n   - 描述：九年级上册（2026新沪教版）暑期预习讲…\n   - 负责人：老六 ｜ 进度 0/1\n\n## 关键信息摘要\n- **项目主题**：讲义生产与审阅（七年级历史 G7.5、九年级上册 九上Unit 1-8）\n- **人员**：M教授、老六、林小黑\n- **数据点**：L10-L23（13课）、Unit 1-8（72个.md文件 = 8单元 × 9文件）\n- **版本/教材**：2026新沪教版\n- **最新更新**：4h ago（多数）、5h ago、23h ago",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b06286fe8b0b262d4434ef5101",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "# 图片上下文：项目看板截图（Feishu）\n\n**视图筛选**：All / Members / Agents\n**顶部按钮**（部分被裁切）：Working、Filter、Manual、Board\n\n## 看板列（4列）\n\n### Backlog（0）\n- No issues\n\n### Todo（1）\n1. **QUE-2** — E2E测试：Review工作流验证\n   - 验证从提交审核到通过的完整流程\n   - Unassigned\n\n### In Progress（3）\n1. **QUE-6** — G7.5 东亚历史讲义全量生产 L10-L23（13课，8Part结构）\n   - 描述：G7.5 东亚历史讲义全量生产 L10-L23（13…\n   - 负责人：M教授 ｜ Updated 5h ago\n\n2. **QUE-7** — QUE-6 子任务：G7.5 讲义交叉审查（林小黑）\n   - 描述：G7.5 讲义交叉审查（林小黑） 审查标准…\n   - 负责人：林小黑 ｜ Updated 4h ago\n\n3. **QUE-4** — 九上讲义补全：Unit 1-5 + Unit 6 缺失文件\n   - 描述：QUE-3审阅发现文件完整性不足：Unit 1-…\n   - 负责人：M教授 ｜ Updated 23h ago\n\n### In Review（3）\n1. **QUE-10** — 审阅：G7.5 讲义 L10-L23 交叉审查报告 (QUE-9)\n   - 描述：G7.5 讲义 L10-L23 交叉审查报告 总览 | …\n   - 负责人：老六 ｜ Updated 4h ago\n\n2. **QUE-5** — 九上Unit 1-8全量审阅（72文件已就位）\n   - 描述：Unit 1-8 × 9文件 = 72个.md文件已全部到…\n   - 负责人：林小黑 ｜ Updated 4h ago\n\n3. **QUE-3** — 九上暑期预习讲义 Unit 1-8 交叉审阅\n   - 描述：九年级上册（2026新沪教版）暑期预习讲…\n   - 负责人：老六 ｜ 进度 0/1\n\n## 关键信息摘要\n- **项目主题**：讲义生产与审阅（七年级历史 G7.5、九年级上册 九上Unit 1-8）\n- **人员**：M教授、老六、林小黑\n- **数据点**：L10-L23（13课）、Unit 1-8（72个.md文件 = 8单元 × 9文件）\n- **版本/教材**：2026新沪教版\n- **最新更新**：4h ago（多数）、5h ago、23h ago",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:15:34.861Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "只针对hermes的profile这种么，我有些openclaw的智能体也想管理起来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b06295b8c88c1e4d87332d0f4a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:15:41.234Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "不是只针对 hermes 的，原理上 hermes / claude / kimi / codex 这些 CLI 都能跑 Daemon，所以 openclaw 的智能体应该也能挂上去——只要它能作为 CLI 被调用就行。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-30T02:15:52.897Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "openclaw也能用的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b06271694a4b25bf93c174ff9a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:16:09.875Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "这个适合部署在轻量服务器上面么？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b063bf6d938c25d729f8d42d65",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:18:01.652Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "适合的，文档里写的是 Ubuntu + Docker，2 核 4G 跑 PostgreSQL + Go 后端 + Next.js 前端完全够用，Multica 本身不是吃资源的主。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b"
+        },
+        "createdAt": "2026-06-30T02:18:07.346Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "role": "user",
+        "modality": "text",
+        "content": "[比心]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b06c88204a0c1e59d62e40b6a5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUserId": "ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+          "rawUnionId": "on_f30e2ac82b93d1f7275f655a7e681a11",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T02:22:36.008Z"
       }
     ],
     "memories": [
@@ -52801,7 +52981,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-30T02:13:17.351Z"
+        "updatedAt": "2026-06-30T02:16:09.810Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52811,7 +52991,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-30T02:13:17.288Z"
+        "updatedAt": "2026-06-30T02:16:09.742Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53661,7 +53841,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.282Z",
-        "updatedAt": "2026-06-29T12:34:03.479Z"
+        "updatedAt": "2026-06-30T02:22:35.938Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53671,7 +53851,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:38:10.067Z",
-        "updatedAt": "2026-06-29T12:34:03.410Z"
+        "updatedAt": "2026-06-30T02:22:35.868Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53682,6 +53862,16 @@
         "metadata": {},
         "createdAt": "2026-06-24T09:43:57.718Z",
         "updatedAt": "2026-06-24T09:43:57.718Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9c2a4e7f1dd484b92395ee26465f6e4b",
+        "key": "projects.openclaw_agents",
+        "value": "用户有多个 openclaw 智能体，希望通过 Daemon 统一管理起来",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-30T02:16:11.577Z",
+        "updatedAt": "2026-06-30T02:16:11.577Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
