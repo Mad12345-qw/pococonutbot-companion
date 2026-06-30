@@ -57,6 +57,13 @@ app.get("/health", (_req, res) => {
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
     obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
+    obsidianSyncDetails: {
+      enabled: Boolean(config.obsidianSyncEnabled),
+      repoConfigured: Boolean(config.obsidianGithubRepo),
+      tokenConfigured: Boolean(config.obsidianGithubToken),
+      branch: config.obsidianGithubBranch || "main",
+      youtubeFolder: config.obsidianYoutubeFolder || "youtube"
+    },
     feishuCardTemplates: true,
     feishuPremiumCards: true,
     feishuWorldCupPolls: true,

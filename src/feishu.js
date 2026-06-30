@@ -544,6 +544,10 @@ function markdownList(items = []) {
   return items.filter(Boolean).map((item) => `- ${item}`).join("\n");
 }
 
+function stripMarkdownFrontmatter(markdown = "") {
+  return String(markdown || "").replace(/^---\n[\s\S]*?\n---\n+/, "").trim();
+}
+
 function cardNote(results = []) {
   const sourceCount = results.filter((item) => item.url).length;
   return {
@@ -1318,7 +1322,8 @@ export class FeishuBot {
       });
       const report = await this.buildYoutubeResearchReport(request);
       const sync = await this.syncYoutubeResearchToObsidian(report);
-      const reply = this.formatYoutubeResearchReply(report, sync);
+      const doc = await this.syncYoutubeResearchToFeishuDocument(report);
+      const reply = this.formatYoutubeResearchReply(report, sync, doc);
       for (const chunk of splitChatBubbles(reply, 1800)) {
         await this.replyText(messageId, chunk);
       }
@@ -1334,14 +1339,16 @@ export class FeishuBot {
           youtubeResearch: true,
           topic: report.topic,
           videoCount: report.videos.length,
-          obsidianPath: sync.notePath || ""
+          obsidianPath: sync.notePath || "",
+          feishuDocUrl: doc.url || ""
         }
       });
       logEvent("info", "Feishu YouTube research sent", {
         chatId,
         topic: report.topic,
         videos: report.videos.length,
-        obsidianSynced: Boolean(sync.synced)
+        obsidianSynced: Boolean(sync.synced),
+        feishuDocCreated: Boolean(doc.created)
       });
     } catch (error) {
       logEvent("error", "Feishu YouTube research failed", {
@@ -1546,11 +1553,53 @@ export class FeishuBot {
     return { synced: true, notePath, topicPath };
   }
 
-  formatYoutubeResearchReply(report, sync = {}) {
-    const syncLine = sync.synced
-      ? `\n\nObsidian \u5df2\u540c\u6b65\uff1a${sync.notePath}\n\u4e3b\u9898\u7d22\u5f15\uff1a${sync.topicPath}`
-      : `\n\nObsidian \u672a\u540c\u6b65\uff1a${sync.reason === "disabled" ? "\u8fd8\u6ca1\u914d\u7f6e GitHub \u540c\u6b65\u73af\u5883\u53d8\u91cf" : sync.reason || "\u672a\u77e5\u539f\u56e0"}`;
-    return `${report.markdown}${syncLine}`;
+  async syncYoutubeResearchToFeishuDocument(report) {
+    if (!this.workspace?.enabled) {
+      return { created: false, url: "", token: "", reason: "disabled" };
+    }
+    try {
+      const doc = await this.workspace.createDocument({
+        title: report.title,
+        markdown: stripMarkdownFrontmatter(report.markdown)
+      });
+      return {
+        created: true,
+        url: doc.url || "",
+        token: doc.token || "",
+        title: doc.title || report.title,
+        writeError: doc.writeError || ""
+      };
+    } catch (error) {
+      logEvent("warn", "Feishu YouTube document sync failed", {
+        title: report.title,
+        error: error.message
+      });
+      return { created: false, url: "", token: "", reason: error.message };
+    }
+  }
+
+  formatYoutubeResearchReply(report, sync = {}, doc = {}) {
+    const videos = report.videos || [];
+    const firstVideo = videos[0] || {};
+    const videoLines = videos.slice(0, 3).map((video, index) => {
+      const meta = [video.channel, video.lengthText, video.language].filter(Boolean).join(" / ");
+      return `${index + 1}. ${video.title}${meta ? `（${meta}）` : ""}`;
+    });
+    const docLine = doc.created && doc.url
+      ? `飞书文档：${doc.url}`
+      : `飞书文档：生成失败，${truncate(doc.reason || doc.writeError || "原因未知", 120)}`;
+    const obsidianLine = sync.synced
+      ? `Obsidian：已同步到 ${sync.notePath}`
+      : `Obsidian：未同步，${sync.reason === "disabled" ? "Render 还没配置 Obsidian GitHub token" : truncate(sync.reason || "原因未知", 120)}`;
+    return compactLines([
+      `整理好了：${report.title}`,
+      `主题：${report.topic}`,
+      `视频：${videos.length} 条`,
+      markdownList(videoLines),
+      docLine,
+      obsidianLine,
+      doc.created ? "正文我已经放到飞书文档里了，这里就不刷屏啦。" : "正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。"
+    ]);
   }
 
   async handleWebSearchRequest({ messageId, chatId, userId, request }) {
