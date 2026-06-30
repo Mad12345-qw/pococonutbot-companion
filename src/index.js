@@ -58,12 +58,14 @@ app.get("/health", (_req, res) => {
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
     youtubeDocDeliveryMode: "feishu_doc_first",
     youtubeDocTemplateVersion: "mobile_first_v2",
+    youtubeBackgroundSyncMode: "parallel_nonblocking",
     obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
     obsidianSyncDetails: {
       enabled: Boolean(config.obsidianSyncEnabled),
       repoConfigured: Boolean(config.obsidianGithubRepo),
       tokenConfigured: Boolean(config.obsidianGithubToken),
       branch: config.obsidianGithubBranch || "main",
+      timeoutMs: config.obsidianGithubTimeoutMs,
       youtubeFolder: config.obsidianYoutubeFolder || "youtube"
     },
     feishuYoutubeIndex: Boolean(config.feishuYoutubeIndexWikiToken || config.feishuYoutubeIndexDocumentId),
@@ -379,7 +381,8 @@ const transcriptApi = new TranscriptApiClient(config);
 const obsidianSync = new GitHubFileSync({
   token: config.obsidianGithubToken,
   repo: config.obsidianGithubRepo,
-  branch: config.obsidianGithubBranch
+  branch: config.obsidianGithubBranch,
+  timeoutMs: config.obsidianGithubTimeoutMs
 });
 const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch, transcriptApi, obsidianSync });
 feishuBot.setupRoutes(app);

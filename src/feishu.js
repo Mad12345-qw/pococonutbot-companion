@@ -1577,45 +1577,13 @@ export class FeishuBot {
       });
       this.markTiming(timing, "storeAssistantMs");
 
-      const sync = await this.syncYoutubeResearchToObsidian(report);
-      this.markTiming(timing, "obsidianSyncMs");
-      const index = await this.syncYoutubeResearchToFeishuIndex(report, sync, doc);
-      this.markTiming(timing, "feishuIndexMs");
-
-      const finalReply = this.formatYoutubeResearchReply(report, sync, doc, index);
-      await this.storage.addMessage({
-        chatId,
-        userId,
-        role: "assistant",
-        modality: "system",
-        content: finalReply,
-        metadata: {
-          platform: "feishu",
-          replyToUserId: userId,
-          youtubeResearch: true,
-          topic: report.topic,
-          videoCount: report.videos.length,
-          obsidianPath: sync.notePath || "",
-          feishuDocUrl: doc.url || "",
-          feishuIndexSynced: Boolean(index.synced)
-        }
-      });
-      logEvent("info", "Feishu YouTube research sent", {
+      logEvent("info", "Feishu YouTube document reply sent", {
         chatId,
         topic: report.topic,
         videos: report.videos.length,
-        obsidianSynced: Boolean(sync.synced),
-        feishuDocCreated: Boolean(doc.created),
-        feishuIndexSynced: Boolean(index.synced)
+        feishuDocCreated: Boolean(doc.created)
       });
-      this.finishTiming(timing, {
-        ok: true,
-        topic: report.topic,
-        videos: report.videos.length,
-        feishuDocCreated: Boolean(doc.created),
-        obsidianSynced: Boolean(sync.synced),
-        feishuIndexSynced: Boolean(index.synced)
-      });
+      await this.runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing });
     } catch (error) {
       this.finishTiming(timing, { ok: false, error: error.message });
       logEvent("error", "Feishu YouTube research failed", {
@@ -1625,6 +1593,89 @@ export class FeishuBot {
       });
       await this.replyText(messageId, `YouTube \u5b57\u5e55\u6574\u7406\u5931\u8d25\uff1a${truncate(error.message, 500)}`);
     }
+  }
+
+  async runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing }) {
+    const syncPromise = this.syncYoutubeResearchToObsidian(report).then((sync) => {
+      this.markTiming(timing, "obsidianSyncMs");
+      return sync;
+    }).catch((error) => {
+      logEvent("warn", "Feishu YouTube Obsidian background sync failed", {
+        chatId,
+        title: report.title,
+        error: error.message
+      });
+      this.markTiming(timing, "obsidianSyncMs");
+      return { synced: false, notePath: "", topicPath: "", reason: error.message };
+    });
+
+    const indexPromise = this.syncYoutubeResearchToFeishuIndex(report, {
+      synced: false,
+      notePath: "",
+      topicPath: "",
+      reason: "pending"
+    }, doc).then((index) => {
+      this.markTiming(timing, "feishuIndexMs");
+      return index;
+    }).catch((error) => {
+      logEvent("warn", "Feishu YouTube index background sync failed", {
+        chatId,
+        title: report.title,
+        error: error.message
+      });
+      this.markTiming(timing, "feishuIndexMs");
+      return { synced: false, reason: error.message };
+    });
+
+    const [sync, index] = await Promise.all([syncPromise, indexPromise]);
+
+    const finalReply = this.formatYoutubeResearchReply(report, sync, doc, index);
+    await this.storage.addMessage({
+      chatId,
+      userId,
+      role: "assistant",
+      modality: "system",
+      content: finalReply,
+      metadata: {
+        platform: "feishu",
+        replyToUserId: userId,
+        youtubeResearch: true,
+        topic: report.topic,
+        videoCount: report.videos.length,
+        obsidianPath: sync.notePath || "",
+        feishuDocUrl: doc.url || "",
+        feishuIndexSynced: Boolean(index.synced),
+        backgroundSyncComplete: true
+      }
+    });
+
+    logEvent("info", "Feishu YouTube background sync finished", {
+      chatId,
+      topic: report.topic,
+      obsidianSynced: Boolean(sync.synced),
+      obsidianReason: sync.synced ? "" : sync.reason || "",
+      feishuIndexSynced: Boolean(index.synced),
+      feishuIndexReason: index.synced ? "" : index.reason || ""
+    });
+    this.finishTiming(timing, {
+      ok: true,
+      topic: report.topic,
+      videos: report.videos.length,
+      feishuDocCreated: Boolean(doc.created),
+      obsidianSynced: Boolean(sync.synced),
+      feishuIndexSynced: Boolean(index.synced)
+    });
+
+    if (!sync.synced || !index.synced) {
+      const parts = [];
+      if (!sync.synced) parts.push(`Obsidian：${truncate(sync.reason || "未同步", 120)}`);
+      if (!index.synced) parts.push(`知识库目录：${truncate(index.reason || "未归档", 120)}`);
+      await this.replyText(messageId, `后台同步没完全成功：${parts.join("；")}`);
+    } else {
+      await this.replyText(messageId, "同步完成：飞书知识库目录和 Obsidian 已同步。");
+    }
+
+    return { sync, index };
   }
 
   async buildYoutubeResearchReport(request = {}, options = {}) {

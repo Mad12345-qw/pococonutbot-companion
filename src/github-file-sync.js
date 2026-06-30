@@ -23,10 +23,11 @@ function encodePath(path = "") {
 }
 
 export class GitHubFileSync {
-  constructor({ token = "", repo = "", branch = "main" } = {}) {
+  constructor({ token = "", repo = "", branch = "main", timeoutMs = 30000 } = {}) {
     this.token = token;
     this.repo = normalizeRepo(repo);
     this.branch = branch || "main";
+    this.timeoutMs = Number(timeoutMs) || 30000;
   }
 
   get enabled() {
@@ -35,16 +36,25 @@ export class GitHubFileSync {
 
   async request(path, options = {}) {
     if (!this.enabled) throw new Error("GitHub file sync is not configured.");
-    const response = await fetch(`https://api.github.com${path}`, {
-      ...options,
-      headers: {
-        Authorization: `Bearer ${this.token}`,
-        Accept: "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-        "Content-Type": "application/json",
-        ...(options.headers || {})
+    let response;
+    try {
+      response = await fetch(`https://api.github.com${path}`, {
+        ...options,
+        signal: options.signal || AbortSignal.timeout(this.timeoutMs),
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+          "Content-Type": "application/json",
+          ...(options.headers || {})
+        }
+      });
+    } catch (error) {
+      if (error?.name === "AbortError" || error?.name === "TimeoutError") {
+        throw new Error(`GitHub API timed out after ${this.timeoutMs}ms: ${path}`);
       }
-    });
+      throw error;
+    }
 
     const text = await response.text();
     if (!response.ok) {

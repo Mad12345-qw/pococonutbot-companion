@@ -242,6 +242,7 @@ export const config = {
   obsidianGithubToken: process.env.OBSIDIAN_GITHUB_TOKEN || process.env.GITHUB_BACKUP_TOKEN || "",
   obsidianGithubRepo: process.env.OBSIDIAN_GITHUB_REPO || "Mad12345-qw/obsidian-knowledge-sync",
   obsidianGithubBranch: process.env.OBSIDIAN_GITHUB_BRANCH || "main",
+  obsidianGithubTimeoutMs: asNumber(process.env.OBSIDIAN_GITHUB_TIMEOUT_MS, 30000),
   obsidianYoutubeFolder: process.env.OBSIDIAN_YOUTUBE_FOLDER || "youtube",
   obsidianTopicFolder: process.env.OBSIDIAN_TOPIC_FOLDER || "topics",
   feishuYoutubeParentWikiToken: process.env.FEISHU_YOUTUBE_PARENT_WIKI_TOKEN || "",

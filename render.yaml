@@ -175,6 +175,8 @@ services:
         value: Mad12345-qw/obsidian-knowledge-sync
       - key: OBSIDIAN_GITHUB_BRANCH
         value: main
+      - key: OBSIDIAN_GITHUB_TIMEOUT_MS
+        value: "30000"
       - key: OBSIDIAN_YOUTUBE_FOLDER
         value: youtube
       - key: OBSIDIAN_TOPIC_FOLDER
