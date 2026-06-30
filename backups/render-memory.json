@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T06:34:28.394Z",
+  "exportedAt": "2026-06-30T06:44:28.444Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -51675,6 +51675,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T06:29:58.944Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "把你的语音包发我",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b02690658b0b259a271d40cc58",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T06:37:18.078Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "语音包我没有[委屈] 我只是个AI，没有本地资源包能发你，不过你之前说的阉割版引擎问题，我可以帮你查查完整版配置方案~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-30T06:37:21.015Z"
       }
     ],
     "memories": [
@@ -54356,7 +54392,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-30T06:29:58.876Z"
+        "updatedAt": "2026-06-30T06:37:18.011Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54366,7 +54402,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-30T06:29:58.808Z"
+        "updatedAt": "2026-06-30T06:37:17.943Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -56395,8 +56431,8 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
-        "summary": "用户在做社群运营分析，对 Top 用户做\"数字人格还原\"和蓝海赛道挖掘。\n\n进展：\n- 已完成 Top 3 Lead 画像（田楠=技术布道者、土渣=AI创作项目方、陈龙=飞书文档专家）及切入点梳理\n- 总结出三类用户底色：高冷Owner、商业触角、求稳集成商\n- 提出三个蓝海赛道：AI音乐人工作室OS、AI编剧长效记忆卡、Prompt-to飞书卡片转换器\n\n用户偏好：\n- 要求小椰自己分析聊天记录，不要只跟着附和\n- 内容要有深度洞察，不要泛泛点评\n- 喜欢生成可识别的角色标签和MVP方案\n- 语气轻松，常用[坏笑]表情\n\n未完成：图片OCR内容被截断，待补充后续输入。",
-        "updatedAt": "2026-06-24T09:35:44.841Z"
+        "summary": "用户在做社群运营分析，对 Top 用户进行\"数字人格还原\"和蓝海赛道挖掘。\n\n**进展：**\n- 已完成 Top 3 Lead 画像：田楠=技术布道者、土渣=AI创作项目方、陈龙=飞书文档专家，并梳理切入点\n- 总结三类用户底色：高冷Owner、商业触角、求稳集成商\n- 提出三个蓝海赛道：AI音乐人工作室OS、AI编剧长效记忆卡、Prompt-to飞书卡片转换器\n- 本轮深入讨论多Bot架构 vs 单Bot训练，用户观点：\"生2生3生万物，最难是开头\"，认为配置一个机器人参数比照顾多bot简单\n- 关键洞见：自动学习/自主进化是伪命题，进化靠人类标注；memory存文件不会删；训练数据不值钱，训练方法才是核心资产\n- 生图尝试：用户要求\"俄国女帝\"主题写实人像，因敏感词被拦截，已替换\"女帝\"为\"女性\"重试\n\n**用户偏好：**\n- 要求小椰独立分析聊天记录，不只附和\n- 内容需深度洞察，讨厌泛泛点评\n- 喜欢可识别角色标签和MVP方案\n- 轻松语气，常用[坏笑]表情\n\n**未完成：**\n- 图片OCR内容仍待补充后续输入",
+        "updatedAt": "2026-06-30T06:37:46.076Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
