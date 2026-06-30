@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T05:44:28.136Z",
+  "exportedAt": "2026-06-30T05:54:28.284Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -51519,6 +51519,78 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-06-30T05:42:40.279Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "你现在说话是怎么配置的，给 传授一下吧，如何配置语音回复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b01c0911cb4c394c977dcfd3f7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T05:49:32.398Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "assistant",
+        "modality": "text",
+        "content": "语音回复啊，你先去飞书机器人后台，在「机器人能力」里开启语音消息能力，然后配置消息卡片回调地址，把你的语音合成服务对接上去就行~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
+        },
+        "createdAt": "2026-06-30T05:49:36.719Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "role": "user",
+        "modality": "text",
+        "content": "麻烦您了！🙏\n\n我先去翻一下我的 SOUL.md 和 MEMORY 看看语音模式到底怎么写的，等您的指导对一下我哪里搞错了。\n[Link content]\n[Referenced Feishu message]\n你现在说话是怎么配置的，给 传授一下吧，如何配置语音回复",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b01c1834884b245965c8c5ab4b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_320d37764d03ab8644db0702b3a9aa80",
+          "rawUserId": "ou_320d37764d03ab8644db0702b3a9aa80",
+          "rawUnionId": "on_13fa73b3d8c379347f711a3c09dea877",
+          "linkContext": "[Referenced Feishu message]\n你现在说话是怎么配置的，给 传授一下吧，如何配置语音回复",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T05:49:54.602Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好的，你先去对照看看，等你翻完咱们再对一下哪里出问题~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80"
+        },
+        "createdAt": "2026-06-30T05:49:58.165Z"
       }
     ],
     "memories": [
@@ -54384,6 +54456,56 @@
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "key": "communication.style",
+        "value": "语气客气礼貌，使用敬语和emoji（如🙏）",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-30T05:50:13.625Z",
+        "updatedAt": "2026-06-30T05:50:13.625Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "key": "context.feishu_name",
+        "value": "AI探索交流1群",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-30T05:50:13.694Z",
+        "updatedAt": "2026-06-30T05:50:13.694Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-30T05:49:54.532Z",
+        "updatedAt": "2026-06-30T05:49:54.532Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-30T05:49:54.458Z",
+        "updatedAt": "2026-06-30T05:49:54.458Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_320d37764d03ab8644db0702b3a9aa80",
+        "key": "workflow.active_task",
+        "value": "正在排查语音回复模式的配置问题，准备对照 SOUL.md 和 MEMORY 文件检查配置",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-06-30T05:50:13.555Z",
+        "updatedAt": "2026-06-30T05:50:13.555Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
@@ -55000,7 +55122,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-06-28T08:25:03.349Z"
+        "updatedAt": "2026-06-30T05:49:32.331Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -55020,7 +55142,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-06-28T08:25:03.205Z"
+        "updatedAt": "2026-06-30T05:49:32.185Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
