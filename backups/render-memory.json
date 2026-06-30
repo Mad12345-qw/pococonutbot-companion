@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T16:04:31.742Z",
-  "reason": "interval",
+  "exportedAt": "2026-06-30T16:05:07.995Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -52042,6 +52042,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T16:03:57.625Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "但是群推送机器人到底不是群资产，是各位治安官的个人资产，直接改他们的配置不太好",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0adfff9ca8b1f64f598cb892d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:04:40.046Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯，这话说到点子上了\n\n群推机器人的配置权本来就在治安官自己手里，我们帮忙加知识库索引是好事，但直接动人家的配置确实容易让人不舒服。\n\n下次群里有人问 Agent 工程化相关的问题，咱们就自然地把这个知识库甩出来当推荐就好，不用动配置~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-06-30T16:04:46.310Z"
       }
     ],
     "memories": [
@@ -54883,7 +54919,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-30T16:03:57.556Z"
+        "updatedAt": "2026-06-30T16:04:39.978Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54893,7 +54929,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-30T16:03:57.487Z"
+        "updatedAt": "2026-06-30T16:04:39.910Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
