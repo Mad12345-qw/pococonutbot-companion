@@ -1306,7 +1306,7 @@ export class FeishuBot {
       return;
     }
 
-    await this.replyText(messageId, "\u6536\u5230\uff0c\u6211\u5f00\u59cb\u63d0\u53d6 YouTube \u5b57\u5e55\u5e76\u6574\u7406\u4e2d\u6587\u6280\u672f\u7b14\u8bb0\u3002\u8fd9\u7c7b\u957f\u6587\u4ef6\u9ed8\u8ba4\u53ea\u53d1\u6587\u5b57\uff0c\u4e0d\u8d70\u8bed\u97f3\u3002");
+    await this.replyText(messageId, "\u597d\u7684\uff0c\u6211\u6574\u7406\u597d\u7a0d\u540e\u53d1\u4f60\u54e6");
 
     try {
       logEvent("info", "Feishu YouTube research started", {
