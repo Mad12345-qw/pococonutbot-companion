@@ -482,8 +482,30 @@ function cardActionButtons(results = [], limit = 3) {
 }
 
 function extractYouTubeUrl(text = "") {
-  const match = String(text || "").match(/https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/[^\s<>"'）)]+/i);
-  return match ? match[0] : "";
+  const urls = String(text || "").match(/https?:\/\/[^\s<>"'）)]+/gi) || [];
+  return urls.find((url) => extractYouTubeVideoIdFromUrl(url)) || "";
+}
+
+function extractYouTubeVideoIdFromUrl(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  try {
+    const url = new URL(raw);
+    const host = url.hostname.replace(/^www\./i, "").toLowerCase();
+    if (host === "youtu.be") {
+      const id = url.pathname.split("/").filter(Boolean)[0] || "";
+      return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : "";
+    }
+    if (host === "youtube.com" || host.endsWith(".youtube.com")) {
+      const directId = url.searchParams.get("v") || "";
+      if (/^[a-zA-Z0-9_-]{11}$/.test(directId)) return directId;
+      const pathMatch = url.pathname.match(/^\/(?:shorts|live|embed|v)\/([a-zA-Z0-9_-]{11})(?:\/|$)/i);
+      if (pathMatch) return pathMatch[1];
+    }
+  } catch {
+    return "";
+  }
+  return "";
 }
 
 function safeMarkdownValue(value = "") {
@@ -1329,14 +1351,16 @@ export class FeishuBot {
     const raw = String(text || "").trim();
     if (!raw) return { requested: false };
 
-    const command = raw.match(/^\/?(?:youtube|yt)\b\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
+    const command = raw.match(/^\/?(?:youtube|yt|\u6cb9\u7ba1)\b\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
     const url = extractYouTubeUrl(raw);
-    const requested = Boolean(command || (/youtube/i.test(raw) && (url || /(?:\u641c|\u627e|\u603b\u7ed3|\u5b57\u5e55|transcript|summary)/i.test(raw))));
+    const requested = Boolean(url || command || (/(?:youtube|yt|\u6cb9\u7ba1)/i.test(raw) && /(?:\u641c|\u627e|\u603b\u7ed3|\u5b57\u5e55|transcript|summary)/i.test(raw)));
     if (!requested) return { requested: false };
 
     const body = String(command?.[1] || raw)
       .replace(url, "")
       .replace(/\byoutube\b/ig, "")
+      .replace(/\byt\b/ig, "")
+      .replace(/\u6cb9\u7ba1/g, "")
       .trim();
     const topicQuery = raw.match(/\u5173\u4e8e\s*([a-zA-Z0-9\u4e00-\u9fff][a-zA-Z0-9\u4e00-\u9fff\s-]{1,60}?)(?:\u7684)?\u89c6\u9891/i)?.[1]?.trim() || "";
     const query = (topicQuery || body)
@@ -3191,7 +3215,7 @@ export class FeishuBot {
   resolveReplyDeliveryPreference(text = "", { linkContext = "" } = {}) {
     const explicit = getReplyDeliveryPreference(text);
     if (explicit) return explicit;
-    if (linkContext && looksLikeLongFormReadingRequest(text)) return "text";
+    if (linkContext) return "text";
     return "";
   }
 

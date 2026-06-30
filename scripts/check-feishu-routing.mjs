@@ -133,6 +133,41 @@ routeCases.push({
   text: "youtube https://youtu.be/aFqjoCbZ4ik summarize technical details",
   route: "youtube_research"
 });
+routeCases.push({
+  name: "bare youtu.be video link uses transcript research",
+  text: "https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube watch link uses transcript research",
+  text: "https://www.youtube.com/watch?v=y_ecCDqTSJs",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube shorts link uses transcript research",
+  text: "https://youtube.com/shorts/y_ecCDqTSJs?feature=share",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube live link uses transcript research",
+  text: "https://www.youtube.com/live/y_ecCDqTSJs?si=test",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube embed link uses transcript research",
+  text: "https://www.youtube.com/embed/y_ecCDqTSJs",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "youtube channel link does not trigger transcript research",
+  text: "https://www.youtube.com/@SpaceX",
+  route: "ai_reply"
+});
+routeCases.push({
+  name: "ordinary non-youtube link does not trigger transcript research",
+  text: "https://example.com/article",
+  route: "ai_reply"
+});
 
 for (const item of routeCases) {
   assertEqual(item.name, classify(item.text, item.options), item.route);
@@ -158,13 +193,19 @@ assertEqual(
   String(bot.extractYoutubeResearchRequest("youtube https://youtu.be/aFqjoCbZ4ik 总结技术细节").maxVideos),
   "1"
 );
+assertEqual(
+  "bare youtu.be direct url stays one video",
+  String(bot.extractYoutubeResearchRequest("https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz").maxVideos),
+  "1"
+);
 
 const deliveryCases = [
   ["text preference", "这段用文字回复就行", "text"],
   ["tts saving preference", "不用走tts，省点token", "text"],
   ["voice preference", "这段用语音回复", "voice"],
   ["default delivery", "正常聊两句", ""],
-  ["link summary defaults to text", "看看这个，总结一下", "text", "[Referenced Feishu message]\n核心框架：角色、任务、背景、要求、输出格式。"]
+  ["link summary defaults to text", "看看这个，总结一下", "text", "[Referenced Feishu message]\n核心框架：角色、任务、背景、要求、输出格式。"],
+  ["bare link context defaults to text", "https://example.com/article", "text", "[Referenced URL]\narticle content"]
 ];
 
 for (const [name, text, expected, linkContext = ""] of deliveryCases) {
