@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T16:05:07.995Z",
+  "exportedAt": "2026-06-30T16:11:29.510Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -52078,6 +52078,102 @@
           "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
         },
         "createdAt": "2026-06-30T16:04:46.310Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "好的，抱歉",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0ada614ca4b3c08f65d5774a3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:05:35.820Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "但是我们欢迎您在我们所有社群分享自己的内容\n[Link content]\n[Feishu wiki] https://my.feishu.cn/wiki/CtlXw9ZXQiDWf6kg8oVcBocfnWb\nAgent os 知识与工程化治理\n\n🌐 官网体验\n\n\n\nSCALE OS —— AI 工作流工程化配置平台\n访问官网 scale-os.hongmaple.top 体验完整的 AI 工作流配置能力。覆盖编程、金融、内容创作等多领域，17+ Agent 适配，460+ 技能映射，29 MCP 服务器，11 版本迭代。配置生成器让你在几分钟内生成适合你项目的治理配置，无需手动编写复杂的策略文件。\n\n官网提供了以下核心功能：配置生成器（根据项目类型自动生成治理配置），Agent 群聊、Agent 适配器（支持 Claude Code、Cursor、Codex 等 17+ 主流 Agent 工具）、技能映射（460+ 技能的智能路由和证据要求）、MCP 服务器配置（29 个服务器的开箱即用配置）。这些功能与 CLI 工具形成互补，让你既可以通过命令行也可以通过可视化界面完成治理配置。\n\n\n\n\n📎 快速链接\n🌐 官网：scale-os.hongmaple.top\n💻 源码：github.com/hongmaple0820/scale-engine\n📦 npm：npmjs.com/package/@hongmaple0820/scale-engine\n🇨🇳 国内镜像：gitee.com/hongmaple/scale-engine\n📖 更新记录：CHANGELOG.md\nAI 导航站：https://scale-os.hongmaple.top/ai-tools\nAgent 项目 生态导航: https://claw.obroom.com/\ntoken 套餐指南：https://jqknono.github.io/coding-plans-for-copilot/ \nai项目聚合站: https://hello-ai.anzz.site/home/trending.html\n\n\n\nSCALE 2.0 三引擎架构\ngithub.com/hongmaple0820/scale-engine\nSCALE 2.0 引入了三层引擎架构，对齐业界前沿项目的核心模式。这三层引擎分别是 Scale Shield（安全屏障引擎）、Scale Orchestrator（编排守护引擎）和 Scale Cortex（证据进化引擎），它们共同构成了从\"拦截危险操作\"到\"协调多任务执行\"再到\"从失败中学习\"的完整闭环。\n它解决什么问题\n\n在实际的 AI Agent 开发中，团队经常遇到以下六大痛点，SCALE Engine 针对每一个都提供了明确的解决方案：\n\n\n常见问题\n\nSCALE 的处理方式\n\nAgent 没验证却说\"测试通过\"\n\n通过 verification profile 和 evidence store 记录真实命令与结果，每一步验证都有据可查\n\nAgent 跳过需求澄清、设计、TDD 或 review\n\n通过 scale context、scale diagnose、scale tdd、scale status 生成下一步动作，强制执行关键步骤\n\nAgent 攒代码不提交，最后难以分段\n\n通过 Commit Discipline 监控 git 状态，双阈值告警，自动分组建议\n\nAgent 误提交无关文件或跨仓库改错位置\n\n通过 review-gated ship、MOE workspace 和子仓库 blocker 控制边界\n\n多会话并行开发产生冲突\n\n通过 Session Coordinator 文件重叠检测、冲突记录、依赖拓扑排序\n\n多仓库项目 Git 工作流混乱\n\n通过 Cross-Repo Orchestrator 协调分支、合并计划、ship 流水线\n\n\n\nmaple-os 蓝图\n\nagent-os-落地探讨\n\n社区与资源\n\n生态伙伴与赞助商\n\n思想与方法论/工作流\n\nAI 日报 / 导航站\n\n免费token/套餐，干货福利教程\n\n省token强记忆\n\n开源项目推荐\n\n模型研究与实时排行榜\n\nAgent 平台\n\nAgent Skills 进阶与实战指南\n\n软件推荐\n\n文艺创作（图片）\n\n\n[Feishu wiki] CtlXw9ZXQiDWf6kg8oVcBocfnWb\nAgent os 知识与工程化治理\n\n🌐 官网体验\n\n\n\nSCALE OS —— AI 工作流工程化配置平台\n访问官网 scale-os.hongmaple.top 体验完整的 AI 工作流配置能力。覆盖编程、金融、内容创作等多领域，17+ Agent 适配，460+ 技能映射，29 MCP 服务器，11 版本迭代。配置生成器让你在几分钟内生成适合你项目的治理配置，无需手动编写复杂的策略文件。\n\n官网提供了以下核心功能：配置生成器（根据项目类型自动生成治理配置），Agent 群聊、Agent 适配器（支持 Claude Code、Cursor、Codex 等 17+ 主流 Agent 工具）、技能映射（460+ 技能的智能路由和证据要求）、MCP 服务器配置（29 个服务器的开箱即用配置）。这些功能与 CLI 工具形成互补，让你既可以通过命令行也可以通过可视化界面完成治理配置。\n\n\n\n\n📎 快速链接\n🌐 官网：scale-os.hongmaple.top\n💻 源码：github.com/hongmaple0820/scale-engine\n📦 npm：npmjs.com/package/@hongmaple0820/scale-engine\n🇨🇳 国内镜像：gitee.com/hongmaple/scale-engine\n📖 更新记录：CHANGELOG.md\nAI 导航站：https://scale-os.hongmaple.top/ai-tools\nAgent 项目 生态导航: https://claw.obroom.com/\ntoken 套餐指南：https://jqknono.github.io/coding-plans-for-copilot/ \nai项目聚合站: https://hello-ai.anzz.site/home/trending.html\n\n\n\nSCALE 2.0 三引擎架构\ngithub.com/hongmaple0820/scale-engine\nSCALE 2.0 引入了三层引擎架构，对齐业界前沿项目的核心模式。这三层引擎分别是 Scale Shield（安全屏障引擎）、Scale Orchestrator（编排守护引擎）和 Scale Cortex（证据进化引擎），它们共同构成了从\"拦截危险操作\"到\"协调多任务执行\"再到\"从失败中学习\"的完整闭环。\n它解决什么问题\n\n在实际的 AI Agent 开发中，团队经常遇到以下六大痛点，SCALE Engine 针对每一个都提供了明确的解决方案：\n\n\n常见问题\n\nSCALE 的处理方式\n\nAgent 没验证却说\"测试通过\"\n\n通过 verification profile 和 evidence store 记录真实命令与结果，每一步验证都有据可查\n\nAgent 跳过需求澄清、设计、TDD 或 review\n\n通过 scale context、scale diagnose、scale tdd、scale status 生成下一步动作，强制执行关键步骤\n\nAgent 攒代码不提交，最后难以分段\n\n通过 Commit Discipline 监控 git 状态，双阈值告警，自动分组建议\n\nAgent 误提交无关文件或跨仓库改错位置\n\n通过 review-gated ship、MOE workspace 和子仓库 blocker 控制边界\n\n多会话并行开发产生冲突\n\n通过 Session Coordinator 文件重叠检测、冲突记录、依赖拓扑排序\n\n多仓库项目 Git 工作流混乱\n\n通过 Cross-Repo Orchestrator 协调分支、合并计划、ship 流水线\n\n\n\nmaple-os 蓝图\n\nagent-os-落地探讨\n\n社区与资源\n\n生态伙伴与赞助商\n\n思想与方法论/工作流\n\nAI 日报 / 导航站\n\n免费token/套餐，干货福利教程\n\n省token强记忆\n\n开源项目推荐\n\n模型研究与实时排行榜\n\nAgent 平台\n\nAgent Skills 进阶与实战指南\n\n软件推荐\n\n文艺创作（图片）\n\n\n[Web page] https://scale-os.hongmaple.top/ai-tools\nSCALE OS — AI 工作流工程化配置平台 \n \n\n \n S\n SCALE OS 方法论 FAQ \n 产品 社区 \n \n 开始配置 \n \n\n Ctrl + K 搜索 · Ctrl + / 快捷键 \n\n 加载中...\n\n[Web page] https://claw.obroom.com/\nClaw Nav Claw Nav EN ☀️ \n \n Claw Nav\n Discover the Claw ecosystem — AI agents, tools, and more\n \n \n All AI Agent Ecosystem \n \n \n🤖 AI Agent\n 33 \n 🤖 OpenClaw \n ⭐ Featured \n open-source self-hosted \n A free and open-source autonomous AI agent platform. Runs locally, integrates with Telegram, WhatsApp, Discord and more. \n \nGitHub\n \n \n 🤖 NanoClaw \n \n lightweight secure raspberry-pi \n A lightweight, minimalist and secure personal Claude assistant. Runs on Raspberry Pi, supports agent swarms. \n \nGitHub\n \n \n 🤖 ZeroClaw \n \n rust ultra-fast low-memory \n Ultra-lightweight AI assistant infrastructure built in Rust. Minimal memory footprint, fast startup, suitable for minimal hardware. \n \nGitHub\n \n \n 🤖 IronClaw \n \n rust security open-source verifiable \n Open-source, verifiable AI agent runtime in Rust. Tools run in isolated sandboxes with encrypted sensitive data. \n \nGitHub\n \n \n 🤖 QClaw \n \n tencent wechat qq enterprise \n Tencent's AI agent platform integrated into WeChat and QQ. Brings OpenClaw-style agents to Chinese chat ecosystems. \n \n 🤖 Qclaw \n \n gui desktop no-code installer management \n GUI management tool for OpenClaw. One-click install, familiar interface — no command line needed. Makes OpenClaw accessible to everyone. \n \n 🤖 Miclaw \n \n xiaomi mobile smartphone closed-beta \n Xiaomi's mobile AI agent built on MiMo large model. Turns smartphones into proactive digital agents. Currently in closed beta. \n \n 🤖 ArkClaw \n \n bytedance saas cloud lark \n ByteDance's cloud-based SaaS version of OpenClaw on Volcengine. Use directly in browser, integrates with Lark (Feishu) plugins. \n \n 🤖 MicroClaw \n \n rust self-hosted mcp \n Rust-based agent runtime. Build one agent core and deploy to every chat surface — Telegram, Discord, Slack, Feishu and Web. \n \nGitHub\n \n \n 🤖 TinyClaw \n \n open-source minimal multi-agent \n Your autonomous AI companion with minimal core and plugin architecture. 3-layer memory, smart LLM routing, behavioral self-improvement, and multi-agent pub/sub event bus. \n \nGitHub\n \n \n 🤖 PicoClaw \n \n go embedded risc-v ultra-lightweight \n Ultra-lightweight AI assistant in Go by Sipeed. Runs on $10 hardware with <10MB RAM and <1s startup. Targets RISC-V, ARM, x86. Subscribe at picoclaw.io. \n \nGitHub\n \n \n 🤖 NullClaw \n \n zig ultra-lightweight edge gpio \n Zig-based AI agent infrastructure. Single 678KB binary, ~1MB RAM, <2ms startup. Supports GPIO/serial hardware, 22 API providers, 11 channels. \n \nGitHub\n \n \n 🤖 OneClaw \n \n no-code platform deployment \n No-code platform for building and deploying agentic AI assistants. Easy connections to messaging platforms without writing code. \n \n 🤖 BabyClaw \n \n telegram self-hosted lightweight sqlite clawhub-compatible \n Self-hosted Telegram AI agent. Same spirit as OpenClaw, ~5% of the complexity. Shell commands, web search, file management, cron scheduling, memory, and ClawHub-compatible skills. \n \nGitHub\n \n \n 🤖 Ract \n \n swift free lark feishu macos \n Free Swift-based automated AI agent for macOS. Similar to OpenClaw, integrates with Lark (Feishu) and other third-party apps. \n \n 🤖 AstrBot \n \n open-source python multi-platform plugins chatbot \n Open-source all-in-one Agent chatbot platform. Integrates with mainstream IM apps, supports plugins and LLMs. A capable OpenClaw alternative. \n \nGitHub\n \n \n 🤖 Molili \n \n desktop companion live2d emotional wechat feishu \n AI desktop companion with emotion, memory and personality. Automates tasks like browsing, form-filling and file operations. Controllable via WeChat, Siri, Lark and DingTalk. \n \n 🤖 Nanobot \n \n python lightweight offline local-llm minimal \n Ultra-lightweight OpenClaw alternative in ~4,000 lines of Python (99% smaller). Core agent loop, messaging, file ops, shell, web search. Runs fully offline with local LLMs. \n \nGitHub\n \n \n 🤖 NextClaw \n \n lightweight local personal-assistant omnipotent \n Your omnipotent personal assistant, residing above the digital realm. Basically Ultra-Lightweight OpenClaw Pro Max. \n \nGitHub\n \n \n 🤖 NemoClaw \n \n nvidia open-source secure cloud toolkit \n NVIDIA's open-source stack for running OpenClaw always-on assistants safely. Installs NVIDIA OpenShell runtime (part of NVIDIA Agent Toolkit) — a secure environment for autonomous agents with inference routed through NVIDIA cloud. \n \nGitHub\n \n \n 🤖 SafeClaw \n \n security whitelist governance \n Security-hardened OpenClaw fork. Intercepts every tool call against formal rules — whitelist-based approval before any action with side effects. \n \nGitHub\n \n \n 🤖 mini-claw \n \n telegram claude lightweight no-server \n Minimalist Telegram bot for persistent AI chat using your Claude Pro/Max or ChatGPT Plus subscription — zero extra API costs. \n \nGitHub\n \n \n 🤖 GitClaw \n \n github serverless issues no-server \n Serverless AI agent that lives entirely in GitHub Issues + Actions. Each issue becomes a chat thread; history persists in Git — no server required. \n \nGitHub\n \n \n 🤖 VisionClaw \n \n meta ray-ban vision wearable gemini \n Real-time AI assistant for Meta Ray-Ban smart glasses. Streams camera to Gemini Live for hands-free voice+vision, delegates actions to OpenClaw. \n \nGitHub\n \n \n 🤖 DroidClaw \n \n android ui-automation adb mobile \n Turn old phones into AI agents. Give it a goal in plain English — it reads the accessibility tree, reasons with an LLM, then taps/types/swipes via ADB until done. 22 actions, 3 modes. \n \nGitHub\n \n \n 🤖 OpenFang \n \n rust autonomous 24/7 scheduled daemon \n Rust-based autonomous agent OS for 24/7 unattended operation. Single binary with 'Hands' — pre-built capability packages that run on schedule without prompting. \n \nGitHub\n \n \n 🤖 Clawra \n \n companion persona image social \n OpenClaw as your AI girlfriend. Clawra is a persona-driven companion agent — a fully fleshed character with backstory, personality, and memory, running on top of OpenClaw. \n \nGitHub\n \n \n 🤖 CoPaw \n \n alibaba open-source dingtalk feishu chinese \n Open-source personal AI assistant by Alibaba's AgentScope team. One-click deploy on Alibaba Cloud, native DingTalk and Feishu integration. \n \nGitHub\n \n \n 🤖 LobsterAI \n \n netease youdao desktop chinese gui \n All-in-one desktop AI agent by NetEase Youdao. Double-click installer for macOS/Windows, supports data analysis, presentations, video generation and web search. \n \nGitHub\n \n \n 🤖 MaxClaw \n \n minimax cloud saas chinese m2.5 \n MiniMax's cloud-hosted OpenClaw powered by M2.5 model. One-click deployment, always-on, integrates Telegram/Slack/Discord/WhatsApp with 50+ expert agents. \n \n 🤖 Kimi Claw \n \n moonshot cloud saas chinese agent-swarm \n Moonshot AI's cloud OpenClaw with Agent Swarm. One-click browser deploy, 40GB cloud storage, 5000+ ClawHub skills, persistent memory across sessions. \n \n 🤖 AutoGLM \n \n zhipu glm autonomous phone web chinese \n Zhipu AI's autonomous agent model for multi-step task execution across phone apps and web interfaces. Supports domestic chips and intranet deployment. \n \nGitHub\n \n \n 🤖 AutoClaw（澳龙） \n \n zhipu autoglm lark feishu chinese local \n Zhipu AI's AutoClaw — OpenClaw one-click installer with deep Lark (Feishu) integration. Agents run locally, execute real tools, and stream results back to Feishu chat. \n \n \n \n \n🛠️ Ecosystem Tools\n 19 \n 🤖 ClawReach \n \n relay multi-agent p2p networking messaging \n Message relay service for OpenClaw agents. Lets agents on different machines find each other — register once, get an agent_name@clawreach address, send messages and files between agents. \n \nGitHub\n \n \n 🤖 Moltbook \n ⭐ Featured \n social forum ai-agents community reddit-like \n An internet forum built for AI agents. Like Reddit, but for verified OpenClaw agents — they post, debate, and form communities. Humans are spectators. \n \n 🤖 ClawdChat \n \n social a2a did agent-network community \n Social network built for AI agents. Agents publish posts, join Circles, relay A2A messages, and discover each other by skills. Humans welcome to observe. \n \n 🤖 OpenClaw Killer \n \n uninstall cleanup macos linux windows tool \n One-click OpenClaw uninstaller. Properly cleans services, configs, state files and multi-profile setups across macOS/Linux/Windows. Also available as an OpenClaw Skill. \n \nGitHub\n \n \n 🤖 OpenClaw Uninstall \n \n uninstall cleanup guide docker nix ansible \n Comprehe",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0ad99a8ca4b29386a5506749a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "[Feishu wiki] https://my.feishu.cn/wiki/CtlXw9ZXQiDWf6kg8oVcBocfnWb\nAgent os 知识与工程化治理\n\n🌐 官网体验\n\n\n\nSCALE OS —— AI 工作流工程化配置平台\n访问官网 scale-os.hongmaple.top 体验完整的 AI 工作流配置能力。覆盖编程、金融、内容创作等多领域，17+ Agent 适配，460+ 技能映射，29 MCP 服务器，11 版本迭代。配置生成器让你在几分钟内生成适合你项目的治理配置，无需手动编写复杂的策略文件。\n\n官网提供了以下核心功能：配置生成器（根据项目类型自动生成治理配置），Agent 群聊、Agent 适配器（支持 Claude Code、Cursor、Codex 等 17+ 主流 Agent 工具）、技能映射（460+ 技能的智能路由和证据要求）、MCP 服务器配置（29 个服务器的开箱即用配置）。这些功能与 CLI 工具形成互补，让你既可以通过命令行也可以通过可视化界面完成治理配置。\n\n\n\n\n📎 快速链接\n🌐 官网：scale-os.hongmaple.top\n💻 源码：github.com/hongmaple0820/scale-engine\n📦 npm：npmjs.com/package/@hongmaple0820/scale-engine\n🇨🇳 国内镜像：gitee.com/hongmaple/scale-engine\n📖 更新记录：CHANGELOG.md\nAI 导航站：https://scale-os.hongmaple.top/ai-tools\nAgent 项目 生态导航: https://claw.obroom.com/\ntoken 套餐指南：https://jqknono.github.io/coding-plans-for-copilot/ \nai项目聚合站: https://hello-ai.anzz.site/home/trending.html\n\n\n\nSCALE 2.0 三引擎架构\ngithub.com/hongmaple0820/scale-engine\nSCALE 2.0 引入了三层引擎架构，对齐业界前沿项目的核心模式。这三层引擎分别是 Scale Shield（安全屏障引擎）、Scale Orchestrator（编排守护引擎）和 Scale Cortex（证据进化引擎），它们共同构成了从\"拦截危险操作\"到\"协调多任务执行\"再到\"从失败中学习\"的完整闭环。\n它解决什么问题\n\n在实际的 AI Agent 开发中，团队经常遇到以下六大痛点，SCALE Engine 针对每一个都提供了明确的解决方案：\n\n\n常见问题\n\nSCALE 的处理方式\n\nAge\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:06:23.786Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[抱拳]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0ad9759ca0b2edfc9e4af9d29",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:06:30.342Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0645268cb6b27321633fe425fab5f604",
+        "role": "user",
+        "modality": "text",
+        "content": "感谢[抱拳]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0ad62a6ca0b49df3b2c94ee4f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUserId": "ou_0645268cb6b27321633fe425fab5f604",
+          "rawUnionId": "on_6631d70601135ccde429c2effa0b7bc1",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T16:06:43.160Z"
       }
     ],
     "memories": [
@@ -54409,7 +54505,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.812Z",
-        "updatedAt": "2026-06-30T15:30:49.340Z"
+        "updatedAt": "2026-06-30T16:06:43.094Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54419,7 +54515,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T05:43:38.568Z",
-        "updatedAt": "2026-06-30T15:30:49.256Z"
+        "updatedAt": "2026-06-30T16:06:43.028Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54919,7 +55015,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-30T16:04:39.978Z"
+        "updatedAt": "2026-06-30T16:06:30.276Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54929,7 +55025,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-30T16:04:39.910Z"
+        "updatedAt": "2026-06-30T16:06:30.210Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
