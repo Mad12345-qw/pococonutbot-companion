@@ -159,9 +159,19 @@ routeCases.push({
   route: "youtube_research"
 });
 routeCases.push({
-  name: "youtube channel link does not trigger transcript research",
+  name: "bare youtube channel link uses transcript research",
   text: "https://www.youtube.com/@SpaceX",
-  route: "ai_reply"
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube channel videos link uses transcript research",
+  text: "https://www.youtube.com/@SpaceX/videos",
+  route: "youtube_research"
+});
+routeCases.push({
+  name: "bare youtube playlist link uses transcript research",
+  text: "https://www.youtube.com/playlist?list=PL1234567890abcdef",
+  route: "youtube_research"
 });
 routeCases.push({
   name: "ordinary non-youtube link does not trigger transcript research",
@@ -197,6 +207,26 @@ assertEqual(
   "bare youtu.be direct url stays one video",
   String(bot.extractYoutubeResearchRequest("https://youtu.be/y_ecCDqTSJs?si=dsFllfrrfXWkkUWz").maxVideos),
   "1"
+);
+assertEqual(
+  "bare channel url defaults to one video",
+  String(bot.extractYoutubeResearchRequest("https://www.youtube.com/@SpaceX").maxVideos),
+  "1"
+);
+assertEqual(
+  "channel url honors explicit count",
+  String(bot.extractYoutubeResearchRequest("youtube https://www.youtube.com/@SpaceX 搜 3 条 Starship").maxVideos),
+  "3"
+);
+assertEqual(
+  "bare channel url is classified as channel",
+  bot.extractYoutubeResearchRequest("https://www.youtube.com/@SpaceX").sourceType,
+  "channel"
+);
+assertEqual(
+  "bare playlist url is classified as playlist",
+  bot.extractYoutubeResearchRequest("https://www.youtube.com/playlist?list=PL1234567890abcdef").sourceType,
+  "playlist"
 );
 
 const deliveryCases = [

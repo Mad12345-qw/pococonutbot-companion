@@ -483,29 +483,53 @@ function cardActionButtons(results = [], limit = 3) {
 
 function extractYouTubeUrl(text = "") {
   const urls = String(text || "").match(/https?:\/\/[^\s<>"'）)]+/gi) || [];
-  return urls.find((url) => extractYouTubeVideoIdFromUrl(url)) || "";
+  return urls.find((url) => extractYouTubeReference(url).kind) || "";
 }
 
-function extractYouTubeVideoIdFromUrl(value = "") {
+function extractYouTubeReference(value = "") {
   const raw = String(value || "").trim();
-  if (!raw) return "";
+  if (!raw) return { kind: "", url: "", value: "" };
   try {
     const url = new URL(raw);
     const host = url.hostname.replace(/^www\./i, "").toLowerCase();
     if (host === "youtu.be") {
       const id = url.pathname.split("/").filter(Boolean)[0] || "";
-      return /^[a-zA-Z0-9_-]{11}$/.test(id) ? id : "";
+      return /^[a-zA-Z0-9_-]{11}$/.test(id)
+        ? { kind: "video", url: raw, value: id }
+        : { kind: "", url: raw, value: "" };
     }
-    if (host === "youtube.com" || host.endsWith(".youtube.com")) {
-      const directId = url.searchParams.get("v") || "";
-      if (/^[a-zA-Z0-9_-]{11}$/.test(directId)) return directId;
-      const pathMatch = url.pathname.match(/^\/(?:shorts|live|embed|v)\/([a-zA-Z0-9_-]{11})(?:\/|$)/i);
-      if (pathMatch) return pathMatch[1];
+    if (host !== "youtube.com" && !host.endsWith(".youtube.com")) {
+      return { kind: "", url: raw, value: "" };
+    }
+    const directId = url.searchParams.get("v") || "";
+    if (/^[a-zA-Z0-9_-]{11}$/.test(directId)) {
+      return { kind: "video", url: raw, value: directId };
+    }
+    const pathMatch = url.pathname.match(/^\/(?:shorts|live|embed|v)\/([a-zA-Z0-9_-]{11})(?:\/|$)/i);
+    if (pathMatch) {
+      return { kind: "video", url: raw, value: pathMatch[1] };
+    }
+    const playlistId = url.searchParams.get("list") || "";
+    if (/^[a-zA-Z0-9_-]{10,}$/.test(playlistId) && /^\/(?:playlist)?\/?$/i.test(url.pathname)) {
+      return { kind: "playlist", url: raw, value: playlistId };
+    }
+    const parts = url.pathname.split("/").filter(Boolean);
+    const first = parts[0] || "";
+    if (/^@[A-Za-z0-9._-]{2,}$/.test(first)) {
+      return { kind: "channel", url: raw, value: first };
+    }
+    if (/^(?:channel|c|user)$/i.test(first) && parts[1]) {
+      return { kind: "channel", url: raw, value: `${first}/${parts[1]}` };
     }
   } catch {
-    return "";
+    return { kind: "", url: raw, value: "" };
   }
-  return "";
+  return { kind: "", url: raw, value: "" };
+}
+
+function extractYouTubeVideoIdFromUrl(value = "") {
+  const reference = extractYouTubeReference(value);
+  return reference.kind === "video" ? reference.value : "";
 }
 
 function safeMarkdownValue(value = "") {
@@ -1353,6 +1377,7 @@ export class FeishuBot {
 
     const command = raw.match(/^\/?(?:youtube|yt|\u6cb9\u7ba1)\b\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
     const url = extractYouTubeUrl(raw);
+    const reference = extractYouTubeReference(url);
     const requested = Boolean(url || command || (/(?:youtube|yt|\u6cb9\u7ba1)/i.test(raw) && /(?:\u641c|\u627e|\u603b\u7ed3|\u5b57\u5e55|transcript|summary)/i.test(raw)));
     if (!requested) return { requested: false };
 
@@ -1373,10 +1398,14 @@ export class FeishuBot {
 
     return {
       requested: true,
-      videoUrl: url,
+      sourceType: reference.kind || "search",
+      videoUrl: reference.kind === "video" ? url : "",
+      channelUrl: reference.kind === "channel" ? url : "",
+      playlistUrl: reference.kind === "playlist" ? url : "",
+      youtubeRef: reference.value || "",
       query: query || (url ? "" : body),
       topicHint: inferYoutubeTopic(raw, ""),
-      maxVideos: url ? 1 : Math.max(1, Math.min(
+      maxVideos: reference.kind === "video" ? 1 : Math.max(1, Math.min(
         Number(this.config.youtubeResearchMaxVideos || 5),
         extractRequestedYoutubeVideoCount(raw) || 1
       )),
@@ -1398,7 +1427,7 @@ export class FeishuBot {
       await this.replyText(messageId, "\u0059\u006f\u0075\u0054\u0075\u0062\u0065 \u5b57\u5e55\u63d0\u53d6\u8fd8\u6ca1\u914d\u7f6e\u597d\uff0c\u9700\u8981\u5728 Render \u91cc\u52a0 TRANSCRIPT_API_KEY\u3002");
       return;
     }
-    if (!request.videoUrl && !request.query) {
+    if (!request.videoUrl && !request.channelUrl && !request.playlistUrl && !request.query) {
       await this.replyText(messageId, "\u8981\u641c\u4ec0\u4e48 YouTube \u89c6\u9891\uff1f\u4f8b\u5982\uff1ayoutube SpaceX Starship \u6280\u672f\u7ec6\u8282\u3002");
       return;
     }
@@ -1410,7 +1439,8 @@ export class FeishuBot {
         chatId,
         userId,
         query: request.query || "",
-        hasUrl: Boolean(request.videoUrl),
+        sourceType: request.sourceType || "",
+        hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl),
         topicHint: request.topicHint || ""
       });
       const report = await this.buildYoutubeResearchReport(request);
@@ -1474,11 +1504,7 @@ export class FeishuBot {
       const transcript = await this.transcriptApi.getTranscript(request.videoUrl, { sendMetadata: true });
       videos.push(this.normalizeYoutubeTranscriptForReport(transcript, request.videoUrl));
     } else {
-      const search = await this.transcriptApi.search(request.query, { type: "video" });
-      const candidates = search.results
-        .filter((item) => item.videoId || item.url)
-        .sort((a, b) => Number(b.hasCaptions) - Number(a.hasCaptions))
-        .slice(0, Math.max(1, Number(request.maxVideos || 3)));
+      const candidates = await this.resolveYoutubeCandidateVideos(request);
       if (!candidates.length) {
         throw new Error("Transcript API did not return YouTube video results.");
       }
@@ -1508,6 +1534,29 @@ export class FeishuBot {
     return { topic, title, request, videos, failures, markdown };
   }
 
+  async resolveYoutubeCandidateVideos(request = {}) {
+    const limit = Math.max(1, Number(request.maxVideos || 1));
+    let results = [];
+    if (request.channelUrl) {
+      const channel = request.channelUrl;
+      const channelResult = request.query
+        ? await this.transcriptApi.channelSearch(channel, request.query)
+        : await this.transcriptApi.channelLatest(channel);
+      results = channelResult.results || [];
+    } else if (request.playlistUrl) {
+      const playlist = request.playlistUrl;
+      const playlistResult = await this.transcriptApi.playlistVideos(playlist);
+      results = playlistResult.results || [];
+    } else {
+      const search = await this.transcriptApi.search(request.query, { type: "video" });
+      results = search.results || [];
+    }
+    return results
+      .filter((item) => item.videoId || item.url)
+      .sort((a, b) => Number(b.hasCaptions) - Number(a.hasCaptions))
+      .slice(0, limit);
+  }
+
   resolveYoutubeReportTopic(request = {}, videos = []) {
     const queryTopic = String(request.query || "").trim();
     const hint = String(request.topicHint || "").trim();
@@ -1517,7 +1566,9 @@ export class FeishuBot {
       truncate(video.transcriptText, 12000)
     ].filter(Boolean).join("\n")).join("\n\n");
 
-    if (!request.videoUrl && queryTopic && queryTopic.length <= 80) return queryTopic;
+    if (!request.videoUrl && !request.channelUrl && !request.playlistUrl && queryTopic && queryTopic.length <= 80) return queryTopic;
+    if (request.channelUrl) return queryTopic || videos[0]?.channel || "YouTube Channel";
+    if (request.playlistUrl) return queryTopic || "YouTube Playlist";
     if (hint && contentMentionsTopic(content, hint)) return hint;
     const inferredFromContent = inferYoutubeTopic(content, "");
     if (inferredFromContent && contentMentionsTopic(content, inferredFromContent)) return inferredFromContent;

@@ -39,13 +39,13 @@ function normalizeVideoResult(item = {}, index = 0) {
     type: item.type || "video",
     videoId,
     title: cleanText(item.title, 220),
-    channelTitle: cleanText(item.channelTitle || item.channel_title || item.author_name, 120),
+    channelTitle: cleanText(item.channelTitle || item.channel_title || item.author_name || item.author, 120),
     channelHandle: cleanText(item.channelHandle || item.channel_handle, 80),
     lengthText: cleanText(item.lengthText || item.length_text, 60),
-    viewCountText: cleanText(item.viewCountText || item.view_count_text, 80),
-    publishedTimeText: cleanText(item.publishedTimeText || item.published_time_text, 80),
+    viewCountText: cleanText(item.viewCountText || item.view_count_text || item.viewCount, 80),
+    publishedTimeText: cleanText(item.publishedTimeText || item.published_time_text || item.published, 80),
     hasCaptions: Boolean(item.hasCaptions ?? item.has_captions),
-    url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : cleanText(item.url, 500),
+    url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : cleanText(item.url || item.link, 500),
     index: index + 1
   };
 }
@@ -130,6 +130,52 @@ export class TranscriptApiClient {
       ? data.results.map(normalizeVideoResult).filter((item) => item.videoId || item.url)
       : [];
     return {
+      results,
+      resultCount: Number(data.result_count || results.length),
+      hasMore: Boolean(data.has_more),
+      continuationToken: data.continuation_token || ""
+    };
+  }
+
+  async channelLatest(channel, options = {}) {
+    const data = await this.request("/api/v2/youtube/channel/latest", {
+      channel: String(channel || "").trim()
+    }, options);
+    const results = Array.isArray(data.results)
+      ? data.results.map(normalizeVideoResult).filter((item) => item.videoId || item.url)
+      : [];
+    return {
+      channel: data.channel || {},
+      results,
+      resultCount: Number(data.result_count || results.length)
+    };
+  }
+
+  async channelSearch(channel, query, options = {}) {
+    const data = await this.request("/api/v2/youtube/channel/search", {
+      channel: String(channel || "").trim(),
+      q: String(query || "").trim()
+    }, options);
+    const results = Array.isArray(data.results)
+      ? data.results.map(normalizeVideoResult).filter((item) => item.videoId || item.url)
+      : [];
+    return {
+      results,
+      resultCount: Number(data.result_count || results.length),
+      hasMore: Boolean(data.has_more),
+      continuationToken: data.continuation_token || ""
+    };
+  }
+
+  async playlistVideos(playlist, options = {}) {
+    const data = await this.request("/api/v2/youtube/playlist/videos", {
+      playlist: String(playlist || "").trim()
+    }, options);
+    const results = Array.isArray(data.results)
+      ? data.results.map(normalizeVideoResult).filter((item) => item.videoId || item.url)
+      : [];
+    return {
+      playlistInfo: data.playlist_info || {},
       results,
       resultCount: Number(data.result_count || results.length),
       hasMore: Boolean(data.has_more),
