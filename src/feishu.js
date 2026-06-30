@@ -559,6 +559,27 @@ function stripMarkdownFrontmatter(markdown = "") {
   return String(markdown || "").replace(/^---\n[\s\S]*?\n---\n+/, "").trim();
 }
 
+function markdownTableCell(value = "") {
+  return String(value ?? "")
+    .replace(/\r?\n/g, " ")
+    .replace(/\|/g, "\\|")
+    .trim() || "-";
+}
+
+function markdownTable(headers = [], rows = []) {
+  if (!headers.length || !rows.length) return "";
+  const headerLine = `| ${headers.map(markdownTableCell).join(" | ")} |`;
+  const dividerLine = `| ${headers.map(() => "---").join(" | ")} |`;
+  const rowLines = rows.map((row) => `| ${row.map(markdownTableCell).join(" | ")} |`);
+  return [headerLine, dividerLine, ...rowLines].join("\n");
+}
+
+function removeObsidianSyntax(markdown = "") {
+  return String(markdown || "")
+    .replace(/\[\[([^\]|\n]+)\|([^\]\n]+)\]\]/g, "$2")
+    .replace(/\[\[([^\]\n]+)\]\]/g, "$1");
+}
+
 function cardNote(results = []) {
   const sourceCount = results.filter((item) => item.url).length;
   return {
@@ -1584,14 +1605,16 @@ export class FeishuBot {
     try {
       const doc = await this.workspace.createDocument({
         title: report.title,
-        markdown: stripMarkdownFrontmatter(report.markdown)
+        markdown: this.buildFeishuYoutubeDocumentMarkdown(report)
       });
       return {
         created: true,
         url: doc.url || "",
         token: doc.token || "",
         title: doc.title || report.title,
-        writeError: doc.writeError || ""
+        writeError: doc.writeError || "",
+        writeMode: doc.writeMode || "",
+        blocks: doc.blocks || 0
       };
     } catch (error) {
       logEvent("warn", "Feishu YouTube document sync failed", {
@@ -1600,6 +1623,58 @@ export class FeishuBot {
       });
       return { created: false, url: "", token: "", reason: error.message };
     }
+  }
+
+  buildFeishuYoutubeDocumentMarkdown(report) {
+    const videos = report.videos || [];
+    const createdAt = new Date().toLocaleString("zh-CN", {
+      timeZone: "Asia/Shanghai",
+      hour12: false
+    });
+    const sourceRows = videos.slice(0, 8).map((video, index) => [
+      String(index + 1),
+      video.title || "YouTube video",
+      video.channel || "-",
+      video.lengthText || "-",
+      video.language || "-",
+      video.url || "-"
+    ]);
+    const documentInfoTable = markdownTable(
+      ["字段", "内容"],
+      [
+        ["主题", report.topic || "YouTube"],
+        ["视频数量", `${videos.length} 条`],
+        ["整理时间", createdAt],
+        ["输出语言", "中文"],
+        ["内容形态", "YouTube 字幕技术笔记"]
+      ]
+    );
+    const sourceTable = markdownTable(
+      ["#", "视频标题", "频道", "时长", "字幕", "链接"],
+      sourceRows
+    );
+    let body = removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown))
+      .split(/\r?\n/)
+      .filter((line) => !/^>\s*(主题聚合|来源类型)[：:]/.test(line.trim()))
+      .join("\n")
+      .trim();
+    body = body.replace(/^#\s+.+\n+/, "").trim();
+
+    return compactLines([
+      `# ${report.title}`,
+      "",
+      "> 这篇文档由小椰根据 YouTube 字幕整理，已按知识库阅读方式排版；聊天里只保留摘要卡片。",
+      "",
+      "## 文档信息",
+      documentInfoTable,
+      "",
+      "## 来源视频",
+      sourceTable,
+      "",
+      "---",
+      "",
+      body
+    ]);
   }
 
   async syncYoutubeResearchToFeishuIndex(report, sync = {}, doc = {}) {
@@ -1675,7 +1750,7 @@ export class FeishuBot {
     const videos = report.videos || [];
     const firstVideo = videos[0] || {};
     const docStatus = doc.created && doc.url
-      ? "已生成"
+      ? (doc.writeMode === "rich" ? "已生成，高级排版" : "已生成，基础排版兜底")
       : `生成失败：${cardText(doc.reason || doc.writeError || "原因未知", 80)}`;
     const obsidianStatus = sync.synced
       ? `已同步到 ${sync.notePath}`
@@ -1764,7 +1839,7 @@ export class FeishuBot {
                 tag: "div",
                 text: {
                   tag: "lark_md",
-                  content: cardMarkdown(`飞书文档\n**${doc.created ? "已就绪" : "待处理"}**`, 80)
+                  content: cardMarkdown(`飞书文档\n**${doc.writeMode === "rich" ? "高级排版" : (doc.created ? "已就绪" : "待处理")}**`, 90)
                 }
               }
             ]

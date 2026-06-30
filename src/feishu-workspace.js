@@ -50,6 +50,29 @@ function markdownToBlocks(markdown = "") {
     .slice(0, 300);
 }
 
+function cleanConvertedBlock(block = {}) {
+  if (!block || typeof block !== "object") return block;
+  const cleaned = JSON.parse(JSON.stringify(block));
+  if (cleaned.block_type === 31 && cleaned.table?.property?.merge_info) {
+    delete cleaned.table.property.merge_info;
+  }
+  return cleaned;
+}
+
+function normalizeConvertedDocument(data = {}) {
+  const blocks = data.blocks || data.descendants || data.document?.blocks || [];
+  const firstLevelBlockIds =
+    data.first_level_block_ids ||
+    data.firstLevelBlockIds ||
+    data.children_id ||
+    data.childrenId ||
+    [];
+  return {
+    blocks: Array.isArray(blocks) ? blocks.map(cleanConvertedBlock) : [],
+    firstLevelBlockIds: Array.isArray(firstLevelBlockIds) ? firstLevelBlockIds : []
+  };
+}
+
 function normalizeRows(rows = []) {
   return rows.map((row) => row.map((cell) => String(cell ?? "").slice(0, 40000)));
 }
@@ -225,36 +248,41 @@ export class FeishuWorkspaceClient {
     const documentId = document.document_id;
     if (!documentId) throw new Error(`Feishu document response missing document_id: ${truncate(JSON.stringify(data), 500)}`);
 
-    const blocks = markdownToBlocks(markdown);
     let writeError = "";
+    let writeMode = "rich";
+    let blockCount = 0;
     try {
-      for (let index = 0; index < blocks.length; index += 40) {
-        const children = blocks.slice(index, index + 40);
-        await this.request(
-          `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(documentId)}/children?document_revision_id=-1`,
-          {
-            method: "POST",
-            body: { children }
-          }
-        );
-        if (index + 40 < blocks.length) await sleep(450);
-      }
+      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown, index: 0 });
+      blockCount = result.blocks || 0;
     } catch (error) {
-      writeError = error.message;
-      logEvent("warn", "Feishu document created but content write failed", {
+      logEvent("warn", "Feishu rich document write failed, falling back to text blocks", {
         title,
         documentId,
-        blockCount: blocks.length,
-        blockTypes: [...new Set(blocks.map((block) => block.block_type))],
-        firstBlockContentLength: blocks[0]?.text?.elements?.[0]?.text_run?.content?.length || 0,
         error: error.message
       });
+      writeMode = "text_fallback";
+      try {
+        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown });
+        blockCount = result.blocks || 0;
+      } catch (fallbackError) {
+        writeError = fallbackError.message;
+        const blocks = markdownToBlocks(markdown);
+        logEvent("warn", "Feishu document created but content write failed", {
+          title,
+          documentId,
+          blockCount: blocks.length,
+          blockTypes: [...new Set(blocks.map((block) => block.block_type))],
+          firstBlockContentLength: blocks[0]?.text?.elements?.[0]?.text_run?.content?.length || 0,
+          error: fallbackError.message
+        });
+      }
     }
 
     logEvent("info", "Feishu document created", {
       title,
       documentId,
-      blocks: blocks.length,
+      blocks: blockCount,
+      writeMode,
       contentWritten: !writeError,
       folderConfigured: Boolean(this.config.feishuProjectFolderToken)
     });
@@ -262,7 +290,9 @@ export class FeishuWorkspaceClient {
       token: documentId,
       url: this.docUrl(documentId),
       title: document.title || title,
-      writeError
+      writeError,
+      writeMode,
+      blocks: blockCount
     };
   }
 
@@ -287,6 +317,70 @@ export class FeishuWorkspaceClient {
       documentId,
       blocks: blocks.length
     });
+    return { appended: true, blocks: blocks.length };
+  }
+
+  async convertMarkdownToBlocks(markdown = "") {
+    const data = await this.request("/open-apis/docx/v1/documents/blocks/convert", {
+      method: "POST",
+      body: {
+        content_type: "markdown",
+        content: String(markdown || "").slice(0, 90000)
+      }
+    });
+    const converted = normalizeConvertedDocument(data);
+    if (!converted.blocks.length || !converted.firstLevelBlockIds.length) {
+      throw new Error(`Feishu markdown conversion returned no usable blocks: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    return converted;
+  }
+
+  async insertRichMarkdown({ documentId, parentBlockId = documentId, markdown, index = -1 }) {
+    if (!documentId) throw new Error("Missing Feishu document id.");
+    const converted = await this.convertMarkdownToBlocks(markdown);
+    if (converted.blocks.length > 1000) {
+      throw new Error(`Feishu rich document is too large for one descendant write: ${converted.blocks.length} blocks`);
+    }
+    await this.request(
+      `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(parentBlockId)}/descendant?document_revision_id=-1`,
+      {
+        method: "POST",
+        body: {
+          children_id: converted.firstLevelBlockIds,
+          descendants: converted.blocks,
+          index
+        }
+      }
+    );
+    logEvent("info", "Feishu rich markdown inserted", {
+      documentId,
+      blocks: converted.blocks.length,
+      firstLevelBlocks: converted.firstLevelBlockIds.length
+    });
+    return {
+      appended: true,
+      rich: true,
+      blocks: converted.blocks.length,
+      firstLevelBlocks: converted.firstLevelBlockIds.length
+    };
+  }
+
+  async insertPlainTextMarkdown({ documentId, parentBlockId = documentId, markdown }) {
+    if (!documentId) throw new Error("Missing Feishu document id.");
+    const blocks = markdownToBlocks(markdown);
+    if (!blocks.length) return { appended: true, blocks: 0 };
+
+    for (let index = 0; index < blocks.length; index += 40) {
+      const children = blocks.slice(index, index + 40);
+      await this.request(
+        `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(parentBlockId)}/children?document_revision_id=-1`,
+        {
+          method: "POST",
+          body: { children }
+        }
+      );
+      if (index + 40 < blocks.length) await sleep(450);
+    }
     return { appended: true, blocks: blocks.length };
   }
 
