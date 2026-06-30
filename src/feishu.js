@@ -427,6 +427,17 @@ function cardText(value = "", max = 600) {
   return truncate(String(value || "").replace(/[<>{}]/g, "").replace(/\s+/g, " ").trim(), max);
 }
 
+function cardMarkdown(value = "", max = 1200) {
+  return truncate(
+    String(value || "")
+      .replace(/[<>{}]/g, "")
+      .replace(/[ \t]+/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim(),
+    max
+  );
+}
+
 function compactLines(lines = []) {
   return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
 }
@@ -1324,15 +1335,25 @@ export class FeishuBot {
       const sync = await this.syncYoutubeResearchToObsidian(report);
       const doc = await this.syncYoutubeResearchToFeishuDocument(report);
       const reply = this.formatYoutubeResearchReply(report, sync, doc);
-      for (const chunk of splitChatBubbles(reply, 1800)) {
-        await this.replyText(messageId, chunk);
+      const card = this.buildYoutubeResearchCard(report, sync, doc);
+      try {
+        await this.replyCard(messageId, card);
+      } catch (cardError) {
+        logEvent("warn", "Feishu YouTube research card fallback used", {
+          chatId,
+          topic: report.topic,
+          error: cardError.message
+        });
+        for (const chunk of splitChatBubbles(reply, 1800)) {
+          await this.replyText(messageId, chunk);
+        }
       }
       await this.storage.addMessage({
         chatId,
         userId,
         role: "assistant",
-        modality: "text",
-        content: truncate(report.markdown, 6000),
+        modality: "card",
+        content: reply,
         metadata: {
           platform: "feishu",
           replyToUserId: userId,
@@ -1580,7 +1601,6 @@ export class FeishuBot {
 
   formatYoutubeResearchReply(report, sync = {}, doc = {}) {
     const videos = report.videos || [];
-    const firstVideo = videos[0] || {};
     const videoLines = videos.slice(0, 3).map((video, index) => {
       const meta = [video.channel, video.lengthText, video.language].filter(Boolean).join(" / ");
       return `${index + 1}. ${video.title}${meta ? `（${meta}）` : ""}`;
@@ -1598,8 +1618,157 @@ export class FeishuBot {
       markdownList(videoLines),
       docLine,
       obsidianLine,
-      doc.created ? "正文我已经放到飞书文档里了，这里就不刷屏啦。" : "正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。"
+      doc.created ? "正文我已经放到飞书文档里了，请查收哦" : "正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。"
     ]);
+  }
+
+  buildYoutubeResearchCard(report, sync = {}, doc = {}) {
+    const videos = report.videos || [];
+    const firstVideo = videos[0] || {};
+    const docStatus = doc.created && doc.url
+      ? "已生成"
+      : `生成失败：${cardText(doc.reason || doc.writeError || "原因未知", 80)}`;
+    const obsidianStatus = sync.synced
+      ? `已同步到 ${sync.notePath}`
+      : `未同步：${sync.reason === "disabled" ? "未配置 Obsidian GitHub token" : cardText(sync.reason || "原因未知", 80)}`;
+    const videoLines = videos.slice(0, 5).map((video, index) => {
+      const meta = [video.channel, video.lengthText, video.language].filter(Boolean).join(" / ");
+      return `${index + 1}. **${cardMarkdown(video.title, 110)}**${meta ? `\n   ${cardMarkdown(meta, 100)}` : ""}`;
+    });
+    const actions = [];
+    if (doc.created && doc.url) {
+      actions.push({
+        tag: "button",
+        text: {
+          tag: "plain_text",
+          content: "打开飞书文档"
+        },
+        type: "primary",
+        url: doc.url
+      });
+    }
+    if (firstVideo.url) {
+      actions.push({
+        tag: "button",
+        text: {
+          tag: "plain_text",
+          content: "查看原视频"
+        },
+        type: "default",
+        url: firstVideo.url
+      });
+    }
+
+    const elements = [
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: cardMarkdown(compactLines([
+            `**整理好了：${report.title}**`,
+            "完整内容已沉淀到飞书文档，聊天里只保留摘要入口。"
+          ]), 520)
+        }
+      },
+      {
+        tag: "column_set",
+        flex_mode: "none",
+        background_style: "grey",
+        columns: [
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: cardMarkdown(`主题\n**${report.topic || "YouTube"}**`, 120)
+                }
+              }
+            ]
+          },
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: cardMarkdown(`视频\n**${videos.length} 条**`, 80)
+                }
+              }
+            ]
+          },
+          {
+            tag: "column",
+            width: "weighted",
+            weight: 1,
+            elements: [
+              {
+                tag: "div",
+                text: {
+                  tag: "lark_md",
+                  content: cardMarkdown(`飞书文档\n**${doc.created ? "已就绪" : "待处理"}**`, 80)
+                }
+              }
+            ]
+          }
+        ]
+      },
+      { tag: "hr" },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: cardMarkdown(compactLines([
+            "**视频标题**",
+            ...videoLines
+          ]), 900)
+        }
+      },
+      {
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: cardMarkdown(compactLines([
+            `飞书文档：${docStatus}`,
+            `Obsidian：${obsidianStatus}`
+          ]), 360)
+        }
+      }
+    ];
+
+    if (actions.length) elements.push({ tag: "action", actions });
+    elements.push({
+      tag: "note",
+      elements: [
+        {
+          tag: "plain_text",
+          content: doc.created
+            ? "正文我已经放到飞书文档里了，请查收哦"
+            : "正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。"
+        }
+      ]
+    });
+
+    return {
+      config: {
+        wide_screen_mode: true,
+        enable_forward: true
+      },
+      header: {
+        template: doc.created ? "indigo" : "orange",
+        title: {
+          tag: "plain_text",
+          content: doc.created ? "YouTube 技术笔记已整理" : "YouTube 技术笔记待归档"
+        }
+      },
+      elements
+    };
   }
 
   async handleWebSearchRequest({ messageId, chatId, userId, request }) {
