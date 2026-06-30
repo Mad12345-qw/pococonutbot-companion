@@ -159,6 +159,33 @@ export class AIClient {
   }
 
   async chat(messages, options = {}) {
+    if (options.preferPrimaryWithFallback) {
+      const primaryEnabled = await this.isPrimaryEnabled();
+      const primaryErrorPrefix = primaryEnabled ? "" : "Primary AI is disabled by runtime setting. ";
+      try {
+        if (primaryEnabled) {
+          return await this.requestChat(this.primaryProvider, messages, options);
+        }
+      } catch (error) {
+        if (!this.hasFallback || options.allowFallback === false) throw error;
+        console.warn(`primary AI request failed, falling back: ${error.message}`);
+      }
+      if (!this.hasFallback) {
+        throw new Error(`${primaryErrorPrefix}Fallback AI is not configured.`);
+      }
+      return this.requestChat(this.fallbackProvider, messages, options);
+    }
+
+    if (options.forcePrimaryWithFallback) {
+      try {
+        return await this.requestChat(this.primaryProvider, messages, options);
+      } catch (error) {
+        if (!this.hasFallback || options.allowFallback === false) throw error;
+        console.warn(`forced primary AI request failed, falling back: ${error.message}`);
+        return this.requestChat(this.fallbackProvider, messages, options);
+      }
+    }
+
     if (options.requirePrimary) {
       const primaryEnabled = await this.isPrimaryEnabled();
       if (!primaryEnabled) {

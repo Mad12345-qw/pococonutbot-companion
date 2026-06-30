@@ -8,6 +8,8 @@ import { TextToSpeechClient } from "./tts-client.js";
 import { SongClient } from "./song-client.js";
 import { VideoLibraryClient } from "./video-library.js";
 import { BochaWebSearchClient } from "./web-search-client.js";
+import { TranscriptApiClient } from "./transcript-api-client.js";
+import { GitHubFileSync } from "./github-file-sync.js";
 import { createStorage } from "./storage.js";
 import { TelegramCompanionBot } from "./telegram.js";
 import { FeishuBot } from "./feishu.js";
@@ -53,6 +55,8 @@ app.get("/health", (_req, res) => {
     feishuVideoRotation: true,
     feishuVideoPrewarm: Boolean(config.videoLibraryPrewarmOnStart),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
+    youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
+    obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
     feishuCardTemplates: true,
     feishuPremiumCards: true,
     feishuWorldCupPolls: true,
@@ -359,7 +363,13 @@ const textToSpeech = new TextToSpeechClient(config);
 const songClient = new SongClient(config);
 const videoLibrary = new VideoLibraryClient(config);
 const webSearch = new BochaWebSearchClient(config);
-const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch });
+const transcriptApi = new TranscriptApiClient(config);
+const obsidianSync = new GitHubFileSync({
+  token: config.obsidianGithubToken,
+  repo: config.obsidianGithubRepo,
+  branch: config.obsidianGithubBranch
+});
+const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch, transcriptApi, obsidianSync });
 feishuBot.setupRoutes(app);
 if (config.videoLibraryPrewarmOnStart) {
   feishuBot.prewarmVideoLibrary().catch((error) => {

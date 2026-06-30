@@ -470,6 +470,80 @@ function cardActionButtons(results = [], limit = 3) {
     }));
 }
 
+function extractYouTubeUrl(text = "") {
+  const match = String(text || "").match(/https?:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/[^\s<>"'）)]+/i);
+  return match ? match[0] : "";
+}
+
+function safeMarkdownValue(value = "") {
+  return String(value || "").replace(/\r?\n/g, " ").replace(/"/g, '\\"').trim();
+}
+
+function slugifyNoteName(value = "") {
+  const ascii = String(value || "")
+    .normalize("NFKD")
+    .replace(/[^\w\s.-]+/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .slice(0, 80);
+  return ascii || `youtube-${Date.now()}`;
+}
+
+function tagifyTopic(value = "") {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\u4e00-\u9fff-]/g, "")
+    .slice(0, 60);
+}
+
+function inferYoutubeTopic(text = "", fallback = "YouTube") {
+  const value = String(text || "");
+  const cnTopicMatch = value.match(/\u5173\u4e8e\s*([a-zA-Z0-9\u4e00-\u9fff][a-zA-Z0-9\u4e00-\u9fff\s-]{1,60}?)(?:\u7684)?(?:\u89c6\u9891|\u5185\u5bb9|\u6280\u672f|\u8bdd\u9898|$)/i);
+  if (cnTopicMatch) return cnTopicMatch[1].trim().replace(/[，。,.!?！？:：].*$/, "") || fallback;
+  const topicMatch = value.match(/(?:about|regarding|topic)\s+([a-zA-Z0-9][a-zA-Z0-9\s-]{1,60})/i);
+  if (topicMatch) return topicMatch[1].trim().replace(/[，。,.!?！？:：].*$/, "") || fallback;
+  if (/spacex|space x|starship|falcon\s?9|falcon heavy|super heavy/i.test(value)) return "SpaceX";
+  return fallback;
+}
+
+function normalizeTopicForMatch(value = "") {
+  return String(value || "").toLowerCase().replace(/[\s_-]+/g, "");
+}
+
+function contentMentionsTopic(content = "", topic = "") {
+  const cleanTopic = normalizeTopicForMatch(topic);
+  if (!cleanTopic || cleanTopic === "youtube") return false;
+  return normalizeTopicForMatch(content).includes(cleanTopic);
+}
+
+function formatSeconds(seconds = 0) {
+  const total = Math.max(0, Math.floor(Number(seconds || 0)));
+  const minutes = Math.floor(total / 60);
+  const rest = total % 60;
+  return `${minutes}:${String(rest).padStart(2, "0")}`;
+}
+
+function compactTranscriptSegments(segments = [], maxChars = 60000) {
+  const lines = [];
+  let chars = 0;
+  for (const segment of segments) {
+    const line = segment.start
+      ? `[${formatSeconds(segment.start)}] ${segment.text}`
+      : segment.text;
+    if (chars + line.length > maxChars) break;
+    lines.push(line);
+    chars += line.length + 1;
+  }
+  return lines.join("\n");
+}
+
+function markdownList(items = []) {
+  return items.filter(Boolean).map((item) => `- ${item}`).join("\n");
+}
+
 function cardNote(results = []) {
   const sourceCount = results.filter((item) => item.url).length;
   return {
@@ -484,7 +558,7 @@ function cardNote(results = []) {
 }
 
 export class FeishuBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch, transcriptApi, obsidianSync }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
@@ -494,6 +568,8 @@ export class FeishuBot {
     this.songClient = songClient;
     this.videoLibrary = videoLibrary;
     this.webSearch = webSearch;
+    this.transcriptApi = transcriptApi;
+    this.obsidianSync = obsidianSync;
     this.token = null;
     this.tokenExpiresAt = 0;
     this.chatQueues = new Map();
@@ -811,6 +887,7 @@ export class FeishuBot {
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
     const videoRequest = await this.extractVideoRequest(text, chatId);
+    const youtubeRequest = this.extractYoutubeResearchRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
     const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
@@ -822,6 +899,7 @@ export class FeishuBot {
       replyToBot ||
       this.isExplicitCommand(text) ||
       webSearchRequest.requested ||
+      youtubeRequest.requested ||
       songRequest.requested ||
       videoRequest.requested ||
       selfieRequest.requested ||
@@ -959,6 +1037,19 @@ export class FeishuBot {
         logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
       });
       this.finishTiming(timing, { route: "song" });
+      return;
+    }
+
+    if (youtubeRequest.requested) {
+      this.handleYoutubeResearchRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: youtubeRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu YouTube research background task failed", { chatId, error: error.message });
+      });
+      this.finishTiming(timing, { route: "youtube_research" });
       return;
     }
 
@@ -1164,6 +1255,38 @@ export class FeishuBot {
       .trim();
   }
 
+  extractYoutubeResearchRequest(text = "") {
+    const raw = String(text || "").trim();
+    if (!raw) return { requested: false };
+
+    const command = raw.match(/^\/?(?:youtube|yt)\b\s*[:\uff1a,\uff0c]?\s*([\s\S]*)$/i);
+    const url = extractYouTubeUrl(raw);
+    const requested = Boolean(command || (/youtube/i.test(raw) && (url || /(?:\u641c|\u627e|\u603b\u7ed3|\u5b57\u5e55|transcript|summary)/i.test(raw))));
+    if (!requested) return { requested: false };
+
+    const body = String(command?.[1] || raw)
+      .replace(url, "")
+      .replace(/\byoutube\b/ig, "")
+      .trim();
+    const topicQuery = raw.match(/\u5173\u4e8e\s*([a-zA-Z0-9\u4e00-\u9fff][a-zA-Z0-9\u4e00-\u9fff\s-]{1,60}?)(?:\u7684)?\u89c6\u9891/i)?.[1]?.trim() || "";
+    const query = (topicQuery || body)
+      .replace(/(?:\u5e2e\u6211|\u7ed9\u6211|\u9ebb\u70e6\u4f60)\s*/g, "")
+      .replace(/(?:\u641c\u4e00\u4e0b|\u641c\u4e0b|\u641c\u641c(?:\u770b)?|\u641c\u7d22|\u627e\u4e00\u4e0b|\u627e\u4e0b|\u770b\u770b)\s*/g, "")
+      .replace(/(?:\u5e76\u4e14|\u7136\u540e)?\s*(?:\u628a)?\s*(?:\u5b57\u5e55)?\s*(?:\u63d0\u53d6|\u603b\u7ed3|summary|transcript)[\s\S]*$/i, "")
+      .replace(/(?:\u4e0a\u9762|\u91cc|\u4e0a|\u5173\u4e8e)/g, "")
+      .replace(/(?:\u7684)?\u89c6\u9891/g, "")
+      .trim();
+
+    return {
+      requested: true,
+      videoUrl: url,
+      query: query || (url ? "" : body),
+      topicHint: inferYoutubeTopic(raw, ""),
+      maxVideos: url ? 1 : Math.max(1, Math.min(5, Number(this.config.youtubeResearchMaxVideos || 3))),
+      raw
+    };
+  }
+
   isGithubTrendingRequest(text = "") {
     const value = String(text || "");
     return /github/i.test(value) && /(?:热榜|热门|趋势|trending|榜单|排行|仓库|repo|repository|开源项目)/i.test(value);
@@ -1171,6 +1294,263 @@ export class FeishuBot {
 
   pickWebSearchFreshness(text = "") {
     return inferSearchFreshness(text, this.config.bochaSearchFreshness || "noLimit");
+  }
+
+  async handleYoutubeResearchRequest({ messageId, chatId, userId, request }) {
+    if (!this.transcriptApi?.enabled) {
+      await this.replyText(messageId, "\u0059\u006f\u0075\u0054\u0075\u0062\u0065 \u5b57\u5e55\u63d0\u53d6\u8fd8\u6ca1\u914d\u7f6e\u597d\uff0c\u9700\u8981\u5728 Render \u91cc\u52a0 TRANSCRIPT_API_KEY\u3002");
+      return;
+    }
+    if (!request.videoUrl && !request.query) {
+      await this.replyText(messageId, "\u8981\u641c\u4ec0\u4e48 YouTube \u89c6\u9891\uff1f\u4f8b\u5982\uff1ayoutube SpaceX Starship \u6280\u672f\u7ec6\u8282\u3002");
+      return;
+    }
+
+    await this.replyText(messageId, "\u6536\u5230\uff0c\u6211\u5f00\u59cb\u63d0\u53d6 YouTube \u5b57\u5e55\u5e76\u6574\u7406\u4e2d\u6587\u6280\u672f\u7b14\u8bb0\u3002\u8fd9\u7c7b\u957f\u6587\u4ef6\u9ed8\u8ba4\u53ea\u53d1\u6587\u5b57\uff0c\u4e0d\u8d70\u8bed\u97f3\u3002");
+
+    try {
+      logEvent("info", "Feishu YouTube research started", {
+        chatId,
+        userId,
+        query: request.query || "",
+        hasUrl: Boolean(request.videoUrl),
+        topicHint: request.topicHint || ""
+      });
+      const report = await this.buildYoutubeResearchReport(request);
+      const sync = await this.syncYoutubeResearchToObsidian(report);
+      const reply = this.formatYoutubeResearchReply(report, sync);
+      for (const chunk of splitChatBubbles(reply, 1800)) {
+        await this.replyText(messageId, chunk);
+      }
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "text",
+        content: truncate(report.markdown, 6000),
+        metadata: {
+          platform: "feishu",
+          replyToUserId: userId,
+          youtubeResearch: true,
+          topic: report.topic,
+          videoCount: report.videos.length,
+          obsidianPath: sync.notePath || ""
+        }
+      });
+      logEvent("info", "Feishu YouTube research sent", {
+        chatId,
+        topic: report.topic,
+        videos: report.videos.length,
+        obsidianSynced: Boolean(sync.synced)
+      });
+    } catch (error) {
+      logEvent("error", "Feishu YouTube research failed", {
+        chatId,
+        query: request.query || "",
+        error: error.message
+      });
+      await this.replyText(messageId, `YouTube \u5b57\u5e55\u6574\u7406\u5931\u8d25\uff1a${truncate(error.message, 500)}`);
+    }
+  }
+
+  async buildYoutubeResearchReport(request = {}) {
+    const videos = [];
+    const failures = [];
+
+    if (request.videoUrl) {
+      const transcript = await this.transcriptApi.getTranscript(request.videoUrl, { sendMetadata: true });
+      videos.push(this.normalizeYoutubeTranscriptForReport(transcript, request.videoUrl));
+    } else {
+      const search = await this.transcriptApi.search(request.query, { type: "video" });
+      const candidates = search.results
+        .filter((item) => item.videoId || item.url)
+        .sort((a, b) => Number(b.hasCaptions) - Number(a.hasCaptions))
+        .slice(0, Math.max(1, Number(request.maxVideos || 3)));
+      if (!candidates.length) {
+        throw new Error("Transcript API did not return YouTube video results.");
+      }
+      for (const item of candidates) {
+        try {
+          const videoUrl = item.url || `https://www.youtube.com/watch?v=${item.videoId}`;
+          const transcript = await this.transcriptApi.getTranscript(videoUrl, { sendMetadata: true });
+          videos.push(this.normalizeYoutubeTranscriptForReport(transcript, videoUrl, item));
+        } catch (error) {
+          failures.push(`${item.title || item.videoId || item.url}: ${error.message}`);
+        }
+      }
+    }
+
+    if (!videos.length) {
+      throw new Error(failures[0] || "No usable YouTube transcripts were found.");
+    }
+
+    const topic = this.resolveYoutubeReportTopic(request, videos);
+    const markdown = await this.generateYoutubeResearchMarkdown({
+      topic,
+      request,
+      videos,
+      failures
+    });
+    const title = this.extractMarkdownTitle(markdown) || `${topic} YouTube \u6280\u672f\u7b14\u8bb0`;
+    return { topic, title, request, videos, failures, markdown };
+  }
+
+  resolveYoutubeReportTopic(request = {}, videos = []) {
+    const queryTopic = String(request.query || "").trim();
+    const hint = String(request.topicHint || "").trim();
+    const content = videos.map((video) => [
+      video.title,
+      video.channel,
+      truncate(video.transcriptText, 12000)
+    ].filter(Boolean).join("\n")).join("\n\n");
+
+    if (!request.videoUrl && queryTopic && queryTopic.length <= 80) return queryTopic;
+    if (hint && contentMentionsTopic(content, hint)) return hint;
+    const inferredFromContent = inferYoutubeTopic(content, "");
+    if (inferredFromContent && contentMentionsTopic(content, inferredFromContent)) return inferredFromContent;
+    return "YouTube";
+  }
+
+  normalizeYoutubeTranscriptForReport(transcript = {}, videoUrl = "", searchItem = {}) {
+    const metadata = transcript.metadata || {};
+    return {
+      videoId: transcript.videoId || this.transcriptApi?.videoId(videoUrl) || searchItem.videoId || "",
+      title: metadata.title || searchItem.title || transcript.videoId || "YouTube video",
+      channel: metadata.author_name || searchItem.channelTitle || searchItem.channelHandle || "",
+      url: videoUrl || (transcript.videoId ? `https://www.youtube.com/watch?v=${transcript.videoId}` : searchItem.url || ""),
+      language: transcript.language || "",
+      lengthText: searchItem.lengthText || "",
+      viewCountText: searchItem.viewCountText || "",
+      publishedTimeText: searchItem.publishedTimeText || "",
+      transcriptText: compactTranscriptSegments(transcript.segments || [], this.config.youtubeResearchMaxTranscriptChars || 60000),
+      segmentCount: Array.isArray(transcript.segments) ? transcript.segments.length : 0
+    };
+  }
+
+  async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }) {
+    const sourceText = videos.map((video, index) => compactLines([
+      `Video ${index + 1}: ${video.title}`,
+      `URL: ${video.url}`,
+      video.channel ? `Channel: ${video.channel}` : "",
+      video.language ? `Transcript language: ${video.language}` : "",
+      video.lengthText ? `Length: ${video.lengthText}` : "",
+      "Transcript:",
+      truncate(video.transcriptText, this.config.youtubeResearchMaxTranscriptChars || 60000)
+    ])).join("\n\n---\n\n");
+
+    const raw = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You turn YouTube transcripts into polished Obsidian-ready technical briefs.",
+          "Always write in Simplified Chinese.",
+          "If the transcript is not Chinese, translate and summarize into Chinese.",
+          "Be source-grounded. Do not invent details not supported by the transcript.",
+          "Use Markdown with clear headings, tables where useful, and concise but detailed technical explanations.",
+          "Include Obsidian links [[YouTube 视频研究]] and the topic link, for example [[SpaceX]].",
+          "Do not include audio/TTS instructions."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Topic: ${topic}`,
+          `User request: ${request.raw || request.query || request.videoUrl}`,
+          `Videos: ${videos.length}`,
+          failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
+          "",
+          "Write a Markdown note with this structure:",
+          "# <topic/video title technical brief>",
+          "A metadata quote block with source links.",
+          "## 一句话结论",
+          "## 关键技术点速览 (table)",
+          "## 详细技术拆解",
+          "## 时间线摘要",
+          "## 值得继续追问的问题",
+          "## 给你的行动建议",
+          "## 原始视频信息",
+          "",
+          "Source transcripts:",
+          sourceText
+        ].join("\n")
+      }
+    ], {
+      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 2600,
+      temperature: 0.25,
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
+    return this.decorateYoutubeMarkdown(this.cleanAssistantReply(raw), { topic, request, videos });
+  }
+
+  decorateYoutubeMarkdown(markdown = "", { topic, request, videos }) {
+    const tag = tagifyTopic(topic);
+    const title = this.extractMarkdownTitle(markdown) || `${topic} YouTube \u6280\u672f\u7b14\u8bb0`;
+    const tags = [...new Set(["youtube", tag].filter(Boolean))].join(", ");
+    const frontmatter = [
+      "---",
+      `title: "${safeMarkdownValue(title)}"`,
+      `topic: "${safeMarkdownValue(topic)}"`,
+      "source: youtube",
+      `created: "${new Date().toISOString()}"`,
+      `tags: [${tags}]`,
+      `video_count: ${videos.length}`,
+      "---"
+    ].join("\n");
+    const links = [
+      "",
+      `> \u4e3b\u9898\u805a\u5408\uff1a[[${topic}]]`,
+      "> \u6765\u6e90\u7c7b\u578b\uff1a[[YouTube \u89c6\u9891\u7814\u7a76]]",
+      ""
+    ].join("\n");
+    const body = String(markdown || "").trim();
+    const withTitle = /^#\s+/m.test(body) ? body : `# ${title}\n\n${body}`;
+    return `${frontmatter}\n${links}${withTitle}\n`;
+  }
+
+  extractMarkdownTitle(markdown = "") {
+    const match = String(markdown || "").match(/^#\s+(.+)$/m);
+    return match ? match[1].trim() : "";
+  }
+
+  async syncYoutubeResearchToObsidian(report) {
+    if (!this.config.obsidianSyncEnabled || !this.obsidianSync?.enabled) {
+      return { synced: false, notePath: "", topicPath: "", reason: "disabled" };
+    }
+    await this.obsidianSync.ensureBranch();
+    const folder = String(this.config.obsidianYoutubeFolder || "youtube").replace(/^\/+|\/+$/g, "") || "youtube";
+    const topicFolder = String(this.config.obsidianTopicFolder || "topics").replace(/^\/+|\/+$/g, "") || "topics";
+    const noteName = slugifyNoteName(`${report.topic}-${report.videos[0]?.title || report.title}`);
+    const notePath = `${folder}/${noteName}.md`;
+    const topicPath = `${topicFolder}/${slugifyNoteName(report.topic)}.md`;
+
+    await this.obsidianSync.putFile(
+      notePath,
+      report.markdown,
+      `Add YouTube research note: ${report.title}`
+    );
+
+    const firstVideo = report.videos[0] || {};
+    const indexBlock = [
+      `- [[${noteName}|${report.title}]]`,
+      `  - source: ${firstVideo.url || ""}`,
+      `  - created: ${new Date().toISOString()}`
+    ].join("\n");
+    await this.obsidianSync.appendUnique(
+      topicPath,
+      indexBlock,
+      `Update ${report.topic} YouTube research index`
+    );
+
+    return { synced: true, notePath, topicPath };
+  }
+
+  formatYoutubeResearchReply(report, sync = {}) {
+    const syncLine = sync.synced
+      ? `\n\nObsidian \u5df2\u540c\u6b65\uff1a${sync.notePath}\n\u4e3b\u9898\u7d22\u5f15\uff1a${sync.topicPath}`
+      : `\n\nObsidian \u672a\u540c\u6b65\uff1a${sync.reason === "disabled" ? "\u8fd8\u6ca1\u914d\u7f6e GitHub \u540c\u6b65\u73af\u5883\u53d8\u91cf" : sync.reason || "\u672a\u77e5\u539f\u56e0"}`;
+    return `${report.markdown}${syncLine}`;
   }
 
   async handleWebSearchRequest({ messageId, chatId, userId, request }) {

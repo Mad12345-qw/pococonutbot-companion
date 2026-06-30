@@ -147,6 +147,38 @@ services:
         value: "30000"
       - key: WEB_SEARCH_SUMMARY_MAX_TOKENS
         value: "700"
+      - key: TRANSCRIPT_API_ENABLED
+        value: "true"
+      - key: TRANSCRIPT_API_KEY
+        sync: false
+      - key: TRANSCRIPT_API_BASE_URL
+        value: https://transcriptapi.com
+      - key: TRANSCRIPT_API_TIMEOUT_MS
+        value: "60000"
+      - key: YOUTUBE_RESEARCH_MAX_VIDEOS
+        value: "3"
+      - key: YOUTUBE_RESEARCH_MAX_TRANSCRIPT_CHARS
+        value: "60000"
+      - key: YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS
+        value: "2600"
+      - key: YOUTUBE_RESEARCH_AI_TIMEOUT_MS
+        value: "180000"
+      - key: YOUTUBE_RESEARCH_REQUIRE_PRIMARY
+        value: "false"
+      - key: YOUTUBE_RESEARCH_FORCE_PRIMARY_WITH_FALLBACK
+        value: "true"
+      - key: OBSIDIAN_SYNC_ENABLED
+        value: "true"
+      - key: OBSIDIAN_GITHUB_TOKEN
+        sync: false
+      - key: OBSIDIAN_GITHUB_REPO
+        value: Mad12345-qw/obsidian-knowledge-sync
+      - key: OBSIDIAN_GITHUB_BRANCH
+        value: main
+      - key: OBSIDIAN_YOUTUBE_FOLDER
+        value: youtube
+      - key: OBSIDIAN_TOPIC_FOLDER
+        value: topics
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME

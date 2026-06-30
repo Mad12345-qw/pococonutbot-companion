@@ -27,6 +27,7 @@ function classify(text, options = {}) {
   const projectRequest = isProjectCreateRequest(text);
   const selfieRequest = bot.extractSelfieGenerationPrompt(text);
   const songRequest = bot.extractSongRequest(text);
+  const youtubeRequest = bot.extractYoutubeResearchRequest(text);
   const webSearchRequest = bot.extractWebSearchRequest(text);
   const imageRequest = extractImageGenerationIntent(text, {
     botNames: [bot.config.feishuBotName, bot.config.displayName]
@@ -40,6 +41,7 @@ function classify(text, options = {}) {
   if (projectRequest) return "project";
   if (selfieRequest.requested) return "selfie";
   if (songRequest.requested) return "song";
+  if (youtubeRequest.requested) return "youtube_research";
   if (imageRequest.requested) return "image_generation";
   if (shouldUseWebSearch) {
     return webSearchRequest.githubTrending ? "web_search:github" : "web_search";
@@ -124,6 +126,12 @@ const routeCases = [
     route: "ai_reply"
   }
 ];
+
+routeCases.push({
+  name: "youtube command uses transcript research",
+  text: "youtube https://youtu.be/aFqjoCbZ4ik summarize technical details",
+  route: "youtube_research"
+});
 
 for (const item of routeCases) {
   assertEqual(item.name, classify(item.text, item.options), item.route);
