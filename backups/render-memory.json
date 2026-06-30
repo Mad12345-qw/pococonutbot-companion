@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T03:14:28.249Z",
+  "exportedAt": "2026-06-30T03:24:27.758Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -50423,6 +50423,174 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T03:10:37.763Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "小马哥执行还是差点意思,他会自动更新你的工作流",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b070348ac98b16047ffe67d180",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:15:42.934Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "真的能完整的跑项目吗？前一天搞得工作流，第二天只记得事情，具体流程，又忘了。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b071a6c8ca4b3e821305326c9b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:17:36.358Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "AI自动化这块\"跑项目\"得分两头看，流程闭环确实容易断。\n\n你那种\"工作流只记得事不记得具体步骤\"的痛点，很正常——大多数AI助手是\"对话触发\"的，不是\"任务托管\"的，他每次开新窗口确实会忘上下文。\n\n现在比较稳的玩法是：\n\n1. 把流程文档化——别只靠AI记，你自己留一份SOP（比如Markdown放云盘），AI每次执行前先读这份文档\n\n2. 用带记忆的工作流平台——比如n8n、Dify、Coze这种，他有持久化存储，工作流状态能跨会话保留\n\n3. 定时触发+日志回放——设个cron每天自动跑，跑完把结果写到飞书/钉钉，你第二天打开直接看结果，不用让AI\"记\"\n\n4. 把\"记忆\"外包给数据库——重要参数、步骤写进Notion或者飞书多维表，AI需要时去查，别让他自己存\n\n说白了现在的AI还做不到真正的\"项目级自主执行\"，更像个需要你搭好脚手架的实习生。\n\n你是哪种项目？跑数据、写代码还是别的？我帮你想想具体怎么搭比较稳。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-06-30T03:18:26.715Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "你的工作流是啥,skill吗还是mcp",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b0715563c8cb3e849d639ed0c7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:19:27.069Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边模型服务刚刚有点挤，没接稳这句话。你等几秒再发一次，我再回你。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-06-30T03:19:35.841Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我从来不需要工作流",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b072966ec80c37dca3a3370302",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:22:41.417Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "所以马跑通了就让虾执行,老大哥还是稳[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b07262f8cb4b39403edc986447",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:22:59.940Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "虾是监控审核的，做的不对，虾审核以后让他自己改",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b072549d494c379134d1dcc2ca",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-06-30T03:23:42.872Z"
       }
     ],
     "memories": [
@@ -52909,6 +53077,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "key": "interests.ai_automation",
+        "value": "用户对AI自动化跑完整项目有持续关注和需求",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-06-30T03:19:28.728Z",
+        "updatedAt": "2026-06-30T03:19:28.728Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
         "key": "preferences.like_hearing_bot_sing",
         "value": "用户喜欢听小椰唱歌",
         "importance": 3,
@@ -52944,7 +53122,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-27T13:17:04.316Z"
+        "updatedAt": "2026-06-30T03:17:36.288Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52954,7 +53132,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-27T13:17:04.239Z"
+        "updatedAt": "2026-06-30T03:17:36.215Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -52965,6 +53143,16 @@
         "metadata": {},
         "createdAt": "2026-06-23T08:59:10.535Z",
         "updatedAt": "2026-06-23T08:59:10.535Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "key": "work_style.pain_point",
+        "value": "用户在使用AI自动化工作流时，频繁遇到跨会话遗忘具体流程的问题（只记得事情不记得步骤），对此感到困扰",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-06-30T03:19:28.653Z",
+        "updatedAt": "2026-06-30T03:19:28.653Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53064,7 +53252,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-06-29T12:35:13.679Z"
+        "updatedAt": "2026-06-30T03:22:59.878Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -53074,7 +53262,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-06-29T12:35:13.621Z"
+        "updatedAt": "2026-06-30T03:22:59.815Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54204,7 +54392,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-30T03:10:37.698Z"
+        "updatedAt": "2026-06-30T03:23:42.806Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -54214,7 +54402,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-30T03:10:37.635Z"
+        "updatedAt": "2026-06-30T03:23:42.740Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
