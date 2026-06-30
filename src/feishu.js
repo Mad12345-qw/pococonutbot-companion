@@ -654,6 +654,63 @@ function markdownTable(headers = [], rows = []) {
   return [headerLine, dividerLine, ...rowLines].join("\n");
 }
 
+function splitMarkdownTableRow(line = "") {
+  return String(line || "")
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function isMarkdownTableSeparator(line = "") {
+  const cells = splitMarkdownTableRow(line);
+  return cells.length > 1 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s+/g, "")));
+}
+
+function markdownTableToMobileList(headers = [], rows = []) {
+  const cleanHeaders = headers.map((header) => String(header || "").trim()).filter(Boolean);
+  if (!cleanHeaders.length || !rows.length) return "";
+
+  return rows.map((row, index) => {
+    const cells = row.map((cell) => String(cell || "").trim());
+    const firstValue = cells.find(Boolean) || `条目 ${index + 1}`;
+    const title = cleanHeaders.length <= 2
+      ? `#### ${cleanHeaders[0] || "条目"}：${firstValue}`
+      : `#### ${index + 1}. ${firstValue}`;
+    const fields = cleanHeaders.map((header, cellIndex) => {
+      const value = cells[cellIndex] || "-";
+      if (cleanHeaders.length > 2 && cellIndex === 0) return "";
+      return `- **${header}**：${value}`;
+    }).filter(Boolean);
+    return [title, ...fields].join("\n");
+  }).join("\n\n");
+}
+
+function convertMarkdownTablesToMobileLists(markdown = "") {
+  const lines = String(markdown || "").split(/\r?\n/);
+  const output = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const current = lines[index] || "";
+    const next = lines[index + 1] || "";
+    if (current.includes("|") && isMarkdownTableSeparator(next)) {
+      const headers = splitMarkdownTableRow(current);
+      const rows = [];
+      index += 2;
+      while (index < lines.length && lines[index].includes("|")) {
+        rows.push(splitMarkdownTableRow(lines[index]));
+        index += 1;
+      }
+      index -= 1;
+      const mobileList = markdownTableToMobileList(headers, rows);
+      if (mobileList) output.push(mobileList);
+      continue;
+    }
+    output.push(current);
+  }
+  return output.join("\n");
+}
+
 function removeObsidianSyntax(markdown = "") {
   return String(markdown || "")
     .replace(/\[\[([^\]|\n]+)\|([^\]\n]+)\]\]/g, "$2")
@@ -1688,7 +1745,9 @@ export class FeishuBot {
           "If the transcript is not Chinese, translate and summarize into Chinese.",
           "Be source-grounded. Do not invent details not supported by the transcript.",
           "Write like a polished Feishu knowledge-base article, not a chat answer.",
-          "Use Markdown headings, quote blocks, numbered insight sections, and tables so Feishu can convert it into native doc blocks.",
+          "Use Markdown headings, quote blocks, short bullets, and numbered mobile-friendly sections so Feishu can convert it into native doc blocks.",
+          "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
+          "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
           "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
           "Include Obsidian links [[YouTube 视频研究]] and the topic link, for example [[SpaceX]].",
           "Do not include audio/TTS instructions."
@@ -1710,11 +1769,11 @@ export class FeishuBot {
           "### 核心观点",
           "Use 6-10 sections like `#### 1. <观点标题>`. Under each point include one Markdown quote block with a source-grounded quote or evidence, then a concise explanation.",
           "### 标志性金句",
-          "Use a compact table: 金句 / 含义 / 可迁移启发.",
+          "Do not use a table. Use one quote/card per item: `#### 金句 1` plus bullets for 含义 and 可迁移启发.",
           "### 最反共识的判断",
-          "Use 3 bullet points or a table.",
+          "Use 3 concise bullet points. Do not use a table.",
           "## 二、关键技术点速览",
-          "Use a table: 技术点 / 视频里怎么说 / 为什么重要 / 风险或不确定性.",
+          "Do not use a table. Use vertical blocks: `#### 1. 技术点` with bullets for 视频里怎么说 / 为什么重要 / 风险或不确定性.",
           "## 三、详细技术拆解",
           "Use H3/H4 headings and bullets. Keep it source-grounded.",
           "## 四、时间线摘要",
@@ -1846,29 +1905,21 @@ export class FeishuBot {
       timeZone: "Asia/Shanghai",
       hour12: false
     });
-    const sourceRows = videos.slice(0, 8).map((video, index) => [
-      String(index + 1),
-      video.title || "YouTube video",
-      video.channel || "-",
-      video.lengthText || "-",
-      video.language || "-",
-      video.url || "-"
-    ]);
-    const documentInfoTable = markdownTable(
-      ["字段", "内容"],
-      [
-        ["主题", report.topic || "YouTube"],
-        ["视频数量", `${videos.length} 条`],
-        ["整理时间", createdAt],
-        ["输出语言", "中文"],
-        ["内容形态", "YouTube 字幕技术笔记"]
-      ]
-    );
-    const sourceTable = markdownTable(
-      ["#", "视频标题", "频道", "时长", "字幕", "链接"],
-      sourceRows
-    );
-    let body = removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown))
+    const documentInfo = [
+      `- **主题**：${report.topic || "YouTube"}`,
+      `- **视频数量**：${videos.length} 条`,
+      `- **整理时间**：${createdAt}`,
+      "- **输出语言**：中文",
+      "- **内容形态**：YouTube 字幕技术笔记"
+    ].join("\n");
+    const sourceBlocks = videos.slice(0, 8).map((video, index) => compactLines([
+      `### ${index + 1}. ${video.title || "YouTube video"}`,
+      video.channel ? `- **频道**：${video.channel}` : "",
+      video.lengthText ? `- **时长**：${video.lengthText}` : "",
+      video.language ? `- **字幕**：${video.language}` : "",
+      video.url ? `- **链接**：${video.url}` : ""
+    ])).join("\n\n");
+    let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown)))
       .split(/\r?\n/)
       .filter((line) => !/^>\s*(主题聚合|来源类型)[：:]/.test(line.trim()))
       .join("\n")
@@ -1876,15 +1927,13 @@ export class FeishuBot {
     body = body.replace(/^#\s+.+\n+/, "").trim();
 
     return compactLines([
-      `# ${report.title}`,
+      "> 这篇文档由小椰根据 YouTube 字幕整理，采用手机优先排版；聊天里只保留摘要卡片。",
       "",
-      "> 这篇文档由小椰根据 YouTube 字幕整理，已按知识库阅读方式排版；聊天里只保留摘要卡片。",
-      "",
-      "## 文档信息",
-      documentInfoTable,
+      "## 阅读摘要",
+      documentInfo,
       "",
       "## 来源视频",
-      sourceTable,
+      sourceBlocks,
       "",
       "---",
       "",

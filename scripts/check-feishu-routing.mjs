@@ -218,6 +218,46 @@ assertEqual(
   String(bot.extractYoutubeResearchRequest("youtube https://www.youtube.com/@SpaceX 搜 3 条 Starship").maxVideos),
   "3"
 );
+
+const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "GPU",
+  title: "building the best GPU possible YouTube 技术笔记",
+  videos: [
+    {
+      title: "building the best GPU possible",
+      channel: "Lex Fridman",
+      lengthText: "01:02:03",
+      language: "en",
+      url: "https://www.youtube.com/watch?v=test1234567"
+    }
+  ],
+  markdown: [
+    "---",
+    "title: test",
+    "---",
+    "# building the best GPU possible YouTube 技术笔记",
+    "",
+    "## 二、关键技术点速览",
+    "| 技术点 | 视频里怎么说 | 为什么重要 |",
+    "| --- | --- | --- |",
+    "| GPU 架构 | 强调带宽和并行 | 影响训练效率 |"
+  ].join("\n")
+});
+assertEqual(
+  "youtube Feishu doc avoids duplicate body H1",
+  String(/^#\s+/m.test(mobileDocMarkdown)),
+  "false"
+);
+assertEqual(
+  "youtube Feishu doc converts tables for mobile",
+  String(/^\|/m.test(mobileDocMarkdown)),
+  "false"
+);
+assertEqual(
+  "youtube Feishu doc keeps source video blocks",
+  String(mobileDocMarkdown.includes("## 来源视频") && mobileDocMarkdown.includes("### 1. building the best GPU possible")),
+  "true"
+);
 assertEqual(
   "bare channel url is classified as channel",
   bot.extractYoutubeResearchRequest("https://www.youtube.com/@SpaceX").sourceType,
