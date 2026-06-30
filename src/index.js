@@ -64,6 +64,7 @@ app.get("/health", (_req, res) => {
       branch: config.obsidianGithubBranch || "main",
       youtubeFolder: config.obsidianYoutubeFolder || "youtube"
     },
+    feishuYoutubeIndex: Boolean(config.feishuYoutubeIndexWikiToken || config.feishuYoutubeIndexDocumentId),
     feishuCardTemplates: true,
     feishuPremiumCards: true,
     feishuWorldCupPolls: true,

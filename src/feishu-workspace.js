@@ -103,6 +103,14 @@ export class FeishuWorkspaceClient {
     return "";
   }
 
+  async wikiNodeDocumentId(wikiToken) {
+    if (!wikiToken) return "";
+    const node = await this.getWikiNode(wikiToken, "wiki");
+    const objType = String(node.obj_type || "").toLowerCase();
+    if (objType === "docx" && node.obj_token) return node.obj_token;
+    return "";
+  }
+
   async getChatInfo(chatId) {
     if (!chatId) return {};
     const data = await this.request(`/open-apis/im/v1/chats/${encodeURIComponent(chatId)}?user_id_type=open_id`);
@@ -256,6 +264,30 @@ export class FeishuWorkspaceClient {
       title: document.title || title,
       writeError
     };
+  }
+
+  async appendMarkdownToDocument({ documentId, markdown }) {
+    if (!documentId) throw new Error("Missing Feishu document id.");
+    const blocks = markdownToBlocks(markdown);
+    if (!blocks.length) return { appended: true, blocks: 0 };
+
+    for (let index = 0; index < blocks.length; index += 40) {
+      const children = blocks.slice(index, index + 40);
+      await this.request(
+        `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(documentId)}/children?document_revision_id=-1`,
+        {
+          method: "POST",
+          body: { children }
+        }
+      );
+      if (index + 40 < blocks.length) await sleep(450);
+    }
+
+    logEvent("info", "Feishu document appended", {
+      documentId,
+      blocks: blocks.length
+    });
+    return { appended: true, blocks: blocks.length };
   }
 
   async createSpreadsheet({ title, rows }) {

@@ -179,6 +179,10 @@ services:
         value: youtube
       - key: OBSIDIAN_TOPIC_FOLDER
         value: topics
+      - key: FEISHU_YOUTUBE_INDEX_WIKI_TOKEN
+        sync: false
+      - key: FEISHU_YOUTUBE_INDEX_DOCUMENT_ID
+        sync: false
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME
