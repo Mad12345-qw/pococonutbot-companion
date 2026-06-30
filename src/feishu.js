@@ -1433,6 +1433,28 @@ export class FeishuBot {
     }
 
     await this.replyText(messageId, "\u597d\u7684\uff0c\u6211\u6574\u7406\u597d\u7a0d\u540e\u53d1\u4f60\u54e6");
+    const timing = this.startTiming("Feishu YouTube research", {
+      chatId,
+      userId,
+      sourceType: request.sourceType || "",
+      hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl)
+    });
+    const sendProgress = async (stage, text, meta = {}) => {
+      logEvent("info", "Feishu YouTube research progress", {
+        chatId,
+        stage,
+        ...meta
+      });
+      try {
+        await this.replyText(messageId, text);
+      } catch (error) {
+        logEvent("warn", "Feishu YouTube progress reply failed", {
+          chatId,
+          stage,
+          error: error.message
+        });
+      }
+    };
 
     try {
       logEvent("info", "Feishu YouTube research started", {
@@ -1443,15 +1465,31 @@ export class FeishuBot {
         hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl),
         topicHint: request.topicHint || ""
       });
-      const report = await this.buildYoutubeResearchReport(request);
-      const sync = await this.syncYoutubeResearchToObsidian(report);
+      const report = await this.buildYoutubeResearchReport(request, {
+        onProgress: async ({ stage, videos }) => {
+          if (stage === "transcripts_ready") {
+            await sendProgress("transcripts_ready", "\u5b57\u5e55\u62ff\u5230\u4e86\uff0c\u6211\u5f00\u59cb\u6574\u7406\u91cd\u70b9\u3002", {
+              videos: videos?.length || 0
+            });
+          }
+        }
+      });
+      this.markTiming(timing, "buildReportMs");
+      await sendProgress("report_ready", "\u5185\u5bb9\u6574\u7406\u597d\u4e86\uff0c\u6211\u6b63\u5728\u751f\u6210\u98de\u4e66\u6587\u6863\u3002", {
+        topic: report.topic,
+        videos: report.videos.length
+      });
       const doc = await this.syncYoutubeResearchToFeishuDocument(report);
-      const index = await this.syncYoutubeResearchToFeishuIndex(report, sync, doc);
-      const reply = this.formatYoutubeResearchReply(report, sync, doc, index);
-      const card = this.buildYoutubeResearchCard(report, sync, doc, index);
+      this.markTiming(timing, "feishuDocumentMs");
+      const pendingSync = { synced: false, notePath: "", topicPath: "", reason: "pending" };
+      const pendingIndex = { synced: false, reason: doc.created ? "pending" : "doc_not_created" };
+      const reply = this.formatYoutubeResearchReply(report, pendingSync, doc, pendingIndex);
+      const card = this.buildYoutubeResearchCard(report, pendingSync, doc, pendingIndex);
+      let delivered = "card";
       try {
         await this.replyCard(messageId, card);
       } catch (cardError) {
+        delivered = "text_fallback";
         logEvent("warn", "Feishu YouTube research card fallback used", {
           chatId,
           topic: report.topic,
@@ -1461,12 +1499,39 @@ export class FeishuBot {
           await this.replyText(messageId, chunk);
         }
       }
+      this.markTiming(timing, "deliveryMs");
       await this.storage.addMessage({
         chatId,
         userId,
         role: "assistant",
-        modality: "card",
+        modality: delivered === "card" ? "card" : "text",
         content: reply,
+        metadata: {
+          platform: "feishu",
+          replyToUserId: userId,
+          youtubeResearch: true,
+          topic: report.topic,
+          videoCount: report.videos.length,
+          obsidianPath: "",
+          feishuDocUrl: doc.url || "",
+          feishuIndexSynced: false,
+          backgroundSyncPending: true
+        }
+      });
+      this.markTiming(timing, "storeAssistantMs");
+
+      const sync = await this.syncYoutubeResearchToObsidian(report);
+      this.markTiming(timing, "obsidianSyncMs");
+      const index = await this.syncYoutubeResearchToFeishuIndex(report, sync, doc);
+      this.markTiming(timing, "feishuIndexMs");
+
+      const finalReply = this.formatYoutubeResearchReply(report, sync, doc, index);
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "system",
+        content: finalReply,
         metadata: {
           platform: "feishu",
           replyToUserId: userId,
@@ -1486,7 +1551,16 @@ export class FeishuBot {
         feishuDocCreated: Boolean(doc.created),
         feishuIndexSynced: Boolean(index.synced)
       });
+      this.finishTiming(timing, {
+        ok: true,
+        topic: report.topic,
+        videos: report.videos.length,
+        feishuDocCreated: Boolean(doc.created),
+        obsidianSynced: Boolean(sync.synced),
+        feishuIndexSynced: Boolean(index.synced)
+      });
     } catch (error) {
+      this.finishTiming(timing, { ok: false, error: error.message });
       logEvent("error", "Feishu YouTube research failed", {
         chatId,
         query: request.query || "",
@@ -1496,7 +1570,7 @@ export class FeishuBot {
     }
   }
 
-  async buildYoutubeResearchReport(request = {}) {
+  async buildYoutubeResearchReport(request = {}, options = {}) {
     const videos = [];
     const failures = [];
 
@@ -1521,6 +1595,9 @@ export class FeishuBot {
 
     if (!videos.length) {
       throw new Error(failures[0] || "No usable YouTube transcripts were found.");
+    }
+    if (typeof options.onProgress === "function") {
+      await options.onProgress({ stage: "transcripts_ready", videos, failures });
     }
 
     const topic = this.resolveYoutubeReportTopic(request, videos);
@@ -1871,9 +1948,13 @@ export class FeishuBot {
       : `飞书文档：生成失败，${truncate(doc.reason || doc.writeError || "原因未知", 120)}`;
     const obsidianLine = sync.synced
       ? `Obsidian：已同步到 ${sync.notePath}`
+      : sync.reason === "pending"
+        ? "Obsidian：后台同步中"
       : `Obsidian：未同步，${sync.reason === "disabled" ? "Render 还没配置 Obsidian GitHub token" : truncate(sync.reason || "原因未知", 120)}`;
     const indexLine = indexSync.synced
       ? "知识库目录：已归档"
+      : indexSync.reason === "pending"
+        ? "知识库目录：后台归档中"
       : "";
     return compactLines([
       `整理好了：${report.title}`,
@@ -1895,9 +1976,13 @@ export class FeishuBot {
       : `生成失败：${cardText(doc.reason || doc.writeError || "原因未知", 80)}`;
     const obsidianStatus = sync.synced
       ? `已同步到 ${sync.notePath}`
+      : sync.reason === "pending"
+        ? "后台同步中"
       : `未同步：${sync.reason === "disabled" ? "未配置 Obsidian GitHub token" : cardText(sync.reason || "原因未知", 80)}`;
     const indexStatus = indexSync.synced
       ? "已归档"
+      : indexSync.reason === "pending"
+        ? "后台归档中"
       : (indexSync.reason && indexSync.reason !== "not_configured" ? `归档失败：${cardText(indexSync.reason, 80)}` : "");
     const videoLines = videos.slice(0, 5).map((video, index) => {
       const meta = [video.channel, video.lengthText, video.language].filter(Boolean).join(" / ");

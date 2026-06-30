@@ -286,15 +286,25 @@ export class FeishuWorkspaceClient {
 
   async request(path, { method = "GET", body, headers = {} } = {}) {
     const token = await this.getToken();
-    const response = await fetch(`https://open.feishu.cn${path}`, {
-      method,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json; charset=utf-8",
-        ...headers
-      },
-      body: body === undefined ? undefined : JSON.stringify(body)
-    });
+    const timeoutMs = this.config.feishuWorkspaceTimeoutMs || 30000;
+    let response;
+    try {
+      response = await fetch(`https://open.feishu.cn${path}`, {
+        method,
+        signal: AbortSignal.timeout(timeoutMs),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json; charset=utf-8",
+          ...headers
+        },
+        body: body === undefined ? undefined : JSON.stringify(body)
+      });
+    } catch (error) {
+      if (error?.name === "AbortError" || error?.name === "TimeoutError") {
+        throw new Error(`Feishu workspace API timed out after ${timeoutMs}ms: ${method} ${path}`);
+      }
+      throw error;
+    }
     const text = await response.text();
     let data;
     try {

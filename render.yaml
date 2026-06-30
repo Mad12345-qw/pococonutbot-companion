@@ -185,6 +185,8 @@ services:
         sync: false
       - key: FEISHU_YOUTUBE_INDEX_DOCUMENT_ID
         sync: false
+      - key: FEISHU_WORKSPACE_TIMEOUT_MS
+        value: "30000"
       - key: AI_API_KEY
         sync: false
       - key: ADMIN_USERNAME
