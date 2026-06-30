@@ -1726,18 +1726,33 @@ export class FeishuBot {
       return { created: false, url: "", token: "", reason: "disabled" };
     }
     try {
-      const doc = await this.workspace.createDocument({
-        title: report.title,
-        markdown: this.buildFeishuYoutubeDocumentMarkdown(report)
-      });
+      const markdown = this.buildFeishuYoutubeDocumentMarkdown(report);
+      const parentWikiToken = String(
+        this.config.feishuYoutubeParentWikiToken ||
+        this.config.feishuYoutubeIndexWikiToken ||
+        ""
+      ).trim();
+      const doc = parentWikiToken
+        ? await this.workspace.createWikiDocument({
+            parentWikiToken,
+            title: report.title,
+            markdown
+          })
+        : await this.workspace.createDocument({
+            title: report.title,
+            markdown
+          });
       return {
         created: true,
         url: doc.url || "",
         token: doc.token || "",
+        wikiToken: doc.wikiToken || "",
+        inWiki: Boolean(doc.inWiki),
         title: doc.title || report.title,
         writeError: doc.writeError || "",
         writeMode: doc.writeMode || "",
-        blocks: doc.blocks || 0
+        blocks: doc.blocks || 0,
+        folderFallback: Boolean(doc.folderFallback)
       };
     } catch (error) {
       logEvent("warn", "Feishu YouTube document sync failed", {
@@ -1806,6 +1821,9 @@ export class FeishuBot {
     if (!this.workspace?.enabled) {
       return { synced: false, reason: "disabled" };
     }
+    if (!doc.created || !doc.url) {
+      return { synced: false, reason: "doc_not_created" };
+    }
     if (!documentId && !wikiToken) {
       return { synced: false, reason: "not_configured" };
     }
@@ -1873,7 +1891,7 @@ export class FeishuBot {
     const videos = report.videos || [];
     const firstVideo = videos[0] || {};
     const docStatus = doc.created && doc.url
-      ? (doc.writeMode === "rich" ? "已生成，高级排版" : "已生成，基础排版兜底")
+      ? `${doc.inWiki ? "已创建到知识库目录" : "已生成"}，${doc.writeMode === "rich" ? "高级排版" : "基础排版兜底"}`
       : `生成失败：${cardText(doc.reason || doc.writeError || "原因未知", 80)}`;
     const obsidianStatus = sync.synced
       ? `已同步到 ${sync.notePath}`
@@ -1962,7 +1980,7 @@ export class FeishuBot {
                 tag: "div",
                 text: {
                   tag: "lark_md",
-                  content: cardMarkdown(`飞书文档\n**${doc.writeMode === "rich" ? "高级排版" : (doc.created ? "已就绪" : "待处理")}**`, 90)
+                  content: cardMarkdown(`${doc.inWiki ? "知识库页面" : "飞书文档"}\n**${doc.writeMode === "rich" ? "高级排版" : (doc.created ? "已就绪" : "待处理")}**`, 100)
                 }
               }
             ]

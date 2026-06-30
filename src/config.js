@@ -244,6 +244,7 @@ export const config = {
   obsidianGithubBranch: process.env.OBSIDIAN_GITHUB_BRANCH || "main",
   obsidianYoutubeFolder: process.env.OBSIDIAN_YOUTUBE_FOLDER || "youtube",
   obsidianTopicFolder: process.env.OBSIDIAN_TOPIC_FOLDER || "topics",
+  feishuYoutubeParentWikiToken: process.env.FEISHU_YOUTUBE_PARENT_WIKI_TOKEN || "",
   feishuYoutubeIndexWikiToken: process.env.FEISHU_YOUTUBE_INDEX_WIKI_TOKEN || "",
   feishuYoutubeIndexDocumentId: process.env.FEISHU_YOUTUBE_INDEX_DOCUMENT_ID || "",
   autoMemory: asBoolean(process.env.AUTO_MEMORY, true),

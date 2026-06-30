@@ -77,6 +77,11 @@ function normalizeRows(rows = []) {
   return rows.map((row) => row.map((cell) => String(cell ?? "").slice(0, 40000)));
 }
 
+function isFolderPermissionError(error) {
+  const message = String(error?.message || "");
+  return /1770040|folder/i.test(message) && /permission|no\s+fo|no\s+folder|folder/i.test(message);
+}
+
 export class FeishuWorkspaceClient {
   constructor({ config, getToken }) {
     this.config = config;
@@ -132,6 +137,75 @@ export class FeishuWorkspaceClient {
     const objType = String(node.obj_type || "").toLowerCase();
     if (objType === "docx" && node.obj_token) return node.obj_token;
     return "";
+  }
+
+  async createWikiDocument({ parentWikiToken, title, markdown }) {
+    if (!parentWikiToken) throw new Error("Missing Feishu parent wiki token.");
+    const parentNode = await this.getWikiNode(parentWikiToken, "wiki");
+    const spaceId = parentNode.space_id || parentNode.spaceId || "";
+    const parentNodeToken = parentNode.node_token || parentNode.wiki_token || parentWikiToken;
+    if (!spaceId || !parentNodeToken) {
+      throw new Error(`Feishu parent wiki node missing space_id/node_token: ${truncate(JSON.stringify(parentNode), 500)}`);
+    }
+
+    const data = await this.request(`/open-apis/wiki/v2/spaces/${encodeURIComponent(spaceId)}/nodes`, {
+      method: "POST",
+      body: {
+        obj_type: "docx",
+        node_type: "origin",
+        parent_node_token: parentNodeToken,
+        title: String(title || "YouTube 技术笔记").slice(0, 800)
+      }
+    });
+    const node = data.node || {};
+    const documentId = node.obj_token || node.objToken || "";
+    const wikiToken = node.node_token || node.wiki_token || "";
+    if (!documentId) {
+      throw new Error(`Feishu wiki node response missing obj_token: ${truncate(JSON.stringify(data), 500)}`);
+    }
+
+    let writeError = "";
+    let writeMode = "rich";
+    let blockCount = 0;
+    try {
+      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown, index: 0 });
+      blockCount = result.blocks || 0;
+    } catch (error) {
+      logEvent("warn", "Feishu rich wiki document write failed, falling back to text blocks", {
+        title,
+        documentId,
+        wikiToken,
+        error: error.message
+      });
+      writeMode = "text_fallback";
+      try {
+        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown });
+        blockCount = result.blocks || 0;
+      } catch (fallbackError) {
+        writeError = fallbackError.message;
+      }
+    }
+
+    logEvent("info", "Feishu wiki document created", {
+      title,
+      spaceId,
+      parentNodeToken,
+      documentId,
+      wikiToken,
+      blocks: blockCount,
+      writeMode,
+      contentWritten: !writeError
+    });
+    return {
+      token: documentId,
+      wikiToken,
+      url: node.url || (wikiToken ? `${this.config.feishuDocBaseUrl || "https://www.feishu.cn"}/wiki/${wikiToken}` : this.docUrl(documentId)),
+      title: node.title || title,
+      writeError,
+      writeMode,
+      blocks: blockCount,
+      inWiki: true
+    };
   }
 
   async getChatInfo(chatId) {
@@ -229,14 +303,18 @@ export class FeishuWorkspaceClient {
       throw new Error(`Feishu workspace API returned non-JSON: ${truncate(text, 500)}`);
     }
     if (!response.ok || data.code !== 0) {
-      throw new Error(`Feishu workspace API failed ${response.status}: ${truncate(JSON.stringify(data), 800)}`);
+      const error = new Error(`Feishu workspace API failed ${response.status}: ${truncate(JSON.stringify(data), 800)}`);
+      error.status = response.status;
+      error.code = data.code;
+      error.responseData = data;
+      throw error;
     }
     return data.data || {};
   }
 
-  async createDocument({ title, markdown }) {
+  async createDocumentRecord({ title, useFolder = true }) {
     const body = { title: String(title || "AI 方案文档").slice(0, 800) };
-    if (this.config.feishuProjectFolderToken) {
+    if (useFolder && this.config.feishuProjectFolderToken) {
       body.folder_token = this.config.feishuProjectFolderToken;
     }
 
@@ -247,6 +325,26 @@ export class FeishuWorkspaceClient {
     const document = data.document || {};
     const documentId = document.document_id;
     if (!documentId) throw new Error(`Feishu document response missing document_id: ${truncate(JSON.stringify(data), 500)}`);
+    return { document, documentId, usedFolder: Boolean(body.folder_token) };
+  }
+
+  async createDocument({ title, markdown }) {
+    let record;
+    let folderFallback = false;
+    try {
+      record = await this.createDocumentRecord({ title, useFolder: true });
+    } catch (error) {
+      if (!this.config.feishuProjectFolderToken || !isFolderPermissionError(error)) {
+        throw error;
+      }
+      folderFallback = true;
+      logEvent("warn", "Feishu document folder create failed, retrying without folder", {
+        title,
+        error: error.message
+      });
+      record = await this.createDocumentRecord({ title, useFolder: false });
+    }
+    const { document, documentId } = record;
 
     let writeError = "";
     let writeMode = "rich";
@@ -284,7 +382,9 @@ export class FeishuWorkspaceClient {
       blocks: blockCount,
       writeMode,
       contentWritten: !writeError,
-      folderConfigured: Boolean(this.config.feishuProjectFolderToken)
+      folderConfigured: Boolean(this.config.feishuProjectFolderToken),
+      folderUsed: Boolean(record.usedFolder),
+      folderFallback
     });
     return {
       token: documentId,
@@ -292,7 +392,8 @@ export class FeishuWorkspaceClient {
       title: document.title || title,
       writeError,
       writeMode,
-      blocks: blockCount
+      blocks: blockCount,
+      folderFallback
     };
   }
 

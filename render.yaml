@@ -179,6 +179,8 @@ services:
         value: youtube
       - key: OBSIDIAN_TOPIC_FOLDER
         value: topics
+      - key: FEISHU_YOUTUBE_PARENT_WIKI_TOKEN
+        sync: false
       - key: FEISHU_YOUTUBE_INDEX_WIKI_TOKEN
         sync: false
       - key: FEISHU_YOUTUBE_INDEX_DOCUMENT_ID
