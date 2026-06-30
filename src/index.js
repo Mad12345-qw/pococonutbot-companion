@@ -56,6 +56,7 @@ app.get("/health", (_req, res) => {
     feishuVideoPrewarm: Boolean(config.videoLibraryPrewarmOnStart),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
+    youtubeDocDeliveryMode: "feishu_doc_first",
     obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
     obsidianSyncDetails: {
       enabled: Boolean(config.obsidianSyncEnabled),
@@ -66,6 +67,7 @@ app.get("/health", (_req, res) => {
     },
     feishuYoutubeIndex: Boolean(config.feishuYoutubeIndexWikiToken || config.feishuYoutubeIndexDocumentId),
     feishuYoutubeWikiDocs: Boolean(config.feishuYoutubeParentWikiToken || config.feishuYoutubeIndexWikiToken),
+    feishuWorkspaceTimeoutMs: config.feishuWorkspaceTimeoutMs,
     feishuCardTemplates: true,
     feishuPremiumCards: true,
     feishuWorldCupPolls: true,
