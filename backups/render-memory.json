@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-06-30T03:54:28.019Z",
+  "exportedAt": "2026-06-30T04:34:28.194Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -51342,6 +51342,27 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-06-30T03:51:07.685Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 任务目标\nhttps://vcnvmnln7wit.feishu.cn/wiki/WpK2wAcV8i6P8tke8X9cLcmDnSh\nfeishu-wiki:WpK2wAcV8i6P8tke8X9cLcmDnSh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/WpK2wAcV8i6P8tke8X9cLcmDnSh"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b0015e328a0c2fe5b6c8fd051c",
+          "wikiTokens": [
+            "WpK2wAcV8i6P8tke8X9cLcmDnSh"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-06-30T04:27:36.349Z"
       }
     ],
     "memories": [
