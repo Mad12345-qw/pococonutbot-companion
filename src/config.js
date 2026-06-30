@@ -121,7 +121,7 @@ export const config = {
   transcriptApiKey: process.env.TRANSCRIPT_API_KEY || "",
   transcriptApiBaseUrl: (process.env.TRANSCRIPT_API_BASE_URL || "https://transcriptapi.com").replace(/\/+$/, ""),
   transcriptApiTimeoutMs: asNumber(process.env.TRANSCRIPT_API_TIMEOUT_MS, 60000),
-  youtubeResearchMaxVideos: asNumber(process.env.YOUTUBE_RESEARCH_MAX_VIDEOS, 3),
+  youtubeResearchMaxVideos: asNumber(process.env.YOUTUBE_RESEARCH_MAX_VIDEOS, 5),
   youtubeResearchMaxTranscriptChars: asNumber(process.env.YOUTUBE_RESEARCH_MAX_TRANSCRIPT_CHARS, 60000),
   youtubeResearchSummaryMaxTokens: asNumber(process.env.YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS, 2600),
   youtubeResearchAiTimeoutMs: asNumber(process.env.YOUTUBE_RESEARCH_AI_TIMEOUT_MS, 180000),

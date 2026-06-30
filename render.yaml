@@ -156,7 +156,7 @@ services:
       - key: TRANSCRIPT_API_TIMEOUT_MS
         value: "60000"
       - key: YOUTUBE_RESEARCH_MAX_VIDEOS
-        value: "3"
+        value: "5"
       - key: YOUTUBE_RESEARCH_MAX_TRANSCRIPT_CHARS
         value: "60000"
       - key: YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS

@@ -520,6 +520,40 @@ function inferYoutubeTopic(text = "", fallback = "YouTube") {
   return fallback;
 }
 
+function parseSmallCount(value = "") {
+  const text = String(value || "").trim().toLowerCase();
+  const cn = {
+    "\u4e00": 1,
+    "\u4e8c": 2,
+    "\u4e24": 2,
+    "\u4e09": 3,
+    "\u56db": 4,
+    "\u4e94": 5
+  };
+  if (cn[text]) return cn[text];
+  const match = text.match(/^\d+$/);
+  if (!match) return 0;
+  const count = Number(text);
+  return Number.isInteger(count) ? count : 0;
+}
+
+function extractRequestedYoutubeVideoCount(text = "") {
+  const value = String(text || "");
+  const patterns = [
+    /\btop\s*([1-5])\b/i,
+    /(?:\u524d|top)\s*([1-5\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94])\s*(?:\u4e2a|\u6761|\u90e8)?/i,
+    /([1-5\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94])\s*(?:\u4e2a|\u6761|\u90e8)\s*(?:youtube\s*)?(?:\u89c6\u9891|\u5f71\u7247)/i,
+    /(?:\u641c|\u627e|\u641c\u7d22|\u6574\u7406|\u603b\u7ed3)[^\n]{0,16}?([1-5\u4e00\u4e8c\u4e24\u4e09\u56db\u4e94])\s*(?:\u4e2a|\u6761|\u90e8)/i
+  ];
+  for (const pattern of patterns) {
+    const match = value.match(pattern);
+    if (!match) continue;
+    const count = parseSmallCount(match[1]);
+    if (count >= 1 && count <= 5) return count;
+  }
+  return 0;
+}
+
 function normalizeTopicForMatch(value = "") {
   return String(value || "").toLowerCase().replace(/[\s_-]+/g, "");
 }
@@ -1318,7 +1352,10 @@ export class FeishuBot {
       videoUrl: url,
       query: query || (url ? "" : body),
       topicHint: inferYoutubeTopic(raw, ""),
-      maxVideos: url ? 1 : Math.max(1, Math.min(5, Number(this.config.youtubeResearchMaxVideos || 3))),
+      maxVideos: url ? 1 : Math.max(1, Math.min(
+        Number(this.config.youtubeResearchMaxVideos || 5),
+        extractRequestedYoutubeVideoCount(raw) || 1
+      )),
       raw
     };
   }

@@ -13,6 +13,7 @@ bot.config = {
     "珠珠-SPM": "ou_test_zhuzhu"
   },
   bochaSearchFreshness: "noLimit",
+  youtubeResearchMaxVideos: 5,
   selfAppearanceDescription: "",
   selfSelfieStyle: "",
   feishuAlwaysReplyUserIds: ["410351", "用户410351"],
@@ -136,6 +137,27 @@ routeCases.push({
 for (const item of routeCases) {
   assertEqual(item.name, classify(item.text, item.options), item.route);
 }
+
+assertEqual(
+  "youtube search defaults to one video",
+  String(bot.extractYoutubeResearchRequest("youtube SpaceX Starship 技术细节").maxVideos),
+  "1"
+);
+assertEqual(
+  "youtube search honors explicit Chinese count",
+  String(bot.extractYoutubeResearchRequest("youtube 搜 3 条 SpaceX Starship 技术视频").maxVideos),
+  "3"
+);
+assertEqual(
+  "youtube search honors explicit top count",
+  String(bot.extractYoutubeResearchRequest("youtube top 5 SpaceX Starship technical videos").maxVideos),
+  "5"
+);
+assertEqual(
+  "youtube direct url stays one video",
+  String(bot.extractYoutubeResearchRequest("youtube https://youtu.be/aFqjoCbZ4ik 总结技术细节").maxVideos),
+  "1"
+);
 
 const deliveryCases = [
   ["text preference", "这段用文字回复就行", "text"],
