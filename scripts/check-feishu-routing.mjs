@@ -287,11 +287,16 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc uses scroll-friendly transcript index without raw html",
-  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("原文索引") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && !mobileDocMarkdown.includes("[0:25] Transcript line 26.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
+  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("原文索引") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && mobileDocMarkdown.includes("[0:25] Transcript line 26.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
   "true"
 );
 assertEqual(
-  "youtube Feishu doc relocates all background primers to background",
+  "youtube Feishu doc merges background and summary into opening section",
+  String(mobileDocMarkdown.includes("## 一、导读与核心结论") && !mobileDocMarkdown.includes("## 一、背景导读") && !mobileDocMarkdown.includes("## 二、精华总结") && mobileDocMarkdown.includes("### 核心结论")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc keeps all opening primers in merged opening",
   String([
     "这段应该进入背景导读",
     "**背景导读：**",
@@ -299,13 +304,12 @@ assertEqual(
   ].every((needle) => {
     const index = mobileDocMarkdown.indexOf(needle);
     const laterSections = [
-      mobileDocMarkdown.indexOf("## 二、精华总结"),
-      mobileDocMarkdown.indexOf("## 三、关键技术点速览"),
-      mobileDocMarkdown.indexOf("## 四、详细技术拆解"),
-      mobileDocMarkdown.indexOf("## 五、时间线摘要")
+      mobileDocMarkdown.indexOf("## 二、关键技术点速览"),
+      mobileDocMarkdown.indexOf("## 三、详细技术拆解"),
+      mobileDocMarkdown.indexOf("## 四、时间线摘要")
     ].filter((value) => value >= 0);
     const firstLaterSection = Math.min(...laterSections);
-    return index > mobileDocMarkdown.indexOf("## 一、背景导读") && index < firstLaterSection;
+    return index > mobileDocMarkdown.indexOf("## 一、导读与核心结论") && index < firstLaterSection;
   })),
   "true"
 );
@@ -327,11 +331,11 @@ assertEqual(
 assertEqual(
   "youtube Feishu doc keeps reader-grade required sections",
   String([
-    "## 一、背景导读",
-    "## 三、关键技术点速览",
-    "## 五、时间线摘要",
-    "## 六、值得继续追问的问题",
-    "## 七、出处与链接"
+    "## 一、导读与核心结论",
+    "## 二、关键技术点速览",
+    "## 四、时间线摘要",
+    "## 五、值得继续追问的问题",
+    "## 六、出处与链接"
   ].every((heading) => mobileDocMarkdown.includes(heading))),
   "true"
 );
@@ -393,11 +397,16 @@ const keywordFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
       transcriptText: "[0:00] Memory bandwidth is the bottleneck.\n[0:05] Parallel compute and cache locality change the architecture."
     }
   ],
-  markdown: "# Building the Best GPU Possible\n\n## 二、精华总结\n### 一句话结论\nGPU 的瓶颈不只是算力，也包括内存带宽。"
+  markdown: "# Building the Best GPU Possible\n\n## 二、精华总结\n### 一句话结论\nGPU 的瓶颈不只是算力，也包括内存带宽。\n- 为什么重要：内存带宽会限制并行计算实际效率。\n- 风险或不确定性：缓存局部性和软件栈也会改变瓶颈位置。"
 });
 assertEqual(
   "youtube Feishu doc fallback questions are keyword-specific for any topic",
   String(keywordFallbackDoc.includes("Memory") || keywordFallbackDoc.includes("bandwidth") || keywordFallbackDoc.includes("GPU")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc indents reader label bullets",
+  String(keywordFallbackDoc.includes("  - **为什么重要：** 内存带宽会限制并行计算实际效率。") && keywordFallbackDoc.includes("  - **风险或不确定性：** 缓存局部性和软件栈也会改变瓶颈位置。")),
   "true"
 );
 assertEqual(

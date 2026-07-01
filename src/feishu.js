@@ -718,15 +718,11 @@ function buildTranscriptExcerptBlock(video = {}, index = 0) {
   const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
   const allLines = transcriptIndexLines(transcript);
   const lines = allLines
-    .slice(0, 25)
     .map((line) => line.replace(/```/g, "'''"));
   if (!lines.length) return "";
-  const omitted = Math.max(0, allLines.length - lines.length);
   return compactLines([
     `### ${index + 1}. ${title}｜原文索引`,
-    omitted
-      ? `> 为了不打断正文阅读，这里只保留前 25 行时间戳原文作为定位样例；完整原文建议另存为独立附件或单独文档。`
-      : "> 下方是时间戳原文索引，用来核对正文判断。",
+    "> 下方保留完整时间戳原文索引，用来按时间点核对正文判断。",
     "```text",
     lines.join("\n"),
     "```"
@@ -1006,6 +1002,14 @@ function emphasizeReaderLabels(markdown = "") {
       if (!match) return line;
       return `${match[1]}**${match[2]}${match[3]}** ${match[4]}`;
     })
+    .join("\n");
+}
+
+function indentReaderLabelBullets(markdown = "") {
+  const labelPattern = /^\s*[-*]\s+\*\*(?:为什么重要|读者该抓住什么|视频里怎么说|风险或不确定性|风险|含义|可迁移启发|关键证据|边界条件)[：:]/;
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .map((line) => (labelPattern.test(line) && !/^\s{2,}[-*]/.test(line) ? `  ${line}` : line))
     .join("\n");
 }
 
@@ -2304,7 +2308,7 @@ export class FeishuBot {
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
-          "Background, filming context, terminology explanations, and beginner primers belong only in `一、背景导读`, never in `二、精华总结`.",
+          "The opening section merges background and summary. Do not create separate `背景导读` and `精华总结` blocks inside it.",
           "Gold quotes must show the original quote first. If the original transcript is English, keep the English quote; add Chinese explanation below it instead of forcing the quote into Chinese.",
           "Do not include Obsidian links, reading guides, generation notes, audio/TTS instructions, placeholder text, or raw HTML."
         ].join(" ")
@@ -2320,25 +2324,24 @@ export class FeishuBot {
           "",
           "Write a Markdown note with this Feishu-style structure:",
           "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
-          "## 一、背景导读",
-          "Write 3-6 concrete paragraphs or bullets anchored to transcript specifics: named people, objects, technologies, historical events, companies, products, or scenes. The first two sentences must mention at least 3 concrete anchors from `Source anchors`. Must include current market/technology/historical context, filming/interview context, and why this video matters now. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`. Use bold labels and avoid template filler.",
-          "## 二、精华总结",
+          "## 一、导读与核心结论",
+          "This section replaces both background and summary. Write concrete context anchored to transcript specifics: named people, objects, technologies, historical events, companies, products, or scenes. The first two sentences must mention at least 3 concrete anchors from `Source anchors`. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`.",
           "### 一句话结论",
           "### 核心观点",
-          "Use 6-10 sections like `#### 1. <观点标题>`. Each point title must include a concrete object/person/term from the transcript, not an abstract category. Under each point include one Markdown quote block with a source-grounded quote or evidence, then bullets with bold labels such as `**为什么重要**` and `**读者该抓住什么**`. Make each point non-overlapping. Do not put background/terminology primers here.",
+          "Use 4-8 sections like `#### 1. <观点标题>`. Each point title must include a concrete object/person/term from the transcript, not an abstract category. Under each point include one Markdown quote block with a source-grounded quote or evidence, then indented bullets with bold labels exactly like `  - **为什么重要：** ...` and `  - **读者该抓住什么：** ...`. Make each point non-overlapping.",
           "### 标志性金句",
           "Do not use a table. Use one quote/card per item: `#### 金句 1`; first show the original quote in a Markdown quote block, then bullets for `**含义**` and `**可迁移启发**`. If the source quote is English, keep it in English.",
           "### 最反共识的判断",
           "Use 3 concise bullet points. Do not use a table.",
-          "## 三、关键技术点速览",
+          "## 二、关键技术点速览",
           "Do not use a table. Use vertical blocks: `#### 1. 技术点` with indented bullets for `**视频里怎么说**` / `**为什么重要**` / `**风险或不确定性**`.",
-          "## 四、详细技术拆解",
+          "## 三、详细技术拆解",
           "Use H3/H4 headings and bullets. Keep it source-grounded.",
-          "## 五、时间线摘要",
+          "## 四、时间线摘要",
           "Use 12-18 dense timestamp bullets in the style `- [0:02] 开场：发生了什么；为什么重要。` Each item must say what happened and why it matters. Add at most one short original evidence quote only when it is especially useful. Do not paste the full transcript; the system will append a separate original-text index.",
-          "## 六、值得继续追问的问题",
+          "## 五、值得继续追问的问题",
           "Write 5-8 concrete questions anchored to the actual video: unresolved technical bottlenecks, validation signals, business constraints, or next experiments. Avoid generic template questions.",
-          "## 七、出处与链接",
+          "## 六、出处与链接",
           "Mention source video title/channel/link and transcript language here only. Do not repeat these fields earlier.",
           "",
           "Source transcripts:",
@@ -2496,24 +2499,27 @@ export class FeishuBot {
     const summary = relocated.summary.body || sections.summary;
     const tech = relocated.tech.body || sections.tech;
     const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
-    const blocks = [
-      "## 一、背景导读",
+    const opening = compactLines([
       background || buildYoutubeBackgroundFallback(report),
-      hasMeaningfulYoutubeSection(summary) ? compactLines(["## 二、精华总结", summary]) : "",
-      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 三、关键技术点速览", tech]) : "",
+      hasMeaningfulYoutubeSection(summary) ? compactLines(["### 核心结论", summary]) : ""
+    ]);
+    const blocks = [
+      "## 一、导读与核心结论",
+      opening,
+      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 二、关键技术点速览", tech]) : "",
       hasMeaningfulYoutubeSection(detail)
-        ? compactLines(["## 四、详细技术拆解", detail])
+        ? compactLines(["## 三、详细技术拆解", detail])
         : "",
       hasMeaningfulYoutubeSection(sections.timeline) || transcriptBlocks
-        ? compactLines(["## 五、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
+        ? compactLines(["## 四、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
         : "",
       hasMeaningfulYoutubeSection(sections.questions)
-        ? compactLines(["## 六、值得继续追问的问题", sections.questions])
-        : compactLines(["## 六、值得继续追问的问题", buildYoutubeQuestionsFallback(report)]),
-      "## 七、出处与链接",
+        ? compactLines(["## 五、值得继续追问的问题", sections.questions])
+        : compactLines(["## 五、值得继续追问的问题", buildYoutubeQuestionsFallback(report)]),
+      "## 六、出处与链接",
       buildYoutubeSourceSection(videos)
     ];
-    const markdown = emphasizeReaderLabels(compactLines(blocks));
+    const markdown = indentReaderLabelBullets(emphasizeReaderLabels(compactLines(blocks)));
     assertReadableYoutubeDocument(markdown);
     return markdown;
   }
