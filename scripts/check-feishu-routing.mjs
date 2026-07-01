@@ -228,7 +228,8 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
       channel: "Lex Fridman",
       lengthText: "01:02:03",
       language: "en",
-      url: "https://www.youtube.com/watch?v=test1234567"
+      url: "https://www.youtube.com/watch?v=test1234567",
+      transcriptText: "[0:00] We need memory bandwidth.\n[0:05] Parallel compute matters."
     }
   ],
   markdown: [
@@ -254,8 +255,31 @@ assertEqual(
   "false"
 );
 assertEqual(
-  "youtube Feishu doc keeps source video blocks",
-  String(mobileDocMarkdown.includes("## 来源视频") && mobileDocMarkdown.includes("### 1. building the best GPU possible")),
+  "youtube Feishu doc uses reader-first navigation",
+  String(mobileDocMarkdown.includes("## 阅读导航") && !mobileDocMarkdown.includes("## 本文来源")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc avoids low-value repeated metadata",
+  String(!mobileDocMarkdown.includes("输出语言") && !mobileDocMarkdown.includes("内容形态") && !mobileDocMarkdown.includes("**字幕**")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc appends expandable transcript",
+  String(mobileDocMarkdown.includes("## 五、时间线摘要") && mobileDocMarkdown.includes("### 完整字幕逐字稿（可展开）") && mobileDocMarkdown.includes("<details>") && mobileDocMarkdown.includes("[0:00] We need memory bandwidth.")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc has a fixed reader-grade outline",
+  String([
+    "## 一、背景导读",
+    "## 二、精华总结",
+    "## 三、关键技术点速览",
+    "## 四、详细技术拆解",
+    "## 五、时间线摘要",
+    "## 六、值得继续追问的问题",
+    "## 七、出处与链接"
+  ].every((heading) => mobileDocMarkdown.includes(heading))),
   "true"
 );
 assertEqual(
