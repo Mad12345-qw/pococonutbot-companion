@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T10:29:13.381Z",
+  "exportedAt": "2026-07-01T10:49:13.399Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -53974,6 +53974,26 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-01T10:28:15.238Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_fc3f6c4487053ec86bcd80dddf55f1e9",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] ‼️ 第四期飞书 AI Builder Demo Day｜报名进入倒计时\nhttps://www.larkoffice.com/calendar/share?token=293a00af7df26b8037d52812b5f64f54\\\nhttps://www.larkoffice.com/calendar/share?token=236d1f15f1294d960e52362d10b7503c\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=293a00af7df26b8037d52812b5f64f54\\",
+            "https://www.larkoffice.com/calendar/share?token=236d1f15f1294d960e52362d10b7503c\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b7b463630a0b27ce4a4892de2c",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-01T10:48:51.427Z"
       }
     ],
     "memories": [
