@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T01:22:11.230Z",
+  "exportedAt": "2026-07-01T01:32:11.276Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -53192,6 +53192,44 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T01:20:18.719Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：it YouTube 技术笔记\n主题：it\n视频：1 条\n- 1. First Look Inside SpaceX's Starfactory w/ Elon Musk（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/NM5PwqLRHiukfJkCd9ocs7G6noc\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "it",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/NM5PwqLRHiukfJkCd9ocs7G6noc",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T01:27:04.969Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：it YouTube 技术笔记\n主题：it\n视频：1 条\n- 1. First Look Inside SpaceX's Starfactory w/ Elon Musk（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/NM5PwqLRHiukfJkCd9ocs7G6noc\nObsidian：已同步到 youtube/it-First-Look-Inside-SpaceXs-Starfactory-w-Elon-Musk.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "it",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/NM5PwqLRHiukfJkCd9ocs7G6noc",
+          "obsidianPath": "youtube/it-First-Look-Inside-SpaceXs-Starfactory-w-Elon-Musk.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T01:27:07.308Z"
       }
     ],
     "memories": [
