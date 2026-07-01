@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T17:05:58.652Z",
+  "exportedAt": "2026-07-01T17:15:58.585Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -55302,6 +55302,114 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T17:04:23.283Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n**图片上下文提取**\n\n- 图片类型：演唱会/舞台现场照片（无文字内容）\n- 画面主体：一位年轻女性表演者，特写镜头\n- 拍摄角度：低角度仰拍\n- 灯光效果：顶部一束聚光灯直射人物头顶，营造逆光/轮廓光效果；背景有紫色光斑散景\n- 人物外观特征：\n  - 黑色长发，刘海，碎发贴于额头和脸颊（疑似出汗）\n  - 皮肤有明显汗珠/光泽，颈部、锁骨、肩部亦有汗液反光\n  - 化妆风格：淡妆，唇色偏粉橘，腮红明显\n  - 表情：张嘴、微张口，眼神向上看，呈现演唱状态\n- 配饰：\n  - 耳内佩戴入耳式返听耳返（右耳可见黑色耳塞）\n  - 右耳戴银色小耳环\n  - 颈部佩戴银色细链项链，吊坠为心形\n- 服装：黑色细吊带连衣裙（抹胸/吊带款），胸前有褶皱/抽褶设计\n- 背景：虚化的观众席，可见紫色灯光点\n- 图片中无可识别文字、标识、Logo 或数字",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60d9a3e8a4b20e7f185c6eb48",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "**图片上下文提取**\n\n- 图片类型：演唱会/舞台现场照片（无文字内容）\n- 画面主体：一位年轻女性表演者，特写镜头\n- 拍摄角度：低角度仰拍\n- 灯光效果：顶部一束聚光灯直射人物头顶，营造逆光/轮廓光效果；背景有紫色光斑散景\n- 人物外观特征：\n  - 黑色长发，刘海，碎发贴于额头和脸颊（疑似出汗）\n  - 皮肤有明显汗珠/光泽，颈部、锁骨、肩部亦有汗液反光\n  - 化妆风格：淡妆，唇色偏粉橘，腮红明显\n  - 表情：张嘴、微张口，眼神向上看，呈现演唱状态\n- 配饰：\n  - 耳内佩戴入耳式返听耳返（右耳可见黑色耳塞）\n  - 右耳戴银色小耳环\n  - 颈部佩戴银色细链项链，吊坠为心形\n- 服装：黑色细吊带连衣裙（抹胸/吊带款），胸前有褶皱/抽褶设计\n- 背景：虚化的观众席，可见紫色灯光点\n- 图片中无可识别文字、标识、Logo 或数字",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:08:26.350Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我的天……小乖给你生成的这张也太绝了吧😍 聚光灯打下来那个氛围感，汗珠和发丝的光影都做出来了，这哪是AI画的，这是摄影师蹲点拍的吧？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-07-01T17:08:37.147Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "这还行",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60d941eca4b286dd6d88c08a2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:08:55.218Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "真不错，生成视频吧[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60e9cc94a4c16d9b33728375b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:12:22.532Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "晚上比白天人还要多啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60e026c0a0c29f67906e797c7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:14:27.414Z"
       }
     ],
     "memories": [
@@ -58183,7 +58291,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-01T16:24:35.436Z"
+        "updatedAt": "2026-07-01T17:14:27.340Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58193,7 +58301,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-01T16:24:35.360Z"
+        "updatedAt": "2026-07-01T17:14:27.269Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58353,7 +58461,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-07-01T17:04:23.211Z"
+        "updatedAt": "2026-07-01T17:08:55.147Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58363,7 +58471,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-07-01T17:04:23.141Z"
+        "updatedAt": "2026-07-01T17:08:55.076Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
