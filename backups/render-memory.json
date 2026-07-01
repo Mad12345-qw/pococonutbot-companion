@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T16:25:58.383Z",
+  "exportedAt": "2026-07-01T17:05:58.652Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -55086,6 +55086,222 @@
           "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
         },
         "createdAt": "2026-07-01T16:24:38.665Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n**平台/应用**：Feishu 内打开的某社交平台帖子（小红书风格）\n\n**状态栏信息**：\n- 时间：12:57\n- 电量：30%\n- 网络：5A / 5G 信号\n\n**用户/博主**：\n- 头像：戴墨镜的女性\n- 昵称：逐星\n- 按钮：红色\"关注\"\n\n**主图**：舞台照，画面为女性（眼睛以上被裁切）穿着深色扎染/星星图案抹胸上衣，颈部戴黑色锁链项圈，锁骨和肩部可见汗水反光，配深蓝舞台背景。\n- 右下角图标：视觉识别🔍、静音🔇\n- 底部：图片轮播指示器（5 张，当前第 1 张）\n\n**标题**：香汗淋漓✨\n\n**正文**：\n舞台聚光灯倾泻而下，汗水凝成细碎星河在肌肤上流转闪烁✨，鼓点嵌入肌理重塑本能，锁骨间滚落的汗珠跳着圆舞曲，扬起的手臂掀起独属于舞台的浪潮。紧绷的线条裹挟着暗藏的野性，每一次抬臂、每一段高音，都是天赋与汗水碰撞出的极致高光，鲜活又热烈，撩人于无形，此刻即是无法复刻的永恒巅峰💥\n\n**话题标签**：#柳智敏 #张元英 #金玟庭 #jisoo #blackpink\n\n**时间**：2 天前\n\n**互动数据**：\n- 点赞：1538\n- 评论：6\n- 收藏：500\n- 分享：176\n\n**底部输入框**：说点什么…\n\n**说明**：正文未提及具体是哪位艺人，结合话题标签（柳智敏、张元英、金玟庭、jisoo 均为 K-pop 女团成员）与舞台造型，推测为某位女团成员演出图，但图片中人物面部被裁切无法辨认具体身份。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b603c80e0a0b17d9ab2e3ed5ed",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n**平台/应用**：Feishu 内打开的某社交平台帖子（小红书风格）\n\n**状态栏信息**：\n- 时间：12:57\n- 电量：30%\n- 网络：5A / 5G 信号\n\n**用户/博主**：\n- 头像：戴墨镜的女性\n- 昵称：逐星\n- 按钮：红色\"关注\"\n\n**主图**：舞台照，画面为女性（眼睛以上被裁切）穿着深色扎染/星星图案抹胸上衣，颈部戴黑色锁链项圈，锁骨和肩部可见汗水反光，配深蓝舞台背景。\n- 右下角图标：视觉识别🔍、静音🔇\n- 底部：图片轮播指示器（5 张，当前第 1 张）\n\n**标题**：香汗淋漓✨\n\n**正文**：\n舞台聚光灯倾泻而下，汗水凝成细碎星河在肌肤上流转闪烁✨，鼓点嵌入肌理重塑本能，锁骨间滚落的汗珠跳着圆舞曲，扬起的手臂掀起独属于舞台的浪潮。紧绷的线条裹挟着暗藏的野性，每一次抬臂、每一段高音，都是天赋与汗水碰撞出的极致高光，鲜活又热烈，撩人于无形，此刻即是无法复刻的永恒巅峰💥\n\n**话题标签**：#柳智敏 #张元英 #金玟庭 #jisoo #blackpink\n\n**时间**：2 天前\n\n**互动数据**：\n- 点赞：1538\n- 评论：6\n- 收藏：500\n- 分享：176\n\n**底部输入框**：说点什么…\n\n**说明**：正文未提及具体是哪位艺人，结合话题标签（柳智敏、张元英、金玟庭、jisoo 均为 K-pop 女团成员）与舞台造型，推测为某位女团成员演出图，但图片中人物面部被裁切无法辨认具体身份。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T16:58:34.186Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这张文案写得真够拼的😂 \"汗珠跳着圆舞曲\"\"攥人于无形\"……这位叫逐星的博主是柳智敏和张元英的饭吧？不过说实话，她写的是舞蹈舞台吧，这描述太有画面感了，衣服上还做了星星流光的湿身感设计",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-07-01T16:58:44.754Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我有一计",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b603ca478a0b20aa2a842b1b16",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T16:59:04.636Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦？什么计谋，说来听听~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-07-01T16:59:10.821Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[敲键盘]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b603726fca4b257b7ea54ed59f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:00:19.671Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n## 页面标题\n- **日志**\n- 副标题：您的最新请求日志\n- 右上角按钮：🔄 Refresh\n\n## 搜索区\n- 标签：任务ID\n- 输入框占位符：请输入任务ID\n- 按钮：搜索（蓝）、清除（灰）\n\n## 表格列名\n任务ID | 模型名称 | 积分 | 完成耗时(秒) | 结果类型 | 提示词 | 请求参数 | 结果数据\n\n## 表格内容（按行）\n\n1. **任务ID**：`12-0a779078-76a5-4225-a1f7-9b4e9a85c96d`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：无数据\n   - 结果类型：进行中（蓝色标签）\n   - 提示词：无数据\n   - 请求参数：无数据\n   - 结果数据：无数据\n\n2. **任务ID**：`2-91155712-951d-4583-8a31-f2d1de72afba`\n   - 模型：gpt-image-2\n   - 积分：积分已返还（灰色）\n   - 耗时：67s\n   - 结果类型：失败（红色标签）\n   - 提示词：3:4, 韩国18岁少…（被截断）\n   - 请求参数：`[\"size\":\"1024x13…`（被截断）\n   - 结果数据：`[\"id\":\"2-9115…`（被截断）\n\n3. **任务ID**：`14-e2525aaf-bf67-47fa-878a-e869d8b18fed`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：60s\n   - 结果类型：成功（绿色标签）\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n4. **任务ID**：`2-8702ca1e-1568-4deb-a739-aa75e63e5646`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：201s\n   - 结果类型：成功\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n5. **任务ID**：`1-488c7f49-1327-45b8-a082-2cb2291ecac0`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：55s\n   - 结果类型：成功\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n6. **任务ID**：`6-9bdc1571-6c2d-4de4-ac9f-26d1a4e6bfd7`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：82s\n   - 结果类型：成功\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n## 顶部浏览器标签栏（部分可见）\n- - 闲不住？上闲…\n- Agent Skills & Data…\n- 仪表盘 - 5 yuan token\n- 公众号\n- 朱雀AI\n- . 排版\n- 知乎 -\n- 所有书签\n\n## 备注\n- 表格共显示 6 行可见内容，底部有横向滚动条，提示下方可能还有更多记录\n- 大部分\"提示词\"\"请求参数\"\"结果数据\"列内容被列宽截断，仅显示开头部分\n- 所有",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60cf4e10a0b2fff640301cc3f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n## 页面标题\n- **日志**\n- 副标题：您的最新请求日志\n- 右上角按钮：🔄 Refresh\n\n## 搜索区\n- 标签：任务ID\n- 输入框占位符：请输入任务ID\n- 按钮：搜索（蓝）、清除（灰）\n\n## 表格列名\n任务ID | 模型名称 | 积分 | 完成耗时(秒) | 结果类型 | 提示词 | 请求参数 | 结果数据\n\n## 表格内容（按行）\n\n1. **任务ID**：`12-0a779078-76a5-4225-a1f7-9b4e9a85c96d`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：无数据\n   - 结果类型：进行中（蓝色标签）\n   - 提示词：无数据\n   - 请求参数：无数据\n   - 结果数据：无数据\n\n2. **任务ID**：`2-91155712-951d-4583-8a31-f2d1de72afba`\n   - 模型：gpt-image-2\n   - 积分：积分已返还（灰色）\n   - 耗时：67s\n   - 结果类型：失败（红色标签）\n   - 提示词：3:4, 韩国18岁少…（被截断）\n   - 请求参数：`[\"size\":\"1024x13…`（被截断）\n   - 结果数据：`[\"id\":\"2-9115…`（被截断）\n\n3. **任务ID**：`14-e2525aaf-bf67-47fa-878a-e869d8b18fed`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：60s\n   - 结果类型：成功（绿色标签）\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n4. **任务ID**：`2-8702ca1e-1568-4deb-a739-aa75e63e5646`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：201s\n   - 结果类型：成功\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数据：`[\"created\":17…`（被截断）\n\n5. **任务ID**：`1-488c7f49-1327-45b8-a082-2cb2291ecac0`\n   - 模型：gpt-image-2\n   - 积分：-600\n   - 耗时：55s\n   - 结果类型：成功\n   - 提示词：Horizontal prom…（被截断）\n   - 请求参数：`[\"prompt\":\"Horiz…`（被截断）\n   - 结果数\n...[truncated]",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:02:36.657Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这就是你的\"计谋\"？盯日志面板盯半天了😂 看到几个 gpt-image-2 的任务都成功了，还有个 18岁少… 失败了但积分已返还，划算不？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-07-01T17:02:49.383Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我倒是看小乖给我生成了些什么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60cc9b18a0b4882b76323318b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:03:06.703Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈这是好奇小乖给你画了什么图是吧~ 那条成功的提示词是 \"Horizontal prom...\"（被截断了），看着像是在生成横版构图的作品，结果都拿到了，就看你打开惊喜不惊喜啦✨",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a"
+        },
+        "createdAt": "2026-07-01T17:03:11.849Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "我的发",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60c6237ca4b3d98ab6a8ac856",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:04:20.015Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[尬笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b60c7fce934b3cec85bb568817",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T17:04:23.283Z"
       }
     ],
     "memories": [
@@ -58137,7 +58353,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-06-30T16:37:25.026Z"
+        "updatedAt": "2026-07-01T17:04:23.211Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58147,7 +58363,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-06-30T16:37:24.957Z"
+        "updatedAt": "2026-07-01T17:04:23.141Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
