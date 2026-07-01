@@ -696,24 +696,23 @@ function compactTranscriptSegments(segments = [], maxChars = 60000) {
   return lines.join("\n");
 }
 
-function transcriptExcerptLines(transcriptText = "", limit = 25) {
-  const lines = String(transcriptText || "")
+function transcriptIndexLines(transcriptText = "") {
+  return String(transcriptText || "")
     .split(/\r?\n/)
     .map((line) => line.trim().replace(/\s+/g, " "))
     .filter((line) => /^\[\d+:\d{2}(?::\d{2})?\]\s+\S/.test(line));
-  return lines.slice(0, limit);
 }
 
 function buildTranscriptExcerptBlock(video = {}, index = 0) {
   const transcript = String(video.transcriptText || "").trim();
   if (!transcript) return "";
   const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
-  const lines = transcriptExcerptLines(transcript)
+  const lines = transcriptIndexLines(transcript)
     .map((line) => line.replace(/```/g, "'''"));
   if (!lines.length) return "";
   return compactLines([
-    `### ${index + 1}. ${title}｜原文索引（前 25 条）`,
-    "> 用来按时间戳核对正文判断；如果需要完整上下文，优先回到对应视频时间点。",
+    `### ${index + 1}. ${title}｜完整原文索引`,
+    "> 下方是完整时间戳原文索引。飞书会把代码块作为独立展示区，默认只露出一段，继续往下滑即可按时间点核对后文。",
     "```text",
     lines.join("\n"),
     "```"
@@ -846,26 +845,48 @@ function extractMisplacedBackgroundFromSummary(summary = "") {
   };
 }
 
+function extractYoutubeQuestionKeywords(text = "", limit = 8) {
+  const source = String(text || "");
+  const stopwords = new Set([
+    "youtube", "video", "first", "look", "inside", "with", "and", "the", "this", "that",
+    "what", "how", "why", "from", "about", "watch", "full", "episode", "interview",
+    "一个", "这个", "那个", "视频", "里面", "什么", "为什么", "怎么", "我们", "他们", "可以",
+    "不是", "没有", "因为", "所以", "如果", "但是", "以及", "进行", "问题", "内容"
+  ]);
+  const counts = new Map();
+  const add = (raw) => {
+    const token = String(raw || "").trim().replace(/^[-_.,:;'"()[\]{}]+|[-_.,:;'"()[\]{}]+$/g, "");
+    if (!token || token.length < 2 || token.length > 32) return;
+    const key = token.toLowerCase();
+    if (stopwords.has(key) || stopwords.has(token)) return;
+    counts.set(token, (counts.get(token) || 0) + 1);
+  };
+  for (const match of source.matchAll(/[A-Za-z][A-Za-z0-9+.#/-]{2,}/g)) add(match[0]);
+  for (const match of source.matchAll(/[\u4e00-\u9fff]{2,10}/g)) add(match[0]);
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || b[0].length - a[0].length)
+    .map(([token]) => token)
+    .slice(0, limit);
+}
+
 function buildYoutubeQuestionsFallback(report = {}) {
   const videos = report.videos || [];
-  const raw = [report.title, report.topic, ...videos.map((video) => video.title)].filter(Boolean).join(" ");
-  if (/spacex|starfactory|starship|elon|musk|raptor/i.test(raw)) {
-    return [
-      "- 热盾瓦片在真实再入中的失效模式，哪些属于可接受损耗，哪些会直接改变任务成败？",
-      "- 二级烧蚀防护层与完全复用目标之间，最终会怎样平衡质量、寿命和维护成本？",
-      "- 下一代 Raptor 的集成冷却设计，会如何重构量产、检测和维修流程？",
-      "- Starfactory 要到什么阶段，才能从“施工中的工厂”切换到稳定节拍生产？",
-      "- 若要实现小时级复用，发射场、回收、检查、加注四个环节各自的真实瓶颈是什么？",
-      "- 载人版本与货运版本在热盾、结构冗余和维护策略上会分化到什么程度？"
-    ].join("\n");
-  }
   const firstTitle = cleanYoutubeDocumentTitle(videos[0]?.title || report.title || report.topic || "这条视频");
+  const keywordText = [
+    report.topic,
+    report.title,
+    ...videos.map((video) => `${video.title || ""} ${truncate(video.transcriptText || "", 2500)}`)
+  ].join(" ");
+  const keywords = extractYoutubeQuestionKeywords(keywordText);
+  const focus = keywords.length ? keywords.slice(0, 3).join("、") : firstTitle;
+  const nextSignals = keywords.length > 3 ? keywords.slice(3, 6).join("、") : "后续实验、真实用户反馈、成本结构";
   return [
-    `- 《${firstTitle}》里最关键的判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？`,
-    "- 视频中反复出现的技术瓶颈，真正卡住规模化落地的是成本、可靠性、供应链，还是组织执行？",
-    "- 如果把视频里的方案迁移到其他项目，哪些前提条件一变，结论就会失效？",
-    "- 这条视频没有展开、但会决定结果的边界条件是什么？",
-    "- 接下来应该追踪哪些测试结果、产品迭代或商业信号，才能判断作者的判断是否站得住？"
+    `- 《${firstTitle}》里围绕 **${focus}** 的核心判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？`,
+    `- 如果 **${focus}** 要从演示、访谈或局部案例走向规模化落地，最可能先卡在成本、可靠性、供应链、法规还是组织执行？`,
+    `- 视频里没有充分展开的边界条件是什么：适用场景、失败模式、维护成本、数据假设，还是用户采用门槛？`,
+    `- 未来应该追踪哪些信号来验证这篇文章的判断：**${nextSignals}**，还是更直接的商业化/量产/复用结果？`,
+    "- 如果把视频里的方法迁移到另一个项目，哪些前提一变，结论就会完全失效？",
+    "- 作者最强的判断和最脆弱的证据分别在哪里？下一次复盘应该优先补哪一类材料？"
   ].join("\n");
 }
 

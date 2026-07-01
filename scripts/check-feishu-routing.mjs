@@ -271,7 +271,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc uses scroll-friendly transcript index without raw html",
-  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("原文索引（前 25 条）") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && !mobileDocMarkdown.includes("[0:25] Transcript line 26.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
+  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("完整原文索引") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && mobileDocMarkdown.includes("[0:29] Transcript line 30.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
   "true"
 );
 assertEqual(
@@ -306,23 +306,23 @@ assertEqual(
   "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品"
 );
 
-const spacexFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
-  topic: "SpaceX",
-  title: "First Look Inside SpaceX's Starfactory w/ Elon Musk",
+const keywordFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "GPU memory bandwidth",
+  title: "Building the Best GPU Possible",
   videos: [
     {
-      title: "First Look Inside SpaceX's Starfactory w/ Elon Musk",
-      channel: "Everyday Astronaut",
+      title: "Building the Best GPU Possible",
+      channel: "Lex Fridman",
       language: "en",
-      url: "https://www.youtube.com/watch?v=testspacex",
-      transcriptText: "[0:00] Welcome to Starfactory.\n[0:05] These tiles protect the vehicle."
+      url: "https://www.youtube.com/watch?v=testgpu",
+      transcriptText: "[0:00] Memory bandwidth is the bottleneck.\n[0:05] Parallel compute and cache locality change the architecture."
     }
   ],
-  markdown: "# First Look Inside SpaceX's Starfactory w/ Elon Musk\n\n## 二、精华总结\n### 一句话结论\n星舰工厂的重点是把火箭制造推向产线化。"
+  markdown: "# Building the Best GPU Possible\n\n## 二、精华总结\n### 一句话结论\nGPU 的瓶颈不只是算力，也包括内存带宽。"
 });
 assertEqual(
-  "youtube Feishu doc fallback questions are video-specific",
-  String(spacexFallbackDoc.includes("热盾瓦片在真实再入中的失效模式") && !spacexFallbackDoc.includes("最容易误用的地方是什么")),
+  "youtube Feishu doc fallback questions are keyword-specific for any topic",
+  String(keywordFallbackDoc.includes("Memory") || keywordFallbackDoc.includes("bandwidth") || keywordFallbackDoc.includes("GPU")),
   "true"
 );
 assertEqual(
