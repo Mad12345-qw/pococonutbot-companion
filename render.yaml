@@ -160,7 +160,7 @@ services:
       - key: YOUTUBE_RESEARCH_MAX_TRANSCRIPT_CHARS
         value: "60000"
       - key: YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS
-        value: "2600"
+        value: "5200"
       - key: YOUTUBE_RESEARCH_AI_TIMEOUT_MS
         value: "180000"
       - key: YOUTUBE_RESEARCH_REQUIRE_PRIMARY

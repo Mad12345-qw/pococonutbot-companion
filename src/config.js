@@ -123,7 +123,7 @@ export const config = {
   transcriptApiTimeoutMs: asNumber(process.env.TRANSCRIPT_API_TIMEOUT_MS, 60000),
   youtubeResearchMaxVideos: asNumber(process.env.YOUTUBE_RESEARCH_MAX_VIDEOS, 5),
   youtubeResearchMaxTranscriptChars: asNumber(process.env.YOUTUBE_RESEARCH_MAX_TRANSCRIPT_CHARS, 60000),
-  youtubeResearchSummaryMaxTokens: asNumber(process.env.YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS, 2600),
+  youtubeResearchSummaryMaxTokens: asNumber(process.env.YOUTUBE_RESEARCH_SUMMARY_MAX_TOKENS, 5200),
   youtubeResearchAiTimeoutMs: asNumber(process.env.YOUTUBE_RESEARCH_AI_TIMEOUT_MS, 180000),
   youtubeResearchRequirePrimary: asBoolean(process.env.YOUTUBE_RESEARCH_REQUIRE_PRIMARY, false),
   youtubeResearchForcePrimaryWithFallback: asBoolean(process.env.YOUTUBE_RESEARCH_FORCE_PRIMARY_WITH_FALLBACK, true),

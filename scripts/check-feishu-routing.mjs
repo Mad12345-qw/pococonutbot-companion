@@ -316,6 +316,25 @@ assertEqual(
   "true"
 );
 
+const englishFallbackDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "AI note app",
+  title: "How I use AI notes every day",
+  videos: [
+    {
+      title: "How I use AI notes every day",
+      channel: "Product Builder",
+      url: "https://www.youtube.com/watch?v=notesfallback",
+      transcriptText: "[0:00] I use AI notes to capture meetings.\n[2:00] The real value is retrieval, not summarization.\n[4:00] Most teams fail because they do not define a workflow."
+    }
+  ],
+  markdown: ""
+});
+assertEqual(
+  "youtube Feishu doc fallback title stays Chinese for English-only inputs",
+  String(englishFallbackDocMarkdown.startsWith("# 从这条视频看懂一个关键判断")),
+  "true"
+);
+
 const productDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
   topic: "AI note app",
   title: "How I use AI notes every day",

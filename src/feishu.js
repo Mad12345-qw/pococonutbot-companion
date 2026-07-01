@@ -643,7 +643,7 @@ function columnistYoutubeTitleFallback(report = {}) {
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
   const topic = cleanYoutubeDocumentTitle(report.topic || title);
   if (topic && !looksMostlyEnglish(topic)) return `从「${topic}」看懂一个关键判断`;
-  return `从这条视频看懂一个关键判断：${title}`;
+  return "从这条视频看懂一个关键判断";
 }
 
 function formatSeconds(seconds = 0) {
@@ -664,23 +664,6 @@ function compactTranscriptSegments(segments = [], maxChars = 60000) {
     lines.push(line);
     chars += line.length + 1;
   }
-  return lines.join("\n");
-}
-
-function buildTranscriptDetailsBlock(video = {}, index = 0) {
-  const transcript = String(video.transcriptText || "").trim();
-  if (!transcript) return "";
-  const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
-  const lines = [
-    `<details>`,
-    `<summary>${index + 1}. ${title}｜完整字幕逐字稿</summary>`,
-    "",
-    "```text",
-    transcript,
-    "```",
-    "",
-    "</details>"
-  ];
   return lines.join("\n");
 }
 
@@ -931,29 +914,6 @@ function buildYoutubeBackgroundFallback(report = {}) {
     "",
     "对第一次接触这个主题的读者，可以先把文中术语理解成三类：对象是什么，机制怎么运转，风险在哪里。下面的拆解会围绕视频证据展开，而不是把来源信息、语言信息和链接反复塞进正文。"
   ]);
-}
-
-function buildYoutubeSourceSection(videos = []) {
-  const blocks = videos.slice(0, 8).map((video, index) => compactLines([
-    `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "YouTube video")}`,
-    video.channel ? `- 频道：${video.channel}` : "",
-    video.url ? `- 链接：${video.url}` : "",
-    video.language ? `- 字幕语言：${video.language}` : "",
-    video.lengthText ? `- 时长：${video.lengthText}` : ""
-  ]));
-  return blocks.filter(Boolean).join("\n\n") || "> 当前没有可展示的来源信息。";
-}
-
-function buildYoutubeReaderNavigation() {
-  return [
-    "- 一、背景导读：先补齐市场环境、拍摄语境和术语门槛。",
-    "- 二、精华总结：只保留结论、反共识判断和关键证据。",
-    "- 三、关键技术点速览：把技术点拆成“怎么说 / 为什么重要 / 风险”。",
-    "- 四、详细技术拆解：展开工程逻辑、商业含义和边界条件。",
-    "- 五、时间线摘要：按视频进度定位内容，并可展开完整逐字稿。",
-    "- 六、值得继续追问的问题：沉淀后续研究线索。",
-    "- 七、出处与链接：来源信息只在这里出现一次。"
-  ].join("\n");
 }
 
 function markdownList(items = []) {
@@ -2175,7 +2135,7 @@ export class FeishuBot {
         ].join("\n")
       }
     ], {
-      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 2600,
+      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 5200,
       temperature: 0.25,
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
