@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T15:09:13.580Z",
+  "exportedAt": "2026-07-01T15:19:14.231Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -54653,6 +54653,70 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T15:04:36.025Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品\n主题：100 times heavier\n视频：1 条\n- 1. Does Starship REALLY require 15+ launches to land one lunar Starship?!（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/VXZZwsW7siPM82kwa8TceA3anEc\n耗时诊断：字幕 1.1s / AI 4m40s / 飞书 6.2s / 总计 4m47s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "100 times heavier",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VXZZwsW7siPM82kwa8TceA3anEc",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "youtubeDiagnostics": {
+            "aiMs": 280018,
+            "totalMs": 281076,
+            "failures": 0,
+            "deliveryMs": 1026,
+            "documentMs": 6172,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1056,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T15:09:26.989Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品\n主题：100 times heavier\n视频：1 条\n- 1. Does Starship REALLY require 15+ launches to land one lunar Starship?!（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/VXZZwsW7siPM82kwa8TceA3anEc\n耗时诊断：字幕 1.1s / AI 4m40s / 飞书 6.2s / 发卡 1.0s / 总计 4m48s\nObsidian：已同步到 youtube/100-times-heavier-Does-Starship-REALLY-require-15-launches-to-land-one-lunar-Sta.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "100 times heavier",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VXZZwsW7siPM82kwa8TceA3anEc",
+          "obsidianPath": "youtube/100-times-heavier-Does-Starship-REALLY-require-15-launches-to-land-one-lunar-Sta.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 280018,
+            "totalMs": 281076,
+            "failures": 0,
+            "deliveryMs": 1026,
+            "documentMs": 6172,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1056,
+            "feishuIndexMs": 1440,
+            "obsidianSyncMs": 937,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T15:09:29.438Z"
       }
     ],
     "memories": [
