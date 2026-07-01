@@ -756,6 +756,7 @@ function isLowValueYoutubeMetadataLine(line = "") {
   if (!text) return false;
   if (/^#{1,6}\s*(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记/i.test(text)) return true;
   if (/^(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记$/i.test(text)) return true;
+  if (/真正值得读的，不是某个孤立知识点|背后的产业判断、工程取舍和商业后果|重点不是记住每个参数|解决了什么瓶颈、牺牲了什么、为什么现在值得讨论|具体判断以后文的字幕证据为准/.test(text)) return true;
   if (/^#{1,6}\s*完整字幕逐字稿/.test(text)) return true;
   if (/这篇文档由小椰根据视频字幕整理|阅读导航|这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/.test(text)) return true;
   if (/^<\/?details|^<summary|^```/.test(text)) return true;
@@ -832,10 +833,24 @@ function buildYoutubeBackgroundFallback(report = {}) {
       "- **产线化：** 不是把厂房盖大，而是让工位、装配、测试和返工都进入更稳定、更快的节拍。"
     ]);
   }
+  if (/viking|ragnar|berserker|valhalla|norse|norman/i.test(raw)) {
+    return compactLines([
+      "**这条视频真正要解决的问题**，不是复述“维京人很能打”的刻板印象，而是解释他们为什么能在中世纪欧洲形成长期冲击：长船带来的机动性、宗教叙事提供的战斗心理，以及从掠夺到贸易、殖民、政治整合的快速转换。",
+      "",
+      "**访谈语境：** Lex Fridman 采访历史学者 Lars Brownworth，讨论维京时代、Ragnar、狂战士、Valhalla、诺曼人和拜占庭相关历史。读这类内容，关键不是记住人名年表，而是看清“技术优势、暴力组织、神话叙事、制度适应”怎样互相放大。",
+      "",
+      "### 关键术语解释",
+      "- **Viking / 维京：** 更像一种行动身份，常指参与远航、袭掠、贸易和殖民的北欧人，而不是单一固定民族。",
+      "- **Longship / 长船：** 维京扩张的核心工具，速度快、吃水浅，能跨海航行也能进入河道。",
+      "- **Berserker / 狂战士：** 维京叙事中带有宗教和心理色彩的战士形象，常被用来解释极端战斗意志。",
+      "- **Valhalla / 英灵殿：** 北欧神话中战死者前往的殿堂，影响了维京人对死亡、荣耀和战斗的理解。",
+      "- **Ragnarok / 诸神黄昏：** 北欧神话中的终末战争，代表一种悲壮而不乐观的世界观。"
+    ]);
+  }
   return compactLines([
-    `**这条视频《${title}》真正值得读的**，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
+    `**这条视频《${title}》的阅读重点**，要从视频里反复出现的具体人物、技术、事件或案例切入${channel}。`,
     "",
-    "读这类视频时，重点不是记住每个参数，而是分清它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。具体判断以后文的字幕证据为准。"
+    "下面的总结只保留字幕能够支撑的具体判断：它讨论了什么对象，给出了哪些证据，哪些地方仍然需要继续验证。"
   ]);
 }
 
@@ -1018,6 +1033,31 @@ function extractYoutubeQuestionKeywords(text = "", limit = 8) {
     .slice(0, limit);
 }
 
+function buildYoutubeGenerationAnchors(videos = [], topic = "") {
+  const combined = [
+    topic,
+    ...videos.map((video) => [
+      video.title,
+      video.channel,
+      truncate(video.transcriptText || "", 8000)
+    ].filter(Boolean).join("\n"))
+  ].join("\n\n");
+  const keywords = extractYoutubeQuestionKeywords(combined, 16);
+  const evidenceLines = [];
+  for (const video of videos.slice(0, 3)) {
+    const lines = transcriptIndexLines(video.transcriptText || "").slice(0, 18);
+    for (const line of lines) {
+      if (evidenceLines.length >= 30) break;
+      evidenceLines.push(line);
+    }
+  }
+  return compactLines([
+    keywords.length ? `Concrete anchors to use: ${keywords.join(" / ")}` : "",
+    evidenceLines.length ? "Timestamp evidence examples:" : "",
+    evidenceLines.slice(0, 30).map((line) => `- ${line}`).join("\n")
+  ]);
+}
+
 function buildYoutubeQuestionsFallback(report = {}) {
   const videos = report.videos || [];
   const firstTitle = cleanYoutubeDocumentTitle(videos[0]?.title || report.title || report.topic || "这条视频");
@@ -1060,6 +1100,7 @@ function assertReadableYoutubeDocument(markdown = "") {
   const forbidden = [
     /阅读导航/,
     /这篇文档由小椰根据视频字幕整理/,
+    /真正值得读的，不是某个孤立知识点|背后的产业判断、工程取舍和商业后果|重点不是记住每个参数|解决了什么瓶颈、牺牲了什么、为什么现在值得讨论|具体判断以后文的字幕证据为准/,
     /这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
     /(?:^|\n)#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i,
     /<\/?details|<summary/i
@@ -2233,6 +2274,7 @@ export class FeishuBot {
   }
 
   async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }) {
+    const sourceAnchors = buildYoutubeGenerationAnchors(videos, topic);
     const sourceText = videos.map((video, index) => compactLines([
       `Video ${index + 1}: ${video.title}`,
       `URL: ${video.url}`,
@@ -2252,6 +2294,7 @@ export class FeishuBot {
           "If the transcript is not Chinese, translate and summarize into Chinese.",
           "Be source-grounded. Do not invent details not supported by the transcript.",
           "Write like a polished Feishu knowledge-base article, not a chat answer.",
+          "Plan from evidence before writing: use the provided concrete anchors and timestamp examples as the spine of the article. Do not write a section if it cannot be tied to named anchors from the transcript.",
           "Use Markdown headings, quote blocks, short bullets, and numbered mobile-friendly sections so Feishu can convert it into native doc blocks.",
           "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
           "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
@@ -2260,6 +2303,7 @@ export class FeishuBot {
           "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
+          "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
           "Background, filming context, terminology explanations, and beginner primers belong only in `一、背景导读`, never in `二、精华总结`.",
           "Gold quotes must show the original quote first. If the original transcript is English, keep the English quote; add Chinese explanation below it instead of forcing the quote into Chinese.",
           "Do not include Obsidian links, reading guides, generation notes, audio/TTS instructions, placeholder text, or raw HTML."
@@ -2272,15 +2316,16 @@ export class FeishuBot {
           `User request: ${request.raw || request.query || request.videoUrl}`,
           `Videos: ${videos.length}`,
           failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
+          sourceAnchors ? `\nSource anchors that must drive the article:\n${sourceAnchors}` : "",
           "",
           "Write a Markdown note with this Feishu-style structure:",
           "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
           "## 一、背景导读",
-          "Write 3-6 concrete paragraphs or bullets. Must include: current market/technology environment, filming/interview context, why this video matters now. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`. Use bold labels and avoid template filler.",
+          "Write 3-6 concrete paragraphs or bullets anchored to transcript specifics: named people, objects, technologies, historical events, companies, products, or scenes. The first two sentences must mention at least 3 concrete anchors from `Source anchors`. Must include current market/technology/historical context, filming/interview context, and why this video matters now. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`. Use bold labels and avoid template filler.",
           "## 二、精华总结",
           "### 一句话结论",
           "### 核心观点",
-          "Use 6-10 sections like `#### 1. <观点标题>`. Under each point include one Markdown quote block with a source-grounded quote or evidence, then bullets with bold labels such as `**为什么重要**` and `**读者该抓住什么**`. Make each point non-overlapping. Do not put background/terminology primers here.",
+          "Use 6-10 sections like `#### 1. <观点标题>`. Each point title must include a concrete object/person/term from the transcript, not an abstract category. Under each point include one Markdown quote block with a source-grounded quote or evidence, then bullets with bold labels such as `**为什么重要**` and `**读者该抓住什么**`. Make each point non-overlapping. Do not put background/terminology primers here.",
           "### 标志性金句",
           "Do not use a table. Use one quote/card per item: `#### 金句 1`; first show the original quote in a Markdown quote block, then bullets for `**含义**` and `**可迁移启发**`. If the source quote is English, keep it in English.",
           "### 最反共识的判断",

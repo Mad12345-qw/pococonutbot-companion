@@ -241,6 +241,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "## 二、精华总结",
     "### 初学者先理解",
     "这段应该进入背景导读，而不是留在精华总结里。",
+    "这条视频真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果。",
     "### 一句话结论",
     "GPU 的瓶颈不只是算力，也包括内存带宽。",
     "### this YouTube 技术笔记",
@@ -272,6 +273,11 @@ assertEqual(
 assertEqual(
   "youtube Feishu doc removes machine reading navigation",
   String(!mobileDocMarkdown.includes("## 阅读导航") && !mobileDocMarkdown.includes("这篇文档由小椰")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc strips generic background filler",
+  String(!mobileDocMarkdown.includes("不是某个孤立知识点") && !mobileDocMarkdown.includes("产业判断、工程取舍和商业后果") && !mobileDocMarkdown.includes("重点不是记住每个参数")),
   "true"
 );
 assertEqual(
@@ -353,6 +359,26 @@ assertEqual(
     markdown: "# this YouTube 技术笔记"
   }),
   "维京时代的真实动力：长船、恐惧与宗教叙事如何改写欧洲"
+);
+
+const vikingFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "Vikings",
+  title: "Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495",
+  videos: [
+    {
+      title: "Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495",
+      channel: "Lex Fridman",
+      language: "en",
+      url: "https://www.youtube.com/watch?v=testviking",
+      transcriptText: "[0:00] The Viking longships could average 70 to 120 miles a day.\n[0:04] They could hit a place, raid it, drag off whoever they wanted, and get away before you could get your army there."
+    }
+  ],
+  markdown: "# this YouTube 技术笔记\n\n## 二、精华总结\n### 一句话结论\n维京人的扩张依赖长船、恐惧叙事和制度适应。"
+});
+assertEqual(
+  "youtube Feishu doc Viking fallback is concrete",
+  String(vikingFallbackDoc.includes("长船带来的机动性") && vikingFallbackDoc.includes("### 关键术语解释") && vikingFallbackDoc.includes("**Longship / 长船：**") && !vikingFallbackDoc.includes("产业判断、工程取舍和商业后果")),
+  "true"
 );
 
 const keywordFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
