@@ -284,7 +284,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc does not use a reading guide",
-  String(!mobileDocMarkdown.includes("阅读导航") && !mobileDocMarkdown.includes("这篇文档由小椰")),
+  String(!mobileDocMarkdown.includes("阅读导航") && !mobileDocMarkdown.includes("这篇文档由小椰") && !mobileDocMarkdown.includes("这篇笔记")),
   "true"
 );
 assertEqual(
@@ -294,7 +294,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc avoids raw transcript dumps",
-  String(!mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text")),
+  String(!mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text") && !mobileDocMarkdown.includes("We need memory bandwidth")),
   "true"
 );
 assertEqual(

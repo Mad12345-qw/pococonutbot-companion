@@ -761,13 +761,14 @@ function extractTimestampExcerpts(transcriptText = "", limit = 8) {
 function buildEvidenceAppendix(videos = []) {
   const blocks = [];
   for (const [index, video] of videos.slice(0, 3).entries()) {
-    const excerpts = extractTimestampExcerpts(video.transcriptText, 6);
+    const timestamps = extractTimestampExcerpts(video.transcriptText, 6)
+      .map((line) => line.match(/^\[\d+:\d{2}\]/)?.[0])
+      .filter(Boolean);
     blocks.push(compactLines([
       `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "原视频")}`,
       video.channel ? `来源：${video.channel}` : "",
       video.url ? `链接：${video.url}` : "",
-      excerpts.length ? "可回看片段：" : "",
-      excerpts.map((line) => `- ${line}`).join("\n")
+      timestamps.length ? `可回看时间点：${timestamps.join("、")}` : ""
     ]));
   }
   return blocks.filter(Boolean).join("\n\n");
@@ -860,8 +861,18 @@ function buildYoutubeBackgroundFallback(report = {}) {
   const first = videos[0] || {};
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
   const channel = first.channel ? `，来自 ${first.channel}` : "";
+  const raw = `${first.title || ""} ${report.topic || ""}`;
+  if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
+    return compactLines([
+      "这次参观真正暴露的，不是 SpaceX 又多了一座漂亮厂房，而是它正在把火箭从「单次工程项目」改造成「可复制的工业产品」。",
+      "",
+      "镜头进入 Starfactory 时，值得看的不是某个零件本身，而是这些零件如何被组织进同一条节拍：星舰船体、Super Heavy 助推器、猛禽发动机、塔架回收和可复用热防护，最后都指向同一个问题：火箭能不能像飞机或汽车一样进入连续制造、连续使用、连续迭代的系统。",
+      "",
+      "对普通读者来说，先抓住几个词就够了：Starship 是 SpaceX 的下一代超重型运载系统；全复用意味着两级火箭都要回来再飞；快速复用意味着回来之后不是修几个月，而是尽量接近航班化周转；Starfactory 则是把这些设想推向量产节拍的工厂现场。"
+    ]);
+  }
   return compactLines([
-    `这篇笔记先把视频放回真实语境里读：它讨论的不是一个孤立的技术名词，而是「${title}」背后的产业判断、工程取舍和商业后果${channel}。`,
+    `这条视频真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
     "",
     "### 先知道这几件事",
     "- 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。",
@@ -2234,10 +2245,22 @@ export class FeishuBot {
         "## 一、这场参观真正暴露了什么",
         buildYoutubeBackgroundFallback(report),
         "",
-        "## 二、先抓住主判断",
-        "这条视频真正值得看的，不是工厂里出现了多少新设备，而是 SpaceX 试图把航天制造从项目制推进到节拍制。传统火箭更像一次性的工程项目，星舰工厂想证明火箭也可以进入连续生产、连续试飞、连续迭代的工业系统。",
+        "## 二、真正的主线：从工程项目到工业节拍",
+        "传统航天的难题不只是把火箭送上天，而是每一次发射都像一个昂贵、漫长、不可复制的大项目。SpaceX 想证明的是另一件事：如果火箭能被反复使用，如果工厂能稳定产出，如果每次试飞都把数据带回设计循环，航天就会从项目制走向工业节拍。",
         "",
-        "## 三、还需要继续追问什么",
+        "这也是 Starfactory 的意义。它不是简单把帐篷换成厂房，而是把过去依靠现场试错、临时调整、手工推进的流程，逐步固化成相邻工位、稳定节拍和可放大的产线。真正的野心不是造一枚星舰，而是让星舰进入持续生产。",
+        "",
+        "## 三、三条技术线索决定这场赌局能不能成立",
+        "第一条线索是可复用热防护。星舰如果不能稳定承受再入热环境，全复用就只能停留在愿景里。第二条线索是塔架回收。助推器如果能直接回到发射塔附近，周转时间才有机会从天级、周级压到小时级。第三条线索是猛禽发动机和产线节拍。发动机越集成、越可靠，工厂越能减少现场维护和返工。",
+        "",
+        "这三条线索共同决定了 SpaceX 的赌局：它不是在单点突破某个参数，而是在同时改造产品、工厂和使用方式。",
+        "",
+        "## 四、这条视频最反常识的地方",
+        "- 反常识之一：真正稀缺的不是复用，而是快速复用。能回来只是第一步，能快速检查、加注、再飞，才是航班化的门槛。",
+        "- 反常识之二：工厂效率不等于设备越炫越好，而是每个工位能不能形成稳定流动。",
+        "- 反常识之三：早期试飞的载荷不是商业货物，而是工程数据。失败不一定是浪费，慢反馈才是浪费。",
+        "",
+        "## 五、继续追问",
         "- 这种高频试飞能否持续转化为可靠性，而不是只转化为速度？",
         "- 可复用热防护、发动机集成和塔架回收，哪一个会成为真正拖慢量产的瓶颈？",
         "- 如果 Starfactory 的节拍成立，它会怎样改变商业发射、月球任务和火星叙事的成本结构？"
