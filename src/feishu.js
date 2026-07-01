@@ -442,6 +442,33 @@ function compactLines(lines = []) {
   return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
 }
 
+function elapsedMsSince(startedAt = 0) {
+  return Math.max(0, Date.now() - Number(startedAt || Date.now()));
+}
+
+function formatShortDuration(ms = 0) {
+  const value = Math.max(0, Math.round(Number(ms || 0)));
+  if (value < 1000) return `${value}ms`;
+  const seconds = value / 1000;
+  if (seconds < 60) return `${seconds.toFixed(seconds < 10 ? 1 : 0)}s`;
+  const minutes = Math.floor(seconds / 60);
+  const rest = Math.round(seconds % 60);
+  return `${minutes}m${String(rest).padStart(2, "0")}s`;
+}
+
+function formatYoutubeDiagnosticsLine(report = {}, doc = {}, deliveryMs = 0) {
+  const timing = report.diagnostics || {};
+  const parts = [
+    timing.candidateMs ? `候选 ${formatShortDuration(timing.candidateMs)}` : "",
+    timing.transcriptMs ? `字幕 ${formatShortDuration(timing.transcriptMs)}` : "",
+    timing.aiMs ? `AI ${formatShortDuration(timing.aiMs)}` : "",
+    doc.diagnostics?.documentMs ? `飞书 ${formatShortDuration(doc.diagnostics.documentMs)}` : "",
+    deliveryMs ? `发卡 ${formatShortDuration(deliveryMs)}` : "",
+    timing.totalMs ? `总计 ${formatShortDuration((timing.totalMs || 0) + (doc.diagnostics?.documentMs || 0) + (deliveryMs || 0))}` : ""
+  ].filter(Boolean);
+  return parts.length ? `耗时诊断：${parts.join(" / ")}` : "";
+}
+
 function uniqueCardItems(items = []) {
   return [...new Set(items.map((item) => String(item || "").trim()).filter(Boolean))];
 }
@@ -1703,10 +1730,16 @@ export class FeishuBot {
       });
       const report = await this.buildYoutubeResearchReport(request);
       this.markTiming(timing, "buildReportMs");
+      const documentStartedAt = Date.now();
       const doc = await this.syncYoutubeResearchToFeishuDocument(report);
+      doc.diagnostics = {
+        ...(doc.diagnostics || {}),
+        documentMs: elapsedMsSince(documentStartedAt)
+      };
       this.markTiming(timing, "feishuDocumentMs");
       const pendingSync = { synced: false, notePath: "", topicPath: "", reason: "pending" };
       const pendingIndex = { synced: false, reason: doc.created ? "pending" : "doc_not_created" };
+      const deliveryStartedAt = Date.now();
       const reply = this.formatYoutubeResearchReply(report, pendingSync, doc, pendingIndex);
       const card = this.buildYoutubeResearchCard(report, pendingSync, doc, pendingIndex);
       let delivered = "card";
@@ -1723,6 +1756,7 @@ export class FeishuBot {
           await this.replyText(messageId, chunk);
         }
       }
+      doc.diagnostics.deliveryMs = elapsedMsSince(deliveryStartedAt);
       this.markTiming(timing, "deliveryMs");
       await this.storage.addMessage({
         chatId,
@@ -1739,7 +1773,12 @@ export class FeishuBot {
           obsidianPath: "",
           feishuDocUrl: doc.url || "",
           feishuIndexSynced: false,
-          backgroundSyncPending: true
+          backgroundSyncPending: true,
+          youtubeDiagnostics: {
+            ...(report.diagnostics || {}),
+            documentMs: doc.diagnostics?.documentMs || 0,
+            deliveryMs: doc.diagnostics?.deliveryMs || 0
+          }
         }
       });
       this.markTiming(timing, "storeAssistantMs");
@@ -1812,7 +1851,14 @@ export class FeishuBot {
         obsidianPath: sync.notePath || "",
         feishuDocUrl: doc.url || "",
         feishuIndexSynced: Boolean(index.synced),
-        backgroundSyncComplete: true
+        backgroundSyncComplete: true,
+        youtubeDiagnostics: {
+          ...(report.diagnostics || {}),
+          documentMs: doc.diagnostics?.documentMs || 0,
+          deliveryMs: doc.diagnostics?.deliveryMs || 0,
+          obsidianSyncMs: timing?.steps?.obsidianSyncMs || 0,
+          feishuIndexMs: timing?.steps?.feishuIndexMs || 0
+        }
       }
     });
 
@@ -1846,21 +1892,40 @@ export class FeishuBot {
   }
 
   async buildYoutubeResearchReport(request = {}, options = {}) {
+    const startedAt = Date.now();
+    const diagnostics = {
+      sourceType: request.sourceType || "",
+      candidateMs: 0,
+      transcriptMs: 0,
+      aiMs: 0,
+      videosAttempted: 0,
+      videosWithTranscript: 0,
+      failures: 0,
+      totalMs: 0
+    };
     const videos = [];
     const failures = [];
 
     if (request.videoUrl) {
+      const transcriptStartedAt = Date.now();
       const transcript = await this.transcriptApi.getTranscript(request.videoUrl, { sendMetadata: true });
+      diagnostics.transcriptMs += elapsedMsSince(transcriptStartedAt);
+      diagnostics.videosAttempted += 1;
       videos.push(this.normalizeYoutubeTranscriptForReport(transcript, request.videoUrl));
     } else {
+      const candidateStartedAt = Date.now();
       const candidates = await this.resolveYoutubeCandidateVideos(request);
+      diagnostics.candidateMs = elapsedMsSince(candidateStartedAt);
       if (!candidates.length) {
         throw new Error("Transcript API did not return YouTube video results.");
       }
       for (const item of candidates) {
+        diagnostics.videosAttempted += 1;
         try {
           const videoUrl = item.url || `https://www.youtube.com/watch?v=${item.videoId}`;
+          const transcriptStartedAt = Date.now();
           const transcript = await this.transcriptApi.getTranscript(videoUrl, { sendMetadata: true });
+          diagnostics.transcriptMs += elapsedMsSince(transcriptStartedAt);
           videos.push(this.normalizeYoutubeTranscriptForReport(transcript, videoUrl, item));
         } catch (error) {
           failures.push(`${item.title || item.videoId || item.url}: ${error.message}`);
@@ -1871,23 +1936,28 @@ export class FeishuBot {
     if (!videos.length) {
       throw new Error(failures[0] || "No usable YouTube transcripts were found.");
     }
+    diagnostics.videosWithTranscript = videos.length;
+    diagnostics.failures = failures.length;
     if (typeof options.onProgress === "function") {
       await options.onProgress({ stage: "transcripts_ready", videos, failures });
     }
 
     const topic = this.resolveYoutubeReportTopic(request, videos);
+    const aiStartedAt = Date.now();
     const markdown = await this.generateYoutubeResearchMarkdown({
       topic,
       request,
       videos,
       failures
     });
+    diagnostics.aiMs = elapsedMsSince(aiStartedAt);
+    diagnostics.totalMs = elapsedMsSince(startedAt);
     const markdownTitle = cleanYoutubeDocumentTitle(this.extractMarkdownTitle(markdown));
     const firstVideoTitle = cleanYoutubeDocumentTitle(videos[0]?.title);
     const title = isWeakYoutubeTitle(markdownTitle, topic)
       ? (firstVideoTitle || `${topic} 技术解读`)
       : markdownTitle;
-    return { topic, title, request, videos, failures, markdown };
+    return { topic, title, request, videos, failures, markdown, diagnostics };
   }
 
   async resolveYoutubeCandidateVideos(request = {}) {
@@ -2237,12 +2307,14 @@ export class FeishuBot {
       : indexSync.reason === "pending"
         ? "知识库目录：后台归档中"
       : "";
+    const diagnosticsLine = formatYoutubeDiagnosticsLine(report, doc, doc.diagnostics?.deliveryMs || 0);
     return compactLines([
       `整理好了：${report.title}`,
       `主题：${report.topic}`,
       `视频：${videos.length} 条`,
       markdownList(videoLines),
       docLine,
+      diagnosticsLine,
       obsidianLine,
       indexLine,
       doc.created ? "正文我已经放到飞书文档里了，请查收哦" : "正文已整理完成，但飞书文档创建失败；我先不在群里刷长文。"
@@ -2265,6 +2337,7 @@ export class FeishuBot {
       : indexSync.reason === "pending"
         ? "后台归档中"
       : (indexSync.reason && indexSync.reason !== "not_configured" ? `归档失败：${cardText(indexSync.reason, 80)}` : "");
+    const diagnosticsLine = formatYoutubeDiagnosticsLine(report, doc, doc.diagnostics?.deliveryMs || 0);
     const videoLines = videos.slice(0, 5).map((video, index) => {
       const meta = [video.channel, video.lengthText, video.language].filter(Boolean).join(" / ");
       return `${index + 1}. **${cardMarkdown(video.title, 110)}**${meta ? `\n   ${cardMarkdown(meta, 100)}` : ""}`;
@@ -2370,9 +2443,10 @@ export class FeishuBot {
           tag: "lark_md",
           content: cardMarkdown(compactLines([
             `飞书文档：${docStatus}`,
+            diagnosticsLine,
             `Obsidian：${obsidianStatus}`,
             indexStatus ? `知识库目录：${indexStatus}` : ""
-          ]), 360)
+          ]), 520)
         }
       }
     ];

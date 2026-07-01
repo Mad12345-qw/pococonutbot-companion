@@ -296,6 +296,26 @@ assertEqual(
   "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品"
 );
 assertEqual(
+  "youtube research reply includes timing diagnostics",
+  String(bot.formatYoutubeResearchReply(
+    {
+      title: "测试视频",
+      topic: "测试主题",
+      videos: [{ title: "测试视频", channel: "Test", language: "en" }],
+      diagnostics: {
+        candidateMs: 1200,
+        transcriptMs: 2300,
+        aiMs: 3400,
+        totalMs: 6900
+      }
+    },
+    { synced: false, reason: "pending" },
+    { created: true, url: "https://example.com/doc", diagnostics: { documentMs: 4500 } },
+    { synced: false, reason: "pending" }
+  ).includes("耗时诊断：候选 1.2s / 字幕 2.3s / AI 3.4s / 飞书 4.5s / 总计 11s")),
+  "true"
+);
+assertEqual(
   "bare channel url is classified as channel",
   bot.extractYoutubeResearchRequest("https://www.youtube.com/@SpaceX").sourceType,
   "channel"
