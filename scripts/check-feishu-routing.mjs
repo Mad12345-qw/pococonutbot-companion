@@ -238,25 +238,25 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "---",
     "# building the best GPU possible YouTube 技术笔记",
     "",
-    "## 一、这场参观真正暴露了什么",
+    "## 一、背景导读：算力瓶颈为什么不是单个参数问题",
     "这不是一条普通的产品视频，而是在解释算力竞赛背后的硬件约束。GPU 的意义不只在峰值算力，还在带宽、并行度、软件生态和供应链共同形成的系统优势。",
     "",
-    "## 二、马斯克真正押注的不是火箭，而是节拍",
+    "## 二、精华总结：系统能力比单点性能更重要",
     "这里用测试内容模拟一段足够长的专栏正文。真正的好文章不会先贴阅读导航，也不会把输出语言、字幕语言、内容形态当成读者需要知道的信息。它会先建立问题，再用证据拆解判断。",
     "",
-    "## 三、星舰工厂的三条技术主线",
+    "## 三、关键技术点速览：带宽、并行与生态",
     "| 技术点 | 视频里怎么说 | 为什么重要 |",
     "| --- | --- | --- |",
     "| GPU 架构 | 强调带宽和并行 | 影响训练效率 |",
     "",
-    "## 四、最值得记住的反常识判断",
+    "## 四、详细技术拆解：从硬件参数到训练效率",
     "第一，硬件优势不是单个参数赢，而是系统能力赢。第二，真正稀缺的不是发布会概念，而是稳定量产和软件生态。第三，读者要看的是约束条件，不是口号。",
     "",
-    "## 五、如果只看一遍，记住这些时间点",
+    "## 五、时间线摘要：关键论点如何出现",
     "- [0:00] 开场提出硬件架构问题。",
     "- [0:05] 转向带宽和并行度。",
     "",
-    "## 六、继续追问",
+    "## 六、值得继续追问的问题：哪些约束还没被验证",
     "- 这个判断能否被供应链数据验证？",
     "- 软件生态是否比硬件参数更难复制？",
     "",
@@ -274,7 +274,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
 });
 assertEqual(
   "youtube Feishu doc uses a Chinese article H1",
-  String(/^#\s+AI 算力竞赛背后：一块 GPU 到底在决定什么/m.test(mobileDocMarkdown)),
+  String(/^#\s+从「GPU」看懂一个关键判断/m.test(mobileDocMarkdown)),
   "true"
 );
 assertEqual(
@@ -299,12 +299,68 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc has a columnist outline",
-  String(mobileDocMarkdown.includes("## 一、这场参观真正暴露了什么") && mobileDocMarkdown.includes("## 资料来源") && !mobileDocMarkdown.includes("这部分没有生成到有效内容")),
+  String([
+    "## 一、背景导读",
+    "## 二、精华总结",
+    "## 三、关键技术点速览",
+    "## 四、详细技术拆解",
+    "## 五、时间线摘要",
+    "## 六、值得继续追问的问题",
+    "## 七、出处与链接"
+  ].every((heading) => mobileDocMarkdown.includes(heading)) && !mobileDocMarkdown.includes("这部分没有生成到有效内容")),
   "true"
 );
 assertEqual(
   "youtube Feishu doc title is Chinese for English source titles",
-  String(mobileDocMarkdown.startsWith("# AI 算力竞赛背后：一块 GPU 到底在决定什么")),
+  String(mobileDocMarkdown.startsWith("# 从「GPU」看懂一个关键判断")),
+  "true"
+);
+
+const productDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "AI note app",
+  title: "How I use AI notes every day",
+  videos: [
+    {
+      title: "How I use AI notes every day",
+      channel: "Product Builder",
+      url: "https://www.youtube.com/watch?v=notes123456",
+      transcriptText: "[0:00] I use AI notes to capture meetings.\n[2:00] The real value is retrieval, not summarization.\n[4:00] Most teams fail because they do not define a workflow."
+    }
+  ],
+  markdown: [
+    "# AI 笔记真正改变的不是记录，而是团队如何找回知识",
+    "",
+    "很多团队把 AI 笔记当成自动总结工具，但这条视频真正指向的是另一个问题：知识如果不能被找回，再漂亮的会议纪要也只是新的信息垃圾。",
+    "",
+    "## 一、背景导读：这不是记笔记工具，而是知识回收工具",
+    "视频里的核心场景不是把会议内容转成文字，而是让团队在需要决策时能重新找到上下文。",
+    "",
+    "## 二、精华总结：真正的价值出现在会后",
+    "总结只是入口，检索、关联和责任追踪才是长期价值。",
+    "",
+    "## 三、关键技术点速览：检索、关联和责任追踪",
+    "如果团队没有定义谁记录、谁复盘、谁更新结论，AI 只会制造更多半成品。",
+    "",
+    "## 四、详细技术拆解：落地风险在工作流，不在模型",
+    "会议内容被记录下来只是第一步，真正的工程难点在于把片段变成可追踪的知识对象。团队需要知道哪些信息进入长期记忆，哪些只是临时噪音，以及谁负责把讨论转成决策。",
+    "",
+    "如果没有这套流程，AI 笔记会把信息生产速度提高，但同时也会扩大知识管理的负担。一个团队真正需要的不是更多摘要，而是能够在项目复盘、客户交接和产品决策时迅速找回原始上下文，并且知道当时为什么做出那个判断。",
+    "",
+    "所以这类工具的价值边界很清楚：模型负责捕捉和重组材料，组织负责定义信息的生命周期。什么时候归档，什么时候更新，什么时候删除，什么时候把会议结论转成任务，这些规则如果缺席，再强的总结能力也只能制造更多看似完整、实际没人负责的文档。",
+    "",
+    "## 五、时间线摘要：关键时间点",
+    "- [0:00] 捕捉会议只是起点。",
+    "- [2:00] 找回知识比生成摘要更重要。",
+    "- [4:00] 工作流缺失会让工具价值归零。",
+    "",
+    "## 六、值得继续追问的问题：如何避免知识库变成垃圾场",
+    "- 哪些知识应该进入长期记忆？",
+    "- 谁负责把会议记录转成可执行决策？"
+  ].join("\n")
+});
+assertEqual(
+  "youtube Feishu doc does not force SpaceX-specific headings onto other videos",
+  String(!productDocMarkdown.includes("星舰工厂") && !productDocMarkdown.includes("马斯克") && productDocMarkdown.includes("## 一、背景导读：这不是记笔记工具，而是知识回收工具")),
   "true"
 );
 assertEqual(

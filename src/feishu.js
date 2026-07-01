@@ -640,15 +640,10 @@ function looksMostlyEnglish(value = "") {
 
 function columnistYoutubeTitleFallback(report = {}) {
   const first = report.videos?.[0] || {};
-  const raw = `${first.title || ""} ${report.topic || ""}`;
-  if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
-    return "马斯克的星舰工厂赌局：SpaceX 如何把火箭变成流水线产品";
-  }
-  if (/gpu|nvidia|chip|cuda|ai/i.test(raw)) {
-    return "AI 算力竞赛背后：一块 GPU 到底在决定什么";
-  }
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
-  return `从「${title}」看懂一个关键判断`;
+  const topic = cleanYoutubeDocumentTitle(report.topic || title);
+  if (topic && !looksMostlyEnglish(topic)) return `从「${topic}」看懂一个关键判断`;
+  return `从这条视频看懂一个关键判断：${title}`;
 }
 
 function formatSeconds(seconds = 0) {
@@ -743,6 +738,69 @@ function ensureArticleTitle(markdown = "", title = "") {
   return `# ${title}\n\n${body}`;
 }
 
+const REQUIRED_YOUTUBE_COLUMN_SECTIONS = [
+  "background",
+  "summary",
+  "tech",
+  "detail",
+  "timeline",
+  "questions"
+];
+
+function youtubeColumnSectionKeys(markdown = "") {
+  return new Set(
+    String(markdown || "")
+      .split(/\r?\n/)
+      .map((line) => line.match(/^##\s+(.+)$/)?.[1])
+      .filter(Boolean)
+      .map((heading) => youtubeDocSectionKey(heading))
+      .filter(Boolean)
+  );
+}
+
+function hasUsableArticleStructure(markdown = "") {
+  const text = String(markdown || "");
+  const keys = youtubeColumnSectionKeys(text);
+  const hasRequiredSections = REQUIRED_YOUTUBE_COLUMN_SECTIONS.every((key) => keys.has(key));
+  const proseLength = text
+    .replace(/^#{1,6}\s+.+$/gm, "")
+    .replace(/^\s*[-*]\s+/gm, "")
+    .trim()
+    .length;
+  return hasRequiredSections && proseLength >= 500;
+}
+
+function buildGenericYoutubeArticleFallback(report = {}) {
+  const videos = report.videos || [];
+  const first = videos[0] || {};
+  const topic = cleanYoutubeDocumentTitle(report.topic || first.title || report.title || "这条视频");
+  return compactLines([
+    "## 一、背景导读",
+    buildYoutubeBackgroundFallback(report),
+    "",
+    "## 二、精华总结",
+    `这条视频最值得保留的，不是零散信息，而是它围绕「${topic}」提出的核心判断：读者需要先分清它解决的问题、依赖的条件，以及哪些结论还需要继续验证。`,
+    "",
+    "## 三、关键技术点速览",
+    "- 核心问题：视频试图解释的主要矛盾是什么。",
+    "- 关键机制：它依靠哪些技术、流程或产品能力成立。",
+    "- 风险边界：哪些前提一旦不成立，结论就需要重估。",
+    "",
+    "## 四、详细技术拆解",
+    "真正有价值的技术拆解，不是把术语逐个罗列，而是说明每个技术点如何改变成本、效率、可靠性或用户行为。后续生成应围绕视频中的具体证据，把这些机制拆成可读的因果链。",
+    "",
+    "## 五、时间线摘要",
+    "- 开场：识别视频提出的问题和场景。",
+    "- 中段：提炼主要机制、案例或论据。",
+    "- 结尾：记录作者给出的判断、限制和后续问题。",
+    "",
+    "## 六、值得继续追问的问题",
+    "- 这个判断依赖哪些可验证的数据？",
+    "- 哪些说法来自经验判断，哪些来自视频里的明确证据？",
+    "- 如果把这个结论用于自己的项目，最大的误用风险是什么？"
+  ]);
+}
+
 function extractTimestampExcerpts(transcriptText = "", limit = 8) {
   const lines = String(transcriptText || "")
     .split(/\r?\n/)
@@ -783,12 +841,17 @@ function assertPublishableYoutubeArticle(markdown = "") {
     /没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
     /<\/?details|<summary/i,
     /^```/m,
-    /代码块/
+    /^代码块$/m
   ];
   const hit = forbidden.find((pattern) => pattern.test(text));
   if (hit) throw new Error(`YouTube article failed quality gate: ${hit}`);
   const sectionCount = (text.match(/^##\s+/gm) || []).length;
-  if (sectionCount < 4) throw new Error("YouTube article failed quality gate: missing section headings");
+  const keys = youtubeColumnSectionKeys(text);
+  const required = [...REQUIRED_YOUTUBE_COLUMN_SECTIONS, "sources"];
+  const missing = required.filter((key) => !keys.has(key));
+  if (sectionCount < 7 || missing.length) {
+    throw new Error(`YouTube article failed quality gate: missing sections ${missing.join(",")}`);
+  }
   if (text.length < 500) throw new Error("YouTube article failed quality gate: article too short");
 }
 
@@ -861,23 +924,12 @@ function buildYoutubeBackgroundFallback(report = {}) {
   const first = videos[0] || {};
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
   const channel = first.channel ? `，来自 ${first.channel}` : "";
-  const raw = `${first.title || ""} ${report.topic || ""}`;
-  if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
-    return compactLines([
-      "这次参观真正暴露的，不是 SpaceX 又多了一座漂亮厂房，而是它正在把火箭从「单次工程项目」改造成「可复制的工业产品」。",
-      "",
-      "镜头进入 Starfactory 时，值得看的不是某个零件本身，而是这些零件如何被组织进同一条节拍：星舰船体、Super Heavy 助推器、猛禽发动机、塔架回收和可复用热防护，最后都指向同一个问题：火箭能不能像飞机或汽车一样进入连续制造、连续使用、连续迭代的系统。",
-      "",
-      "对普通读者来说，先抓住几个词就够了：Starship 是 SpaceX 的下一代超重型运载系统；全复用意味着两级火箭都要回来再飞；快速复用意味着回来之后不是修几个月，而是尽量接近航班化周转；Starfactory 则是把这些设想推向量产节拍的工厂现场。"
-    ]);
-  }
   return compactLines([
-    `这条视频真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
+    `这条视频《${title}》真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
     "",
-    "### 先知道这几件事",
-    "- 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。",
-    "- 如果视频涉及公司、产品或工厂现场，要把发言人的立场和拍摄场景一起看，避免把宣传语直接当成结论。",
-    "- 下面的术语解释只做入门铺垫，具体判断以后文的字幕证据为准。"
+    "读这类视频时，重点不是记住每个参数，而是先分清三个问题：它解决了什么瓶颈，牺牲了什么，以及为什么现在值得讨论。只有把市场环境、拍摄语境和发言人的立场放在一起看，后面的技术细节才不会变成零散摘抄。",
+    "",
+    "对第一次接触这个主题的读者，可以先把文中术语理解成三类：对象是什么，机制怎么运转，风险在哪里。下面的拆解会围绕视频证据展开，而不是把来源信息、语言信息和链接反复塞进正文。"
   ]);
 }
 
@@ -2064,7 +2116,7 @@ export class FeishuBot {
           "1. Title",
           "- Use one Chinese thesis-style headline.",
           "- Formula: <人物/公司/事件> + <core tension> + <why it matters>.",
-          "- Example style: 马斯克的星舰工厂赌局：SpaceX 如何把火箭变成流水线产品",
+          "- The title must be derived from this video's actual topic and central tension, not from a reusable example.",
           "",
           "2. Opening before any heading",
           "- Write 2-4 short paragraphs.",
@@ -2072,32 +2124,39 @@ export class FeishuBot {
           "- Paragraph 2: Explain why this matters now in market/technology terms.",
           "- Paragraph 3: State the article's main thesis in plain Chinese.",
           "",
-          "3. Body structure",
-          "## 一、这场参观真正暴露了什么",
-          "- Explain the filming context, company/product background, and beginner-friendly terms through prose.",
-          "- Terms should be introduced as part of the argument, not as a glossary dump.",
+          "3. Universal seven-part article structure",
+          "- This is a mandatory structure contract, not a suggestion.",
+          "- Produce all seven H2 sections in this exact order for every video.",
+          "- Adapt the subtitle and examples to the actual video; never borrow a previous video's subject, company, product, or vocabulary.",
+          "- The H2 headings should start with the numbered section name, then add a short content-specific subtitle when useful.",
           "",
-          "## 二、真正的主线：从工程项目到工业节拍",
-          "- Extract the one strongest thesis from the video.",
-          "- Explain the difference between a prototype, a factory, a production rhythm, and a reusable system.",
-          "- Use 2-3 concrete transcript-supported facts.",
+          "## 一、背景导读：<why this video matters now>",
+          "- Explain market/technology context, filming/speaker context, and beginner-friendly terms.",
+          "- Write as prose, not a glossary dump.",
           "",
-          "## 三、三条技术线索决定这场赌局能不能成立",
-          "- Write 3-5 subsections.",
-          "- For each subsection: first explain the technology in simple language, then explain why it matters, then name the failure risk.",
-          "- Good subsection examples: 可复用热防护、塔架回收、猛禽 V3、产线节拍.",
+          "## 二、精华总结：<the one-sentence thesis>",
+          "- Give the main conclusion, 3-6 core points, and the most counter-consensus judgment.",
+          "- This section is for readers who only read one screen.",
           "",
-          "## 四、这条视频最反常识的地方",
-          "- Give 3-5 sharp judgments a reader would not get from a generic summary.",
-          "- Each judgment should be one paragraph or one compact bullet with explanation.",
+          "## 三、关键技术点速览：<3-6 key mechanisms>",
+          "- List the key technologies/concepts/mechanisms.",
+          "- For each: what it is, why it matters, and what can go wrong.",
           "",
-          "## 五、如果只看一遍，记住这些时间点",
+          "## 四、详细技术拆解：<the causal chain>",
+          "- Turn the key mechanisms into a readable causal explanation.",
+          "- Explain tradeoffs, constraints, economics, risks, and what the video evidence actually supports.",
+          "",
+          "## 五、时间线摘要：<video path>",
           "- Select 6-10 key timestamps.",
-          "- Each item should be: timestamp + Chinese summary + why this moment matters.",
+          "- Each item should be timestamp + Chinese summary + why this moment matters.",
+          "- Do not paste raw transcript.",
           "",
-          "## 六、继续追问",
-          "- List 3-5 serious follow-up questions for readers who want to go deeper.",
-          "- Questions should point to uncertainty, verification, or business/technical implications.",
+          "## 六、值得继续追问的问题：<reader next steps>",
+          "- List 3-5 serious follow-up questions.",
+          "- Questions should point to uncertainty, verification, business implications, or technical bottlenecks.",
+          "",
+          "## 七、出处与链接",
+          "- Include source title, channel, URL, and a few useful timestamps.",
           "",
           "4. Evidence style",
           "- Main prose is Chinese.",
@@ -2105,9 +2164,11 @@ export class FeishuBot {
           "- Prefer translated/paraphrased evidence over long English quotes.",
           "- Keep the article readable on Feishu: short paragraphs, clear headings, no wide tables.",
           "",
-          "5. Source ending",
-          "- Finish with `## 资料来源`.",
-          "- Include video title, channel, URL, and 3-6 useful timestamps.",
+          "5. Presentation style",
+          "- The document should feel like a polished Feishu column, not a system report.",
+          "- No reading guide, no generation note, no raw transcript, no code block, no duplicated source metadata.",
+          "- Mention source title, channel, URL, language, and links only in section seven.",
+          "- Do not repeat metadata such as transcript language, output language, content type, channel, or source URL in earlier sections.",
           "",
           "Source transcripts:",
           sourceText
@@ -2240,35 +2301,12 @@ export class FeishuBot {
     const videos = report.videos || [];
     const title = this.resolveYoutubeDocumentTitle(report);
     let article = sanitizeColumnistArticleMarkdown(report.markdown);
-    if (!article || article.length < 1200) {
-      article = compactLines([
-        "## 一、这场参观真正暴露了什么",
-        buildYoutubeBackgroundFallback(report),
-        "",
-        "## 二、真正的主线：从工程项目到工业节拍",
-        "传统航天的难题不只是把火箭送上天，而是每一次发射都像一个昂贵、漫长、不可复制的大项目。SpaceX 想证明的是另一件事：如果火箭能被反复使用，如果工厂能稳定产出，如果每次试飞都把数据带回设计循环，航天就会从项目制走向工业节拍。",
-        "",
-        "这也是 Starfactory 的意义。它不是简单把帐篷换成厂房，而是把过去依靠现场试错、临时调整、手工推进的流程，逐步固化成相邻工位、稳定节拍和可放大的产线。真正的野心不是造一枚星舰，而是让星舰进入持续生产。",
-        "",
-        "## 三、三条技术线索决定这场赌局能不能成立",
-        "第一条线索是可复用热防护。星舰如果不能稳定承受再入热环境，全复用就只能停留在愿景里。第二条线索是塔架回收。助推器如果能直接回到发射塔附近，周转时间才有机会从天级、周级压到小时级。第三条线索是猛禽发动机和产线节拍。发动机越集成、越可靠，工厂越能减少现场维护和返工。",
-        "",
-        "这三条线索共同决定了 SpaceX 的赌局：它不是在单点突破某个参数，而是在同时改造产品、工厂和使用方式。",
-        "",
-        "## 四、这条视频最反常识的地方",
-        "- 反常识之一：真正稀缺的不是复用，而是快速复用。能回来只是第一步，能快速检查、加注、再飞，才是航班化的门槛。",
-        "- 反常识之二：工厂效率不等于设备越炫越好，而是每个工位能不能形成稳定流动。",
-        "- 反常识之三：早期试飞的载荷不是商业货物，而是工程数据。失败不一定是浪费，慢反馈才是浪费。",
-        "",
-        "## 五、继续追问",
-        "- 这种高频试飞能否持续转化为可靠性，而不是只转化为速度？",
-        "- 可复用热防护、发动机集成和塔架回收，哪一个会成为真正拖慢量产的瓶颈？",
-        "- 如果 Starfactory 的节拍成立，它会怎样改变商业发射、月球任务和火星叙事的成本结构？"
-      ]);
+    if (!hasUsableArticleStructure(article)) {
+      article = buildGenericYoutubeArticleFallback(report);
     }
     let markdown = ensureArticleTitle(article, title);
-    if (!/##\s*资料来源/.test(markdown)) {
-      markdown = compactLines([markdown, "", "## 资料来源", buildEvidenceAppendix(videos)]);
+    if (!/##\s*(?:七、)?(?:出处与链接|资料来源)/.test(markdown)) {
+      markdown = compactLines([markdown, "", "## 七、出处与链接", buildEvidenceAppendix(videos)]);
     }
     assertPublishableYoutubeArticle(markdown);
     return markdown;
