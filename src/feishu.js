@@ -649,8 +649,8 @@ function isWeakYoutubeTitle(value = "", topic = "") {
   return normalized.length <= 3 ||
     normalized === normalizeTopicForMatch(topic) ||
     isWeakYoutubeTopic(normalized) ||
-    /\byoutube\s*技术笔记\b/i.test(text) ||
-    /\b(?:this|it|a|an)\s+youtube\s*技术笔记\b/i.test(text);
+    /youtube\s*技术笔记/i.test(text) ||
+    /技术笔记$/i.test(text);
 }
 
 function cleanYoutubeDocumentTitle(value = "") {
@@ -750,8 +750,9 @@ function youtubeDocSectionKey(heading = "") {
 function isLowValueYoutubeMetadataLine(line = "") {
   const text = String(line || "").trim();
   if (!text) return false;
-  if (/^#{1,6}\s*(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记/i.test(text)) return true;
-  if (/^(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记$/i.test(text)) return true;
+  if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?.*YouTube\s*技术笔记\s*$/i.test(text)) return true;
+  if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?.*技术笔记\s*$/i.test(text) && looksMostlyEnglish(text)) return true;
+  if (/^我先按|^接下来我会|^下面我会|^我会把|^先按你给的|^根据你给的时间戳|^我先根据/.test(text)) return true;
   if (/真正值得读的，不是某个孤立知识点|背后的产业判断、工程取舍和商业后果|重点不是记住每个参数|解决了什么瓶颈、牺牲了什么、为什么现在值得讨论|具体判断以后文的字幕证据为准/.test(text)) return true;
   if (/^#{1,6}\s*完整字幕逐字稿/.test(text)) return true;
   if (/这篇文档由小椰根据视频字幕整理|阅读导航|这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/.test(text)) return true;
@@ -770,6 +771,16 @@ function stripLowValueYoutubeMetadataLines(markdown = "") {
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function stripYoutubeProcessPreamble(markdown = "") {
+  const text = String(markdown || "").trim();
+  if (!text) return "";
+  const firstTitle = text.search(/^#\s+/m);
+  if (firstTitle > 0 && /我先按|接下来我会|我会把|时间戳骨架|整理成中文|可直接进\s*(?:Obsidian|飞书)/.test(text.slice(0, firstTitle))) {
+    return text.slice(firstTitle).trim();
+  }
+  return text;
 }
 
 function hasMeaningfulYoutubeSection(value = "") {
@@ -808,6 +819,21 @@ function collectYoutubeDocSections(markdown = "") {
   return Object.fromEntries(
     Object.entries(sections).map(([key, lines]) => [key, stripLowValueYoutubeMetadataLines(lines.join("\n"))])
   );
+}
+
+function dropOpeningSubtitles(markdown = "") {
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .filter((line) => {
+      const heading = line.match(/^#{3,6}\s+(.+)$/);
+      if (!heading) return true;
+      const title = heading[1].trim();
+      if (/YouTube\s*技术笔记|技术笔记$/i.test(title)) return false;
+      if (looksMostlyEnglish(title) && !/^(?:\d+[.)、.．]\s*)?(?:关键术语解释|一句话结论|核心观点|标志性金句|最反共识的判断)$/i.test(title)) return false;
+      return true;
+    })
+    .join("\n")
+    .trim();
 }
 
 function buildYoutubeBackgroundFallback(report = {}) {
@@ -1104,9 +1130,10 @@ function assertReadableYoutubeDocument(markdown = "") {
   const forbidden = [
     /阅读导航/,
     /这篇文档由小椰根据视频字幕整理/,
+    /我先按|接下来我会|我会把|时间戳骨架|可直接进\s*(?:Obsidian|飞书)/,
     /真正值得读的，不是某个孤立知识点|背后的产业判断、工程取舍和商业后果|重点不是记住每个参数|解决了什么瓶颈、牺牲了什么、为什么现在值得讨论|具体判断以后文的字幕证据为准/,
     /这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
-    /(?:^|\n)#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i,
+    /(?:^|\n)#{1,6}\s*.*YouTube\s*技术笔记/i,
     /<\/?details|<summary/i
   ];
   const hit = forbidden.find((pattern) => pattern.test(text));
@@ -2305,6 +2332,7 @@ export class FeishuBot {
           "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
           "Use bold labels inside bullets, such as `- **为什么重要：** ...`, `- **风险：** ...`, and indent supporting points under the main point. Never leave labels like `术语解释：` or `市场/技术环境：` unbolded.",
           "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
+          "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`. The response must be only the final article, starting with `# <title>`.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
@@ -2355,7 +2383,7 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    return this.decorateYoutubeMarkdown(this.cleanAssistantReply(raw), { topic, request, videos });
+    return this.decorateYoutubeMarkdown(stripYoutubeProcessPreamble(this.cleanAssistantReply(raw)), { topic, request, videos });
   }
 
   decorateYoutubeMarkdown(markdown = "", { topic, request, videos }) {
@@ -2478,7 +2506,7 @@ export class FeishuBot {
       .map((video, index) => buildTranscriptExcerptBlock(video, index))
       .filter(Boolean)
       .join("\n\n");
-    let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown)))
+    let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(stripYoutubeProcessPreamble(report.markdown))))
       .trim();
     body = body.replace(/^#\s+.+\n+/, "").trim();
     body = stripLowValueYoutubeMetadataLines(body);
@@ -2496,7 +2524,7 @@ export class FeishuBot {
       relocated.detail.background,
       relocated.other.background
     ].filter(Boolean)), report);
-    const summary = relocated.summary.body || sections.summary;
+    const summary = dropOpeningSubtitles(relocated.summary.body || sections.summary);
     const tech = relocated.tech.body || sections.tech;
     const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
     const opening = compactLines([

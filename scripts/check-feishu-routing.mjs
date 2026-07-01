@@ -233,9 +233,12 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     }
   ],
   markdown: [
+    "我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。",
+    "接下来我会把“100倍更重”“12次以上补加注”串成一篇可直接进 Obsidian/飞书的笔记。",
     "---",
     "title: test",
     "---",
+    "# 为什么 Starship HLS 会牵出“12 次以上发射加注”的月球任务链",
     "# building the best GPU possible YouTube 技术笔记",
     "",
     "## 二、精华总结",
@@ -244,6 +247,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "这条视频真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果。",
     "### 一句话结论",
     "GPU 的瓶颈不只是算力，也包括内存带宽。",
+    "### 100 times heavier YouTube 技术笔记",
     "### this YouTube 技术笔记",
     "- **背景导读：** 这段机器生成的背景块也必须搬回背景区，不能留在总结下面。",
     "- **市场/技术环境：** 这里同样属于背景，不属于正文观点。",
@@ -325,7 +329,12 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc strips machine generated youtube note headings",
-  String(!/this\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown) && !/it\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown)),
+  String(!/this\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown) && !/it\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown) && !/100 times heavier\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown)),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc strips assistant process prefaces",
+  String(!mobileDocMarkdown.includes("我先按你给的时间戳骨架") && !mobileDocMarkdown.includes("接下来我会把") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
   "true"
 );
 assertEqual(
