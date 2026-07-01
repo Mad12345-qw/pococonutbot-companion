@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T10:59:13.384Z",
+  "exportedAt": "2026-07-01T11:29:13.724Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -54042,6 +54042,373 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T10:55:52.367Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "我们的 TTS 系列暂时没有适配过 mnn 框架哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7b301484bcc22168cdf376080",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:20:15.690Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "或许可以看看社区开发者有没有什么经验\n[Link content]\n[Referenced Feishu message]\n技术老师，想问下问题，我正在手机上部署 moss nano，我尝试 mnn 框架进行转化优化，但似乎 mnn 反而没有 onnx 快，原先 onnx 在第三代骁龙 8s 上有比较明显的时间间隔\n对于我这边采用 激活 fp16 量化，int8 权重\n不知道 nano 模型对于 mnn 框架部署有没有什么文档或者示例呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7b3104fca4c3dc2a72bf8ffdd",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "[Referenced Feishu message]\n技术老师，想问下问题，我正在手机上部署 moss nano，我尝试 mnn 框架进行转化优化，但似乎 mnn 反而没有 onnx 快，原先 onnx 在第三代骁龙 8s 上有比较明显的时间间隔\n对于我这边采用 激活 fp16 量化，int8 权重\n不知道 nano 模型对于 mnn 框架部署有没有什么文档或者示例呢",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:20:31.721Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "是感觉好像 mnn 转不了，直接命令转转不出来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bda3e251cb3b2428c42e9e67",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:26:09.950Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "tflite 框架有适配吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bdb0bc0b4b2efbcef0885d8c",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:26:23.112Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "也没有..",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd88d2cbcc25895c17af1eaa",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:26:30.055Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "我想加快推理速度",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd81590acb2f63e920a664bb",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:26:39.100Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "assistant",
+        "modality": "text",
+        "content": "加快推理速度这块可以试试这几个方向：\n\n1. 算子融合 — 用 ONNX Runtime 的图优化（opt_level=99 + ORT_ENABLE_ALL），把 LayerNorm、Attention、SwiGLU 这类连续算子 fuse 掉，骁龙 NPU 上收益比较明显。\n2. KV Cache 量化 — int8 的 KV cache 比 fp16 显存带宽省一半，长上下文场景提速很明显，nano 这种小模型尤其值得开。\n3. Attention 后端 — Snapdragon 8s Gen3 上确认下有没有用上 Hexagon V73 的 HTP 后端，CPU fallback 是最常见的瓶颈来源。\n4. Prefill 阶段拆分 — TTFT 慢的话试试 chunked prefill，把首次响应和后续 decode 拆成两条路径。\n\n要不再贴下你现在的 ONNX 推理耗时分布？我帮你看下瓶颈主要在 prefill 还是 decode。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_e72be18116780dff8b21aa080f455ac2"
+        },
+        "createdAt": "2026-07-01T11:26:47.083Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "我们这边最近人力比较紧张，实在抱歉!",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd9c4e8a0c17cbca12b3f0b5",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:27:48.097Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "好的谢谢🌹，模型其实很棒了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd92c5cb0b10d39e2257460e",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:27:51.245Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 如果您 API 也能接受的话，可以走 https://platform.mosi.cn/ 用我们更好的模型\nhttps://platform.mosi.cn/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://platform.mosi.cn/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd6355504c1e61bec8093ce2",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-01T11:27:55.749Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "如果您 API 也能接受的话，可以走 https://platform.mosi.cn/ 用我们更好的模型\n[Link content]\n[Web page] https://platform.mosi.cn/\nMosi Platform Playground",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd6355504c1e61bec8093ce2",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "[Web page] https://platform.mosi.cn/\nMosi Platform Playground",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:27:56.805Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "好的👌感谢(^🙏^)",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd4dab0a0b21ea92c5a85f77",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:27:59.691Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "MOSS-TTS 2.0 我们会争取第一时间适配上述所有框架哈",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd4d994b0c3f8ef55fc111c4",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:28:01.888Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "role": "user",
+        "modality": "text",
+        "content": "啥时候出呀，我这段时间甚至都想自己写适配了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd56648b8b2826ad33157222",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUserId": "ou_e72be18116780dff8b21aa080f455ac2",
+          "rawUnionId": "on_f7408052c40350903a6c12ad1da3e601",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:28:06.382Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "Q3",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd25018a0c23b896f0428652",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:28:11.573Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "具体时间待定，您可以期待下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7bd389f8a0c2f6de13df78e51",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T11:28:22.389Z"
       }
     ],
     "memories": [
@@ -55303,7 +55670,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.923Z",
-        "updatedAt": "2026-06-22T02:36:10.314Z"
+        "updatedAt": "2026-07-01T11:28:22.321Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -55313,7 +55680,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.693Z",
-        "updatedAt": "2026-06-22T02:36:10.087Z"
+        "updatedAt": "2026-07-01T11:28:22.253Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -55378,12 +55745,32 @@
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
         "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "key": "context.deployment",
+        "value": "用户在Snapdragon 8s Gen3 / 骁龙NPU上跑ONNX推理，关注nano级别小模型",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-01T11:27:53.286Z",
+        "updatedAt": "2026-07-01T11:27:53.286Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
+        "key": "goals.inference_speed",
+        "value": "用户希望加快推理速度",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-01T11:27:53.221Z",
+        "updatedAt": "2026-07-01T11:27:53.221Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_e72be18116780dff8b21aa080f455ac2",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-01T10:50:09.373Z",
-        "updatedAt": "2026-07-01T10:50:09.373Z"
+        "updatedAt": "2026-07-01T11:28:06.317Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -55393,7 +55780,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-01T10:50:09.295Z",
-        "updatedAt": "2026-07-01T10:50:09.295Z"
+        "updatedAt": "2026-07-01T11:28:06.252Z"
       },
       {
         "chatId": "feishu:oc_8ec2db0ad4e682ae6572608e4d108899",
