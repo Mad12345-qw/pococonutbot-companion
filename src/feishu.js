@@ -630,23 +630,6 @@ function cleanYoutubeDocumentTitle(value = "") {
     .trim();
 }
 
-function looksMostlyEnglish(value = "") {
-  const text = String(value || "").replace(/\s+/g, "");
-  if (!text) return false;
-  const asciiLetters = (text.match(/[A-Za-z]/g) || []).length;
-  const chinese = (text.match(/[\u4e00-\u9fff]/g) || []).length;
-  return asciiLetters > chinese * 2 && asciiLetters > 8;
-}
-
-function columnistYoutubeTitleFallback(report = {}) {
-  const first = report.videos?.[0] || {};
-  const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "");
-  const topic = cleanYoutubeDocumentTitle(report.topic || title);
-  if (topic && !looksMostlyEnglish(topic)) return `从「${topic}」看懂一个关键判断`;
-  if (title) return title;
-  return "视频深度解读";
-}
-
 function formatSeconds(seconds = 0) {
   const total = Math.max(0, Math.floor(Number(seconds || 0)));
   const minutes = Math.floor(total / 60);
@@ -668,233 +651,21 @@ function compactTranscriptSegments(segments = [], maxChars = 60000) {
   return lines.join("\n");
 }
 
-function normalizeColumnistLine(line = "") {
-  return String(line || "")
-    .replace(/^#{1,6}\s*[🎯📌🧩🔹🔷◆◇💡🚀🧠⚙️🛠️📎]+\s*/u, (match) => match.replace(/[🎯📌🧩🔹🔷◆◇💡🚀🧠⚙️🛠️📎]/gu, ""))
-    .replace(/^([🎯📌🧩🔹🔷◆◇💡🚀🧠⚙️🛠️📎]+)\s*/u, "")
-    .replace(/^\s*[-*]\s*[🎯📌🧩🔹🔷◆◇💡🚀🧠⚙️🛠️📎]+\s*/u, "- ")
-    .trimEnd();
-}
-
-function isForbiddenYoutubeArticleLine(line = "") {
-  const text = String(line || "").trim();
-  if (!text) return false;
-  if (/阅读导航|本文来源|来源信息统一|这篇文档由小椰|根据视频字幕整理/.test(text)) return true;
-  if (/YouTube\s*技术笔记|it\s*YouTube|内容形态|输出语言/.test(text)) return true;
-  if (/没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/.test(text)) return true;
-  if (/^```/.test(text) || /^代码块$/.test(text) || /^<\/?details/.test(text) || /^<summary/i.test(text)) return true;
-  return isLowValueYoutubeMetadataLine(text);
-}
-
-function stripGeneratedSourceSections(markdown = "") {
-  const lines = String(markdown || "").split(/\r?\n/);
-  const output = [];
-  let skipping = false;
-  for (const line of lines) {
-    const heading = line.match(/^#{1,4}\s+(.+)$/);
-    if (heading) {
-      const key = youtubeDocSectionKey(heading[1]);
-      skipping = key === "sources" || key === "skip";
-      if (skipping) continue;
-    }
-    if (!skipping) output.push(line);
-  }
-  return output.join("\n");
-}
-
-function sanitizeColumnistArticleMarkdown(markdown = "") {
-  let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(markdown))).trim();
-  body = stripGeneratedSourceSections(body);
-  const cleaned = [];
-  for (const rawLine of body.split(/\r?\n/)) {
-    const line = normalizeColumnistLine(rawLine);
-    if (isForbiddenYoutubeArticleLine(line)) continue;
-    cleaned.push(line);
-  }
-  return cleaned.join("\n").replace(/\n{3,}/g, "\n\n").trim();
-}
-
-function ensureArticleTitle(markdown = "", title = "") {
-  const body = String(markdown || "").trim();
-  if (/^#\s+.+/m.test(body)) {
-    return body.replace(/^#\s+.+$/m, `# ${title}`);
-  }
-  return `# ${title}\n\n${body}`;
-}
-
-const REQUIRED_YOUTUBE_COLUMN_SECTIONS = [
-  "background",
-  "summary",
-  "tech",
-  "detail",
-  "timeline",
-  "questions"
-];
-
-function youtubeColumnSectionKeys(markdown = "") {
-  return new Set(
-    String(markdown || "")
-      .split(/\r?\n/)
-      .map((line) => line.match(/^##\s+(.+)$/)?.[1])
-      .filter(Boolean)
-      .map((heading) => youtubeDocSectionKey(heading))
-      .filter(Boolean)
-  );
-}
-
-function hasUsableArticleStructure(markdown = "") {
-  const text = String(markdown || "");
-  const keys = youtubeColumnSectionKeys(text);
-  const hasRequiredSections = REQUIRED_YOUTUBE_COLUMN_SECTIONS.every((key) => keys.has(key));
-  const proseLength = text
-    .replace(/^#{1,6}\s+.+$/gm, "")
-    .replace(/^\s*[-*]\s+/gm, "")
-    .trim()
-    .length;
-  return hasRequiredSections && proseLength >= 500;
-}
-
-function buildGenericYoutubeArticleFallback(report = {}) {
-  const videos = report.videos || [];
-  const first = videos[0] || {};
-  const topic = cleanYoutubeDocumentTitle(report.topic || first.title || report.title || "这条视频");
-  return compactLines([
-    `这条视频值得被整理成一篇文章，不是因为它提供了多少零散信息，而是因为它围绕「${topic}」暴露了一个需要判断的问题。`,
+function buildTranscriptDetailsBlock(video = {}, index = 0) {
+  const transcript = String(video.transcriptText || "").trim();
+  if (!transcript) return "";
+  const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
+  const lines = [
+    `<details>`,
+    `<summary>${index + 1}. ${title}｜完整字幕逐字稿</summary>`,
     "",
-    "下面这份文档会先补齐阅读背景，再把结论、技术机制、时间线和出处拆开，帮助读者用最少精力判断这条视频到底值得记住什么。",
+    "```text",
+    transcript,
+    "```",
     "",
-    "## 一、背景导读",
-    buildYoutubeBackgroundFallback(report),
-    "",
-    "## 二、精华总结",
-    `这条视频最值得保留的，不是零散信息，而是它围绕「${topic}」提出的核心判断：读者需要先分清它解决的问题、依赖的条件，以及哪些结论还需要继续验证。`,
-    "",
-    "## 三、关键技术点速览",
-    "- 核心问题：视频试图解释的主要矛盾是什么。",
-    "- 关键机制：它依靠哪些技术、流程或产品能力成立。",
-    "- 风险边界：哪些前提一旦不成立，结论就需要重估。",
-    "",
-    "## 四、详细技术拆解",
-    "真正有价值的技术拆解，不是把术语逐个罗列，而是说明每个技术点如何改变成本、效率、可靠性或用户行为。后续生成应围绕视频中的具体证据，把这些机制拆成可读的因果链。",
-    "",
-    "## 五、时间线摘要",
-    "- 开场：识别视频提出的问题和场景。",
-    "- 中段：提炼主要机制、案例或论据。",
-    "- 结尾：记录作者给出的判断、限制和后续问题。",
-    "",
-    "## 六、值得继续追问的问题",
-    "- 这个判断依赖哪些可验证的数据？",
-    "- 哪些说法来自经验判断，哪些来自视频里的明确证据？",
-    "- 如果把这个结论用于自己的项目，最大的误用风险是什么？"
-  ]);
-}
-
-function extractTimestampExcerpts(transcriptText = "", limit = 8) {
-  const lines = String(transcriptText || "")
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter((line) => /^\[\d+:\d{2}\]/.test(line))
-    .filter((line) => line.length >= 30);
-  if (!lines.length) return [];
-  const step = Math.max(1, Math.floor(lines.length / limit));
-  const picked = [];
-  for (let index = 0; index < lines.length && picked.length < limit; index += step) {
-    picked.push(lines[index]);
-  }
-  return picked;
-}
-
-function formatTranscriptAppendixLine(line = "") {
-  const text = String(line || "").trim().replace(/\s+/g, " ");
-  if (!text) return "";
-  const match = text.match(/^\[(\d+:\d{2}(?::\d{2})?)\]\s*(.+)$/);
-  if (match) return `- \`${match[1]}\` ${match[2].trim()}`;
-  return `- ${text}`;
-}
-
-function buildTranscriptAppendix(videos = [], maxChars = 60000) {
-  const blocks = [];
-  let usedChars = 0;
-  for (const [index, video] of videos.slice(0, 3).entries()) {
-    const transcript = String(video.transcriptText || "").trim();
-    if (!transcript || usedChars >= maxChars) continue;
-    const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
-    const lines = transcript
-      .split(/\r?\n/)
-      .map(formatTranscriptAppendixLine)
-      .filter(Boolean);
-    const picked = [];
-    for (const line of lines) {
-      if (usedChars + line.length + 1 > maxChars) break;
-      picked.push(line);
-      usedChars += line.length + 1;
-    }
-    if (!picked.length) continue;
-    blocks.push(compactLines([
-      `#### ${index + 1}. ${title}`,
-      picked.join("\n"),
-      picked.length < lines.length ? `> 逐字稿较长，本附录已保留可写入飞书的前 ${picked.length} 条原文。` : ""
-    ]));
-  }
-  if (!blocks.length) return "";
-  return compactLines([
-    "### 原文核对附录",
-    "> 这一部分用于核对出处，不建议顺读。正文已经完成判断压缩；这里按时间码保留原始表达，方便回查每个结论来自哪里。",
-    "",
-    blocks.join("\n\n")
-  ]);
-}
-
-function buildEvidenceAppendix(videos = []) {
-  const blocks = [];
-  for (const [index, video] of videos.slice(0, 3).entries()) {
-    const timestamps = extractTimestampExcerpts(video.transcriptText, 6)
-      .map((line) => line.match(/^\[\d+:\d{2}\]/)?.[0])
-      .filter(Boolean);
-    blocks.push(compactLines([
-      `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "原视频")}`,
-      video.channel ? `来源：${video.channel}` : "",
-      video.url ? `链接：${video.url}` : "",
-      timestamps.length ? `可回看时间点：${timestamps.join("、")}` : ""
-    ]));
-  }
-  return compactLines([
-    blocks.filter(Boolean).join("\n\n"),
-    "",
-    buildTranscriptAppendix(videos)
-  ]);
-}
-
-function appendYoutubeTranscriptAppendix(markdown = "", videos = []) {
-  const appendix = buildTranscriptAppendix(videos);
-  if (!appendix || /###\s*原文核对附录/.test(markdown)) return markdown;
-  return compactLines([markdown, "", appendix]);
-}
-
-function assertPublishableYoutubeArticle(markdown = "", options = {}) {
-  const text = String(markdown || "");
-  const forbidden = [
-    /阅读导航/,
-    /YouTube\s*技术笔记/,
-    /it\s*YouTube/i,
-    /没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
-    /<\/?details|<summary/i,
-    /^```/m,
-    /^代码块$/m
+    "</details>"
   ];
-  const hit = forbidden.find((pattern) => pattern.test(text));
-  if (hit) throw new Error(`YouTube article failed quality gate: ${hit}`);
-  const sectionCount = (text.match(/^##\s+/gm) || []).length;
-  const keys = youtubeColumnSectionKeys(text);
-  const required = [...REQUIRED_YOUTUBE_COLUMN_SECTIONS, "sources"];
-  const missing = required.filter((key) => !keys.has(key));
-  if (sectionCount < 7 || missing.length) {
-    throw new Error(`YouTube article failed quality gate: missing sections ${missing.join(",")}`);
-  }
-  if (options.requireTranscriptAppendix && !/###\s*原文核对附录/.test(text)) {
-    throw new Error("YouTube article failed quality gate: missing transcript appendix");
-  }
-  if (text.length < 500) throw new Error("YouTube article failed quality gate: article too short");
+  return lines.join("\n");
 }
 
 function youtubeDocSectionKey(heading = "") {
@@ -967,12 +738,36 @@ function buildYoutubeBackgroundFallback(report = {}) {
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
   const channel = first.channel ? `，来自 ${first.channel}` : "";
   return compactLines([
-    `这条视频《${title}》真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
+    `这篇笔记先把视频放回真实语境里读：它讨论的不是一个孤立的技术名词，而是「${title}」背后的产业判断、工程取舍和商业后果${channel}。`,
     "",
-    "读这类视频时，重点不是记住每个参数，而是先分清三个问题：它解决了什么瓶颈，牺牲了什么，以及为什么现在值得讨论。只有把市场环境、拍摄语境和发言人的立场放在一起看，后面的技术细节才不会变成零散摘抄。",
-    "",
-    "对第一次接触这个主题的读者，可以先把文中术语理解成三类：对象是什么，机制怎么运转，风险在哪里。下面的拆解会围绕视频证据展开，而不是把来源信息、语言信息和链接反复塞进正文。"
+    "### 先知道这几件事",
+    "- 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。",
+    "- 如果视频涉及公司、产品或工厂现场，要把发言人的立场和拍摄场景一起看，避免把宣传语直接当成结论。",
+    "- 下面的术语解释只做入门铺垫，具体判断以后文的字幕证据为准。"
   ]);
+}
+
+function buildYoutubeSourceSection(videos = []) {
+  const blocks = videos.slice(0, 8).map((video, index) => compactLines([
+    `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "YouTube video")}`,
+    video.channel ? `- 频道：${video.channel}` : "",
+    video.url ? `- 链接：${video.url}` : "",
+    video.language ? `- 字幕语言：${video.language}` : "",
+    video.lengthText ? `- 时长：${video.lengthText}` : ""
+  ]));
+  return blocks.filter(Boolean).join("\n\n") || "> 当前没有可展示的来源信息。";
+}
+
+function buildYoutubeReaderNavigation() {
+  return [
+    "- 一、背景导读：先补齐市场环境、拍摄语境和术语门槛。",
+    "- 二、精华总结：只保留结论、反共识判断和关键证据。",
+    "- 三、关键技术点速览：把技术点拆成“怎么说 / 为什么重要 / 风险”。",
+    "- 四、详细技术拆解：展开工程逻辑、商业含义和边界条件。",
+    "- 五、时间线摘要：按视频进度定位内容，并可展开完整逐字稿。",
+    "- 六、值得继续追问的问题：沉淀后续研究线索。",
+    "- 七、出处与链接：来源信息只在这里出现一次。"
+  ].join("\n");
 }
 
 function markdownList(items = []) {
@@ -2111,15 +1906,20 @@ export class FeishuBot {
       {
         role: "system",
         content: [
-          "You are a top-tier Chinese technology columnist and editor.",
-          "Turn YouTube transcripts into a publishable Chinese column for busy founders, operators, engineers, and product people.",
-          "Write in Simplified Chinese. Your job is to help readers understand the underlying industrial/technical judgment, not to preserve the transcript.",
+          "You turn YouTube transcripts into polished Obsidian-ready technical briefs.",
+          "Always write in Simplified Chinese.",
+          "If the transcript is not Chinese, translate and summarize into Chinese.",
           "Be source-grounded. Do not invent details not supported by the transcript.",
-          "Write with a clear thesis, narrative tension, concrete evidence, and editorial rhythm.",
-          "Use article prose first, bullets only when they improve scanning.",
-          "When using evidence, translate or paraphrase it in Chinese first, then optionally attach a short original English quote if it materially strengthens trust.",
-          "Treat timestamps as navigation aids: write Chinese summaries of key moments, not raw transcript lines.",
-          "End with source links and a few useful original timestamps so readers can verify the argument."
+          "Write like a polished Feishu knowledge-base article, not a chat answer.",
+          "Use Markdown headings, quote blocks, short bullets, and numbered mobile-friendly sections so Feishu can convert it into native doc blocks.",
+          "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
+          "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
+          "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
+          "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
+          "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
+          "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
+          "Include Obsidian links [[YouTube 视频研究]] and the topic link, for example [[SpaceX]].",
+          "Do not include audio/TTS instructions."
         ].join(" ")
       },
       {
@@ -2130,73 +1930,34 @@ export class FeishuBot {
           `Videos: ${videos.length}`,
           failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
           "",
-          "Write the article by following this positive editorial blueprint:",
-          "",
-          "1. Title",
-          "- Use one Chinese thesis-style headline.",
-          "- Formula: <人物/公司/事件> + <core tension> + <why it matters>.",
-          "- The title must be derived from this video's actual topic and central tension, not from a reusable example.",
-          "",
-          "2. Opening before any heading",
-          "- Write 2-4 short paragraphs.",
-          "- Paragraph 1: Put the reader inside the scene and name the central tension.",
-          "- Paragraph 2: Explain why this matters now in market/technology terms.",
-          "- Paragraph 3: State the article's main thesis in plain Chinese.",
-          "",
-          "3. Universal seven-part article structure",
-          "- This is a mandatory structure contract, not a suggestion.",
-          "- Produce all seven H2 sections in this exact order for every video.",
-          "- Adapt the subtitle and examples to the actual video; never borrow a previous video's subject, company, product, or vocabulary.",
-          "- The H2 headings should start with the numbered section name, then add a short content-specific subtitle when useful.",
-          "",
-          "## 一、背景导读：<why this video matters now>",
-          "- Explain market/technology context, filming/speaker context, and beginner-friendly terms.",
-          "- Write as prose, not a glossary dump.",
-          "",
-          "## 二、精华总结：<the one-sentence thesis>",
-          "- Give the main conclusion, 3-6 core points, and the most counter-consensus judgment.",
-          "- This section is for readers who only read one screen.",
-          "",
-          "## 三、关键技术点速览：<3-6 key mechanisms>",
-          "- List the key technologies/concepts/mechanisms.",
-          "- For each: what it is, why it matters, and what can go wrong.",
-          "",
-          "## 四、详细技术拆解：<the causal chain>",
-          "- Turn the key mechanisms into a readable causal explanation.",
-          "- Explain tradeoffs, constraints, economics, risks, and what the video evidence actually supports.",
-          "",
-          "## 五、时间线摘要：<video path>",
-          "- Select 6-10 key timestamps.",
-          "- Each item should be timestamp + Chinese summary + why this moment matters.",
-          "- Under each key timestamp, include at most 1-2 short evidence lines when useful: a Chinese paraphrase first, and a short original quote only if it helps verification.",
-          "- Do not paste the full transcript in this section.",
-          "",
-          "## 六、值得继续追问的问题：<reader next steps>",
-          "- List 3-5 serious follow-up questions.",
-          "- Questions should point to uncertainty, verification, business implications, or technical bottlenecks.",
-          "",
+          "Write a Markdown note with this Feishu-style structure:",
+          "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
+          "## 一、背景导读",
+          "Explain the current market/technology environment, why the speaker/video context matters, and 3-6 beginner-friendly term explanations. Do not list mechanical metadata here.",
+          "## 二、精华总结",
+          "### 一句话结论",
+          "### 核心观点",
+          "Use 6-10 sections like `#### 1. <观点标题>`. Under each point include one Markdown quote block with a source-grounded quote or evidence, then a concise explanation. Make each point non-overlapping.",
+          "### 标志性金句",
+          "Do not use a table. Use one quote/card per item: `#### 金句 1` plus bullets for 含义 and 可迁移启发.",
+          "### 最反共识的判断",
+          "Use 3 concise bullet points. Do not use a table.",
+          "## 三、关键技术点速览",
+          "Do not use a table. Use vertical blocks: `#### 1. 技术点` with bullets for 视频里怎么说 / 为什么重要 / 风险或不确定性.",
+          "## 四、详细技术拆解",
+          "Use H3/H4 headings and bullets. Keep it source-grounded.",
+          "## 五、时间线摘要",
+          "Use timestamp bullets if timestamps are available. Summarize the segment; do not paste the full transcript here because the Feishu document appends an expandable full transcript after the timeline.",
+          "## 六、值得继续追问的问题",
           "## 七、出处与链接",
-          "- Include source title, channel, URL, and a few useful timestamps.",
-          "- The system will append a polished 原文核对附录 here, so do not create a separate transcript dump yourself.",
-          "",
-          "4. Evidence style",
-          "- Main prose is Chinese.",
-          "- Use short blockquotes only for the strongest evidence.",
-          "- Prefer translated/paraphrased evidence over long English quotes.",
-          "- Keep the article readable on Feishu: short paragraphs, clear headings, no wide tables.",
-          "",
-          "5. Presentation style",
-          "- The document should feel like a polished Feishu column, not a system report.",
-          "- No reading guide, no generation note, no code block, no duplicated source metadata.",
-          "- Mention source title, channel, URL, language, and links only in section seven.",
-          "- Do not repeat metadata such as transcript language, output language, content type, channel, or source URL in earlier sections.",
+          "Mention source video title/channel/link and transcript language here only. Do not repeat these fields earlier.",
           "",
           "Source transcripts:",
           sourceText
         ].join("\n")
       }
     ], {
-      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 5200,
+      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 2600,
       temperature: 0.25,
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
@@ -2313,28 +2074,57 @@ export class FeishuBot {
     const topic = report.topic || "";
     const markdownTitle = cleanYoutubeDocumentTitle(this.extractMarkdownTitle(report.markdown || ""));
     const reportTitle = cleanYoutubeDocumentTitle(report.title || "");
-    if (!isWeakYoutubeTitle(reportTitle, topic) && !looksMostlyEnglish(reportTitle)) return reportTitle;
-    if (!isWeakYoutubeTitle(markdownTitle, topic) && !looksMostlyEnglish(markdownTitle)) return markdownTitle;
-    return columnistYoutubeTitleFallback(report);
+    const firstVideoTitle = cleanYoutubeDocumentTitle(report.videos?.[0]?.title || "");
+    if (!isWeakYoutubeTitle(reportTitle, topic)) return reportTitle;
+    if (!isWeakYoutubeTitle(markdownTitle, topic)) return markdownTitle;
+    return firstVideoTitle || `${topic || "YouTube"} 技术解读`;
   }
 
   buildFeishuYoutubeDocumentMarkdown(report) {
     const videos = report.videos || [];
-    const title = this.resolveYoutubeDocumentTitle(report);
-    let article = sanitizeColumnistArticleMarkdown(report.markdown);
-    if (!hasUsableArticleStructure(article)) {
-      article = buildGenericYoutubeArticleFallback(report);
-    }
-    let markdown = ensureArticleTitle(article, title);
-    if (!/##\s*(?:七、)?(?:出处与链接|资料来源)/.test(markdown)) {
-      markdown = compactLines([markdown, "", "## 七、出处与链接", buildEvidenceAppendix(videos)]);
-    } else {
-      markdown = appendYoutubeTranscriptAppendix(markdown, videos);
-    }
-    assertPublishableYoutubeArticle(markdown, {
-      requireTranscriptAppendix: videos.some((video) => String(video.transcriptText || "").trim())
-    });
-    return markdown;
+    const transcriptBlocks = videos
+      .slice(0, 8)
+      .map((video, index) => buildTranscriptDetailsBlock(video, index))
+      .filter(Boolean)
+      .join("\n\n");
+    let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown)))
+      .trim();
+    body = body.replace(/^#\s+.+\n+/, "").trim();
+    body = stripLowValueYoutubeMetadataLines(body);
+    const sections = collectYoutubeDocSections(body);
+
+    return compactLines([
+      "> 这篇文档由小椰根据视频字幕整理。正文保留判断和证据，来源信息统一放到文末，减少来回重复。",
+      "",
+      "## 阅读导航",
+      buildYoutubeReaderNavigation(),
+      "",
+      "---",
+      "",
+      "## 一、背景导读",
+      sections.background || buildYoutubeBackgroundFallback(report),
+      "",
+      "## 二、精华总结",
+      sections.summary || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
+      "",
+      "## 三、关键技术点速览",
+      sections.tech || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
+      "",
+      "## 四、详细技术拆解",
+      compactLines([sections.detail, sections.other].filter(Boolean)) || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
+      "",
+      "## 五、时间线摘要",
+      sections.timeline || "> 当前摘要没有返回可靠时间线；可直接展开下方逐字稿定位原文。",
+      "",
+      "### 完整字幕逐字稿（可展开）",
+      transcriptBlocks || "> 当前来源没有返回可展开的逐字稿。",
+      "",
+      "## 六、值得继续追问的问题",
+      sections.questions || "- 这段内容里哪些结论依赖说话人的立场，而不是可独立验证的数据？\n- 哪些技术判断需要找第二个来源交叉验证？\n- 如果把视频里的判断应用到自己的项目，最大的风险点是什么？",
+      "",
+      "## 七、出处与链接",
+      buildYoutubeSourceSection(videos)
+    ]);
   }
 
   async syncYoutubeResearchToFeishuIndex(report, sync = {}, doc = {}) {
