@@ -639,14 +639,18 @@ function contentMentionsTopic(content = "", topic = "") {
 
 function isWeakYoutubeTopic(value = "") {
   const text = String(value || "").trim().toLowerCase();
-  return !text || /^(?:it|ai|tech|technology|youtube|video|summary|note|notes|技术|科技|视频|总结|笔记)$/.test(text);
+  return !text || /^(?:this|it|a|an|ai|tech|technology|youtube|video|summary|note|notes|技术|科技|视频|总结|笔记)$/.test(text);
 }
 
 function isWeakYoutubeTitle(value = "", topic = "") {
   const text = String(value || "").trim();
   if (!text) return true;
   const normalized = normalizeTopicForMatch(text.replace(/youtube\s*技术笔记/ig, "").replace(/技术笔记/g, ""));
-  return normalized.length <= 3 || normalized === normalizeTopicForMatch(topic) || isWeakYoutubeTopic(normalized);
+  return normalized.length <= 3 ||
+    normalized === normalizeTopicForMatch(topic) ||
+    isWeakYoutubeTopic(normalized) ||
+    /\byoutube\s*技术笔记\b/i.test(text) ||
+    /\b(?:this|it|a|an)\s+youtube\s*技术笔记\b/i.test(text);
 }
 
 function cleanYoutubeDocumentTitle(value = "") {
@@ -671,8 +675,13 @@ function youtubeTitleFallback(report = {}) {
   if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
     return "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品";
   }
+  if (/viking|ragnar|berserker|valhalla|norse|norman/i.test(raw)) {
+    return "维京时代的真实动力：长船、恐惧与宗教叙事如何改写欧洲";
+  }
   const firstVideoTitle = cleanYoutubeDocumentTitle(first.title || "");
-  return firstVideoTitle || `${report.topic || "YouTube"} 技术解读`;
+  const keywords = extractYoutubeQuestionKeywords(raw, 3);
+  const focus = keywords.length ? keywords.join("、") : cleanYoutubeDocumentTitle(report.topic || firstVideoTitle || "这条视频");
+  return `${focus}深度解读：这条视频真正回答了什么`;
 }
 
 function formatSeconds(seconds = 0) {
@@ -707,12 +716,17 @@ function buildTranscriptExcerptBlock(video = {}, index = 0) {
   const transcript = String(video.transcriptText || "").trim();
   if (!transcript) return "";
   const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
-  const lines = transcriptIndexLines(transcript)
+  const allLines = transcriptIndexLines(transcript);
+  const lines = allLines
+    .slice(0, 25)
     .map((line) => line.replace(/```/g, "'''"));
   if (!lines.length) return "";
+  const omitted = Math.max(0, allLines.length - lines.length);
   return compactLines([
-    `### ${index + 1}. ${title}｜完整原文索引`,
-    "> 下方是完整时间戳原文索引。飞书会把代码块作为独立展示区，默认只露出一段，继续往下滑即可按时间点核对后文。",
+    `### ${index + 1}. ${title}｜原文索引`,
+    omitted
+      ? `> 为了不打断正文阅读，这里只保留前 25 行时间戳原文作为定位样例；完整原文建议另存为独立附件或单独文档。`
+      : "> 下方是时间戳原文索引，用来核对正文判断。",
     "```text",
     lines.join("\n"),
     "```"
@@ -727,7 +741,7 @@ function youtubeDocSectionKey(heading = "") {
     .trim();
   if (!text) return "";
   if (/^(?:阅读摘要|来源视频|阅读导航|本文来源)$/i.test(text)) return "skip";
-  if (/背景|导读|阅读门槛|术语|上下文/.test(text)) return "background";
+  if (/背景|导读|阅读门槛|术语|上下文|拍摄|访问背景|访谈背景|市场\/技术环境|市场环境|技术环境|为什么.*值得|为什么.*重要|先理解|新手|小白|术语解释/.test(text)) return "background";
   if (/精华总结|核心观点|一句话|金句|反共识|结论/.test(text)) return "summary";
   if (/关键技术|技术点|速览|技术概览/.test(text)) return "tech";
   if (/详细技术|技术拆解|深度拆解|拆解/.test(text)) return "detail";
@@ -740,14 +754,15 @@ function youtubeDocSectionKey(heading = "") {
 function isLowValueYoutubeMetadataLine(line = "") {
   const text = String(line || "").trim();
   if (!text) return false;
-  if (/^#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i.test(text)) return true;
+  if (/^#{1,6}\s*(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记/i.test(text)) return true;
+  if (/^(?:[-*]\s*)?(?:this|it|a|an)?\s*YouTube\s*技术笔记$/i.test(text)) return true;
   if (/^#{1,6}\s*完整字幕逐字稿/.test(text)) return true;
   if (/这篇文档由小椰根据视频字幕整理|阅读导航|这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/.test(text)) return true;
   if (/^<\/?details|^<summary|^```/.test(text)) return true;
   if (/^>\s*(?:主题聚合|来源类型)[：:]/.test(text)) return true;
-  if (/^\s*[-*]\s*\*\*(?:主题|视频数量|整理时间|输出语言|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)\*\*[：:]/.test(text)) return true;
-  if (/^\s*[-*]\s*(?:主题|视频数量|整理时间|输出语言|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]/.test(text)) return true;
-  if (/^(?:主题|视频数量|整理时间|输出语言|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]/.test(text)) return true;
+  if (/^\s*[-*]\s*\*\*(?:主题|视频数量|整理时间|输出语言(?:与形式)?|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]?\*\*[：:]?/.test(text)) return true;
+  if (/^\s*[-*]\s*(?:主题|视频数量|整理时间|输出语言(?:与形式)?|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]/.test(text)) return true;
+  if (/^(?:主题|视频数量|整理时间|输出语言(?:与形式)?|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]/.test(text)) return true;
   return false;
 }
 
@@ -782,10 +797,12 @@ function collectYoutubeDocSections(markdown = "") {
   let current = "summary";
   for (const rawLine of String(markdown || "").split(/\r?\n/)) {
     const line = rawLine.trimEnd();
-    const heading = line.match(/^##\s+(.+)$/);
+    const heading = line.match(/^(#{2,6})\s+(.+)$/);
     if (heading) {
-      const key = youtubeDocSectionKey(heading[1]);
-      current = key === "skip" || key === "sources" ? "skip" : key || "other";
+      const key = youtubeDocSectionKey(heading[2]);
+      if (key || heading[1] === "##") {
+        current = key === "skip" || key === "sources" ? "skip" : key || "other";
+      }
       continue;
     }
     if (current === "skip") continue;
@@ -842,6 +859,35 @@ function extractMisplacedBackgroundFromSummary(summary = "") {
   return {
     background: stripLowValueYoutubeMetadataLines(moved.join("\n")),
     summary: stripLowValueYoutubeMetadataLines(kept.join("\n"))
+  };
+}
+
+function splitMisplacedBackgroundBlocks(markdown = "") {
+  const moved = [];
+  const kept = [];
+  let target = kept;
+  let buffer = [];
+  const backgroundPattern = /背景|导读|阅读门槛|术语|上下文|拍摄|访问背景|访谈背景|市场\/技术环境|市场环境|技术环境|为什么.*值得|为什么.*重要|先理解|新手|小白|术语解释/;
+  const flush = () => {
+    if (!buffer.length) return;
+    target.push(...buffer);
+    buffer = [];
+  };
+  for (const rawLine of String(markdown || "").split(/\r?\n/)) {
+    const line = rawLine.trimEnd();
+    const heading = line.match(/^#{3,6}\s+(.+)$/);
+    const bulletLabel = line.match(/^\s*[-*]\s*(?:\*\*)?([^：:]{2,24})(?:[：:]\*\*|\*\*[：:]|[：:])/);
+    if (heading || bulletLabel) {
+      flush();
+      const label = heading ? heading[1] : bulletLabel[1];
+      target = backgroundPattern.test(label) ? moved : kept;
+    }
+    buffer.push(line);
+  }
+  flush();
+  return {
+    background: stripLowValueYoutubeMetadataLines(moved.join("\n")),
+    body: stripLowValueYoutubeMetadataLines(kept.join("\n"))
   };
 }
 
@@ -2020,8 +2066,8 @@ export class FeishuBot {
     diagnostics.totalMs = elapsedMsSince(startedAt);
     const markdownTitle = cleanYoutubeDocumentTitle(this.extractMarkdownTitle(markdown));
     const firstVideoTitle = cleanYoutubeDocumentTitle(videos[0]?.title);
-    const title = isWeakYoutubeTitle(markdownTitle, topic)
-      ? (firstVideoTitle || `${topic} 技术解读`)
+    const title = isWeakYoutubeTitle(markdownTitle, topic) || looksMostlyEnglish(markdownTitle)
+      ? youtubeTitleFallback({ topic, title: firstVideoTitle, videos })
       : markdownTitle;
     return { topic, title, request, videos, failures, markdown, diagnostics };
   }
@@ -2286,16 +2332,29 @@ export class FeishuBot {
     body = body.replace(/^#\s+.+\n+/, "").trim();
     body = stripLowValueYoutubeMetadataLines(body);
     const sections = collectYoutubeDocSections(body);
-    const relocated = extractMisplacedBackgroundFromSummary(sections.summary);
-    const background = compactLines([sections.background, relocated.background].filter(Boolean));
-    const summary = relocated.summary || sections.summary;
+    const relocated = {
+      summary: splitMisplacedBackgroundBlocks(sections.summary),
+      tech: splitMisplacedBackgroundBlocks(sections.tech),
+      detail: splitMisplacedBackgroundBlocks(sections.detail),
+      other: splitMisplacedBackgroundBlocks(sections.other)
+    };
+    const background = compactLines([
+      sections.background,
+      relocated.summary.background,
+      relocated.tech.background,
+      relocated.detail.background,
+      relocated.other.background
+    ].filter(Boolean));
+    const summary = relocated.summary.body || sections.summary;
+    const tech = relocated.tech.body || sections.tech;
+    const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
     const blocks = [
       "## 一、背景导读",
       background || buildYoutubeBackgroundFallback(report),
       hasMeaningfulYoutubeSection(summary) ? compactLines(["## 二、精华总结", summary]) : "",
-      hasMeaningfulYoutubeSection(sections.tech) ? compactLines(["## 三、关键技术点速览", sections.tech]) : "",
-      hasMeaningfulYoutubeSection(compactLines([sections.detail, sections.other].filter(Boolean)))
-        ? compactLines(["## 四、详细技术拆解", compactLines([sections.detail, sections.other].filter(Boolean))])
+      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 三、关键技术点速览", tech]) : "",
+      hasMeaningfulYoutubeSection(detail)
+        ? compactLines(["## 四、详细技术拆解", detail])
         : "",
       hasMeaningfulYoutubeSection(sections.timeline) || transcriptBlocks
         ? compactLines(["## 五、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])

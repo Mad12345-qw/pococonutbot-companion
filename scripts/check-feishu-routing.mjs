@@ -243,6 +243,10 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "这段应该进入背景导读，而不是留在精华总结里。",
     "### 一句话结论",
     "GPU 的瓶颈不只是算力，也包括内存带宽。",
+    "### this YouTube 技术笔记",
+    "- **背景导读：** 这段机器生成的背景块也必须搬回背景区，不能留在总结下面。",
+    "- **市场/技术环境：** 这里同样属于背景，不属于正文观点。",
+    "- **输出语言与形式：** 简体中文 Markdown 技术笔记",
     "## 三、关键技术点速览",
     "| 技术点 | 视频里怎么说 | 为什么重要 |",
     "| --- | --- | --- |",
@@ -271,12 +275,31 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc uses scroll-friendly transcript index without raw html",
-  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("完整原文索引") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && mobileDocMarkdown.includes("[0:29] Transcript line 30.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
+  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("原文索引") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && !mobileDocMarkdown.includes("[0:25] Transcript line 26.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
   "true"
 );
 assertEqual(
-  "youtube Feishu doc relocates beginner primers to background",
-  String(mobileDocMarkdown.indexOf("### 初学者先理解") > mobileDocMarkdown.indexOf("## 一、背景导读") && mobileDocMarkdown.indexOf("### 初学者先理解") < mobileDocMarkdown.indexOf("## 二、精华总结")),
+  "youtube Feishu doc relocates all background primers to background",
+  String([
+    "这段应该进入背景导读",
+    "**背景导读：**",
+    "**市场/技术环境：**"
+  ].every((needle) => {
+    const index = mobileDocMarkdown.indexOf(needle);
+    const laterSections = [
+      mobileDocMarkdown.indexOf("## 二、精华总结"),
+      mobileDocMarkdown.indexOf("## 三、关键技术点速览"),
+      mobileDocMarkdown.indexOf("## 四、详细技术拆解"),
+      mobileDocMarkdown.indexOf("## 五、时间线摘要")
+    ].filter((value) => value >= 0);
+    const firstLaterSection = Math.min(...laterSections);
+    return index > mobileDocMarkdown.indexOf("## 一、背景导读") && index < firstLaterSection;
+  })),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc strips machine generated youtube note headings",
+  String(!/this\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown) && !/it\s+YouTube\s+技术笔记/i.test(mobileDocMarkdown)),
   "true"
 );
 assertEqual(
@@ -304,6 +327,16 @@ assertEqual(
     markdown: "# First Look Inside SpaceX's Starfactory w/ Elon Musk"
   }),
   "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品"
+);
+assertEqual(
+  "youtube Feishu doc resolves Viking videos to a Chinese column title",
+  bot.resolveYoutubeDocumentTitle({
+    topic: "Vikings",
+    title: "Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495",
+    videos: [{ title: "Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495" }],
+    markdown: "# this YouTube 技术笔记"
+  }),
+  "维京时代的真实动力：长船、恐惧与宗教叙事如何改写欧洲"
 );
 
 const keywordFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
