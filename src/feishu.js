@@ -759,6 +759,10 @@ function buildGenericYoutubeArticleFallback(report = {}) {
   const first = videos[0] || {};
   const topic = cleanYoutubeDocumentTitle(report.topic || first.title || report.title || "这条视频");
   return compactLines([
+    `这条视频值得被整理成一篇文章，不是因为它提供了多少零散信息，而是因为它围绕「${topic}」暴露了一个需要判断的问题。`,
+    "",
+    "下面这份文档会先补齐阅读背景，再把结论、技术机制、时间线和出处拆开，帮助读者用最少精力判断这条视频到底值得记住什么。",
+    "",
     "## 一、背景导读",
     buildYoutubeBackgroundFallback(report),
     "",
@@ -861,7 +865,13 @@ function buildEvidenceAppendix(videos = []) {
   ]);
 }
 
-function assertPublishableYoutubeArticle(markdown = "") {
+function appendYoutubeTranscriptAppendix(markdown = "", videos = []) {
+  const appendix = buildTranscriptAppendix(videos);
+  if (!appendix || /###\s*原文核对附录/.test(markdown)) return markdown;
+  return compactLines([markdown, "", appendix]);
+}
+
+function assertPublishableYoutubeArticle(markdown = "", options = {}) {
   const text = String(markdown || "");
   const forbidden = [
     /阅读导航/,
@@ -880,6 +890,9 @@ function assertPublishableYoutubeArticle(markdown = "") {
   const missing = required.filter((key) => !keys.has(key));
   if (sectionCount < 7 || missing.length) {
     throw new Error(`YouTube article failed quality gate: missing sections ${missing.join(",")}`);
+  }
+  if (options.requireTranscriptAppendix && !/###\s*原文核对附录/.test(text)) {
+    throw new Error("YouTube article failed quality gate: missing transcript appendix");
   }
   if (text.length < 500) throw new Error("YouTube article failed quality gate: article too short");
 }
@@ -2315,8 +2328,12 @@ export class FeishuBot {
     let markdown = ensureArticleTitle(article, title);
     if (!/##\s*(?:七、)?(?:出处与链接|资料来源)/.test(markdown)) {
       markdown = compactLines([markdown, "", "## 七、出处与链接", buildEvidenceAppendix(videos)]);
+    } else {
+      markdown = appendYoutubeTranscriptAppendix(markdown, videos);
     }
-    assertPublishableYoutubeArticle(markdown);
+    assertPublishableYoutubeArticle(markdown, {
+      requireTranscriptAppendix: videos.some((video) => String(video.transcriptText || "").trim())
+    });
     return markdown;
   }
 

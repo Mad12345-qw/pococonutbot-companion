@@ -382,6 +382,56 @@ assertEqual(
   String(!productDocMarkdown.includes("星舰工厂") && !productDocMarkdown.includes("马斯克") && productDocMarkdown.includes("## 一、背景导读：这不是记笔记工具，而是知识回收工具")),
   "true"
 );
+
+const sourceSectionDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "AI note app",
+  title: "How I use AI notes every day",
+  videos: [
+    {
+      title: "How I use AI notes every day",
+      channel: "Product Builder",
+      url: "https://www.youtube.com/watch?v=noteswithsources",
+      transcriptText: "[0:00] I use AI notes to capture meetings.\n[2:00] The real value is retrieval, not summarization."
+    }
+  ],
+  markdown: [
+    "# AI 笔记真正改变的不是记录，而是团队如何找回知识",
+    "",
+    "这条视频真正指向的是一个知识管理问题：记录越多，不代表组织知道得越多。",
+    "",
+    "## 一、背景导读：会议记录为什么会变成新噪音",
+    "团队需要先理解，AI 笔记不是自动文书工具，而是知识回收系统的入口。",
+    "",
+    "## 二、精华总结：价值出现在会后",
+    "如果知识不能被找回，会议纪要只是更漂亮的信息堆积。",
+    "",
+    "## 三、关键技术点速览：捕捉、检索、关联",
+    "捕捉解决遗漏问题，检索解决找回问题，关联解决上下文问题。",
+    "",
+    "## 四、详细技术拆解：从记录工具到知识系统",
+    "这类产品真正的边界在工作流。模型能帮团队生成材料，但不能替团队决定哪些内容应该沉淀、谁负责更新、什么时候把结论转成行动。",
+    "",
+    "如果没有这些规则，AI 笔记会提高信息生产速度，却不会提高组织判断质量。它看似减少了记录成本，实际可能增加了筛选成本。",
+    "",
+    "## 五、时间线摘要：关键判断如何展开",
+    "- [0:00] 视频从会议捕捉场景切入，说明工具的入口价值。",
+    "- [2:00] 作者把重点转到检索，指出会后找回才是核心。",
+    "",
+    "## 六、值得继续追问的问题：怎么避免知识库失控",
+    "- 哪些会议内容应该进入长期知识库？",
+    "- 谁负责把笔记维护成可复用资产？",
+    "",
+    "## 七、出处与链接",
+    "### 1. How I use AI notes every day",
+    "来源：Product Builder",
+    "链接：https://www.youtube.com/watch?v=noteswithsources"
+  ].join("\n")
+});
+assertEqual(
+  "youtube Feishu doc appends transcript appendix even when source section already exists",
+  String(sourceSectionDocMarkdown.includes("## 七、出处与链接") && sourceSectionDocMarkdown.includes("### 原文核对附录") && sourceSectionDocMarkdown.includes("`2:00` The real value is retrieval, not summarization.")),
+  "true"
+);
 assertEqual(
   "bare channel url is classified as channel",
   bot.extractYoutubeResearchRequest("https://www.youtube.com/@SpaceX").sourceType,
