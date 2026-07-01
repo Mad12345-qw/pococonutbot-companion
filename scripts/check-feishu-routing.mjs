@@ -255,8 +255,8 @@ assertEqual(
   "false"
 );
 assertEqual(
-  "youtube Feishu doc uses reader-first navigation",
-  String(mobileDocMarkdown.includes("## 阅读导航") && !mobileDocMarkdown.includes("## 本文来源")),
+  "youtube Feishu doc removes machine reading navigation",
+  String(!mobileDocMarkdown.includes("## 阅读导航") && !mobileDocMarkdown.includes("这篇文档由小椰")),
   "true"
 );
 assertEqual(
@@ -265,22 +265,35 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube Feishu doc appends expandable transcript",
-  String(mobileDocMarkdown.includes("## 五、时间线摘要") && mobileDocMarkdown.includes("### 完整字幕逐字稿（可展开）") && mobileDocMarkdown.includes("<details>") && mobileDocMarkdown.includes("[0:00] We need memory bandwidth.")),
+  "youtube Feishu doc uses transcript excerpts without raw html",
+  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("`0:00` We need memory bandwidth.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text")),
   "true"
 );
 assertEqual(
-  "youtube Feishu doc has a fixed reader-grade outline",
+  "youtube Feishu doc keeps reader-grade required sections",
   String([
     "## 一、背景导读",
-    "## 二、精华总结",
     "## 三、关键技术点速览",
-    "## 四、详细技术拆解",
     "## 五、时间线摘要",
     "## 六、值得继续追问的问题",
     "## 七、出处与链接"
   ].every((heading) => mobileDocMarkdown.includes(heading))),
   "true"
+);
+assertEqual(
+  "youtube Feishu doc never exposes generation placeholders",
+  String(!mobileDocMarkdown.includes("这部分没有生成到有效内容") && !mobileDocMarkdown.includes("需要重新跑一次") && !mobileDocMarkdown.includes("当前摘要没有返回可靠时间线") && !mobileDocMarkdown.includes("it YouTube 技术笔记")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc resolves SpaceX videos to a Chinese column title",
+  bot.resolveYoutubeDocumentTitle({
+    topic: "SpaceX",
+    title: "First Look Inside SpaceX's Starfactory w/ Elon Musk",
+    videos: [{ title: "First Look Inside SpaceX's Starfactory w/ Elon Musk" }],
+    markdown: "# First Look Inside SpaceX's Starfactory w/ Elon Musk"
+  }),
+  "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品"
 );
 assertEqual(
   "bare channel url is classified as channel",

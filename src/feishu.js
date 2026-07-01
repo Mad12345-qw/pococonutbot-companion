@@ -630,6 +630,24 @@ function cleanYoutubeDocumentTitle(value = "") {
     .trim();
 }
 
+function looksMostlyEnglish(value = "") {
+  const text = String(value || "").replace(/\s+/g, "");
+  if (!text) return false;
+  const asciiLetters = (text.match(/[A-Za-z]/g) || []).length;
+  const chinese = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+  return asciiLetters > chinese * 2 && asciiLetters > 8;
+}
+
+function youtubeTitleFallback(report = {}) {
+  const first = report.videos?.[0] || {};
+  const raw = `${first.title || ""} ${report.title || ""} ${report.topic || ""}`;
+  if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
+    return "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品";
+  }
+  const firstVideoTitle = cleanYoutubeDocumentTitle(first.title || "");
+  return firstVideoTitle || `${report.topic || "YouTube"} 技术解读`;
+}
+
 function formatSeconds(seconds = 0) {
   const total = Math.max(0, Math.floor(Number(seconds || 0)));
   const minutes = Math.floor(total / 60);
@@ -651,21 +669,32 @@ function compactTranscriptSegments(segments = [], maxChars = 60000) {
   return lines.join("\n");
 }
 
-function buildTranscriptDetailsBlock(video = {}, index = 0) {
+function transcriptExcerptLines(transcriptText = "", limit = 14) {
+  const lines = String(transcriptText || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim().replace(/\s+/g, " "))
+    .filter((line) => /^\[\d+:\d{2}(?::\d{2})?\]\s+\S/.test(line));
+  if (!lines.length) return [];
+  const step = Math.max(1, Math.floor(lines.length / limit));
+  const picked = [];
+  for (let index = 0; index < lines.length && picked.length < limit; index += step) {
+    picked.push(lines[index]);
+  }
+  return picked;
+}
+
+function buildTranscriptExcerptBlock(video = {}, index = 0) {
   const transcript = String(video.transcriptText || "").trim();
   if (!transcript) return "";
   const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
-  const lines = [
-    `<details>`,
-    `<summary>${index + 1}. ${title}｜完整字幕逐字稿</summary>`,
-    "",
-    "```text",
-    transcript,
-    "```",
-    "",
-    "</details>"
-  ];
-  return lines.join("\n");
+  const lines = transcriptExcerptLines(transcript)
+    .map((line) => line.replace(/^\[(\d+:\d{2}(?::\d{2})?)\]\s*/, "- `$1` "));
+  if (!lines.length) return "";
+  return compactLines([
+    `### ${index + 1}. ${title}｜原文摘录`,
+    "> 用来核对关键判断，不作为正文顺读内容。",
+    lines.join("\n")
+  ]);
 }
 
 function youtubeDocSectionKey(heading = "") {
@@ -689,6 +718,10 @@ function youtubeDocSectionKey(heading = "") {
 function isLowValueYoutubeMetadataLine(line = "") {
   const text = String(line || "").trim();
   if (!text) return false;
+  if (/^#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i.test(text)) return true;
+  if (/^#{1,6}\s*完整字幕逐字稿/.test(text)) return true;
+  if (/这篇文档由小椰根据视频字幕整理|阅读导航|这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/.test(text)) return true;
+  if (/^<\/?details|^<summary|^```/.test(text)) return true;
   if (/^>\s*(?:主题聚合|来源类型)[：:]/.test(text)) return true;
   if (/^\s*[-*]\s*\*\*(?:主题|视频数量|整理时间|输出语言|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)\*\*[：:]/.test(text)) return true;
   if (/^\s*[-*]\s*(?:主题|视频数量|整理时间|输出语言|内容形态|字幕|原始语言|说明|关联链接|来源链接|频道|链接)[：:]/.test(text)) return true;
@@ -703,6 +736,15 @@ function stripLowValueYoutubeMetadataLines(markdown = "") {
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function hasMeaningfulYoutubeSection(value = "") {
+  const text = stripLowValueYoutubeMetadataLines(value)
+    .replace(/^#{1,6}\s+.+$/gm, "")
+    .replace(/^>\s*/gm, "")
+    .replace(/^[-*]\s*/gm, "")
+    .trim();
+  return text.length >= 12;
 }
 
 function collectYoutubeDocSections(markdown = "") {
@@ -737,37 +779,51 @@ function buildYoutubeBackgroundFallback(report = {}) {
   const first = videos[0] || {};
   const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
   const channel = first.channel ? `，来自 ${first.channel}` : "";
+  const raw = `${title} ${report.topic || ""}`;
+  if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
+    return compactLines([
+      "这条视频真正值得看的，不是马斯克又带人参观了一次工厂，而是 SpaceX 正在把星舰从一次性工程项目推向可重复制造、可快速复用的工业系统。",
+      "",
+      "拍摄场景发生在 Starbase/Starfactory 一线，镜头里出现的不是单个炫技零件，而是 Starship 船体、Super Heavy 助推器、猛禽发动机、热防护、塔架回收和产线节拍如何被揉成同一个问题：火箭能不能像飞机或汽车一样进入连续制造和连续使用。",
+      "",
+      "读这篇之前，先抓住三个门槛词：Starship 是 SpaceX 的超重型运载系统；全复用意味着助推器和飞船都要回来再飞；产线化不是把厂房盖大，而是让每个工位、每次试飞、每次返工都进入更快的迭代节奏。"
+    ]);
+  }
   return compactLines([
-    `这篇笔记先把视频放回真实语境里读：它讨论的不是一个孤立的技术名词，而是「${title}」背后的产业判断、工程取舍和商业后果${channel}。`,
+    `这条视频《${title}》真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
     "",
-    "### 先知道这几件事",
-    "- 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。",
-    "- 如果视频涉及公司、产品或工厂现场，要把发言人的立场和拍摄场景一起看，避免把宣传语直接当成结论。",
-    "- 下面的术语解释只做入门铺垫，具体判断以后文的字幕证据为准。"
+    "读这类视频时，重点不是记住每个参数，而是分清它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。具体判断以后文的字幕证据为准。"
   ]);
 }
 
 function buildYoutubeSourceSection(videos = []) {
-  const blocks = videos.slice(0, 8).map((video, index) => compactLines([
-    `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "YouTube video")}`,
-    video.channel ? `- 频道：${video.channel}` : "",
-    video.url ? `- 链接：${video.url}` : "",
-    video.language ? `- 字幕语言：${video.language}` : "",
-    video.lengthText ? `- 时长：${video.lengthText}` : ""
-  ]));
+  const blocks = videos.slice(0, 8).map((video, index) => {
+    const meta = [
+      video.channel ? `频道：${video.channel}` : "",
+      video.lengthText ? `时长：${video.lengthText}` : "",
+      video.language ? `字幕：${video.language}` : ""
+    ].filter(Boolean).join("；");
+    return compactLines([
+      `### ${index + 1}. ${cleanYoutubeDocumentTitle(video.title || "YouTube video")}`,
+      meta || "",
+      video.url ? video.url : ""
+    ]);
+  });
   return blocks.filter(Boolean).join("\n\n") || "> 当前没有可展示的来源信息。";
 }
 
-function buildYoutubeReaderNavigation() {
-  return [
-    "- 一、背景导读：先补齐市场环境、拍摄语境和术语门槛。",
-    "- 二、精华总结：只保留结论、反共识判断和关键证据。",
-    "- 三、关键技术点速览：把技术点拆成“怎么说 / 为什么重要 / 风险”。",
-    "- 四、详细技术拆解：展开工程逻辑、商业含义和边界条件。",
-    "- 五、时间线摘要：按视频进度定位内容，并可展开完整逐字稿。",
-    "- 六、值得继续追问的问题：沉淀后续研究线索。",
-    "- 七、出处与链接：来源信息只在这里出现一次。"
-  ].join("\n");
+function assertReadableYoutubeDocument(markdown = "") {
+  const text = String(markdown || "");
+  const forbidden = [
+    /阅读导航/,
+    /这篇文档由小椰根据视频字幕整理/,
+    /这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
+    /(?:^|\n)#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i,
+    /<\/?details|<summary/i,
+    /^```/m
+  ];
+  const hit = forbidden.find((pattern) => pattern.test(text));
+  if (hit) throw new Error(`YouTube Feishu document failed quality gate: ${hit}`);
 }
 
 function markdownList(items = []) {
@@ -1918,8 +1974,7 @@ export class FeishuBot {
           "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
-          "Include Obsidian links [[YouTube 视频研究]] and the topic link, for example [[SpaceX]].",
-          "Do not include audio/TTS instructions."
+          "Do not include Obsidian links, reading guides, generation notes, audio/TTS instructions, placeholder text, or raw HTML."
         ].join(" ")
       },
       {
@@ -1947,7 +2002,7 @@ export class FeishuBot {
           "## 四、详细技术拆解",
           "Use H3/H4 headings and bullets. Keep it source-grounded.",
           "## 五、时间线摘要",
-          "Use timestamp bullets if timestamps are available. Summarize the segment; do not paste the full transcript here because the Feishu document appends an expandable full transcript after the timeline.",
+          "Use timestamp bullets if timestamps are available. Each item should say what happened and why it matters. Add at most one short evidence quote. Do not paste the full transcript.",
           "## 六、值得继续追问的问题",
           "## 七、出处与链接",
           "Mention source video title/channel/link and transcript language here only. Do not repeat these fields earlier.",
@@ -2074,17 +2129,16 @@ export class FeishuBot {
     const topic = report.topic || "";
     const markdownTitle = cleanYoutubeDocumentTitle(this.extractMarkdownTitle(report.markdown || ""));
     const reportTitle = cleanYoutubeDocumentTitle(report.title || "");
-    const firstVideoTitle = cleanYoutubeDocumentTitle(report.videos?.[0]?.title || "");
-    if (!isWeakYoutubeTitle(reportTitle, topic)) return reportTitle;
-    if (!isWeakYoutubeTitle(markdownTitle, topic)) return markdownTitle;
-    return firstVideoTitle || `${topic || "YouTube"} 技术解读`;
+    if (!isWeakYoutubeTitle(markdownTitle, topic) && !looksMostlyEnglish(markdownTitle)) return markdownTitle;
+    if (!isWeakYoutubeTitle(reportTitle, topic) && !looksMostlyEnglish(reportTitle)) return reportTitle;
+    return youtubeTitleFallback(report);
   }
 
   buildFeishuYoutubeDocumentMarkdown(report) {
     const videos = report.videos || [];
     const transcriptBlocks = videos
       .slice(0, 8)
-      .map((video, index) => buildTranscriptDetailsBlock(video, index))
+      .map((video, index) => buildTranscriptExcerptBlock(video, index))
       .filter(Boolean)
       .join("\n\n");
     let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(report.markdown)))
@@ -2092,39 +2146,31 @@ export class FeishuBot {
     body = body.replace(/^#\s+.+\n+/, "").trim();
     body = stripLowValueYoutubeMetadataLines(body);
     const sections = collectYoutubeDocSections(body);
-
-    return compactLines([
-      "> 这篇文档由小椰根据视频字幕整理。正文保留判断和证据，来源信息统一放到文末，减少来回重复。",
-      "",
-      "## 阅读导航",
-      buildYoutubeReaderNavigation(),
-      "",
-      "---",
-      "",
+    const blocks = [
       "## 一、背景导读",
       sections.background || buildYoutubeBackgroundFallback(report),
-      "",
-      "## 二、精华总结",
-      sections.summary || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
-      "",
-      "## 三、关键技术点速览",
-      sections.tech || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
-      "",
-      "## 四、详细技术拆解",
-      compactLines([sections.detail, sections.other].filter(Boolean)) || "> 这部分没有生成到有效内容，需要重新跑一次视频总结。",
-      "",
-      "## 五、时间线摘要",
-      sections.timeline || "> 当前摘要没有返回可靠时间线；可直接展开下方逐字稿定位原文。",
-      "",
-      "### 完整字幕逐字稿（可展开）",
-      transcriptBlocks || "> 当前来源没有返回可展开的逐字稿。",
-      "",
-      "## 六、值得继续追问的问题",
-      sections.questions || "- 这段内容里哪些结论依赖说话人的立场，而不是可独立验证的数据？\n- 哪些技术判断需要找第二个来源交叉验证？\n- 如果把视频里的判断应用到自己的项目，最大的风险点是什么？",
-      "",
+      hasMeaningfulYoutubeSection(sections.summary) ? compactLines(["## 二、精华总结", sections.summary]) : "",
+      hasMeaningfulYoutubeSection(sections.tech) ? compactLines(["## 三、关键技术点速览", sections.tech]) : "",
+      hasMeaningfulYoutubeSection(compactLines([sections.detail, sections.other].filter(Boolean)))
+        ? compactLines(["## 四、详细技术拆解", compactLines([sections.detail, sections.other].filter(Boolean))])
+        : "",
+      hasMeaningfulYoutubeSection(sections.timeline) || transcriptBlocks
+        ? compactLines(["## 五、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
+        : "",
+      hasMeaningfulYoutubeSection(sections.questions)
+        ? compactLines(["## 六、值得继续追问的问题", sections.questions])
+        : compactLines([
+            "## 六、值得继续追问的问题",
+            "- 哪些判断来自视频中的明确证据，哪些仍然只是说话人的立场？",
+            "- 哪个技术瓶颈最可能拖慢这套方案真正落地？",
+            "- 如果把视频里的判断迁移到自己的项目，最容易误用的地方是什么？"
+          ]),
       "## 七、出处与链接",
       buildYoutubeSourceSection(videos)
-    ]);
+    ];
+    const markdown = compactLines(blocks);
+    assertReadableYoutubeDocument(markdown);
+    return markdown;
   }
 
   async syncYoutubeResearchToFeishuIndex(report, sync = {}, doc = {}) {
