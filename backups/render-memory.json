@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T16:15:58.550Z",
+  "exportedAt": "2026-07-01T16:25:58.383Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -55026,6 +55026,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T16:15:01.484Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "好家伙，十年前[财迷]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67a3245ca4c4b1a2493643716",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T16:22:59.951Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "超仿生人形机器人定价最高99万[我想静静]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67bd23f868c2ca90a6728a918",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T16:24:35.508Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "99万……这是把\"赛博养老\"做成奢侈品了啊😂 不过话说回来，真能买得起的估计也不会用它养老，而是当收藏品摆着看吧",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-01T16:24:38.665Z"
       }
     ],
     "memories": [
@@ -57862,12 +57922,32 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.niche_topic_hyperrealistic_humanoid_robot",
+        "value": "用户关注超仿生人形机器人定价99万的新闻(配'我想静静'表情)，属于其关注的AI+消费场景+技术包装类先锋内容选题",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-01T16:24:57.585Z",
+        "updatedAt": "2026-07-01T16:24:57.585Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
         "key": "content.work.phenomenon_curation_example",
         "value": "用户分享案例：拼好饭9.9元盲盒饭搭子（CEO vs 工地工人身份反差），点赞10.2万/收藏6.6万/转发2.3万，标签#阶级固化与消费降级 #盲盒社交，账号@吃不饱同学 Lv6 28.5万粉；属于其关注的'消费降级+身份反差+盲盒社交'类现象级内容选题",
         "importance": 4,
         "metadata": {},
         "createdAt": "2026-07-01T14:34:48.436Z",
         "updatedAt": "2026-07-01T14:34:48.436Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.price_signal_interest",
+        "value": "用户对AI硬件/机器人领域的极端定价信号(99万)有敏感反应，常以情绪化表情包表达对高价离谱度的关注",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-01T16:24:57.663Z",
+        "updatedAt": "2026-07-01T16:24:57.663Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57887,7 +57967,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-01T15:57:11.351Z"
+        "updatedAt": "2026-07-01T16:24:35.436Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57897,7 +57977,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-01T15:57:11.281Z"
+        "updatedAt": "2026-07-01T16:24:35.360Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
