@@ -229,7 +229,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
       lengthText: "01:02:03",
       language: "en",
       url: "https://www.youtube.com/watch?v=test1234567",
-      transcriptText: "[0:00] We need memory bandwidth.\n[0:05] Parallel compute matters."
+      transcriptText: Array.from({ length: 30 }, (_, index) => `[0:${String(index).padStart(2, "0")}] Transcript line ${index + 1}.`).join("\n")
     }
   ],
   markdown: [
@@ -238,7 +238,12 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "---",
     "# building the best GPU possible YouTube 技术笔记",
     "",
-    "## 二、关键技术点速览",
+    "## 二、精华总结",
+    "### 初学者先理解",
+    "这段应该进入背景导读，而不是留在精华总结里。",
+    "### 一句话结论",
+    "GPU 的瓶颈不只是算力，也包括内存带宽。",
+    "## 三、关键技术点速览",
     "| 技术点 | 视频里怎么说 | 为什么重要 |",
     "| --- | --- | --- |",
     "| GPU 架构 | 强调带宽和并行 | 影响训练效率 |"
@@ -265,8 +270,13 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube Feishu doc uses transcript excerpts without raw html",
-  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("`0:00` We need memory bandwidth.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text")),
+  "youtube Feishu doc uses scroll-friendly transcript index without raw html",
+  String(mobileDocMarkdown.includes("### 原文摘录") && mobileDocMarkdown.includes("原文索引（前 25 条）") && mobileDocMarkdown.includes("```text") && mobileDocMarkdown.includes("[0:24] Transcript line 25.") && !mobileDocMarkdown.includes("[0:25] Transcript line 26.") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc relocates beginner primers to background",
+  String(mobileDocMarkdown.indexOf("### 初学者先理解") > mobileDocMarkdown.indexOf("## 一、背景导读") && mobileDocMarkdown.indexOf("### 初学者先理解") < mobileDocMarkdown.indexOf("## 二、精华总结")),
   "true"
 );
 assertEqual(
@@ -294,6 +304,26 @@ assertEqual(
     markdown: "# First Look Inside SpaceX's Starfactory w/ Elon Musk"
   }),
   "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品"
+);
+
+const spacexFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "SpaceX",
+  title: "First Look Inside SpaceX's Starfactory w/ Elon Musk",
+  videos: [
+    {
+      title: "First Look Inside SpaceX's Starfactory w/ Elon Musk",
+      channel: "Everyday Astronaut",
+      language: "en",
+      url: "https://www.youtube.com/watch?v=testspacex",
+      transcriptText: "[0:00] Welcome to Starfactory.\n[0:05] These tiles protect the vehicle."
+    }
+  ],
+  markdown: "# First Look Inside SpaceX's Starfactory w/ Elon Musk\n\n## 二、精华总结\n### 一句话结论\n星舰工厂的重点是把火箭制造推向产线化。"
+});
+assertEqual(
+  "youtube Feishu doc fallback questions are video-specific",
+  String(spacexFallbackDoc.includes("热盾瓦片在真实再入中的失效模式") && !spacexFallbackDoc.includes("最容易误用的地方是什么")),
+  "true"
 );
 assertEqual(
   "youtube research reply includes timing diagnostics",

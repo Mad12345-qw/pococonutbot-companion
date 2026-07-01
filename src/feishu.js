@@ -696,18 +696,12 @@ function compactTranscriptSegments(segments = [], maxChars = 60000) {
   return lines.join("\n");
 }
 
-function transcriptExcerptLines(transcriptText = "", limit = 14) {
+function transcriptExcerptLines(transcriptText = "", limit = 25) {
   const lines = String(transcriptText || "")
     .split(/\r?\n/)
     .map((line) => line.trim().replace(/\s+/g, " "))
     .filter((line) => /^\[\d+:\d{2}(?::\d{2})?\]\s+\S/.test(line));
-  if (!lines.length) return [];
-  const step = Math.max(1, Math.floor(lines.length / limit));
-  const picked = [];
-  for (let index = 0; index < lines.length && picked.length < limit; index += step) {
-    picked.push(lines[index]);
-  }
-  return picked;
+  return lines.slice(0, limit);
 }
 
 function buildTranscriptExcerptBlock(video = {}, index = 0) {
@@ -715,12 +709,14 @@ function buildTranscriptExcerptBlock(video = {}, index = 0) {
   if (!transcript) return "";
   const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
   const lines = transcriptExcerptLines(transcript)
-    .map((line) => line.replace(/^\[(\d+:\d{2}(?::\d{2})?)\]\s*/, "- `$1` "));
+    .map((line) => line.replace(/```/g, "'''"));
   if (!lines.length) return "";
   return compactLines([
-    `### ${index + 1}. ${title}｜原文摘录`,
-    "> 用来核对关键判断，不作为正文顺读内容。",
-    lines.join("\n")
+    `### ${index + 1}. ${title}｜原文索引（前 25 条）`,
+    "> 用来按时间戳核对正文判断；如果需要完整上下文，优先回到对应视频时间点。",
+    "```text",
+    lines.join("\n"),
+    "```"
   ]);
 }
 
@@ -823,6 +819,56 @@ function buildYoutubeBackgroundFallback(report = {}) {
   ]);
 }
 
+function extractMisplacedBackgroundFromSummary(summary = "") {
+  const lines = String(summary || "").split(/\r?\n/);
+  const moved = [];
+  const kept = [];
+  let target = kept;
+  let buffer = [];
+  const flush = () => {
+    if (!buffer.length) return;
+    target.push(...buffer);
+    buffer = [];
+  };
+  for (const line of lines) {
+    const heading = line.match(/^#{3,5}\s+(.+)$/);
+    if (heading) {
+      flush();
+      const title = heading[1];
+      target = /背景|导读|阅读门槛|术语|上下文|拍摄|语境|先理解|新手|小白/.test(title) ? moved : kept;
+    }
+    buffer.push(line);
+  }
+  flush();
+  return {
+    background: stripLowValueYoutubeMetadataLines(moved.join("\n")),
+    summary: stripLowValueYoutubeMetadataLines(kept.join("\n"))
+  };
+}
+
+function buildYoutubeQuestionsFallback(report = {}) {
+  const videos = report.videos || [];
+  const raw = [report.title, report.topic, ...videos.map((video) => video.title)].filter(Boolean).join(" ");
+  if (/spacex|starfactory|starship|elon|musk|raptor/i.test(raw)) {
+    return [
+      "- 热盾瓦片在真实再入中的失效模式，哪些属于可接受损耗，哪些会直接改变任务成败？",
+      "- 二级烧蚀防护层与完全复用目标之间，最终会怎样平衡质量、寿命和维护成本？",
+      "- 下一代 Raptor 的集成冷却设计，会如何重构量产、检测和维修流程？",
+      "- Starfactory 要到什么阶段，才能从“施工中的工厂”切换到稳定节拍生产？",
+      "- 若要实现小时级复用，发射场、回收、检查、加注四个环节各自的真实瓶颈是什么？",
+      "- 载人版本与货运版本在热盾、结构冗余和维护策略上会分化到什么程度？"
+    ].join("\n");
+  }
+  const firstTitle = cleanYoutubeDocumentTitle(videos[0]?.title || report.title || report.topic || "这条视频");
+  return [
+    `- 《${firstTitle}》里最关键的判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？`,
+    "- 视频中反复出现的技术瓶颈，真正卡住规模化落地的是成本、可靠性、供应链，还是组织执行？",
+    "- 如果把视频里的方案迁移到其他项目，哪些前提条件一变，结论就会失效？",
+    "- 这条视频没有展开、但会决定结果的边界条件是什么？",
+    "- 接下来应该追踪哪些测试结果、产品迭代或商业信号，才能判断作者的判断是否站得住？"
+  ].join("\n");
+}
+
 function buildYoutubeSourceSection(videos = []) {
   const blocks = videos.slice(0, 8).map((video, index) => {
     const meta = [
@@ -846,8 +892,7 @@ function assertReadableYoutubeDocument(markdown = "") {
     /这篇文档由小椰根据视频字幕整理/,
     /这部分没有生成到有效内容|需要重新跑一次|当前摘要没有返回可靠时间线/,
     /(?:^|\n)#{1,6}\s*(?:it\s*)?YouTube\s*技术笔记/i,
-    /<\/?details|<summary/i,
-    /^```/m
+    /<\/?details|<summary/i
   ];
   const hit = forbidden.find((pattern) => pattern.test(text));
   if (hit) throw new Error(`YouTube Feishu document failed quality gate: ${hit}`);
@@ -2041,9 +2086,12 @@ export class FeishuBot {
           "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
           "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
           "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
+          "Use bold labels inside bullets, such as `- **为什么重要：** ...`, `- **风险：** ...`, and indent supporting points under the main point.",
           "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
+          "Background, filming context, terminology explanations, and beginner primers belong only in `一、背景导读`, never in `二、精华总结`.",
+          "Gold quotes must show the original quote first. If the original transcript is English, keep the English quote; add Chinese explanation below it instead of forcing the quote into Chinese.",
           "Do not include Obsidian links, reading guides, generation notes, audio/TTS instructions, placeholder text, or raw HTML."
         ].join(" ")
       },
@@ -2058,22 +2106,23 @@ export class FeishuBot {
           "Write a Markdown note with this Feishu-style structure:",
           "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
           "## 一、背景导读",
-          "Explain the current market/technology environment, why the speaker/video context matters, and 3-6 beginner-friendly term explanations. Do not list mechanical metadata here.",
+          "Write 3-6 concrete paragraphs or bullets. Must include: current market/technology environment, filming/interview context, why this video matters now, and beginner-friendly explanations of specialist terms. Use bold labels and avoid template filler.",
           "## 二、精华总结",
           "### 一句话结论",
           "### 核心观点",
-          "Use 6-10 sections like `#### 1. <观点标题>`. Under each point include one Markdown quote block with a source-grounded quote or evidence, then a concise explanation. Make each point non-overlapping.",
+          "Use 6-10 sections like `#### 1. <观点标题>`. Under each point include one Markdown quote block with a source-grounded quote or evidence, then bullets with bold labels such as `**为什么重要**` and `**读者该抓住什么**`. Make each point non-overlapping. Do not put background/terminology primers here.",
           "### 标志性金句",
-          "Do not use a table. Use one quote/card per item: `#### 金句 1` plus bullets for 含义 and 可迁移启发.",
+          "Do not use a table. Use one quote/card per item: `#### 金句 1`; first show the original quote in a Markdown quote block, then bullets for `**含义**` and `**可迁移启发**`. If the source quote is English, keep it in English.",
           "### 最反共识的判断",
           "Use 3 concise bullet points. Do not use a table.",
           "## 三、关键技术点速览",
-          "Do not use a table. Use vertical blocks: `#### 1. 技术点` with bullets for 视频里怎么说 / 为什么重要 / 风险或不确定性.",
+          "Do not use a table. Use vertical blocks: `#### 1. 技术点` with indented bullets for `**视频里怎么说**` / `**为什么重要**` / `**风险或不确定性**`.",
           "## 四、详细技术拆解",
           "Use H3/H4 headings and bullets. Keep it source-grounded.",
           "## 五、时间线摘要",
-          "Use timestamp bullets if timestamps are available. Each item should say what happened and why it matters. Add at most one short evidence quote. Do not paste the full transcript.",
+          "Use 12-18 dense timestamp bullets in the style `- [0:02] 开场：发生了什么；为什么重要。` Each item must say what happened and why it matters. Add at most one short original evidence quote only when it is especially useful. Do not paste the full transcript; the system will append a separate original-text index.",
           "## 六、值得继续追问的问题",
+          "Write 5-8 concrete questions anchored to the actual video: unresolved technical bottlenecks, validation signals, business constraints, or next experiments. Avoid generic template questions.",
           "## 七、出处与链接",
           "Mention source video title/channel/link and transcript language here only. Do not repeat these fields earlier.",
           "",
@@ -2216,10 +2265,13 @@ export class FeishuBot {
     body = body.replace(/^#\s+.+\n+/, "").trim();
     body = stripLowValueYoutubeMetadataLines(body);
     const sections = collectYoutubeDocSections(body);
+    const relocated = extractMisplacedBackgroundFromSummary(sections.summary);
+    const background = compactLines([sections.background, relocated.background].filter(Boolean));
+    const summary = relocated.summary || sections.summary;
     const blocks = [
       "## 一、背景导读",
-      sections.background || buildYoutubeBackgroundFallback(report),
-      hasMeaningfulYoutubeSection(sections.summary) ? compactLines(["## 二、精华总结", sections.summary]) : "",
+      background || buildYoutubeBackgroundFallback(report),
+      hasMeaningfulYoutubeSection(summary) ? compactLines(["## 二、精华总结", summary]) : "",
       hasMeaningfulYoutubeSection(sections.tech) ? compactLines(["## 三、关键技术点速览", sections.tech]) : "",
       hasMeaningfulYoutubeSection(compactLines([sections.detail, sections.other].filter(Boolean)))
         ? compactLines(["## 四、详细技术拆解", compactLines([sections.detail, sections.other].filter(Boolean))])
@@ -2229,12 +2281,7 @@ export class FeishuBot {
         : "",
       hasMeaningfulYoutubeSection(sections.questions)
         ? compactLines(["## 六、值得继续追问的问题", sections.questions])
-        : compactLines([
-            "## 六、值得继续追问的问题",
-            "- 哪些判断来自视频中的明确证据，哪些仍然只是说话人的立场？",
-            "- 哪个技术瓶颈最可能拖慢这套方案真正落地？",
-            "- 如果把视频里的判断迁移到自己的项目，最容易误用的地方是什么？"
-          ]),
+        : compactLines(["## 六、值得继续追问的问题", buildYoutubeQuestionsFallback(report)]),
       "## 七、出处与链接",
       buildYoutubeSourceSection(videos)
     ];
