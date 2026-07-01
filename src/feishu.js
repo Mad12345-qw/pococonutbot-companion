@@ -640,10 +640,11 @@ function looksMostlyEnglish(value = "") {
 
 function columnistYoutubeTitleFallback(report = {}) {
   const first = report.videos?.[0] || {};
-  const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "这条视频");
+  const title = cleanYoutubeDocumentTitle(first.title || report.title || report.topic || "");
   const topic = cleanYoutubeDocumentTitle(report.topic || title);
   if (topic && !looksMostlyEnglish(topic)) return `从「${topic}」看懂一个关键判断`;
-  return "从这条视频看懂一个关键判断";
+  if (title) return title;
+  return "视频深度解读";
 }
 
 function formatSeconds(seconds = 0) {

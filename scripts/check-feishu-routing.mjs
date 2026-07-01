@@ -330,8 +330,8 @@ const englishFallbackDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
   markdown: ""
 });
 assertEqual(
-  "youtube Feishu doc fallback title stays Chinese for English-only inputs",
-  String(englishFallbackDocMarkdown.startsWith("# 从这条视频看懂一个关键判断")),
+  "youtube Feishu doc fallback title preserves informative English source title",
+  String(englishFallbackDocMarkdown.startsWith("# How I use AI notes every day") && !englishFallbackDocMarkdown.startsWith("# How I use AI notes every day YouTube 技术笔记")),
   "true"
 );
 
