@@ -293,8 +293,8 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube Feishu doc avoids raw transcript dumps",
-  String(!mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text") && !mobileDocMarkdown.includes("We need memory bandwidth")),
+  "youtube Feishu doc uses a polished transcript appendix",
+  String(mobileDocMarkdown.includes("### 原文核对附录") && mobileDocMarkdown.includes("`0:00` We need memory bandwidth") && !mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text")),
   "true"
 );
 assertEqual(

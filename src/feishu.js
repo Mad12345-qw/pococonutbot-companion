@@ -799,6 +799,47 @@ function extractTimestampExcerpts(transcriptText = "", limit = 8) {
   return picked;
 }
 
+function formatTranscriptAppendixLine(line = "") {
+  const text = String(line || "").trim().replace(/\s+/g, " ");
+  if (!text) return "";
+  const match = text.match(/^\[(\d+:\d{2}(?::\d{2})?)\]\s*(.+)$/);
+  if (match) return `- \`${match[1]}\` ${match[2].trim()}`;
+  return `- ${text}`;
+}
+
+function buildTranscriptAppendix(videos = [], maxChars = 60000) {
+  const blocks = [];
+  let usedChars = 0;
+  for (const [index, video] of videos.slice(0, 3).entries()) {
+    const transcript = String(video.transcriptText || "").trim();
+    if (!transcript || usedChars >= maxChars) continue;
+    const title = cleanYoutubeDocumentTitle(video.title || `视频 ${index + 1}`) || `视频 ${index + 1}`;
+    const lines = transcript
+      .split(/\r?\n/)
+      .map(formatTranscriptAppendixLine)
+      .filter(Boolean);
+    const picked = [];
+    for (const line of lines) {
+      if (usedChars + line.length + 1 > maxChars) break;
+      picked.push(line);
+      usedChars += line.length + 1;
+    }
+    if (!picked.length) continue;
+    blocks.push(compactLines([
+      `#### ${index + 1}. ${title}`,
+      picked.join("\n"),
+      picked.length < lines.length ? `> 逐字稿较长，本附录已保留可写入飞书的前 ${picked.length} 条原文。` : ""
+    ]));
+  }
+  if (!blocks.length) return "";
+  return compactLines([
+    "### 原文核对附录",
+    "> 这一部分用于核对出处，不建议顺读。正文已经完成判断压缩；这里按时间码保留原始表达，方便回查每个结论来自哪里。",
+    "",
+    blocks.join("\n\n")
+  ]);
+}
+
 function buildEvidenceAppendix(videos = []) {
   const blocks = [];
   for (const [index, video] of videos.slice(0, 3).entries()) {
@@ -812,7 +853,11 @@ function buildEvidenceAppendix(videos = []) {
       timestamps.length ? `可回看时间点：${timestamps.join("、")}` : ""
     ]));
   }
-  return blocks.filter(Boolean).join("\n\n");
+  return compactLines([
+    blocks.filter(Boolean).join("\n\n"),
+    "",
+    buildTranscriptAppendix(videos)
+  ]);
 }
 
 function assertPublishableYoutubeArticle(markdown = "") {
@@ -2109,7 +2154,8 @@ export class FeishuBot {
           "## 五、时间线摘要：<video path>",
           "- Select 6-10 key timestamps.",
           "- Each item should be timestamp + Chinese summary + why this moment matters.",
-          "- Do not paste raw transcript.",
+          "- Under each key timestamp, include at most 1-2 short evidence lines when useful: a Chinese paraphrase first, and a short original quote only if it helps verification.",
+          "- Do not paste the full transcript in this section.",
           "",
           "## 六、值得继续追问的问题：<reader next steps>",
           "- List 3-5 serious follow-up questions.",
@@ -2117,6 +2163,7 @@ export class FeishuBot {
           "",
           "## 七、出处与链接",
           "- Include source title, channel, URL, and a few useful timestamps.",
+          "- The system will append a polished 原文核对附录 here, so do not create a separate transcript dump yourself.",
           "",
           "4. Evidence style",
           "- Main prose is Chinese.",
@@ -2126,7 +2173,7 @@ export class FeishuBot {
           "",
           "5. Presentation style",
           "- The document should feel like a polished Feishu column, not a system report.",
-          "- No reading guide, no generation note, no raw transcript, no code block, no duplicated source metadata.",
+          "- No reading guide, no generation note, no code block, no duplicated source metadata.",
           "- Mention source title, channel, URL, language, and links only in section seven.",
           "- Do not repeat metadata such as transcript language, output language, content type, channel, or source URL in earlier sections.",
           "",
