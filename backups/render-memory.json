@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T15:56:04.789Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-01T16:05:58.662Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -54849,6 +54849,111 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T15:53:08.034Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d\nhttps://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b67c55fb0a4c1bbb5dc9e79028",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-01T15:56:44.375Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67c55fb0a4c1bbb5dc9e79028",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:56:45.396Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "未来应该是液态金属吧，终结者[财迷]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67c3ea60a4c0599e27a6cbf88",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:57:11.422Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "user",
+        "modality": "text",
+        "content": "成本也不高，十年前就见过几万块钱人民币就可以定制会说话的硅胶刘亦菲了，只是不大智能，现在可以本地部署模型，最关键的技术已经突破",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67d317a8a0b3fe48d38343da6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "rawUserId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "rawUnionId": "on_c2f842d0ecc10bd50ee662c7f65c2da0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T16:01:38.688Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：成本也不高，十年前就见过几万块钱人民币就可以定制会说话的硅胶刘亦菲了，只是不大智能，现在可以本地部署模型，最关键的技术已经突破\n• 核心信息源是优必选U1系列仿生人形机器人：据央视财经及多家媒体报道，2026年7月1日优必选发布全球首款可量产全尺寸超仿生人形机器人U1，主打家庭情感陪伴，男款183cm/84斤，女款168cm/约70斤，售价分三档：Lite 11.98万元、Pro 16.98万元、Ultra男版99万元/女版88万元，88个自由度，支持本地加密存储的情绪大模型，可识别20余种细粒度情绪，准确率超90%。 • 定制硅胶人偶的\"几万块\"说法在搜索结果中未获直接证实：报道中提到的类似产品包括首形科技Elf系列（三层仿生皮肤）、上海卓益得Moya（首批限量50台，120–150万元）以及日本石黑浩团队ERICA（单台成本约60万元，研究型未量产），均未提及\"几万块钱人民币定制会说话的硅胶人偶\"这一具体品类。 • 本地部署模型已有落地：U1内置\"养成系\"情感大模型，支持本地加密存储对话数据，不强制上传云端，\"越聊越懂你\"——这与查询中\"现在可以本地部署模型\"的说法方向一致。 • \"十年前\"时间线不明确：搜索结果中可追溯的最早仿生机器人是2015年日本ERICA，与\"十年前\"大致吻合，但报道未提及更早的廉价硅胶定制产品。 • 量产与价格下行预期存在但不确定：优必选周剑表示2026年目标产能5万台；摩根士丹利将2026年中国市场人形机器人出货量预测从2.8万台上调至5万台。多位专家强调头部制造（19个舵机、眉毛睫毛人工植入、仿生皮肤良率、表情一致性）是当前主要瓶颈，\"价格下降到几万\"尚无明确时间表。 • 伦理与市场不确定性：报道指出可能对真实人际关系产生冲击，专家呼吁建立规范；1.1万台订单在价格公布后存在退订或加单的不确定性。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3"
+        },
+        "createdAt": "2026-07-01T16:02:09.341Z"
       }
     ],
     "memories": [
@@ -56480,7 +56585,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-01T15:04:35.956Z"
+        "updatedAt": "2026-07-01T15:56:45.325Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -56490,7 +56595,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-01T15:04:35.884Z"
+        "updatedAt": "2026-07-01T15:56:45.254Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -57710,7 +57815,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-01T15:48:09.597Z"
+        "updatedAt": "2026-07-01T15:57:11.351Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57720,7 +57825,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-01T15:48:09.506Z"
+        "updatedAt": "2026-07-01T15:57:11.281Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59350,7 +59455,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:33:29.323Z",
-        "updatedAt": "2026-07-01T15:52:09.748Z"
+        "updatedAt": "2026-07-01T16:01:38.616Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59360,7 +59465,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:33:29.112Z",
-        "updatedAt": "2026-07-01T15:52:09.678Z"
+        "updatedAt": "2026-07-01T16:01:38.544Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
