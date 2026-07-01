@@ -246,6 +246,12 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "### this YouTube 技术笔记",
     "- **背景导读：** 这段机器生成的背景块也必须搬回背景区，不能留在总结下面。",
     "- **市场/技术环境：** 这里同样属于背景，不属于正文观点。",
+    "### 初学者先理解几个关键词",
+    "- Starship / 星舰",
+    "- 通常指 SpaceX 的超重型运载系统中的上面级飞船。",
+    "- Super Heavy / 超重型助推器",
+    "- 星舰系统的一级助推器，负责把飞船推到接近入轨条件。",
+    "- 术语解释：长船与龙船：Viking longship 指维京长船，核心优势是速度和浅水航行。",
     "- **输出语言与形式：** 简体中文 Markdown 技术笔记",
     "## 三、关键技术点速览",
     "| 技术点 | 视频里怎么说 | 为什么重要 |",
@@ -295,6 +301,16 @@ assertEqual(
     const firstLaterSection = Math.min(...laterSections);
     return index > mobileDocMarkdown.indexOf("## 一、背景导读") && index < firstLaterSection;
   })),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc formats background term glossary",
+  String(mobileDocMarkdown.includes("### 关键术语解释") && mobileDocMarkdown.includes("- **Starship / 星舰：** 通常指 SpaceX 的超重型运载系统中的上面级飞船。") && mobileDocMarkdown.includes("- **Super Heavy / 超重型助推器：** 星舰系统的一级助推器，负责把飞船推到接近入轨条件。") && mobileDocMarkdown.includes("- **长船与龙船：** Viking longship 指维京长船，核心优势是速度和浅水航行。") && !mobileDocMarkdown.includes("- Starship / 星舰\n- 通常指") && !mobileDocMarkdown.includes("术语解释：长船与龙船")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc bolds reader labels",
+  String(mobileDocMarkdown.includes("- **市场/技术环境：** 这里同样属于背景，不属于正文观点。")),
   "true"
 );
 assertEqual(

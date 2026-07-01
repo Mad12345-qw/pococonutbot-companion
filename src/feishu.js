@@ -821,15 +821,19 @@ function buildYoutubeBackgroundFallback(report = {}) {
   const raw = `${title} ${report.topic || ""}`;
   if (/spacex|starfactory|starship|elon|musk/i.test(raw)) {
     return compactLines([
-      "这条视频真正值得看的，不是马斯克又带人参观了一次工厂，而是 SpaceX 正在把星舰从一次性工程项目推向可重复制造、可快速复用的工业系统。",
+      "**这条视频真正值得看的**，不是马斯克又带人参观了一次工厂，而是 SpaceX 正在把星舰从一次性工程项目推向可重复制造、可快速复用的工业系统。",
       "",
       "拍摄场景发生在 Starbase/Starfactory 一线，镜头里出现的不是单个炫技零件，而是 Starship 船体、Super Heavy 助推器、猛禽发动机、热防护、塔架回收和产线节拍如何被揉成同一个问题：火箭能不能像飞机或汽车一样进入连续制造和连续使用。",
       "",
-      "读这篇之前，先抓住三个门槛词：Starship 是 SpaceX 的超重型运载系统；全复用意味着助推器和飞船都要回来再飞；产线化不是把厂房盖大，而是让每个工位、每次试飞、每次返工都进入更快的迭代节奏。"
+      "### 关键术语解释",
+      "- **Starship / 星舰：** SpaceX 的超重型运载系统中的上面级飞船。",
+      "- **Super Heavy / 超重型助推器：** 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。",
+      "- **全复用：** 助推器和飞船都能快速返回、检查、再次飞行，目标是接近飞机或车辆的使用逻辑。",
+      "- **产线化：** 不是把厂房盖大，而是让工位、装配、测试和返工都进入更稳定、更快的节拍。"
     ]);
   }
   return compactLines([
-    `这条视频《${title}》真正值得读的，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
+    `**这条视频《${title}》真正值得读的**，不是某个孤立知识点，而是它背后的产业判断、工程取舍和商业后果${channel}。`,
     "",
     "读这类视频时，重点不是记住每个参数，而是分清它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。具体判断以后文的字幕证据为准。"
   ]);
@@ -877,10 +881,14 @@ function splitMisplacedBackgroundBlocks(markdown = "") {
     const line = rawLine.trimEnd();
     const heading = line.match(/^#{3,6}\s+(.+)$/);
     const bulletLabel = line.match(/^\s*[-*]\s*(?:\*\*)?([^：:]{2,24})(?:[：:]\*\*|\*\*[：:]|[：:])/);
+    const bullet = line.match(/^\s*[-*]\s+(.+)$/);
     if (heading || bulletLabel) {
       flush();
       const label = heading ? heading[1] : bulletLabel[1];
       target = backgroundPattern.test(label) ? moved : kept;
+    } else if (bullet && isBackgroundTermCandidate(bullet[1])) {
+      flush();
+      target = moved;
     }
     buffer.push(line);
   }
@@ -889,6 +897,101 @@ function splitMisplacedBackgroundBlocks(markdown = "") {
     background: stripLowValueYoutubeMetadataLines(moved.join("\n")),
     body: stripLowValueYoutubeMetadataLines(kept.join("\n"))
   };
+}
+
+function isBackgroundTermCandidate(text = "") {
+  const value = String(text || "").trim();
+  if (!value || value.length > 42) return false;
+  if (/[。；;，,：:]/.test(value)) return false;
+  return /\/|[A-Za-z].*[\u4e00-\u9fff]|[\u4e00-\u9fff].*[A-Za-z]|系统|飞船|助推器|复用|长船|龙船|英灵殿|瓦尔哈拉|狂战士|民族|术语/.test(value);
+}
+
+function parseTermLine(text = "") {
+  const value = String(text || "")
+    .trim()
+    .replace(/^\*\*/, "")
+    .replace(/\*\*$/, "")
+    .replace(/^(?:关键)?术语(?:解释)?[：:]\s*/i, "")
+    .trim();
+  const match = value.match(/^([^：:]{2,42})[：:]\s*(.+)$/);
+  if (!match) return null;
+  return {
+    term: match[1].trim(),
+    description: match[2].trim()
+  };
+}
+
+function normalizeBackgroundSection(background = "", report = {}) {
+  const lines = String(background || "").split(/\r?\n/);
+  const body = [];
+  const terms = [];
+  let termMode = false;
+  const pushTerm = (term, description = "") => {
+    const cleanTerm = String(term || "").replace(/^[-*]\s*/, "").trim();
+    const cleanDescription = String(description || "").replace(/^[-*]\s*/, "").trim();
+    if (!cleanTerm) return;
+    terms.push(`- **${cleanTerm.replace(/[：:]\s*$/, "")}：** ${cleanDescription}`.trim());
+  };
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const line = rawLine.trim();
+    if (!line) {
+      if (!termMode) body.push("");
+      continue;
+    }
+    if (/^#{3,6}\s*(?:关键)?术语(?:解释)?|^初学者.*(?:关键词|术语)/.test(line)) {
+      termMode = true;
+      continue;
+    }
+    const bullet = line.match(/^[-*]\s+(.+)$/);
+    if (bullet && (termMode || /术语/.test(bullet[1]) || isBackgroundTermCandidate(bullet[1]))) {
+      const parsed = parseTermLine(bullet[1]);
+      if (parsed) {
+        pushTerm(parsed.term, parsed.description);
+        continue;
+      }
+      const next = lines[index + 1]?.trim() || "";
+      const nextBullet = next.match(/^[-*]\s+(.+)$/);
+      if (isBackgroundTermCandidate(bullet[1]) && nextBullet && !parseTermLine(nextBullet[1])) {
+        pushTerm(bullet[1], nextBullet[1]);
+        index += 1;
+        continue;
+      }
+    }
+    if (termMode && /^#{2,6}\s+/.test(line)) {
+      termMode = false;
+    }
+    body.push(rawLine);
+  }
+  const raw = [report.title, report.topic, ...(report.videos || []).map((video) => video.title)].filter(Boolean).join(" ");
+  if (!terms.length && /spacex|starfactory|starship|elon|musk/i.test(raw)) {
+    terms.push(
+      "- **Starship / 星舰：** SpaceX 的超重型运载系统中的上面级飞船。",
+      "- **Super Heavy / 超重型助推器：** 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。",
+      "- **全复用：** 助推器和飞船都能快速返回、检查、再次飞行。"
+    );
+  }
+  return compactLines([
+    compactLines(body),
+    terms.length ? compactLines(["### 关键术语解释", ...terms]) : ""
+  ]);
+}
+
+function emphasizeReaderLabels(markdown = "") {
+  const labels = [
+    "市场/技术环境", "市场环境", "技术环境", "访问背景", "访谈背景", "拍摄背景", "为什么这个视频重要",
+    "为什么重要", "视频里怎么说", "风险或不确定性", "风险", "含义", "可迁移启发",
+    "读者该抓住什么", "核心判断", "关键证据", "边界条件", "一句话结论", "反共识判断"
+  ];
+  const pattern = new RegExp(`^(\\s*[-*]\\s+)(?!\\*\\*)(${labels.map((label) => label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})([：:])\\s*(.+)$`);
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .map((line) => {
+      const match = line.match(pattern);
+      if (!match) return line;
+      return `${match[1]}**${match[2]}${match[3]}** ${match[4]}`;
+    })
+    .join("\n");
 }
 
 function extractYoutubeQuestionKeywords(text = "", limit = 8) {
@@ -2153,7 +2256,7 @@ export class FeishuBot {
           "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
           "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
           "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
-          "Use bold labels inside bullets, such as `- **为什么重要：** ...`, `- **风险：** ...`, and indent supporting points under the main point.",
+          "Use bold labels inside bullets, such as `- **为什么重要：** ...`, `- **风险：** ...`, and indent supporting points under the main point. Never leave labels like `术语解释：` or `市场/技术环境：` unbolded.",
           "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
           "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
@@ -2173,7 +2276,7 @@ export class FeishuBot {
           "Write a Markdown note with this Feishu-style structure:",
           "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
           "## 一、背景导读",
-          "Write 3-6 concrete paragraphs or bullets. Must include: current market/technology environment, filming/interview context, why this video matters now, and beginner-friendly explanations of specialist terms. Use bold labels and avoid template filler.",
+          "Write 3-6 concrete paragraphs or bullets. Must include: current market/technology environment, filming/interview context, why this video matters now. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`. Use bold labels and avoid template filler.",
           "## 二、精华总结",
           "### 一句话结论",
           "### 核心观点",
@@ -2338,13 +2441,13 @@ export class FeishuBot {
       detail: splitMisplacedBackgroundBlocks(sections.detail),
       other: splitMisplacedBackgroundBlocks(sections.other)
     };
-    const background = compactLines([
+    const background = normalizeBackgroundSection(compactLines([
       sections.background,
       relocated.summary.background,
       relocated.tech.background,
       relocated.detail.background,
       relocated.other.background
-    ].filter(Boolean));
+    ].filter(Boolean)), report);
     const summary = relocated.summary.body || sections.summary;
     const tech = relocated.tech.body || sections.tech;
     const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
@@ -2365,7 +2468,7 @@ export class FeishuBot {
       "## 七、出处与链接",
       buildYoutubeSourceSection(videos)
     ];
-    const markdown = compactLines(blocks);
+    const markdown = emphasizeReaderLabels(compactLines(blocks));
     assertReadableYoutubeDocument(markdown);
     return markdown;
   }
