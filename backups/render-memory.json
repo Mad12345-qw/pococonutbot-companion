@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T03:19:21.047Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-01T03:26:40.894Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -53390,6 +53390,44 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T03:12:46.848Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：Starbase Tour with Elon Musk [PART 1 // Summer 2021]\n主题：some pretty advanced concepts\n视频：1 条\n- 1. Starbase Tour with Elon Musk [PART 1 // Summer 2021]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/UtxlwrUOuiq6IfkGnB4csO8XnCe\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "some pretty advanced concepts",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/UtxlwrUOuiq6IfkGnB4csO8XnCe",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T03:20:11.053Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：Starbase Tour with Elon Musk [PART 1 // Summer 2021]\n主题：some pretty advanced concepts\n视频：1 条\n- 1. Starbase Tour with Elon Musk [PART 1 // Summer 2021]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/UtxlwrUOuiq6IfkGnB4csO8XnCe\nObsidian：已同步到 youtube/some-pretty-advanced-concepts-Starbase-Tour-with-Elon-Musk-PART-1-Summer-2021.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "some pretty advanced concepts",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/UtxlwrUOuiq6IfkGnB4csO8XnCe",
+          "obsidianPath": "youtube/some-pretty-advanced-concepts-Starbase-Tour-with-Elon-Musk-PART-1-Summer-2021.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T03:20:13.424Z"
       }
     ],
     "memories": [
