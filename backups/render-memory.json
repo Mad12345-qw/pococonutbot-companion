@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T03:01:13.276Z",
+  "exportedAt": "2026-07-01T03:04:13.444Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -53311,6 +53311,42 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-01T01:50:08.575Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+        "role": "user",
+        "modality": "text",
+        "content": "你怎么可以发语音？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7c638ec918b17e6180f4668bd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+          "rawUserId": "ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+          "rawUnionId": "on_467d0393785b8c42b9a7bee768811d45",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T03:02:30.250Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？我没发语音呀～你是看到什么了吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c"
+        },
+        "createdAt": "2026-07-01T03:02:34.328Z"
       }
     ],
     "memories": [
@@ -56743,6 +56779,26 @@
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.820Z",
         "updatedAt": "2026-06-29T12:24:18.982Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-01T03:02:30.178Z",
+        "updatedAt": "2026-07-01T03:02:30.178Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7cb3796cf8e06f93c21750e3eb44ce5c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-01T03:02:30.092Z",
+        "updatedAt": "2026-07-01T03:02:30.092Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
