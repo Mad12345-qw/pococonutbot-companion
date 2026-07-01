@@ -1113,6 +1113,46 @@ function cleanArticleText(value = "", max = 1400) {
   return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
 }
 
+function buildYoutubeEvidenceBriefSource(brief = {}) {
+  const source = {
+    thesis: cleanArticleText(brief.thesis, 600),
+    titleAngles: asArray(brief.titleAngles).map((item) => cleanArticleText(item, 160)).filter(Boolean).slice(0, 5),
+    narrativeConflict: cleanArticleText(brief.narrativeConflict, 900),
+    backgroundAnchors: asArray(brief.backgroundAnchors).map((item) => cleanArticleText(item, 220)).filter(Boolean).slice(0, 12),
+    glossarySeeds: asArray(brief.glossarySeeds).map((item) => ({
+      term: cleanArticleText(item?.term, 80),
+      evidence: cleanArticleText(item?.evidence, 500),
+      plainMeaning: cleanArticleText(item?.plainMeaning, 500)
+    })).filter((item) => item.term).slice(0, 10),
+    evidenceClaims: asArray(brief.evidenceClaims).map((item) => ({
+      claim: cleanArticleText(item?.claim, 220),
+      timestamp: cleanArticleText(item?.timestamp, 40),
+      quote: cleanArticleText(item?.quote, 700),
+      whyItMatters: cleanArticleText(item?.whyItMatters, 700)
+    })).filter((item) => item.claim && (item.quote || item.timestamp)).slice(0, 16),
+    timelineSeeds: asArray(brief.timelineSeeds).map((item) => ({
+      time: cleanArticleText(item?.time || item?.timestamp, 40),
+      event: cleanArticleText(item?.event, 500),
+      importance: cleanArticleText(item?.importance || item?.whyItMatters, 500),
+      quote: cleanArticleText(item?.quote, 500)
+    })).filter((item) => item.time && item.event).slice(0, 24),
+    questionSeeds: asArray(brief.questionSeeds).map((item) => cleanArticleText(item, 260)).filter(Boolean).slice(0, 10)
+  };
+  return JSON.stringify(source, null, 2);
+}
+
+function assertYoutubeEvidenceBrief(brief = {}, report = {}) {
+  const source = JSON.parse(buildYoutubeEvidenceBriefSource(brief));
+  if (!source.thesis || isWeakYoutubeTitle(source.thesis, report.topic || "")) {
+    throw new Error("YouTube evidence brief failed: missing specific thesis.");
+  }
+  if (!source.narrativeConflict) throw new Error("YouTube evidence brief failed: missing narrative conflict.");
+  if (source.backgroundAnchors.length < 3) throw new Error("YouTube evidence brief failed: missing concrete background anchors.");
+  if (source.glossarySeeds.length < 3) throw new Error("YouTube evidence brief failed: missing glossary seeds.");
+  if (source.evidenceClaims.length < 4) throw new Error("YouTube evidence brief failed: missing evidence-backed claims.");
+  if (source.timelineSeeds.length < 6) throw new Error("YouTube evidence brief failed: missing timeline seeds.");
+}
+
 function structuredArticleFallbackTitle(article = {}, report = {}) {
   const title = cleanYoutubeDocumentTitle(article.title || "");
   if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
@@ -2485,6 +2525,55 @@ export class FeishuBot {
       truncate(video.transcriptText, this.config.youtubeResearchMaxTranscriptChars || 60000)
     ])).join("\n\n---\n\n");
 
+    const evidenceRaw = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You are the evidence editor before a Chinese column writer writes the article.",
+          "Your only job is to extract a concrete article brief from YouTube transcripts.",
+          "Do not write the article. Do not write Markdown. Return only valid JSON.",
+          "Use Simplified Chinese for analysis fields, but keep source quotes in their original language.",
+          "Everything must be grounded in transcript evidence, named objects, named people, terms, numbers, scenes, or timestamped events.",
+          "Generic background language is forbidden. If you cannot name concrete anchors from the transcript, the field should stay empty instead of becoming filler."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Topic: ${topic}`,
+          `User request: ${request.raw || request.query || request.videoUrl}`,
+          failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
+          sourceAnchors ? `\nTimestamp and keyword anchors:\n${sourceAnchors}` : "",
+          "",
+          "Return JSON with exactly this shape:",
+          "{",
+          '  "thesis": "one specific article thesis in Chinese, not a title and not a summary label",',
+          '  "titleAngles": ["3-5 polished Chinese title angles based on the thesis"],',
+          '  "narrativeConflict": "the central tension a reader should understand before details",',
+          '  "backgroundAnchors": ["specific people/products/events/technologies/scenes/numbers that must appear in opening context"],',
+          '  "glossarySeeds": [{"term":"term", "evidence":"source phrase or timestamp evidence", "plainMeaning":"beginner-friendly meaning"}],',
+          '  "evidenceClaims": [{"claim":"concrete claim", "timestamp":"0:00", "quote":"short original quote or faithful evidence", "whyItMatters":"why this evidence matters"}],',
+          '  "timelineSeeds": [{"time":"0:00", "event":"what happens", "importance":"why it matters", "quote":"optional source quote"}],',
+          '  "questionSeeds": ["concrete unresolved questions anchored to evidence"]',
+          "}",
+          "Minimums: backgroundAnchors 5, glossarySeeds 3, evidenceClaims 6, timelineSeeds 8, questionSeeds 5.",
+          "Do not mention output language, Feishu, Obsidian, Markdown, transcript language, source links, or generation process.",
+          "",
+          "Source transcripts:",
+          sourceText
+        ].join("\n")
+      }
+    ], {
+      maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
+      temperature: 0.1,
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
+    const evidenceBrief = extractJsonObject(evidenceRaw);
+    assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
+    const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
+
     const raw = await this.ai.chat([
       {
         role: "system",
@@ -2495,7 +2584,7 @@ export class FeishuBot {
           "Be source-grounded. Do not invent details not supported by the transcript.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
           "Write like a top-tier Chinese column writer filling a structured article brief, not a chat answer.",
-          "Plan from evidence before writing: use the provided concrete anchors and timestamp examples as the spine of the article. Do not write a section if it cannot be tied to named anchors from the transcript.",
+          "Use the provided evidence brief as the spine of the article. Do not introduce article claims that are absent from the evidence brief.",
           "Do not write headings such as YouTube 技术笔记, 技术笔记, 背景导读, or 精华总结 inside content fields.",
           "Do not pad the article with process metadata. Do not mention output language, content form, Obsidian, Feishu, Markdown, or source links in content fields.",
           "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`.",
@@ -2513,7 +2602,8 @@ export class FeishuBot {
           `User request: ${request.raw || request.query || request.videoUrl}`,
           `Videos: ${videos.length}`,
           failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
-          sourceAnchors ? `\nSource anchors that must drive the article:\n${sourceAnchors}` : "",
+          "Evidence brief that must drive the article:",
+          evidenceBriefSource,
           "",
           "Return JSON with exactly this shape:",
           "{",
