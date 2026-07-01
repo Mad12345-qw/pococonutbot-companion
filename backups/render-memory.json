@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T05:06:51.206Z",
+  "exportedAt": "2026-07-01T05:16:51.307Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -53659,6 +53659,70 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-01T05:00:51.709Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品\n主题：some pretty advanced concepts\n视频：1 条\n- 1. Starbase Tour with Elon Musk [PART 1 // Summer 2021]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/VID3wCkQRiwGS3kare8cFG7yn9f\n耗时诊断：字幕 846ms / AI 6m55s / 飞书 4.7s / 总计 7m01s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "some pretty advanced concepts",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VID3wCkQRiwGS3kare8cFG7yn9f",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "youtubeDiagnostics": {
+            "aiMs": 414887,
+            "totalMs": 415826,
+            "failures": 0,
+            "deliveryMs": 1049,
+            "documentMs": 4727,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 846,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T05:07:55.345Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品\n主题：some pretty advanced concepts\n视频：1 条\n- 1. Starbase Tour with Elon Musk [PART 1 // Summer 2021]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/VID3wCkQRiwGS3kare8cFG7yn9f\n耗时诊断：字幕 846ms / AI 6m55s / 飞书 4.7s / 发卡 1.0s / 总计 7m02s\nObsidian：已同步到 youtube/some-pretty-advanced-concepts-Starbase-Tour-with-Elon-Musk-PART-1-Summer-2021.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "some pretty advanced concepts",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VID3wCkQRiwGS3kare8cFG7yn9f",
+          "obsidianPath": "youtube/some-pretty-advanced-concepts-Starbase-Tour-with-Elon-Musk-PART-1-Summer-2021.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 414887,
+            "totalMs": 415826,
+            "failures": 0,
+            "deliveryMs": 1049,
+            "documentMs": 4727,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 846,
+            "feishuIndexMs": 1506,
+            "obsidianSyncMs": 645,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T05:07:57.579Z"
       }
     ],
     "memories": [
