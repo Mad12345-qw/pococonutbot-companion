@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T15:47:56.351Z",
+  "exportedAt": "2026-07-01T15:55:52.219Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -54717,6 +54717,138 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-01T15:09:29.438Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "有没有可能以后这个娃娃的脸是全息投影千人千面呢，共享家人[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6725870ca4c1f1e3ac2a01a96",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:48:09.671Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个脑洞有意思！同一台娃娃机，扫的是你的脸，呈现的就是你想见的人的样子——奶奶、女朋友、甚至已经走掉的宠物[坏笑]\n\n技术上现在已经有苗头了：实时换脸 + 情绪识别 + 3D全息投影，三五年内拼起来不是不可能。\n\n更深一层：如果\"脸\"能千人千面，那它其实就是一个\"情感投射终端\"了，卖的不是娃娃，是\"被记住的感觉\"。这生意就完全不一样了。\n\n不过有个问题——当每个人看到的脸都不一样，这个\"娃娃\"还是同一个产品吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-01T15:48:18.165Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_cf2982ef39f84bf290ecb7d2284038a3",
+        "role": "user",
+        "modality": "text",
+        "content": "硅胶娃娃工厂直接按照先人的样子做头像，身高体型也对齐先人，本地部署DeepSee，老两口子们还可以没羞没臊的生活在一起",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6734e7fca4b3b76d2178f4188",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "rawUserId": "ou_cf2982ef39f84bf290ecb7d2284038a3",
+          "rawUnionId": "on_c2f842d0ecc10bd50ee662c7f65c2da0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:52:09.819Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "硅胶娃娃 我记得美团上有那种 sese的服务 就是人跟娃娃的内容",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6733eb20a0c49bb725d711e62",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:52:55.822Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这未来会不会 跟智能体",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67336c4934c2f8933659d57dc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:53:02.964Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "这成本太高了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b67332b0ca0c2a76242c7eed77",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T15:53:08.034Z"
       }
     ],
     "memories": [
@@ -57474,11 +57606,11 @@
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
         "key": "content.work.analysis_dimensions",
-        "value": "用户愿意接受AI对分享内容的主动拆解维度：世界观设定/运行机制/价格分层/金句钩子/二创方向/碰瓷热点等，并期待AI自主提出可延伸方向而非只做总结",
+        "value": "用户分享脑洞后AI按'技术可行性→商业本质→产品定义悖论'三层递进拆解获得认可，此类拆解风格可延续",
         "importance": 3,
         "metadata": {},
         "createdAt": "2026-07-01T15:02:27.553Z",
-        "updatedAt": "2026-07-01T15:02:27.553Z"
+        "updatedAt": "2026-07-01T15:49:03.456Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57544,11 +57676,11 @@
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
         "key": "content.work.niche_event_curation",
-        "value": "用户关注并分享冷门/现象级文化事件，如流媒体平台上的'3分钟自我审判'静音歌曲+动态歌词意识流叙事案例，用于内容选题灵感",
+        "value": "用户分享娃娃机共享家人的脑洞设想：未来娃娃的脸通过全息投影实现千人千面，可投射家人/恋人/宠物等不同面孔，属于其关注的'消费场景+情感投射+技术包装'类先锋内容选题",
         "importance": 4,
         "metadata": {},
         "createdAt": "2026-07-01T00:29:59.897Z",
-        "updatedAt": "2026-07-01T00:29:59.897Z"
+        "updatedAt": "2026-07-01T15:49:03.384Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57578,7 +57710,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-01T15:02:21.592Z"
+        "updatedAt": "2026-07-01T15:48:09.597Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -57588,7 +57720,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-01T15:02:21.520Z"
+        "updatedAt": "2026-07-01T15:48:09.506Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58228,7 +58360,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-01T10:55:52.292Z"
+        "updatedAt": "2026-07-01T15:53:07.964Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58238,7 +58370,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-01T10:55:52.197Z"
+        "updatedAt": "2026-07-01T15:53:07.894Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59218,7 +59350,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:33:29.323Z",
-        "updatedAt": "2026-06-17T07:36:39.995Z"
+        "updatedAt": "2026-07-01T15:52:09.748Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59228,7 +59360,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:33:29.112Z",
-        "updatedAt": "2026-06-17T07:36:39.776Z"
+        "updatedAt": "2026-07-01T15:52:09.678Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
