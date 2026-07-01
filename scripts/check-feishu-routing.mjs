@@ -418,6 +418,121 @@ assertEqual(
   String(keywordFallbackDoc.includes("  - **为什么重要：** 内存带宽会限制并行计算实际效率。") && keywordFallbackDoc.includes("  - **风险或不确定性：** 缓存局部性和软件栈也会改变瓶颈位置。")),
   "true"
 );
+
+bot.ai = {
+  chat: async () => JSON.stringify({
+    title: "月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
+    opening: {
+      contextParagraphs: [
+        "这条视频讨论的是 Starship HLS、LEO 轨道补加注、NRO/NRHO 任务链条和月球着陆之间的关系。它不是在争论星舰能不能飞起来，而是在解释为什么一次月球任务会牵出多次发射、推进剂转移和高位着陆推进器这些工程约束。",
+        "读者先要抓住一个矛盾：Starship HLS 体量巨大，月球任务需要的不是单次发射表演，而是一整套可重复执行的轨道物流。视频里的关键线索包括 100 times heavier、12 次以上补加注、高位着陆推进器、自调平腿和 LEO 到月球轨道的转移。"
+      ],
+      glossary: [
+        { term: "Starship HLS", explanation: "SpaceX 为 NASA 阿尔忒弥斯月球任务设计的星舰月球着陆器版本。" },
+        { term: "LEO", explanation: "近地轨道，常作为补加注和任务集结的中转位置。" },
+        { term: "NRHO", explanation: "近直线晕轨道，阿尔忒弥斯任务中月球附近的重要轨道。" }
+      ],
+      oneSentence: "Starship HLS 的核心挑战不是单点性能，而是能否把多次发射、轨道补加注和月面着陆变成稳定任务链。",
+      corePoints: [
+        { title: "100 times heavier 把任务从火箭问题变成物流问题", evidence: "100 times heavier", why: "体量越大，越不能只看单次发射能力，必须看轨道补给链是否可重复。", takeaway: "这类任务的瓶颈在系统调度，不在一句参数口号。" },
+        { title: "12 次以上补加注意味着可靠性被连续相乘", evidence: "12 or more refueling launches", why: "每多一次发射和对接，任务链条就多一个可能延迟或失败的节点。", takeaway: "补加注不是附属动作，而是任务成败的主线。" },
+        { title: "高位着陆推进器暴露了月尘和发动机布局约束", evidence: "high mounted landing thrusters", why: "月面环境会反过来改变飞船末端着陆设计。", takeaway: "真正的工程难题往往出现在最后几十米。" }
+      ],
+      quotes: [
+        { title: "任务重量", original: "100 times heavier", meaning: "视频用重量差异说明 HLS 和传统月球着陆器不是一个尺度的问题。", implication: "尺度变化会把原来的工程题改写成系统题。" },
+        { title: "补加注次数", original: "12 or more launches", meaning: "这句话把月球任务的复杂度压缩成一个可感知数字。", implication: "读者应该追问每个数字背后的链路可靠性。" }
+      ],
+      counterintuitive: [
+        "月球任务最难的部分可能不是登陆，而是在近地轨道把燃料补齐。",
+        "更大的飞船不一定带来更简单的任务，可能先带来更复杂的发射链。",
+        "着陆腿和推进器位置这类细节，可能决定整套宏大方案能否落地。"
+      ]
+    },
+    techPoints: [
+      { name: "轨道补加注", says: "视频把多次 tanker 发射作为 HLS 完成任务的前置条件。", importance: "它决定任务是否从一次发射变成一条发射流水线。", risk: "任何一次延迟都会影响整体窗口。" },
+      { name: "高位着陆推进器", says: "着陆阶段不能只依赖主发动机直接冲刷月面。", importance: "这关系到月尘、结构安全和着陆稳定性。", risk: "真实月面环境验证不足。" },
+      { name: "自调平腿", says: "着陆器需要处理月面不平整带来的姿态问题。", importance: "乘员出舱和返航前准备都依赖稳定平台。", risk: "机构复杂度和冗余设计会增加重量。" }
+    ],
+    detailSections: [
+      { title: "为什么补加注链条是主线", bullets: ["HLS 不是把一枚火箭发到月球那么简单，而是需要先在 LEO 建立推进剂条件。", "这会把任务成败拆成发射节奏、对接、转移、保存和窗口管理。"] },
+      { title: "为什么着陆设计不能照搬地球经验", bullets: ["月面没有大气，发动机羽流和月尘会直接影响着陆安全。", "高位推进器和自调平腿都是为末端环境付出的设计代价。"] },
+      { title: "商业含义", bullets: ["如果补加注链条跑通，Starship 不只是着陆器，而会变成深空运输基础设施。", "如果跑不通，HLS 的体量优势会变成任务复杂度负担。"] }
+    ],
+    timeline: [
+      { time: "0:00", event: "视频提出 HLS 重量和传统方案不是一个尺度。", importance: "建立全文主矛盾。", evidence: "100 times heavier" },
+      { time: "1:20", event: "转入多次发射和补加注讨论。", importance: "说明任务复杂度来自链条。", evidence: "12 or more launches" },
+      { time: "3:40", event: "解释 LEO 补加注的作用。", importance: "把读者视角从火箭性能转到轨道物流。", evidence: "LEO refueling" },
+      { time: "6:10", event: "讨论月面着陆推进器布局。", importance: "展示末端环境约束。", evidence: "high mounted landing thrusters" },
+      { time: "8:30", event: "提到着陆腿和姿态稳定。", importance: "把宏大任务落到机械可靠性。", evidence: "self leveling legs" },
+      { time: "10:00", event: "回到任务链条的可靠性问题。", importance: "形成结论闭环。", evidence: "mission chain" }
+    ],
+    questions: [
+      "12 次以上补加注的单次成功率需要达到什么水平，整条任务链才有足够余量？",
+      "LEO 推进剂转移最先需要验证的是对接、低温保存还是流体管理？",
+      "高位着陆推进器会给结构重量和控制系统带来多大代价？",
+      "自调平腿在真实月面坡度和尘土条件下的失败模式是什么？",
+      "如果某次 tanker 发射延迟，HLS 任务窗口如何重新排布？"
+    ]
+  })
+};
+const structuredDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+const structuredFeishuDoc = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "Starship HLS",
+  title: "月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
+  markdown: structuredDoc,
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline renders reader-grade article",
+  String(structuredFeishuDoc.includes("## 一、导读与核心结论") && structuredFeishuDoc.includes("### 关键术语解释") && structuredFeishuDoc.includes("## 二、关键技术点速览") && structuredFeishuDoc.includes("## 六、出处与链接") && !structuredFeishuDoc.includes("YouTube 技术笔记") && !structuredFeishuDoc.includes("我先按")),
+  "true"
+);
+
+bot.ai = {
+  chat: async () => JSON.stringify({
+    title: "100 times heavier YouTube 技术笔记",
+    opening: {
+      contextParagraphs: ["不是某个孤立知识点。"],
+      glossary: [],
+      corePoints: []
+    },
+    techPoints: [],
+    detailSections: [],
+    timeline: [],
+    questions: []
+  })
+};
+let rejectedWeakStructuredDoc = false;
+try {
+  await bot.generateYoutubeResearchMarkdown({
+    topic: "Starship HLS",
+    request: { raw: "https://youtu.be/test" },
+    videos: [{ title: "100 times heavier", transcriptText: "[0:00] 100 times heavier." }]
+  });
+} catch {
+  rejectedWeakStructuredDoc = true;
+}
+assertEqual(
+  "youtube structured pipeline rejects weak generated article",
+  String(rejectedWeakStructuredDoc),
+  "true"
+);
 assertEqual(
   "youtube research reply includes timing diagnostics",
   String(bot.formatYoutubeResearchReply(

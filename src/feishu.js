@@ -1088,6 +1088,175 @@ function buildYoutubeGenerationAnchors(videos = [], topic = "") {
   ]);
 }
 
+function extractJsonObject(text = "") {
+  const raw = String(text || "").trim()
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/```$/i, "")
+    .trim();
+  try {
+    return JSON.parse(raw);
+  } catch {
+    const start = raw.indexOf("{");
+    const end = raw.lastIndexOf("}");
+    if (start >= 0 && end > start) {
+      return JSON.parse(raw.slice(start, end + 1));
+    }
+    throw new Error("AI did not return valid JSON.");
+  }
+}
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function cleanArticleText(value = "", max = 1400) {
+  return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
+}
+
+function structuredArticleFallbackTitle(article = {}, report = {}) {
+  const title = cleanYoutubeDocumentTitle(article.title || "");
+  if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
+  return youtubeTitleFallback(report);
+}
+
+function renderYoutubeStructuredArticle(article = {}, report = {}) {
+  const fallbackTitle = structuredArticleFallbackTitle(article, report);
+  const title = cleanYoutubeDocumentTitle(article.title || fallbackTitle) || fallbackTitle;
+  const opening = article.opening || {};
+  const paragraphs = asArray(opening.contextParagraphs).map((item) => cleanArticleText(item, 900)).filter(Boolean);
+  const glossary = asArray(opening.glossary)
+    .map((item) => ({
+      term: cleanArticleText(item?.term, 80),
+      explanation: cleanArticleText(item?.explanation || item?.description, 500)
+    }))
+    .filter((item) => item.term && item.explanation);
+  const oneSentence = cleanArticleText(opening.oneSentence || article.oneSentence, 700);
+  const corePoints = asArray(opening.corePoints || article.corePoints)
+    .map((item, index) => ({
+      title: cleanArticleText(item?.title || `核心观点 ${index + 1}`, 120),
+      evidence: cleanArticleText(item?.evidence || item?.quote, 700),
+      why: cleanArticleText(item?.why || item?.importance, 700),
+      takeaway: cleanArticleText(item?.takeaway || item?.readerTakeaway, 700)
+    }))
+    .filter((item) => item.title && (item.evidence || item.why || item.takeaway));
+  const quotes = asArray(opening.quotes || article.quotes)
+    .map((item, index) => ({
+      title: cleanArticleText(item?.title || `金句 ${index + 1}`, 80),
+      original: cleanArticleText(item?.original || item?.quote, 700),
+      meaning: cleanArticleText(item?.meaning, 700),
+      implication: cleanArticleText(item?.implication || item?.transfer, 700)
+    }))
+    .filter((item) => item.original);
+  const counterintuitive = asArray(opening.counterintuitive || article.counterintuitive)
+    .map((item) => cleanArticleText(item, 600))
+    .filter(Boolean);
+  const techPoints = asArray(article.techPoints)
+    .map((item, index) => ({
+      name: cleanArticleText(item?.name || item?.title || `技术点 ${index + 1}`, 120),
+      says: cleanArticleText(item?.says || item?.inVideo, 700),
+      importance: cleanArticleText(item?.importance || item?.why, 700),
+      risk: cleanArticleText(item?.risk || item?.uncertainty, 700)
+    }))
+    .filter((item) => item.name && (item.says || item.importance || item.risk));
+  const detailSections = asArray(article.detailSections)
+    .map((section, index) => ({
+      title: cleanArticleText(section?.title || `拆解 ${index + 1}`, 120),
+      bullets: asArray(section?.bullets).map((item) => cleanArticleText(item, 700)).filter(Boolean)
+    }))
+    .filter((section) => section.title && section.bullets.length);
+  const timeline = asArray(article.timeline)
+    .map((item) => ({
+      time: cleanArticleText(item?.time || item?.timestamp, 40),
+      event: cleanArticleText(item?.event || item?.whatHappens, 700),
+      importance: cleanArticleText(item?.importance || item?.whyItMatters, 700),
+      evidence: cleanArticleText(item?.evidence || item?.quote, 500)
+    }))
+    .filter((item) => item.time && item.event);
+  const questions = asArray(article.questions).map((item) => cleanArticleText(item, 500)).filter(Boolean);
+
+  const lines = [
+    `# ${title}`,
+    "",
+    "## 一、导读与核心结论",
+    paragraphs.join("\n\n"),
+    glossary.length ? compactLines([
+      "### 关键术语解释",
+      glossary.map((item) => `- **${item.term.replace(/[：:]\s*$/, "")}：** ${item.explanation}`).join("\n")
+    ]) : "",
+    oneSentence ? compactLines(["### 一句话结论", oneSentence]) : "",
+    corePoints.length ? compactLines([
+      "### 核心观点",
+      corePoints.map((item, index) => compactLines([
+        `#### ${index + 1}. ${item.title}`,
+        item.evidence ? `> ${item.evidence}` : "",
+        item.why ? `  - **为什么重要：** ${item.why}` : "",
+        item.takeaway ? `  - **读者该抓住什么：** ${item.takeaway}` : ""
+      ])).join("\n\n")
+    ]) : "",
+    quotes.length ? compactLines([
+      "### 标志性金句",
+      quotes.map((item, index) => compactLines([
+        `#### ${index + 1}. ${item.title}`,
+        `> ${item.original}`,
+        item.meaning ? `  - **含义：** ${item.meaning}` : "",
+        item.implication ? `  - **可迁移启发：** ${item.implication}` : ""
+      ])).join("\n\n")
+    ]) : "",
+    counterintuitive.length ? compactLines([
+      "### 最反共识的判断",
+      counterintuitive.map((item) => `- ${item}`).join("\n")
+    ]) : "",
+    techPoints.length ? compactLines([
+      "## 二、关键技术点速览",
+      techPoints.map((item, index) => compactLines([
+        `#### ${index + 1}. ${item.name}`,
+        item.says ? `  - **视频里怎么说：** ${item.says}` : "",
+        item.importance ? `  - **为什么重要：** ${item.importance}` : "",
+        item.risk ? `  - **风险或不确定性：** ${item.risk}` : ""
+      ])).join("\n\n")
+    ]) : "",
+    detailSections.length ? compactLines([
+      "## 三、详细技术拆解",
+      detailSections.map((section, index) => compactLines([
+        `### ${index + 1}. ${section.title}`,
+        section.bullets.map((item) => `- ${item}`).join("\n")
+      ])).join("\n\n")
+    ]) : "",
+    timeline.length ? compactLines([
+      "## 四、时间线摘要",
+      timeline.map((item) => compactLines([
+        `- [${item.time}] ${item.event}${item.importance ? `；${item.importance}` : ""}`,
+        item.evidence ? `  > ${item.evidence}` : ""
+      ])).join("\n")
+    ]) : "",
+    questions.length ? compactLines([
+      "## 五、值得继续追问的问题",
+      questions.map((item) => `- ${item}`).join("\n")
+    ]) : ""
+  ];
+  return compactLines(lines);
+}
+
+function assertStructuredYoutubeArticle(article = {}, report = {}) {
+  const title = structuredArticleFallbackTitle(article, report);
+  if (isWeakYoutubeTitle(title, report.topic || "") || looksMostlyEnglish(title)) {
+    throw new Error("YouTube structured article failed quality gate: weak Chinese title.");
+  }
+  const opening = article.opening || {};
+  const context = asArray(opening.contextParagraphs).map((item) => cleanArticleText(item, 1000)).filter(Boolean);
+  const glossary = asArray(opening.glossary).filter((item) => cleanArticleText(item?.term) && cleanArticleText(item?.explanation || item?.description));
+  const corePoints = asArray(opening.corePoints || article.corePoints).filter((item) => cleanArticleText(item?.title) && cleanArticleText(item?.evidence || item?.quote));
+  const techPoints = asArray(article.techPoints).filter((item) => cleanArticleText(item?.name || item?.title) && cleanArticleText(item?.says || item?.inVideo));
+  const timeline = asArray(article.timeline).filter((item) => cleanArticleText(item?.time || item?.timestamp) && cleanArticleText(item?.event || item?.whatHappens));
+  const questions = asArray(article.questions).filter((item) => cleanArticleText(item));
+  if (context.length < 2) throw new Error("YouTube structured article failed quality gate: opening context is too thin.");
+  if (glossary.length < 3) throw new Error("YouTube structured article failed quality gate: glossary is missing.");
+  if (corePoints.length < 3) throw new Error("YouTube structured article failed quality gate: evidence-backed core points are missing.");
+  if (techPoints.length < 2) throw new Error("YouTube structured article failed quality gate: technical points are missing.");
+  if (timeline.length < 6) throw new Error("YouTube structured article failed quality gate: timeline is missing.");
+  if (questions.length < 4) throw new Error("YouTube structured article failed quality gate: follow-up questions are missing.");
+}
+
 function buildYoutubeQuestionsFallback(report = {}) {
   const videos = report.videos || [];
   const firstTitle = cleanYoutubeDocumentTitle(videos[0]?.title || report.title || report.topic || "这条视频");
@@ -2324,21 +2493,17 @@ export class FeishuBot {
           "Always write in Simplified Chinese.",
           "If the transcript is not Chinese, translate and summarize into Chinese.",
           "Be source-grounded. Do not invent details not supported by the transcript.",
-          "Write like a polished Feishu knowledge-base article, not a chat answer.",
+          "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
+          "Write like a top-tier Chinese column writer filling a structured article brief, not a chat answer.",
           "Plan from evidence before writing: use the provided concrete anchors and timestamp examples as the spine of the article. Do not write a section if it cannot be tied to named anchors from the transcript.",
-          "Use Markdown headings, quote blocks, short bullets, and numbered mobile-friendly sections so Feishu can convert it into native doc blocks.",
-          "Do not use Markdown tables. Feishu mobile clips wide tables; use vertical card-like blocks instead.",
-          "For dense comparisons, write each item as `#### 1. <title>` followed by 3-5 short key-value bullets.",
-          "For every major insight, include a short source-grounded quote or paraphrased evidence line in a Markdown quote block.",
-          "Use bold labels inside bullets, such as `- **为什么重要：** ...`, `- **风险：** ...`, and indent supporting points under the main point. Never leave labels like `术语解释：` or `市场/技术环境：` unbolded.",
-          "Do not pad the article with process metadata. Mention transcript language, output language, content form, and source link only once in the final source section if useful.",
-          "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`. The response must be only the final article, starting with `# <title>`.",
+          "Do not write headings such as YouTube 技术笔记, 技术笔记, 背景导读, or 精华总结 inside content fields.",
+          "Do not pad the article with process metadata. Do not mention output language, content form, Obsidian, Feishu, Markdown, or source links in content fields.",
+          "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`.",
           "Avoid restating the same source facts in multiple sections. Every section must add new reader value.",
-          "Open with context that lowers the reading barrier: market/industry backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
+          "Open with context that lowers the reading barrier: market/industry/historical backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
-          "The opening section merges background and summary. Do not create separate `背景导读` and `精华总结` blocks inside it.",
-          "Gold quotes must show the original quote first. If the original transcript is English, keep the English quote; add Chinese explanation below it instead of forcing the quote into Chinese.",
-          "Do not include Obsidian links, reading guides, generation notes, audio/TTS instructions, placeholder text, or raw HTML."
+          "Gold quotes must show the original quote first. If the original transcript is English, keep the original quote in English.",
+          "Every title and point must be reader-facing and specific. Never use the raw video title as a section title unless it is already a polished Chinese title."
         ].join(" ")
       },
       {
@@ -2350,27 +2515,25 @@ export class FeishuBot {
           failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
           sourceAnchors ? `\nSource anchors that must drive the article:\n${sourceAnchors}` : "",
           "",
-          "Write a Markdown note with this Feishu-style structure:",
-          "# <specific Chinese article title based on the actual video argument, not the user's raw query>",
-          "## 一、导读与核心结论",
-          "This section replaces both background and summary. Write concrete context anchored to transcript specifics: named people, objects, technologies, historical events, companies, products, or scenes. The first two sentences must mention at least 3 concrete anchors from `Source anchors`. Then add `### 关键术语解释` with 3-8 bullets in the exact style `- **术语：** 小白能懂的解释`.",
-          "### 一句话结论",
-          "### 核心观点",
-          "Use 4-8 sections like `#### 1. <观点标题>`. Each point title must include a concrete object/person/term from the transcript, not an abstract category. Under each point include one Markdown quote block with a source-grounded quote or evidence, then indented bullets with bold labels exactly like `  - **为什么重要：** ...` and `  - **读者该抓住什么：** ...`. Make each point non-overlapping.",
-          "### 标志性金句",
-          "Do not use a table. Use one quote/card per item: `#### 金句 1`; first show the original quote in a Markdown quote block, then bullets for `**含义**` and `**可迁移启发**`. If the source quote is English, keep it in English.",
-          "### 最反共识的判断",
-          "Use 3 concise bullet points. Do not use a table.",
-          "## 二、关键技术点速览",
-          "Do not use a table. Use vertical blocks: `#### 1. 技术点` with indented bullets for `**视频里怎么说**` / `**为什么重要**` / `**风险或不确定性**`.",
-          "## 三、详细技术拆解",
-          "Use H3/H4 headings and bullets. Keep it source-grounded.",
-          "## 四、时间线摘要",
-          "Use 12-18 dense timestamp bullets in the style `- [0:02] 开场：发生了什么；为什么重要。` Each item must say what happened and why it matters. Add at most one short original evidence quote only when it is especially useful. Do not paste the full transcript; the system will append a separate original-text index.",
-          "## 五、值得继续追问的问题",
-          "Write 5-8 concrete questions anchored to the actual video: unresolved technical bottlenecks, validation signals, business constraints, or next experiments. Avoid generic template questions.",
-          "## 六、出处与链接",
-          "Mention source video title/channel/link and transcript language here only. Do not repeat these fields earlier.",
+          "Return JSON with exactly this shape:",
+          "{",
+          '  "title": "specific polished Chinese article title",',
+          '  "opening": {',
+          '    "contextParagraphs": ["2-4 concrete paragraphs; first two mention at least 3 source anchors"],',
+          '    "glossary": [{"term":"specific term", "explanation":"beginner-friendly explanation"}],',
+          '    "oneSentence": "one decisive conclusion",',
+          '    "corePoints": [{"title":"specific point title with transcript object/person/term", "evidence":"short source-grounded quote or evidence", "why":"why it matters", "takeaway":"what reader should remember"}],',
+          '    "quotes": [{"title":"quote label", "original":"original quote, keep English if source is English", "meaning":"Chinese explanation", "implication":"transferable insight"}],',
+          '    "counterintuitive": ["3 specific non-obvious judgments"]',
+          "  },",
+          '  "techPoints": [{"name":"specific technical point", "says":"how the video describes it", "importance":"why important", "risk":"risk or uncertainty"}],',
+          '  "detailSections": [{"title":"specific detailed section title", "bullets":["source-grounded bullet"]}],',
+          '  "timeline": [{"time":"0:02", "event":"what happened", "importance":"why it matters", "evidence":"optional original quote"}],',
+          '  "questions": ["5-8 concrete follow-up questions"]',
+          "}",
+          "Cardinality: glossary 3-8, corePoints 4-8, quotes 2-4, techPoints 3-8, detailSections 3-6, timeline 12-18, questions 5-8.",
+          "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. The opening must combine specific background and core conclusion in one reader-facing flow. Background must be concrete, not a reusable template. Every core point needs source evidence. Questions must be anchored to actual people, objects, terms, numbers, or tensions in this transcript.",
+          "Do not include source metadata, links, transcript language, Markdown headings, or process text in JSON values.",
           "",
           "Source transcripts:",
           sourceText
@@ -2383,7 +2546,10 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    return this.decorateYoutubeMarkdown(stripYoutubeProcessPreamble(this.cleanAssistantReply(raw)), { topic, request, videos });
+    const structured = extractJsonObject(raw);
+    assertStructuredYoutubeArticle(structured, { topic, videos });
+    const rendered = renderYoutubeStructuredArticle(structured, { topic, videos });
+    return this.decorateYoutubeMarkdown(rendered, { topic, request, videos });
   }
 
   decorateYoutubeMarkdown(markdown = "", { topic, request, videos }) {
