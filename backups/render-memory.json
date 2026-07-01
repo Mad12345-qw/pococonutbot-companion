@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T01:56:06.462Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-01T02:24:23.578Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
