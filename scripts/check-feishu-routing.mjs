@@ -238,16 +238,44 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "---",
     "# building the best GPU possible YouTube 技术笔记",
     "",
-    "## 二、关键技术点速览",
+    "## 一、这场参观真正暴露了什么",
+    "这不是一条普通的产品视频，而是在解释算力竞赛背后的硬件约束。GPU 的意义不只在峰值算力，还在带宽、并行度、软件生态和供应链共同形成的系统优势。",
+    "",
+    "## 二、马斯克真正押注的不是火箭，而是节拍",
+    "这里用测试内容模拟一段足够长的专栏正文。真正的好文章不会先贴阅读导航，也不会把输出语言、字幕语言、内容形态当成读者需要知道的信息。它会先建立问题，再用证据拆解判断。",
+    "",
+    "## 三、星舰工厂的三条技术主线",
     "| 技术点 | 视频里怎么说 | 为什么重要 |",
     "| --- | --- | --- |",
-    "| GPU 架构 | 强调带宽和并行 | 影响训练效率 |"
+    "| GPU 架构 | 强调带宽和并行 | 影响训练效率 |",
+    "",
+    "## 四、最值得记住的反常识判断",
+    "第一，硬件优势不是单个参数赢，而是系统能力赢。第二，真正稀缺的不是发布会概念，而是稳定量产和软件生态。第三，读者要看的是约束条件，不是口号。",
+    "",
+    "## 五、如果只看一遍，记住这些时间点",
+    "- [0:00] 开场提出硬件架构问题。",
+    "- [0:05] 转向带宽和并行度。",
+    "",
+    "## 六、继续追问",
+    "- 这个判断能否被供应链数据验证？",
+    "- 软件生态是否比硬件参数更难复制？",
+    "",
+    "这段补充文字用于确保测试文章达到发布长度。它模拟专栏正文继续展开：一篇可发布文章应该有清晰主线、自然段落、明确判断和克制的证据使用，而不是把原始材料一股脑倒给读者。读者不关心机器人如何整理，也不关心字幕是什么语言；读者关心自己读完之后是否更理解技术趋势。",
+    "",
+    "真正的专栏写法还需要控制节奏。第一屏先提出判断，中段再展开背景和证据，后段才给资料来源。证据不是越多越好，英文原句也不是越长越专业；证据的价值在于它能支撑哪个判断。只要一段材料不能推动读者理解，它就应该被删掉或放到附录，而不是进入正文抢占注意力。",
+    "",
+    "因此，测试样稿必须模拟一个合格成品的基本条件：标题是中文判断型标题，目录不混入内部变量，正文没有空章节，没有裸露 Markdown，没有代码块逐字稿，没有系统失败提示。只有这些条件同时满足，生成器才允许把内容写入飞书。"
+    ,
+    "",
+    "从读者角度看，成品还必须有明确的阅读收益。它不能只是告诉读者视频里说了什么，而要回答：这件事为什么现在重要，它和已有行业认知有什么冲突，它会改变哪些判断。换句话说，生成器的目标不是保存材料，而是替读者完成一次判断压缩。材料可以进入资料来源，判断必须进入正文。",
+    "",
+    "这也是为什么完整逐字稿不能直接进入主文档。逐字稿适合作为检索材料，不适合作为阅读材料。主文档应该只摘出能支持判断的时间点，把读者带回原视频，而不是把原视频字幕平铺成三十页英文代码块。否则，文档越长，读者越不信任它。"
   ].join("\n")
 });
 assertEqual(
-  "youtube Feishu doc avoids duplicate body H1",
-  String(/^#\s+/m.test(mobileDocMarkdown)),
-  "false"
+  "youtube Feishu doc uses a Chinese article H1",
+  String(/^#\s+AI 算力竞赛背后：一块 GPU 到底在决定什么/m.test(mobileDocMarkdown)),
+  "true"
 );
 assertEqual(
   "youtube Feishu doc converts tables for mobile",
@@ -255,8 +283,8 @@ assertEqual(
   "false"
 );
 assertEqual(
-  "youtube Feishu doc uses reader-first navigation",
-  String(mobileDocMarkdown.includes("## 阅读导航") && !mobileDocMarkdown.includes("## 本文来源")),
+  "youtube Feishu doc does not use a reading guide",
+  String(!mobileDocMarkdown.includes("阅读导航") && !mobileDocMarkdown.includes("这篇文档由小椰")),
   "true"
 );
 assertEqual(
@@ -265,21 +293,18 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube Feishu doc appends expandable transcript",
-  String(mobileDocMarkdown.includes("## 五、时间线摘要") && mobileDocMarkdown.includes("### 完整字幕逐字稿（可展开）") && mobileDocMarkdown.includes("<details>") && mobileDocMarkdown.includes("[0:00] We need memory bandwidth.")),
+  "youtube Feishu doc avoids raw transcript dumps",
+  String(!mobileDocMarkdown.includes("完整字幕逐字稿") && !mobileDocMarkdown.includes("<details>") && !mobileDocMarkdown.includes("```text")),
   "true"
 );
 assertEqual(
-  "youtube Feishu doc has a fixed reader-grade outline",
-  String([
-    "## 一、背景导读",
-    "## 二、精华总结",
-    "## 三、关键技术点速览",
-    "## 四、详细技术拆解",
-    "## 五、时间线摘要",
-    "## 六、值得继续追问的问题",
-    "## 七、出处与链接"
-  ].every((heading) => mobileDocMarkdown.includes(heading))),
+  "youtube Feishu doc has a columnist outline",
+  String(mobileDocMarkdown.includes("## 一、这场参观真正暴露了什么") && mobileDocMarkdown.includes("## 资料来源") && !mobileDocMarkdown.includes("这部分没有生成到有效内容")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc title is Chinese for English source titles",
+  String(mobileDocMarkdown.startsWith("# AI 算力竞赛背后：一块 GPU 到底在决定什么")),
   "true"
 );
 assertEqual(
