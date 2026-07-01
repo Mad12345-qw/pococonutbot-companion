@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T04:13:17.594Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-01T04:22:30.723Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -53509,6 +53509,113 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-01T03:44:13.183Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/iKx3gAODybU?si=dBTZPb836jqgahcy\nhttps://youtu.be/iKx3gAODybU?si=dBTZPb836jqgahcy",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/iKx3gAODybU?si=dBTZPb836jqgahcy"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b7d083d88a8c493d386ff522a4",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-01T04:15:45.522Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/iKx3gAODybU?si=dBTZPb836jqgahcy",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7d083d88a8c493d386ff522a4",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T04:15:46.565Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495\n主题：this\n视频：1 条\n- 1. Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495（Lex Fridman / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/PB0UwmBP2ikOodk83gGc4SkSnic\n耗时诊断：字幕 1.2s / AI 2m18s / 飞书 6.1s / 总计 2m25s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "this",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PB0UwmBP2ikOodk83gGc4SkSnic",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "youtubeDiagnostics": {
+            "aiMs": 137540,
+            "totalMs": 138728,
+            "failures": 0,
+            "deliveryMs": 1111,
+            "documentMs": 6058,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1185,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T04:18:14.525Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495\n主题：this\n视频：1 条\n- 1. Vikings, Ragnar, Berserkers, Valhalla & the Warriors of the Viking Age | Lex Fridman Podcast #495（Lex Fridman / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/PB0UwmBP2ikOodk83gGc4SkSnic\n耗时诊断：字幕 1.2s / AI 2m18s / 飞书 6.1s / 发卡 1.1s / 总计 2m26s\nObsidian：已同步到 youtube/this-Vikings-Ragnar-Berserkers-Valhalla-the-Warriors-of-the-Viking-Age-Lex-Fridm.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "this",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PB0UwmBP2ikOodk83gGc4SkSnic",
+          "obsidianPath": "youtube/this-Vikings-Ragnar-Berserkers-Valhalla-the-Warriors-of-the-Viking-Age-Lex-Fridm.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 137540,
+            "totalMs": 138728,
+            "failures": 0,
+            "deliveryMs": 1111,
+            "documentMs": 6058,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1185,
+            "feishuIndexMs": 1562,
+            "obsidianSyncMs": 566,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T04:18:16.719Z"
       }
     ],
     "memories": [
@@ -55080,7 +55187,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-01T03:41:18.493Z"
+        "updatedAt": "2026-07-01T04:15:46.496Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -55090,7 +55197,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-01T03:41:18.411Z"
+        "updatedAt": "2026-07-01T04:15:46.416Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
