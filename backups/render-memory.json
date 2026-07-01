@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-01T03:41:00.463Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-01T03:48:46.779Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -53428,6 +53428,87 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-01T03:20:13.424Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/aFqjoCbZ4ik?si=J3vyw_PJZvO5_2GL\nhttps://youtu.be/aFqjoCbZ4ik?si=J3vyw_PJZvO5_2GL",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/aFqjoCbZ4ik?si=J3vyw_PJZvO5_2GL"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b7c8b79e8a8c072e3717964a93",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-01T03:41:17.768Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/aFqjoCbZ4ik?si=J3vyw_PJZvO5_2GL",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b7c8b79e8a8c072e3717964a93",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-01T03:41:18.562Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：First Look Inside SpaceX's Starfactory w/ Elon Musk\n主题：it\n视频：1 条\n- 1. First Look Inside SpaceX's Starfactory w/ Elon Musk（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/M5M5wlWrCiZlPZkmdINcX7ASnXh\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "it",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/M5M5wlWrCiZlPZkmdINcX7ASnXh",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-01T03:44:10.653Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：First Look Inside SpaceX's Starfactory w/ Elon Musk\n主题：it\n视频：1 条\n- 1. First Look Inside SpaceX's Starfactory w/ Elon Musk（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/M5M5wlWrCiZlPZkmdINcX7ASnXh\nObsidian：已同步到 youtube/it-First-Look-Inside-SpaceXs-Starfactory-w-Elon-Musk.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "it",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/M5M5wlWrCiZlPZkmdINcX7ASnXh",
+          "obsidianPath": "youtube/it-First-Look-Inside-SpaceXs-Starfactory-w-Elon-Musk.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-01T03:44:13.183Z"
       }
     ],
     "memories": [
@@ -54999,7 +55080,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-01T03:12:46.784Z"
+        "updatedAt": "2026-07-01T03:41:18.493Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -55009,7 +55090,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-01T03:12:46.716Z"
+        "updatedAt": "2026-07-01T03:41:18.411Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
