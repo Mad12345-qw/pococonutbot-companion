@@ -3005,6 +3005,7 @@ export class FeishuBot {
       .join("\n\n");
     let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(stripYoutubeProcessPreamble(report.markdown))))
       .trim();
+    body = stripLowValueYoutubeMetadataLines(body);
     body = body.replace(/^#\s+.+\n+/, "").trim();
     if (isGuidedYoutubeBlueprintMarkdown(body)) {
       const markdown = indentReaderLabelBullets(emphasizeReaderLabels(finalizeGuidedYoutubeDocumentMarkdown(body, {
@@ -3014,7 +3015,6 @@ export class FeishuBot {
       assertReadableYoutubeDocument(markdown);
       return markdown;
     }
-    body = stripLowValueYoutubeMetadataLines(body);
     const sections = collectYoutubeDocSections(body);
     const relocated = {
       summary: splitMisplacedBackgroundBlocks(sections.summary),

@@ -58,6 +58,24 @@ function assertEqual(name, actual, expected) {
   console.log(`ok ${name}: ${actual}`);
 }
 
+function countOccurrences(text = "", needle = "") {
+  if (!needle) return 0;
+  return String(text || "").split(needle).length - 1;
+}
+
+function sectionBetween(markdown = "", startHeading = "", endHeading = "") {
+  const text = String(markdown || "");
+  const start = text.indexOf(startHeading);
+  if (start < 0) return "";
+  const afterStart = start + startHeading.length;
+  const end = endHeading ? text.indexOf(endHeading, afterStart) : -1;
+  return (end >= 0 ? text.slice(afterStart, end) : text.slice(afterStart)).trim();
+}
+
+function countBullets(markdown = "") {
+  return (String(markdown || "").match(/^\s*[-*]\s+/gm) || []).length;
+}
+
 const routeCases = [
   {
     name: "referenced summary does not become search card",
@@ -570,6 +588,40 @@ assertEqual(
 assertEqual(
   "youtube guided blueprint is not rewrapped by legacy summary logic",
   String(!structuredFeishuDoc.includes("### 核心结论") && structuredFeishuDoc.indexOf("## 一、导读与核心结论") < structuredFeishuDoc.indexOf("### 关键术语解释") && structuredFeishuDoc.indexOf("### 原文摘录") > structuredFeishuDoc.indexOf("## 四、时间线摘要") && structuredFeishuDoc.indexOf("## 六、出处与链接") > structuredFeishuDoc.indexOf("## 五、值得继续追问的问题")),
+  "true"
+);
+const finalOpeningSection = sectionBetween(structuredFeishuDoc, "## 一、导读与核心结论", "## 二、关键技术点速览");
+const finalIntroText = sectionBetween(structuredFeishuDoc, "## 一、导读与核心结论", "### 关键术语解释");
+const finalTimelineSection = sectionBetween(structuredFeishuDoc, "## 四、时间线摘要", "## 五、值得继续追问的问题");
+const finalQuestionsSection = sectionBetween(structuredFeishuDoc, "## 五、值得继续追问的问题", "## 六、出处与链接");
+assertEqual(
+  "youtube finished article snapshot has no duplicated title",
+  String(countOccurrences(structuredFeishuDoc, hlsArticle.title) === 0),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot has focused intro prose",
+  String(finalIntroText.length > 120 && finalIntroText.length < 900),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot intro is prose not bullet wall",
+  String(!/^[-*]\s+/m.test(finalIntroText)),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot keeps opening as article prose before glossary",
+  String(finalOpeningSection.includes("### 一句话结论") && finalOpeningSection.includes("### 核心观点") && finalOpeningSection.includes("### 标志性金句") && finalOpeningSection.includes("### 最反共识的判断") && countOccurrences(finalOpeningSection, "### 关键术语解释") === 1),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot keeps timeline clean",
+  String(!finalTimelineSection.includes("**为什么重要：**") && !finalTimelineSection.includes("**读者该抓住什么：**") && !finalTimelineSection.includes("### 核心观点") && finalTimelineSection.includes("### 原文摘录")),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot keeps follow-up questions as questions",
+  String(countBullets(finalQuestionsSection) >= 4 && !finalQuestionsSection.includes("**为什么重要：**") && !finalQuestionsSection.includes("**读者该抓住什么：**") && !finalQuestionsSection.includes("### 原文摘录")),
   "true"
 );
 assertEqual(
