@@ -314,7 +314,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc splits glossary background and conclusion",
-  String(mobileDocMarkdown.includes("## 一、关键术语解释") && mobileDocMarkdown.includes("## 二、背景导读") && mobileDocMarkdown.includes("## 三、导读与核心结论") && !mobileDocMarkdown.includes("## 二、精华总结") && mobileDocMarkdown.includes("### 核心结论")),
+  String(mobileDocMarkdown.includes("## 一、关键术语解释") && mobileDocMarkdown.includes("## 二、背景导读") && mobileDocMarkdown.includes("## 三、导读与核心结论") && !mobileDocMarkdown.includes("## 二、精华总结") && mobileDocMarkdown.includes("### 一句话结论") && mobileDocMarkdown.includes("### 核心观点")),
   "true"
 );
 assertEqual(
@@ -342,7 +342,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc bolds reader labels",
-  String(mobileDocMarkdown.includes("- **市场/技术环境：** 这里同样属于背景，不属于正文观点。")),
+  String(mobileDocMarkdown.includes("**市场/技术环境：** 这里同样属于背景，不属于正文观点。")),
   "true"
 );
 assertEqual(
@@ -435,7 +435,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc indents reader label bullets",
-  String(keywordFallbackDoc.includes("  - **为什么重要：** 内存带宽会限制并行计算实际效率。") && keywordFallbackDoc.includes("  - **风险或不确定性：** 缓存局部性和软件栈也会改变瓶颈位置。")),
+  String(keywordFallbackDoc.includes("  - **视频里怎么说：**") && keywordFallbackDoc.includes("  - **为什么重要：**") && keywordFallbackDoc.includes("  - **风险或不确定性：**")),
   "true"
 );
 
@@ -635,6 +635,68 @@ assertEqual(
 assertEqual(
   "youtube finished article snapshot keeps follow-up questions as questions",
   String(countBullets(finalQuestionsSection) >= 4 && !finalQuestionsSection.includes("**为什么重要：**") && !finalQuestionsSection.includes("**读者该抓住什么：**") && !finalQuestionsSection.includes("### 原文摘录")),
+  "true"
+);
+
+let rejectedReaderAuditFailure = false;
+try {
+  bot.buildFeishuYoutubeDocumentMarkdown({
+    topic: "Starship HLS",
+    title: "月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
+    videos: [{
+      title: "100 times heavier",
+      channel: "Test Channel",
+      language: "en",
+      url: "https://www.youtube.com/watch?v=testhls",
+      transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+    }],
+    markdown: [
+      "# 月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
+      "## 一、关键术语解释",
+      "- **Starship HLS：** 月球着陆器。",
+      "- **LEO：** 近地轨道。",
+      "- **depot：** 轨道燃料库。",
+      "## 二、背景导读",
+      "- 背景被写成 bullet 墙。",
+      "- 这会破坏第一屏阅读体验。",
+      "## 三、导读与核心结论",
+      "### 一句话结论",
+      "HLS 的难点是任务链。",
+      "### 核心观点",
+      "#### 1. 补加注是主线",
+      "> evidence",
+      "### 标志性金句",
+      "#### 1. evidence",
+      "> quote",
+      "### 最反共识的判断",
+      "- 不是单次发射。",
+      "## 四、关键技术点速览",
+      "#### 1. 补加注",
+      "  - **视频里怎么说：** evidence",
+      "## 五、详细技术拆解",
+      "### 1. 任务链",
+      "- evidence",
+      "## 六、时间线摘要",
+      "- [0:00] evidence",
+      "### 原文摘录",
+      "```text",
+      "[0:00] 100 times heavier.",
+      "```",
+      "## 七、值得继续追问的问题",
+      "- 问题一？",
+      "- 问题二？",
+      "- 问题三？",
+      "- 问题四？",
+      "## 八、出处与链接",
+      "https://www.youtube.com/watch?v=testhls"
+    ].join("\n")
+  });
+} catch {
+  rejectedReaderAuditFailure = true;
+}
+assertEqual(
+  "youtube finished article reader audit rejects bullet-wall background",
+  String(rejectedReaderAuditFailure),
   "true"
 );
 assertEqual(

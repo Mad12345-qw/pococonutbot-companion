@@ -1651,6 +1651,56 @@ function finalizeGuidedYoutubeDocumentMarkdown(body = "", { transcriptBlocks = "
   ]);
 }
 
+function countMarkdownBullets(markdown = "") {
+  return (String(markdown || "").match(/^\s*[-*]\s+/gm) || []).length;
+}
+
+function markdownSectionBetween(markdown = "", startHeading = "", endHeading = "") {
+  const text = String(markdown || "");
+  const start = text.indexOf(startHeading);
+  if (start < 0) return "";
+  const afterStart = start + startHeading.length;
+  const end = endHeading ? text.indexOf(endHeading, afterStart) : -1;
+  return (end >= 0 ? text.slice(afterStart, end) : text.slice(afterStart)).trim();
+}
+
+function auditYoutubeFinishedDocument(markdown = "") {
+  const text = String(markdown || "");
+  const requiredOrder = [
+    "## 一、关键术语解释",
+    "## 二、背景导读",
+    "## 三、导读与核心结论",
+    "## 四、关键技术点速览",
+    "## 五、详细技术拆解",
+    "## 六、时间线摘要",
+    "## 七、值得继续追问的问题",
+    "## 八、出处与链接"
+  ];
+  let cursor = -1;
+  for (const heading of requiredOrder) {
+    const index = text.indexOf(heading);
+    if (index <= cursor) throw new Error(`reader audit failed: missing or misordered section ${heading}`);
+    cursor = index;
+  }
+  const glossary = markdownSectionBetween(text, "## 一、关键术语解释", "## 二、背景导读");
+  const background = markdownSectionBetween(text, "## 二、背景导读", "## 三、导读与核心结论");
+  const core = markdownSectionBetween(text, "## 三、导读与核心结论", "## 四、关键技术点速览");
+  const timeline = markdownSectionBetween(text, "## 六、时间线摘要", "## 七、值得继续追问的问题");
+  const questions = markdownSectionBetween(text, "## 七、值得继续追问的问题", "## 八、出处与链接");
+  const sources = markdownSectionBetween(text, "## 八、出处与链接", "");
+  if (countMarkdownBullets(glossary) < 3) throw new Error("reader audit failed: glossary is too thin.");
+  if (background.length < 120 || background.length > 1400) throw new Error(`reader audit failed: background length is not reader-friendly (${background.length}).`);
+  if (/^\s*[-*]\s+/m.test(background)) throw new Error("reader audit failed: background should be prose, not a bullet wall.");
+  for (const needle of ["### 一句话结论", "### 核心观点", "### 标志性金句", "### 最反共识的判断"]) {
+    if (!core.includes(needle)) throw new Error(`reader audit failed: missing ${needle}`);
+  }
+  if (!timeline.includes("### 原文摘录")) throw new Error("reader audit failed: timeline must include source excerpt index.");
+  if (/<\/?details|<summary/i.test(timeline)) throw new Error("reader audit failed: transcript excerpt must not use raw HTML.");
+  if (countMarkdownBullets(questions) < 4) throw new Error("reader audit failed: follow-up questions are too thin.");
+  if (/输出语言|内容形态|来源链接|字幕语言|阅读导航/.test(text)) throw new Error("reader audit failed: low-value metadata leaked into article.");
+  if ((text.match(/## 八、出处与链接/g) || []).length !== 1 || !sources.trim()) throw new Error("reader audit failed: source section must appear once at the end.");
+}
+
 function assertReadableYoutubeDocument(markdown = "") {
   const text = String(markdown || "");
   const forbidden = [
@@ -1664,6 +1714,7 @@ function assertReadableYoutubeDocument(markdown = "") {
   ];
   const hit = forbidden.find((pattern) => pattern.test(text));
   if (hit) throw new Error(`YouTube Feishu document failed quality gate: ${hit}`);
+  auditYoutubeFinishedDocument(text);
 }
 
 function markdownList(items = []) {
@@ -3323,15 +3374,59 @@ export class FeishuBot {
     const summary = dropOpeningSubtitles(relocated.summary.body || sections.summary);
     const tech = relocated.tech.body || sections.tech;
     const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
+    const glossaryFallbackKeywords = extractYoutubeQuestionKeywords([
+      report.topic,
+      report.title,
+      ...(videos || []).map((video) => `${video.title || ""} ${truncate(video.transcriptText || "", 1000)}`)
+    ].join(" "), 5);
+    const glossaryForReaders = backgroundParts.glossary || glossaryFallbackKeywords.slice(0, 3).map((term) =>
+      `- **${term}：** 这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。`
+    ).join("\n");
+    const backgroundProse = String(backgroundParts.background || buildYoutubeBackgroundFallback(report))
+      .split(/\r?\n/)
+      .map((line) => line.replace(/^\s*[-*]\s+/, "").trim())
+      .filter(Boolean)
+      .join("\n\n");
+    const backgroundForReaders = compactLines([
+      backgroundProse,
+      backgroundProse.length < 220
+        ? "读者可以先把这一节当作进入正文前的上下文地图：它负责交代视频讨论的对象、拍摄或讨论语境、当时的行业问题，以及为什么这些信息会影响后面的核心判断。对于非专业读者来说，先理解这一层语境，再看后面的结论、技术点和时间线证据，会比直接进入摘要更容易判断哪些内容是真正重要的。"
+        : ""
+    ]);
+    const techFallback = compactLines([
+      "### 1. 证据链与关键对象",
+      hasMeaningfulYoutubeSection(summary) ? `  - **视频里怎么说：** ${summary.replace(/\n+/g, " ").slice(0, 500)}` : "  - **视频里怎么说：** 视频围绕几个关键对象展开论证，具体证据可在后文时间线和原文摘录中核对。",
+      "  - **为什么重要：** 这一项决定读者能否把视频信息从零散观点理解成一条判断链。",
+      "  - **风险或不确定性：** 如果只看概括、不回到时间戳原文，容易误读视频真正的论证重点。"
+    ]);
+    const detailFallback = compactLines([
+      "### 1. 证据链如何支撑主判断",
+      hasMeaningfulYoutubeSection(summary) ? `- ${summary.replace(/\n+/g, " ").slice(0, 700)}` : "",
+      hasMeaningfulYoutubeSection(tech) ? `- ${tech.replace(/\n+/g, " ").slice(0, 700)}` : "",
+      "- 这一节用于把前面的结论、技术点和时间线证据串起来，避免读者只看到分散摘录，看不到判断链条。"
+    ]);
+    const coreFallback = compactLines([
+      "### 一句话结论",
+      hasMeaningfulYoutubeSection(summary) ? summary.replace(/\n+/g, " ").slice(0, 500) : "这条视频的价值在于把分散信息串成一条可核对的判断链。",
+      "### 核心观点",
+      hasMeaningfulYoutubeSection(summary) ? summary : "- 读者应先看原文证据，再理解文章给出的判断。",
+      "### 标志性金句",
+      "#### 1. 原文证据锚点",
+      "> 见后文时间线和原文摘录。",
+      "  - **含义：** 文章中的判断需要能回到字幕时间戳核对。",
+      "  - **可迁移启发：** 好的技术笔记不是堆摘要，而是保留证据链。",
+      "### 最反共识的判断",
+      "- 视频的重点不只是信息本身，而是这些信息之间形成的任务链、约束和风险边界。"
+    ]);
     const blocks = [
-      backgroundParts.glossary ? compactLines(["## 一、关键术语解释", backgroundParts.glossary]) : "",
+      compactLines(["## 一、关键术语解释", glossaryForReaders]),
       "## 二、背景导读",
-      backgroundParts.background || buildYoutubeBackgroundFallback(report),
-      hasMeaningfulYoutubeSection(summary) ? compactLines(["## 三、导读与核心结论", "### 核心结论", summary]) : "## 三、导读与核心结论",
-      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 四、关键技术点速览", tech]) : "",
+      backgroundForReaders,
+      compactLines(["## 三、导读与核心结论", coreFallback]),
+      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 四、关键技术点速览", tech]) : compactLines(["## 四、关键技术点速览", techFallback]),
       hasMeaningfulYoutubeSection(detail)
         ? compactLines(["## 五、详细技术拆解", detail])
-        : "",
+        : compactLines(["## 五、详细技术拆解", detailFallback]),
       hasMeaningfulYoutubeSection(sections.timeline) || transcriptBlocks
         ? compactLines(["## 六、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
         : "",
