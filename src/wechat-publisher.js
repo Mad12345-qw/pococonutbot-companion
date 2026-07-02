@@ -145,17 +145,36 @@ function collapseTranscriptDumpForWechat(markdown = "") {
     });
 }
 
+function stripLeadingDecor(value = "") {
+  return String(value || "").replace(/^[^\u4e00-\u9fffA-Za-z0-9#]+/, "").trim();
+}
+
+function removeLegacyWechatPrelude(markdown = "") {
+  const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
+  const badIndex = lines.findIndex((line) => (
+    /YouTube\s*技术笔记/i.test(line) ||
+    /我先按|接下来我会|Obsidian|可直接进/.test(line)
+  ));
+  if (badIndex < 0) return String(markdown || "");
+  const nextArticleStart = lines.findIndex((line, index) => {
+    if (index <= badIndex) return false;
+    const clean = stripLeadingDecor(stripMarkdown(line.replace(/^#{1,3}\s+/, "")));
+    return /^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(clean);
+  });
+  return nextArticleStart > 0 ? lines.slice(nextArticleStart).join("\n").trim() : String(markdown || "");
+}
+
 function isWechatTopSectionLine(line = "") {
   const text = String(line || "").trim();
   if (/^#{1,3}\s+[\u4e00-\u9fff\d]{1,4}[、.．]\s*\S+/.test(text)) return true;
   if (/^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(text)) return true;
-  const clean = stripMarkdown(text.replace(/^#{1,3}\s+/, ""));
+  const clean = stripLeadingDecor(stripMarkdown(text.replace(/^#{1,3}\s+/, "")));
   if (/^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(clean)) return true;
   return false;
 }
 
 function cleanWechatHeading(line = "") {
-  return stripMarkdown(String(line || "").replace(/^#{1,3}\s+/, "")).trim();
+  return stripLeadingDecor(stripMarkdown(String(line || "").replace(/^#{1,3}\s+/, "")));
 }
 
 function splitWechatSections(markdown = "") {
@@ -313,6 +332,7 @@ function normalizeWechatMarkdownFromFeishu(candidate = {}) {
   const source = stripFeishuSourceMarkdown(candidate.markdown || "");
   const title = cleanPublicTitle(normalizeTitle(candidate.title || extractMarkdownTitle(source), extractMarkdownTitle(source)), extractMarkdownTitle(source));
   let body = source.replace(/^#\s+.+\n+/, "").trim();
+  body = removeLegacyWechatPrelude(body);
   body = collapseTranscriptDumpForWechat(body)
     .replace(/^##\s+[八九十]+、出处与链接/gm, "## 资料来源")
     .replace(/^##\s+[八九十]+、资料来源与证据索引/gm, "## 资料来源与证据索引")
@@ -470,7 +490,8 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
       html.push(`<p style="margin:16px 0;"><img src="${escapeHtml(match[2])}" alt="${escapeHtml(match[1] || "")}" style="max-width:100%;display:block;margin:0 auto;" /></p>`);
       continue;
     }
-    const bareHeading = line.trim().match(/^([\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3})\u3001(.+)$/);
+    const decoratedLine = stripLeadingDecor(line.trim());
+    const bareHeading = decoratedLine.match(/^([\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3})\u3001(.+)$/);
     if (bareHeading) {
       closeList();
       currentSection = bareHeading[2].trim();

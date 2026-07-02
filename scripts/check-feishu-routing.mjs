@@ -1309,6 +1309,14 @@ const longWechatCandidate = {
   ...wechatCandidate,
   id: "wechat-long-feishu-source",
   markdown: [
+    "# 星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品",
+    "一、导读与核心结论",
+    "关键术语解释",
+    "Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。",
+    "核心结论",
+    "100 times heavier YouTube 技术笔记",
+    "我先按你给的时间戳骨架整理成中文技术简报，接下来我会把内容串成一篇可直接进 Obsidian/飞书的笔记。",
+    "",
     wechatFeishuMarkdown.replace("## 二、背景导读", "## **二、背景导读**"),
     "",
     "## 六、时间线摘要",
@@ -1331,6 +1339,8 @@ assertEqual(
   String(
     longWechatPlainText.length < 26000 &&
     !longWechatPlan.bodyMarkdown.includes("第 80 条") &&
+    !longWechatPlan.bodyMarkdown.includes("YouTube 技术笔记") &&
+    !longWechatPlan.bodyMarkdown.includes("Obsidian") &&
     /[。！？;；]$/.test(longWechatPlan.openingHook) &&
     longWechatPlan.openingHook.length >= 40 &&
     !/关键术语解释|Hopper/.test(longWechatPlan.openingHook)
