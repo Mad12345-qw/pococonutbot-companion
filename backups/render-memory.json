@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T11:08:27.447Z",
+  "exportedAt": "2026-07-02T11:13:29.113Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -57263,6 +57263,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T10:46:21.446Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：航天燃料",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b50251e0488c39d083a887a368",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T11:08:47.679Z"
       }
     ],
     "memories": [
@@ -58894,7 +58918,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T10:46:21.373Z"
+        "updatedAt": "2026-07-02T11:08:47.609Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58904,7 +58928,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T10:46:21.278Z"
+        "updatedAt": "2026-07-02T11:08:47.451Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -63669,6 +63693,44 @@
         "error": "",
         "createdAt": "2026-07-02T10:46:23.228Z",
         "updatedAt": "2026-07-02T10:46:24.291Z"
+      },
+      {
+        "id": "job:investment_report:e51d903d5b32c1f4",
+        "sourceType": "investment_report",
+        "sourceUrl": "航天燃料",
+        "status": "running",
+        "stage": "ai_synthesis",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：航天燃料",
+            "query": "航天燃料",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "航天燃料",
+          "sources": 6,
+          "backfill": {
+            "imported": 0,
+            "attempted": false
+          },
+          "topicCount": 0,
+          "priorReport": false,
+          "evidenceCards": 104
+        },
+        "error": "",
+        "createdAt": "2026-07-02T11:08:49.589Z",
+        "updatedAt": "2026-07-02T11:08:50.820Z"
       }
     ],
     "researchReferenceSources": [],
