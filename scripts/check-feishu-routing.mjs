@@ -1309,7 +1309,7 @@ const longWechatCandidate = {
   ...wechatCandidate,
   id: "wechat-long-feishu-source",
   markdown: [
-    wechatFeishuMarkdown,
+    wechatFeishuMarkdown.replace("## 二、背景导读", "## **二、背景导读**"),
     "",
     "## 六、时间线摘要",
     Array.from({ length: 80 }, (_, index) => `- [${String(Math.floor(index / 2)).padStart(2, "0")}:${String((index * 7) % 60).padStart(2, "0")}] 这是一条用于模拟飞书长逐字稿索引的内容，公众号正文不应该完整搬运第 ${index + 1} 条。`).join("\n"),
@@ -1332,6 +1332,7 @@ assertEqual(
     longWechatPlainText.length < 26000 &&
     !longWechatPlan.bodyMarkdown.includes("第 80 条") &&
     /[。！？;；]$/.test(longWechatPlan.openingHook) &&
+    longWechatPlan.openingHook.length >= 40 &&
     !/关键术语解释|Hopper/.test(longWechatPlan.openingHook)
   ),
   "true"

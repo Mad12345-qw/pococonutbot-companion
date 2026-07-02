@@ -149,6 +149,8 @@ function isWechatTopSectionLine(line = "") {
   const text = String(line || "").trim();
   if (/^#{1,3}\s+[\u4e00-\u9fff\d]{1,4}[、.．]\s*\S+/.test(text)) return true;
   if (/^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(text)) return true;
+  const clean = stripMarkdown(text.replace(/^#{1,3}\s+/, ""));
+  if (/^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(clean)) return true;
   return false;
 }
 
@@ -244,7 +246,16 @@ function readerOpeningFromSections(markdown = "", title = "") {
       if (paragraph) return stripMarkdown(paragraph);
     }
   }
-  return readerOpeningHook(markdown, title);
+  for (const section of sections) {
+    if (/关键术语|术语解释|时间线|出处|来源|链接|资料/.test(section.heading)) continue;
+    const paragraph = paragraphsFrom(section).find((part) => !isWeakOpeningLine(part, title));
+    if (paragraph) return stripMarkdown(paragraph);
+  }
+  const fallback = readerOpeningHook(markdown, title);
+  if (/关键术语解释|术语解释|^[A-Za-z][A-Za-z0-9+ .\-]{1,48}\s*[:：]/.test(fallback)) {
+    return title ? `这篇文章围绕「${title}」展开，先把关键概念、背景语境和核心判断整理成适合公开阅读的版本。` : "";
+  }
+  return fallback;
 }
 
 function extractWechatCoverAnchors(title = "", markdown = "") {
