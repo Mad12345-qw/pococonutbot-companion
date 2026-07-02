@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T12:49:55.612Z",
+  "exportedAt": "2026-07-02T12:56:01.147Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -67777,17 +67777,17 @@
         "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf",
         "sourceUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf",
         "status": "draft_created",
-        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfIqvmUm9cRNF0i1UMAlJSRIu2S2PQIdyiKJj8Ugbnk7m",
+        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfMP3PeV82PCnn8pBBeokoceuSE71SD2fDRutl7qbngin",
         "error": "",
         "metadata": {
           "createdBy": "admin_latest_youtube_draft",
           "imageMode": "generated_cover",
-          "draftElapsedMs": 434011,
+          "draftElapsedMs": 85201,
           "sourceMessageCreatedAt": "2026-07-02T04:13:38.772Z",
           "sourceMessageRelevanceScore": 0
         },
         "createdAt": "2026-07-02T12:40:19.127Z",
-        "updatedAt": "2026-07-02T12:47:34.345Z"
+        "updatedAt": "2026-07-02T12:51:55.686Z"
       }
     ]
   }
