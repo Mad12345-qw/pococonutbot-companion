@@ -63,15 +63,13 @@ export function buildFeishuArticleGroupPrelude(config = {}) {
   const chatId = String(config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
   const inviteText = String(config.feishuArticleGroupInviteText || DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT).trim();
   if (!chatId || !inviteText) return "";
-  const url = feishuOpenChatUrl(chatId);
-  if (!url) return "";
-  return [inviteText, "", `[加入群聊](${url})`].join("\n");
+  return inviteText;
 }
 
 export function withFeishuArticleGroupPrelude(markdown = "", config = {}) {
   const body = String(markdown || "").trimStart();
   const prelude = buildFeishuArticleGroupPrelude(config);
-  if (!prelude || body.includes(feishuOpenChatUrl(config.feishuArticleGroupChatId))) {
+  if (!prelude || body.includes(prelude)) {
     return body;
   }
   const lines = body.split(/\r?\n/);
@@ -85,6 +83,22 @@ export function withFeishuArticleGroupPrelude(markdown = "", config = {}) {
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function feishuArticleGroupChatCardIndex(markdown = "") {
+  const lines = String(markdown || "").trimStart().split(/\r?\n/);
+  return /^#\s+/.test(lines[0] || "") ? 2 : 1;
+}
+
+function linkedTextBlock(content = "", url = "") {
+  const encodedUrl = encodeURIComponent(String(url || ""));
+  const block = textBlock(content);
+  if (encodedUrl) {
+    block.text.elements[0].text_run.text_element_style = {
+      link: { url: encodedUrl }
+    };
+  }
+  return block;
 }
 
 function cleanConvertedBlock(block = {}) {
@@ -271,6 +285,56 @@ export class FeishuWorkspaceClient {
     }
   }
 
+  async insertArticleGroupChatCard({ documentId, parentBlockId = documentId, index = 1 } = {}) {
+    const chatId = String(this.config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
+    if (!documentId || !chatId) return { inserted: false, reason: "not_configured" };
+    try {
+      await this.request(
+        `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(parentBlockId)}/children?document_revision_id=-1`,
+        {
+          method: "POST",
+          body: {
+            index,
+            children: [
+              {
+                block_type: 20,
+                chat_card: {
+                  chat_id: chatId,
+                  align: 1
+                }
+              }
+            ]
+          }
+        }
+      );
+      logEvent("info", "Feishu article group chat card inserted", {
+        documentId,
+        chatId,
+        index
+      });
+      return { inserted: true, native: true, blocks: 1 };
+    } catch (error) {
+      logEvent("warn", "Feishu native chat card insert failed, falling back to linked text", {
+        documentId,
+        chatId,
+        index,
+        error: error.message
+      });
+      const url = feishuOpenChatUrl(chatId);
+      await this.request(
+        `/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}/blocks/${encodeURIComponent(parentBlockId)}/children?document_revision_id=-1`,
+        {
+          method: "POST",
+          body: {
+            index,
+            children: [linkedTextBlock("加入群聊", url)]
+          }
+        }
+      );
+      return { inserted: true, native: false, blocks: 1, fallback: "linked_text", error: error.message };
+    }
+  }
+
   async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false, articleGroupSourceType = "" }) {
     if (!parentWikiToken) throw new Error("Missing Feishu parent wiki token.");
     const parentNode = await this.getWikiNode(parentWikiToken, "wiki");
@@ -301,6 +365,7 @@ export class FeishuWorkspaceClient {
     let blockCount = 0;
     let writeDiagnostics = {};
     const documentMarkdown = withFeishuArticleGroupPrelude(markdown, this.config);
+    const articleGroupCardIndex = feishuArticleGroupChatCardIndex(documentMarkdown);
     try {
       const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown, index: 0 });
       blockCount = result.blocks || 0;
@@ -324,6 +389,15 @@ export class FeishuWorkspaceClient {
       } catch (fallbackError) {
         writeError = fallbackError.message;
       }
+    }
+    if (!writeError) {
+      const cardResult = await this.insertArticleGroupChatCard({
+        documentId,
+        parentBlockId: documentId,
+        index: articleGroupCardIndex
+      });
+      blockCount += cardResult.blocks || 0;
+      writeDiagnostics.articleGroupChatCard = cardResult;
     }
 
     logEvent("info", "Feishu wiki document created", {
@@ -507,6 +581,8 @@ export class FeishuWorkspaceClient {
     let writeMode = "rich";
     let blockCount = 0;
     const documentMarkdown = withFeishuArticleGroupPrelude(markdown, this.config);
+    const articleGroupCardIndex = feishuArticleGroupChatCardIndex(documentMarkdown);
+    const writeDiagnostics = {};
     try {
       const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown, index: 0 });
       blockCount = result.blocks || 0;
@@ -533,12 +609,22 @@ export class FeishuWorkspaceClient {
         });
       }
     }
+    if (!writeError) {
+      const cardResult = await this.insertArticleGroupChatCard({
+        documentId,
+        parentBlockId: documentId,
+        index: articleGroupCardIndex
+      });
+      blockCount += cardResult.blocks || 0;
+      writeDiagnostics.articleGroupChatCard = cardResult;
+    }
 
     logEvent("info", "Feishu document created", {
       title,
       documentId,
       blocks: blockCount,
       writeMode,
+      writeDiagnostics,
       contentWritten: !writeError,
       folderConfigured: Boolean(this.config.feishuProjectFolderToken),
       folderUsed: Boolean(record.usedFolder),

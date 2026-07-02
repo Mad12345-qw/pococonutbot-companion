@@ -97,8 +97,8 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "Feishu article group prelude uses an open chat link",
-  String(articleGroupPrelude.includes("https://applink.feishu.cn/client/chat/open?openChatId=oc_test_group")),
+  "Feishu article group prelude keeps links out of markdown so the native card owns joining",
+  String(!articleGroupPrelude.includes("http") && !articleGroupPrelude.includes("加入群聊")),
   "true"
 );
 const articleWithPrelude = withFeishuArticleGroupPrelude("# 正文标题\n\n## 一、正文", articleGroupConfig);
@@ -804,6 +804,7 @@ assertEqual(
 );
 
 const feishuSource = fs.readFileSync(new URL("../src/feishu.js", import.meta.url), "utf8");
+const feishuWorkspaceSource = fs.readFileSync(new URL("../src/feishu-workspace.js", import.meta.url), "utf8");
 assertEqual(
   "generation architecture defines one shared generation-first contract",
   String(
@@ -858,6 +859,16 @@ assertEqual(
     feishuSource.includes("sendTextToChat") &&
     feishuSource.includes("articleGroupSourceType: \"YouTube 精读\"") &&
     feishuSource.includes("articleGroupSourceType: \"投研报告\"")
+  ),
+  "true"
+);
+assertEqual(
+  "Feishu documents render the group entry as a native chat card before falling back to a link",
+  String(
+    feishuWorkspaceSource.includes("insertArticleGroupChatCard") &&
+    feishuWorkspaceSource.includes("block_type: 20") &&
+    feishuWorkspaceSource.includes("chat_card") &&
+    feishuWorkspaceSource.includes("linkedTextBlock(\"加入群聊\"")
   ),
   "true"
 );
