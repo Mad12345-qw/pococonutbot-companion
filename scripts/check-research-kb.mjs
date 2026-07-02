@@ -32,6 +32,14 @@ try {
   });
 
   const result = await storage.upsertResearchSourceBundle({
+    topics: [
+      {
+        name: "AI 光模块 / CPO / 数据中心网络",
+        topicType: "theme",
+        role: "report_topic",
+        aliases: ["CPO", "光模块", "数据中心网络"]
+      }
+    ],
     source: {
       sourceId: "source:test-open-ended",
       sourceType: "future_unknown_source",
@@ -45,7 +53,7 @@ try {
       eventPeriod: "2026",
       language: "en",
       durationText: "",
-      rawText: "A primary quote with a time-sensitive industry claim.",
+      rawText: "A primary quote with a time-sensitive CPO industry claim.",
       rawTextHash: "hash-test",
       docUrl: "https://example.com/doc",
       obsidianPath: "sources/example.md",
@@ -64,8 +72,8 @@ try {
     evidenceCards: [
       {
         evidenceType: "technology",
-        claim: "This is a grounded claim.",
-        quoteOriginal: "A primary quote with a time-sensitive industry claim.",
+        claim: "This is a grounded CPO claim.",
+        quoteOriginal: "A primary quote with a time-sensitive CPO industry claim.",
         location: "p.1",
         whyItMatters: "It should become reusable evidence, not just Markdown.",
         confidence: 0.8,
@@ -123,6 +131,73 @@ try {
   assert.equal(exported.researchTimeContexts[0].time_sensitivity || exported.researchTimeContexts[0].timeSensitivity, "medium");
   assert.equal(exported.researchQuestions[0].status, "open");
   assert.equal(exported.researchCoverageGaps[0].gap, "single_source_material");
+  assert.ok(exported.researchTopics.some((topic) => (topic.topic_key || topic.topicKey) === "ai-光模块-cpo-数据中心网络"));
+  assert.ok(exported.researchEvidenceTopics.length >= 1);
+
+  const topicMap = await storage.getResearchTopicMap({ query: "CPO", limit: 20 });
+  assert.ok(topicMap.topics.some((topic) => topic.canonicalName === "AI 光模块 / CPO / 数据中心网络"));
+
+  const graphCorpus = await storage.listResearchEvidenceForReport({
+    query: "CPO",
+    topicMap,
+    limit: 5,
+    evidenceLimit: 10
+  });
+  assert.equal(graphCorpus.sources.length, 1);
+  assert.equal(graphCorpus.evidenceCards[0].claim, "This is a grounded CPO claim.");
+
+  await storage.upsertResearchJob({
+    id: "job:investment-report-v1",
+    sourceType: "investment_report",
+    sourceUrl: "CPO",
+    status: "done",
+    stage: "done",
+    output: { title: "CPO 产业链报告 v1" }
+  });
+  const versionOne = await storage.recordInvestmentReportVersion({
+    jobId: "job:investment-report-v1",
+    query: "CPO",
+    topicMap,
+    structured: {
+      title: "CPO 产业链报告 v1",
+      oneSentence: "CPO remains an evidence-bounded research direction.",
+      thesis: "CPO thesis must be verified by cross-source evidence.",
+      hypotheses: [
+        {
+          title: "CPO may become a data-center network value-chain node.",
+          confidence: "medium",
+          evidenceIds: ["E1"]
+        }
+      ]
+    },
+    pack: graphCorpus
+  });
+  assert.equal(versionOne.versionNo, 1);
+  const priorReport = await storage.getPriorInvestmentReport({ query: "CPO", topicMap });
+  assert.equal(priorReport.versionNo, 1);
+
+  await storage.upsertResearchJob({
+    id: "job:investment-report-v2",
+    sourceType: "investment_report",
+    sourceUrl: "CPO",
+    status: "done",
+    stage: "done",
+    output: { title: "CPO 产业链报告 v2" }
+  });
+  const versionTwo = await storage.recordInvestmentReportVersion({
+    jobId: "job:investment-report-v2",
+    query: "CPO",
+    topicMap,
+    structured: {
+      title: "CPO 产业链报告 v2",
+      oneSentence: "The next report should compare against v1.",
+      deltaSincePrior: "New evidence strengthens the need for cross-source validation.",
+      hypotheses: []
+    },
+    pack: graphCorpus,
+    priorReport
+  });
+  assert.equal(versionTwo.versionNo, 2);
 
   await storage.upsertResearchSourceBundle({
     source: {

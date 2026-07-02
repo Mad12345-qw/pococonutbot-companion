@@ -1878,6 +1878,24 @@ function buildResearchKnowledgeBundleFromYoutubeReport(report = {}, { doc = {}, 
     status: "open"
   }));
   return {
+    topics: [
+      {
+        name: report.topic || report.request?.query || report.title || first.title || "",
+        topicType: "theme",
+        role: "report_topic",
+        aliases: [report.title, first.title, sourceUrl].filter(Boolean)
+      },
+      ...asArray(evidenceBrief.backgroundAnchors).slice(0, 8).map((name) => ({
+        name,
+        topicType: "theme",
+        role: "background_anchor"
+      })),
+      ...asArray(evidenceBrief.glossarySeeds).slice(0, 10).map((item) => ({
+        name: item.term,
+        topicType: "technology_or_concept",
+        role: "glossary_term"
+      }))
+    ].filter((item) => item.name),
     source: {
       sourceId,
       sourceType: "video",
@@ -1991,6 +2009,19 @@ function buildResearchKnowledgeBundleFromYoutubeHistoryDoc(history = {}, rawText
     }))
   ], (item) => item.entityId, 20);
   return {
+    topics: [
+      {
+        name: request.query || metadata.topic || title,
+        topicType: "theme",
+        role: "report_topic",
+        aliases: [title, metadata.title].filter(Boolean)
+      },
+      ...entities.slice(0, 12).map((entity) => ({
+        name: entity.name,
+        topicType: entity.entityType || "theme",
+        role: entity.role || "backfilled_topic"
+      }))
+    ].filter((item) => item.name),
     source: {
       sourceId,
       sourceType: "video_article_backfill",
@@ -2138,7 +2169,7 @@ function buildInvestmentReportEvidencePack(corpus = {}) {
     impact: cleanArticleText(row.impact || "", 600),
     confidenceImpact: cleanArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
   })).filter((item) => item.gap);
-  return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps };
+  return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps, topicMap: corpus.topicMap || { topics: [], edges: [] } };
 }
 
 function assessInvestmentReportReadiness(pack = {}) {
@@ -2159,6 +2190,43 @@ function assessInvestmentReportReadiness(pack = {}) {
     };
   }
   return { ready: true, reason: "" };
+}
+
+function investmentReportTopicGraphPrompt(topicMap = {}) {
+  const topics = (topicMap.topics || []).slice(0, 60).map((topic) => [
+    topic.canonicalName || topic.canonical_name || topic.topicKey || topic.topic_key,
+    topic.topicType || topic.topic_type ? `type=${topic.topicType || topic.topic_type}` : "",
+    (topic.aliases || []).length ? `aliases=${(topic.aliases || []).slice(0, 6).join("/")}` : ""
+  ].filter(Boolean).join(" | "));
+  const edges = (topicMap.edges || []).slice(0, 80).map((edge) => [
+    `${edge.fromName || edge.fromTopicKey || edge.from_topic_key || "?"} -> ${edge.toName || edge.toTopicKey || edge.to_topic_key || "?"}`,
+    edge.edgeType || edge.edge_type ? `edge=${edge.edgeType || edge.edge_type}` : "",
+    edge.confidence ? `confidence=${edge.confidence}` : "",
+    edge.evidenceCount || edge.evidence_count ? `evidence_count=${edge.evidenceCount || edge.evidence_count}` : ""
+  ].filter(Boolean).join(" | "));
+  return compactLines([
+    "Topic graph:",
+    topics.length ? topics.join("\n") : "No graph nodes yet. Build the topic boundary from evidence, but do not invent unsupported nodes.",
+    "",
+    "Topic edges:",
+    edges.length ? edges.join("\n") : "No graph edges yet. Infer only evidence-grounded relationships and mark gaps."
+  ]);
+}
+
+function investmentReportPriorPrompt(priorReport = null) {
+  if (!priorReport) return "Prior report baseline: none. This is the first version for this topic.";
+  const output = priorReport.output || {};
+  const metadata = priorReport.metadata || {};
+  return compactLines([
+    "Prior report baseline:",
+    `version=${priorReport.versionNo || "unknown"}`,
+    priorReport.evidenceCutoffAt ? `evidence_cutoff=${priorReport.evidenceCutoffAt}` : "",
+    metadata.title || output.title ? `prior_title=${metadata.title || output.title}` : "",
+    metadata.oneSentence ? `prior_one_sentence=${metadata.oneSentence}` : "",
+    metadata.thesis ? `prior_thesis=${metadata.thesis}` : "",
+    priorReport.deltaSummary ? `prior_delta_summary=${priorReport.deltaSummary}` : "",
+    "Rule: this prior report is only a previous thesis baseline. It is not evidence. Use it only to explain what changed, what strengthened, what weakened, and what still needs validation."
+  ]);
 }
 
 function investmentReportEvidencePrompt(pack = {}) {
@@ -2190,6 +2258,10 @@ function investmentReportEvidencePrompt(pack = {}) {
     `${question.sourceRef ? `${question.sourceRef} ` : ""}${question.question}${question.researchDirection ? ` | direction=${question.researchDirection}` : ""}`
   );
   return compactLines([
+    investmentReportTopicGraphPrompt(pack.topicMap || {}),
+    "",
+    investmentReportPriorPrompt(pack.priorReport || null),
+    "",
     "Sources:",
     sourceLines.join("\n"),
     "",
@@ -2220,6 +2292,10 @@ function normalizeInvestmentReportStructured(raw = {}, request = {}) {
     title: cleanArticleText(raw.title || `${fallbackTitle}：产业链证据与下一步调研`, 120),
     oneSentence: cleanArticleText(raw.oneSentence || raw.summary || "", 500),
     thesis: cleanArticleText(raw.thesis || raw.coreThesis || "", 900),
+    topicBoundary: cleanArticleText(raw.topicBoundary || raw.boundary || "", 900),
+    industryMap: asArray(raw.industryMap || raw.valueChainMap).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 10),
+    timeCalibration: asArray(raw.timeCalibration || raw.timeContext).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 10),
+    deltaSincePrior: cleanArticleText(raw.deltaSincePrior || raw.versionDelta || "", 900),
     evidenceBase: asArray(raw.evidenceBase || raw.evidenceSummary).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 8),
     hypotheses: asArray(raw.hypotheses || raw.industryChainHypotheses).map((item) => ({
       title: cleanArticleText(item.title || item.hypothesis || "", 180),
@@ -2250,6 +2326,30 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     .filter((id) => evidenceIndex.has(id))
     .map((id) => `\`${id}\``)
     .join(" ");
+  const graphTopics = (pack.topicMap?.topics || []).slice(0, 20).map((topic) => (
+    `- **${topic.canonicalName || topic.canonical_name || topic.topicKey || topic.topic_key}：** ${topic.topicType || topic.topic_type || "theme"}${(topic.aliases || []).length ? `；别名/相关叫法：${(topic.aliases || []).slice(0, 5).join("、")}` : ""}`
+  )).join("\n");
+  const graphEdges = (pack.topicMap?.edges || []).slice(0, 20).map((edge) => (
+    `- **${edge.fromName || edge.fromTopicKey || edge.from_topic_key || "?"} → ${edge.toName || edge.toTopicKey || edge.to_topic_key || "?"}：** ${edge.edgeType || edge.edge_type || "related_to"}${edge.evidenceCount || edge.evidence_count ? `；证据次数 ${edge.evidenceCount || edge.evidence_count}` : ""}`
+  )).join("\n");
+  const topicBoundary = compactLines([
+    structured.topicBoundary ? `- **研究边界：** ${structured.topicBoundary}` : "",
+    structured.industryMap.length ? structured.industryMap.map((item) => `- **产业链地图：** ${item}`).join("\n") : "",
+    graphTopics ? "\n### 已入库主题节点\n" + graphTopics : "",
+    graphEdges ? "\n### 已识别关系\n" + graphEdges : ""
+  ]) || "- **研究边界：** 当前主题图谱仍在积累，先以本次证据包中的来源、实体、时间线和产业链节点为边界。";
+  const timeCalibration = compactLines([
+    structured.timeCalibration.length ? structured.timeCalibration.map((item) => `- **时间校准：** ${item}`).join("\n") : "",
+    ...(pack.timeContexts || []).slice(0, 8).map((context) => compactLines([
+      `- **${context.sourceRef || "来源"}：** ${[
+        context.videoPublishedAt && `发布 ${context.videoPublishedAt}`,
+        context.likelyRecordedAt && `拍摄/记录 ${context.likelyRecordedAt}`,
+        context.eventPeriod && `事件期 ${context.eventPeriod}`
+      ].filter(Boolean).join("；") || "时间未完全标准化"}`,
+      context.currentRelevance ? `  - **当前相关性：** ${context.currentRelevance}` : "",
+      context.staleIf ? `  - **过期条件：** ${context.staleIf}` : ""
+    ]))
+  ]) || "- **时间校准：** 来源时间仍需继续标准化，所有产业链判断都要警惕旧视频、旧报告和当前市场环境错位。";
   const evidenceBase = structured.evidenceBase.length
     ? structured.evidenceBase.map((item) => `- **证据基线：** ${item}`).join("\n")
     : `- **证据基线：** 本报告基于 ${pack.sources.length} 个来源、${pack.evidenceCards.length} 条证据卡生成，所有结论必须回到文末证据索引核对。`;
@@ -2303,23 +2403,32 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     structured.thesis ? `- **核心判断：** ${structured.thesis}` : "",
     "- **使用边界：** 这是基于知识库证据生成的长期产业链研究假设，不构成短线交易建议或直接买卖建议。",
     "",
-    "## 二、证据基础",
+    "## 二、主题边界与产业链地图",
+    topicBoundary,
+    "",
+    "## 三、证据基础与时间校准",
     evidenceBase,
     "",
-    "## 三、产业链假设",
+    "### 时间校准",
+    timeCalibration,
+    "",
+    "## 四、产业链假设",
     hypotheses,
     "",
-    "## 四、关键环节与跟踪指标",
+    "## 五、关键环节与跟踪指标",
     nodes,
     structured.leadingIndicators.length ? "\n### 领先指标\n" + structured.leadingIndicators.map((item) => `- ${item}`).join("\n") : "",
     "",
-    "## 五、反证、时间错位与风险",
+    "## 六、反证、时间错位与风险",
     risks,
     "",
-    "## 六、下一轮调研任务",
+    "## 七、迭代变化与下一轮调研任务",
+    pack.priorReport
+      ? `- **相对上一版：** ${structured.deltaSincePrior || "本版已读取上一版报告作为判断基线，但模型没有形成明确变化总结，建议优先复核新增证据。"}`
+      : "- **版本状态：** 这是该主题的第一版报告，后续同主题报告会自动读取上一版作为判断基线。",
     tasks || "- 继续补充跨来源证据，再生成下一版投研报告。",
     "",
-    "## 七、资料来源与证据索引",
+    "## 八、资料来源与证据索引",
     "### 来源",
     sources,
     "",
@@ -2332,7 +2441,17 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
 
 function assertInvestmentResearchReportMarkdown(markdown = "") {
   const text = String(markdown || "");
-  const required = ["# ", "## 一、报告结论", "## 二、证据基础", "## 三、产业链假设", "## 四、关键环节与跟踪指标", "## 五、反证、时间错位与风险", "## 六、下一轮调研任务", "## 七、资料来源与证据索引"];
+  const required = [
+    "# ",
+    "## 一、报告结论",
+    "## 二、主题边界与产业链地图",
+    "## 三、证据基础与时间校准",
+    "## 四、产业链假设",
+    "## 五、关键环节与跟踪指标",
+    "## 六、反证、时间错位与风险",
+    "## 七、迭代变化与下一轮调研任务",
+    "## 八、资料来源与证据索引"
+  ];
   for (const item of required) {
     if (!text.includes(item)) throw new Error(`investment report missing section: ${item}`);
   }
@@ -3283,6 +3402,16 @@ export class FeishuBot {
         markdown: report.markdown
       });
       this.markTiming(timing, "documentMs");
+      const versionInfo = typeof this.storage.recordInvestmentReportVersion === "function"
+        ? await this.storage.recordInvestmentReportVersion({
+          jobId: researchJobId,
+          query: request.query,
+          topicMap: report.topicMap,
+          structured: report.structured,
+          pack: report.pack,
+          priorReport: report.priorReport
+        })
+        : null;
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "done",
         stage: "done",
@@ -3290,8 +3419,10 @@ export class FeishuBot {
           query: request.query,
           title: report.title,
           feishuDocUrl: doc.url || "",
+          version: versionInfo || null,
           sources: report.pack.sources.length,
           evidenceCards: report.pack.evidenceCards.length,
+          topicCount: report.topicMap?.topics?.length || 0,
           backfill: report.backfill || {},
           document: {
             token: doc.token || "",
@@ -3312,13 +3443,16 @@ export class FeishuBot {
           investmentReport: true,
           query: request.query,
           feishuDocUrl: doc.url || "",
+          version: versionInfo || null,
           sourceCount: report.pack.sources.length,
           evidenceCards: report.pack.evidenceCards.length
         }
       });
       await this.replyText(messageId, [
         `投研报告已生成：${doc.url || ""}`,
+        versionInfo?.versionNo ? `报告版本：v${versionInfo.versionNo}` : "",
         `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`,
+        report.topicMap?.topics?.length ? `主题图谱：已关联 ${report.topicMap.topics.length} 个节点。` : "",
         report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
       ].filter(Boolean).join("\n"));
       this.finishTiming(timing, {
@@ -3393,23 +3527,41 @@ export class FeishuBot {
   }
 
   async buildInvestmentResearchReport(request = {}) {
+    let topicMap = typeof this.storage.getResearchTopicMap === "function"
+      ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
+      : { topics: [], edges: [] };
+    let priorReport = typeof this.storage.getPriorInvestmentReport === "function"
+      ? await this.storage.getPriorInvestmentReport({ query: request.query, topicMap })
+      : null;
     let corpus = await this.storage.listResearchEvidenceForReport({
       query: request.query,
       limit: 12,
-      evidenceLimit: 120
+      evidenceLimit: 120,
+      topicMap
     });
     let pack = buildInvestmentReportEvidencePack(corpus);
+    pack.topicMap = corpus.topicMap || topicMap;
+    pack.priorReport = priorReport;
     let readiness = assessInvestmentReportReadiness(pack);
     let backfill = { attempted: false, imported: 0 };
     if (!readiness.ready) {
       backfill = await this.backfillInvestmentReportEvidenceFromYoutubeHistory(request);
       if (backfill.imported > 0) {
+        topicMap = typeof this.storage.getResearchTopicMap === "function"
+          ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
+          : topicMap;
+        priorReport = typeof this.storage.getPriorInvestmentReport === "function"
+          ? await this.storage.getPriorInvestmentReport({ query: request.query, topicMap })
+          : priorReport;
         corpus = await this.storage.listResearchEvidenceForReport({
           query: request.query,
           limit: 12,
-          evidenceLimit: 120
+          evidenceLimit: 120,
+          topicMap
         });
         pack = buildInvestmentReportEvidencePack(corpus);
+        pack.topicMap = corpus.topicMap || topicMap;
+        pack.priorReport = priorReport;
         readiness = assessInvestmentReportReadiness(pack);
       }
     }
@@ -3427,6 +3579,8 @@ export class FeishuBot {
           "Write in Simplified Chinese.",
           "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
           "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
+          "Before writing conclusions, define the topic boundary, value-chain map, time context, and what changed versus the prior baseline if any.",
+          "Do not narrow an open industry topic into a single company unless the evidence proves the company is the right anchor.",
           "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
           "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
           "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
@@ -3446,6 +3600,10 @@ export class FeishuBot {
           '  "title": "polished Chinese research-report title",',
           '  "oneSentence": "one decisive but evidence-bounded conclusion",',
           '  "thesis": "core industry-chain thesis and its boundary",',
+          '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
+          '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
+          '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
+          '  "deltaSincePrior": "what changed versus the prior report baseline; if no prior report, say this is v1 baseline",',
           '  "evidenceBase": ["what the current evidence base can and cannot support"],',
           '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}],',
           '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
@@ -3454,7 +3612,7 @@ export class FeishuBot {
           '  "timeContextRisks": ["time mismatch or stale-data risk"],',
           '  "nextResearchTasks": ["specific next research task and suggested source type"]',
           "}",
-          "Cardinality: hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
+          "Cardinality: industryMap 4-10, timeCalibration 3-8, hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
         ].join("\n")
       }
     ], {
@@ -3477,6 +3635,8 @@ export class FeishuBot {
       markdown,
       structured,
       pack,
+      topicMap: pack.topicMap || topicMap,
+      priorReport,
       backfill
     };
   }

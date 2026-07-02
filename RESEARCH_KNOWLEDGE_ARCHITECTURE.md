@@ -71,6 +71,21 @@ This keeps YouTube, reports, filings, papers, patents, datasets, job postings, w
 - `research_time_contexts`: publication, recording, event period, staleness, and recheck rules.
 - `research_questions`: follow-up research tasks produced by each source.
 - `research_coverage_gaps`: missing data, why it matters, and substitute signals.
+- `research_topics`: Obsidian-like graph nodes for companies, technologies, products, materials, fuels, policies, countries, markets, missions, value-chain nodes, and open-ended themes.
+- `research_topic_edges`: graph relationships such as related_to, source_published_by, supplies_to, competes_with, substitutes, depends_on, or future edge types.
+- `research_evidence_topics`: many-to-many links from evidence cards to graph topics.
+- `research_report_versions`: versioned investment reports by topic key, with prior report baseline, evidence cutoff, source count, evidence count, and topic count.
+- `research_thesis_ledger`: reusable thesis records extracted from each report, with evidence IDs, counter-evidence IDs, time horizon, conviction, and status.
+
+## Topic Graph And Iteration
+
+The research system is graph-first, not folder-first.
+
+- A report topic may be a company (`SpaceX`), a technology (`Starship HLS`), a material or route (`liquid oxygen methane`), a supply-chain node (`commercial-space fuel supply`), a country comparison, a policy, or a broad theme.
+- The graph stores aliases and adjacent topics, so `投研报告：航天燃料`, `投研报告：液氧甲烷`, and `投研报告：中国商业航天供应链` can retrieve overlapping but not identical evidence packs.
+- Previous reports are treated as prior thesis baselines, not as evidence. A new report must compare against the prior baseline, then rely on fresh evidence cards and source time context.
+- Time is part of the graph contract: publication time, likely recording time, event period, analysis time, stale risk, and recheck triggers must travel with the evidence.
+- The graph is allowed to be incomplete. Missing nodes or weak edges should create coverage gaps and next research tasks rather than invented certainty.
 
 ## Reference Source Routing
 
@@ -108,7 +123,9 @@ Source adapter
 -> model-assisted evidence refinement
 -> reader document rendering
 -> research source bundle write
+-> topic graph linking
 -> retrieval and cross-source synthesis
+-> prior thesis baseline comparison
 -> contrarian check
 -> investment thesis / industry-chain hypothesis
 -> next research tasks
@@ -132,6 +149,19 @@ Examples:
 This strict trigger prevents single YouTube links, casual questions, or ordinary summaries from accidentally producing a formal-looking investment report. If the evidence base has fewer than two sources or fewer than six evidence cards, the system should stop before writing and return an evidence-gap message instead of creating a weak report.
 
 Published investment reports must go to the dedicated Feishu wiki folder configured by `FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN` or `FEISHU_RESEARCH_REPORT_PARENT_WIKI_TOKEN`, not the YouTube article folder.
+
+The rendered investment report structure is fixed by code:
+
+1. 报告结论
+2. 主题边界与产业链地图
+3. 证据基础与时间校准
+4. 产业链假设
+5. 关键环节与跟踪指标
+6. 反证、时间错位与风险
+7. 迭代变化与下一轮调研任务
+8. 资料来源与证据索引
+
+The model fills bounded content fields; it must not invent new sections, process notes, database labels, or internal generation explanations.
 
 ## Reader Document Contract
 

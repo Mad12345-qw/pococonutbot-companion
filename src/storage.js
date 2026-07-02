@@ -60,6 +60,123 @@ function normalizeSettings(settings) {
   return {};
 }
 
+function cleanResearchText(value = "", max = 300) {
+  return String(value || "").replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+function asResearchArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function normalizeResearchTopicKey(value = "") {
+  const raw = cleanResearchText(value, 160).toLowerCase();
+  const key = raw
+    .replace(/[\s/|_，、,]+/g, "-")
+    .replace(/[^a-z0-9\u4e00-\u9fff+.#-]+/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 120);
+  return key || normalizeKey(raw || "topic");
+}
+
+function inferResearchTopicType(name = "", fallback = "theme") {
+  const value = String(name || "");
+  if (/燃料|材料|液氧|甲烷|电池|芯片|光模块|减速器|执行器|液冷|储能|核电/.test(value)) return "material_or_component";
+  if (/供应链|产业链|替代|产能|制造|工厂|发射|数据中心/.test(value)) return "supply_chain_node";
+  if (/spacex|openai|tesla|nvidia|meta|google|microsoft|amazon|apple|starlink/i.test(value)) return "company";
+  if (/starship|hls|cpo|gpu|asic|robot|rocket|engine|model|ai/i.test(value)) return "technology_or_product";
+  return fallback || "theme";
+}
+
+function mergeResearchUnique(values = [], keyFn = (item) => JSON.stringify(item), limit = 100) {
+  const seen = new Set();
+  const result = [];
+  for (const item of values || []) {
+    const key = keyFn(item);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    result.push(item);
+    if (result.length >= limit) break;
+  }
+  return result;
+}
+
+function splitResearchTerms(query = "", extra = []) {
+  return mergeResearchUnique(
+    [
+      ...String(query || "").split(/[\/,，、\s]+/),
+      ...asResearchArray(extra)
+    ]
+      .map((item) => cleanResearchText(item, 80))
+      .filter((item) => item.length >= 2),
+    (item) => item.toLowerCase(),
+    24
+  );
+}
+
+function buildResearchTopicCandidates(bundle = {}) {
+  const source = bundle.source || {};
+  const metadata = source.metadata || {};
+  const candidates = [];
+  const push = (name, topicType = "theme", role = "related", aliases = []) => {
+    const clean = cleanResearchText(name, 160);
+    if (!clean || clean.length < 2) return;
+    candidates.push({
+      topicKey: normalizeResearchTopicKey(clean),
+      canonicalName: clean,
+      topicType: inferResearchTopicType(clean, topicType),
+      role,
+      aliases: mergeResearchUnique([clean, ...asResearchArray(aliases)].map((item) => cleanResearchText(item, 120)).filter(Boolean), (item) => item.toLowerCase(), 12)
+    });
+  };
+
+  for (const topic of asResearchArray(bundle.topics)) {
+    if (typeof topic === "string") {
+      push(topic, "theme", "explicit_topic");
+    } else if (topic && typeof topic === "object") {
+      push(topic.name || topic.canonicalName || topic.topic || "", topic.topicType || topic.type || "theme", topic.role || "explicit_topic", topic.aliases || []);
+    }
+  }
+
+  push(metadata.reportTopic || metadata.topic || metadata.requestTopic || "", "theme", "report_topic", [source.title]);
+  push(source.organization || source.author || "", "organization", "publisher");
+
+  for (const entity of asResearchArray(bundle.entities)) {
+    const name = entity.name || "";
+    const entityType = entity.entityType || entity.entity_type || "";
+    const topicType = /company|organization/.test(entityType) ? entityType : inferResearchTopicType(name, entityType || "theme");
+    push(name, topicType, entity.role || "mentioned_entity", entity.aliases || []);
+  }
+
+  if (!candidates.length) {
+    push(source.title || source.url || source.sourceId || source.source_id || "", "theme", "source_title");
+  }
+
+  return mergeResearchUnique(candidates, (item) => item.topicKey, 80);
+}
+
+function buildResearchTopicEdges(candidates = []) {
+  const primary = candidates.find((item) => item.role === "report_topic" || item.role === "explicit_topic") || candidates[0];
+  if (!primary) return [];
+  return candidates
+    .filter((item) => item.topicKey !== primary.topicKey)
+    .map((item) => ({
+      fromTopicKey: primary.topicKey,
+      toTopicKey: item.topicKey,
+      edgeType: item.role === "publisher" ? "source_published_by" : "related_to",
+      confidence: item.role === "mentioned_entity" ? 0.72 : 0.64,
+      evidenceCount: 1,
+      notes: `${primary.canonicalName} -> ${item.canonicalName}`
+    }));
+}
+
+function textIncludesTopic(text = "", topic = {}) {
+  const value = String(text || "").toLowerCase();
+  if (!value) return false;
+  const names = [topic.canonicalName, ...(topic.aliases || [])].map((item) => String(item || "").toLowerCase()).filter(Boolean);
+  return names.some((name) => name.length >= 2 && value.includes(name));
+}
+
 export function createStorage(config) {
   if (config.databaseUrl) {
     return new PostgresStorage(config.databaseUrl, config.databaseSsl);
@@ -368,6 +485,104 @@ class PostgresStorage {
       CREATE INDEX IF NOT EXISTS idx_research_coverage_gaps_status
         ON research_coverage_gaps (status, updated_at DESC);
 
+      CREATE TABLE IF NOT EXISTS research_topics (
+        id BIGSERIAL PRIMARY KEY,
+        topic_key TEXT NOT NULL UNIQUE,
+        canonical_name TEXT NOT NULL,
+        topic_type TEXT NOT NULL DEFAULT 'theme',
+        aliases JSONB NOT NULL DEFAULT '[]'::jsonb,
+        description TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_research_topics_key
+        ON research_topics (topic_key);
+
+      CREATE INDEX IF NOT EXISTS idx_research_topics_type
+        ON research_topics (topic_type, updated_at DESC);
+
+      CREATE INDEX IF NOT EXISTS idx_research_topics_aliases
+        ON research_topics USING GIN (aliases);
+
+      CREATE TABLE IF NOT EXISTS research_topic_edges (
+        id BIGSERIAL PRIMARY KEY,
+        from_topic_id BIGINT NOT NULL REFERENCES research_topics(id) ON DELETE CASCADE,
+        to_topic_id BIGINT NOT NULL REFERENCES research_topics(id) ON DELETE CASCADE,
+        edge_type TEXT NOT NULL DEFAULT 'related_to',
+        confidence NUMERIC NOT NULL DEFAULT 0.7,
+        evidence_count INTEGER NOT NULL DEFAULT 0,
+        notes TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        UNIQUE (from_topic_id, to_topic_id, edge_type)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_research_topic_edges_from
+        ON research_topic_edges (from_topic_id, edge_type);
+
+      CREATE INDEX IF NOT EXISTS idx_research_topic_edges_to
+        ON research_topic_edges (to_topic_id, edge_type);
+
+      CREATE TABLE IF NOT EXISTS research_evidence_topics (
+        evidence_card_id BIGINT NOT NULL REFERENCES research_evidence_cards(id) ON DELETE CASCADE,
+        topic_id BIGINT NOT NULL REFERENCES research_topics(id) ON DELETE CASCADE,
+        relevance NUMERIC NOT NULL DEFAULT 0.7,
+        match_type TEXT NOT NULL DEFAULT 'generated',
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        PRIMARY KEY (evidence_card_id, topic_id)
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_research_evidence_topics_topic
+        ON research_evidence_topics (topic_id, relevance DESC);
+
+      CREATE INDEX IF NOT EXISTS idx_research_evidence_topics_evidence
+        ON research_evidence_topics (evidence_card_id);
+
+      CREATE TABLE IF NOT EXISTS research_report_versions (
+        job_id TEXT PRIMARY KEY REFERENCES research_jobs(id) ON DELETE CASCADE,
+        report_topic TEXT NOT NULL DEFAULT '',
+        report_topic_key TEXT NOT NULL DEFAULT '',
+        version_no INTEGER NOT NULL DEFAULT 1,
+        prior_job_id TEXT REFERENCES research_jobs(id) ON DELETE SET NULL,
+        evidence_cutoff_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        source_count INTEGER NOT NULL DEFAULT 0,
+        evidence_count INTEGER NOT NULL DEFAULT 0,
+        topic_count INTEGER NOT NULL DEFAULT 0,
+        delta_summary TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_research_report_versions_topic
+        ON research_report_versions (report_topic_key, version_no DESC);
+
+      CREATE INDEX IF NOT EXISTS idx_research_report_versions_created
+        ON research_report_versions (created_at DESC);
+
+      CREATE TABLE IF NOT EXISTS research_thesis_ledger (
+        id BIGSERIAL PRIMARY KEY,
+        report_job_id TEXT NOT NULL REFERENCES research_jobs(id) ON DELETE CASCADE,
+        topic_key TEXT NOT NULL DEFAULT '',
+        thesis TEXT NOT NULL DEFAULT '',
+        thesis_type TEXT NOT NULL DEFAULT 'industry_chain',
+        conviction TEXT NOT NULL DEFAULT 'medium',
+        evidence_card_ids JSONB NOT NULL DEFAULT '[]'::jsonb,
+        counter_evidence_card_ids JSONB NOT NULL DEFAULT '[]'::jsonb,
+        time_horizon TEXT NOT NULL DEFAULT '',
+        status TEXT NOT NULL DEFAULT 'active',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_research_thesis_topic_status
+        ON research_thesis_ledger (topic_key, status, created_at DESC);
+
+      CREATE INDEX IF NOT EXISTS idx_research_thesis_report
+        ON research_thesis_ledger (report_job_id);
+
       ALTER TABLE research_sources
         ADD COLUMN IF NOT EXISTS source_perspective TEXT NOT NULL DEFAULT '',
         ADD COLUMN IF NOT EXISTS institution_type TEXT NOT NULL DEFAULT '',
@@ -379,7 +594,12 @@ class PostgresStorage {
 
       ALTER TABLE research_evidence_cards
         ADD COLUMN IF NOT EXISTS evidence_strength TEXT NOT NULL DEFAULT '',
-        ADD COLUMN IF NOT EXISTS analysis_lens TEXT NOT NULL DEFAULT '';
+        ADD COLUMN IF NOT EXISTS analysis_lens TEXT NOT NULL DEFAULT '',
+        ADD COLUMN IF NOT EXISTS valid_from TEXT NOT NULL DEFAULT '',
+        ADD COLUMN IF NOT EXISTS valid_until TEXT NOT NULL DEFAULT '';
+
+      CREATE INDEX IF NOT EXISTS idx_research_evidence_time_validity
+        ON research_evidence_cards (time_sensitivity, valid_until);
 
       ALTER TABLE conversation_summaries
         ADD COLUMN IF NOT EXISTS user_id TEXT NOT NULL DEFAULT '';
@@ -461,7 +681,12 @@ class PostgresStorage {
       researchSourceEntities,
       researchTimeContexts,
       researchQuestions,
-      researchCoverageGaps
+      researchCoverageGaps,
+      researchTopics,
+      researchTopicEdges,
+      researchEvidenceTopics,
+      researchReportVersions,
+      researchThesisLedger
     ] = await Promise.all([
       this.pool.query(
         `SELECT chat_id AS "chatId", user_id AS "userId", role, modality, content, metadata, created_at AS "createdAt"
@@ -592,6 +817,51 @@ class PostgresStorage {
                 created_at AS "createdAt", updated_at AS "updatedAt"
          FROM research_coverage_gaps
          ORDER BY status ASC, updated_at DESC`
+      ),
+      this.pool.query(
+        `SELECT id, topic_key AS "topicKey", canonical_name AS "canonicalName",
+                topic_type AS "topicType", aliases, description, metadata,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM research_topics
+         ORDER BY topic_type ASC, canonical_name ASC`
+      ),
+      this.pool.query(
+        `SELECT edge.id, from_topic.topic_key AS "fromTopicKey",
+                to_topic.topic_key AS "toTopicKey", edge.edge_type AS "edgeType",
+                edge.confidence, edge.evidence_count AS "evidenceCount",
+                edge.notes, edge.metadata, edge.created_at AS "createdAt",
+                edge.updated_at AS "updatedAt"
+         FROM research_topic_edges edge
+         JOIN research_topics from_topic ON from_topic.id = edge.from_topic_id
+         JOIN research_topics to_topic ON to_topic.id = edge.to_topic_id
+         ORDER BY edge.updated_at DESC, edge.id ASC`
+      ),
+      this.pool.query(
+        `SELECT evidence_card_id AS "evidenceCardId", topic.topic_key AS "topicKey",
+                relevance, match_type AS "matchType", research_evidence_topics.created_at AS "createdAt"
+         FROM research_evidence_topics
+         JOIN research_topics topic ON topic.id = research_evidence_topics.topic_id
+         ORDER BY topic.topic_key ASC, evidence_card_id ASC`
+      ),
+      this.pool.query(
+        `SELECT job_id AS "jobId", report_topic AS "reportTopic",
+                report_topic_key AS "reportTopicKey", version_no AS "versionNo",
+                prior_job_id AS "priorJobId", evidence_cutoff_at AS "evidenceCutoffAt",
+                source_count AS "sourceCount", evidence_count AS "evidenceCount",
+                topic_count AS "topicCount", delta_summary AS "deltaSummary",
+                metadata, created_at AS "createdAt"
+         FROM research_report_versions
+         ORDER BY created_at ASC`
+      ),
+      this.pool.query(
+        `SELECT id, report_job_id AS "reportJobId", topic_key AS "topicKey",
+                thesis, thesis_type AS "thesisType", conviction,
+                evidence_card_ids AS "evidenceCardIds",
+                counter_evidence_card_ids AS "counterEvidenceCardIds",
+                time_horizon AS "timeHorizon", status, metadata,
+                created_at AS "createdAt"
+         FROM research_thesis_ledger
+         ORDER BY created_at ASC, id ASC`
       )
     ]);
 
@@ -613,7 +883,12 @@ class PostgresStorage {
       researchSourceEntities: researchSourceEntities.rows,
       researchTimeContexts: researchTimeContexts.rows,
       researchQuestions: researchQuestions.rows,
-      researchCoverageGaps: researchCoverageGaps.rows
+      researchCoverageGaps: researchCoverageGaps.rows,
+      researchTopics: researchTopics.rows,
+      researchTopicEdges: researchTopicEdges.rows,
+      researchEvidenceTopics: researchEvidenceTopics.rows,
+      researchReportVersions: researchReportVersions.rows,
+      researchThesisLedger: researchThesisLedger.rows
     };
   }
 
@@ -630,13 +905,18 @@ class PostgresStorage {
       await client.query("DELETE FROM project_artifacts");
       await client.query("DELETE FROM project_tasks");
       await client.query("DELETE FROM projects");
+      await client.query("DELETE FROM research_thesis_ledger");
+      await client.query("DELETE FROM research_report_versions");
       await client.query("DELETE FROM research_coverage_gaps");
       await client.query("DELETE FROM research_questions");
       await client.query("DELETE FROM research_time_contexts");
       await client.query("DELETE FROM research_source_entities");
+      await client.query("DELETE FROM research_evidence_topics");
       await client.query("DELETE FROM research_evidence_cards");
       await client.query("DELETE FROM research_entities");
       await client.query("DELETE FROM research_sources");
+      await client.query("DELETE FROM research_topic_edges");
+      await client.query("DELETE FROM research_topics");
       await client.query("DELETE FROM research_reference_sources");
       await client.query("DELETE FROM research_jobs");
 
@@ -822,6 +1102,42 @@ class PostgresStorage {
         );
       }
 
+      for (const reportVersion of state.researchReportVersions || []) {
+        await client.query(
+          `INSERT INTO research_report_versions (
+             job_id, report_topic, report_topic_key, version_no, prior_job_id,
+             evidence_cutoff_at, source_count, evidence_count, topic_count,
+             delta_summary, metadata, created_at
+           )
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+           ON CONFLICT (job_id)
+           DO UPDATE SET report_topic = EXCLUDED.report_topic,
+                         report_topic_key = EXCLUDED.report_topic_key,
+                         version_no = EXCLUDED.version_no,
+                         prior_job_id = EXCLUDED.prior_job_id,
+                         evidence_cutoff_at = EXCLUDED.evidence_cutoff_at,
+                         source_count = EXCLUDED.source_count,
+                         evidence_count = EXCLUDED.evidence_count,
+                         topic_count = EXCLUDED.topic_count,
+                         delta_summary = EXCLUDED.delta_summary,
+                         metadata = EXCLUDED.metadata`,
+          [
+            String(reportVersion.jobId || reportVersion.job_id || ""),
+            String(reportVersion.reportTopic || reportVersion.report_topic || ""),
+            String(reportVersion.reportTopicKey || reportVersion.report_topic_key || ""),
+            Number(reportVersion.versionNo || reportVersion.version_no || 1),
+            reportVersion.priorJobId || reportVersion.prior_job_id || null,
+            reportVersion.evidenceCutoffAt || reportVersion.evidence_cutoff_at || new Date().toISOString(),
+            Number(reportVersion.sourceCount || reportVersion.source_count || 0),
+            Number(reportVersion.evidenceCount || reportVersion.evidence_count || 0),
+            Number(reportVersion.topicCount || reportVersion.topic_count || 0),
+            String(reportVersion.deltaSummary || reportVersion.delta_summary || ""),
+            JSON.stringify(reportVersion.metadata || {}),
+            reportVersion.createdAt || reportVersion.created_at || new Date().toISOString()
+          ]
+        );
+      }
+
       for (const reference of state.researchReferenceSources || []) {
         await client.query(
           `INSERT INTO research_reference_sources (
@@ -860,6 +1176,59 @@ class PostgresStorage {
             JSON.stringify(reference.metadata || {}),
             reference.createdAt || reference.created_at || new Date().toISOString(),
             reference.updatedAt || reference.updated_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const topic of state.researchTopics || []) {
+        await client.query(
+          `INSERT INTO research_topics (topic_key, canonical_name, topic_type, aliases, description, metadata, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+           ON CONFLICT (topic_key)
+           DO UPDATE SET canonical_name = EXCLUDED.canonical_name,
+                         topic_type = EXCLUDED.topic_type,
+                         aliases = EXCLUDED.aliases,
+                         description = EXCLUDED.description,
+                         metadata = EXCLUDED.metadata,
+                         updated_at = EXCLUDED.updated_at`,
+          [
+            String(topic.topicKey || topic.topic_key || ""),
+            String(topic.canonicalName || topic.canonical_name || ""),
+            String(topic.topicType || topic.topic_type || "theme"),
+            JSON.stringify(topic.aliases || []),
+            String(topic.description || ""),
+            JSON.stringify(topic.metadata || {}),
+            topic.createdAt || topic.created_at || new Date().toISOString(),
+            topic.updatedAt || topic.updated_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const edge of state.researchTopicEdges || []) {
+        await client.query(
+          `INSERT INTO research_topic_edges (
+             from_topic_id, to_topic_id, edge_type, confidence, evidence_count,
+             notes, metadata, created_at, updated_at
+           )
+           SELECT from_topic.id, to_topic.id, $3, $4, $5, $6, $7, $8, $9
+           FROM research_topics from_topic, research_topics to_topic
+           WHERE from_topic.topic_key = $1 AND to_topic.topic_key = $2
+           ON CONFLICT (from_topic_id, to_topic_id, edge_type)
+           DO UPDATE SET confidence = EXCLUDED.confidence,
+                         evidence_count = EXCLUDED.evidence_count,
+                         notes = EXCLUDED.notes,
+                         metadata = EXCLUDED.metadata,
+                         updated_at = EXCLUDED.updated_at`,
+          [
+            String(edge.fromTopicKey || edge.from_topic_key || ""),
+            String(edge.toTopicKey || edge.to_topic_key || ""),
+            String(edge.edgeType || edge.edge_type || "related_to"),
+            Number(edge.confidence || 0.7),
+            Number(edge.evidenceCount || edge.evidence_count || 0),
+            String(edge.notes || ""),
+            JSON.stringify(edge.metadata || {}),
+            edge.createdAt || edge.created_at || new Date().toISOString(),
+            edge.updatedAt || edge.updated_at || new Date().toISOString()
           ]
         );
       }
@@ -1443,6 +1812,108 @@ class PostgresStorage {
     );
   }
 
+  async upsertResearchTopicGraph(client, { bundle = {}, evidenceCards = [] } = {}) {
+    const candidates = buildResearchTopicCandidates(bundle);
+    if (!candidates.length) return { topics: 0, edges: 0, evidenceTopicLinks: 0 };
+
+    const topicRows = new Map();
+    for (const topic of candidates) {
+      const result = await client.query(
+        `INSERT INTO research_topics (topic_key, canonical_name, topic_type, aliases, metadata)
+         VALUES ($1, $2, $3, $4, $5)
+         ON CONFLICT (topic_key)
+         DO UPDATE SET canonical_name = CASE
+                           WHEN research_topics.canonical_name = '' THEN EXCLUDED.canonical_name
+                           ELSE research_topics.canonical_name
+                         END,
+                       topic_type = CASE
+                         WHEN research_topics.topic_type = 'theme' THEN EXCLUDED.topic_type
+                         ELSE research_topics.topic_type
+                       END,
+                       aliases = (
+                         SELECT COALESCE(jsonb_agg(DISTINCT value), '[]'::jsonb)
+                         FROM jsonb_array_elements_text(research_topics.aliases || EXCLUDED.aliases) AS merged(value)
+                       ),
+                       metadata = research_topics.metadata || EXCLUDED.metadata,
+                       updated_at = now()
+         RETURNING id, topic_key AS "topicKey"`,
+        [
+          topic.topicKey,
+          topic.canonicalName,
+          topic.topicType || "theme",
+          JSON.stringify(topic.aliases || []),
+          JSON.stringify({ lastRole: topic.role || "", source: "research_ingestion" })
+        ]
+      );
+      topicRows.set(topic.topicKey, result.rows[0]);
+    }
+
+    let edges = 0;
+    for (const edge of buildResearchTopicEdges(candidates)) {
+      const from = topicRows.get(edge.fromTopicKey);
+      const to = topicRows.get(edge.toTopicKey);
+      if (!from?.id || !to?.id || from.id === to.id) continue;
+      await client.query(
+        `INSERT INTO research_topic_edges (
+           from_topic_id, to_topic_id, edge_type, confidence, evidence_count, notes, metadata
+         )
+         VALUES ($1, $2, $3, $4, $5, $6, $7)
+         ON CONFLICT (from_topic_id, to_topic_id, edge_type)
+         DO UPDATE SET confidence = GREATEST(research_topic_edges.confidence, EXCLUDED.confidence),
+                       evidence_count = research_topic_edges.evidence_count + EXCLUDED.evidence_count,
+                       notes = EXCLUDED.notes,
+                       metadata = research_topic_edges.metadata || EXCLUDED.metadata,
+                       updated_at = now()`,
+        [
+          from.id,
+          to.id,
+          edge.edgeType,
+          Number(edge.confidence || 0.7),
+          Number(edge.evidenceCount || 1),
+          edge.notes || "",
+          JSON.stringify({ source: "research_ingestion" })
+        ]
+      );
+      edges += 1;
+    }
+
+    const primary = candidates.find((item) => item.role === "report_topic" || item.role === "explicit_topic") || candidates[0];
+    let evidenceTopicLinks = 0;
+    for (const item of evidenceCards || []) {
+      if (!item.id) continue;
+      const card = item.card || {};
+      const text = [
+        card.claim,
+        card.quoteOriginal || card.quote_original,
+        card.quoteZh || card.quote_zh,
+        card.whyItMatters || card.why_it_matters,
+        card.analysisLens || card.analysis_lens,
+        JSON.stringify(card.metadata || {})
+      ].join("\n");
+      const matched = candidates.filter((topic) => topic.topicKey === primary.topicKey || textIncludesTopic(text, topic)).slice(0, 10);
+      for (const topic of matched) {
+        const row = topicRows.get(topic.topicKey);
+        if (!row?.id) continue;
+        await client.query(
+          `INSERT INTO research_evidence_topics (evidence_card_id, topic_id, relevance, match_type)
+           VALUES ($1, $2, $3, $4)
+           ON CONFLICT (evidence_card_id, topic_id)
+           DO UPDATE SET relevance = GREATEST(research_evidence_topics.relevance, EXCLUDED.relevance),
+                         match_type = EXCLUDED.match_type`,
+          [
+            item.id,
+            row.id,
+            topic.topicKey === primary.topicKey ? 0.95 : 0.72,
+            topic.topicKey === primary.topicKey ? "primary_topic" : "text_match"
+          ]
+        );
+        evidenceTopicLinks += 1;
+      }
+    }
+
+    return { topics: candidates.length, edges, evidenceTopicLinks };
+  }
+
   async upsertResearchSourceBundle(bundle = {}) {
     const source = bundle.source || {};
     const sourceId = String(source.sourceId || source.source_id || "");
@@ -1524,14 +1995,16 @@ class PostgresStorage {
       await client.query(`DELETE FROM research_source_entities WHERE source_id = $1`, [sourceId]);
       await client.query(`DELETE FROM research_coverage_gaps WHERE source_id = $1`, [sourceId]);
 
+      const insertedEvidenceCards = [];
       for (const card of bundle.evidenceCards || []) {
-        await client.query(
+        const result = await client.query(
           `INSERT INTO research_evidence_cards (
              source_id, evidence_type, claim, quote_original, quote_zh, location,
              why_it_matters, confidence, time_sensitivity, stale_risk, evidence_strength,
              analysis_lens, requires_recheck, metadata
            )
-           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+           RETURNING id`,
           [
             sourceId,
             String(card.evidenceType || card.evidence_type || ""),
@@ -1549,6 +2022,7 @@ class PostgresStorage {
             JSON.stringify(card.metadata || {})
           ]
         );
+        insertedEvidenceCards.push({ id: result.rows[0]?.id, card });
       }
 
       for (const entity of bundle.entities || []) {
@@ -1656,6 +2130,8 @@ class PostgresStorage {
         );
       }
 
+      await this.upsertResearchTopicGraph(client, { bundle, sourceId, evidenceCards: insertedEvidenceCards });
+
       await client.query("COMMIT");
       return {
         sourceId,
@@ -1672,12 +2148,85 @@ class PostgresStorage {
     }
   }
 
-  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80 } = {}) {
-    const terms = String(query || "")
-      .split(/[\/,，、\s]+/)
-      .map((item) => item.trim())
-      .filter((item) => item.length >= 2)
-      .slice(0, 10);
+  async getResearchTopicMap({ query = "", limit = 80 } = {}) {
+    const terms = splitResearchTerms(query);
+    const topicKeys = terms.map((term) => normalizeResearchTopicKey(term));
+    const values = [];
+    const clauses = [];
+    if (topicKeys.length) {
+      values.push(topicKeys);
+      clauses.push(`topic_key = ANY($${values.length}::text[])`);
+    }
+    for (const term of terms.slice(0, 12)) {
+      values.push(`%${term}%`);
+      const slot = `$${values.length}`;
+      clauses.push(`canonical_name ILIKE ${slot} OR aliases::text ILIKE ${slot} OR description ILIKE ${slot}`);
+    }
+    values.push(Math.max(1, Math.min(120, Number(limit) || 80)));
+    const topicResult = await this.pool.query(
+      `SELECT id, topic_key AS "topicKey", canonical_name AS "canonicalName",
+              topic_type AS "topicType", aliases, description, metadata,
+              created_at AS "createdAt", updated_at AS "updatedAt"
+       FROM research_topics
+       ${clauses.length ? `WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}` : ""}
+       ORDER BY updated_at DESC
+       LIMIT $${values.length}`,
+      values
+    );
+    const ids = topicResult.rows.map((row) => row.id).filter(Boolean);
+    let edgeRows = [];
+    let neighborRows = [];
+    if (ids.length) {
+      const edgeResult = await this.pool.query(
+        `SELECT edge.id, from_topic.topic_key AS "fromTopicKey",
+                from_topic.canonical_name AS "fromName",
+                to_topic.topic_key AS "toTopicKey",
+                to_topic.canonical_name AS "toName",
+                to_topic.topic_type AS "toType",
+                edge.edge_type AS "edgeType", edge.confidence,
+                edge.evidence_count AS "evidenceCount", edge.notes
+         FROM research_topic_edges edge
+         JOIN research_topics from_topic ON from_topic.id = edge.from_topic_id
+         JOIN research_topics to_topic ON to_topic.id = edge.to_topic_id
+         WHERE edge.from_topic_id = ANY($1::bigint[]) OR edge.to_topic_id = ANY($1::bigint[])
+         ORDER BY edge.confidence DESC, edge.evidence_count DESC, edge.updated_at DESC
+         LIMIT 120`,
+        [ids]
+      );
+      edgeRows = edgeResult.rows;
+      const neighborKeys = mergeResearchUnique(
+        edgeRows.flatMap((edge) => [edge.fromTopicKey, edge.toTopicKey]).filter(Boolean),
+        (item) => item,
+        120
+      );
+      if (neighborKeys.length) {
+        const neighborResult = await this.pool.query(
+          `SELECT topic_key AS "topicKey", canonical_name AS "canonicalName",
+                  topic_type AS "topicType", aliases, description, metadata,
+                  updated_at AS "updatedAt"
+           FROM research_topics
+           WHERE topic_key = ANY($1::text[])
+           ORDER BY updated_at DESC`,
+          [neighborKeys]
+        );
+        neighborRows = neighborResult.rows;
+      }
+    }
+    return {
+      query,
+      topics: mergeResearchUnique([...topicResult.rows, ...neighborRows], (item) => item.topicKey, 120),
+      edges: edgeRows
+    };
+  }
+
+  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80, topicMap = null } = {}) {
+    const effectiveTopicMap = topicMap || await this.getResearchTopicMap({ query });
+    const graphTerms = (effectiveTopicMap?.topics || []).flatMap((topic) => [
+      topic.canonicalName,
+      ...(topic.aliases || [])
+    ]);
+    const terms = splitResearchTerms(query, graphTerms).slice(0, 24);
+    const topicKeys = mergeResearchUnique((effectiveTopicMap?.topics || []).map((topic) => topic.topicKey).filter(Boolean), (item) => item, 120);
     const safeLimit = Math.max(1, Math.min(30, Number(limit) || 10));
     const sourceValues = [];
     const clauses = terms.map((term) => {
@@ -1696,6 +2245,10 @@ class PostgresStorage {
         `e.why_it_matters ILIKE ${slot}`
       ].join(" OR ");
     });
+    if (topicKeys.length) {
+      sourceValues.push(topicKeys);
+      clauses.push(`t.topic_key = ANY($${sourceValues.length}::text[])`);
+    }
     sourceValues.push(safeLimit);
     const sourceResult = await this.pool.query(
       `SELECT DISTINCT s.source_id AS "sourceId", s.source_type AS "sourceType", s.platform,
@@ -1711,6 +2264,8 @@ class PostgresStorage {
               s.created_at AS "createdAt", s.updated_at AS "updatedAt"
        FROM research_sources s
        LEFT JOIN research_evidence_cards e ON e.source_id = s.source_id
+       LEFT JOIN research_evidence_topics et ON et.evidence_card_id = e.id
+       LEFT JOIN research_topics t ON t.id = et.topic_id
        ${clauses.length ? `WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}` : ""}
        ORDER BY s.analyzed_at DESC NULLS LAST, s.created_at DESC
        LIMIT $${sourceValues.length}`,
@@ -1718,7 +2273,7 @@ class PostgresStorage {
     );
     const sourceIds = sourceResult.rows.map((row) => row.sourceId).filter(Boolean);
     if (!sourceIds.length) {
-      return { sources: [], evidenceCards: [], entities: [], timeContexts: [], questions: [], coverageGaps: [] };
+      return { sources: [], evidenceCards: [], entities: [], timeContexts: [], questions: [], coverageGaps: [], topicMap: effectiveTopicMap };
     }
     const safeEvidenceLimit = Math.max(1, Math.min(300, Number(evidenceLimit) || 80));
     const [evidenceCards, entities, timeContexts, questions, coverageGaps] = await Promise.all([
@@ -1782,8 +2337,116 @@ class PostgresStorage {
       entities: entities.rows,
       timeContexts: timeContexts.rows,
       questions: questions.rows,
-      coverageGaps: coverageGaps.rows
+      coverageGaps: coverageGaps.rows,
+      topicMap: effectiveTopicMap
     };
+  }
+
+  async getPriorInvestmentReport({ query = "", topicMap = null } = {}) {
+    const topicKey = normalizeResearchTopicKey(
+      topicMap?.topics?.[0]?.canonicalName || query
+    );
+    const result = await this.pool.query(
+      `SELECT job.id, job.output, job.updated_at AS "updatedAt",
+              version.report_topic AS "reportTopic",
+              version.report_topic_key AS "reportTopicKey",
+              version.version_no AS "versionNo",
+              version.evidence_cutoff_at AS "evidenceCutoffAt",
+              version.source_count AS "sourceCount",
+              version.evidence_count AS "evidenceCount",
+              version.topic_count AS "topicCount",
+              version.delta_summary AS "deltaSummary",
+              version.metadata
+       FROM research_report_versions version
+       JOIN research_jobs job ON job.id = version.job_id
+       WHERE version.report_topic_key = $1
+          OR version.report_topic ILIKE $2
+       ORDER BY version.version_no DESC, version.created_at DESC
+       LIMIT 1`,
+      [topicKey, `%${String(query || "").trim()}%`]
+    );
+    return result.rows[0] || null;
+  }
+
+  async recordInvestmentReportVersion({
+    jobId = "",
+    query = "",
+    topicMap = null,
+    structured = {},
+    pack = {},
+    priorReport = null
+  } = {}) {
+    const topicName = cleanResearchText(topicMap?.topics?.[0]?.canonicalName || query, 180);
+    const topicKey = normalizeResearchTopicKey(topicName || query);
+    const maxResult = await this.pool.query(
+      `SELECT COALESCE(MAX(version_no), 0)::int AS max_version
+       FROM research_report_versions
+       WHERE report_topic_key = $1`,
+      [topicKey]
+    );
+    const versionNo = Number(maxResult.rows[0]?.max_version || 0) + 1;
+    await this.pool.query(
+      `INSERT INTO research_report_versions (
+         job_id, report_topic, report_topic_key, version_no, prior_job_id,
+         source_count, evidence_count, topic_count, delta_summary, metadata
+       )
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       ON CONFLICT (job_id)
+       DO UPDATE SET report_topic = EXCLUDED.report_topic,
+                     report_topic_key = EXCLUDED.report_topic_key,
+                     version_no = EXCLUDED.version_no,
+                     prior_job_id = EXCLUDED.prior_job_id,
+                     source_count = EXCLUDED.source_count,
+                     evidence_count = EXCLUDED.evidence_count,
+                     topic_count = EXCLUDED.topic_count,
+                     delta_summary = EXCLUDED.delta_summary,
+                     metadata = EXCLUDED.metadata`,
+      [
+        String(jobId || ""),
+        topicName || String(query || ""),
+        topicKey,
+        versionNo,
+        priorReport?.id || priorReport?.jobId || null,
+        Number(pack.sources?.length || 0),
+        Number(pack.evidenceCards?.length || 0),
+        Number(topicMap?.topics?.length || 0),
+        String(structured.deltaSincePrior || structured.oneSentence || "").slice(0, 1000),
+        JSON.stringify({
+          title: structured.title || "",
+          oneSentence: structured.oneSentence || "",
+          thesis: structured.thesis || "",
+          priorVersionNo: priorReport?.versionNo || null,
+          topicKeys: (topicMap?.topics || []).map((topic) => topic.topicKey).slice(0, 60)
+        })
+      ]
+    );
+
+    const hypotheses = asResearchArray(structured.hypotheses).slice(0, 8);
+    for (const hypothesis of hypotheses) {
+      const thesis = cleanResearchText(hypothesis.title || hypothesis.logic || hypothesis.hypothesis || "", 900);
+      if (!thesis) continue;
+      await this.pool.query(
+        `INSERT INTO research_thesis_ledger (
+           report_job_id, topic_key, thesis, thesis_type, conviction,
+           evidence_card_ids, counter_evidence_card_ids, time_horizon, status, metadata
+         )
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+        [
+          String(jobId || ""),
+          topicKey,
+          thesis,
+          "industry_chain_hypothesis",
+          String(hypothesis.confidence || "medium").slice(0, 120),
+          JSON.stringify(hypothesis.evidenceIds || []),
+          JSON.stringify(hypothesis.counterEvidenceIds || []),
+          String(hypothesis.timeRisk || "").slice(0, 300),
+          "active",
+          JSON.stringify({ versionNo })
+        ]
+      );
+    }
+
+    return { topicKey, versionNo };
   }
 
   async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
@@ -1834,7 +2497,12 @@ class JsonFileStorage {
       researchSourceEntities: [],
       researchTimeContexts: [],
       researchQuestions: [],
-      researchCoverageGaps: []
+      researchCoverageGaps: [],
+      researchTopics: [],
+      researchTopicEdges: [],
+      researchEvidenceTopics: [],
+      researchReportVersions: [],
+      researchThesisLedger: []
     };
   }
 
@@ -1858,6 +2526,11 @@ class JsonFileStorage {
       this.state.researchTimeContexts = Array.isArray(this.state.researchTimeContexts) ? this.state.researchTimeContexts : [];
       this.state.researchQuestions = Array.isArray(this.state.researchQuestions) ? this.state.researchQuestions : [];
       this.state.researchCoverageGaps = Array.isArray(this.state.researchCoverageGaps) ? this.state.researchCoverageGaps : [];
+      this.state.researchTopics = Array.isArray(this.state.researchTopics) ? this.state.researchTopics : [];
+      this.state.researchTopicEdges = Array.isArray(this.state.researchTopicEdges) ? this.state.researchTopicEdges : [];
+      this.state.researchEvidenceTopics = Array.isArray(this.state.researchEvidenceTopics) ? this.state.researchEvidenceTopics : [];
+      this.state.researchReportVersions = Array.isArray(this.state.researchReportVersions) ? this.state.researchReportVersions : [];
+      this.state.researchThesisLedger = Array.isArray(this.state.researchThesisLedger) ? this.state.researchThesisLedger : [];
     } catch {
       await this.flush();
     }
@@ -1937,7 +2610,12 @@ class JsonFileStorage {
       researchSourceEntities: this.state.researchSourceEntities,
       researchTimeContexts: this.state.researchTimeContexts,
       researchQuestions: this.state.researchQuestions,
-      researchCoverageGaps: this.state.researchCoverageGaps
+      researchCoverageGaps: this.state.researchCoverageGaps,
+      researchTopics: this.state.researchTopics,
+      researchTopicEdges: this.state.researchTopicEdges,
+      researchEvidenceTopics: this.state.researchEvidenceTopics,
+      researchReportVersions: this.state.researchReportVersions,
+      researchThesisLedger: this.state.researchThesisLedger
     };
   }
 
@@ -1960,7 +2638,12 @@ class JsonFileStorage {
       researchSourceEntities: Array.isArray(state.researchSourceEntities) ? state.researchSourceEntities : [],
       researchTimeContexts: Array.isArray(state.researchTimeContexts) ? state.researchTimeContexts : [],
       researchQuestions: Array.isArray(state.researchQuestions) ? state.researchQuestions : [],
-      researchCoverageGaps: Array.isArray(state.researchCoverageGaps) ? state.researchCoverageGaps : []
+      researchCoverageGaps: Array.isArray(state.researchCoverageGaps) ? state.researchCoverageGaps : [],
+      researchTopics: Array.isArray(state.researchTopics) ? state.researchTopics : [],
+      researchTopicEdges: Array.isArray(state.researchTopicEdges) ? state.researchTopicEdges : [],
+      researchEvidenceTopics: Array.isArray(state.researchEvidenceTopics) ? state.researchEvidenceTopics : [],
+      researchReportVersions: Array.isArray(state.researchReportVersions) ? state.researchReportVersions : [],
+      researchThesisLedger: Array.isArray(state.researchThesisLedger) ? state.researchThesisLedger : []
     };
     await this.flush();
   }
@@ -2305,6 +2988,102 @@ class JsonFileStorage {
     await this.flush();
   }
 
+  upsertResearchTopicGraph({ bundle = {}, evidenceCards = [] } = {}) {
+    const now = new Date().toISOString();
+    const candidates = buildResearchTopicCandidates(bundle);
+    if (!candidates.length) return { topics: 0, edges: 0, evidenceTopicLinks: 0 };
+
+    const topicByKey = new Map(this.state.researchTopics.map((topic) => [String(topic.topic_key), topic]));
+    const nextTopicId = () => (this.state.researchTopics.reduce((max, topic) => Math.max(max, Number(topic.id || 0)), 0) + 1);
+    for (const topic of candidates) {
+      const existing = topicByKey.get(topic.topicKey);
+      if (existing) {
+        existing.aliases = mergeResearchUnique([...(existing.aliases || []), ...(topic.aliases || [])], (item) => String(item).toLowerCase(), 24);
+        if (!existing.canonical_name) existing.canonical_name = topic.canonicalName;
+        if (existing.topic_type === "theme" && topic.topicType) existing.topic_type = topic.topicType;
+        existing.metadata = { ...(existing.metadata || {}), lastRole: topic.role || "" };
+        existing.updated_at = now;
+      } else {
+        const row = {
+          id: nextTopicId(),
+          topic_key: topic.topicKey,
+          canonical_name: topic.canonicalName,
+          topic_type: topic.topicType || "theme",
+          aliases: topic.aliases || [],
+          description: "",
+          metadata: { lastRole: topic.role || "", source: "research_ingestion" },
+          created_at: now,
+          updated_at: now
+        };
+        this.state.researchTopics.push(row);
+        topicByKey.set(topic.topicKey, row);
+      }
+    }
+
+    let edges = 0;
+    for (const edge of buildResearchTopicEdges(candidates)) {
+      const from = topicByKey.get(edge.fromTopicKey);
+      const to = topicByKey.get(edge.toTopicKey);
+      if (!from?.id || !to?.id || from.id === to.id) continue;
+      const existing = this.state.researchTopicEdges.find((item) =>
+        String(item.from_topic_key) === edge.fromTopicKey &&
+        String(item.to_topic_key) === edge.toTopicKey &&
+        String(item.edge_type) === String(edge.edgeType)
+      );
+      if (existing) {
+        existing.confidence = Math.max(Number(existing.confidence || 0), Number(edge.confidence || 0.7));
+        existing.evidence_count = Number(existing.evidence_count || 0) + Number(edge.evidenceCount || 1);
+        existing.notes = edge.notes || existing.notes || "";
+        existing.updated_at = now;
+      } else {
+        this.state.researchTopicEdges.push({
+          id: this.state.researchTopicEdges.length + 1,
+          from_topic_key: edge.fromTopicKey,
+          to_topic_key: edge.toTopicKey,
+          edge_type: edge.edgeType,
+          confidence: Number(edge.confidence || 0.7),
+          evidence_count: Number(edge.evidenceCount || 1),
+          notes: edge.notes || "",
+          metadata: { source: "research_ingestion" },
+          created_at: now,
+          updated_at: now
+        });
+      }
+      edges += 1;
+    }
+
+    const primary = candidates.find((item) => item.role === "report_topic" || item.role === "explicit_topic") || candidates[0];
+    let evidenceTopicLinks = 0;
+    for (const item of evidenceCards || []) {
+      if (!item.id) continue;
+      const card = item.card || {};
+      const text = [
+        card.claim,
+        card.quoteOriginal || card.quote_original,
+        card.quoteZh || card.quote_zh,
+        card.whyItMatters || card.why_it_matters,
+        card.analysisLens || card.analysis_lens,
+        JSON.stringify(card.metadata || {})
+      ].join("\n");
+      const matched = candidates.filter((topic) => topic.topicKey === primary.topicKey || textIncludesTopic(text, topic)).slice(0, 10);
+      for (const topic of matched) {
+        if (this.state.researchEvidenceTopics.some((link) =>
+          Number(link.evidence_card_id) === Number(item.id) && String(link.topic_key) === topic.topicKey
+        )) continue;
+        this.state.researchEvidenceTopics.push({
+          evidence_card_id: item.id,
+          topic_key: topic.topicKey,
+          relevance: topic.topicKey === primary.topicKey ? 0.95 : 0.72,
+          match_type: topic.topicKey === primary.topicKey ? "primary_topic" : "text_match",
+          created_at: now
+        });
+        evidenceTopicLinks += 1;
+      }
+    }
+
+    return { topics: candidates.length, edges, evidenceTopicLinks };
+  }
+
   async upsertResearchSourceBundle(bundle = {}) {
     const source = bundle.source || {};
     const sourceId = String(source.sourceId || source.source_id || "");
@@ -2349,15 +3128,25 @@ class JsonFileStorage {
       this.state.researchSources.push(sourceRow);
     }
 
+    const removedEvidenceIds = new Set(
+      this.state.researchEvidenceCards
+        .filter((item) => String(item.source_id) === sourceId)
+        .map((item) => Number(item.id))
+    );
+    this.state.researchEvidenceTopics = this.state.researchEvidenceTopics.filter((item) => !removedEvidenceIds.has(Number(item.evidence_card_id)));
     this.state.researchEvidenceCards = this.state.researchEvidenceCards.filter((item) => String(item.source_id) !== sourceId);
     this.state.researchQuestions = this.state.researchQuestions.filter((item) => String(item.source_id) !== sourceId);
     this.state.researchTimeContexts = this.state.researchTimeContexts.filter((item) => String(item.source_id) !== sourceId);
     this.state.researchSourceEntities = this.state.researchSourceEntities.filter((item) => String(item.source_id) !== sourceId);
     this.state.researchCoverageGaps = this.state.researchCoverageGaps.filter((item) => String(item.source_id) !== sourceId);
 
+    const insertedEvidenceCards = [];
+    const nextEvidenceId = () => (
+      this.state.researchEvidenceCards.reduce((max, card) => Math.max(max, Number(card.id || 0)), 0) + 1
+    );
     for (const card of bundle.evidenceCards || []) {
-      this.state.researchEvidenceCards.push({
-        id: this.state.researchEvidenceCards.length + 1,
+      const row = {
+        id: nextEvidenceId(),
         source_id: sourceId,
         evidence_type: String(card.evidenceType || card.evidence_type || ""),
         claim: String(card.claim || "").slice(0, 1200),
@@ -2373,7 +3162,9 @@ class JsonFileStorage {
         requires_recheck: card.requiresRecheck || card.requires_recheck || [],
         metadata: card.metadata || {},
         created_at: now
-      });
+      };
+      this.state.researchEvidenceCards.push(row);
+      insertedEvidenceCards.push({ id: row.id, card });
     }
 
     for (const entity of bundle.entities || []) {
@@ -2446,6 +3237,8 @@ class JsonFileStorage {
       });
     }
 
+    this.upsertResearchTopicGraph({ bundle, evidenceCards: insertedEvidenceCards });
+
     await this.flush();
     return {
       sourceId,
@@ -2456,13 +3249,67 @@ class JsonFileStorage {
     };
   }
 
-  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80 } = {}) {
-    const terms = String(query || "")
-      .toLowerCase()
-      .split(/[\/,，、\s]+/)
-      .map((item) => item.trim())
-      .filter((item) => item.length >= 2)
-      .slice(0, 10);
+  async getResearchTopicMap({ query = "", limit = 80 } = {}) {
+    const terms = splitResearchTerms(query);
+    const topicKeys = new Set(terms.map((term) => normalizeResearchTopicKey(term)));
+    const matches = (topic) => {
+      if (!terms.length) return true;
+      const text = [
+        topic.topic_key,
+        topic.canonical_name,
+        topic.topic_type,
+        ...(topic.aliases || []),
+        topic.description
+      ].join("\n").toLowerCase();
+      return terms.some((term) => text.includes(term.toLowerCase())) || topicKeys.has(String(topic.topic_key));
+    };
+    const topics = this.state.researchTopics
+      .filter(matches)
+      .sort((a, b) => String(b.updated_at || "").localeCompare(String(a.updated_at || "")))
+      .slice(0, Math.max(1, Math.min(120, Number(limit) || 80)));
+    const matchedKeys = new Set(topics.map((topic) => String(topic.topic_key)));
+    const edges = this.state.researchTopicEdges
+      .filter((edge) => matchedKeys.has(String(edge.from_topic_key)) || matchedKeys.has(String(edge.to_topic_key)))
+      .sort((a, b) => Number(b.confidence || 0) - Number(a.confidence || 0))
+      .slice(0, 120);
+    const neighborKeys = new Set(edges.flatMap((edge) => [String(edge.from_topic_key), String(edge.to_topic_key)]));
+    const neighbors = this.state.researchTopics.filter((topic) => neighborKeys.has(String(topic.topic_key)));
+    return {
+      query,
+      topics: mergeResearchUnique([...topics, ...neighbors].map((topic) => ({
+        id: topic.id,
+        topicKey: topic.topic_key,
+        canonicalName: topic.canonical_name,
+        topicType: topic.topic_type,
+        aliases: topic.aliases || [],
+        description: topic.description || "",
+        metadata: topic.metadata || {},
+        updatedAt: topic.updated_at
+      })), (item) => item.topicKey, 120),
+      edges: edges.map((edge) => ({
+        fromTopicKey: edge.from_topic_key,
+        toTopicKey: edge.to_topic_key,
+        edgeType: edge.edge_type,
+        confidence: edge.confidence,
+        evidenceCount: edge.evidence_count,
+        notes: edge.notes
+      }))
+    };
+  }
+
+  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80, topicMap = null } = {}) {
+    const effectiveTopicMap = topicMap || await this.getResearchTopicMap({ query });
+    const graphTerms = (effectiveTopicMap?.topics || []).flatMap((topic) => [
+      topic.canonicalName,
+      ...(topic.aliases || [])
+    ]);
+    const terms = splitResearchTerms(query, graphTerms).map((item) => item.toLowerCase()).slice(0, 24);
+    const topicKeys = new Set((effectiveTopicMap?.topics || []).map((topic) => String(topic.topicKey)).filter(Boolean));
+    const evidenceIdsByTopic = new Set(
+      this.state.researchEvidenceTopics
+        .filter((link) => topicKeys.has(String(link.topic_key)))
+        .map((link) => Number(link.evidence_card_id))
+    );
     const matches = (value) => {
       if (!terms.length) return true;
       const text = String(value || "").toLowerCase();
@@ -2470,6 +3317,7 @@ class JsonFileStorage {
     };
     const sourceMatches = (source) => {
       const sourceEvidence = this.state.researchEvidenceCards.filter((card) => String(card.source_id) === String(source.source_id));
+      if (sourceEvidence.some((card) => evidenceIdsByTopic.has(Number(card.id)))) return true;
       const text = [
         source.source_type,
         source.platform,
@@ -2512,8 +3360,94 @@ class JsonFileStorage {
       entities,
       timeContexts: this.state.researchTimeContexts.filter((item) => sourceIds.has(String(item.source_id))),
       questions: this.state.researchQuestions.filter((item) => sourceIds.has(String(item.source_id))),
-      coverageGaps: this.state.researchCoverageGaps.filter((item) => sourceIds.has(String(item.source_id)))
+      coverageGaps: this.state.researchCoverageGaps.filter((item) => sourceIds.has(String(item.source_id))),
+      topicMap: effectiveTopicMap
     };
+  }
+
+  async getPriorInvestmentReport({ query = "", topicMap = null } = {}) {
+    const topicKey = normalizeResearchTopicKey(topicMap?.topics?.[0]?.canonicalName || query);
+    const queryText = String(query || "").toLowerCase();
+    return this.state.researchReportVersions
+      .filter((item) =>
+        String(item.report_topic_key) === topicKey ||
+        String(item.report_topic || "").toLowerCase().includes(queryText)
+      )
+      .sort((a, b) => Number(b.version_no || 0) - Number(a.version_no || 0))
+      .map((version) => ({
+        id: version.job_id,
+        output: this.state.researchJobs.find((job) => String(job.id) === String(version.job_id))?.output || {},
+        reportTopic: version.report_topic,
+        reportTopicKey: version.report_topic_key,
+        versionNo: version.version_no,
+        evidenceCutoffAt: version.evidence_cutoff_at,
+        sourceCount: version.source_count,
+        evidenceCount: version.evidence_count,
+        topicCount: version.topic_count,
+        deltaSummary: version.delta_summary,
+        metadata: version.metadata || {}
+      }))[0] || null;
+  }
+
+  async recordInvestmentReportVersion({
+    jobId = "",
+    query = "",
+    topicMap = null,
+    structured = {},
+    pack = {},
+    priorReport = null
+  } = {}) {
+    const now = new Date().toISOString();
+    const topicName = cleanResearchText(topicMap?.topics?.[0]?.canonicalName || query, 180);
+    const topicKey = normalizeResearchTopicKey(topicName || query);
+    const maxVersion = this.state.researchReportVersions
+      .filter((item) => String(item.report_topic_key) === topicKey)
+      .reduce((max, item) => Math.max(max, Number(item.version_no || 0)), 0);
+    const versionNo = maxVersion + 1;
+    const row = {
+      job_id: String(jobId || ""),
+      report_topic: topicName || String(query || ""),
+      report_topic_key: topicKey,
+      version_no: versionNo,
+      prior_job_id: priorReport?.id || priorReport?.jobId || "",
+      evidence_cutoff_at: now,
+      source_count: Number(pack.sources?.length || 0),
+      evidence_count: Number(pack.evidenceCards?.length || 0),
+      topic_count: Number(topicMap?.topics?.length || 0),
+      delta_summary: String(structured.deltaSincePrior || structured.oneSentence || "").slice(0, 1000),
+      metadata: {
+        title: structured.title || "",
+        oneSentence: structured.oneSentence || "",
+        thesis: structured.thesis || "",
+        priorVersionNo: priorReport?.versionNo || null,
+        topicKeys: (topicMap?.topics || []).map((topic) => topic.topicKey).slice(0, 60)
+      },
+      created_at: now
+    };
+    const existing = this.state.researchReportVersions.findIndex((item) => String(item.job_id) === String(jobId));
+    if (existing >= 0) this.state.researchReportVersions[existing] = row;
+    else this.state.researchReportVersions.push(row);
+
+    for (const hypothesis of asResearchArray(structured.hypotheses).slice(0, 8)) {
+      const thesis = cleanResearchText(hypothesis.title || hypothesis.logic || hypothesis.hypothesis || "", 900);
+      if (!thesis) continue;
+      this.state.researchThesisLedger.push({
+        id: this.state.researchThesisLedger.length + 1,
+        report_job_id: String(jobId || ""),
+        topic_key: topicKey,
+        thesis,
+        thesis_type: "industry_chain_hypothesis",
+        conviction: String(hypothesis.confidence || "medium").slice(0, 120),
+        evidence_card_ids: hypothesis.evidenceIds || [],
+        counter_evidence_card_ids: hypothesis.counterEvidenceIds || [],
+        time_horizon: String(hypothesis.timeRisk || "").slice(0, 300),
+        status: "active",
+        metadata: { versionNo },
+        created_at: now
+      });
+    }
+    await this.flush();
+    return { topicKey, versionNo };
   }
 
   async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
