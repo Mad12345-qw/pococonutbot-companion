@@ -454,6 +454,38 @@ export class FeishuWorkspaceClient {
     return { applied: true, token };
   }
 
+  async applyDocumentDisplaySettings(documentId) {
+    if (!documentId) return { applied: false, reason: "not_configured" };
+    const displaySetting = {
+      show_authors: true,
+      show_create_time: true,
+      show_pv: true,
+      show_uv: true,
+      show_like_count: true,
+      show_comment_count: true,
+      show_related_matters: true
+    };
+    try {
+      await this.request(`/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}`, {
+        method: "PATCH",
+        body: {
+          update_display_setting: displaySetting
+        }
+      });
+      logEvent("info", "Feishu document display settings applied", {
+        documentId,
+        displaySetting
+      });
+      return { applied: true, displaySetting };
+    } catch (error) {
+      logEvent("warn", "Feishu document display settings skipped", {
+        documentId,
+        error: error.message
+      });
+      return { applied: false, reason: error.message, displaySetting };
+    }
+  }
+
   async applyDocumentCoverImage({ documentId, coverImageUrl = "", sourceUrl = "" } = {}) {
     const imageUrl = resolveDocumentCoverImageUrl({ coverImageUrl, sourceUrl });
     if (!documentId || !imageUrl) return { applied: false, reason: "not_configured" };
@@ -533,6 +565,8 @@ export class FeishuWorkspaceClient {
       }
     }
     if (!writeError) {
+      const displaySettingsResult = await this.applyDocumentDisplaySettings(documentId);
+      writeDiagnostics.displaySettings = displaySettingsResult;
       const coverResult = await this.applyDocumentCoverImage({
         documentId,
         coverImageUrl,
@@ -758,6 +792,8 @@ export class FeishuWorkspaceClient {
       }
     }
     if (!writeError) {
+      const displaySettingsResult = await this.applyDocumentDisplaySettings(documentId);
+      writeDiagnostics.displaySettings = displaySettingsResult;
       const coverResult = await this.applyDocumentCoverImage({
         documentId,
         coverImageUrl,

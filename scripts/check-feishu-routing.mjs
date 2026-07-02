@@ -905,6 +905,21 @@ assertEqual(
   "true"
 );
 assertEqual(
+  "Feishu documents enable reader-facing document statistics when created",
+  String(
+    feishuWorkspaceSource.includes("applyDocumentDisplaySettings") &&
+    feishuWorkspaceSource.includes("update_display_setting") &&
+    feishuWorkspaceSource.includes("show_authors: true") &&
+    feishuWorkspaceSource.includes("show_create_time: true") &&
+    feishuWorkspaceSource.includes("show_pv: true") &&
+    feishuWorkspaceSource.includes("show_uv: true") &&
+    feishuWorkspaceSource.includes("show_like_count: true") &&
+    feishuWorkspaceSource.includes("show_comment_count: true") &&
+    feishuWorkspaceSource.includes("show_related_matters: true")
+  ),
+  "true"
+);
+assertEqual(
   "research knowledge base reuses entities by natural key instead of failing on duplicate entity ids",
   String(
     storageSource.includes("ON CONFLICT (name, entity_type)") &&
