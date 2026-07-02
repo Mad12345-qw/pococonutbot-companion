@@ -2092,6 +2092,13 @@ function buildResearchKnowledgeBundleFromYoutubeHistoryDoc(history = {}, rawText
   };
 }
 
+function researchSourceIdForYoutubeHistoryDoc(history = {}, request = {}) {
+  const metadata = history.metadata || {};
+  const docUrl = metadata.feishuDocUrl || "";
+  const title = cleanArticleText(String(history.content || "").split(/\r?\n/).find(Boolean) || request.query || "YouTube research document", 160);
+  return researchSourceId("source:youtube_doc_backfill", docUrl || title);
+}
+
 function researchRowValue(row = {}, camel = "", snake = "") {
   return row?.[camel] ?? row?.[snake || camel] ?? "";
 }
@@ -2225,7 +2232,7 @@ function investmentReportPriorPrompt(priorReport = null) {
     metadata.oneSentence ? `prior_one_sentence=${metadata.oneSentence}` : "",
     metadata.thesis ? `prior_thesis=${metadata.thesis}` : "",
     priorReport.deltaSummary ? `prior_delta_summary=${priorReport.deltaSummary}` : "",
-    "Rule: this prior report is only a previous thesis baseline. It is not evidence. Use it only to explain what changed, what strengthened, what weakened, and what still needs validation."
+    "Hard rule: this prior report is only a previous thesis baseline. It is not evidence, must not be cited as evidence, must not increase source count or evidence count, and must not be used to prove a hypothesis. Use it only to explain what changed, what strengthened, what weakened, and what still needs validation."
   ]);
 }
 
@@ -3370,8 +3377,28 @@ export class FeishuBot {
     });
 
     try {
-      const report = await this.buildInvestmentResearchReport(request);
+      const report = await this.buildInvestmentResearchReport(request, { researchJobId });
       this.markTiming(timing, "buildReportMs");
+      if (report.reused) {
+        await this.storage.updateResearchJob?.(researchJobId, {
+          status: "done",
+          stage: "reused_prior_report",
+          output: {
+            query: request.query,
+            reused: true,
+            feishuDocUrl: report.feishuDocUrl || "",
+            priorVersionNo: report.priorReport?.versionNo || null,
+            reason: report.reason || ""
+          }
+        });
+        await this.replyText(messageId, [
+          `已有可复用投研报告：${report.feishuDocUrl || ""}`,
+          report.priorReport?.versionNo ? `复用版本：v${report.priorReport.versionNo}` : "",
+          "判断说明：知识库里暂未发现该主题上一版报告之后的新相关来源，所以没有重复生成一份自我强化的新报告。上一版报告只作为判断基线，不会被当作新证据。"
+        ].filter(Boolean).join("\n"));
+        this.finishTiming(timing, { route: "investment_report", reused: true });
+        return;
+      }
       if (!report.ready) {
         await this.storage.updateResearchJob?.(researchJobId, {
           status: "done",
@@ -3396,6 +3423,10 @@ export class FeishuBot {
         return;
       }
 
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "running",
+        stage: "document_write"
+      });
       const doc = await this.workspace.createWikiDocument({
         parentWikiToken,
         title: report.title,
@@ -3487,7 +3518,7 @@ export class FeishuBot {
     return "";
   }
 
-  async backfillInvestmentReportEvidenceFromYoutubeHistory(request = {}) {
+  async backfillInvestmentReportEvidenceFromYoutubeHistory(request = {}, { researchJobId = "" } = {}) {
     if (typeof this.storage.listYoutubeResearchHistoryForBackfill !== "function") {
       return { attempted: false, imported: 0, reason: "history_lookup_not_supported" };
     }
@@ -3497,36 +3528,69 @@ export class FeishuBot {
     if (!this.workspace?.enabled) {
       return { attempted: false, imported: 0, reason: "feishu_workspace_not_enabled" };
     }
+    const candidateLimit = Math.max(1, Math.min(12, Number(this.config.investmentReportBackfillLimit || 4)));
+    const concurrency = Math.max(1, Math.min(5, Number(this.config.investmentReportBackfillConcurrency || 3)));
     const history = await this.storage.listYoutubeResearchHistoryForBackfill({
       query: request.query,
-      limit: 12
+      limit: candidateLimit
     });
     let imported = 0;
+    let skippedExisting = 0;
     const errors = [];
-    for (const item of history) {
+    await this.storage.updateResearchJob?.(researchJobId, {
+      status: "running",
+      stage: "backfill_history",
+      output: {
+        query: request.query,
+        candidates: history.length,
+        concurrency
+      }
+    });
+
+    let cursor = 0;
+    const worker = async () => {
+      while (cursor < history.length) {
+        const item = history[cursor];
+        cursor += 1;
+        await importOne(item);
+      }
+    };
+    const importOne = async (item) => {
       const metadata = item.metadata || {};
       const docUrl = metadata.feishuDocUrl || "";
-      if (!docUrl) continue;
+      if (!docUrl) return;
       try {
+        const existingSourceId = researchSourceIdForYoutubeHistoryDoc(item, request);
+        if (existingSourceId && await this.storage.hasResearchSource?.(existingSourceId)) {
+          skippedExisting += 1;
+          return;
+        }
         const rawText = await this.readFeishuDocumentTextByUrl(docUrl);
-        if (!rawText || rawText.length < 300) continue;
+        if (!rawText || rawText.length < 300) return;
         const bundle = buildResearchKnowledgeBundleFromYoutubeHistoryDoc(item, rawText, request);
-        if (!bundle.evidenceCards.length) continue;
+        if (!bundle.evidenceCards.length) return;
         await this.storage.upsertResearchSourceBundle(bundle);
         imported += 1;
       } catch (error) {
         errors.push({ docUrl, error: error.message });
       }
-    }
+    };
+    await Promise.all(Array.from({ length: Math.min(concurrency, history.length || 1) }, () => worker()));
     return {
       attempted: true,
       imported,
       candidates: history.length,
+      concurrency,
+      skippedExisting,
       errors: errors.slice(0, 5)
     };
   }
 
-  async buildInvestmentResearchReport(request = {}) {
+  async buildInvestmentResearchReport(request = {}, { researchJobId = "" } = {}) {
+    await this.storage.updateResearchJob?.(researchJobId, {
+      status: "running",
+      stage: "topic_graph_retrieval"
+    });
     let topicMap = typeof this.storage.getResearchTopicMap === "function"
       ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
       : { topics: [], edges: [] };
@@ -3542,11 +3606,33 @@ export class FeishuBot {
     let pack = buildInvestmentReportEvidencePack(corpus);
     pack.topicMap = corpus.topicMap || topicMap;
     pack.priorReport = priorReport;
+    const reusableReport = typeof this.storage.getReusableInvestmentReport === "function"
+      ? await this.storage.getReusableInvestmentReport({
+        query: request.query,
+        topicMap,
+        maxAgeMinutes: this.config.investmentReportReuseMaxAgeMinutes || 720
+      })
+      : null;
+    if (reusableReport?.feishuDocUrl) {
+      return {
+        ready: true,
+        reused: true,
+        feishuDocUrl: reusableReport.feishuDocUrl,
+        priorReport: reusableReport,
+        reason: reusableReport.reason || "reusable_prior_report_without_new_evidence",
+        pack
+      };
+    }
     let readiness = assessInvestmentReportReadiness(pack);
     let backfill = { attempted: false, imported: 0 };
     if (!readiness.ready) {
-      backfill = await this.backfillInvestmentReportEvidenceFromYoutubeHistory(request);
+      backfill = await this.backfillInvestmentReportEvidenceFromYoutubeHistory(request, { researchJobId });
       if (backfill.imported > 0) {
+        await this.storage.updateResearchJob?.(researchJobId, {
+          status: "running",
+          stage: "evidence_retrieval_after_backfill",
+          output: { query: request.query, backfill }
+        });
         topicMap = typeof this.storage.getResearchTopicMap === "function"
           ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
           : topicMap;
@@ -3568,6 +3654,18 @@ export class FeishuBot {
     if (!readiness.ready) {
       return { ready: false, reason: readiness.reason, message: readiness.message, pack, backfill };
     }
+    await this.storage.updateResearchJob?.(researchJobId, {
+      status: "running",
+      stage: "ai_synthesis",
+      output: {
+        query: request.query,
+        sources: pack.sources.length,
+        evidenceCards: pack.evidenceCards.length,
+        topicCount: pack.topicMap?.topics?.length || 0,
+        priorReport: Boolean(priorReport),
+        backfill
+      }
+    });
     const evidencePack = investmentReportEvidencePrompt(pack);
     const raw = await this.ai.chat([
       {
@@ -3621,7 +3719,8 @@ export class FeishuBot {
       responseFormat: { type: "json_object" },
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 180000
+      retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
+      timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
     });
     const structured = normalizeInvestmentReportStructured(
       await this.parseYoutubeJsonObject(raw, "investment research report"),

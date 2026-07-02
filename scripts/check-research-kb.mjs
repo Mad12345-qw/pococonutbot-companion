@@ -175,6 +175,14 @@ try {
   assert.equal(versionOne.versionNo, 1);
   const priorReport = await storage.getPriorInvestmentReport({ query: "CPO", topicMap });
   assert.equal(priorReport.versionNo, 1);
+  assert.equal(priorReport.output.title, "CPO 产业链报告 v1");
+
+  const reusableBeforeNewEvidence = await storage.getReusableInvestmentReport({
+    query: "CPO",
+    topicMap,
+    maxAgeMinutes: 720
+  });
+  assert.equal(reusableBeforeNewEvidence, null);
 
   await storage.upsertResearchJob({
     id: "job:investment-report-v2",
@@ -182,7 +190,7 @@ try {
     sourceUrl: "CPO",
     status: "done",
     stage: "done",
-    output: { title: "CPO 产业链报告 v2" }
+    output: { title: "CPO 产业链报告 v2", feishuDocUrl: "https://example.feishu.cn/wiki/reportv2" }
   });
   const versionTwo = await storage.recordInvestmentReportVersion({
     jobId: "job:investment-report-v2",
@@ -198,6 +206,21 @@ try {
     priorReport
   });
   assert.equal(versionTwo.versionNo, 2);
+
+  const reusableAfterLinkedReport = await storage.getReusableInvestmentReport({
+    query: "CPO",
+    topicMap,
+    maxAgeMinutes: 720
+  });
+  assert.equal(reusableAfterLinkedReport.feishuDocUrl, "https://example.feishu.cn/wiki/reportv2");
+
+  const afterReportsExported = await storage.exportState();
+  assert.equal(afterReportsExported.researchSources.some((source) =>
+    String(source.source_type || source.sourceType || "") === "investment_report"
+  ), false);
+  assert.equal(afterReportsExported.researchEvidenceCards.some((card) =>
+    String(card.evidence_type || card.evidenceType || "").includes("investment_report")
+  ), false);
 
   await storage.upsertResearchSourceBundle({
     source: {

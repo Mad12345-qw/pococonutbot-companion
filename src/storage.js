@@ -1812,6 +1812,15 @@ class PostgresStorage {
     );
   }
 
+  async hasResearchSource(sourceId = "") {
+    if (!sourceId) return false;
+    const result = await this.pool.query(
+      `SELECT 1 FROM research_sources WHERE source_id = $1 LIMIT 1`,
+      [String(sourceId)]
+    );
+    return Boolean(result.rows[0]);
+  }
+
   async upsertResearchTopicGraph(client, { bundle = {}, evidenceCards = [] } = {}) {
     const candidates = buildResearchTopicCandidates(bundle);
     if (!candidates.length) return { topics: 0, edges: 0, evidenceTopicLinks: 0 };
@@ -2366,6 +2375,54 @@ class PostgresStorage {
       [topicKey, `%${String(query || "").trim()}%`]
     );
     return result.rows[0] || null;
+  }
+
+  async getReusableInvestmentReport({ query = "", topicMap = null, maxAgeMinutes = 720 } = {}) {
+    const maxAge = Math.max(1, Math.min(10080, Number(maxAgeMinutes) || 720));
+    const prior = await this.getPriorInvestmentReport({ query, topicMap });
+    const output = prior?.output || {};
+    const feishuDocUrl = output.feishuDocUrl || output.feishu_doc_url || "";
+    if (!prior || !feishuDocUrl) return null;
+
+    const evidenceCutoff = prior.evidenceCutoffAt || prior.evidence_cutoff_at || prior.updatedAt || prior.updated_at || "";
+    const createdAt = new Date(evidenceCutoff);
+    if (!Number.isFinite(createdAt.getTime())) return null;
+    if (Date.now() - createdAt.getTime() > maxAge * 60 * 1000) return null;
+
+    const graphTerms = (topicMap?.topics || []).flatMap((topic) => [
+      topic.canonicalName,
+      ...(topic.aliases || [])
+    ]);
+    const terms = splitResearchTerms(query, graphTerms).slice(0, 24);
+    const values = [evidenceCutoff];
+    const clauses = terms.map((term) => {
+      values.push(`%${term}%`);
+      const slot = `$${values.length}`;
+      return [
+        `title ILIKE ${slot}`,
+        `author ILIKE ${slot}`,
+        `organization ILIKE ${slot}`,
+        `source_type ILIKE ${slot}`,
+        `platform ILIKE ${slot}`,
+        `raw_text ILIKE ${slot}`,
+        `metadata::text ILIKE ${slot}`
+      ].join(" OR ");
+    });
+    const newerResult = await this.pool.query(
+      `SELECT COUNT(*)::int AS count
+       FROM research_sources
+       WHERE COALESCE(analyzed_at, created_at) > $1::timestamptz
+       ${clauses.length ? `AND (${clauses.map((clause) => `(${clause})`).join(" OR ")})` : ""}`,
+      values
+    );
+    const newerSources = Number(newerResult.rows[0]?.count || 0);
+    if (newerSources > 0) return null;
+    return {
+      ...prior,
+      feishuDocUrl,
+      reusable: true,
+      reason: "no_new_relevant_sources_since_prior_report"
+    };
   }
 
   async recordInvestmentReportVersion({
@@ -2988,6 +3045,10 @@ class JsonFileStorage {
     await this.flush();
   }
 
+  async hasResearchSource(sourceId = "") {
+    return this.state.researchSources.some((source) => String(source.source_id) === String(sourceId || ""));
+  }
+
   upsertResearchTopicGraph({ bundle = {}, evidenceCards = [] } = {}) {
     const now = new Date().toISOString();
     const candidates = buildResearchTopicCandidates(bundle);
@@ -3387,6 +3448,47 @@ class JsonFileStorage {
         deltaSummary: version.delta_summary,
         metadata: version.metadata || {}
       }))[0] || null;
+  }
+
+  async getReusableInvestmentReport({ query = "", topicMap = null, maxAgeMinutes = 720 } = {}) {
+    const maxAge = Math.max(1, Math.min(10080, Number(maxAgeMinutes) || 720));
+    const prior = await this.getPriorInvestmentReport({ query, topicMap });
+    const output = prior?.output || {};
+    const feishuDocUrl = output.feishuDocUrl || output.feishu_doc_url || "";
+    if (!prior || !feishuDocUrl) return null;
+    const evidenceCutoff = prior.evidenceCutoffAt || prior.evidence_cutoff_at || "";
+    const createdAt = new Date(evidenceCutoff);
+    if (!Number.isFinite(createdAt.getTime())) return null;
+    if (Date.now() - createdAt.getTime() > maxAge * 60 * 1000) return null;
+
+    const graphTerms = (topicMap?.topics || []).flatMap((topic) => [
+      topic.canonicalName,
+      ...(topic.aliases || [])
+    ]);
+    const terms = splitResearchTerms(query, graphTerms).map((term) => term.toLowerCase()).slice(0, 24);
+    const matches = (source) => {
+      const text = [
+        source.source_type,
+        source.platform,
+        source.title,
+        source.author,
+        source.organization,
+        source.raw_text,
+        JSON.stringify(source.metadata || {})
+      ].join("\n").toLowerCase();
+      return terms.length ? terms.some((term) => text.includes(term)) : true;
+    };
+    const newerSources = this.state.researchSources.filter((source) => {
+      const analyzed = new Date(source.analyzed_at || source.created_at || 0);
+      return Number.isFinite(analyzed.getTime()) && analyzed > createdAt && matches(source);
+    }).length;
+    if (newerSources > 0) return null;
+    return {
+      ...prior,
+      feishuDocUrl,
+      reusable: true,
+      reason: "no_new_relevant_sources_since_prior_report"
+    };
   }
 
   async recordInvestmentReportVersion({
