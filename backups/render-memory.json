@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T01:56:22.798Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T02:06:25.948Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -55601,6 +55601,49 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-02T01:37:09.440Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d\nhttps://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b6811bb64bcc4e879e2cde329d",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T01:59:21.806Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6811bb64bcc4e879e2cde329d",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T01:59:22.688Z"
       }
     ],
     "memories": [
@@ -57232,7 +57275,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T01:31:30.515Z"
+        "updatedAt": "2026-07-02T01:59:22.615Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -57242,7 +57285,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T01:31:30.435Z"
+        "updatedAt": "2026-07-02T01:59:22.533Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
