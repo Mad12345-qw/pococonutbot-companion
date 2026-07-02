@@ -5677,6 +5677,7 @@ export class FeishuBot {
     }
     try {
       const markdown = this.buildFeishuYoutubeDocumentMarkdown(report);
+      const sourceUrl = report.videos?.[0]?.url || report.request?.videoUrl || report.request?.query || "";
       const parentWikiToken = String(
         this.config.feishuYoutubeParentWikiToken ||
         this.config.feishuYoutubeIndexWikiToken ||
@@ -5687,11 +5688,13 @@ export class FeishuBot {
             parentWikiToken,
             title: this.resolveYoutubeDocumentTitle(report),
             markdown,
+            sourceUrl,
             articleGroupSourceType: "YouTube 精读"
           })
         : await this.workspace.createDocument({
             title: this.resolveYoutubeDocumentTitle(report),
             markdown,
+            sourceUrl,
             articleGroupSourceType: "YouTube 精读"
           });
       const groupNotification = doc.articleGroupNotification || null;

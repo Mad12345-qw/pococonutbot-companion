@@ -59,6 +59,31 @@ export function feishuOpenChatUrl(chatId = "") {
   return `https://applink.feishu.cn/client/chat/open?openChatId=${encodeURIComponent(clean)}`;
 }
 
+export function feishuYoutubeVideoIdFromUrl(value = "") {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  try {
+    const url = new URL(text);
+    const host = url.hostname.replace(/^www\./i, "").toLowerCase();
+    if (host === "youtu.be") return url.pathname.split("/").filter(Boolean)[0] || "";
+    if (host.endsWith("youtube.com")) {
+      if (url.pathname === "/watch") return url.searchParams.get("v") || "";
+      const match = url.pathname.match(/^\/(?:embed|shorts|live)\/([A-Za-z0-9_-]{8,})/i);
+      if (match) return match[1];
+    }
+  } catch {
+    const match = text.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/))([A-Za-z0-9_-]{8,})/i);
+    if (match) return match[1];
+  }
+  return "";
+}
+
+export function feishuYoutubeThumbnailUrl(sourceUrl = "") {
+  const videoId = feishuYoutubeVideoIdFromUrl(sourceUrl);
+  if (!videoId) return "";
+  return `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+}
+
 export function buildFeishuArticleGroupPrelude(config = {}) {
   const chatId = String(config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
   const inviteText = String(config.feishuArticleGroupInviteText || DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT).trim();
@@ -88,6 +113,19 @@ export function withFeishuArticleGroupPrelude(markdown = "", config = {}) {
 function feishuArticleGroupChatCardIndex(markdown = "") {
   const lines = String(markdown || "").trimStart().split(/\r?\n/);
   return /^#\s+/.test(lines[0] || "") ? 2 : 1;
+}
+
+function resolveDocumentCoverImageUrl({ coverImageUrl = "", sourceUrl = "" } = {}) {
+  const explicit = String(coverImageUrl || "").trim();
+  if (/^https?:\/\/\S+$/i.test(explicit)) return explicit;
+  return feishuYoutubeThumbnailUrl(sourceUrl);
+}
+
+function extensionFromMimeType(mimeType = "") {
+  const normalized = String(mimeType || "").toLowerCase();
+  if (normalized.includes("png")) return "png";
+  if (normalized.includes("webp")) return "webp";
+  return "jpg";
 }
 
 function linkedTextBlock(content = "", url = "") {
@@ -335,7 +373,111 @@ export class FeishuWorkspaceClient {
     }
   }
 
-  async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false, articleGroupSourceType = "" }) {
+  async downloadDocumentCoverImage(imageUrl) {
+    if (!imageUrl) return null;
+    const timeoutMs = Math.min(Math.max(Number(this.config.feishuDocumentCoverFetchTimeoutMs || 5000), 1000), 15000);
+    const response = await fetch(imageUrl, { signal: AbortSignal.timeout(timeoutMs) });
+    if (!response.ok) throw new Error(`cover image fetch failed ${response.status}`);
+    const mimeType = response.headers.get("content-type") || "image/jpeg";
+    if (!/^image\//i.test(mimeType)) throw new Error(`cover image response is not an image: ${mimeType}`);
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (!buffer.length) throw new Error("cover image response is empty");
+    return { buffer, mimeType, sourceUrl: imageUrl };
+  }
+
+  async requestMultipart(path, form) {
+    const token = await this.getToken();
+    const timeoutMs = this.config.feishuWorkspaceTimeoutMs || 30000;
+    let response;
+    try {
+      response = await fetch(`https://open.feishu.cn${path}`, {
+        method: "POST",
+        signal: AbortSignal.timeout(timeoutMs),
+        headers: { Authorization: `Bearer ${token}` },
+        body: form
+      });
+    } catch (error) {
+      if (error?.name === "AbortError" || error?.name === "TimeoutError") {
+        throw new Error(`Feishu workspace multipart API timed out after ${timeoutMs}ms: POST ${path}`);
+      }
+      throw error;
+    }
+    const text = await response.text();
+    let data;
+    try {
+      data = text ? JSON.parse(text) : {};
+    } catch {
+      throw new Error(`Feishu workspace multipart API returned non-JSON: ${truncate(text, 500)}`);
+    }
+    if (!response.ok || data.code !== 0) {
+      const error = new Error(`Feishu workspace multipart API failed ${response.status}: ${truncate(JSON.stringify(data), 800)}`);
+      error.status = response.status;
+      error.code = data.code;
+      error.responseData = data;
+      throw error;
+    }
+    return data.data || {};
+  }
+
+  async uploadDocumentCoverImage({ documentId, image }) {
+    if (!documentId) throw new Error("Missing Feishu document id.");
+    if (!image?.buffer?.length) throw new Error("Missing Feishu document cover image buffer.");
+    const mimeType = image.mimeType || "image/jpeg";
+    const extension = extensionFromMimeType(mimeType);
+    const blob = new Blob([image.buffer], { type: mimeType });
+    const form = new FormData();
+    form.append("file_name", `youtube-cover.${extension}`);
+    form.append("parent_type", "docx_image");
+    form.append("parent_node", documentId);
+    form.append("size", String(image.buffer.length));
+    form.append("file", blob, `youtube-cover.${extension}`);
+    const data = await this.requestMultipart("/open-apis/drive/v1/medias/upload_all", form);
+    const token = data.file_token || data.token || data.media?.file_token || data.media?.token || "";
+    if (!token) throw new Error(`Feishu cover upload missing file token: ${truncate(JSON.stringify(data), 500)}`);
+    return token;
+  }
+
+  async updateDocumentCover({ documentId, token }) {
+    if (!documentId || !token) return { applied: false, reason: "not_configured" };
+    await this.request(`/open-apis/docx/v1/documents/${encodeURIComponent(documentId)}`, {
+      method: "PATCH",
+      body: {
+        update_cover: {
+          cover: {
+            token,
+            offset_ratio_x: 0,
+            offset_ratio_y: 0
+          }
+        }
+      }
+    });
+    return { applied: true, token };
+  }
+
+  async applyDocumentCoverImage({ documentId, coverImageUrl = "", sourceUrl = "" } = {}) {
+    const imageUrl = resolveDocumentCoverImageUrl({ coverImageUrl, sourceUrl });
+    if (!documentId || !imageUrl) return { applied: false, reason: "not_configured" };
+    try {
+      const image = await this.downloadDocumentCoverImage(imageUrl);
+      const token = await this.uploadDocumentCoverImage({ documentId, image });
+      const result = await this.updateDocumentCover({ documentId, token });
+      logEvent("info", "Feishu document cover applied", {
+        documentId,
+        imageUrl,
+        bytes: image.buffer.length
+      });
+      return { ...result, imageUrl, bytes: image.buffer.length };
+    } catch (error) {
+      logEvent("warn", "Feishu document cover skipped", {
+        documentId,
+        imageUrl,
+        error: error.message
+      });
+      return { applied: false, imageUrl, reason: error.message };
+    }
+  }
+
+  async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false, articleGroupSourceType = "", sourceUrl = "", coverImageUrl = "" }) {
     if (!parentWikiToken) throw new Error("Missing Feishu parent wiki token.");
     const parentNode = await this.getWikiNode(parentWikiToken, "wiki");
     const spaceId = parentNode.space_id || parentNode.spaceId || "";
@@ -391,6 +533,12 @@ export class FeishuWorkspaceClient {
       }
     }
     if (!writeError) {
+      const coverResult = await this.applyDocumentCoverImage({
+        documentId,
+        coverImageUrl,
+        sourceUrl
+      });
+      writeDiagnostics.coverImage = coverResult;
       const cardResult = await this.insertArticleGroupChatCard({
         documentId,
         parentBlockId: documentId,
@@ -559,7 +707,7 @@ export class FeishuWorkspaceClient {
     return { document, documentId, usedFolder: Boolean(body.folder_token) };
   }
 
-  async createDocument({ title, markdown, articleGroupSourceType = "" }) {
+  async createDocument({ title, markdown, articleGroupSourceType = "", sourceUrl = "", coverImageUrl = "" }) {
     let record;
     let folderFallback = false;
     try {
@@ -610,6 +758,12 @@ export class FeishuWorkspaceClient {
       }
     }
     if (!writeError) {
+      const coverResult = await this.applyDocumentCoverImage({
+        documentId,
+        coverImageUrl,
+        sourceUrl
+      });
+      writeDiagnostics.coverImage = coverResult;
       const cardResult = await this.insertArticleGroupChatCard({
         documentId,
         parentBlockId: documentId,

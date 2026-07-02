@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { extractImageGenerationIntent } from "../src/image-intent.js";
 import { FeishuBot } from "../src/feishu.js";
-import { FeishuWorkspaceClient, buildFeishuArticleGroupPrelude, withFeishuArticleGroupPrelude } from "../src/feishu-workspace.js";
+import { FeishuWorkspaceClient, buildFeishuArticleGroupPrelude, feishuYoutubeThumbnailUrl, withFeishuArticleGroupPrelude } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 import { WeChatPublisher } from "../src/wechat-publisher.js";
@@ -885,6 +885,25 @@ assertEqual(
   "true"
 );
 
+assertEqual(
+  "YouTube Feishu documents can derive a stable thumbnail URL for document cover placement",
+  feishuYoutubeThumbnailUrl("https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9Gl2ht_2"),
+  "https://i.ytimg.com/vi/E7MQb9Y4FAE/hqdefault.jpg"
+);
+assertEqual(
+  "YouTube Feishu document publishing passes sourceUrl into real DocX cover application",
+  String(
+    feishuSource.includes("const sourceUrl = report.videos?.[0]?.url") &&
+    /createWikiDocument\(\{[\s\S]{0,180}markdown,[\s\S]{0,80}sourceUrl/.test(feishuSource) &&
+    /createDocument\(\{[\s\S]{0,160}markdown,[\s\S]{0,80}sourceUrl/.test(feishuSource) &&
+    feishuWorkspaceSource.includes("applyDocumentCoverImage") &&
+    feishuWorkspaceSource.includes("/open-apis/drive/v1/medias/upload_all") &&
+    feishuWorkspaceSource.includes("parent_type\", \"docx_image\"") &&
+    feishuWorkspaceSource.includes("update_cover") &&
+    /const coverResult = await this\.applyDocumentCoverImage/.test(feishuWorkspaceSource)
+  ),
+  "true"
+);
 assertEqual(
   "research knowledge base reuses entities by natural key instead of failing on duplicate entity ids",
   String(
