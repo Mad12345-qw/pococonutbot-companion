@@ -2337,6 +2337,23 @@ function investmentReportEvidencePrompt(pack = {}) {
   ]).slice(0, 70000);
 }
 
+function investmentReportSynthesisSystemPrompt() {
+  return [
+    generationFirstPrinciplesText(),
+    "You are a senior long-term industry-chain investment research analyst.",
+    "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
+    "Return only one valid JSON object. Do not return Markdown.",
+    "Write in Simplified Chinese.",
+    "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
+    "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
+    "Define the topic boundary, value-chain map, time context, and what changed versus the prior baseline if any.",
+    "Do not narrow an open industry topic into a single company unless the evidence proves the company is the right anchor.",
+    "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
+    "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
+    "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
+  ].join(" ");
+}
+
 function normalizeEvidenceIds(value) {
   if (Array.isArray(value)) {
     return value.flatMap((item) => normalizeEvidenceIds(item)).slice(0, 12);
@@ -3718,7 +3735,11 @@ export class FeishuBot {
         `投研报告已生成：${doc.url || ""}`,
         versionInfo?.versionNo ? `报告版本：v${versionInfo.versionNo}` : "",
         `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`,
-        report.aiFallback ? "生成说明：模型综合超时，已先用证据基线模式生成报告；后续新增证据后可继续迭代。" : "",
+        report.aiFallback?.reason === "ai_synthesis_partial_fallback"
+          ? "生成说明：报告已按分段结构化方式生成；少数段落由结构化证据补齐。"
+          : report.aiFallback
+            ? "生成说明：模型综合超时，已先用证据基线模式生成报告；后续新增证据后可继续迭代。"
+            : "",
         report.topicMap?.topics?.length ? `主题图谱：已关联 ${report.topicMap.topics.length} 个节点。` : "",
         report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
       ].filter(Boolean).join("\n"));
@@ -3822,6 +3843,130 @@ export class FeishuBot {
     };
   }
 
+  async synthesizeInvestmentReportStructured(request = {}, pack = {}) {
+    const evidencePack = investmentReportEvidencePrompt(pack);
+    const options = (maxTokens) => ({
+      maxTokens,
+      temperature: 0.15,
+      responseFormat: { type: "json_object" },
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
+      timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
+    });
+    const common = [
+      `Strict trigger: 投研报告：`,
+      `Research topic: ${request.query}`,
+      "",
+      "Evidence pack:",
+      evidencePack
+    ].join("\n");
+    const parts = [
+      {
+        label: "opening",
+        maxTokens: 1800,
+        user: [
+          common,
+          "",
+          "Fill only this report-opening schema:",
+          "{",
+          '  "title": "polished Chinese research-report title",',
+          '  "oneSentence": "one decisive but evidence-bounded conclusion",',
+          '  "thesis": "core industry-chain thesis and its boundary",',
+          '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
+          '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
+          '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
+          '  "deltaSincePrior": "what changed versus prior report baseline; if no prior report, say this is v1 baseline",',
+          '  "evidenceBase": ["what the current evidence base can and cannot support"]',
+          "}",
+          "Cardinality: industryMap 4-10, timeCalibration 3-8, evidenceBase 3-6."
+        ].join("\n")
+      },
+      {
+        label: "hypotheses",
+        maxTokens: 2400,
+        user: [
+          common,
+          "",
+          "Fill only this hypothesis schema:",
+          "{",
+          '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}]',
+          "}",
+          "Cardinality: hypotheses 3-6. Each hypothesis must cite evidenceIds from the evidence pack."
+        ].join("\n")
+      },
+      {
+        label: "nodes",
+        maxTokens: 2200,
+        user: [
+          common,
+          "",
+          "Fill only this value-chain node schema:",
+          "{",
+          '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
+          '  "leadingIndicators": ["observable indicator to track next"]',
+          "}",
+          "Cardinality: valueChainNodes 4-10, leadingIndicators 5-12."
+        ].join("\n")
+      },
+      {
+        label: "risks_tasks",
+        maxTokens: 1800,
+        user: [
+          common,
+          "",
+          "Fill only this risk and research-task schema:",
+          "{",
+          '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
+          '  "timeContextRisks": ["time mismatch or stale-data risk"],',
+          '  "nextResearchTasks": ["specific next research task and suggested source type"]',
+          "}",
+          "Cardinality: risks 4-10, timeContextRisks 2-8, nextResearchTasks 5-12."
+        ].join("\n")
+      }
+    ];
+    const settled = await Promise.allSettled(parts.map(async (part) => {
+      const raw = await this.ai.chat([
+        { role: "system", content: investmentReportSynthesisSystemPrompt() },
+        { role: "user", content: part.user }
+      ], options(part.maxTokens));
+      return {
+        label: part.label,
+        value: await this.parseYoutubeJsonObject(raw, `investment research report ${part.label}`)
+      };
+    }));
+    const merged = {};
+    const failures = [];
+    for (const result of settled) {
+      if (result.status === "fulfilled") {
+        Object.assign(merged, result.value.value || {});
+      } else {
+        failures.push({ message: result.reason?.message || String(result.reason || "") });
+      }
+    }
+    if (failures.length === parts.length) {
+      throw new Error(failures[0]?.message || "investment report segmented synthesis failed");
+    }
+    const fallback = buildFallbackInvestmentReportStructured(pack, request, failures[0] || null);
+    const rawStructured = {
+      ...fallback,
+      ...merged,
+      industryMap: asArray(merged.industryMap).length ? merged.industryMap : fallback.industryMap,
+      timeCalibration: asArray(merged.timeCalibration).length ? merged.timeCalibration : fallback.timeCalibration,
+      evidenceBase: asArray(merged.evidenceBase).length ? merged.evidenceBase : fallback.evidenceBase,
+      hypotheses: asArray(merged.hypotheses).length ? merged.hypotheses : fallback.hypotheses,
+      valueChainNodes: asArray(merged.valueChainNodes).length ? merged.valueChainNodes : fallback.valueChainNodes,
+      leadingIndicators: asArray(merged.leadingIndicators).length ? merged.leadingIndicators : fallback.leadingIndicators,
+      risks: asArray(merged.risks).length ? merged.risks : fallback.risks,
+      timeContextRisks: asArray(merged.timeContextRisks).length ? merged.timeContextRisks : fallback.timeContextRisks,
+      nextResearchTasks: asArray(merged.nextResearchTasks).length ? merged.nextResearchTasks : fallback.nextResearchTasks
+    };
+    return {
+      structured: normalizeInvestmentReportStructured(rawStructured, request),
+      failures
+    };
+  }
+
   async buildInvestmentResearchReport(request = {}, { researchJobId = "" } = {}) {
     await this.storage.updateResearchJob?.(researchJobId, {
       status: "running",
@@ -3902,70 +4047,17 @@ export class FeishuBot {
         backfill
       }
     });
-    const evidencePack = investmentReportEvidencePrompt(pack);
     let structured;
     let aiFallback = null;
     try {
-      const raw = await this.ai.chat([
-        {
-          role: "system",
-          content: [
-            generationFirstPrinciplesText(),
-            "You are a senior long-term industry-chain investment research analyst.",
-            "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
-            "Return only one valid JSON object. Do not return Markdown.",
-            "Write in Simplified Chinese.",
-            "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
-            "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
-            "Before writing conclusions, define the topic boundary, value-chain map, time context, and what changed versus the prior baseline if any.",
-            "Do not narrow an open industry topic into a single company unless the evidence proves the company is the right anchor.",
-            "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
-            "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
-            "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
-          ].join(" ")
-        },
-        {
-          role: "user",
-          content: [
-            `Strict trigger: 投研报告：`,
-            `Research topic: ${request.query}`,
-            "",
-            "Evidence pack:",
-            evidencePack,
-            "",
-            "Return JSON with exactly this shape:",
-            "{",
-            '  "title": "polished Chinese research-report title",',
-            '  "oneSentence": "one decisive but evidence-bounded conclusion",',
-            '  "thesis": "core industry-chain thesis and its boundary",',
-            '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
-            '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
-            '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
-            '  "deltaSincePrior": "what changed versus the prior report baseline; if no prior report, say this is v1 baseline",',
-            '  "evidenceBase": ["what the current evidence base can and cannot support"],',
-            '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}],',
-            '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
-            '  "leadingIndicators": ["observable indicator to track next"],',
-            '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
-            '  "timeContextRisks": ["time mismatch or stale-data risk"],',
-            '  "nextResearchTasks": ["specific next research task and suggested source type"]',
-            "}",
-            "Cardinality: industryMap 4-10, timeCalibration 3-8, hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
-          ].join("\n")
-        }
-      ], {
-        maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
-        temperature: 0.15,
-        responseFormat: { type: "json_object" },
-        forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-        requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-        retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
-        timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
-      });
-      structured = normalizeInvestmentReportStructured(
-        await this.parseYoutubeJsonObject(raw, "investment research report"),
-        request
-      );
+      const synthesis = await this.synthesizeInvestmentReportStructured(request, pack);
+      structured = synthesis.structured;
+      if (synthesis.failures.length) {
+        aiFallback = {
+          reason: "ai_synthesis_partial_fallback",
+          message: synthesis.failures.map((failure) => failure.message).filter(Boolean).slice(0, 3).join(" | ")
+        };
+      }
     } catch (error) {
       aiFallback = {
         reason: /timeout|aborted/i.test(String(error?.message || "")) ? "ai_synthesis_timeout" : "ai_synthesis_failed",

@@ -902,32 +902,36 @@ bot.storage = {
   }),
   updateResearchJob: async () => {}
 };
+let investmentReportSegmentedCalls = 0;
 bot.ai = {
-  chat: async () => JSON.stringify({
-    title: "SpaceX 的真正变量：星舰工厂能否把火箭制造变成高频产线",
-    oneSentence: "现有证据更支持把 SpaceX 研究重点放在产线节拍、发动机产能和监管约束，而不是单次试飞成败。",
-    thesis: "Starfactory 的产业意义在于把火箭制造从项目制推向接近航空制造的节拍，但这个判断必须同时受 Raptor 产能、FAA 节奏和成本数据约束。",
-    topicBoundary: "本报告只讨论 SpaceX 星舰制造和商业航天供应链，不把上一版报告当作新证据，也不覆盖短线交易建议。",
-    industryMap: ["上游材料与焊接设备", "Raptor 发动机制造和测试", "整箭总装与地面设施", "发射监管与保险", "Starlink 和深空任务需求"],
-    timeCalibration: ["主要视频证据来自 2024-2025 年，需要用 2026 年发射节奏复核。", "Starfactory 进度变化快，产能结论高度时间敏感。", "上一版报告只用于对比判断变化，不作为证据。"],
-    deltaSincePrior: "相对上一版，本版把关注点从泛泛的产线化，收窄到发动机节拍、监管节奏和成本验证三条可跟踪线索。",
-    evidenceBase: ["当前证据覆盖两个视频来源和六条证据卡，但缺少独立成本、产能和监管数据。"],
-    hypotheses: [
-      { title: "星舰产线化可能带动发动机、测试设备和地面设施需求", logic: "如果 Starfactory 形成稳定节拍，瓶颈会外溢到 Raptor 与测试环节。", evidenceIds: ["E1", "E5"], counterEvidenceIds: ["E4"], timeRisk: "监管或试飞事故会打断节拍。", confidence: "medium，因为证据来自公开视频，还缺独立产能数据。" },
-      { title: "成本下降假设需要用外部数据验证", logic: "商业航天需求弹性取决于发射成本是否真实下降。", evidenceIds: ["E6"], counterEvidenceIds: [], timeRisk: "成本口径可能随任务类型变化。", confidence: "low-to-medium，仍需财务和发射数据验证。" },
-      { title: "Starlink 需求可能是星舰早期商业闭环的重要牵引", logic: "高频发射能改善卫星部署节奏。", evidenceIds: ["E3"], counterEvidenceIds: ["E4"], timeRisk: "Starlink 发射需求与监管节奏可能错位。", confidence: "medium。" }
-    ],
-    valueChainNodes: [
-      { node: "Raptor 发动机", whyItMatters: "发动机产能可能是星舰放量节拍项。", signals: ["月产量", "测试通过率"], risks: ["可靠性波动"], evidenceIds: ["E5"] },
-      { node: "地面测试设施", whyItMatters: "测试能力决定产线是否能闭环。", signals: ["测试台数量", "返工率"], risks: ["事故停摆"], evidenceIds: ["E2"] },
-      { node: "监管审批", whyItMatters: "FAA 节奏决定发射 cadence。", signals: ["审批周期", "事故调查时长"], risks: ["政策延迟"], evidenceIds: ["E4"] },
-      { node: "发射成本", whyItMatters: "成本下降是商业需求扩张前提。", signals: ["单位发射成本", "复用次数"], risks: ["口径不透明"], evidenceIds: ["E6"] }
-    ],
-    leadingIndicators: ["Raptor 月产量", "Starship 年发射次数", "FAA 审批周期", "单次任务成本口径", "Starlink 发射需求"],
-    risks: ["视频来源存在公司访问偏差", "缺少独立成本数据", "监管节奏可能推翻产线假设", "发动机可靠性仍需验证"],
-    timeContextRisks: ["2024 年工厂状态不能直接外推到 2026 年。", "试飞进度更新会迅速改变结论。"],
-    nextResearchTasks: ["查 FAA 公开审批和事故调查记录", "追踪 Raptor 产能公开线索", "对比中国商业航天液氧甲烷路线", "补充 Starlink 发射需求数据", "寻找供应链设备和材料侧公开资料"]
-  })
+  chat: async () => {
+    investmentReportSegmentedCalls += 1;
+    return JSON.stringify({
+      title: "SpaceX 的真正变量：星舰工厂能否把火箭制造变成高频产线",
+      oneSentence: "现有证据更支持把 SpaceX 研究重点放在产线节拍、发动机产能和监管约束，而不是单次试飞成败。",
+      thesis: "Starfactory 的产业意义在于把火箭制造从项目制推向接近航空制造的节拍，但这个判断必须同时受 Raptor 产能、FAA 节奏和成本数据约束。",
+      topicBoundary: "本报告只讨论 SpaceX 星舰制造和商业航天供应链，不把上一版报告当作新证据，也不覆盖短线交易建议。",
+      industryMap: ["上游材料与焊接设备", "Raptor 发动机制造和测试", "整箭总装与地面设施", "发射监管与保险", "Starlink 和深空任务需求"],
+      timeCalibration: ["主要视频证据来自 2024-2025 年，需要用 2026 年发射节奏复核。", "Starfactory 进度变化快，产能结论高度时间敏感。", "上一版报告只用于对比判断变化，不作为证据。"],
+      deltaSincePrior: "相对上一版，本版把关注点从泛泛的产线化，收窄到发动机节拍、监管节奏和成本验证三条可跟踪线索。",
+      evidenceBase: ["当前证据覆盖两个视频来源和六条证据卡，但缺少独立成本、产能和监管数据。"],
+      hypotheses: [
+        { title: "星舰产线化可能带动发动机、测试设备和地面设施需求", logic: "如果 Starfactory 形成稳定节拍，瓶颈会外溢到 Raptor 与测试环节。", evidenceIds: ["E1", "E5"], counterEvidenceIds: ["E4"], timeRisk: "监管或试飞事故会打断节拍。", confidence: "medium，因为证据来自公开视频，还缺独立产能数据。" },
+        { title: "成本下降假设需要用外部数据验证", logic: "商业航天需求弹性取决于发射成本是否真实下降。", evidenceIds: ["E6"], counterEvidenceIds: [], timeRisk: "成本口径可能随任务类型变化。", confidence: "low-to-medium，仍需财务和发射数据验证。" },
+        { title: "Starlink 需求可能是星舰早期商业闭环的重要牵引", logic: "高频发射能改善卫星部署节奏。", evidenceIds: ["E3"], counterEvidenceIds: ["E4"], timeRisk: "Starlink 发射需求与监管节奏可能错位。", confidence: "medium。" }
+      ],
+      valueChainNodes: [
+        { node: "Raptor 发动机", whyItMatters: "发动机产能可能是星舰放量节拍项。", signals: ["月产量", "测试通过率"], risks: ["可靠性波动"], evidenceIds: ["E5"] },
+        { node: "地面测试设施", whyItMatters: "测试能力决定产线是否能闭环。", signals: ["测试台数量", "返工率"], risks: ["事故停摆"], evidenceIds: ["E2"] },
+        { node: "监管审批", whyItMatters: "FAA 节奏决定发射 cadence。", signals: ["审批周期", "事故调查时长"], risks: ["政策延迟"], evidenceIds: ["E4"] },
+        { node: "发射成本", whyItMatters: "成本下降是商业需求扩张前提。", signals: ["单位发射成本", "复用次数"], risks: ["口径不透明"], evidenceIds: ["E6"] }
+      ],
+      leadingIndicators: ["Raptor 月产量", "Starship 年发射次数", "FAA 审批周期", "单次任务成本口径", "Starlink 发射需求"],
+      risks: ["视频来源存在公司访问偏差", "缺少独立成本数据", "监管节奏可能推翻产线假设", "发动机可靠性仍需验证"],
+      timeContextRisks: ["2024 年工厂状态不能直接外推到 2026 年。", "试飞进度更新会迅速改变结论。"],
+      nextResearchTasks: ["查 FAA 公开审批和事故调查记录", "追踪 Raptor 产能公开线索", "对比中国商业航天液氧甲烷路线", "补充 Starlink 发射需求数据", "寻找供应链设备和材料侧公开资料"]
+    });
+  }
 };
 const userPerspectiveReport = await bot.buildInvestmentResearchReport({
   query: "SpaceX",
@@ -942,6 +946,7 @@ assertEqual(
   String(
     userPerspectiveReport.ready === true &&
     !userPerspectiveReport.reused &&
+    investmentReportSegmentedCalls >= 4 &&
     userPerspectiveMarkdown.includes("# SpaceX 的真正变量") &&
     userPerspectiveMarkdown.includes("## 一、报告结论") &&
     userPerspectiveMarkdown.includes("## 二、主题边界与产业链地图") &&
@@ -954,6 +959,11 @@ assertEqual(
     !/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会/.test(userPerspectiveMarkdown) &&
     !userPerspectiveEvidence.includes("上一版报告")
   ),
+  "true"
+);
+assertEqual(
+  "investment report uses segmented parallel json synthesis instead of one giant call",
+  String(investmentReportSegmentedCalls >= 4),
   "true"
 );
 assertEqual(
