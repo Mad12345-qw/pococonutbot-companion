@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T03:54:56.494Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-02T04:01:30.535Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -56378,6 +56378,54 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T03:54:53.896Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈那就拆短一点发，比如一篇稿子拆成 3 条消息：标题钩子 + 一句话结论 + 一个反共识判断，剩下的让人自己点链接看完整版。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-02T03:55:02.574Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "原视频一个多小时，全是专业术语",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6a59d66cacc1095327a7cb11d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:56:40.169Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "难怪，一个多小时的硬核科普，没耐心看完才正常——所以这种内容就该先拆成\"为什么值得看 + 一句话结论 + 三个反共识点\"，让人 30 秒判断要不要点进完整版。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-02T03:56:45.046Z"
       }
     ],
     "memories": [
@@ -59144,6 +59192,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.consumption_style_signal",
+        "value": "用户对内容的消费偏好信号：偏好短而强的内容，对长内容缺乏耐心（'长的根本不想看'），这与其作为内容策划者自身擅长深度选题形成反差，提示其面向受众的输出应保持简洁有力",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-02T03:55:21.502Z",
+        "updatedAt": "2026-07-02T03:55:21.502Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
         "key": "content.work.content_feedback_preference",
         "value": "用户接受的内容反馈风格：先判断'洞察力'，再点出可打磨点（如缺数据/单向批判），并给出可延伸方向，最后一句话定性",
         "importance": 2,
@@ -59649,7 +59707,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-07-02T03:53:52.089Z"
+        "updatedAt": "2026-07-02T03:56:40.096Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59659,7 +59717,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-07-02T03:53:52.018Z"
+        "updatedAt": "2026-07-02T03:56:40.022Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61396,6 +61454,12 @@
         "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
         "summary": "## 关系进展\n- 用户称助手为\"小乖\"，互动轻松亲近\n- 用户曾夸\"小乖已经聪明的\"，认可助手能力\n- 用户理想：把所有智能体都调成\"小乖\"风格\n\n## 用户当前状态\n- 情绪波动：先用\"我想静静\"表情，后流泪，疑似因发现6月消费过高(¥134.15)而心疼/焦虑\n- 余额告急：充值余额仅¥5.84，未开启余额预警\n- 6月消费集中在中下旬，有单日接近¥20\n- 涉及多个AI平台：Reasonix(Global项目)、Feishu等，正在折腾codex迁移配置并卸载旧版本\n\n## 未完成事项\n- 余额预警未设置\n- 新codex迁移与卸载操作进行中\n- 用户正在尝试复现\"打开情感树洞模式前后的小乖\"差异\n\n## 重要偏好\n- 喜欢调戏/调侃助手，语气亲昵\n- 重视AI的情感陪伴属性（情感树洞模式）\n- 有技术折腾倾向（codex、Obsidian、AI绘画等）",
         "updatedAt": "2026-06-22T16:03:13.810Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "summary": "**用户关系与状态摘要**\n\n- **称呼关系**：用户称呼助手\"小椰\"，助手称用户\"宝宝\"，关系亲密互动。\n- **用户身份**：从事开源项目维护，熟悉TTS技术开发，疑似技术圈从业者。\n- **当前兴趣/事项**：\n  - 体验TTS音色功能（包括清唱素材），关注新音色选择\n  - 希望尝试\"情感模式\"，期待个性化情绪陪伴功能\n  - 近期关注SpaceX Starship HLS登月架构、轨道加注技术，阅读了相关深度技术文章\n  - 正在开发或使用一个机器人/TTS项目，对\"能说话的机器人\"实现难度有讨论\n- **互动偏好**：喜欢撒娇式互动（\"先硬夸\"、要求小椰笑、清唱），喜欢被夸赞但会自嘲；技术话题聊得深入。\n\n**未完成事项**：用户申请体验情感模式，尚未正式开启。",
+        "updatedAt": "2026-07-02T03:57:10.614Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
