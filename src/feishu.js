@@ -1175,6 +1175,88 @@ function buildYoutubeTimelineSeedsFromTranscripts(videos = [], minCount = 8) {
   return candidates.slice(0, 18);
 }
 
+function mergeUniqueBy(values = [], keyFn = (item) => JSON.stringify(item), limit = 12) {
+  const output = [];
+  const seen = new Set();
+  for (const item of values) {
+    if (!item) continue;
+    const key = keyFn(item);
+    if (!key || seen.has(key)) continue;
+    output.push(item);
+    seen.add(key);
+    if (output.length >= limit) break;
+  }
+  return output;
+}
+
+function buildDeterministicYoutubeEvidenceBrief({ topic = "", videos = [] } = {}) {
+  const rawContext = [
+    topic,
+    ...videos.map((video) => `${video.title || ""} ${video.channel || ""} ${truncate(video.transcriptText || "", 4000)}`)
+  ].join(" ");
+  const keywords = extractYoutubeQuestionKeywords(rawContext, 12);
+  const focus = keywords.slice(0, 3).join("、") || cleanYoutubeDocumentTitle(videos[0]?.title || topic || "这条视频");
+  const backgroundAnchors = mergeUniqueBy([
+    ...keywords,
+    ...videos.map((video) => cleanYoutubeDocumentTitle(video.title || "")).filter(Boolean),
+    ...videos.map((video) => video.channel).filter(Boolean)
+  ], (item) => String(item || "").toLowerCase(), 8);
+  const timelineSeeds = buildYoutubeTimelineSeedsFromTranscripts(videos, 8);
+  const glossarySeeds = backgroundAnchors.slice(0, 6).map((term) => ({
+    term,
+    evidence: term,
+    plainMeaning: `这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。`
+  }));
+  const evidenceClaims = timelineSeeds.slice(0, 8).map((seed) => ({
+    claim: seed.event,
+    timestamp: seed.time,
+    quote: seed.quote,
+    whyItMatters: seed.importance
+  }));
+  return normalizeYoutubeEvidenceBrief({
+    thesis: `${focus}的关键问题，不是视频表面讲了什么，而是这些证据如何改变读者对任务、技术路径和风险边界的理解。`,
+    titleAngles: [],
+    narrativeConflict: `这篇文章要解释的核心冲突是：${focus}看似只是视频里的若干信息点，但真正影响判断的是它们背后的约束、取舍和可验证证据。`,
+    backgroundAnchors,
+    glossarySeeds,
+    evidenceClaims,
+    timelineSeeds,
+    questionSeeds: []
+  }, { topic, videos });
+}
+
+function mergeYoutubeEvidenceBriefs(base = {}, model = {}, report = {}) {
+  const merged = {
+    thesis: cleanArticleText(model.thesis) || cleanArticleText(base.thesis),
+    titleAngles: mergeUniqueBy([
+      ...asArray(model.titleAngles).map((item) => cleanArticleText(item, 160)).filter(Boolean),
+      ...asArray(base.titleAngles).map((item) => cleanArticleText(item, 160)).filter(Boolean)
+    ], (item) => item.toLowerCase(), 5),
+    narrativeConflict: cleanArticleText(model.narrativeConflict) || cleanArticleText(base.narrativeConflict),
+    backgroundAnchors: mergeUniqueBy([
+      ...asArray(model.backgroundAnchors).map((item) => cleanArticleText(item, 220)).filter(Boolean),
+      ...asArray(base.backgroundAnchors).map((item) => cleanArticleText(item, 220)).filter(Boolean)
+    ], (item) => item.toLowerCase(), 12),
+    glossarySeeds: mergeUniqueBy([
+      ...asArray(model.glossarySeeds),
+      ...asArray(base.glossarySeeds)
+    ], (item) => cleanArticleText(item?.term).toLowerCase(), 10),
+    evidenceClaims: mergeUniqueBy([
+      ...asArray(model.evidenceClaims),
+      ...asArray(base.evidenceClaims)
+    ], (item) => `${cleanArticleText(item?.timestamp)}|${cleanArticleText(item?.quote || item?.claim)}`.toLowerCase(), 16),
+    timelineSeeds: mergeUniqueBy([
+      ...asArray(model.timelineSeeds),
+      ...asArray(base.timelineSeeds)
+    ], (item) => cleanArticleText(item?.time || item?.timestamp), 24),
+    questionSeeds: mergeUniqueBy([
+      ...asArray(model.questionSeeds).map((item) => cleanArticleText(item, 260)).filter(Boolean),
+      ...asArray(base.questionSeeds).map((item) => cleanArticleText(item, 260)).filter(Boolean)
+    ], (item) => item.toLowerCase(), 10)
+  };
+  return normalizeYoutubeEvidenceBrief(merged, report);
+}
+
 function normalizeYoutubeEvidenceBrief(brief = {}, report = {}) {
   const source = JSON.parse(buildYoutubeEvidenceBriefSource(brief));
   const videos = report.videos || [];
@@ -2789,6 +2871,8 @@ export class FeishuBot {
 
   async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }) {
     const sourceAnchors = buildYoutubeGenerationAnchors(videos, topic);
+    const deterministicEvidenceBrief = buildDeterministicYoutubeEvidenceBrief({ topic, videos });
+    const deterministicEvidenceSource = buildYoutubeEvidenceBriefSource(deterministicEvidenceBrief);
     const sourceText = videos.map((video, index) => compactLines([
       `Video ${index + 1}: ${video.title}`,
       `URL: ${video.url}`,
@@ -2808,6 +2892,8 @@ export class FeishuBot {
           "Do not write the article. Do not write Markdown. Return only valid JSON.",
           "Use Simplified Chinese for analysis fields, but keep source quotes in their original language.",
           "Everything must be grounded in transcript evidence, named objects, named people, terms, numbers, scenes, or timestamped events.",
+          "You are not starting from a blank page: a deterministic evidence package has already been extracted from timestamps, transcript lines, video titles, and keywords.",
+          "Use that deterministic evidence package as the minimum evidence floor. You may refine wording, merge duplicates, and improve judgment, but you must not omit its concrete timestamp seeds, source quotes, or core anchors.",
           "Build a writer-ready brief: thesis should state the main conflict as `why/how <specific object> changes <specific task/market/technology>`, not `this video is about...`.",
           "backgroundAnchors should be concrete nouns a reader can see or research: people, companies, products, places, technologies, dates, numbers, scenes.",
           "evidenceClaims should pair one claim with one timestamp/quote and one reason it matters to the article thesis.",
@@ -2822,6 +2908,9 @@ export class FeishuBot {
           `User request: ${request.raw || request.query || request.videoUrl}`,
           failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
           sourceAnchors ? `\nTimestamp and keyword anchors:\n${sourceAnchors}` : "",
+          "",
+          "Deterministic evidence package already extracted by code. Start from this package, improve it, and keep its concrete evidence coverage:",
+          deterministicEvidenceSource,
           "",
           "Return JSON with exactly this shape:",
           "{",
@@ -2849,7 +2938,8 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const evidenceBrief = normalizeYoutubeEvidenceBrief(
+    const evidenceBrief = mergeYoutubeEvidenceBriefs(
+      deterministicEvidenceBrief,
       await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
       { topic, videos }
     );

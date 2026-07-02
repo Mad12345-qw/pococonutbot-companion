@@ -650,6 +650,7 @@ assertEqual(
 assertEqual(
   "youtube structured pipeline positively guides each writing slot",
   String([
+    "Deterministic evidence package already extracted by code",
     "Build a writer-ready brief",
     "Write paragraph 1 as `video scene and viewing context`",
     "Each explanation should answer",
