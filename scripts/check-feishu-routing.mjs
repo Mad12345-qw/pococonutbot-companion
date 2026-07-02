@@ -1305,6 +1305,37 @@ assertEqual(
   ),
   "true"
 );
+const longWechatCandidate = {
+  ...wechatCandidate,
+  id: "wechat-long-feishu-source",
+  markdown: [
+    wechatFeishuMarkdown,
+    "",
+    "## 六、时间线摘要",
+    Array.from({ length: 80 }, (_, index) => `- [${String(Math.floor(index / 2)).padStart(2, "0")}:${String((index * 7) % 60).padStart(2, "0")}] 这是一条用于模拟飞书长逐字稿索引的内容，公众号正文不应该完整搬运第 ${index + 1} 条。`).join("\n"),
+    "",
+    "## 八、出处与链接",
+    "The Underdogs Taking On SpaceX [Stoke Space 2025]",
+    "https://youtu.be/7OxNZ-N_3vE"
+  ].join("\n")
+};
+const longWechatPlan = await wechatPublisher.buildDistributionPlan(longWechatCandidate);
+const longWechatPlainText = String(longWechatPlan.bodyMarkdown || "")
+  .replace(/!\[[^\]]*]\([^)]+\)/g, "")
+  .replace(/\[([^\]]+)]\([^)]+\)/g, "$1")
+  .replace(/[*_`>#-]/g, "")
+  .replace(/\s+/g, " ")
+  .trim();
+assertEqual(
+  "WeChat publisher turns long Feishu articles into a public-account digest instead of mirroring full transcript",
+  String(
+    longWechatPlainText.length < 26000 &&
+    !longWechatPlan.bodyMarkdown.includes("第 80 条") &&
+    /[。！？;；]$/.test(longWechatPlan.openingHook) &&
+    !/关键术语解释|Hopper/.test(longWechatPlan.openingHook)
+  ),
+  "true"
+);
 const coverOnlyPrompts = [];
 const coverOnlyWechatPublisher = new TestWeChatPublisher({
   config: {

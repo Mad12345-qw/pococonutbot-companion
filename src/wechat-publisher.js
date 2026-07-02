@@ -145,6 +145,108 @@ function collapseTranscriptDumpForWechat(markdown = "") {
     });
 }
 
+function isWechatTopSectionLine(line = "") {
+  const text = String(line || "").trim();
+  if (/^#{1,3}\s+[\u4e00-\u9fff\d]{1,4}[、.．]\s*\S+/.test(text)) return true;
+  if (/^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}、\S+/.test(text)) return true;
+  return false;
+}
+
+function cleanWechatHeading(line = "") {
+  return stripMarkdown(String(line || "").replace(/^#{1,3}\s+/, "")).trim();
+}
+
+function splitWechatSections(markdown = "") {
+  const sections = [];
+  let current = { heading: "", lines: [] };
+  for (const rawLine of String(markdown || "").replace(/\r\n/g, "\n").split("\n")) {
+    const line = rawLine.trimEnd();
+    if (isWechatTopSectionLine(line)) {
+      if (current.heading || current.lines.some((item) => item.trim())) sections.push(current);
+      current = { heading: cleanWechatHeading(line), lines: [line] };
+      continue;
+    }
+    current.lines.push(line);
+  }
+  if (current.heading || current.lines.some((item) => item.trim())) sections.push(current);
+  return sections;
+}
+
+function sectionLimitForWechat(heading = "") {
+  if (/关键术语|术语解释/.test(heading)) return 5200;
+  if (/背景/.test(heading)) return 2600;
+  if (/导读|核心结论|精华|总结/.test(heading)) return 3200;
+  if (/技术点|速览/.test(heading)) return 3600;
+  if (/详细|拆解|工程/.test(heading)) return 4200;
+  if (/时间线/.test(heading)) return 3200;
+  if (/追问|问题/.test(heading)) return 1800;
+  if (/出处|来源|链接|资料/.test(heading)) return 900;
+  return 2200;
+}
+
+function trimSectionForWechat(lines = [], heading = "") {
+  const limit = sectionLimitForWechat(heading);
+  const output = [];
+  let chars = 0;
+  let timelineItems = 0;
+  let inCode = false;
+  for (const rawLine of lines) {
+    const line = String(rawLine || "").trimEnd();
+    if (/^```/.test(line)) {
+      inCode = !inCode;
+      continue;
+    }
+    if (inCode) continue;
+    if (/raw transcript|完整逐字稿|完整字幕|全文逐字/i.test(line)) continue;
+    if (/^\[\d{1,2}:\d{2}/.test(line) || /^[-*]\s+\[\d{1,2}:\d{2}/.test(line)) {
+      timelineItems += 1;
+      if (timelineItems > 12) continue;
+    }
+    const nextChars = stripMarkdown(line).length;
+    if (chars + nextChars > limit && output.length > 3) continue;
+    output.push(line);
+    chars += nextChars;
+  }
+  return output.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function trimWechatPublicBody(markdown = "") {
+  const sections = splitWechatSections(markdown);
+  if (!sections.length) return String(markdown || "").trim();
+  const picked = [];
+  let total = 0;
+  for (const section of sections) {
+    const heading = section.heading;
+    const rendered = trimSectionForWechat(section.lines, heading);
+    if (!rendered) continue;
+    const isSource = /出处|来源|链接|资料/.test(heading);
+    const maxTotal = isSource ? 22_000 : 20_000;
+    const length = stripMarkdown(rendered).length;
+    if (total + length > maxTotal && !isSource) continue;
+    picked.push(rendered);
+    total += length;
+  }
+  return picked.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function readerOpeningFromSections(markdown = "", title = "") {
+  const sections = splitWechatSections(markdown);
+  const preferred = [/背景/, /导读|核心结论|精华|总结/, /技术|拆解/];
+  const paragraphsFrom = (section) => section.lines
+    .join("\n")
+    .split(/\n{2,}/)
+    .map((part) => part.replace(/\n+/g, " ").trim())
+    .filter(Boolean);
+  for (const pattern of preferred) {
+    for (const section of sections) {
+      if (!pattern.test(section.heading)) continue;
+      const paragraph = paragraphsFrom(section).find((part) => !isWeakOpeningLine(part, title));
+      if (paragraph) return stripMarkdown(paragraph);
+    }
+  }
+  return readerOpeningHook(markdown, title);
+}
+
 function extractWechatCoverAnchors(title = "", markdown = "") {
   const text = stripMarkdown(`${title}\n${markdown}`);
   const terms = [];
@@ -206,8 +308,9 @@ function normalizeWechatMarkdownFromFeishu(candidate = {}) {
     .replace(/\[证据\s+([A-Z]?\d+)]\(#证据-[^)]+\)/gi, "证据 $1")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+  body = trimWechatPublicBody(body);
   body = removeDuplicateTitleLine(body, title);
-  const first = readerOpeningHook(body, title) || firstParagraph(body);
+  const first = readerOpeningFromSections(body, title) || firstParagraph(body);
   return {
     title,
     digest: normalizeDigest(first, title),
