@@ -964,6 +964,27 @@ assertEqual(
   ),
   "true"
 );
+bot.ai = {
+  chat: async () => {
+    throw new Error("The operation was aborted due to timeout");
+  }
+};
+const timeoutFallbackReport = await bot.buildInvestmentResearchReport({
+  query: "SpaceX",
+  raw: "投研报告：SpaceX"
+}, { researchJobId: "job:timeout-fallback-test" });
+assertEqual(
+  "investment report timeout falls back to evidence baseline instead of failing",
+  String(
+    timeoutFallbackReport.ready === true &&
+    timeoutFallbackReport.aiFallback?.reason === "ai_synthesis_timeout" &&
+    timeoutFallbackReport.markdown.includes("## 一、报告结论") &&
+    timeoutFallbackReport.markdown.includes("证据基线") &&
+    timeoutFallbackReport.markdown.includes("`E1`") &&
+    !/YouTube 技术笔记|阅读导航|输出语言|内容形态|<details|<summary/.test(timeoutFallbackReport.markdown)
+  ),
+  "true"
+);
 
 bot.ai = {
   chat: async () => JSON.stringify({

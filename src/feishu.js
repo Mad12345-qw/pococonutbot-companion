@@ -2378,6 +2378,89 @@ function normalizeInvestmentReportStructured(raw = {}, request = {}) {
   };
 }
 
+function buildFallbackInvestmentReportStructured(pack = {}, request = {}, error = null) {
+  const query = cleanResearchArticleText(request.query || "产业链主题", 80) || "产业链主题";
+  const evidenceCards = (pack.evidenceCards || []).slice(0, 12);
+  const sourceCount = (pack.sources || []).length;
+  const evidenceCount = (pack.evidenceCards || []).length;
+  const topics = (pack.topicMap?.topics || []).slice(0, 8)
+    .map((topic) => cleanResearchArticleText(topic.canonicalName || topic.canonical_name || topic.topicKey || topic.topic_key || "", 80))
+    .filter(Boolean);
+  const sourceTitles = (pack.sources || []).slice(0, 6)
+    .map((source) => cleanResearchArticleText(source.title || source.organization || source.platform || "", 120))
+    .filter(Boolean);
+  const lenses = [...new Set(evidenceCards.map((card) => cleanResearchArticleText(card.analysisLens || card.evidenceType || "", 80)).filter(Boolean))];
+  const topEvidence = evidenceCards.slice(0, 6);
+  const nodes = mergeUniqueBy([
+    ...topics,
+    ...lenses,
+    ...evidenceCards.map((card) => cleanResearchArticleText(card.claim || card.quoteOriginal || "", 40)).filter(Boolean)
+  ], (item) => item, 8);
+  const timeoutNote = /timeout|aborted/i.test(String(error?.message || ""))
+    ? "模型综合步骤超时，本版先用结构化证据包生成基线报告，避免任务直接失败。"
+    : "模型综合步骤暂不可用，本版先用结构化证据包生成基线报告，后续可在新增证据后迭代。";
+  return normalizeInvestmentReportStructured({
+    title: `${query}：产业链证据基线与下一步验证`,
+    oneSentence: `当前知识库已覆盖 ${sourceCount} 个来源、${evidenceCount} 条证据卡；本版先把可验证线索、约束和后续调研任务整理成基线判断。`,
+    thesis: `围绕「${query}」的现有证据还不适合直接包装成强投资结论，更适合作为产业链假设池：先看哪些节点被反复提到，再用时间、产能、监管、成本和客户需求数据继续验证。`,
+    topicBoundary: `本报告只使用已入库的结构化来源和证据卡，覆盖 ${sourceTitles.slice(0, 3).join("、") || "当前知识库来源"} 等材料；上一版报告只作为判断基线，不作为新证据。${timeoutNote}`,
+    industryMap: (nodes.length ? nodes : [query, "上游供给", "核心技术", "商业化需求", "监管与风险"]).slice(0, 8),
+    timeCalibration: [
+      `当前证据来自 ${sourceCount} 个来源，需要逐条核对发布时间、拍摄时间和事件发生期。`,
+      "凡是产能、成本、监管、产品进度相关判断，都必须用最新公开资料复核。",
+      "旧视频或旧文章只能作为线索，不能直接外推成当前产业结论。"
+    ],
+    deltaSincePrior: pack.priorReport
+      ? "本版读取上一版报告作为判断基线，但所有新判断仍以当前证据卡为准。"
+      : "这是该主题的第一版证据基线报告。",
+    evidenceBase: [
+      `证据基础：${sourceCount} 个来源、${evidenceCount} 条证据卡。`,
+      "当前版本优先沉淀可追踪线索，不做短线交易建议。",
+      timeoutNote
+    ],
+    hypotheses: topEvidence.slice(0, 4).map((card, index) => ({
+      title: cleanResearchArticleText(card.claim || card.quoteOriginal || `待验证假设 ${index + 1}`, 160),
+      logic: cleanResearchArticleText(card.whyItMatters || "这条证据提示了一个可能影响产业链判断的变量，但还需要跨来源验证。", 700),
+      evidenceIds: [card.id].filter(Boolean),
+      counterEvidenceIds: [],
+      timeRisk: cleanResearchArticleText(card.timeSensitivity ? `时间敏感性：${card.timeSensitivity}` : "需要用更新来源复核，避免旧材料和当前产业状态错位。", 500),
+      confidence: "low-to-medium，当前先作为研究假设，不作为确定结论。"
+    })),
+    valueChainNodes: topEvidence.slice(0, 6).map((card, index) => ({
+      node: cleanResearchArticleText(lenses[index] || nodes[index] || `关键节点 ${index + 1}`, 100),
+      whyItMatters: cleanResearchArticleText(card.whyItMatters || card.claim || "该节点可能影响后续产业链判断，需要继续验证。", 500),
+      signals: ["新增来源数量", "公开产能/成本/进度数据", "监管或客户需求变化"],
+      risks: ["单一来源偏差", "时间错位", "缺少反证材料"],
+      evidenceIds: [card.id].filter(Boolean)
+    })),
+    leadingIndicators: [
+      "新增一手来源数量",
+      "产能或交付节奏变化",
+      "成本口径变化",
+      "监管审批或政策变化",
+      "客户订单或实际需求变化",
+      "竞争路线变化"
+    ],
+    risks: [
+      "现有资料可能来自同一叙事圈层，存在观点重复。",
+      "旧视频和当前市场状态可能错位。",
+      "部分证据来自生成文档回填，需要回到原始材料复核。",
+      "缺少财务、监管、订单、产能等独立数据时，不应形成强结论。"
+    ],
+    timeContextRisks: [
+      "视频发布时间不等于事件发生时间。",
+      "产业链结论会随政策、技术进度和融资环境变化。"
+    ],
+    nextResearchTasks: [
+      `补充「${query}」的一手来源：官方公告、监管记录、财报、论文或行业数据。`,
+      "为每条核心假设寻找至少一条反证材料。",
+      "补齐来源的发布时间、拍摄时间、事件期和过期条件。",
+      "把高频出现的公司、产品、材料、供应链节点拆成独立主题继续追踪。",
+      "下一版报告重点比较新增证据相对本版基线是增强、削弱还是推翻。"
+    ]
+  }, request);
+}
+
 function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, request = {}) {
   const evidenceIndex = new Map((pack.evidenceCards || []).map((card) => [card.id, card]));
   const evidenceRefs = (ids = []) => asArray(ids)
@@ -3605,6 +3688,7 @@ export class FeishuBot {
           evidenceCards: report.pack.evidenceCards.length,
           topicCount: report.topicMap?.topics?.length || 0,
           backfill: report.backfill || {},
+          aiFallback: report.aiFallback || null,
           document: {
             token: doc.token || "",
             wikiToken: doc.wikiToken || "",
@@ -3626,13 +3710,15 @@ export class FeishuBot {
           feishuDocUrl: doc.url || "",
           version: versionInfo || null,
           sourceCount: report.pack.sources.length,
-          evidenceCards: report.pack.evidenceCards.length
+          evidenceCards: report.pack.evidenceCards.length,
+          aiFallback: report.aiFallback || null
         }
       });
       await this.replyText(messageId, [
         `投研报告已生成：${doc.url || ""}`,
         versionInfo?.versionNo ? `报告版本：v${versionInfo.versionNo}` : "",
         `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`,
+        report.aiFallback ? "生成说明：模型综合超时，已先用证据基线模式生成报告；后续新增证据后可继续迭代。" : "",
         report.topicMap?.topics?.length ? `主题图谱：已关联 ${report.topicMap.topics.length} 个节点。` : "",
         report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
       ].filter(Boolean).join("\n"));
@@ -3817,66 +3903,91 @@ export class FeishuBot {
       }
     });
     const evidencePack = investmentReportEvidencePrompt(pack);
-    const raw = await this.ai.chat([
-      {
-        role: "system",
-        content: [
-          generationFirstPrinciplesText(),
-          "You are a senior long-term industry-chain investment research analyst.",
-          "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
-          "Return only one valid JSON object. Do not return Markdown.",
-          "Write in Simplified Chinese.",
-          "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
-          "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
-          "Before writing conclusions, define the topic boundary, value-chain map, time context, and what changed versus the prior baseline if any.",
-          "Do not narrow an open industry topic into a single company unless the evidence proves the company is the right anchor.",
-          "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
-          "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
-          "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
-        ].join(" ")
-      },
-      {
-        role: "user",
-        content: [
-          `Strict trigger: 投研报告：`,
-          `Research topic: ${request.query}`,
-          "",
-          "Evidence pack:",
-          evidencePack,
-          "",
-          "Return JSON with exactly this shape:",
-          "{",
-          '  "title": "polished Chinese research-report title",',
-          '  "oneSentence": "one decisive but evidence-bounded conclusion",',
-          '  "thesis": "core industry-chain thesis and its boundary",',
-          '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
-          '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
-          '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
-          '  "deltaSincePrior": "what changed versus the prior report baseline; if no prior report, say this is v1 baseline",',
-          '  "evidenceBase": ["what the current evidence base can and cannot support"],',
-          '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}],',
-          '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
-          '  "leadingIndicators": ["observable indicator to track next"],',
-          '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
-          '  "timeContextRisks": ["time mismatch or stale-data risk"],',
-          '  "nextResearchTasks": ["specific next research task and suggested source type"]',
-          "}",
-          "Cardinality: industryMap 4-10, timeCalibration 3-8, hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
-        ].join("\n")
-      }
-    ], {
-      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
-      temperature: 0.15,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
-      timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
-    });
-    const structured = normalizeInvestmentReportStructured(
-      await this.parseYoutubeJsonObject(raw, "investment research report"),
-      request
-    );
+    let structured;
+    let aiFallback = null;
+    try {
+      const raw = await this.ai.chat([
+        {
+          role: "system",
+          content: [
+            generationFirstPrinciplesText(),
+            "You are a senior long-term industry-chain investment research analyst.",
+            "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
+            "Return only one valid JSON object. Do not return Markdown.",
+            "Write in Simplified Chinese.",
+            "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
+            "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
+            "Before writing conclusions, define the topic boundary, value-chain map, time context, and what changed versus the prior baseline if any.",
+            "Do not narrow an open industry topic into a single company unless the evidence proves the company is the right anchor.",
+            "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
+            "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
+            "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
+          ].join(" ")
+        },
+        {
+          role: "user",
+          content: [
+            `Strict trigger: 投研报告：`,
+            `Research topic: ${request.query}`,
+            "",
+            "Evidence pack:",
+            evidencePack,
+            "",
+            "Return JSON with exactly this shape:",
+            "{",
+            '  "title": "polished Chinese research-report title",',
+            '  "oneSentence": "one decisive but evidence-bounded conclusion",',
+            '  "thesis": "core industry-chain thesis and its boundary",',
+            '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
+            '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
+            '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
+            '  "deltaSincePrior": "what changed versus the prior report baseline; if no prior report, say this is v1 baseline",',
+            '  "evidenceBase": ["what the current evidence base can and cannot support"],',
+            '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}],',
+            '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
+            '  "leadingIndicators": ["observable indicator to track next"],',
+            '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
+            '  "timeContextRisks": ["time mismatch or stale-data risk"],',
+            '  "nextResearchTasks": ["specific next research task and suggested source type"]',
+            "}",
+            "Cardinality: industryMap 4-10, timeCalibration 3-8, hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
+          ].join("\n")
+        }
+      ], {
+        maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
+        temperature: 0.15,
+        responseFormat: { type: "json_object" },
+        forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+        requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+        retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
+        timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
+      });
+      structured = normalizeInvestmentReportStructured(
+        await this.parseYoutubeJsonObject(raw, "investment research report"),
+        request
+      );
+    } catch (error) {
+      aiFallback = {
+        reason: /timeout|aborted/i.test(String(error?.message || "")) ? "ai_synthesis_timeout" : "ai_synthesis_failed",
+        message: error.message || String(error)
+      };
+      logEvent("warn", "Investment report AI synthesis fallback used", {
+        query: request.query,
+        reason: aiFallback.reason,
+        error: truncate(aiFallback.message, 300)
+      });
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "running",
+        stage: "ai_synthesis_fallback",
+        output: {
+          query: request.query,
+          sources: pack.sources.length,
+          evidenceCards: pack.evidenceCards.length,
+          aiFallback
+        }
+      });
+      structured = buildFallbackInvestmentReportStructured(pack, request, error);
+    }
     const markdown = renderInvestmentResearchReportMarkdown(structured, pack, request);
     assertInvestmentResearchReportMarkdown(markdown);
     return {
@@ -3884,6 +3995,7 @@ export class FeishuBot {
       title: structured.title,
       markdown,
       structured,
+      aiFallback,
       pack,
       topicMap: pack.topicMap || topicMap,
       priorReport,
