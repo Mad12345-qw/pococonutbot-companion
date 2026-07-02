@@ -254,6 +254,7 @@ function readerOpeningFromSections(markdown = "", title = "") {
   const sections = splitWechatSections(markdown);
   const preferred = [/背景/, /导读|核心结论|精华|总结/, /技术|拆解/];
   const paragraphsFrom = (section) => section.lines
+    .slice(isWechatTopSectionLine(section.lines[0] || "") ? 1 : 0)
     .join("\n")
     .split(/\n{2,}/)
     .map((part) => part.replace(/\n+/g, " ").trim())
