@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { extractImageGenerationIntent } from "../src/image-intent.js";
 import { FeishuBot } from "../src/feishu.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
@@ -729,6 +730,10 @@ assertEqual(
 assertEqual(
   "youtube structured pipeline positively guides each writing slot",
   String([
+    "Generation contract: get the direction right before writing",
+    "Do not produce low-quality draft content and rely on later rejection or cleanup",
+    "Plan from evidence first",
+    "The model fills bounded content fields; code owns layout",
     "Deterministic evidence package already extracted by code",
     "Build a writer-ready brief",
     "Write paragraph 1 as `video scene and viewing context`",
@@ -737,6 +742,36 @@ assertEqual(
     "techPoints should be scan-friendly",
     "Timeline is not a transcript dump"
   ].every((needle) => structuredPromptText.join("\n").includes(needle))),
+  "true"
+);
+assertEqual(
+  "youtube structured pipeline applies generation-first contract to every model slot",
+  String(structuredPromptText.length === 6 && structuredPromptText.every((prompt) =>
+    prompt.includes("Generation contract: get the direction right before writing") &&
+    prompt.includes("Plan from evidence first") &&
+    prompt.includes("The model fills bounded content fields; code owns layout")
+  )),
+  "true"
+);
+
+const feishuSource = fs.readFileSync(new URL("../src/feishu.js", import.meta.url), "utf8");
+assertEqual(
+  "generation architecture defines one shared generation-first contract",
+  String(
+    feishuSource.includes("const GENERATION_FIRST_PRINCIPLES") &&
+    feishuSource.includes("Do not produce low-quality draft content and rely on later rejection or cleanup") &&
+    feishuSource.includes("Plan from evidence first") &&
+    feishuSource.includes("code owns layout")
+  ),
+  "true"
+);
+assertEqual(
+  "investment report pipeline records generation-first principle before synthesis",
+  String(
+    feishuSource.includes("generation_direction_first") &&
+    feishuSource.includes("do_not_generate_garbage_then_reject") &&
+    /generationFirstPrinciplesText\(\),[\s\S]{0,500}You are a senior long-term industry-chain investment research analyst/.test(feishuSource)
+  ),
   "true"
 );
 

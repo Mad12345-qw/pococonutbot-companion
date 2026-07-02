@@ -442,6 +442,18 @@ function compactLines(lines = []) {
   return lines.map((line) => String(line || "").trim()).filter(Boolean).join("\n");
 }
 
+const GENERATION_FIRST_PRINCIPLES = [
+  "Generation contract: get the direction right before writing. Do not produce low-quality draft content and rely on later rejection or cleanup.",
+  "Plan from evidence first: identify the reader goal, topic boundary, concrete source anchors, time context, and required structure before generating prose.",
+  "The model fills bounded content fields; code owns layout, section order, metadata placement, source links, and final rendering.",
+  "Never output internal process notes, generic template filler, placeholder failure text, repeated metadata, unsupported HTML, or database-style fields as reader content.",
+  "If evidence is insufficient for a claim, write a bounded uncertainty or next research task instead of inventing confident prose."
+];
+
+function generationFirstPrinciplesText() {
+  return GENERATION_FIRST_PRINCIPLES.join(" ");
+}
+
 function elapsedMsSince(startedAt = 0) {
   return Math.max(0, Date.now() - Number(startedAt || Date.now()));
 }
@@ -3369,6 +3381,8 @@ export class FeishuBot {
         request,
         principles: [
           "strict_trigger_only",
+          "generation_direction_first",
+          "do_not_generate_garbage_then_reject",
           "cross_source_evidence_first",
           "coverage_gaps_reduce_confidence",
           "no_single_source_investment_report"
@@ -3671,6 +3685,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You are a senior long-term industry-chain investment research analyst.",
           "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
           "Return only one valid JSON object. Do not return Markdown.",
@@ -4213,6 +4228,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You are the evidence editor before a Chinese column writer writes the article.",
           "Your only job is to extract a concrete article brief from YouTube transcripts.",
           "Do not write the article. Do not write Markdown. Return only valid JSON.",
@@ -4276,6 +4292,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You fill one small part of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
@@ -4324,6 +4341,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You fill the glossary slot of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
@@ -4359,6 +4377,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You fill the core-argument slots of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
@@ -4401,6 +4420,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You fill one small part of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
@@ -4438,6 +4458,7 @@ export class FeishuBot {
       {
         role: "system",
         content: [
+          generationFirstPrinciplesText(),
           "You fill one small part of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",

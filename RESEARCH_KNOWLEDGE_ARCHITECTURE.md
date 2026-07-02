@@ -13,6 +13,7 @@ This system is not a single-video investment report generator. Its long-term rol
 
 - Plan before generation.
 - Evidence before opinion.
+- Direction before drafting: the system must guide the model toward the right output shape before prose is generated.
 - Time context is first-class data.
 - Markdown is for readers; evidence cards are for machines.
 - A single source can create research signals, not final investment conclusions.
@@ -21,6 +22,35 @@ This system is not a single-video investment report generator. Its long-term rol
 - Source types are open-ended. New adapters should not require database redesign.
 - The reader document is the product surface; Obsidian, Feishu, tables, and vectors are infrastructure.
 - Every reusable conclusion must keep a path back to source text, location, and time context.
+
+## Generation Contract
+
+The architecture is not:
+
+```text
+raw source -> freeform model output -> quality gate rejects garbage -> retry
+```
+
+That pattern wastes time and still lets low-quality structure leak into documents.
+
+The required pattern is:
+
+```text
+raw source
+-> deterministic evidence extraction
+-> topic boundary and reader-goal planning
+-> bounded structured fields
+-> program rendering
+-> final quality gate as insurance only
+```
+
+This means:
+
+- The model is never asked to freely invent a whole document layout.
+- Prompts must state the reader goal, evidence boundary, time context, and exact output schema before generation starts.
+- If evidence is weak, the model should produce bounded uncertainty or a next research task, not confident prose.
+- Program code owns headings, section order, metadata placement, source links, indentation, and final rendering.
+- Quality gates remain mandatory, but they are the last safety layer, not the main production mechanism.
 
 ## Open Source Model
 
