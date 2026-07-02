@@ -1120,7 +1120,7 @@ const wechatPublisher = new TestWeChatPublisher({
     wechatMpAppId: "wx-test",
     wechatMpAppSecret: "secret-test",
     wechatMpAuthor: "小椰",
-    wechatMpCtaText: "关注我，继续追踪产业链和技术拐点。",
+    wechatMpCtaText: "如果你也长期关注 AI、机器人和SpaceX，欢迎交流与关注。我会持续发布高价值研究。",
     wechatMpOpenComment: false,
     wechatMpOnlyFansCanComment: false
   },

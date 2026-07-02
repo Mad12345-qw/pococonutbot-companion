@@ -660,6 +660,7 @@ function normalizeWechatCtaText(value = "") {
   const fallback = "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」";
   const text = String(value || "").trim();
   if (!text) return fallback;
+  if (!text.includes("原视频点击左下方")) return fallback;
   const compact = text.replace(/\s+/g, "");
   if (compact === "关注我，继续追踪产业链和技术拐点。") return fallback;
   if (compact === "关注我，继续追踪产业链和技术拐点") return fallback;
