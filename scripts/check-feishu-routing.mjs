@@ -688,6 +688,44 @@ assertEqual(
   "true"
 );
 
+let missingTimelineCalls = 0;
+let missingTimelinePromptReceivedFallbackSeeds = false;
+bot.ai = {
+  chat: async (messages = []) => {
+    missingTimelineCalls += 1;
+    const userContent = String(messages.at(-1)?.content || "");
+    if (missingTimelineCalls === 1) {
+      return JSON.stringify({
+        ...hlsEvidenceBrief,
+        timelineSeeds: []
+      });
+    }
+    missingTimelinePromptReceivedFallbackSeeds = missingTimelinePromptReceivedFallbackSeeds ||
+      (userContent.includes("视频在这里展开了一个关键论据") && userContent.includes("100 times heavier"));
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
+    if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
+    if (userContent.includes("fixed technical schema")) return JSON.stringify(hlsTechPart);
+    return JSON.stringify(hlsTimelinePart);
+  }
+};
+const missingTimelineDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain.\n[12:00] Orion waits in lunar orbit.\n[15:00] depot stores propellant."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline fills missing timeline seeds from transcript",
+  String(missingTimelineCalls === 6 && missingTimelinePromptReceivedFallbackSeeds && missingTimelineDoc.includes("月球版星舰的真正难题")),
+  "true"
+);
+
 let jsonRepairCalls = 0;
 bot.ai = {
   chat: async (messages = []) => {

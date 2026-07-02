@@ -1152,8 +1152,46 @@ function buildYoutubeEvidenceBriefSource(brief = {}) {
   return JSON.stringify(source, null, 2);
 }
 
-function assertYoutubeEvidenceBrief(brief = {}, report = {}) {
+function buildYoutubeTimelineSeedsFromTranscripts(videos = [], minCount = 8) {
+  const candidates = [];
+  for (const video of videos || []) {
+    const lines = transcriptIndexLines(video.transcriptText || "");
+    if (!lines.length) continue;
+    const stride = Math.max(1, Math.floor(lines.length / Math.max(minCount, 1)));
+    for (let index = 0; index < lines.length && candidates.length < 24; index += stride) {
+      const line = lines[index] || "";
+      const match = line.match(/^\[(\d+:\d{2}(?::\d{2})?)\]\s+(.+)$/);
+      if (!match) continue;
+      const quote = cleanArticleText(match[2], 500);
+      if (!quote) continue;
+      candidates.push({
+        time: match[1],
+        event: `视频在这里展开了一个关键论据：${quote}`,
+        importance: "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        quote
+      });
+    }
+  }
+  return candidates.slice(0, 18);
+}
+
+function normalizeYoutubeEvidenceBrief(brief = {}, report = {}) {
   const source = JSON.parse(buildYoutubeEvidenceBriefSource(brief));
+  if (source.timelineSeeds.length < 6) {
+    const fallbackSeeds = buildYoutubeTimelineSeedsFromTranscripts(report.videos || [], 8);
+    const seen = new Set(source.timelineSeeds.map((item) => item.time));
+    for (const seed of fallbackSeeds) {
+      if (seen.has(seed.time)) continue;
+      source.timelineSeeds.push(seed);
+      seen.add(seed.time);
+      if (source.timelineSeeds.length >= 8) break;
+    }
+  }
+  return source;
+}
+
+function assertYoutubeEvidenceBrief(brief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(brief, report);
   if (!source.thesis || isWeakYoutubeTitle(source.thesis, report.topic || "")) {
     throw new Error("YouTube evidence brief failed: missing specific thesis.");
   }
@@ -2347,7 +2385,7 @@ export class FeishuBot {
         query: request.query || "",
         error: error.message
       });
-      await this.replyText(messageId, `YouTube \u5b57\u5e55\u6574\u7406\u5931\u8d25\uff1a${truncate(error.message, 500)}`);
+      await this.replyText(messageId, "YouTube 字幕整理这次没有生成可发布文档，我已经记录了内部错误。请稍后直接重试同一个链接；如果连续失败，我会优先检查字幕提取和文章生成链路。");
     }
   }
 
@@ -2668,7 +2706,10 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const evidenceBrief = await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief");
+    const evidenceBrief = normalizeYoutubeEvidenceBrief(
+      await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
+      { topic, videos }
+    );
     assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
     const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
 
