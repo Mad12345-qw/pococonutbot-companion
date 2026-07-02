@@ -500,9 +500,11 @@ const hlsArticle = {
 };
 let structuredChatCalls = 0;
 let articlePromptIncludedEvidenceBrief = false;
+const structuredResponseFormats = [];
 bot.ai = {
-  chat: async (messages = []) => {
+  chat: async (messages = [], options = {}) => {
     structuredChatCalls += 1;
+    structuredResponseFormats.push(options.responseFormat?.type || "");
     const userContent = String(messages.at(-1)?.content || "");
     if (structuredChatCalls === 1) return JSON.stringify(hlsEvidenceBrief);
     articlePromptIncludedEvidenceBrief = userContent.includes("Evidence brief that must drive the article") && userContent.includes("Starship HLS 的核心难题");
@@ -542,6 +544,11 @@ assertEqual(
   String(structuredChatCalls === 2 && articlePromptIncludedEvidenceBrief),
   "true"
 );
+assertEqual(
+  "youtube structured pipeline asks model for json object directly",
+  String(structuredResponseFormats.join(",") === "json_object,json_object"),
+  "true"
+);
 
 bot.ai = {
   chat: async () => JSON.stringify({
@@ -568,6 +575,35 @@ try {
 assertEqual(
   "youtube structured pipeline rejects weak evidence plan before article writing",
   String(rejectedWeakEvidencePlan),
+  "true"
+);
+
+let jsonRepairCalls = 0;
+bot.ai = {
+  chat: async (messages = []) => {
+    jsonRepairCalls += 1;
+    const userContent = String(messages.at(-1)?.content || "");
+    if (jsonRepairCalls === 1) {
+      return '{"thesis":"坏 JSON 测试","titleAngles":["坏 JSON 测试" "缺逗号"],"narrativeConflict":"x"}';
+    }
+    if (userContent.includes("Repair this evidence brief")) return JSON.stringify(hlsEvidenceBrief);
+    return JSON.stringify(hlsArticle);
+  }
+};
+const repairedJsonDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline repairs malformed json before failing user request",
+  String(jsonRepairCalls === 3 && repairedJsonDoc.includes("月球版星舰的真正难题")),
   "true"
 );
 assertEqual(

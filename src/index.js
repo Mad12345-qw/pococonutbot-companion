@@ -57,7 +57,7 @@ app.get("/health", (_req, res) => {
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
     youtubeDocDeliveryMode: "feishu_doc_first",
-    youtubeDocTemplateVersion: "evidence_first_article_v14",
+    youtubeDocTemplateVersion: "evidence_first_article_v15_json_mode",
     youtubeBackgroundSyncMode: "parallel_nonblocking",
     obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
     obsidianSyncDetails: {

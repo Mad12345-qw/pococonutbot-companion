@@ -2513,6 +2513,45 @@ export class FeishuBot {
     };
   }
 
+  async parseYoutubeJsonObject(raw = "", label = "json") {
+    try {
+      return extractJsonObject(raw);
+    } catch (error) {
+      logEvent("warn", "YouTube structured JSON parse failed; requesting repair", {
+        label,
+        error: error.message,
+        chars: String(raw || "").length
+      });
+    }
+
+    const repaired = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You repair malformed JSON from a previous model response.",
+          "Return only one valid JSON object.",
+          "Do not add Markdown fences, commentary, explanations, or new content.",
+          "Preserve the original field names and values as much as possible.",
+          "If the JSON is truncated, close arrays and objects cleanly without inventing new article claims."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Repair this ${label} into valid JSON only:`,
+          String(raw || "")
+        ].join("\n")
+      }
+    ], {
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
+      temperature: 0,
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
+    return extractJsonObject(repaired);
+  }
+
   async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }) {
     const sourceAnchors = buildYoutubeGenerationAnchors(videos, topic);
     const sourceText = videos.map((video, index) => compactLines([
@@ -2566,11 +2605,12 @@ export class FeishuBot {
     ], {
       maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
       temperature: 0.1,
+      responseFormat: { type: "json_object" },
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const evidenceBrief = extractJsonObject(evidenceRaw);
+    const evidenceBrief = await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief");
     assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
     const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
 
@@ -2630,13 +2670,14 @@ export class FeishuBot {
         ].join("\n")
       }
     ], {
-      maxTokens: this.config.youtubeResearchSummaryMaxTokens || 2600,
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
       temperature: 0.25,
+      responseFormat: { type: "json_object" },
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const structured = extractJsonObject(raw);
+    const structured = await this.parseYoutubeJsonObject(raw, "structured article");
     assertStructuredYoutubeArticle(structured, { topic, videos });
     const rendered = renderYoutubeStructuredArticle(structured, { topic, videos });
     return this.decorateYoutubeMarkdown(rendered, { topic, request, videos });

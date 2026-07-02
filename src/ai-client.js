@@ -84,6 +84,7 @@ export class AIClient {
         provider.maxTokensField ||
         (isMiniMaxCompatible ? "max_completion_tokens" : "max_tokens");
       body[maxTokensField] = options.maxTokens ?? 1200;
+      if (options.responseFormat) body.response_format = options.responseFormat;
 
       if (isMiniMaxCompatible) {
         body.reasoning_split = true;
