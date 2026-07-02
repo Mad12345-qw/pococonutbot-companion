@@ -522,10 +522,12 @@ const hlsTimelinePart = {
 let structuredChatCalls = 0;
 let articlePromptIncludedEvidenceBrief = false;
 const structuredResponseFormats = [];
+const structuredPromptText = [];
 bot.ai = {
   chat: async (messages = [], options = {}) => {
     structuredChatCalls += 1;
     structuredResponseFormats.push(options.responseFormat?.type || "");
+    structuredPromptText.push(messages.map((message) => String(message.content || "")).join("\n"));
     const userContent = String(messages.at(-1)?.content || "");
     if (structuredChatCalls === 1) return JSON.stringify(hlsEvidenceBrief);
     articlePromptIncludedEvidenceBrief = articlePromptIncludedEvidenceBrief ||
@@ -573,6 +575,18 @@ assertEqual(
 assertEqual(
   "youtube structured pipeline asks model for json object directly",
   String(structuredResponseFormats.join(",") === "json_object,json_object,json_object,json_object,json_object,json_object"),
+  "true"
+);
+assertEqual(
+  "youtube structured pipeline positively guides each writing slot",
+  String([
+    "Build a writer-ready brief",
+    "Write paragraph 1 as the article hook",
+    "Each explanation should answer",
+    "Each corePoints title should be a judgment sentence",
+    "techPoints should be scan-friendly",
+    "Timeline is not a transcript dump"
+  ].every((needle) => structuredPromptText.join("\n").includes(needle))),
   "true"
 );
 

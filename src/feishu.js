@@ -2573,7 +2573,11 @@ export class FeishuBot {
           "Do not write the article. Do not write Markdown. Return only valid JSON.",
           "Use Simplified Chinese for analysis fields, but keep source quotes in their original language.",
           "Everything must be grounded in transcript evidence, named objects, named people, terms, numbers, scenes, or timestamped events.",
-          "Generic background language is forbidden. If you cannot name concrete anchors from the transcript, the field should stay empty instead of becoming filler."
+          "Build a writer-ready brief: thesis should state the main conflict as `why/how <specific object> changes <specific task/market/technology>`, not `this video is about...`.",
+          "backgroundAnchors should be concrete nouns a reader can see or research: people, companies, products, places, technologies, dates, numbers, scenes.",
+          "evidenceClaims should pair one claim with one timestamp/quote and one reason it matters to the article thesis.",
+          "timelineSeeds should become article navigation: each item must include what happened and why that moment changes the reader's understanding.",
+          "questionSeeds should point to follow-up research lines, not generic questions."
         ].join(" ")
       },
       {
@@ -2628,7 +2632,11 @@ export class FeishuBot {
           "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`.",
           "Open with context that lowers the reading barrier: market/industry/historical backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
-          "Every title and point must be reader-facing and specific. Never use the raw video title as a section title unless it is already a polished Chinese title."
+          "Every title and point must be reader-facing and specific. Never use the raw video title as a section title unless it is already a polished Chinese title.",
+          "Write the title as a Chinese column judgment: `为什么/如何 <specific object> <changes/forces/reveals> <specific consequence>`.",
+          "Write paragraph 1 as the article hook: name the concrete object, the main conflict, and why a smart reader should care.",
+          "Write paragraph 2 as reading context: explain the video/scene/market/technical background using evidence anchors.",
+          "If a third paragraph is needed, lower the reading barrier by introducing the task chain or problem map before details."
         ].join(" ")
       },
       {
@@ -2667,7 +2675,9 @@ export class FeishuBot {
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
           "Use only the provided evidence brief. Terms must be concrete specialist words, products, people, systems, or concepts from the transcript.",
-          "Explain each term so a beginner can understand the later article."
+          "Explain each term so a beginner can understand the later article.",
+          "Each explanation should answer: what it is, why it appears in this video, and what misunderstanding it prevents.",
+          "Prefer terms that unlock the article thesis; skip decorative jargon."
         ].join(" ")
       },
       {
@@ -2703,7 +2713,12 @@ export class FeishuBot {
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
           "Use only the provided evidence brief. Every core point must include evidence.",
           "Gold quotes must show the original quote first. If the original transcript is English, keep the original quote in English.",
-          "Do not repeat glossary explanations or generic background."
+          "Do not repeat glossary explanations or generic background.",
+          "oneSentence should be a decisive thesis conclusion, not a neutral summary.",
+          "Each corePoints title should be a judgment sentence with a concrete object or number from evidence.",
+          "Each `why` should explain the business/engineering/strategic meaning; each `takeaway` should tell the reader what to remember.",
+          "quotes should be selected because they compress the article's conflict or evidence, not because they sound decorative.",
+          "counterintuitive should state what a smart reader may initially get wrong and what the transcript changes."
         ].join(" ")
       },
       {
@@ -2741,7 +2756,9 @@ export class FeishuBot {
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
           "Use only the provided evidence brief. Do not add claims absent from it.",
-          "Avoid generic frameworks. Every item must name a concrete object, term, scene, number, or constraint from the evidence brief."
+          "Avoid generic frameworks. Every item must name a concrete object, term, scene, number, or constraint from the evidence brief.",
+          "techPoints should be scan-friendly: `says` paraphrases the evidence, `importance` explains why the mechanism matters, `risk` names a real uncertainty or boundary condition.",
+          "detailSections should expand the engineering logic, commercial implication, and failure modes behind the core claims."
         ].join(" ")
       },
       {
@@ -2777,7 +2794,9 @@ export class FeishuBot {
           "You fill one small part of a fixed YouTube article blueprint.",
           "Always write in Simplified Chinese.",
           "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
-          "Use only the provided evidence brief. Timeline items must say what happened and why it matters."
+          "Use only the provided evidence brief. Timeline items must say what happened and why it matters.",
+          "Timeline is not a transcript dump: each item should help readers locate the argument in the video.",
+          "Questions should be concrete next research lines based on unresolved evidence, validation signals, costs, constraints, or experiments."
         ].join(" ")
       },
       {
