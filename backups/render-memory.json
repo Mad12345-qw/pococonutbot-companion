@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T09:14:10.292Z",
+  "exportedAt": "2026-07-02T09:18:33.798Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -57151,6 +57151,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T08:54:31.347Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研知识库清理预览",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b568baed0a4b3f812d9280929c",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T09:16:08.765Z"
       }
     ],
     "memories": [
@@ -58782,7 +58806,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T08:54:31.275Z"
+        "updatedAt": "2026-07-02T09:16:08.692Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58792,7 +58816,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T08:54:31.193Z"
+        "updatedAt": "2026-07-02T09:16:08.532Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
