@@ -4132,24 +4132,10 @@ export class FeishuBot {
       }
     });
 
-    let currentStage = "证据检索、历史文档回填和 AI 分段生成";
-    let progressTicks = 0;
-    const progressIntervalMs = Math.max(30000, Number(this.config.investmentReportProgressIntervalMs || 60000));
-    const progressTimer = setInterval(() => {
-      progressTicks += 1;
-      if (progressTicks > 12) return;
-      this.replyText(messageId, `投研报告仍在处理中：${currentStage}。已运行约 ${Math.round(progressTicks * progressIntervalMs / 60000)} 分钟。`)
-        .catch((error) => logEvent("warn", "Investment report progress reply failed", {
-          query: request.query,
-          error: error.message
-        }));
-    }, progressIntervalMs);
-
     try {
       const report = await this.buildInvestmentResearchReport(request, { researchJobId });
       this.markTiming(timing, "buildReportMs");
       if (report.reused) {
-        currentStage = "复用上一版报告";
         await this.storage.updateResearchJob?.(researchJobId, {
           status: "done",
           stage: "reused_prior_report",
@@ -4170,7 +4156,6 @@ export class FeishuBot {
         return;
       }
       if (!report.ready) {
-        currentStage = "证据不足，准备返回说明";
         await this.storage.updateResearchJob?.(researchJobId, {
           status: "done",
           stage: "evidence_not_enough",
@@ -4194,7 +4179,6 @@ export class FeishuBot {
         return;
       }
 
-      currentStage = "写入飞书投研报告文档";
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "running",
         stage: "document_write"
@@ -4252,7 +4236,6 @@ export class FeishuBot {
           }
         }
       });
-      currentStage = "登记报告版本和公众号候选";
       await this.storage.addMessage({
         chatId,
         userId,
@@ -4306,7 +4289,6 @@ export class FeishuBot {
         feishuDocCreated: Boolean(doc.url)
       });
     } catch (error) {
-      currentStage = "失败收尾";
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "failed",
         stage: "failed",
@@ -4319,8 +4301,6 @@ export class FeishuBot {
         error: error.message
       });
       await this.replyText(messageId, `投研报告生成失败：${truncate(error.message, 500)}`);
-    } finally {
-      clearInterval(progressTimer);
     }
   }
 

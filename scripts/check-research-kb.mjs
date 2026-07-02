@@ -30,6 +30,10 @@ try {
       ok: true
     }
   });
+  const recentGenericJobs = await storage.listRecentResearchJobs({ limit: 5 });
+  assert.equal(recentGenericJobs[0].id, "job:test-open-source");
+  assert.equal(recentGenericJobs[0].status, "done");
+  assert.equal(recentGenericJobs[0].stage, "done");
 
   const result = await storage.upsertResearchSourceBundle({
     topics: [
@@ -173,6 +177,10 @@ try {
     pack: graphCorpus
   });
   assert.equal(versionOne.versionNo, 1);
+  const recentInvestmentJobs = await storage.listRecentResearchJobs({ sourceType: "investment_report", limit: 5 });
+  assert.equal(recentInvestmentJobs[0].id, "job:investment-report-v1");
+  assert.equal(recentInvestmentJobs[0].sourceType, "investment_report");
+  assert.equal(recentInvestmentJobs[0].stage, "done");
   const priorReport = await storage.getPriorInvestmentReport({ query: "CPO", topicMap });
   assert.equal(priorReport.versionNo, 1);
   assert.equal(priorReport.output.title, "CPO 产业链报告 v1");

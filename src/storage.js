@@ -2007,6 +2007,28 @@ class PostgresStorage {
     );
   }
 
+  async listRecentResearchJobs({ sourceType = "", limit = 20 } = {}) {
+    const safeLimit = Math.max(1, Math.min(100, Number(limit) || 20));
+    const values = [];
+    const where = [];
+    if (sourceType) {
+      values.push(String(sourceType));
+      where.push(`source_type = $${values.length}`);
+    }
+    values.push(safeLimit);
+    const result = await this.pool.query(
+      `SELECT id, source_type AS "sourceType", source_url AS "sourceUrl",
+              status, stage, attempts, input, output, error,
+              created_at AS "createdAt", updated_at AS "updatedAt"
+       FROM research_jobs
+       ${where.length ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY updated_at DESC
+       LIMIT $${values.length}`,
+      values
+    );
+    return result.rows;
+  }
+
   async upsertWechatPublishCandidate(candidate = {}) {
     const id = String(candidate.id || "");
     if (!id) return "";
@@ -3344,6 +3366,27 @@ class JsonFileStorage {
     if (updates.error !== undefined) row.error = String(updates.error || "");
     row.updated_at = new Date().toISOString();
     await this.flush();
+  }
+
+  async listRecentResearchJobs({ sourceType = "", limit = 20 } = {}) {
+    const safeLimit = Math.max(1, Math.min(100, Number(limit) || 20));
+    return [...this.state.researchJobs]
+      .filter((job) => !sourceType || String(job.source_type || job.sourceType || "") === String(sourceType))
+      .sort((a, b) => String(b.updated_at || b.updatedAt || "").localeCompare(String(a.updated_at || a.updatedAt || "")))
+      .slice(0, safeLimit)
+      .map((job) => ({
+        id: job.id,
+        sourceType: job.source_type || job.sourceType || "",
+        sourceUrl: job.source_url || job.sourceUrl || "",
+        status: job.status || "",
+        stage: job.stage || "",
+        attempts: job.attempts || 0,
+        input: job.input || {},
+        output: job.output || {},
+        error: job.error || "",
+        createdAt: job.created_at || job.createdAt || "",
+        updatedAt: job.updated_at || job.updatedAt || ""
+      }));
   }
 
   async upsertWechatPublishCandidate(candidate = {}) {

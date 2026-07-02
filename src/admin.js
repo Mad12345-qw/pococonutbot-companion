@@ -1316,6 +1316,9 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
     for (const project of projects) {
       project.artifacts = await storage.listProjectArtifacts(project.id);
     }
+    const researchJobs = typeof storage.listRecentResearchJobs === "function"
+      ? await storage.listRecentResearchJobs({ sourceType: "investment_report", limit: 20 })
+      : [];
     const gptEnabled = String(await storage.getSetting("gpt.enabled", "true")).toLowerCase() !== "false";
     const smartRepliesEnabled =
       String(await storage.getSetting("smart_replies.enabled", config.smartClassifierEnabled ? "true" : "false")).toLowerCase() !== "false";
@@ -1341,6 +1344,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
       summary,
       messages,
       projects,
+      researchJobs,
       persona,
       personaPrompt,
       chatDisplayName,
