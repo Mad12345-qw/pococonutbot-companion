@@ -1136,6 +1136,30 @@ function cleanArticleText(value = "", max = 1400) {
   return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
 }
 
+function isLowValueResearchArtifactText(value = "") {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<\/?details|<summary|我先按|接下来我会/i.test(text);
+}
+
+function cleanResearchArticleText(value = "", max = 1400) {
+  let text = cleanArticleText(value, max);
+  if (!text) return "";
+  if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容)\s*[:：]?/i.test(text)) return "";
+  if (/^(?:#{1,6}\s*)?.*YouTube\s*技术笔记\s*$/i.test(text)) {
+    text = cleanYoutubeDocumentTitle(text.replace(/^#{1,6}\s*/, ""));
+    if (isWeakYoutubeTitle(text)) return "";
+  }
+  text = text
+    .replace(/\s*YouTube\s*技术笔记\s*/ig, " ")
+    .replace(/\s*技术笔记\s*$/ig, "")
+    .replace(/<\/?details[^>]*>|<\/?summary[^>]*>/ig, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (/^(?:我先按|接下来我会)/.test(text)) return "";
+  return truncate(text, max);
+}
+
 function buildYoutubeEvidenceBriefSource(brief = {}) {
   const source = {
     thesis: cleanArticleText(brief.thesis, 600),
@@ -1976,7 +2000,9 @@ function extractBackfillEvidenceCardsFromDocument(text = "", { max = 18 } = {}) 
     .split(/\r?\n/)
     .map((line) => line.replace(/^[-*#>\s]+/, "").trim())
     .filter((line) => line.length >= 24 && line.length <= 900)
-    .filter((line) => !/^(来源|出处|原始链接|飞书文档|Obsidian|触发请求)[:：]/i.test(line));
+    .filter((line) => !/^(来源|出处|原始链接|飞书文档|Obsidian|触发请求)[:：]/i.test(line))
+    .map((line) => cleanResearchArticleText(line, 900))
+    .filter((line) => line && !isLowValueResearchArtifactText(line));
   const picked = [];
   const preferred = lines.filter((line) => /结论|判断|证据|重要|风险|瓶颈|成本|产能|供应链|技术|商业|时间|为什么|意味着|关键|反证/.test(line));
   for (const line of [...preferred, ...lines]) {
@@ -1988,7 +2014,7 @@ function extractBackfillEvidenceCardsFromDocument(text = "", { max = 18 } = {}) 
     const lens = classifyResearchEvidenceType(line);
     return {
       evidenceType: lens,
-      claim: cleanArticleText(line, 900),
+      claim: cleanResearchArticleText(line, 900),
       quoteOriginal: "",
       quoteZh: "",
       location: `generated_doc:${index + 1}`,
@@ -2117,13 +2143,15 @@ function researchRowValue(row = {}, camel = "", snake = "") {
 
 function normalizeResearchSourceRow(row = {}, index = 0) {
   const sourceId = String(researchRowValue(row, "sourceId", "source_id") || "");
+  const rawTitle = row.title || "";
+  const cleanTitle = cleanResearchArticleText(rawTitle, 220);
   return {
     id: `S${index + 1}`,
     sourceId,
     sourceType: String(researchRowValue(row, "sourceType", "source_type") || ""),
     platform: String(row.platform || ""),
-    title: cleanArticleText(row.title || "", 220),
-    organization: cleanArticleText(row.organization || row.author || "", 160),
+    title: cleanTitle || cleanResearchArticleText(researchRowValue(row, "docUrl", "doc_url") ? "历史 YouTube 研究文档" : "Untitled source", 220),
+    organization: cleanResearchArticleText(row.organization || row.author || "", 160),
     url: String(row.url || ""),
     docUrl: String(researchRowValue(row, "docUrl", "doc_url") || ""),
     publishedAt: String(researchRowValue(row, "publishedAt", "published_at") || ""),
@@ -2142,11 +2170,11 @@ function normalizeResearchEvidenceRow(row = {}, index = 0, sourceIndexById = new
     sourceId,
     sourceRef: sourceIndexById.get(sourceId) || sourceId || "S?",
     evidenceType: String(researchRowValue(row, "evidenceType", "evidence_type") || ""),
-    claim: cleanArticleText(row.claim || "", 500),
-    quoteOriginal: cleanArticleText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
-    quoteZh: cleanArticleText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
-    location: cleanArticleText(row.location || "", 80),
-    whyItMatters: cleanArticleText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
+    claim: cleanResearchArticleText(row.claim || "", 500),
+    quoteOriginal: cleanResearchArticleText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
+    quoteZh: cleanResearchArticleText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
+    location: cleanResearchArticleText(row.location || "", 80),
+    whyItMatters: cleanResearchArticleText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
     confidence: Number(row.confidence || 0),
     timeSensitivity: String(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
     evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
@@ -2162,31 +2190,31 @@ function buildInvestmentReportEvidencePack(corpus = {}) {
     .filter((card) => card.claim || card.quoteOriginal)
     .slice(0, 120);
   const entities = mergeUniqueBy((corpus.entities || []).map((row) => ({
-    name: cleanArticleText(row.name || "", 120),
-    entityType: cleanArticleText(researchRowValue(row, "entityType", "entity_type") || "", 80),
-    role: cleanArticleText(row.role || "", 80),
+    name: cleanResearchArticleText(row.name || "", 120),
+    entityType: cleanResearchArticleText(researchRowValue(row, "entityType", "entity_type") || "", 80),
+    role: cleanResearchArticleText(row.role || "", 80),
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || ""
   })).filter((item) => item.name), (item) => `${item.name}|${item.entityType}|${item.role}`, 80);
   const timeContexts = (corpus.timeContexts || []).map((row) => ({
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
-    videoPublishedAt: cleanArticleText(researchRowValue(row, "videoPublishedAt", "video_published_at") || "", 120),
-    likelyRecordedAt: cleanArticleText(researchRowValue(row, "likelyRecordedAt", "likely_recorded_at") || "", 120),
-    eventPeriod: cleanArticleText(researchRowValue(row, "eventPeriod", "event_period") || "", 120),
-    currentRelevance: cleanArticleText(researchRowValue(row, "currentRelevance", "current_relevance") || "", 500),
-    timeSensitivity: cleanArticleText(researchRowValue(row, "timeSensitivity", "time_sensitivity") || "", 80),
-    staleIf: cleanArticleText(researchRowValue(row, "staleIf", "stale_if") || "", 400)
+    videoPublishedAt: cleanResearchArticleText(researchRowValue(row, "videoPublishedAt", "video_published_at") || "", 120),
+    likelyRecordedAt: cleanResearchArticleText(researchRowValue(row, "likelyRecordedAt", "likely_recorded_at") || "", 120),
+    eventPeriod: cleanResearchArticleText(researchRowValue(row, "eventPeriod", "event_period") || "", 120),
+    currentRelevance: cleanResearchArticleText(researchRowValue(row, "currentRelevance", "current_relevance") || "", 500),
+    timeSensitivity: cleanResearchArticleText(researchRowValue(row, "timeSensitivity", "time_sensitivity") || "", 80),
+    staleIf: cleanResearchArticleText(researchRowValue(row, "staleIf", "stale_if") || "", 400)
   }));
   const questions = (corpus.questions || []).map((row) => ({
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
-    question: cleanArticleText(row.question || "", 500),
+    question: cleanResearchArticleText(row.question || "", 500),
     priority: Number(row.priority || 3),
-    researchDirection: cleanArticleText(researchRowValue(row, "researchDirection", "research_direction") || "", 120)
+    researchDirection: cleanResearchArticleText(researchRowValue(row, "researchDirection", "research_direction") || "", 120)
   })).filter((item) => item.question);
   const coverageGaps = (corpus.coverageGaps || []).map((row) => ({
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
-    gap: cleanArticleText(row.gap || "", 400),
-    impact: cleanArticleText(row.impact || "", 600),
-    confidenceImpact: cleanArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
+    gap: cleanResearchArticleText(row.gap || "", 400),
+    impact: cleanResearchArticleText(row.impact || "", 600),
+    confidenceImpact: cleanResearchArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
   })).filter((item) => item.gap);
   return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps, topicMap: corpus.topicMap || { topics: [], edges: [] } };
 }
@@ -2306,35 +2334,36 @@ function normalizeEvidenceIds(value) {
 }
 
 function normalizeInvestmentReportStructured(raw = {}, request = {}) {
-  const fallbackTitle = cleanArticleText(request.query || "产业链投研报告", 80);
+  const fallbackTitle = cleanResearchArticleText(request.query || "产业链投研报告", 80) || "产业链投研报告";
+  const cleanTitle = cleanResearchArticleText(raw.title || "", 120);
   return {
-    title: cleanArticleText(raw.title || `${fallbackTitle}：产业链证据与下一步调研`, 120),
-    oneSentence: cleanArticleText(raw.oneSentence || raw.summary || "", 500),
-    thesis: cleanArticleText(raw.thesis || raw.coreThesis || "", 900),
-    topicBoundary: cleanArticleText(raw.topicBoundary || raw.boundary || "", 900),
-    industryMap: asArray(raw.industryMap || raw.valueChainMap).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 10),
-    timeCalibration: asArray(raw.timeCalibration || raw.timeContext).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 10),
-    deltaSincePrior: cleanArticleText(raw.deltaSincePrior || raw.versionDelta || "", 900),
-    evidenceBase: asArray(raw.evidenceBase || raw.evidenceSummary).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 8),
+    title: cleanTitle || `${fallbackTitle}：产业链证据与下一步调研`,
+    oneSentence: cleanResearchArticleText(raw.oneSentence || raw.summary || "", 500),
+    thesis: cleanResearchArticleText(raw.thesis || raw.coreThesis || "", 900),
+    topicBoundary: cleanResearchArticleText(raw.topicBoundary || raw.boundary || "", 900),
+    industryMap: asArray(raw.industryMap || raw.valueChainMap).map((item) => cleanResearchArticleText(item, 500)).filter(Boolean).slice(0, 10),
+    timeCalibration: asArray(raw.timeCalibration || raw.timeContext).map((item) => cleanResearchArticleText(item, 500)).filter(Boolean).slice(0, 10),
+    deltaSincePrior: cleanResearchArticleText(raw.deltaSincePrior || raw.versionDelta || "", 900),
+    evidenceBase: asArray(raw.evidenceBase || raw.evidenceSummary).map((item) => cleanResearchArticleText(item, 500)).filter(Boolean).slice(0, 8),
     hypotheses: asArray(raw.hypotheses || raw.industryChainHypotheses).map((item) => ({
-      title: cleanArticleText(item.title || item.hypothesis || "", 180),
-      logic: cleanArticleText(item.logic || item.why || "", 800),
+      title: cleanResearchArticleText(item.title || item.hypothesis || "", 180),
+      logic: cleanResearchArticleText(item.logic || item.why || "", 800),
       evidenceIds: normalizeEvidenceIds(item.evidenceIds || item.evidence).slice(0, 8),
       counterEvidenceIds: normalizeEvidenceIds(item.counterEvidenceIds || item.counterEvidence).slice(0, 6),
-      timeRisk: cleanArticleText(item.timeRisk || item.staleRisk || "", 500),
-      confidence: cleanArticleText(item.confidence || "", 80)
+      timeRisk: cleanResearchArticleText(item.timeRisk || item.staleRisk || "", 500),
+      confidence: cleanResearchArticleText(item.confidence || "", 80)
     })).filter((item) => item.title || item.logic).slice(0, 6),
     valueChainNodes: asArray(raw.valueChainNodes || raw.nodes).map((item) => ({
-      node: cleanArticleText(item.node || item.name || "", 120),
-      whyItMatters: cleanArticleText(item.whyItMatters || item.why || "", 500),
-      signals: asArray(item.signals || item.leadingSignals).map((signal) => cleanArticleText(signal, 220)).filter(Boolean).slice(0, 6),
-      risks: asArray(item.risks || item.uncertainties).map((risk) => cleanArticleText(risk, 220)).filter(Boolean).slice(0, 6),
+      node: cleanResearchArticleText(item.node || item.name || "", 120),
+      whyItMatters: cleanResearchArticleText(item.whyItMatters || item.why || "", 500),
+      signals: asArray(item.signals || item.leadingSignals).map((signal) => cleanResearchArticleText(signal, 220)).filter(Boolean).slice(0, 6),
+      risks: asArray(item.risks || item.uncertainties).map((risk) => cleanResearchArticleText(risk, 220)).filter(Boolean).slice(0, 6),
       evidenceIds: normalizeEvidenceIds(item.evidenceIds).slice(0, 6)
     })).filter((item) => item.node).slice(0, 10),
-    leadingIndicators: asArray(raw.leadingIndicators).map((item) => cleanArticleText(item, 260)).filter(Boolean).slice(0, 12),
-    risks: asArray(raw.risks || raw.counterArguments).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 10),
-    timeContextRisks: asArray(raw.timeContextRisks || raw.timeRisks).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 8),
-    nextResearchTasks: asArray(raw.nextResearchTasks || raw.nextSteps).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 12)
+    leadingIndicators: asArray(raw.leadingIndicators).map((item) => cleanResearchArticleText(item, 260)).filter(Boolean).slice(0, 12),
+    risks: asArray(raw.risks || raw.counterArguments).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 10),
+    timeContextRisks: asArray(raw.timeContextRisks || raw.timeRisks).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 8),
+    nextResearchTasks: asArray(raw.nextResearchTasks || raw.nextSteps).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 12)
   };
 }
 

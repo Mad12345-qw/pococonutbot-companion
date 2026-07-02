@@ -830,7 +830,7 @@ bot.storage = {
         sourceId: "source:spacex-video-1",
         sourceType: "video",
         platform: "youtube",
-        title: "Inside Starfactory",
+        title: "Inside Starfactory YouTube 技术笔记",
         organization: "Everyday Astronaut",
         publishedAt: "2024-06",
         recordedAt: "2024",
@@ -857,7 +857,8 @@ bot.storage = {
       { sourceId: "source:spacex-video-1", evidenceType: "commercialization", claim: "星舰产能会影响 Starlink 与深空任务的商业节奏。", quoteOriginal: "Launch cadence changes everything.", location: "24:00", whyItMatters: "高频发射是商业闭环的前提。", confidence: 0.74, timeSensitivity: "high", evidenceStrength: "primary_transcript", analysisLens: "commercialization" },
       { sourceId: "source:spacex-video-2", evidenceType: "risk", claim: "监管、试飞事故和发动机可靠性可能打断产线节奏。", quoteOriginal: "Delays can reset the cadence.", location: "06:40", whyItMatters: "产业链机会必须看约束而不是只看愿景。", confidence: 0.73, timeSensitivity: "high", evidenceStrength: "expert_video", analysisLens: "risk" },
       { sourceId: "source:spacex-video-2", evidenceType: "supply_chain", claim: "猛禽发动机产能是星舰放量的关键约束之一。", quoteOriginal: "Raptor production is the pacing item.", location: "09:30", whyItMatters: "发动机节拍会外溢到材料、测试和制造设备需求。", confidence: 0.76, timeSensitivity: "medium", evidenceStrength: "expert_video", analysisLens: "supply_chain" },
-      { sourceId: "source:spacex-video-2", evidenceType: "market_financial", claim: "单次发射成本下降是产业链投资价值的核心假设，但仍需外部数据验证。", quoteOriginal: "Cost per launch is the unlock.", location: "14:15", whyItMatters: "成本假设决定商业航天需求弹性。", confidence: 0.7, timeSensitivity: "high", evidenceStrength: "expert_video", analysisLens: "market_financial" }
+      { sourceId: "source:spacex-video-2", evidenceType: "market_financial", claim: "单次发射成本下降是产业链投资价值的核心假设，但仍需外部数据验证。", quoteOriginal: "Cost per launch is the unlock.", location: "14:15", whyItMatters: "成本假设决定商业航天需求弹性。", confidence: 0.7, timeSensitivity: "high", evidenceStrength: "expert_video", analysisLens: "market_financial" },
+      { sourceId: "source:spacex-video-2", evidenceType: "technology", claim: "### 100 times heavier YouTube 技术笔记", quoteOriginal: "", location: "legacy_heading", whyItMatters: "阅读导航", confidence: 0.1, timeSensitivity: "low", evidenceStrength: "generated_article_backfill", analysisLens: "technology" }
     ],
     entities: [
       { sourceId: "source:spacex-video-1", name: "SpaceX", entityType: "company", role: "subject" },
