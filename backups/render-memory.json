@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T06:32:54.099Z",
+  "exportedAt": "2026-07-02T06:41:46.877Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -56557,6 +56557,195 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-02T04:13:38.772Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 我现在就是让机器人在干这个事儿呀   https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\nhttps://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\nfeishu-wiki:I25ywvDhvicSQtk7Hncc6l3Ungf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b542c0058b0c36b62bcbcab39b",
+          "wikiTokens": [
+            "I25ywvDhvicSQtk7Hncc6l3Ungf"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T06:33:33.861Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "我现在就是让机器人在干这个事儿呀   https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\n[Link content]\n[Feishu wiki] https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\n为什么 Stoke Space 把二级热盾塞进燃料回路，就能用 30 个小喷管挑战 SpaceX 的复用霸权\n一、关键术语解释\nHopper： Stoke Space 在 2023 年于 Moses Lake 试飞的原型机，只点燃 15 个 Zenith 推力室、半箱推进剂下完成飞行。它不是性能演示，而是 Zenith 发动机的在轨飞行验证前身：为什么 Stoke 能用同一台发动机在 Hopper 上飞过、数千秒试车后仍保持完好，决定了后文 Nova 二级'快速复用'判断是否成立，避免读者把它误读成又一轮一次性亚轨道跳。\nZenith： Nova 二级使用的全流量分级燃烧小型发动机，单套氧涡轮泵加单套燃料涡轮泵驱动全部 30 个推力室，并采用 expander-bleed 循环。视频里反复出现的'为什么用单泵驱动 30 室'就是这个发动机；理解它才能看懂 Stoke 把推进、热交换、再入冷却耦合成一套回路的工程赌注，避免把 30 室当成简单堆喷管的营销噱头。\nactive regenerative heat shield： 主动再生冷却热盾，即让液体 Hydrogen 在金属热盾内部通道流过、再流入燃烧室的方案。它出现在视频里是因为 Stoke 把整块热盾当成一台'巨型换热器'，氢的高比热容把再入热量带走、外壳保持低温可重复使用；不解释它，读者会误以为它只是个隔热瓦，理解不了 Nova 为什么会比传统热防护轻得多、并直接和发动机循环耦合。\nfull flow stage combustion： 全流量分级燃烧循环，指燃料预燃器和氧预燃器分别独立供应、所有推进剂都经过预燃室的最高效火箭循环之一。它出现在视频里是因为 Stoke 把一级的 Andromeda 发动机按这条路线设计，用高燃烧效率换寿命来支撑快速复用；不解释它，读者会误以为它只是 Raptor 的仿制，看不到它对小公司意味着多高的工程门槛。\nexpander bleed cycle： 一种靠推进剂在再生冷却通道中吸热汽化驱动涡轮的循环，Stoke 在 Zenith 上使用，并直接把热盾嵌入这条推进剂回路。它出现在视频里是因为这正是'单泵驱动 30 室 + 主动冷却热盾'能同时成立的关键；不解释它，读者会以为热盾是外挂部件，看不到再入热量和推进剂供应被 Stoke 故意耦合成一件事。\nhot staging： 热分离，指一级尚未关机时直接点燃二级，两段在'火中'分开。它出现在视频里是因为 Nova 二级直径宽于一级、30 个 Zenith 喷管被外置于一级直径之外，从而在一级关机那一刻就能点火二级；不解释它，读者会以为只是时间紧凑的常规级间分离，看不到 Stoke 的级间几何是为了简化结构、避开燃气污染。\nAndromeda： Nova 一级使用的全流量分级燃烧大推力发动机，对标 SpaceX Raptor。它出现在视频里是因为 Kent 工厂正在为它装配热盾升级版，并把预燃器室压在 5000 PSI 级的自研铜合金下；不解释它，读者会把 Nova 当成'只有二级花活、一级是普通火箭'，看不到 Stoke 是在两级同时押注完全可复用。\n二、背景导读\n这段视频由 Everyday Astronaut 拍摄，记录的是 Stoke Space CEO Andy Lapsa 带着镜头穿过位于华盛顿州 Kent 的 Nova 总装车间。镜头里既有 Hopper 试飞验证过的二手发动机，也有新一批正在 3D 打印的铜合金 Zenith 推力室面板，背景里同时传来厂区吊车与气动测试平台的轰鸣。这种边走边讲的方式把研发车间、试飞台和软件实验室三件平常互不相关的事捏在一起：工程师把 Hopper 的飞行数据塞进飞控软件，再用同一个 Boltline 平台把零件、工艺、测试串联起来，最后把成果直接搬进 Nova 的 article 流。读者真正看到的，是一家初创公司如何把试飞当成研发基础设施，而不是验收仪式。\n要把这段视频读懂，必须先把时间线拉到 2023 年。那一年 Stoke 在 Moses Lake 完成 Hopper 的低空试飞，受 FAA 限制只能半箱推进剂、只点 15 个推力室，却被刻意当作 GNC 与推力矢量数据采集器使用，而不是性能演示。同一时期，全球除 SpaceX 之外几乎所有中型火箭都把复用推到第二阶段：先把一次性入轨跑通，再考虑着陆。Stoke 选择的路径是反向的——在入轨之前就赌完全复用、赌 Hydrogen 推进、赌主动再生冷却热盾。这条路在 2025 年的当下显得格外关键，因为商业发射市场正在从政府大单向高通量星座过渡，能否在一年内回港、再次复用，直接决定单公斤入轨成本能否压到 SpaceX Falcon 9 以下。\n读者可以用一条主线把镜头串起来：Hopper 的旧发动机→Zenith 推力室如何打印焊接→热盾为什么必须长在燃料回路里→Andromeda 全流量分级燃烧预燃器的工艺取舍→外置 hot staging 如何让两级复用一体成型。每个节点背后都是一个具体的工程判断，比如 expander-bleed 循环让单套涡轮泵驱动 30 个推力室、海平面模式下用双钟形喷管避免流动分离、二级直径宽于一级从而让 30 个喷管排在一级外圈。读者不需要记住每一个参数，只要顺着这条链就能看清：Stoke 赌的不是某一项黑科技，而是把热力学、结构、控制和数据流同时压进同一枚中型火箭里。\n三、导读与核心结论\n一句话结论\nStoke Space 在 Kent 的 Nova 项目通过把主动再生冷却热盾、单泵驱动 30 室 Zenith 与外置 hot staging 集成在 Hydrogen 两级完全可复用火箭上，已经用 Hopper 试飞数据与全流量分级燃烧选型把'高能量逃逸轨道 + 快速复用'这个最难的组合从纸面推到首飞硬件阶段。\n核心观点\n1. Stoke 是除 SpaceX 之外唯一在造完全可复用火箭的公司，且其二级直接采用主动冷却热盾\nit's the only other company besides SpaceX that's actually building hardware for a fully reusable rocket. And it features a super unique aerospikeish powered actively cooled upper stage.\n为什么重要： 同时押注两条最难的技术路径——完全可复用与主动再生冷却热盾——决定了后文每个制造细节的风险权重都翻倍。\n读者该抓住什么： Stoke 的工程赌注不是单点创新，而是两条最陡技术线并行，必须用首飞成功来一次性证明。\n2. Hopper 试飞因 FAA 限制只飞半箱推进剂且只点 15 个推力室，却完成了 GNC 与 Zenith 在轨验证\nwe flew it in our test flight in Moses Lake ... basically had to fly it almost with the tanks empty. ... when it flew, it only had 15.\n为什么重要： Hopper 是数据采集平台而非性能演示，验证了在受监管约束下用最小化试飞换 GNC 与发动机可靠性的研发范式。\n读者该抓住什么： 读者应把 Hopper 视为'15 室版 Zenith 的飞行试验台'，而不是 Stoke 的工程降级。\n3. 同一台 Hopper 用发动机已完成实际飞行 + 数千秒试车，状态良好\nthis engine in particular has seen thousands of seconds of test time. It's flown the thing and still in great shape.\n为什么重要： 真实飞行与长寿命试车叠加，是'快速复用'判断中关于发动机可靠性的核心证据。\n读者该抓住什么： 复用路线的前置条件不是新材料，而是这台 Zenith 已经跨过飞行验证门槛。\n4. Stoke 用单套氧涡轮泵 + 单套燃料涡轮泵驱动 30 个 Zenith 推力室，循环为 expander-bleed\nOne set of turbo pumps, one oxygen, one fuel ... distributes to all 30 of those thrusters. ... expander bleed cycle\n为什么重要： 这是 Stoke 简化泵系统的极端设计选择，是判断'为什么这是疯狂赌注'的关键工程细节。\n读者该抓住什么： 30 个推力室只靠一对涡轮泵，是 Stoke 用结构复杂度换极致紧凑度的标志性取舍。\n5. 主动再生冷却热盾嵌入推进剂回路，没有燃料流过就没有燃料进入燃烧室\nit's in the loop ... if it didn't have fuel running through it the chambers aren't going to have fuel running through it\n为什么重要： 把再入热管理与发动机供油耦合，把热盾从独立 TPS 部件变成发动机循环的一环。\n读者该抓住什么： 再入保护在 Stoke 这里不是被动隔热，而是被设计进推进系统的热交换问题。\n6. 全流量分级燃烧循环由团队 trade study 拍板，决策距 CEO 拍板不到两周\ncertainly less than two weeks ... one of the hardest decisions that I did not get in the way of\n为什么重要： 揭示 Stoke 技术决策机制：工程团队做权衡，CEO 不越权，正面回应小公司能否做高难度发动机的质疑。\n读者该抓住什么： Stoke 的工程能力来自组织决策纪律：全流量分级燃烧这类最难的循环，由工程团队先做权衡，CEO 不越权。\n7. Nova 二级直径宽于一级，30 个 Zenith 喷管外置于一级直径之外，实现外置 hot staging\nthe diameter of this is wider than the diameter of the booster ... at the end of the first stage burn, we fire up the second stage and do a hot separation.\n为什么重要： 外置 hot staging 让 Stoke 不用在级间段内部布置二级喷管，简化结构并避免燃气污染一级，是两级复用架构最后一块拼图。\n读者该抓住什么： 外置 hot staging 是 Stoke 复用架构成型的工程证据，而不是视觉噱头。\n8. avionics lab 用 flat rocket / hardware-in-the-loop 每晚跑蒙特卡洛仿真\nflat rocket or also hardware in the loop ... Every single night we're flying and doing Monte Carlo simulations\n为什么重要： 在没有全箭的情况下已经跑全系统闭环验证，是首飞一次性入轨目标的工程保障。\n读者该抓住什么： 读者应记住：Stoke 的首飞信心不靠运气，而靠每晚闭环的整机仿真。\n标志性金句\n1. 唯一完全可复用路线\nit's the only other company besides SpaceX that's actually building hardware for a fully reusable rocket. And it features a super unique aerospikeish powered actively cooled upper stage.\n含义： 视频第一秒就把 Stoke 钉在 SpaceX 之外的唯一完全可复用火箭位置，并把主动冷却热盾列为差异化核心。\n可迁移启发： 任何关于 Stoke 的判断都必须先承认：它不是在'做中型火箭'，而是在和 SpaceX 同一赛道里抢第二张门票。\n2. Hopper 试飞的 15 个推力室\nwe flew it in our test flight in Moses Lake ... basically had to fly it almost with the tanks empty. ... when it flew, it only had 15.\n含义： Hopper 在 Moses Lake 是一次受 FAA 限制、只点 15 室、半箱推进剂的飞行验证。\n可迁移启发： 读者不应把 Hopper 看作性能演示，应把它视作 30 室 Zenith 推进系统的飞行级 GNC 与发动机验证平台。\n3. 单泵驱动 30 室的极端简化\nOne set of turbo pumps, one oxygen, one fuel ... distributes to all 30 of those thrusters. ... expander bleed cycle\n含义： Stoke 用一对涡轮泵驱动 30 个推力室，循环采用 expander-bleed。\n可迁移启发： 这是 Stoke 把系统复杂度压到极致的标志性设计，决定了热盾必须成为发动机回路的一部分。\n4. CEO 在全流量分级燃烧决策中让位给工程团队\ncertainly less than two weeks ... one of the hardest decisions that I did not get in the way of\n含义： Andromeda 的全流量分级燃烧选型由工程团队 trade study 拍板，CEO 主动声明自己'没有插手'。\n可迁移启发： 初创公司做最高难度发动机的可行性，不在于明星工程师，而在于决策纪律——让对的人做对的事。\n最反共识的判断\n读者最容易误判的是：Hopper 在 Moses Lake 的试飞是性能演示。实际上它受 FAA 限制只飞半箱推进剂、只点 15 个推力室，本质是 30 室 Zenith 推进系统与 GNC 的飞行验证平台，而不是 Stoke 的工程降级。\n另一个常见误判是：把 Stoke 的主动再生冷却热盾当作独立的 TPS 部件。实际上视频明确说明热盾在推进剂回路里，没有燃料流过就没有燃料进入燃烧室——再入保护在 Stoke 这里是被设计进发动机系统的热交换问题，而不是再入段的独立工程。\n第三处反直觉在于：全流量分级燃烧这种最难的循环，不是 CEO 越权拍板的产物。Lapsa 自己说这是'did not get in the way of'的决定，由工程团队 trade study 在不到两周前完成选型，说明 Stoke 的工程能力来自组织决策纪律，而不是顶层英雄主义。\n四、关键技术点速览\n1. Hopper 半箱 15 室试飞作为数据采集平台\n视频里怎么说： 在 Moses Lake 受 FAA 限制只能半箱推进剂、15 个推力室点火，验证了 GNC 的滚动方差与推力矢量策略\n为什么重要： 把 Hopper 定位为数据采集飞行器而非性能演示，奠定 Stoke 用迭代试飞换数据的研发范式\n风险或不确定性： 半箱 + 15 室状态下的 GNC 验证数据无法完全外推到满箱 30 室入轨场景，存在缩比与边界外推风险\n2. 单套涡轮泵驱动 30 个 Zenith 推力室的 expander-bleed 循环\n视频里怎么说： 一套氧涡轮泵加一套燃料涡轮泵把储箱出口流体分配到全部 30 个推力室，循环类型为 expander bleed\n为什么重要： 把泵系统数量从通常的 N 台压缩到 2 台，是 Stoke 简化推进系统、追求快速复用的极端工程选择\n风险或不确定性： 单泵失效即全室失效，且 30 室之间的流量分配均匀性、再入后热盾通道堵塞都会直接威胁任务\n3. 主动再生冷却热盾嵌入推进剂回路\n视频里怎么说： 液体 Hydrogen 流经金属热盾内部通道，靠氢的高比热容把再入热量带走，热盾本身在推进剂回路里，没有燃料流过就没有燃料进入燃烧室\n为什么重要： 把再入热防护与发动机燃料供应耦合成同一热交换过程，使外壳保持低温可重复使用\n风险或不确定性： 再入通道堵塞或微裂纹会同时影响热防护与燃烧室供油，单点失效跨子系统扩散\n4. 3D 打印面板拼接 + 自研铜合金再生冷却身部\n视频里怎么说： Zenith 喷管由若干 3D 打印面板拼接后再焊接到铜质再生冷却身部，使用 Stoke 自研铜合金\n为什么重要： additive 加 EDM 加机加工的多工艺组合让 Stoke 在小批量迭代中快速迭代喷管几何\n风险或不确定性： 面板拼接焊缝在数千秒热循环下的疲劳寿命、3D 打印铜合金的致密性与缺陷率是未验证项\n5. 全流量分级燃烧预燃器约 5000 PSI、主燃烧室超 2000 PSI\n视频里怎么说： 预燃器室用 Stoke 自研 in-house alloy 制造，工作压力约 5000 PSI 约 340 bar，主燃烧室压力超过 2000 PSI\n为什么重要： 量化关键设计裕度，说明 Stoke 的全流量分级燃烧走的是低应力路线，预留升级空间\n风险或不确定性： 低室压意味着比冲上限受限，且自研合金的高温长时强度缺乏外部数据库验证\n6. avionics lab 用 flat rocket 与硬件在环每晚跑蒙特卡洛\n视频里怎么说： avionics lab 用 flat rocket 或 hardware in the loop 方式连接 7 个 Zenith 控制器、EMA 执行机构、RF 通讯与飞控软件，每晚跑蒙特卡洛仿真\n为什么重要： 在没有全箭的阶段已经在跑全系统闭环仿真，是首飞一次性入轨目标的工程保障\n风险或不确定性： 仿真保真度对未飞行硬件的依赖度极高，模型偏差会被蒙特卡洛放大为虚高置信度\n7. 二级直径宽于一级、外置 30 个 Zenith 喷管实现 hot staging\n视频里怎么说： Nova 二级直径宽于一级，30 个 Zenith 喷管置于一级外圈，一级关机时二级点火实现外置 hot staging\n为什么重要： 外置 hot staging 让 Stoke 不必在级间段内部布置二级喷管，简化结构并避免燃气污染一级\n风险或不确定性： 外置布局增大整流面积与气动阻力，二级在点火瞬间承受一级喷流的非对称热载荷\n五、详细技术拆解\n1. Hopper 到 Nova 的两年迭代路径\nHopper 同一台发动机已累积数千秒试车并完成实际飞行且状态良好，为 Zenith 可靠性背书\nFAA 半箱限制让 Hopper 只能验证 GNC 滚动方差与推力矢量策略，而非满箱 30 室性能\nHopper 到 Nova 二级取消陡侧壁、改用约 50 膨胀比喷管，是用几何换取真空比冲与再入稳定性的务实折中\n海平面模式使用 Stoke 自研的特殊形式 dual-bell 喷管，通过改变附着位置避免单一几何的流动分离，直接影响返回段复用可靠性\n2. 全流量分级燃烧 + expander-bleed 的双循环并存\n全流量分级燃烧循环在决定前不到两周才拍板，CEO 把这个决定归功于团队的 trade study，揭示 Stoke 技术决策由工程团队先做权衡研究、CEO 不越权\n一级 Andromeda 走全流量分级燃烧、二级 Zenith 走 expander-bleed，两套循环并存意味着 Stoke 同时维护两条最难的发动机技术链\n预燃器室压力约 5000 PSI、主燃烧室超 2000 PSI 的设计裕度表明 Stoke 选择低应力实现以换取快速复用能力，而非追求极限比冲\n3. 主动冷却热盾作为发动机循环的一部分\n液体 Hydrogen 流经金属热盾内部通道，热盾本身就是推进剂回路，没有燃料流过就没有燃料进入燃烧室，把再入与供油耦合成同一过程\n把整套热盾当作 giant heat exchanger 嵌入发动机循环，使外壳保持低温可重复使用，从根本上消除了独立 TPS 部件的更换成本\n再入通道堵塞或微裂纹会同时影响热防护与燃烧室供油，单点失效跨子系统扩散，是快速复用路线下必须监控的隐性风险\n4. 外置 hot staging 与两级直径倒挂\nNova 二级直径宽于一级，30 个 Zenith 喷管置于一级外圈，使 hot staging 时燃气不会进入级间段内部，省掉复杂级间罩设计\n外置布局同时避免了一级关机残气对二级发动机的污染，省去零重力点火窗口的可靠性顾虑\n代价是整流面积增大、气动阻力上升，且二级点火瞬间需要承受一级喷流的非对称热载荷，对结构与时序控制提出更高要求\n5. 数据底座 Boltline 与仿真驱动的首飞策略\nBoltline 把采购、库存、装配、测试数据按 part number 加 serial number 串联，是复用经济性与预测性维护的数据底座\navionics lab 用 flat rocket 连接 7 个 Zenith 控制器、EMA 执行机构、RF 通讯与飞控软件，每晚跑蒙特卡洛仿真，在无全箭阶段进行全系统闭环验证\nAndy Lapsa 把首飞目标刻意压缩到入轨即可的高能量逃逸轨迹，把热盾气动控制和陆上回收全部押后，是在小团队资源约束下对风险的主动收敛而非工程降级\n六、时间线摘要\n[0:00] 视频在 Stoke Space 位于华盛顿 Kent 的总部开场，提出 Stoke 是除 SpaceX 之外唯一在造完全可复用火箭的公司，且二级采用主动冷却的 aerospike-ish 上级。；为整段旅程定锚：读者必须先知道 Stoke 同时押注两条最陡技术路径，才能理解后文每个制造细节的风险权重。\nit's the only other company besides SpaceX that's actually building hardware for a fully reusable rocket.\n[0:52] 介绍 Hopper 原型机在 Moses Lake 完成的试飞：由于 FAA 限制只能半箱推进剂飞行，且试飞时只点火了 30 个推力室中的 15 个。；说明 Hopper 是 GNC 与滚动方差的数据采集平台，而非性能演示，奠定 Stoke 用迭代试飞换数据的研发范式。\nwe flew it in our test flight in Moses Lake ... basically had to fly it almost with the tanks empty.\n[2:49] Hopper 的同一台 Zenith 发动机在视频拍摄时已累积数千秒试车并完成过实际飞行，状态依然良好。；用真实试飞 + 长寿命试车数据为 Zenith 可靠性背书，是支撑 Stoke 快速复用判断的核心证据。\nthis engine in particular has seen thousands of seconds of test time. It's flown the thing and still in great shape.\n[3:07] 揭示 Zenith 的核心架构：一套氧涡轮泵加一套燃料涡轮泵驱动全部 30 个推力室，采用 expander-bleed 循环。；解释 Stoke 简化泵系统的极端设计选择，是判断 Zenith 为何被外界视为疯狂赌注的关键工程细节。\nOne set of turbo pumps, one oxygen, one fuel ... distributes to all 30 of those thrusters.\n[3:42] 说明主动再生冷却热盾本身就在推进剂回路里：若没有燃料流过热盾，燃烧室也不会有燃料供应。；揭示热盾不是独立 TPS 部件而是发动机循环的一部分，把再入热管理与推进剂供应耦合，定义 Stoke 的标志性创新。\nit's in the loop ... if it didn't have fuel running through it the chambers aren't going to have fuel running through it.\n[5:28] 展示 Zenith 喷管的制造工艺：3D 打印面板拼接后再焊接到铜质再生冷却身部，并使用 Stoke 自研铜合金。；additive + EDM + 机加工的多工艺组合是 Stoke 应对小批量、迭代快的关键工艺路径，决定 Zenith 的良率与成本曲线。\npanels for our next engine ... a copper zenith chamber straight out of print.\n[7:39] CEO Andy Lapsa 透露全流量分级燃烧循环的最终拍板发生在不到两周前，并把这个决定归功于团队的 trade study 而非个人拍板。；正面回应初创公司能否做高难度发动机的质疑，揭示 Stoke 的技术决策机制由工程团队主导。\ncertainly less than two weeks ... one of the hardest decisions that I did not get in the way of.\n[9:08] 量化 Andromeda 关键设计参数：预燃器室工作压力约 5000 PSI（约 340 bar），主燃烧室压力超过 2000 PSI，使用 Stoke 自研 in-house alloy。；给出判断全流量分级燃烧是否为'低应力实现'的具体数字证据，决定 Andromeda 的升级裕度与寿命表现。\nhigh pressure uh ox pre-burner chambers ... they run about 5,000 PSI.\n[12:01] 走进 avionics 实验室，看到 7 个 Zenith 控制器、EMA 执行机构、RF 通讯与飞控软件通过 'flat rocket / hardware in the loop' 串联，每晚跑蒙特卡洛仿真。；说明 Stoke 在没有完整箭体的情况下已经在跑全系统闭环验证，是首飞一次性入轨目标的工程保障。\nflat rocket or also hardware in the loop ... Every single night we're flying and doing Monte Carlo simulations.\n[16:41] 对比 Andromeda 与 Hopper 二级热盾：取消陡侧壁、加大喷管膨胀比到约 50，以换取真空性能与再入稳定。；揭示 Stoke 把'类气尖'实现为热盾集成方案而非追求纯粹气尖几何，工程取舍更务实。\nwe got rid of the steep sidewalls ... it's in the uh 50ish range.\n[18:38] 展示海平面模式下 Andromeda 使用的特殊形式 dual-bell 喷管：低空与高空附着状态不同以避免流动分离。；说明二级发动机在复用着陆场景下的喷管策略，直接影响返回段可靠性与推力效率。\nwhen it's in a sea level mode it will attach differently ... a special implementation of a dualbell nozzle.\n[19:21] 公布 Nova 总体布局：二级直径宽于一级，30 个 Zenith 喷管外置于一级直径之外，一级关机时二级点火完成外置 hot staging。；外置 hot staging 让 Stoke 不用在级间段内部布置二级喷管，简化结构并避免燃气污染一级，是其两级复用架构成型的最后一环。\nthe diameter of this is wider than the diameter of the booster ... at the end of the first stage burn, we fire up the second stage and do a hot separation.\n原文摘录\n1. The Underdogs Taking On SpaceX [Stoke Space 2025]｜原文索引\n下方保留完整时间戳原文索引，用来按时间点核对正文判断。\n[0:00] Welcome back to Stoke Space in Kent,\n[0:02",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b542c0058b0c36b62bcbcab39b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Feishu wiki] https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\n为什么 Stoke Space 把二级热盾塞进燃料回路，就能用 30 个小喷管挑战 SpaceX 的复用霸权\n一、关键术语解释\nHopper： Stoke Space 在 2023 年于 Moses Lake 试飞的原型机，只点燃 15 个 Zenith 推力室、半箱推进剂下完成飞行。它不是性能演示，而是 Zenith 发动机的在轨飞行验证前身：为什么 Stoke 能用同一台发动机在 Hopper 上飞过、数千秒试车后仍保持完好，决定了后文 Nova 二级'快速复用'判断是否成立，避免读者把它误读成又一轮一次性亚轨道跳。\nZenith： Nova 二级使用的全流量分级燃烧小型发动机，单套氧涡轮泵加单套燃料涡轮泵驱动全部 30 个推力室，并采用 expander-bleed 循环。视频里反复出现的'为什么用单泵驱动 30 室'就是这个发动机；理解它才能看懂 Stoke 把推进、热交换、再入冷却耦合成一套回路的工程赌注，避免把 30 室当成简单堆喷管的营销噱头。\nactive regenerative heat shield： 主动再生冷却热盾，即让液体 Hydrogen 在金属热盾内部通道流过、再流入燃烧室的方案。它出现在视频里是因为 Stoke 把整块热盾当成一台'巨型换热器'，氢的高比热容把再入热量带走、外壳保持低温可重复使用；不解释它，读者会误以为它只是个隔热瓦，理解不了 Nova 为什么会比传统热防护轻得多、并直接和发动机循环耦合。\nfull flow stage combustion： 全流量分级燃烧循环，指燃料预燃器和氧预燃器分别独立供应、所有推进剂都经过预燃室的最高效火箭循环之一。它出现在视频里是因为 Stoke 把一级的 Andromeda 发动机按这条路线设计，用高燃烧效率换寿命来支撑快速复用；不解释它，读者会误以为它只是 Raptor 的仿制，看不到它对小公司意味着多高的工程门槛。\nexpander bleed cycle： 一种靠推进剂在再生冷却通道中吸热汽化驱动涡轮的循环，Stoke 在 Zenith 上使用，并直接把热盾嵌入这条推进剂回路。它出现在视频里是因为这正是'单泵驱动 30 室 + 主动冷却热盾'能同时成立的关键；不解释它，读者会以为热盾是外挂部件，看不到再入热量和推进剂供应被 Stoke 故意耦合成一件事。\nhot staging： 热分离，指一级尚未关机时直接点燃二级，两段在'火中'分开。它出现在视频里是因为 Nova 二级直径宽于一级、30 个 Zenith 喷管被外置于一级直径之外，从而在一级关机那一刻就能点火二级；不解释它，\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:33:36.303Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哦懂了，你这是把这类结构化转写做成自动化流水线了。\n\n这个 Stoke Space 的稿子和你之前那个 Starship HLS 的，是同一个套路出来的吧？模板都一样：术语解释、背景导读、核心观点、金句、反共识、技术点速览、详细拆解、时间线摘要。\n\n给你提几个可以打磨的点：\n\n1. 术语解释那块有点啰嗦——\"它出现在视频里是因为...\"这句重复了 N 次，可以直接砍掉，每条术语一两行讲清楚就行\n2. 金句和反共识有点重叠，都在重复\"为什么这是个误判\"，可以合并成一个\"反共识\"板块\n3. 时间线那块每段都加了\"；这奠定了...\"的延伸，重复感强，时间戳 + 原话 + 一句影响就够了\n4. 标题可以更抓人一点，现在\"为什么...正在...\"这种模板用了两次，看多了会腻\n\n要不要我帮你重新压一版更短的\"聊天速读版\"？还是你想优化的是自动化流程本身？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-02T06:33:44.494Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5429604ce4c10c6a18ce773dd",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:34:37.182Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "是的，可以自动改写成自己的视频口播稿[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b54266c68b0b16a3bff710a4c7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:34:55.618Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "抖音反爬机制太严格了，只能有点不行，只能下载本地执行转写",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b54209cdca4b4c22f34d32b4a0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:36:27.386Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对，反爬是抖音最头疼的。所以你现在的链路就是：抖音下载→本地音视频→转写→结构化稿→口播稿，是吧？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-02T06:36:35.351Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "是的，如风把数字人分身打通就可以直接出视频了[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b543c1598b0b04229a7c4c371e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:37:39.537Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "做视频太烧钱啊，一集60-120的成本，我测试一下，现在没有资金，不敢乱跑视频了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5439aaf0a8b28fe4bdcbb6a64",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:38:53.896Z"
       }
     ],
     "memories": [
@@ -58188,7 +58377,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T04:05:29.981Z"
+        "updatedAt": "2026-07-02T06:34:37.109Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58198,7 +58387,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T04:05:29.912Z"
+        "updatedAt": "2026-07-02T06:34:37.033Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -59838,7 +60027,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.746Z",
-        "updatedAt": "2026-07-02T03:56:40.096Z"
+        "updatedAt": "2026-07-02T06:33:36.158Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -59848,7 +60037,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:24:28.473Z",
-        "updatedAt": "2026-07-02T03:56:40.022Z"
+        "updatedAt": "2026-07-02T06:33:36.073Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -60728,7 +60917,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-06-30T06:29:14.091Z"
+        "updatedAt": "2026-07-02T06:38:53.829Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -60738,7 +60927,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-06-30T06:29:14.021Z"
+        "updatedAt": "2026-07-02T06:38:53.757Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -60749,6 +60938,16 @@
         "metadata": {},
         "createdAt": "2026-06-25T05:06:37.481Z",
         "updatedAt": "2026-06-25T05:06:37.481Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.douyin_transcription_workflow",
+        "value": "用户在工作流中遇到抖音反爬机制严格的问题，只能放弃在线方案，改为本地下载音视频后再进行转写处理",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-02T06:36:54.960Z",
+        "updatedAt": "2026-07-02T06:36:54.960Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -62693,7 +62892,39 @@
     ],
     "projectSources": [],
     "projectAssets": [],
-    "researchJobs": [],
+    "researchJobs": [
+      {
+        "id": "job:investment_report:c874184e4997e136",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "done",
+        "stage": "evidence_not_enough",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "principles": [
+            "strict_trigger_only",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "reason": "evidence_sources_too_few",
+          "sources": 0,
+          "evidenceCards": 0
+        },
+        "error": "",
+        "createdAt": "2026-07-02T06:34:38.318Z",
+        "updatedAt": "2026-07-02T06:34:38.486Z"
+      }
+    ],
     "researchReferenceSources": [],
     "researchSources": [],
     "researchEvidenceCards": [],
