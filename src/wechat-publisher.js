@@ -1,5 +1,4 @@
-import { Resvg } from "@resvg/resvg-js";
-import { parseJsonObject, truncate } from "./utils.js";
+import { truncate } from "./utils.js";
 import { logEvent } from "./runtime-log.js";
 
 function compactLines(lines = []) {
@@ -45,6 +44,129 @@ function normalizeTitle(value = "", fallback = "") {
 function normalizeDigest(value = "", fallback = "") {
   const text = stripMarkdown(value || fallback).replace(/[<>]/g, "").trim();
   return (text || "一篇来自小椰工作流的深度整理，适合对同一主题长期关注的人收藏阅读。").slice(0, 120);
+}
+
+function cleanArticleText(value = "", max = 1200) {
+  return stripMarkdown(String(value || ""))
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, max);
+}
+
+function stripFeishuSourceMarkdown(markdown = "") {
+  return String(markdown || "")
+    .replace(/^---[\s\S]*?---\s*/m, "")
+    .replace(/^>\s*主题聚合：.*$/gm, "")
+    .replace(/^>\s*来源类型：.*$/gm, "")
+    .replace(/^\s*\[\[[^\]]+]]\s*$/gm, "")
+    .replace(/\[\[([^|\]]+)\|([^\]]+)]]/g, "$2")
+    .replace(/\[\[([^\]]+)]]/g, "$1")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function collapseTranscriptDumpForWechat(markdown = "") {
+  const text = String(markdown || "");
+  return text
+    .replace(
+      /\n###\s+原文摘录\s*\n```(?:text)?[\s\S]*?```\s*(?=\n##\s+[一二三四五六七八九十]+、|\n###\s+|\s*$)/g,
+      "\n### 原文核对\n本文保留关键时间线和精选原文证据，完整原文索引可回到来源材料核对。\n"
+    )
+    .replace(/```(?:text)?\n([\s\S]*?)```/g, (_match, inner) => {
+      const lines = String(inner || "").split(/\r?\n/).map((line) => line.trim()).filter(Boolean).slice(0, 12);
+      return lines.length ? lines.map((line) => `> ${line}`).join("\n") : "";
+    });
+}
+
+function extractWechatCoverAnchors(title = "", markdown = "") {
+  const text = stripMarkdown(`${title}\n${markdown}`);
+  const terms = [];
+  const weakLabels = /^(为什么重要|读者该抓住什么|视频里怎么说|风险或不确定性|含义|一句话结论|核心观点|原文证据|资料来源|背景导读|时间线摘要)$/;
+  const push = (value) => {
+    const clean = String(value || "")
+      .replace(/[，。！？；：、,.!?;:()[\]{}"'“”‘’]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (clean && clean.length >= 2 && clean.length <= 48 && !weakLabels.test(clean) && !terms.includes(clean)) terms.push(clean);
+  };
+  for (const match of text.matchAll(/\b[A-Z][A-Za-z0-9+.-]{2,}\b/g)) {
+    push(match[0]);
+  }
+  for (const match of String(markdown || "").matchAll(/\*\*([^*：:]{2,40})[：:]/g)) {
+    push(match[1]);
+  }
+  for (const match of text.matchAll(/[\u4e00-\u9fff]{2,8}/g)) {
+    const value = match[0];
+    if (!/^(这段|视频|读者|为什么|重要|核心|观点|资料|来源|问题|结论|文章|如果|一个|不是|需要|可以)$/.test(value)) {
+      push(value);
+    }
+  }
+  return terms.slice(0, 12);
+}
+
+function buildWechatCoverPrompt({ title = "", digest = "", bodyMarkdown = "" } = {}) {
+  const anchors = extractWechatCoverAnchors(title, bodyMarkdown);
+  const context = cleanArticleText(firstParagraph(bodyMarkdown) || digest || title, 360);
+  return [
+    "Create a premium editorial cover image for a Chinese WeChat official account article.",
+    "Format: wide 2.35:1 feature image, polished magazine/research newsletter style, high contrast, strong focal subject, mobile-readable composition.",
+    `Article title: ${title}`,
+    anchors.length ? `Concrete visual anchors from the article: ${anchors.join(", ")}` : "",
+    context ? `Central context: ${context}` : "",
+    "Visual direction: turn the article's real subject, industry setting, technical object, or strategic tension into one specific scene; avoid generic abstract gradients.",
+    "No text, no Chinese characters, no English letters, no logos, no watermarks, no UI screenshots, no fake charts with readable numbers."
+  ].filter(Boolean).join("\n");
+}
+
+function buildWechatLeadImagePrompt({ title = "", bodyMarkdown = "" } = {}) {
+  const anchors = extractWechatCoverAnchors(title, bodyMarkdown).slice(0, 8);
+  return [
+    "Create one clean inline editorial illustration for a WeChat article section.",
+    "Style: refined explainer graphic, specific to the article topic, not decorative filler.",
+    `Topic: ${title}`,
+    anchors.length ? `Use these concrete anchors: ${anchors.join(", ")}` : "",
+    "No text, no logos, no watermarks, no unreadable pseudo-labels."
+  ].filter(Boolean).join("\n");
+}
+
+function normalizeWechatMarkdownFromFeishu(candidate = {}) {
+  const source = stripFeishuSourceMarkdown(candidate.markdown || "");
+  const title = normalizeTitle(candidate.title || extractMarkdownTitle(source), extractMarkdownTitle(source));
+  let body = source.replace(/^#\s+.+\n+/, "").trim();
+  body = collapseTranscriptDumpForWechat(body)
+    .replace(/^##\s+[八九十]+、出处与链接/gm, "## 资料来源")
+    .replace(/^##\s+[八九十]+、资料来源与证据索引/gm, "## 资料来源与证据索引")
+    .replace(/\[证据\s+([A-Z]?\d+)]\(#证据-[^)]+\)/gi, "证据 $1")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  const first = firstParagraph(body);
+  return {
+    title,
+    digest: normalizeDigest(first, title),
+    openingHook: first.slice(0, 220),
+    bodyMarkdown: body,
+    cta: "",
+    coverPrompt: buildWechatCoverPrompt({ title, digest: first, bodyMarkdown: body }),
+    leadImagePrompt: buildWechatLeadImagePrompt({ title, bodyMarkdown: body })
+  };
+}
+
+function assertWechatSourceArticleReady(article = {}, candidate = {}) {
+  const title = cleanArticleText(article.title, 100);
+  const body = String(article.bodyMarkdown || "");
+  if (!candidate.markdown) throw new Error("公众号草稿需要已生成的飞书成品文档内容；当前候选缺少正文。");
+  if (!title || title.length < 8) throw new Error("公众号草稿格式检查失败：标题太弱。");
+  if (!body || stripMarkdown(body).length < 700) throw new Error("公众号草稿格式检查失败：正文太短，不能作为公众号草稿。");
+  const forbidden = [
+    /YouTube\s*技术笔记/i,
+    /阅读导航|输出语言|内容形态|字幕语言|raw transcript/i,
+    /Obsidian|Markdown/i,
+    /我先按|接下来我会|可直接进|这部分没有生成到有效内容|证据基线占位/i,
+    /<\/?details|<summary/i,
+    /```/
+  ];
+  const hit = forbidden.find((pattern) => pattern.test(`${title}\n${body}`));
+  if (hit) throw new Error(`公众号草稿格式检查失败：检测到不适合对外发布的内容 ${hit}`);
 }
 
 function inlineMarkdown(value = "") {
@@ -156,22 +278,6 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
   return html.join("\n");
 }
 
-function createFallbackCover({ title = "", subtitle = "" } = {}) {
-  const safeTitle = escapeHtml(stripMarkdown(title).slice(0, 42));
-  const safeSubtitle = escapeHtml(stripMarkdown(subtitle).slice(0, 70));
-  const svg = `
-  <svg width="900" height="383" viewBox="0 0 900 383" xmlns="http://www.w3.org/2000/svg">
-    <rect width="900" height="383" fill="#f7faf8"/>
-    <rect x="38" y="38" width="824" height="307" rx="24" fill="#ffffff" stroke="#d8e6dd" stroke-width="2"/>
-    <rect x="72" y="72" width="86" height="8" rx="4" fill="#07C160"/>
-    <text x="72" y="160" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#111827">${safeTitle}</text>
-    <text x="72" y="220" font-family="Arial, sans-serif" font-size="24" fill="#4b5563">${safeSubtitle}</text>
-    <text x="72" y="292" font-family="Arial, sans-serif" font-size="20" fill="#6b7280">Xiaoye Research Notes</text>
-  </svg>`;
-  const png = new Resvg(svg, { fitTo: { mode: "width", value: 900 } }).render().asPng();
-  return { buffer: Buffer.from(png), mimeType: "image/png" };
-}
-
 export class WeChatPublisher {
   constructor({ config, ai, imageGenerator }) {
     this.config = config;
@@ -252,76 +358,18 @@ export class WeChatPublisher {
     return data.url;
   }
 
-  async buildDistributionPlan(candidate = {}, { generateImages = false } = {}) {
-    const markdown = candidate.markdown || "";
-    const fallbackTitle = normalizeTitle(candidate.title || extractMarkdownTitle(markdown));
-    const fallbackDigest = normalizeDigest(firstParagraph(markdown));
-    const fallback = {
-      title: fallbackTitle,
-      digest: fallbackDigest,
-      openingHook: `这篇不是简单搬运，而是把原始材料重新整理成一条可判断、可收藏、可继续追问的线索。`,
-      cta: this.config.wechatMpCtaText || "如果你也在长期关注 AI、产业链和内容自动化，欢迎关注这个号。后面会继续把小椰筛出来的高价值研究整理成可读版本。",
-      coverPrompt: `A clean editorial cover image for a Chinese WeChat article about: ${fallbackTitle}. Sophisticated, readable, high signal, no text, no logos.`,
-      leadImagePrompt: `A concise editorial infographic style illustration for: ${fallbackTitle}. No text, no logos.`
-    };
-    if (!this.ai) return fallback;
-    try {
-      const raw = await this.ai.chat([
-        {
-          role: "system",
-          content: [
-            "You are a WeChat official account distribution editor.",
-            "Rewrite a generated research article for traffic and conversion without clickbait.",
-            "Return strict JSON only."
-          ].join("\n")
-        },
-        {
-          role: "user",
-          content: JSON.stringify({
-            sourceType: candidate.sourceType || "",
-            title: candidate.title || "",
-            feishuDocUrl: candidate.feishuDocUrl || "",
-            generateImages,
-            articleExcerpt: markdown.slice(0, 8000),
-            requiredSchema: {
-              title: "Chinese WeChat title, under 64 chars, concrete and curiosity-driven",
-              digest: "under 120 Chinese chars",
-              openingHook: "one short Chinese paragraph explaining why this is worth reading now",
-              cta: "one short Chinese CTA for same-frequency readers",
-              coverPrompt: "English image prompt, no text/logos/watermarks",
-              leadImagePrompt: "English image prompt, no text/logos/watermarks"
-            }
-          })
-        }
-      ], {
-        maxTokens: 900,
-        temperature: 0.45,
-        responseFormat: { type: "json_object" },
-        timeoutMs: this.config.wechatMpAiTimeoutMs || 60000
-      });
-      const parsed = parseJsonObject(raw);
-      return {
-        title: normalizeTitle(parsed.title, fallback.title),
-        digest: normalizeDigest(parsed.digest, fallback.digest),
-        openingHook: String(parsed.openingHook || fallback.openingHook).slice(0, 220),
-        cta: String(parsed.cta || fallback.cta).slice(0, 240),
-        coverPrompt: String(parsed.coverPrompt || fallback.coverPrompt).slice(0, 1000),
-        leadImagePrompt: String(parsed.leadImagePrompt || fallback.leadImagePrompt).slice(0, 1000)
-      };
-    } catch (error) {
-      logEvent("warn", "WeChat distribution plan fallback used", {
-        candidateId: candidate.id || "",
-        error: error.message
-      });
-      return fallback;
-    }
+  async buildDistributionPlan(candidate = {}, _options = {}) {
+    const article = normalizeWechatMarkdownFromFeishu(candidate);
+    assertWechatSourceArticleReady(article, candidate);
+    article.cta = this.config.wechatMpCtaText || "如果你也在长期追踪 AI、机器人、商业航天和产业链机会，欢迎关注这个号。后面会继续把小椰筛出来的高价值材料整理成可读、可复核的版本。";
+    return article;
   }
 
   async generateImageOrFallback(prompt, plan) {
     if (this.imageGenerator?.enabled) {
       return this.imageGenerator.generate(prompt);
     }
-    return createFallbackCover({ title: plan.title, subtitle: plan.digest });
+    throw new Error("微信公众号封面生图未配置，且没有可用默认 thumb_media_id；已停止创建草稿，避免使用千篇一律的低质封面。");
   }
 
   async createDraft(candidate = {}, { generateImages = false, operator = "" } = {}) {
@@ -353,7 +401,7 @@ export class WeChatPublisher {
       }
     }
 
-    const content = markdownToWechatHtml(candidate.markdown || "", {
+    const content = markdownToWechatHtml(plan.bodyMarkdown || "", {
       leadImageUrl,
       openingHook: plan.openingHook,
       cta: plan.cta

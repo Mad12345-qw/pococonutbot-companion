@@ -4,6 +4,7 @@ import { FeishuBot } from "../src/feishu.js";
 import { FeishuWorkspaceClient } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
+import { WeChatPublisher } from "../src/wechat-publisher.js";
 
 const bot = Object.create(FeishuBot.prototype);
 bot.config = {
@@ -1079,6 +1080,185 @@ assertEqual(
     richInsertResult.evidenceLinksRewritten === 1 &&
     decodeURIComponent(rewrittenEvidenceLink) === "https://rcnx3mn0vg5z.feishu.cn/docx/doc_test_123#evidence_heading_1"
   ),
+  "true"
+);
+
+class TestWeChatPublisher extends WeChatPublisher {
+  constructor(args) {
+    super(args);
+    this.lastDraftPayload = null;
+  }
+
+  async accessTokenForMp() {
+    return "test-token";
+  }
+
+  async uploadPermanentImage() {
+    return { media_id: "thumb_media_test", url: "https://mmbiz.qpic.cn/test-cover.png" };
+  }
+
+  async wechatJson(path, body) {
+    this.lastDraftPayload = { path, body };
+    return { media_id: "draft_media_test" };
+  }
+}
+
+const wechatPublisher = new TestWeChatPublisher({
+  config: {
+    wechatMpEnabled: true,
+    wechatMpAppId: "wx-test",
+    wechatMpAppSecret: "secret-test",
+    wechatMpAuthor: "小椰",
+    wechatMpCtaText: "关注小椰，继续追踪产业链和技术拐点。",
+    wechatMpOpenComment: false,
+    wechatMpOnlyFansCanComment: false
+  },
+  ai: null,
+  imageGenerator: {
+    enabled: true,
+    generate: async () => ({ buffer: Buffer.from("test-image"), mimeType: "image/png" })
+  }
+});
+const wechatFeishuMarkdown = [
+  "---",
+  "title: test",
+  "---",
+  "> 主题聚合：[[商业航天]]",
+  "> 来源类型：[[YouTube 视频研究]]",
+  "# 星舰工厂里的产线化赌局：火箭正在变成制造业问题",
+  "",
+  "## 一、关键术语解释",
+  "- **Starship：** SpaceX 的超重型飞船系统，这里重点不是单次发射，而是产线节奏和复用逻辑。",
+  "- **Raptor：** 星舰使用的发动机，决定产线能不能持续交付和快速测试。",
+  "- **Stage Zero：** 发射塔、地面管线和捕获系统组成的基础设施，是高频发射的地面瓶颈。",
+  "",
+  "## 二、背景导读",
+  "这段视频的价值不在于参观工厂本身，而在于它把 SpaceX 的核心矛盾摆到台前：如果火箭仍然像传统航天项目一样按任务手工打磨，星舰就无法支撑高频发射、月球任务和 Starlink 部署。",
+  "",
+  "拍摄场景发生在 Starfactory 和发射设施附近，读者需要先理解它面对的是制造节拍、发动机可靠性、监管审批和地面系统协同。对非专业读者来说，这比记住某个参数更重要，因为产业链机会往往出现在瓶颈环节。",
+  "",
+  "## 三、导读与核心结论",
+  "### 一句话结论",
+  "SpaceX 真正想证明的不是火箭能飞一次，而是火箭能像工业产品一样被持续制造、测试、复用和迭代。",
+  "",
+  "### 核心观点",
+  "#### 1. Starfactory 把航天问题改写成制造业问题",
+  "> The factory is designed for rate.",
+  "  - **为什么重要：** 当火箭制造从项目制转向产线制，供应链价值会从单个零件扩展到测试、工装、材料、软件和地面设备。",
+  "  - **读者该抓住什么：** 真正的变量是节拍，而不是单次发射的戏剧性。",
+  "",
+  "#### 2. Raptor 是产线化是否成立的硬约束",
+  "> Engines have to come off the line fast enough.",
+  "  - **为什么重要：** 发动机生产速度和可靠性会直接影响试飞频率，也决定后续供应链是否有稳定需求。",
+  "  - **读者该抓住什么：** 看商业航天不能只看火箭外形，要看发动机和测试能力。",
+  "",
+  "#### 3. 地面系统决定高频发射能否闭环",
+  "> The launch tower is part of the vehicle.",
+  "  - **为什么重要：** 发射塔、推进剂系统和捕获系统会把基础设施变成复用能力的一部分。",
+  "  - **读者该抓住什么：** 产业链机会可能藏在地面设施，而不只在飞船本体。",
+  "",
+  "### 标志性金句",
+  "#### 1. 原文证据",
+  "> The factory is designed for rate.",
+  "  - **含义：** SpaceX 的主线是用制造节拍压低航天成本。",
+  "",
+  "### 最反共识的判断",
+  "- 星舰的难点不只是技术突破，而是把突破变成可重复的工业流程。",
+  "- 商业航天供应链的拐点，可能先出现在测试设施和发动机节拍，而不是终端发射报价。",
+  "",
+  "## 四、关键技术点速览",
+  "#### 1. 发动机量产",
+  "  - **视频里怎么说：** Raptor 必须持续从产线下线，才能支持更高频测试。",
+  "  - **为什么重要：** 发动机节拍决定发射 cadence。",
+  "  - **风险或不确定性：** 可靠性、返工率和测试通过率仍需外部数据验证。",
+  "",
+  "#### 2. 地面发射系统",
+  "  - **视频里怎么说：** 发射塔和捕获系统被视为飞行器能力的一部分。",
+  "  - **为什么重要：** 复用不只是飞船返回，还要求地面系统快速恢复。",
+  "  - **风险或不确定性：** 监管审批和事故调查会改变节奏。",
+  "",
+  "## 五、详细技术拆解",
+  "### 1. 为什么产线节拍比单次成功更重要",
+  "- 如果产线不能持续生产，试飞成功也很难转化为商业发射能力。",
+  "- 如果测试设施跟不上，发动机和飞船会在验证环节排队。",
+  "- 如果监管审批拖慢，工厂效率也无法直接变成发射频率。",
+  "",
+  "## 六、时间线摘要",
+  "- [0:10] 镜头进入 Starfactory，重点转向制造节拍；这说明视频讨论的是工业化，而不是普通参观。",
+  "  > The factory is designed for rate.",
+  "- [3:20] 讨论 Raptor 产线，指向发动机供给瓶颈；这决定试飞能否持续。",
+  "  > Engines have to come off the line fast enough.",
+  "### 原文摘录",
+  "```text",
+  "[0:10] The factory is designed for rate.",
+  "[0:20] This line should not be dumped into WeChat as raw transcript.",
+  "[0:30] Another raw transcript line.",
+  "```",
+  "## 七、值得继续追问的问题",
+  "- Raptor 月产量和测试通过率有没有公开信号？",
+  "- FAA 审批周期是否会成为高频发射的核心约束？",
+  "- 中国商业航天在液氧甲烷发动机和地面测试设施上差距在哪里？",
+  "- Starlink 发射需求能否支撑星舰早期商业闭环？",
+  "## 八、出处与链接",
+  "### 1. First Look Inside SpaceX's Starfactory w/ Elon Musk",
+  "频道：Everyday Astronaut；字幕：en",
+  "https://www.youtube.com/watch?v=test1234567"
+].join("\n");
+const wechatCandidate = {
+  id: "wechat-test-1",
+  sourceType: "youtube_research",
+  title: "星舰工厂里的产线化赌局：火箭正在变成制造业问题",
+  markdown: wechatFeishuMarkdown,
+  feishuDocUrl: "https://rcnx3mn0vg5z.feishu.cn/wiki/test",
+  sourceUrl: "https://www.youtube.com/watch?v=test1234567",
+  metadata: {}
+};
+const wechatPlan = await wechatPublisher.buildDistributionPlan(wechatCandidate);
+assertEqual(
+  "WeChat publisher adapts the finished Feishu article instead of regenerating from structured JSON",
+  String(
+    wechatPlan.bodyMarkdown.includes("Starfactory 把航天问题改写成制造业问题") &&
+    wechatPlan.bodyMarkdown.includes("原文核对") &&
+    wechatPlan.coverPrompt.includes("Starfactory") &&
+    wechatPlan.coverPrompt.includes("Raptor") &&
+    wechatPlan.coverPrompt.includes("specific scene") &&
+    !wechatPlan.bodyMarkdown.includes("This line should not be dumped into WeChat as raw transcript") &&
+    !wechatPlan.bodyMarkdown.includes("```") &&
+    !wechatPlan.bodyMarkdown.includes("主题聚合") &&
+    !wechatPlan.bodyMarkdown.includes("YouTube 技术笔记")
+  ),
+  "true"
+);
+const wechatDraftResult = await wechatPublisher.createDraft(wechatCandidate, { generateImages: false, operator: "test-user" });
+const wechatDraftArticle = wechatPublisher.lastDraftPayload?.body?.articles?.[0] || {};
+assertEqual(
+  "WeChat draft uses official draft payload fields and WeChat HTML content from Feishu output",
+  String(
+    wechatDraftResult.draftMediaId === "draft_media_test" &&
+    wechatPublisher.lastDraftPayload?.path === "/cgi-bin/draft/add" &&
+    wechatDraftArticle.title === wechatCandidate.title &&
+    wechatDraftArticle.thumb_media_id === "thumb_media_test" &&
+    wechatDraftArticle.content_source_url === wechatCandidate.feishuDocUrl &&
+    /<h2 style=/.test(wechatDraftArticle.content || "") &&
+    !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
+    !(wechatDraftArticle.content || "").includes("raw transcript")
+  ),
+  "true"
+);
+let weakWechatCandidateRejected = false;
+try {
+  await wechatPublisher.buildDistributionPlan({
+    id: "wechat-bad",
+    sourceType: "youtube_research",
+    title: "100 times heavier YouTube 技术笔记",
+    markdown: "# 100 times heavier YouTube 技术笔记\n\n## 阅读导航\n输出语言：中文\n内容形态：Markdown"
+  });
+} catch {
+  weakWechatCandidateRejected = true;
+}
+assertEqual(
+  "WeChat publisher refuses legacy low-value Markdown candidates instead of creating public drafts",
+  String(weakWechatCandidateRejected),
   "true"
 );
 bot.ai = {

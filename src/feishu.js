@@ -3428,7 +3428,7 @@ export class FeishuBot {
             content: cardMarkdown(compactLines([
               `**${title || candidate.title || "这篇文章"}**`,
               sourceType ? `来源：${sourceType}` : "",
-              "可以把它生成到微信公众号草稿箱。发布前会自动做标题、摘要、导语和关注引导，不会直接群发。"
+              "可以把这篇飞书成品转换到微信公众号草稿箱。系统只做公众号格式适配和草稿创建，不会直接群发。"
             ]), 700)
           }
         },
