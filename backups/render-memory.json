@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T08:00:21.446Z",
+  "exportedAt": "2026-07-02T08:05:44.843Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -57031,6 +57031,30 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-02T07:40:27.968Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b55e08158a0c2e9be8d8497001",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T08:01:43.462Z"
       }
     ],
     "memories": [
@@ -58662,7 +58686,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T07:22:13.497Z"
+        "updatedAt": "2026-07-02T08:01:43.388Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58672,7 +58696,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T07:22:13.409Z"
+        "updatedAt": "2026-07-02T08:01:43.231Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -63234,6 +63258,44 @@
         "error": "",
         "createdAt": "2026-07-02T07:22:15.143Z",
         "updatedAt": "2026-07-02T07:22:15.143Z"
+      },
+      {
+        "id": "job:investment_report:a48cde1c843e8d0a",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "sources": 6,
+          "backfill": {
+            "imported": 0,
+            "attempted": false
+          },
+          "topicCount": 0,
+          "priorReport": false,
+          "evidenceCards": 108
+        },
+        "error": "investment report contains low-value or unsupported article artifacts.",
+        "createdAt": "2026-07-02T08:01:44.996Z",
+        "updatedAt": "2026-07-02T08:04:45.346Z"
       }
     ],
     "researchReferenceSources": [],
