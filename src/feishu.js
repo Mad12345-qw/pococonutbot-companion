@@ -3609,7 +3609,8 @@ export class FeishuBot {
         summary.questionsDeleted,
         summary.gapsUpdated,
         summary.gapsDeleted,
-        summary.timeContextsUpdated
+        summary.timeContextsUpdated,
+        summary.topicsUpdated
       ].reduce((sum, item) => sum + Number(item || 0), 0);
       const sampleLines = (summary.samples || []).slice(0, 5).map((item, index) =>
         `${index + 1}. ${item.table} ${item.id}: ${item.before || "(空)"} -> ${item.after || "(删除)"}`
@@ -3624,6 +3625,7 @@ export class FeishuBot {
         `问题更新/删除：${Number(summary.questionsUpdated || 0)}/${Number(summary.questionsDeleted || 0)}`,
         `缺口更新/删除：${Number(summary.gapsUpdated || 0)}/${Number(summary.gapsDeleted || 0)}`,
         `时间语境更新：${summary.timeContextsUpdated || 0}`,
+        `主题图谱更新：${summary.topicsUpdated || 0}`,
         sampleLines.length ? "\n样例：\n" + sampleLines.join("\n") : "",
         !request.apply && changedCount > 0 ? "\n确认无误后发送：投研知识库清理执行：我确认" : ""
       ].filter(Boolean).join("\n"));
