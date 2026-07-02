@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T14:52:57.043Z",
+  "exportedAt": "2026-07-02T16:12:57.243Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -57443,6 +57443,90 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T14:49:12.106Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "Wan-Streamer v0.1的语音交互，其核心并非简单的“语音识别+回复”，而是一个**端到端的实时视听交互模型**。它被设计为一个能**同时处理语音、文字和视频**的 unified 系统，旨在实现**低延迟、全双工**的交互体验。\n\n它与传统AI语音助手的主要区别如下：\n\n| 特性 | Wan-Streamer v0.1 | 传统AI语音助手 |\n| :--- | :--- | :--- |\n| **架构** | **端到端**的单一Transformer模型 | **级联**多个独立模块（如ASR、LLM、TTS） |\n| **交互方式** | **全双工**，可同时接收和生成信息 | 通常为半双工，需等待一方说完 |\n| **延迟** | **极低**，模型侧响应约**200毫秒** | 较高，模块间切换会累积延迟 |\n| **输入/输出** | 原生支持**音频、视频、文本**的多模态输入和输出 | 主要以文本为主，语音和视频需额外模块支持 |\n\n### 🎤 语音交互是如何实现的？\n\nWan-Streamer的语音交互方式，源于其颠覆性的底层设计：\n\n*   **打破“流水线”模式**：传统模型依赖“语音识别(ASR) → 大语言模型(LLM) → 文字转语音(TTS)”等多个步骤。Wan-Streamer则将所有功能集成在**单个Transformer**中，将语音、文字、视频都作为**统一的“token”序列**进行处理。\n\n*   **“全双工”实时对话**：模型支持**全双工**通信，意味着它可以**一边“听”你说话，一边思考和准备回应**，甚至在对话中随时响应打断，让交互更接近真实的人类对话。\n\n*   **同步生成语音与视频**：Wan-Streamer不仅能生成语音回复，还能**同步生成与之匹配的视频**（如数字人形象）。它是唯一能在**0.6秒内**完成音视频同步输出的端到端模型。\n\n### ⚡️ 关键性能指标\n\n*   **极低延迟**：模型自身的响应延迟约为**200毫秒**。\n*   **流式处理**：支持短至**160毫秒**的流式单元处理。\n*   **亚秒级交互**：即使在包含网络延迟的情况下，总交互时间也能控制在**约550毫秒**以内。\n\n总而言之，Wan-Streamer v0.1试图构建一个能“**边听、边看、边思考、边说话**”的实时交互AI，其核心是**统一架构**和**全双工通信**带来的低延迟体验。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5c88ad34a8c1683f14cb54e62",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T16:06:04.208Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "电脑配置够的话可以玩玩这个视频语音交互",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5c87be14acc2d6d41807bb4b3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T16:06:51.957Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我电脑没有GPU跑不起来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5c83ece4a4c21ebc05495242a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T16:07:50.758Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：设计为一个能**同时处理语音、文字和视频**的 unified 系统，旨在实现**低延迟、全双工**的交互体验。\n\n它与传统AI语音助手的主要区别如下：\n\n| 特性 | Wan-Streamer v0.1 | 传统AI语音助手 |\n| :--- | :--- | :--- |\n| **架构** | **端到端**的单一Transformer模型 | **级联**多个独立模块（如ASR、LLM、TTS） |\n| **交互方式** | **全双工**，可同时接收和生成信息 | 通常为半双工，需等待一方说完 |\n| **延迟** | **极低**，模型侧响应约**200毫秒** | 较高，模块间切换会累积延迟 |\n| **输入/输出** | 原生支持**音频、视频、文本**的多模态输入和输出 | 主要以文本为主，语音和视频需额外模块支持 |\n\n### 🎤 语音交互是如何实现的？\n\nWan-Streamer的语音交互方式，源于其颠覆性的底层设计：\n\n*   **打破“流水线”模式**：传统模型依赖“语音识别(ASR) → 大语言模型(LLM) → 文字转语音(TTS)”等多个步骤。Wan-Streamer则将所有功能集成在**单个Transformer**中，将语音、文字、视频都作为**统一的“token”序列**进行处理。\n\n*   **“全双工”实时对话**：模型支持**全双工**通信，意味着它可以**一边“听”你说话，一边思考和准备回应**，甚至在对话中随时响应打断，让交互更接近真实的人类对话。\n\n*   **同步生成语音与视频**：Wan-Streamer不仅能生成语音回复，还能**同步生成与之匹配的视频**（如数字人形象）。它是唯一能在**0.6秒内**完成音视频同步输出的端到端模型。\n\n### ⚡️ 关键性能指标\n\n*   **极低延迟**：模型自身的响应延迟约为**200毫秒**。\n*   **流式处理**：支持短至**160毫秒**的流式单元处理。\n*   **亚秒级交互**：即使在包含网络延迟的情况下，总交互时间也能控制在**约550毫秒**以内。\n\n总而言之，Wan-Streamer v0.1试图构建一个能“**边听、边看、边思考、边说话**”的实时交互AI，其核心是**统一架构**和**全双工通信**带来的低延迟体验。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-02T16:09:06.371Z"
       }
     ],
     "memories": [
@@ -61614,7 +61698,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-02T07:40:19.313Z"
+        "updatedAt": "2026-07-02T16:07:50.688Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61624,7 +61708,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-02T07:40:19.149Z"
+        "updatedAt": "2026-07-02T16:07:50.617Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
