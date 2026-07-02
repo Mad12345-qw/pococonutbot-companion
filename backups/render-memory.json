@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T17:13:52.976Z",
+  "exportedAt": "2026-07-02T17:19:38.627Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -57611,6 +57611,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T16:23:51.592Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "又是负收益的一天[耶]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5d8a3e30a0b3fbc7ebb18aab1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T17:13:55.713Z"
       }
     ],
     "memories": [
@@ -60502,7 +60526,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-02T14:49:12.033Z"
+        "updatedAt": "2026-07-02T17:13:55.645Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -60512,7 +60536,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-02T14:49:11.936Z"
+        "updatedAt": "2026-07-02T17:13:55.561Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
