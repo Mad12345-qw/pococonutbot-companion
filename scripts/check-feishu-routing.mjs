@@ -726,6 +726,36 @@ assertEqual(
   "true"
 );
 
+let emptyArticleSlotCalls = 0;
+bot.ai = {
+  chat: async (messages = []) => {
+    emptyArticleSlotCalls += 1;
+    const userContent = String(messages.at(-1)?.content || "");
+    if (emptyArticleSlotCalls === 1) return JSON.stringify(hlsEvidenceBrief);
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify({ title: "", contextParagraphs: [] });
+    if (userContent.includes("fixed glossary schema")) return JSON.stringify({ glossary: [] });
+    if (userContent.includes("fixed core schema")) return JSON.stringify({ oneSentence: "", corePoints: [], quotes: [], counterintuitive: [] });
+    if (userContent.includes("fixed technical schema")) return JSON.stringify({ techPoints: [], detailSections: [] });
+    return JSON.stringify({ timeline: [], questions: [] });
+  }
+};
+const emptyArticleSlotDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline fills empty article slots from evidence brief",
+  String(emptyArticleSlotCalls === 6 && emptyArticleSlotDoc.includes("## 一、关键术语解释") && emptyArticleSlotDoc.includes("## 七、值得继续追问的问题") && !emptyArticleSlotDoc.includes("YouTube 技术笔记")),
+  "true"
+);
+
 let jsonRepairCalls = 0;
 bot.ai = {
   chat: async (messages = []) => {

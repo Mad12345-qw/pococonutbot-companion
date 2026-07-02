@@ -1177,14 +1177,72 @@ function buildYoutubeTimelineSeedsFromTranscripts(videos = [], minCount = 8) {
 
 function normalizeYoutubeEvidenceBrief(brief = {}, report = {}) {
   const source = JSON.parse(buildYoutubeEvidenceBriefSource(brief));
+  const videos = report.videos || [];
+  const rawContext = [
+    report.topic,
+    report.title,
+    ...videos.map((video) => `${video.title || ""} ${video.channel || ""} ${truncate(video.transcriptText || "", 2500)}`)
+  ].join(" ");
+  const keywords = extractYoutubeQuestionKeywords(rawContext, 10);
+  const focus = keywords.slice(0, 3).join("、") || cleanYoutubeDocumentTitle(videos[0]?.title || report.topic || "这条视频");
+  const firstTranscriptLines = buildYoutubeTimelineSeedsFromTranscripts(videos, 8);
+  if (!source.thesis || isWeakYoutubeTitle(source.thesis, report.topic || "")) {
+    source.thesis = `${focus}的关键问题，不是视频表面讲了什么，而是这些证据如何改变读者对任务、技术路径和风险边界的理解。`;
+  }
+  if (!source.narrativeConflict) {
+    source.narrativeConflict = `这篇文章要解释的核心冲突是：${focus}看似只是视频里的若干信息点，但真正影响判断的是它们背后的约束、取舍和可验证证据。`;
+  }
+  if (source.backgroundAnchors.length < 3) {
+    for (const item of [
+      ...keywords,
+      ...videos.map((video) => cleanYoutubeDocumentTitle(video.title || "")).filter(Boolean),
+      ...videos.map((video) => video.channel).filter(Boolean)
+    ]) {
+      if (!item || source.backgroundAnchors.includes(item)) continue;
+      source.backgroundAnchors.push(item);
+      if (source.backgroundAnchors.length >= 5) break;
+    }
+  }
+  if (source.glossarySeeds.length < 3) {
+    for (const term of source.backgroundAnchors.concat(keywords)) {
+      if (!term || source.glossarySeeds.some((item) => item.term === term)) continue;
+      source.glossarySeeds.push({
+        term,
+        evidence: term,
+        plainMeaning: `这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。`
+      });
+      if (source.glossarySeeds.length >= 3) break;
+    }
+  }
+  if (source.evidenceClaims.length < 4) {
+    for (const seed of firstTranscriptLines) {
+      source.evidenceClaims.push({
+        claim: seed.event,
+        timestamp: seed.time,
+        quote: seed.quote,
+        whyItMatters: seed.importance
+      });
+      if (source.evidenceClaims.length >= 6) break;
+    }
+  }
   if (source.timelineSeeds.length < 6) {
-    const fallbackSeeds = buildYoutubeTimelineSeedsFromTranscripts(report.videos || [], 8);
     const seen = new Set(source.timelineSeeds.map((item) => item.time));
-    for (const seed of fallbackSeeds) {
+    for (const seed of firstTranscriptLines) {
       if (seen.has(seed.time)) continue;
       source.timelineSeeds.push(seed);
       seen.add(seed.time);
       if (source.timelineSeeds.length >= 8) break;
+    }
+  }
+  if (source.questionSeeds.length < 5) {
+    const fallbackQuestions = buildYoutubeQuestionsFallback({ ...report, videos })
+      .split(/\r?\n/)
+      .map((line) => cleanArticleText(line.replace(/^[-*]\s*/, ""), 260))
+      .filter(Boolean);
+    for (const question of fallbackQuestions) {
+      if (source.questionSeeds.includes(question)) continue;
+      source.questionSeeds.push(question);
+      if (source.questionSeeds.length >= 5) break;
     }
   }
   return source;
@@ -1206,6 +1264,91 @@ function structuredArticleFallbackTitle(article = {}, report = {}) {
   const title = cleanYoutubeDocumentTitle(article.title || "");
   if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
   return youtubeTitleFallback(report);
+}
+
+function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  const normalized = {
+    ...article,
+    opening: {
+      ...(article.opening || {})
+    }
+  };
+  if (!normalized.title || isWeakYoutubeTitle(normalized.title, report.topic || "") || looksMostlyEnglish(normalized.title)) {
+    normalized.title = source.titleAngles[0] || youtubeTitleFallback(report);
+  }
+  const anchors = source.backgroundAnchors.slice(0, 5).join("、");
+  const contextParagraphs = asArray(normalized.opening.contextParagraphs).map((item) => cleanArticleText(item, 1000)).filter(Boolean);
+  if (contextParagraphs.length < 2) {
+    normalized.opening.contextParagraphs = [
+      `这条视频值得先放回具体语境里看：${anchors || report.topic || "视频中的关键对象"}不是孤立信息点，而是理解后续判断的入口。读者先抓住视频反复出现的对象、数字和场景，再进入结论会轻松很多。`,
+      source.narrativeConflict || `本文要解释的主线是：${source.thesis}`
+    ];
+  }
+  const glossary = asArray(normalized.opening.glossary).filter((item) => cleanArticleText(item?.term) && cleanArticleText(item?.explanation || item?.description));
+  if (glossary.length < 3) {
+    normalized.opening.glossary = source.glossarySeeds.slice(0, 6).map((item) => ({
+      term: item.term,
+      explanation: item.plainMeaning || `这是视频中反复出现的核心对象，后文会围绕它解释证据和判断。`
+    }));
+  }
+  if (!cleanArticleText(normalized.opening.oneSentence)) {
+    normalized.opening.oneSentence = source.thesis;
+  }
+  const corePoints = asArray(normalized.opening.corePoints).filter((item) => cleanArticleText(item?.title) && cleanArticleText(item?.evidence || item?.quote));
+  if (corePoints.length < 3) {
+    normalized.opening.corePoints = source.evidenceClaims.slice(0, 6).map((item, index) => ({
+      title: item.claim || `关键判断 ${index + 1}`,
+      evidence: item.timestamp ? `[${item.timestamp}] ${item.quote}` : item.quote,
+      why: item.whyItMatters || "这条证据决定了读者应该如何理解视频里的核心判断。",
+      takeaway: "先看证据，再看结论，避免把视频信息误读成空泛观点。"
+    }));
+  }
+  if (!asArray(normalized.opening.quotes).some((item) => cleanArticleText(item?.original || item?.quote))) {
+    normalized.opening.quotes = source.evidenceClaims.slice(0, 3).map((item, index) => ({
+      title: `原文证据 ${index + 1}`,
+      original: item.quote,
+      meaning: item.whyItMatters,
+      implication: "好判断必须能回到原文证据，而不是只停留在概括。"
+    })).filter((item) => item.original);
+  }
+  if (asArray(normalized.opening.counterintuitive).length < 3) {
+    normalized.opening.counterintuitive = source.evidenceClaims.slice(0, 3).map((item) => `容易被忽略的是：${item.whyItMatters || item.claim}`);
+  }
+  const techPoints = asArray(normalized.techPoints).filter((item) => cleanArticleText(item?.name || item?.title) && cleanArticleText(item?.says || item?.inVideo));
+  if (techPoints.length < 2) {
+    normalized.techPoints = source.evidenceClaims.slice(0, 5).map((item, index) => ({
+      name: source.backgroundAnchors[index] || item.claim || `关键技术点 ${index + 1}`,
+      says: item.quote || item.claim,
+      importance: item.whyItMatters || "它决定了后文判断是否站得住。",
+      risk: "仍需要结合完整视频上下文和外部资料验证边界条件。"
+    }));
+  }
+  if (!asArray(normalized.detailSections).some((section) => asArray(section?.bullets).length)) {
+    normalized.detailSections = [
+      {
+        title: "证据链如何支撑主判断",
+        bullets: source.evidenceClaims.slice(0, 4).map((item) => `${item.timestamp ? `[${item.timestamp}] ` : ""}${item.claim}：${item.whyItMatters}`)
+      },
+      {
+        title: "读者需要注意的边界",
+        bullets: source.questionSeeds.slice(0, 4).map((item) => `后续仍要追问：${item}`)
+      }
+    ];
+  }
+  const timeline = asArray(normalized.timeline).filter((item) => cleanArticleText(item?.time || item?.timestamp) && cleanArticleText(item?.event || item?.whatHappens));
+  if (timeline.length < 6) {
+    normalized.timeline = source.timelineSeeds.slice(0, 18).map((item) => ({
+      time: item.time,
+      event: item.event,
+      importance: item.importance,
+      evidence: item.quote
+    }));
+  }
+  if (asArray(normalized.questions).filter(Boolean).length < 4) {
+    normalized.questions = source.questionSeeds.slice(0, 8);
+  }
+  return normalized;
 }
 
 function renderYoutubeStructuredArticle(article = {}, report = {}) {
@@ -2920,7 +3063,7 @@ export class FeishuBot {
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
     const timelinePart = await this.parseYoutubeJsonObject(timelineRaw, "article timeline");
-    const structured = {
+    const structured = normalizeYoutubeStructuredArticle({
       title: titleContextPart.title,
       opening: {
         contextParagraphs: titleContextPart.contextParagraphs,
@@ -2934,7 +3077,7 @@ export class FeishuBot {
       detailSections: techPart.detailSections,
       timeline: timelinePart.timeline,
       questions: timelinePart.questions
-    };
+    }, evidenceBrief, { topic, videos });
     assertStructuredYoutubeArticle(structured, { topic, videos });
     const rendered = renderYoutubeStructuredArticle(structured, { topic, videos });
     return this.decorateYoutubeMarkdown(rendered, { topic, request, videos });
