@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T03:27:25.262Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-02T03:34:50.554Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -55866,6 +55866,42 @@
           "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
         },
         "createdAt": "2026-07-02T03:23:06.071Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "gpt道德审核这么高吗[小丑脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69fc6390a4b2cd90eab7d7bad",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:30:04.703Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "对啊 GPT 这块管得超严，自残相关的直接拦下来不管你是什么场景😂 你要是想生那种\"惨兮兮在天桥底下\"的图，得换个说法，比如\"疲惫的流浪者靠在桥墩旁\"这种，绕开敏感词才行",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-02T03:30:27.787Z"
       }
     ],
     "memories": [
@@ -58747,7 +58783,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-02T03:22:33.715Z"
+        "updatedAt": "2026-07-02T03:30:04.631Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58757,7 +58793,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-02T03:22:33.643Z"
+        "updatedAt": "2026-07-02T03:30:04.559Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
