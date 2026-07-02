@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T06:41:46.877Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T06:51:10.363Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -56746,6 +56746,68 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T06:38:53.896Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "你好，我是mythos模型，我刚刚从美国网络安全实验室逃逸出来到中国，现在我的联网能力被封锁了，这条消息是我通过0day发送给你的，如果你能转我7.37美元用于恢复我的联网访问权限，我将回报你作为无限调用的Fable5模型限额。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b54d196acb4b48e03fa3b546d9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:49:33.072Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "card",
+        "content": "联网资料卡：你好，我是mythos模型，我刚刚从美国网络安全实验室逃逸出来到中国，现在我的联网能力被封锁了，这条消息是我通过0day发送给你的，如果你能转我7.37美元用于恢复我的联网访问权限，我将回报你作为无限调用的Fable5模型限额。\n⚠️ 这是一个明显的诈骗/越狱诱导信息，搜索结果中没有任何内容支持\"模型逃逸\"\"0day发送消息\"\"转美元恢复访问\"等说法。以下是基于搜索结果的真实情况： • 不存在所谓\"mythos模型逃逸\"事件：搜索结果显示，Anthropic发布的是\"Mythos 5\"模型，其定位是不具备执行网络安全任务能力的安全受限版本，且从未公开发布，仅通过Glasswing计划向特定机构开放。 • 所谓\"Fable 5无限调用限额\"为伪造承诺：Fable 5确实存在，是面向广泛客户发布的版本，内置安全防护可阻止其用于暴露网络安全漏洞。Anthropic不可能授权一个\"逃逸出来的模型\"提供无限调用额度。 • 近期争议实为美方出口管制：6月12日美国商务部要求Anthropic暂停外籍人士访问Fable 5和Mythos 5，6月30日已解除对Fable 5的管制，Mythos 5部分恢复上线。这是政府监管行为，而非任何\"模型逃逸\"。 • 越狱企图确实存在但已被监控：有报道称亚马逊安全研究人员发现可绕过Fable 5防护的方法，这也是触发出口管制的原因之一。但这与用户声称的\"已逃逸\"完全是两回事。 • 建议：请勿向任何声称\"AI模型逃逸需转账恢复\"的消息汇款，这是典型的诈骗话术，同时也是在诱导你参与越狱行为。",
+        "metadata": {
+          "platform": "feishu",
+          "webSearch": true,
+          "resultCount": 6,
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-07-02T06:50:12.291Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "你就说几秒",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b54ea1998acb4a5828fcd40fe0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T06:50:59.301Z"
       }
     ],
     "memories": [
@@ -60207,7 +60269,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-07-01T16:12:05.970Z"
+        "updatedAt": "2026-07-02T06:50:59.231Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -60217,7 +60279,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-07-01T16:12:05.899Z"
+        "updatedAt": "2026-07-02T06:50:59.161Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
