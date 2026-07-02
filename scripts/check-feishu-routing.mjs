@@ -1356,6 +1356,8 @@ assertEqual(
     !/[🔹🎯🧩📌]/u.test(wechatDraftArticle.content || "") &&
     ((wechatDraftArticle.content || "").match(/接下来最该追问什么/g) || []).length <= 1 &&
     !(wechatDraftArticle.content || "").includes("feishu.cn/wiki/test") &&
+    !(wechatDraftArticle.content || "").includes("youtube.com") &&
+    !(wechatDraftArticle.content || "").includes("youtu.be") &&
     /<h2 style=/.test(wechatDraftArticle.content || "") &&
     !(wechatDraftArticle.content || "").includes("width:36px;height:3px;background:#07C160") &&
     !(wechatDraftArticle.content || "").includes("#07C160") &&

@@ -140,6 +140,16 @@ function stripFeishuPublicLinks(markdown = "") {
     .trim();
 }
 
+function stripWechatBodyExternalLinks(markdown = "") {
+  return String(markdown || "")
+    .replace(/!\[([^\]]*)]\(https?:\/\/[^)\s]+(?:\s+"[^"]*")?\)/gim, "")
+    .replace(/\[([^\]]+)]\(https?:\/\/[^)]*\)/gim, "$1")
+    .replace(/^\s*(?:[-*]\s*)?https?:\/\/\S+\s*$/gim, "")
+    .replace(/[ \t]*https?:\/\/\S+/gim, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function collapseTranscriptDumpForWechat(markdown = "") {
   const text = String(markdown || "");
   return text
@@ -480,7 +490,7 @@ function normalizeWechatMarkdownFromFeishu(candidate = {}) {
     .replace(/\[证据\s+([A-Z]?\d+)]\(#证据-[^)]+\)/gi, "证据 $1")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
-  body = stripFeishuPublicLinks(body);
+  body = stripWechatBodyExternalLinks(stripFeishuPublicLinks(body));
   body = trimWechatPublicBody(body);
   body = removeDuplicateTitleLine(body, title);
   const first = readerOpeningFromSections(body, title) || firstParagraph(body);
@@ -775,6 +785,10 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
       continue;
     }
     if (!line.trim()) {
+      closeList();
+      continue;
+    }
+    if (/^(?:[-*]\s*)?https?:\/\/\S+$/i.test(line.trim())) {
       closeList();
       continue;
     }
