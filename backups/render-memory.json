@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T18:48:59.447Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T18:59:07.390Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -68496,7 +68496,7 @@
         "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/GlDQwnHlCirj59kH37scUFNpnzr",
         "sourceUrl": "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
         "status": "draft_created",
-        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfP9CyCe7cH3nhGq75zllmkHtlN4mA0J9eCl4uX5JKcsT",
+        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfO5WHAKKVJwr5GdSfqMg0PwOWb2Tr0Qhln4dMCv5FR7Y",
         "error": "",
         "metadata": {
           "topic": "with some of the cooling techniques",
@@ -68511,22 +68511,22 @@
             "ok": true,
             "title": "为什么 Raptor 2 用过度冷却把火箭发动机从极限性能推向量产可靠性",
             "digest": "一句话结论 Raptor 2 的关键进步不是把室压和比冲推到单点极限，而是用过量膜冷却、删除零件和高频试错，把发动机改造成更适合 33 台并联和大批量生产的鲁棒系统。 核心观点 1. Raptor 2 用 300 bar 室压把冷却从性能细",
-            "coverUrl": "http://mmbiz.qpic.cn/mmbiz_png/QmOcp1chR8vw51awsRrX91Wh5QAY3Gbw6nibWJibr3OJ469RNJXDPcG5zZkCjDS4c4Hq0v1NSK1FyWbPL94XswpHDXalFOV1XFqiasA8iaNSSBs/0?wx_fmt=png",
-            "elapsedMs": 363741,
+            "coverUrl": "http://mmbiz.qpic.cn/sz_mmbiz_png/QmOcp1chR8sw2edSJS4tEACl2HFmrXDox3M3zNTeICQPUQ2UOR7qiaIT0TRHJsiadAJia6J4JcLOkG6qeZZoPibsrodpxN9rp9menfZanMjT30I/0?wx_fmt=png",
+            "elapsedMs": 57899,
             "imageMode": "generated_cover",
-            "coverMediaId": "1WkcDlza9yat8Rn1yBoHfEGGUBoGEU7EPrEdd48GKdmq-FU9Tv8U9J_RXrDr59lf",
-            "draftMediaId": "1WkcDlza9yat8Rn1yBoHfP9CyCe7cH3nhGq75zllmkHtlN4mA0J9eCl4uX5JKcsT",
-            "leadImageUrl": "http://mmbiz.qpic.cn/sz_mmbiz_jpg/QmOcp1chR8u0eknsfqQWRwxcCaSEVO7j3OznbfvicVqRgiaibftUSbkAkjFIQAh0I0Go6zqT9C9CuZ6nwm5vdAbm6hekzsVnnZyA6KV7Nwa0xE/0?from=appmsg"
+            "coverMediaId": "1WkcDlza9yat8Rn1yBoHfImQ_gYO98nT7SdZEHdB4xFZYSHVjt3feYeWLAI8VbOd",
+            "draftMediaId": "1WkcDlza9yat8Rn1yBoHfO5WHAKKVJwr5GdSfqMg0PwOWb2Tr0Qhln4dMCv5FR7Y",
+            "leadImageUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/QmOcp1chR8sjSWMNdkCaSicrCNfQrYkre38CVtLm9T4WWPI4yP9HqPgnRqyLQiciaGh7XXH4uaNpta6VLgW9PgE0ic8qicf65HqAxUyVzsJUcYHY/0?from=appmsg"
           },
           "createdBy": "xiaoye",
           "generateImages": true,
           "wechatDraftOnly": true,
           "lastPublishOperator": "ou_66756c5a4941a616606cc85cce626a0f",
           "lastPublishStartedAt": "2026-07-02T18:40:49.817Z",
-          "lastPublishFinishedAt": "2026-07-02T18:40:49.817Z"
+          "lastPublishFinishedAt": "2026-07-02T18:51:51.741Z"
         },
         "createdAt": "2026-07-02T18:31:14.125Z",
-        "updatedAt": "2026-07-02T18:40:50.276Z"
+        "updatedAt": "2026-07-02T18:51:52.173Z"
       }
     ]
   }
