@@ -2614,7 +2614,7 @@ export class FeishuBot {
     assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
     const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
 
-    const openingRaw = await this.ai.chat([
+    const titleContextRaw = await this.ai.chat([
       {
         role: "system",
         content: [
@@ -2628,7 +2628,6 @@ export class FeishuBot {
           "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`.",
           "Open with context that lowers the reading barrier: market/industry/historical backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
-          "Gold quotes must show the original quote first. If the original transcript is English, keep the original quote in English.",
           "Every title and point must be reader-facing and specific. Never use the raw video title as a section title unless it is already a polished Chinese title."
         ].join(" ")
       },
@@ -2642,31 +2641,97 @@ export class FeishuBot {
           "Evidence brief that must drive the article:",
           evidenceBriefSource,
           "",
-          "Fill only this fixed opening schema:",
+          "Fill only this fixed title/context schema:",
           "{",
           '  "title": "specific polished Chinese article title",',
-          '  "opening": {',
-          '    "contextParagraphs": ["2-4 concrete paragraphs; first two mention at least 3 source anchors"],',
-          '    "glossary": [{"term":"specific term", "explanation":"beginner-friendly explanation"}],',
-          '    "oneSentence": "one decisive conclusion",',
-          '    "corePoints": [{"title":"specific point title with transcript object/person/term", "evidence":"short source-grounded quote or evidence", "why":"why it matters", "takeaway":"what reader should remember"}],',
-          '    "quotes": [{"title":"quote label", "original":"original quote, keep English if source is English", "meaning":"Chinese explanation", "implication":"transferable insight"}],',
-          '    "counterintuitive": ["3 specific non-obvious judgments"]',
-          "  }",
+          '  "contextParagraphs": ["2-4 concrete paragraphs; first two mention at least 3 source anchors"]',
           "}",
-          "Cardinality: glossary 3-8, corePoints 4-8, quotes 2-4.",
-          "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. The opening must combine specific background and core conclusion in one reader-facing flow. Background must be concrete, not a reusable template. Every core point needs source evidence."
+          "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. Background must be concrete, not a reusable template."
         ].join("\n")
       }
     ], {
-      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1800),
       temperature: 0.2,
       responseFormat: { type: "json_object" },
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const openingPart = await this.parseYoutubeJsonObject(openingRaw, "article opening");
+    const titleContextPart = await this.parseYoutubeJsonObject(titleContextRaw, "article title context");
+
+    const glossaryRaw = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You fill the glossary slot of a fixed YouTube article blueprint.",
+          "Always write in Simplified Chinese.",
+          "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
+          "Use only the provided evidence brief. Terms must be concrete specialist words, products, people, systems, or concepts from the transcript.",
+          "Explain each term so a beginner can understand the later article."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Topic: ${topic}`,
+          "Evidence brief that must drive this glossary:",
+          evidenceBriefSource,
+          "",
+          "Fill only this fixed glossary schema:",
+          "{",
+          '  "glossary": [{"term":"specific term", "explanation":"beginner-friendly explanation"}]',
+          "}",
+          "Cardinality: glossary 3-8."
+        ].join("\n")
+      }
+    ], {
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1600),
+      temperature: 0.15,
+      responseFormat: { type: "json_object" },
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
+    const glossaryPart = await this.parseYoutubeJsonObject(glossaryRaw, "article glossary");
+
+    const coreRaw = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You fill the core-argument slots of a fixed YouTube article blueprint.",
+          "Always write in Simplified Chinese.",
+          "Return only valid JSON. Do not return Markdown. Do not add explanations before or after JSON.",
+          "Use only the provided evidence brief. Every core point must include evidence.",
+          "Gold quotes must show the original quote first. If the original transcript is English, keep the original quote in English.",
+          "Do not repeat glossary explanations or generic background."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Topic: ${topic}`,
+          "Evidence brief that must drive this core section:",
+          evidenceBriefSource,
+          "",
+          "Fill only this fixed core schema:",
+          "{",
+          '  "oneSentence": "one decisive conclusion",',
+          '  "corePoints": [{"title":"specific point title with transcript object/person/term", "evidence":"short source-grounded quote or evidence", "why":"why it matters", "takeaway":"what reader should remember"}],',
+          '  "quotes": [{"title":"quote label", "original":"original quote, keep English if source is English", "meaning":"Chinese explanation", "implication":"transferable insight"}],',
+          '  "counterintuitive": ["3 specific non-obvious judgments"]',
+          "}",
+          "Cardinality: corePoints 4-8, quotes 2-4, counterintuitive 3."
+        ].join("\n")
+      }
+    ], {
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 2400),
+      temperature: 0.2,
+      responseFormat: { type: "json_object" },
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
+    const corePart = await this.parseYoutubeJsonObject(coreRaw, "article core arguments");
 
     const techRaw = await this.ai.chat([
       {
@@ -2741,8 +2806,15 @@ export class FeishuBot {
     });
     const timelinePart = await this.parseYoutubeJsonObject(timelineRaw, "article timeline");
     const structured = {
-      title: openingPart.title,
-      opening: openingPart.opening,
+      title: titleContextPart.title,
+      opening: {
+        contextParagraphs: titleContextPart.contextParagraphs,
+        glossary: glossaryPart.glossary,
+        oneSentence: corePart.oneSentence,
+        corePoints: corePart.corePoints,
+        quotes: corePart.quotes,
+        counterintuitive: corePart.counterintuitive
+      },
       techPoints: techPart.techPoints,
       detailSections: techPart.detailSections,
       timeline: timelinePart.timeline,

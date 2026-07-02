@@ -500,7 +500,16 @@ const hlsArticle = {
 };
 const hlsOpeningPart = {
   title: hlsArticle.title,
-  opening: hlsArticle.opening
+  contextParagraphs: hlsArticle.opening.contextParagraphs
+};
+const hlsGlossaryPart = {
+  glossary: hlsArticle.opening.glossary
+};
+const hlsCorePart = {
+  oneSentence: hlsArticle.opening.oneSentence,
+  corePoints: hlsArticle.opening.corePoints,
+  quotes: hlsArticle.opening.quotes,
+  counterintuitive: hlsArticle.opening.counterintuitive
 };
 const hlsTechPart = {
   techPoints: hlsArticle.techPoints,
@@ -522,7 +531,9 @@ bot.ai = {
     articlePromptIncludedEvidenceBrief = articlePromptIncludedEvidenceBrief ||
       (userContent.includes("Evidence brief that must drive") && userContent.includes("Starship HLS 的核心难题"));
     if (structuredChatCalls === 2) return JSON.stringify(hlsOpeningPart);
-    if (structuredChatCalls === 3) return JSON.stringify(hlsTechPart);
+    if (structuredChatCalls === 3) return JSON.stringify(hlsGlossaryPart);
+    if (structuredChatCalls === 4) return JSON.stringify(hlsCorePart);
+    if (structuredChatCalls === 5) return JSON.stringify(hlsTechPart);
     return JSON.stringify(hlsTimelinePart);
   }
 };
@@ -556,12 +567,12 @@ assertEqual(
 );
 assertEqual(
   "youtube structured pipeline plans from evidence before writing",
-  String(structuredChatCalls === 4 && articlePromptIncludedEvidenceBrief),
+  String(structuredChatCalls === 6 && articlePromptIncludedEvidenceBrief),
   "true"
 );
 assertEqual(
   "youtube structured pipeline asks model for json object directly",
-  String(structuredResponseFormats.join(",") === "json_object,json_object,json_object,json_object"),
+  String(structuredResponseFormats.join(",") === "json_object,json_object,json_object,json_object,json_object,json_object"),
   "true"
 );
 
@@ -602,7 +613,9 @@ bot.ai = {
       return '{"thesis":"坏 JSON 测试","titleAngles":["坏 JSON 测试" "缺逗号"],"narrativeConflict":"x"}';
     }
     if (userContent.includes("Repair this evidence brief")) return JSON.stringify(hlsEvidenceBrief);
-    if (userContent.includes("fixed opening schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed title/context schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
+    if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
     if (userContent.includes("fixed technical schema")) return JSON.stringify(hlsTechPart);
     return JSON.stringify(hlsTimelinePart);
   }
@@ -620,7 +633,7 @@ const repairedJsonDoc = await bot.generateYoutubeResearchMarkdown({
 });
 assertEqual(
   "youtube structured pipeline repairs malformed json before failing user request",
-  String(jsonRepairCalls === 5 && repairedJsonDoc.includes("月球版星舰的真正难题")),
+  String(jsonRepairCalls === 7 && repairedJsonDoc.includes("月球版星舰的真正难题")),
   "true"
 );
 assertEqual(
