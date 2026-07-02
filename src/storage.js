@@ -2332,22 +2332,47 @@ class PostgresStorage {
 
       for (const entity of bundle.entities || []) {
         const entityId = String(entity.entityId || entity.entity_id || "");
-        if (!entityId || !entity.name) continue;
-        await client.query(
-          `INSERT INTO research_entities (entity_id, name, entity_type, metadata)
-           VALUES ($1, $2, $3, $4)
-           ON CONFLICT (entity_id)
-           DO UPDATE SET name = EXCLUDED.name,
-                         entity_type = EXCLUDED.entity_type,
-                         metadata = EXCLUDED.metadata,
-                         updated_at = now()`,
+        const entityName = String(entity.name || "").slice(0, 240);
+        const entityType = String(entity.entityType || entity.entity_type || "");
+        if (!entityId || !entityName) continue;
+        const entityResult = await client.query(
+          `WITH existing AS (
+             SELECT entity_id
+             FROM research_entities
+             WHERE entity_id = $1 OR (name = $2 AND entity_type = $3)
+             ORDER BY CASE WHEN name = $2 AND entity_type = $3 THEN 0 ELSE 1 END
+             LIMIT 1
+           ),
+           updated AS (
+             UPDATE research_entities
+             SET name = $2,
+                 entity_type = $3,
+                 metadata = research_entities.metadata || $4::jsonb,
+                 updated_at = now()
+             WHERE entity_id = (SELECT entity_id FROM existing)
+             RETURNING entity_id
+           ),
+           inserted AS (
+             INSERT INTO research_entities (entity_id, name, entity_type, metadata)
+             SELECT $1, $2, $3, $4::jsonb
+             WHERE NOT EXISTS (SELECT 1 FROM updated)
+             ON CONFLICT (name, entity_type)
+             DO UPDATE SET metadata = research_entities.metadata || EXCLUDED.metadata,
+                           updated_at = now()
+             RETURNING entity_id
+           )
+           SELECT entity_id FROM updated
+           UNION ALL
+           SELECT entity_id FROM inserted
+           LIMIT 1`,
           [
             entityId,
-            String(entity.name || "").slice(0, 240),
-            String(entity.entityType || entity.entity_type || ""),
+            entityName,
+            entityType,
             JSON.stringify(entity.metadata || {})
           ]
         );
+        const effectiveEntityId = String(entityResult.rows[0]?.entity_id || entityId);
         await client.query(
           `INSERT INTO research_source_entities (source_id, entity_id, role, metadata)
            VALUES ($1, $2, $3, $4)
@@ -2355,7 +2380,7 @@ class PostgresStorage {
            DO UPDATE SET metadata = EXCLUDED.metadata`,
           [
             sourceId,
-            entityId,
+            effectiveEntityId,
             String(entity.role || "mentioned"),
             JSON.stringify(entity.linkMetadata || {})
           ]
@@ -3618,12 +3643,25 @@ class JsonFileStorage {
 
     for (const entity of bundle.entities || []) {
       const entityId = String(entity.entityId || entity.entity_id || "");
-      if (!entityId || !entity.name) continue;
-      if (!this.state.researchEntities.some((item) => String(item.entity_id) === entityId)) {
+      const entityName = String(entity.name || "").slice(0, 240);
+      const entityType = String(entity.entityType || entity.entity_type || "");
+      if (!entityId || !entityName) continue;
+      const existingEntity = this.state.researchEntities.find((item) =>
+        String(item.name || "") === entityName && String(item.entity_type || "") === entityType
+      );
+      const existingById = this.state.researchEntities.find((item) => String(item.entity_id) === entityId);
+      const effectiveEntityId = String(existingEntity?.entity_id || existingById?.entity_id || entityId);
+      if (existingEntity || existingById) {
+        const target = existingEntity || existingById;
+        target.name = entityName;
+        target.entity_type = entityType;
+        target.metadata = { ...(target.metadata || {}), ...(entity.metadata || {}) };
+        target.updated_at = now;
+      } else {
         this.state.researchEntities.push({
           entity_id: entityId,
-          name: String(entity.name || "").slice(0, 240),
-          entity_type: String(entity.entityType || entity.entity_type || ""),
+          name: entityName,
+          entity_type: entityType,
           metadata: entity.metadata || {},
           created_at: now,
           updated_at: now
@@ -3631,7 +3669,7 @@ class JsonFileStorage {
       }
       this.state.researchSourceEntities.push({
         source_id: sourceId,
-        entity_id: entityId,
+        entity_id: effectiveEntityId,
         role: String(entity.role || "mentioned"),
         metadata: entity.linkMetadata || {},
         created_at: now

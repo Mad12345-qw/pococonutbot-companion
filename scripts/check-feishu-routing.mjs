@@ -816,6 +816,7 @@ assertEqual(
 
 const feishuSource = fs.readFileSync(new URL("../src/feishu.js", import.meta.url), "utf8");
 const feishuWorkspaceSource = fs.readFileSync(new URL("../src/feishu-workspace.js", import.meta.url), "utf8");
+const storageSource = fs.readFileSync(new URL("../src/storage.js", import.meta.url), "utf8");
 assertEqual(
   "generation architecture defines one shared generation-first contract",
   String(
@@ -880,6 +881,16 @@ assertEqual(
     feishuWorkspaceSource.includes("block_type: 20") &&
     feishuWorkspaceSource.includes("chat_card") &&
     feishuWorkspaceSource.includes("linkedTextBlock(\"加入群聊\"")
+  ),
+  "true"
+);
+
+assertEqual(
+  "research knowledge base reuses entities by natural key instead of failing on duplicate entity ids",
+  String(
+    storageSource.includes("ON CONFLICT (name, entity_type)") &&
+    storageSource.includes("effectiveEntityId") &&
+    storageSource.includes("metadata = research_entities.metadata ||")
   ),
   "true"
 );

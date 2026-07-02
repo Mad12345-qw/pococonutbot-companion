@@ -401,6 +401,37 @@ try {
   assert.equal(expandedHistory.length, 1);
   assert.equal(expandedHistory[0].metadata.feishuDocUrl, "https://example.feishu.cn/wiki/backfilltoken");
 
+  await storage.upsertResearchSourceBundle({
+    source: {
+      sourceId: "source:test-duplicate-entity-natural-key",
+      sourceType: "future_unknown_source",
+      platform: "example",
+      url: "https://example.com/source-duplicate-entity",
+      title: "Second source mentions the same organization",
+      rawText: "The same organization appears in a second source.",
+      rawTextHash: "hash-test-duplicate-entity"
+    },
+    entities: [
+      {
+        entityId: "entity:test-company-different-id",
+        name: "Example Org",
+        entityType: "organization",
+        role: "mentioned_again"
+      }
+    ]
+  });
+  const duplicateEntityExport = await storage.exportState();
+  assert.equal(
+    duplicateEntityExport.researchEntities.filter((entity) =>
+      entity.name === "Example Org" && (entity.entity_type || entity.entityType) === "organization"
+    ).length,
+    1
+  );
+  assert.ok(duplicateEntityExport.researchSourceEntities.some((link) =>
+    (link.source_id || link.sourceId) === "source:test-duplicate-entity-natural-key" &&
+    (link.entity_id || link.entityId) === "entity:test-company"
+  ));
+
   console.log("Research knowledge base checks passed.");
 } finally {
   process.chdir(originalCwd);
