@@ -128,6 +128,7 @@ export const config = {
   youtubeResearchRequirePrimary: asBoolean(process.env.YOUTUBE_RESEARCH_REQUIRE_PRIMARY, false),
   youtubeResearchForcePrimaryWithFallback: asBoolean(process.env.YOUTUBE_RESEARCH_FORCE_PRIMARY_WITH_FALLBACK, true),
   investmentReportAiTimeoutMs: asNumber(process.env.INVESTMENT_REPORT_AI_TIMEOUT_MS, 90000),
+  investmentReportProgressIntervalMs: asNumber(process.env.INVESTMENT_REPORT_PROGRESS_INTERVAL_MS, 60000),
   investmentReportAiRetryAttempts: asNumber(process.env.INVESTMENT_REPORT_AI_RETRY_ATTEMPTS, 1),
   investmentReportBackfillLimit: asNumber(process.env.INVESTMENT_REPORT_BACKFILL_LIMIT, 4),
   investmentReportBackfillConcurrency: asNumber(process.env.INVESTMENT_REPORT_BACKFILL_CONCURRENCY, 3),
