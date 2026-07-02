@@ -375,7 +375,7 @@ export class FeishuWorkspaceClient {
 
   async downloadDocumentCoverImage(imageUrl) {
     if (!imageUrl) return null;
-    const timeoutMs = Math.min(Math.max(Number(this.config.feishuDocumentCoverFetchTimeoutMs || 5000), 1000), 15000);
+    const timeoutMs = 30000;
     const response = await fetch(imageUrl, { signal: AbortSignal.timeout(timeoutMs) });
     if (!response.ok) throw new Error(`cover image fetch failed ${response.status}`);
     const mimeType = response.headers.get("content-type") || "image/jpeg";
