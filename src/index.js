@@ -22,7 +22,7 @@ import { GitHubMemoryBackup } from "./github-backup.js";
 assertRequiredConfig();
 
 const app = express();
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json({ limit: "8mb" }));
 app.set("trust proxy", true);
 
 function idSuffix(value = "") {

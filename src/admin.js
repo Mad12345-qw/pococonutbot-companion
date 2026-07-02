@@ -1469,6 +1469,13 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
     const query = String(req.body?.query || "").trim();
     const generateImages = req.body?.generateImages !== false;
     const generateLeadImage = req.body?.generateLeadImage === true;
+    const coverImageBase64 = String(req.body?.coverImageBase64 || "").trim();
+    const coverImage = coverImageBase64
+      ? {
+          buffer: Buffer.from(coverImageBase64, "base64"),
+          mimeType: String(req.body?.coverImageMimeType || "image/png")
+        }
+      : null;
     let candidate = null;
     try {
       const rows = await storage.listYoutubeResearchHistoryForBackfill({ query, limit: 1 });
@@ -1496,6 +1503,7 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
       const draft = await wechatPublisher.createDraft(candidate, {
         generateImages,
         generateLeadImage,
+        coverImage,
         operator: "admin_latest_youtube_draft"
       });
       await storage.updateWechatPublishCandidate(candidate.id, {

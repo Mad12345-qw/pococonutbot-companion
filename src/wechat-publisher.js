@@ -372,7 +372,7 @@ export class WeChatPublisher {
     throw new Error("微信公众号封面生图未配置，且没有可用默认 thumb_media_id；已停止创建草稿，避免使用千篇一律的低质封面。");
   }
 
-  async createDraft(candidate = {}, { generateImages = false, generateLeadImage = false, operator = "" } = {}) {
+  async createDraft(candidate = {}, { generateImages = false, generateLeadImage = false, coverImage = null, operator = "" } = {}) {
     if (!this.enabled) throw new Error("WeChat MP publishing is not configured.");
     const startedAt = Date.now();
     const plan = await this.buildDistributionPlan(candidate, { generateImages });
@@ -381,7 +381,12 @@ export class WeChatPublisher {
     let leadImageUrl = "";
     let imageMode = "default_thumb";
 
-    if (generateImages || !coverMediaId) {
+    if (coverImage?.buffer) {
+      const uploaded = await this.uploadPermanentImage(coverImage, "wechat-cover.png");
+      coverMediaId = uploaded.media_id;
+      coverUrl = uploaded.url || "";
+      imageMode = "provided_cover";
+    } else if (generateImages || !coverMediaId) {
       const cover = await this.generateImageOrFallback(plan.coverPrompt, plan);
       const uploaded = await this.uploadPermanentImage(cover, "wechat-cover.png");
       coverMediaId = uploaded.media_id;

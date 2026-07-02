@@ -1274,6 +1274,35 @@ assertEqual(
   ),
   "true"
 );
+const providedCoverPrompts = [];
+const providedCoverWechatPublisher = new TestWeChatPublisher({
+  config: {
+    wechatMpEnabled: true,
+    wechatMpAppId: "wx-test",
+    wechatMpAppSecret: "secret-test",
+    wechatMpAuthor: "test-author",
+    wechatMpOpenComment: false,
+    wechatMpOnlyFansCanComment: false
+  },
+  ai: null,
+  imageGenerator: {
+    enabled: true,
+    generate: async (prompt) => {
+      providedCoverPrompts.push(prompt);
+      return { buffer: Buffer.from("should-not-run"), mimeType: "image/png" };
+    }
+  }
+});
+const providedCoverResult = await providedCoverWechatPublisher.createDraft(wechatCandidate, {
+  generateImages: true,
+  coverImage: { buffer: Buffer.from("provided-cover"), mimeType: "image/png" },
+  operator: "test-provided-cover"
+});
+assertEqual(
+  "WeChat draft accepts a pre-generated article-specific cover without calling the image model again",
+  String(providedCoverPrompts.length === 0 && providedCoverResult.imageMode === "provided_cover"),
+  "true"
+);
 const latestYoutubeWechatCandidate = buildLatestYoutubeWechatCandidate({
   message: {
     content: "Old generated message wrapper should not become the WeChat body",
