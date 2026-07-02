@@ -3257,11 +3257,24 @@ export class FeishuBot {
     ]);
   }
 
+  extractCardActionChatId(event = {}, payload = {}) {
+    return pickFirstString([
+      event.context?.open_chat_id,
+      event.context?.chat_id,
+      event.open_chat_id,
+      event.chat_id,
+      event.message?.chat_id,
+      event.message?.open_chat_id,
+      payload.event?.context?.open_chat_id,
+      payload.event?.context?.chat_id,
+      payload.open_chat_id,
+      payload.chat_id
+    ]);
+  }
+
   async handleWechatPublishAction({ event = {}, payload = {}, value = {} } = {}) {
     const candidateId = String(value.candidate_id || value.candidateId || "").trim();
-    const generateImages = value.generate_images === true ||
-      value.generateImages === true ||
-      String(value.generate_images || value.generateImages || "").toLowerCase() === "true";
+    const generateImages = true;
     if (!candidateId) {
       return { toast: { type: "warning", content: "没有拿到可发布文章 ID。" } };
     }
@@ -3274,6 +3287,7 @@ export class FeishuBot {
     }
 
     const operator = this.extractCardActionOperatorId(event, payload);
+    const chatId = this.extractCardActionChatId(event, payload);
     await this.storage.updateWechatPublishCandidate?.(candidateId, {
       status: "publishing",
       error: "",
@@ -3285,6 +3299,28 @@ export class FeishuBot {
       }
     });
 
+    this.runWechatPublishDraftTask({
+      candidateId,
+      candidate,
+      operator,
+      chatId,
+      generateImages
+    }).catch((error) => {
+      logEvent("error", "WeChat draft background task crashed", {
+        candidateId,
+        chatId,
+        error: error.message
+      });
+    });
+
+    return {
+      toast: {
+        type: "info",
+        content: "已开始生成公众号草稿，完成后我会发结果卡片。"
+      }
+    };
+
+    /*
     try {
       const result = await this.wechatPublisher.createDraft(candidate, { generateImages, operator });
       await this.storage.updateWechatPublishCandidate?.(candidateId, {
@@ -3335,6 +3371,57 @@ export class FeishuBot {
     }
   }
 
+    */
+  }
+
+  async runWechatPublishDraftTask({ candidateId = "", candidate = {}, operator = "", chatId = "", generateImages = true } = {}) {
+    try {
+      const result = await this.wechatPublisher.createDraft(candidate, { generateImages, operator });
+      await this.storage.updateWechatPublishCandidate?.(candidateId, {
+        status: "draft_created",
+        draftMediaId: result.draftMediaId || "",
+        error: "",
+        metadata: {
+          ...(candidate.metadata || {}),
+          lastPublishStartedAt: candidate.metadata?.lastPublishStartedAt || new Date().toISOString(),
+          lastPublishFinishedAt: new Date().toISOString(),
+          lastPublishOperator: operator,
+          generateImages,
+          wechat: result
+        }
+      });
+      if (chatId) {
+        await this.sendCardToChat(chatId, this.buildWechatPublishResultCard({ candidate, result }));
+      } else {
+        logEvent("warn", "WeChat draft created but card action chat id was missing", {
+          candidateId,
+          draftMediaId: result.draftMediaId || ""
+        });
+      }
+      return result;
+    } catch (error) {
+      await this.storage.updateWechatPublishCandidate?.(candidateId, {
+        status: "failed",
+        error: error.message,
+        metadata: {
+          ...(candidate.metadata || {}),
+          lastPublishFailedAt: new Date().toISOString(),
+          lastPublishOperator: operator,
+          generateImages
+        }
+      });
+      logEvent("error", "WeChat draft creation failed", {
+        candidateId,
+        generateImages,
+        error: error.message
+      });
+      if (chatId) {
+        await this.sendTextToChat(chatId, `公众号草稿生成失败：${truncate(error.message, 300)}`);
+      }
+      return null;
+    }
+  }
+
   async registerWechatPublishCandidate(candidate = {}) {
     if (!candidate.markdown || !this.storage.upsertWechatPublishCandidate) return null;
     const id = candidate.id || researchSourceId("wechat_candidate", [
@@ -3372,7 +3459,19 @@ export class FeishuBot {
         value: {
           action: "wechat_publish_draft",
           candidate_id: candidate.id,
-          generate_images: false
+          generate_images: true
+        }
+      }
+    ];
+    return [
+      {
+        tag: "button",
+        text: { tag: "plain_text", content: "生成公众号草稿" },
+        type: "primary",
+        value: {
+          action: "wechat_publish_draft",
+          candidate_id: candidate.id,
+          generate_images: true
         }
       },
       {
@@ -7877,6 +7976,18 @@ export class FeishuBot {
       receive_id: targetChatId,
       msg_type: "text",
       content: JSON.stringify({ text: String(text || "") })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async sendCardToChat(chatId, card) {
+    const targetChatId = String(chatId || "").trim();
+    if (!targetChatId || !card) return null;
+    const response = await this.feishuPost("/open-apis/im/v1/messages?receive_id_type=chat_id", {
+      receive_id: targetChatId,
+      msg_type: "interactive",
+      content: JSON.stringify(card)
     });
     this.rememberBotMessage(response);
     return response;

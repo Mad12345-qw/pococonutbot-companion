@@ -112,6 +112,17 @@ assertEqual(
   String(countOccurrences(withFeishuArticleGroupPrelude(articleWithPrelude, articleGroupConfig), "加入我们，持续追踪SpaceX、AI、Robot！")),
   "1"
 );
+const wechatActions = bot.wechatPublishActions({ id: "candidate-test" });
+assertEqual(
+  "WeChat publish card exposes one unified draft button",
+  String(wechatActions.length),
+  "1"
+);
+assertEqual(
+  "WeChat unified draft button always generates images",
+  String(wechatActions[0]?.value?.generate_images),
+  "true"
+);
 
 const routeCases = [
   {
