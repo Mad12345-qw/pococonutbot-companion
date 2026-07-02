@@ -2997,7 +2997,7 @@ export class FeishuBot {
     assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
     const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
 
-    const titleContextRaw = await this.ai.chat([
+    const titleContextRawPromise = this.ai.chat([
       {
         role: "system",
         content: [
@@ -3045,9 +3045,7 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const titleContextPart = await this.parseYoutubeJsonObject(titleContextRaw, "article title context");
-
-    const glossaryRaw = await this.ai.chat([
+    const glossaryRawPromise = this.ai.chat([
       {
         role: "system",
         content: [
@@ -3082,9 +3080,7 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const glossaryPart = await this.parseYoutubeJsonObject(glossaryRaw, "article glossary");
-
-    const coreRaw = await this.ai.chat([
+    const coreRawPromise = this.ai.chat([
       {
         role: "system",
         content: [
@@ -3126,9 +3122,7 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const corePart = await this.parseYoutubeJsonObject(coreRaw, "article core arguments");
-
-    const techRaw = await this.ai.chat([
+    const techRawPromise = this.ai.chat([
       {
         role: "system",
         content: [
@@ -3165,9 +3159,7 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const techPart = await this.parseYoutubeJsonObject(techRaw, "article technical sections");
-
-    const timelineRaw = await this.ai.chat([
+    const timelineRawPromise = this.ai.chat([
       {
         role: "system",
         content: [
@@ -3203,7 +3195,19 @@ export class FeishuBot {
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const timelinePart = await this.parseYoutubeJsonObject(timelineRaw, "article timeline");
+    const [
+      titleContextPart,
+      glossaryPart,
+      corePart,
+      techPart,
+      timelinePart
+    ] = await Promise.all([
+      titleContextRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article title context")),
+      glossaryRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article glossary")),
+      coreRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article core arguments")),
+      techRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article technical sections")),
+      timelineRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article timeline"))
+    ]);
     const structured = normalizeYoutubeStructuredArticle({
       title: titleContextPart.title,
       opening: {
