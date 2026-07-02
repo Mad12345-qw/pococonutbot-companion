@@ -2184,8 +2184,8 @@ function normalizeResearchSourceRow(row = {}, index = 0) {
   return {
     id: `S${index + 1}`,
     sourceId,
-    sourceType: String(researchRowValue(row, "sourceType", "source_type") || ""),
-    platform: String(row.platform || ""),
+    sourceType: readerResearchPhrase(researchRowValue(row, "sourceType", "source_type") || ""),
+    platform: readerResearchPhrase(row.platform || ""),
     title: cleanTitle || cleanResearchArticleText(researchRowValue(row, "docUrl", "doc_url") ? "历史 YouTube 研究文档" : "Untitled source", 220),
     organization: cleanResearchArticleText(row.organization || row.author || "", 160),
     url: String(row.url || ""),
@@ -2193,10 +2193,46 @@ function normalizeResearchSourceRow(row = {}, index = 0) {
     publishedAt: String(researchRowValue(row, "publishedAt", "published_at") || ""),
     recordedAt: String(researchRowValue(row, "recordedAt", "recorded_at") || ""),
     eventPeriod: String(researchRowValue(row, "eventPeriod", "event_period") || ""),
-    reliabilityLevel: String(researchRowValue(row, "reliabilityLevel", "reliability_level") || ""),
-    evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
-    conflictProfile: String(researchRowValue(row, "conflictProfile", "conflict_profile") || "")
+    reliabilityLevel: readerResearchPhrase(researchRowValue(row, "reliabilityLevel", "reliability_level") || ""),
+    evidenceStrength: readerResearchPhrase(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
+    conflictProfile: readerResearchPhrase(researchRowValue(row, "conflictProfile", "conflict_profile") || "")
   };
+}
+
+function readerResearchPhrase(value = "") {
+  const text = cleanResearchArticleText(value, 900);
+  if (!text) return "";
+  if (/^low$/i.test(text)) return "低";
+  if (/^medium$/i.test(text)) return "中等";
+  if (/^high$/i.test(text)) return "高";
+  if (/^low-to-medium$/i.test(text)) return "低到中等";
+  if (/^video_article_backfill$/i.test(text)) return "历史 YouTube 文档回填";
+  if (/^feishu_youtube_doc$/i.test(text)) return "飞书 YouTube 研究文档";
+  if (/^generated_reader_document$/i.test(text)) return "历史生成文档";
+  if (/^generated_article_backfill$/i.test(text)) return "历史文档回填证据";
+  if (/^summary_generation_bias_possible$/i.test(text)) return "来源来自历史生成文档，可能存在摘要二次加工偏差，关键判断需回到原文核对。";
+  if (/^backfilled_from_generated_reader_document$/i.test(text)) return "该线索来自历史读者文档回填，不是一手原始资料。";
+  if (/This evidence was backfilled from an existing reader-facing YouTube document/i.test(text)) {
+    return "该证据来自历史读者文档回填，可用于保持研究连续性，但不能替代原始字幕、公告或监管记录。";
+  }
+  if (/Backfilled from a generated document/i.test(text)) {
+    return "该证据来自历史生成文档回填，形成高置信结论前需要回到原始资料复核。";
+  }
+  if (/This source was recovered from an existing reader document/i.test(text)) {
+    return "该来源由历史读者文档回填，可用于恢复研究线索，但高置信结论必须复核原始资料。";
+  }
+  if (/The original video, company progress, regulation, production status, or market environment changed/i.test(text)) {
+    return "若原视频背景、公司进展、监管状态、产能进度或市场环境已变化，本判断需要重新复核。";
+  }
+  return text;
+}
+
+function readerEvidenceLocation(value = "") {
+  const text = cleanResearchEvidenceText(value, 120);
+  if (!text) return "";
+  const generated = text.match(/^generated_doc:(\d+)/i);
+  if (generated) return `历史文档摘录 ${generated[1]}`;
+  return readerResearchPhrase(text);
 }
 
 function normalizeResearchEvidenceRow(row = {}, index = 0, sourceIndexById = new Map()) {
@@ -2209,12 +2245,12 @@ function normalizeResearchEvidenceRow(row = {}, index = 0, sourceIndexById = new
     claim: cleanResearchEvidenceText(row.claim || "", 500),
     quoteOriginal: cleanResearchEvidenceText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
     quoteZh: cleanResearchEvidenceText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
-    location: cleanResearchEvidenceText(row.location || "", 80),
-    whyItMatters: cleanResearchEvidenceText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
+    location: readerEvidenceLocation(row.location || ""),
+    whyItMatters: readerResearchPhrase(researchRowValue(row, "whyItMatters", "why_it_matters") || ""),
     confidence: Number(row.confidence || 0),
-    timeSensitivity: String(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
-    evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
-    analysisLens: String(researchRowValue(row, "analysisLens", "analysis_lens") || "")
+    timeSensitivity: readerResearchPhrase(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
+    evidenceStrength: readerResearchPhrase(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
+    analysisLens: readerResearchPhrase(researchRowValue(row, "analysisLens", "analysis_lens") || "")
   };
 }
 
@@ -2237,8 +2273,8 @@ function buildInvestmentReportEvidencePack(corpus = {}) {
     likelyRecordedAt: cleanResearchArticleText(researchRowValue(row, "likelyRecordedAt", "likely_recorded_at") || "", 120),
     eventPeriod: cleanResearchArticleText(researchRowValue(row, "eventPeriod", "event_period") || "", 120),
     currentRelevance: cleanResearchArticleText(researchRowValue(row, "currentRelevance", "current_relevance") || "", 500),
-    timeSensitivity: cleanResearchArticleText(researchRowValue(row, "timeSensitivity", "time_sensitivity") || "", 80),
-    staleIf: cleanResearchArticleText(researchRowValue(row, "staleIf", "stale_if") || "", 400)
+    timeSensitivity: readerResearchPhrase(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
+    staleIf: readerResearchPhrase(researchRowValue(row, "staleIf", "stale_if") || "")
   }));
   const questions = (corpus.questions || []).map((row) => ({
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
@@ -2248,9 +2284,9 @@ function buildInvestmentReportEvidencePack(corpus = {}) {
   })).filter((item) => item.question);
   const coverageGaps = (corpus.coverageGaps || []).map((row) => ({
     sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
-    gap: cleanResearchArticleText(row.gap || "", 400),
-    impact: cleanResearchArticleText(row.impact || "", 600),
-    confidenceImpact: cleanResearchArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
+    gap: readerResearchPhrase(row.gap || ""),
+    impact: readerResearchPhrase(row.impact || ""),
+    confidenceImpact: readerResearchPhrase(researchRowValue(row, "confidenceImpact", "confidence_impact") || "")
   })).filter((item) => item.gap);
   return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps, topicMap: normalizeInvestmentTopicMap(corpus.topicMap || { topics: [], edges: [] }) };
 }
@@ -2552,13 +2588,54 @@ function buildFallbackInvestmentReportStructured(pack = {}, request = {}, error 
   }, request);
 }
 
+function extractYearsFromText(value = "") {
+  return [...String(value || "").matchAll(/\b(20\d{2}|19\d{2})\b/g)]
+    .map((match) => Number(match[1]))
+    .filter((year) => year >= 1990 && year <= 2100);
+}
+
+function investmentReportTimeScope(pack = {}) {
+  const sourceTexts = (pack.sources || []).flatMap((source) => [
+    source.publishedAt,
+    source.recordedAt,
+    source.eventPeriod,
+    source.title
+  ]);
+  const contextTexts = (pack.timeContexts || []).flatMap((context) => [
+    context.videoPublishedAt,
+    context.likelyRecordedAt,
+    context.eventPeriod,
+    context.currentRelevance,
+    context.staleIf
+  ]);
+  const years = [...new Set([...sourceTexts, ...contextTexts].flatMap(extractYearsFromText))].sort((a, b) => a - b);
+  const missingDates = (pack.sources || []).filter((source) => !(source.publishedAt || source.recordedAt || source.eventPeriod)).length;
+  const stage = years.length
+    ? years.length === 1
+      ? `${years[0]} 年附近`
+      : `${years[0]}-${years[years.length - 1]} 年`
+    : "未完全标准化，需以后续原始来源补齐";
+  return { stage, missingDates, generatedAt: new Date().toISOString().slice(0, 10) };
+}
+
+function investmentReportEvidenceLegend(pack = {}) {
+  const { stage, missingDates, generatedAt } = investmentReportTimeScope(pack);
+  return compactLines([
+    `- **研究材料覆盖期：** ${stage}${missingDates ? `；其中 ${missingDates} 个来源缺少标准化发布时间/拍摄时间。` : "。"}`,
+    `- **报告生成日：** ${generatedAt}。`,
+    `- **编号说明：** S1/S2 代表资料来源，E1/E2 代表证据卡；正文里的「证据 E52」可在文末证据索引中核对原始出处。`,
+    `- **证据边界：** 历史 YouTube 文档回填可以帮助恢复研究线索，但不等同于一手公告、财报、监管记录或论文；涉及成本、产能、监管许可、订单和估值的判断必须二次验证。`,
+    `- **适用场景：** 本文是长期产业链研究假设，不是短线交易建议，也不是直接买卖建议。`
+  ]);
+}
+
 function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, request = {}) {
   const evidenceIndex = new Map((pack.evidenceCards || []).map((card) => [card.id, card]));
   const evidenceRefs = (ids = []) => asArray(ids)
     .map(String)
     .filter((id) => evidenceIndex.has(id))
-    .map((id) => `\`${id}\``)
-    .join(" ");
+    .map((id) => `证据 ${id}`)
+    .join("、");
   const graphTopics = (pack.topicMap?.topics || []).slice(0, 20).map((topic) => (
     `- **${topic.canonicalName || topic.canonical_name || topic.topicKey || topic.topic_key}：** ${topic.topicType || topic.topic_type || "theme"}${(topic.aliases || []).length ? `；别名/相关叫法：${(topic.aliases || []).slice(0, 5).join("、")}` : ""}`
   )).join("\n");
@@ -2604,17 +2681,17 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
       evidenceRefs(node.evidenceIds) ? `  - **相关证据：** ${evidenceRefs(node.evidenceIds)}` : ""
     ])).join("\n")
     : "- **待补充：** 需要更多来源来拆分明确的价值链节点。";
-  const risks = [
+  const risks = mergeUniqueBy([
     ...structured.risks.map((risk) => `- **反证/风险：** ${risk}`),
     ...structured.timeContextRisks.map((risk) => `- **时间错位：** ${risk}`),
     ...(pack.coverageGaps || []).slice(0, 8).map((gap) => `- **覆盖缺口：** ${gap.gap}${gap.impact ? `。${gap.impact}` : ""}`)
-  ].join("\n") || "- **风险提示：** 当前资料仍需跨来源验证，不能直接视为投资结论。";
+  ].filter(Boolean), (item) => item.replace(/^\-\s+\*\*[^：]+：\*\*\s*/, ""), 18).join("\n") || "- **风险提示：** 当前资料仍需跨来源验证，不能直接视为投资结论。";
   const tasks = structured.nextResearchTasks.length
     ? structured.nextResearchTasks.map((task) => `- ${task}`).join("\n")
     : (pack.questions || []).slice(0, 8).map((question) => `- ${question.question}`).join("\n");
   const sources = (pack.sources || []).map((source) => compactLines([
-    `- **${source.id} ${source.title || "Untitled source"}**`,
-    `  - **类型：** ${[source.sourceType, source.platform, source.organization].filter(Boolean).join(" / ") || "unknown"}`,
+    `- **来源 ${source.id}：${source.title || "未命名来源"}**`,
+    `  - **类型：** ${[source.sourceType, source.platform, source.organization].filter(Boolean).join(" / ") || "未标注"}`,
     source.publishedAt || source.recordedAt || source.eventPeriod
       ? `  - **时间：** ${[source.publishedAt && `发布 ${source.publishedAt}`, source.recordedAt && `拍摄/记录 ${source.recordedAt}`, source.eventPeriod && `事件期 ${source.eventPeriod}`].filter(Boolean).join("；")}`
       : "  - **时间：** 未标准化，综合判断前需要复核",
@@ -2623,13 +2700,14 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     source.conflictProfile ? `  - **潜在偏差：** ${source.conflictProfile}` : ""
   ])).join("\n");
   const evidence = (pack.evidenceCards || []).slice(0, 80).map((card) => compactLines([
-    `- **${card.id} / ${card.sourceRef}${card.location ? ` / ${card.location}` : ""}：** ${card.claim || card.quoteOriginal}`,
+    `- **证据 ${card.id}｜来源 ${card.sourceRef}${card.location ? `｜${card.location}` : ""}：** ${card.claim || card.quoteOriginal}`,
     card.quoteOriginal ? `  - **原文：** ${card.quoteOriginal}` : "",
     card.whyItMatters ? `  - **意义：** ${card.whyItMatters}` : "",
     card.timeSensitivity ? `  - **时间敏感性：** ${card.timeSensitivity}` : ""
   ])).join("\n");
   return compactLines([
-    `# ${structured.title}`,
+    "## 先读：研究时间、证据编号与适用边界",
+    investmentReportEvidenceLegend(pack),
     "",
     "## 一、报告结论",
     structured.oneSentence ? `- **一句话结论：** ${structured.oneSentence}` : "",
@@ -2666,9 +2744,7 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     sources,
     "",
     "### 证据卡",
-    evidence,
-    "",
-    `> 触发请求：${request.query || ""}`
+    evidence
   ]);
 }
 
@@ -2694,7 +2770,7 @@ function findInvestmentReportArtifact(markdown = "") {
 function assertInvestmentResearchReportMarkdown(markdown = "") {
   const text = String(markdown || "");
   const required = [
-    "# ",
+    "## 先读：研究时间、证据编号与适用边界",
     "## 一、报告结论",
     "## 二、主题边界与产业链地图",
     "## 三、证据基础与时间校准",
@@ -2711,7 +2787,7 @@ function assertInvestmentResearchReportMarkdown(markdown = "") {
     const snippet = findInvestmentReportArtifact(text);
     throw new Error(`investment report contains low-value or unsupported article artifacts${snippet ? ` near: ${snippet}` : ""}.`);
   }
-  if (!/\`E\d+\`|证据卡/.test(text)) {
+  if (!/证据\s*E\d+|证据卡/.test(text)) {
     throw new Error("investment report must expose evidence ids.");
   }
 }

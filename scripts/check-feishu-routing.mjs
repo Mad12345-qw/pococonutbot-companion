@@ -947,14 +947,16 @@ assertEqual(
     userPerspectiveReport.ready === true &&
     !userPerspectiveReport.reused &&
     investmentReportSegmentedCalls >= 4 &&
-    userPerspectiveMarkdown.includes("# SpaceX 的真正变量") &&
+    !userPerspectiveMarkdown.includes("# SpaceX 的真正变量") &&
     userPerspectiveMarkdown.includes("## 一、报告结论") &&
     userPerspectiveMarkdown.includes("## 二、主题边界与产业链地图") &&
     userPerspectiveMarkdown.includes("## 三、证据基础与时间校准") &&
     userPerspectiveMarkdown.includes("## 八、资料来源与证据索引") &&
+    userPerspectiveMarkdown.includes("## 先读：研究时间、证据编号与适用边界") &&
     userPerspectiveOpening.includes("一句话结论") &&
     userPerspectiveBoundary.includes("研究边界") &&
-    userPerspectiveMarkdown.includes("`E1`") &&
+    userPerspectiveMarkdown.includes("证据 E1") &&
+    userPerspectiveMarkdown.includes("S1/S2 代表资料来源，E1/E2 代表证据卡") &&
     userPerspectiveMarkdown.includes("当前证据覆盖两个视频来源") &&
     !/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会/.test(userPerspectiveMarkdown) &&
     !userPerspectiveEvidence.includes("上一版报告")
@@ -991,7 +993,7 @@ assertEqual(
     timeoutFallbackReport.aiFallback?.reason === "ai_synthesis_timeout" &&
     timeoutFallbackReport.markdown.includes("## 一、报告结论") &&
     timeoutFallbackReport.markdown.includes("证据基线") &&
-    timeoutFallbackReport.markdown.includes("`E1`") &&
+    timeoutFallbackReport.markdown.includes("证据 E1") &&
     !/YouTube 技术笔记|阅读导航|输出语言|内容形态|<details|<summary/.test(timeoutFallbackReport.markdown)
   ),
   "true"
