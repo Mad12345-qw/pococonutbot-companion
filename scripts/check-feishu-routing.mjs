@@ -313,12 +313,12 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube Feishu doc merges background and summary into opening section",
-  String(mobileDocMarkdown.includes("## 一、导读与核心结论") && !mobileDocMarkdown.includes("## 一、背景导读") && !mobileDocMarkdown.includes("## 二、精华总结") && mobileDocMarkdown.includes("### 核心结论")),
+  "youtube Feishu doc splits glossary background and conclusion",
+  String(mobileDocMarkdown.includes("## 一、关键术语解释") && mobileDocMarkdown.includes("## 二、背景导读") && mobileDocMarkdown.includes("## 三、导读与核心结论") && !mobileDocMarkdown.includes("## 二、精华总结") && mobileDocMarkdown.includes("### 核心结论")),
   "true"
 );
 assertEqual(
-  "youtube Feishu doc keeps all opening primers in merged opening",
+  "youtube Feishu doc keeps all opening primers in background section",
   String([
     "这段应该进入背景导读",
     "**背景导读：**",
@@ -326,18 +326,18 @@ assertEqual(
   ].every((needle) => {
     const index = mobileDocMarkdown.indexOf(needle);
     const laterSections = [
-      mobileDocMarkdown.indexOf("## 二、关键技术点速览"),
-      mobileDocMarkdown.indexOf("## 三、详细技术拆解"),
-      mobileDocMarkdown.indexOf("## 四、时间线摘要")
+      mobileDocMarkdown.indexOf("## 四、关键技术点速览"),
+      mobileDocMarkdown.indexOf("## 五、详细技术拆解"),
+      mobileDocMarkdown.indexOf("## 六、时间线摘要")
     ].filter((value) => value >= 0);
     const firstLaterSection = Math.min(...laterSections);
-    return index > mobileDocMarkdown.indexOf("## 一、导读与核心结论") && index < firstLaterSection;
+    return index > mobileDocMarkdown.indexOf("## 二、背景导读") && index < mobileDocMarkdown.indexOf("## 三、导读与核心结论") && firstLaterSection > 0;
   })),
   "true"
 );
 assertEqual(
   "youtube Feishu doc formats background term glossary",
-  String(mobileDocMarkdown.includes("### 关键术语解释") && mobileDocMarkdown.includes("- **Starship / 星舰：** 通常指 SpaceX 的超重型运载系统中的上面级飞船。") && mobileDocMarkdown.includes("- **Super Heavy / 超重型助推器：** 星舰系统的一级助推器，负责把飞船推到接近入轨条件。") && mobileDocMarkdown.includes("- **长船与龙船：** Viking longship 指维京长船，核心优势是速度和浅水航行。") && !mobileDocMarkdown.includes("- Starship / 星舰\n- 通常指") && !mobileDocMarkdown.includes("术语解释：长船与龙船")),
+  String(mobileDocMarkdown.includes("## 一、关键术语解释") && mobileDocMarkdown.includes("- **Starship / 星舰：** 通常指 SpaceX 的超重型运载系统中的上面级飞船。") && mobileDocMarkdown.includes("- **Super Heavy / 超重型助推器：** 星舰系统的一级助推器，负责把飞船推到接近入轨条件。") && mobileDocMarkdown.includes("- **长船与龙船：** Viking longship 指维京长船，核心优势是速度和浅水航行。") && !mobileDocMarkdown.includes("- Starship / 星舰\n- 通常指") && !mobileDocMarkdown.includes("术语解释：长船与龙船")),
   "true"
 );
 assertEqual(
@@ -358,11 +358,13 @@ assertEqual(
 assertEqual(
   "youtube Feishu doc keeps reader-grade required sections",
   String([
-    "## 一、导读与核心结论",
-    "## 二、关键技术点速览",
-    "## 四、时间线摘要",
-    "## 五、值得继续追问的问题",
-    "## 六、出处与链接"
+    "## 一、关键术语解释",
+    "## 二、背景导读",
+    "## 三、导读与核心结论",
+    "## 四、关键技术点速览",
+    "## 六、时间线摘要",
+    "## 七、值得继续追问的问题",
+    "## 八、出处与链接"
   ].every((heading) => mobileDocMarkdown.includes(heading))),
   "true"
 );
@@ -408,7 +410,7 @@ const vikingFallbackDoc = bot.buildFeishuYoutubeDocumentMarkdown({
 });
 assertEqual(
   "youtube Feishu doc Viking fallback is concrete",
-  String(vikingFallbackDoc.includes("长船带来的机动性") && vikingFallbackDoc.includes("### 关键术语解释") && vikingFallbackDoc.includes("**Longship / 长船：**") && !vikingFallbackDoc.includes("产业判断、工程取舍和商业后果")),
+  String(vikingFallbackDoc.includes("长船带来的机动性") && vikingFallbackDoc.includes("## 一、关键术语解释") && vikingFallbackDoc.includes("**Longship / 长船：**") && !vikingFallbackDoc.includes("产业判断、工程取舍和商业后果")),
   "true"
 );
 
@@ -582,19 +584,19 @@ const structuredFeishuDoc = bot.buildFeishuYoutubeDocumentMarkdown({
 });
 assertEqual(
   "youtube structured pipeline renders reader-grade article",
-  String(structuredFeishuDoc.includes("## 一、导读与核心结论") && structuredFeishuDoc.includes("### 关键术语解释") && structuredFeishuDoc.includes("## 二、关键技术点速览") && structuredFeishuDoc.includes("## 六、出处与链接") && !structuredFeishuDoc.includes("YouTube 技术笔记") && !structuredFeishuDoc.includes("我先按")),
+  String(structuredFeishuDoc.includes("## 一、关键术语解释") && structuredFeishuDoc.includes("## 二、背景导读") && structuredFeishuDoc.includes("## 三、导读与核心结论") && structuredFeishuDoc.includes("## 四、关键技术点速览") && structuredFeishuDoc.includes("## 八、出处与链接") && !structuredFeishuDoc.includes("YouTube 技术笔记") && !structuredFeishuDoc.includes("我先按")),
   "true"
 );
 assertEqual(
   "youtube guided blueprint is not rewrapped by legacy summary logic",
-  String(!structuredFeishuDoc.includes("### 核心结论") && structuredFeishuDoc.indexOf("## 一、导读与核心结论") < structuredFeishuDoc.indexOf("### 关键术语解释") && structuredFeishuDoc.indexOf("### 原文摘录") > structuredFeishuDoc.indexOf("## 四、时间线摘要") && structuredFeishuDoc.indexOf("## 六、出处与链接") > structuredFeishuDoc.indexOf("## 五、值得继续追问的问题")),
+  String(!structuredFeishuDoc.includes("### 核心结论") && structuredFeishuDoc.indexOf("## 一、关键术语解释") < structuredFeishuDoc.indexOf("## 二、背景导读") && structuredFeishuDoc.indexOf("## 二、背景导读") < structuredFeishuDoc.indexOf("## 三、导读与核心结论") && structuredFeishuDoc.indexOf("### 原文摘录") > structuredFeishuDoc.indexOf("## 六、时间线摘要") && structuredFeishuDoc.indexOf("## 八、出处与链接") > structuredFeishuDoc.indexOf("## 七、值得继续追问的问题")),
   "true"
 );
-const finalOpeningSection = sectionBetween(structuredFeishuDoc, "## 一、导读与核心结论", "## 二、关键技术点速览");
-const finalGlossaryText = sectionBetween(structuredFeishuDoc, "### 关键术语解释", "### 背景解读");
-const finalBackgroundText = sectionBetween(structuredFeishuDoc, "### 背景解读", "### 一句话结论");
-const finalTimelineSection = sectionBetween(structuredFeishuDoc, "## 四、时间线摘要", "## 五、值得继续追问的问题");
-const finalQuestionsSection = sectionBetween(structuredFeishuDoc, "## 五、值得继续追问的问题", "## 六、出处与链接");
+const finalCoreSection = sectionBetween(structuredFeishuDoc, "## 三、导读与核心结论", "## 四、关键技术点速览");
+const finalGlossaryText = sectionBetween(structuredFeishuDoc, "## 一、关键术语解释", "## 二、背景导读");
+const finalBackgroundText = sectionBetween(structuredFeishuDoc, "## 二、背景导读", "## 三、导读与核心结论");
+const finalTimelineSection = sectionBetween(structuredFeishuDoc, "## 六、时间线摘要", "## 七、值得继续追问的问题");
+const finalQuestionsSection = sectionBetween(structuredFeishuDoc, "## 七、值得继续追问的问题", "## 八、出处与链接");
 assertEqual(
   "youtube finished article snapshot has no duplicated title",
   String(countOccurrences(structuredFeishuDoc, hlsArticle.title) === 0),
@@ -602,7 +604,7 @@ assertEqual(
 );
 assertEqual(
   "youtube finished article snapshot puts glossary before background",
-  String(structuredFeishuDoc.indexOf("### 关键术语解释") < structuredFeishuDoc.indexOf("### 背景解读") && structuredFeishuDoc.indexOf("### 背景解读") < structuredFeishuDoc.indexOf("### 一句话结论")),
+  String(structuredFeishuDoc.indexOf("## 一、关键术语解释") < structuredFeishuDoc.indexOf("## 二、背景导读") && structuredFeishuDoc.indexOf("## 二、背景导读") < structuredFeishuDoc.indexOf("## 三、导读与核心结论")),
   "true"
 );
 assertEqual(
@@ -622,7 +624,7 @@ assertEqual(
 );
 assertEqual(
   "youtube finished article snapshot keeps opening as reader-first article structure",
-  String(finalOpeningSection.includes("### 背景解读") && finalOpeningSection.includes("### 一句话结论") && finalOpeningSection.includes("### 核心观点") && finalOpeningSection.includes("### 标志性金句") && finalOpeningSection.includes("### 最反共识的判断") && countOccurrences(finalOpeningSection, "### 关键术语解释") === 1),
+  String(finalCoreSection.includes("### 一句话结论") && finalCoreSection.includes("### 核心观点") && finalCoreSection.includes("### 标志性金句") && finalCoreSection.includes("### 最反共识的判断") && countOccurrences(finalCoreSection, "## 一、关键术语解释") === 0 && countOccurrences(finalCoreSection, "## 二、背景导读") === 0),
   "true"
 );
 assertEqual(

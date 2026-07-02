@@ -1014,6 +1014,17 @@ function normalizeBackgroundSection(background = "", report = {}) {
   ]);
 }
 
+function splitYoutubeBackgroundAndGlossary(markdown = "") {
+  const text = String(markdown || "").trim();
+  if (!text) return { background: "", glossary: "" };
+  const marker = text.search(/^###\s+关键术语解释\s*$/m);
+  if (marker < 0) return { background: text, glossary: "" };
+  return {
+    background: text.slice(0, marker).trim(),
+    glossary: text.slice(marker).replace(/^###\s+关键术语解释\s*/m, "").trim()
+  };
+}
+
 function emphasizeReaderLabels(markdown = "") {
   const labels = [
     "市场/技术环境", "市场环境", "技术环境", "访问背景", "访谈背景", "拍摄背景", "为什么这个视频重要",
@@ -1217,15 +1228,15 @@ function renderYoutubeStructuredArticle(article = {}, report = {}) {
   const lines = [
     `# ${title}`,
     "",
-    "## 一、导读与核心结论",
     glossary.length ? compactLines([
-      "### 关键术语解释",
+      "## 一、关键术语解释",
       glossary.map((item) => `- **${item.term.replace(/[：:]\s*$/, "")}：** ${item.explanation}`).join("\n")
     ]) : "",
     paragraphs.length ? compactLines([
-      "### 背景解读",
+      "## 二、背景导读",
       paragraphs.join("\n\n")
     ]) : "",
+    "## 三、导读与核心结论",
     oneSentence ? compactLines(["### 一句话结论", oneSentence]) : "",
     corePoints.length ? compactLines([
       "### 核心观点",
@@ -1250,7 +1261,7 @@ function renderYoutubeStructuredArticle(article = {}, report = {}) {
       counterintuitive.map((item) => `- ${item}`).join("\n")
     ]) : "",
     techPoints.length ? compactLines([
-      "## 二、关键技术点速览",
+      "## 四、关键技术点速览",
       techPoints.map((item, index) => compactLines([
         `#### ${index + 1}. ${item.name}`,
         item.says ? `  - **视频里怎么说：** ${item.says}` : "",
@@ -1259,21 +1270,21 @@ function renderYoutubeStructuredArticle(article = {}, report = {}) {
       ])).join("\n\n")
     ]) : "",
     detailSections.length ? compactLines([
-      "## 三、详细技术拆解",
+      "## 五、详细技术拆解",
       detailSections.map((section, index) => compactLines([
         `### ${index + 1}. ${section.title}`,
         section.bullets.map((item) => `- ${item}`).join("\n")
       ])).join("\n\n")
     ]) : "",
     timeline.length ? compactLines([
-      "## 四、时间线摘要",
+      "## 六、时间线摘要",
       timeline.map((item) => compactLines([
         `- [${item.time}] ${item.event}${item.importance ? `；${item.importance}` : ""}`,
         item.evidence ? `  > ${item.evidence}` : ""
       ])).join("\n")
     ]) : "",
     questions.length ? compactLines([
-      "## 五、值得继续追问的问题",
+      "## 七、值得继续追问的问题",
       questions.map((item) => `- ${item}`).join("\n")
     ]) : ""
   ];
@@ -1340,18 +1351,19 @@ function buildYoutubeSourceSection(videos = []) {
 function isGuidedYoutubeBlueprintMarkdown(markdown = "") {
   const text = String(markdown || "");
   return [
-    "## 一、导读与核心结论",
-    "### 关键术语解释",
+    "## 一、关键术语解释",
+    "## 二、背景导读",
+    "## 三、导读与核心结论",
     "### 一句话结论",
     "### 核心观点",
-    "## 二、关键技术点速览",
-    "## 四、时间线摘要",
-    "## 五、值得继续追问的问题"
+    "## 四、关键技术点速览",
+    "## 六、时间线摘要",
+    "## 七、值得继续追问的问题"
   ].every((needle) => text.includes(needle));
 }
 
 function stripYoutubeSourceSection(markdown = "") {
-  return String(markdown || "").replace(/\n+## 六、出处与链接[\s\S]*$/m, "").trim();
+  return String(markdown || "").replace(/\n+##\s+[一二三四五六七八九十]+、出处与链接[\s\S]*$/m, "").trim();
 }
 
 function insertYoutubeTranscriptBlocks(markdown = "", transcriptBlocks = "") {
@@ -1359,11 +1371,11 @@ function insertYoutubeTranscriptBlocks(markdown = "", transcriptBlocks = "") {
   if (!transcriptBlocks) return body;
   if (body.includes("### 原文摘录")) return body;
   const transcriptSection = compactLines(["### 原文摘录", transcriptBlocks]);
-  const nextHeading = body.search(/\n## 五、值得继续追问的问题/);
+  const nextHeading = body.search(/\n##\s+[一二三四五六七八九十]+、值得继续追问的问题/);
   if (nextHeading >= 0) {
     return `${body.slice(0, nextHeading).trim()}\n\n${transcriptSection}\n\n${body.slice(nextHeading + 1).trim()}`;
   }
-  return compactLines([body, "## 四、时间线摘要", transcriptSection]);
+  return compactLines([body, "## 六、时间线摘要", transcriptSection]);
 }
 
 function finalizeGuidedYoutubeDocumentMarkdown(body = "", { transcriptBlocks = "", videos = [] } = {}) {
@@ -1371,7 +1383,7 @@ function finalizeGuidedYoutubeDocumentMarkdown(body = "", { transcriptBlocks = "
   const withTranscript = insertYoutubeTranscriptBlocks(withoutTitle, transcriptBlocks);
   return compactLines([
     withTranscript,
-    "## 六、出处与链接",
+    "## 八、出处与链接",
     buildYoutubeSourceSection(videos)
   ]);
 }
@@ -3033,27 +3045,26 @@ export class FeishuBot {
       relocated.detail.background,
       relocated.other.background
     ].filter(Boolean)), report);
+    const backgroundParts = splitYoutubeBackgroundAndGlossary(background || buildYoutubeBackgroundFallback(report));
     const summary = dropOpeningSubtitles(relocated.summary.body || sections.summary);
     const tech = relocated.tech.body || sections.tech;
     const detail = compactLines([relocated.detail.body, relocated.other.body].filter(Boolean));
-    const opening = compactLines([
-      background || buildYoutubeBackgroundFallback(report),
-      hasMeaningfulYoutubeSection(summary) ? compactLines(["### 核心结论", summary]) : ""
-    ]);
     const blocks = [
-      "## 一、导读与核心结论",
-      opening,
-      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 二、关键技术点速览", tech]) : "",
+      backgroundParts.glossary ? compactLines(["## 一、关键术语解释", backgroundParts.glossary]) : "",
+      "## 二、背景导读",
+      backgroundParts.background || buildYoutubeBackgroundFallback(report),
+      hasMeaningfulYoutubeSection(summary) ? compactLines(["## 三、导读与核心结论", "### 核心结论", summary]) : "## 三、导读与核心结论",
+      hasMeaningfulYoutubeSection(tech) ? compactLines(["## 四、关键技术点速览", tech]) : "",
       hasMeaningfulYoutubeSection(detail)
-        ? compactLines(["## 三、详细技术拆解", detail])
+        ? compactLines(["## 五、详细技术拆解", detail])
         : "",
       hasMeaningfulYoutubeSection(sections.timeline) || transcriptBlocks
-        ? compactLines(["## 四、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
+        ? compactLines(["## 六、时间线摘要", sections.timeline, transcriptBlocks ? compactLines(["### 原文摘录", transcriptBlocks]) : ""])
         : "",
       hasMeaningfulYoutubeSection(sections.questions)
-        ? compactLines(["## 五、值得继续追问的问题", sections.questions])
-        : compactLines(["## 五、值得继续追问的问题", buildYoutubeQuestionsFallback(report)]),
-      "## 六、出处与链接",
+        ? compactLines(["## 七、值得继续追问的问题", sections.questions])
+        : compactLines(["## 七、值得继续追问的问题", buildYoutubeQuestionsFallback(report)]),
+      "## 八、出处与链接",
       buildYoutubeSourceSection(videos)
     ];
     const markdown = indentReaderLabelBullets(emphasizeReaderLabels(compactLines(blocks)));
