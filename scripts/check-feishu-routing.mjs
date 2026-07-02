@@ -792,6 +792,13 @@ assertEqual(
   ),
   "true"
 );
+assertEqual(
+  "investment report publishing requires rich Feishu blocks for evidence anchors",
+  String(
+    /createWikiDocument\(\{[\s\S]{0,220}requireRichMarkdown:\s*true/.test(feishuSource)
+  ),
+  "true"
+);
 
 bot.storage = {
   getSetting: async (_key, fallback) => fallback,

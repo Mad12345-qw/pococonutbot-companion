@@ -231,6 +231,8 @@ function scoreResearchSourceCandidate(source = {}, evidenceCards = [], terms = [
     source.organization,
     source.rawText,
     source.raw_text,
+    source.evidenceSearchText,
+    source.evidence_search_text,
     source.metadata,
     ...asResearchArray(evidenceCards).flatMap((card) => [card.claim, card.quoteOriginal, card.quote_original, card.whyItMatters, card.why_it_matters])
   );
@@ -2543,11 +2545,20 @@ class PostgresStorage {
               s.institution_role AS "institutionRole", s.analysis_lenses AS "analysisLenses",
               s.evidence_strength AS "evidenceStrength", s.access_level AS "accessLevel",
               s.conflict_profile AS "conflictProfile", s.metadata,
+              evidence_search.text AS "evidenceSearchText",
               s.created_at AS "createdAt", s.updated_at AS "updatedAt"
        FROM research_sources s
        LEFT JOIN research_evidence_cards e ON e.source_id = s.source_id
        LEFT JOIN research_evidence_topics et ON et.evidence_card_id = e.id
        LEFT JOIN research_topics t ON t.id = et.topic_id
+       LEFT JOIN LATERAL (
+         SELECT string_agg(
+                  DISTINCT concat_ws(' ', ec.claim, ec.quote_original, ec.why_it_matters),
+                  E'\n'
+                ) AS text
+         FROM research_evidence_cards ec
+         WHERE ec.source_id = s.source_id
+       ) evidence_search ON true
        ${clauses.length ? `WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}` : ""}
        ORDER BY s.analyzed_at DESC NULLS LAST, s.created_at DESC
        LIMIT $${sourceValues.length}`,
@@ -2650,10 +2661,9 @@ class PostgresStorage {
        FROM research_report_versions version
        JOIN research_jobs job ON job.id = version.job_id
        WHERE version.report_topic_key = $1
-          OR version.report_topic ILIKE $2
        ORDER BY version.version_no DESC, version.created_at DESC
        LIMIT 1`,
-      [topicKey, `%${String(query || "").trim()}%`]
+      [topicKey]
     );
     return result.rows[0] || null;
   }
@@ -3773,12 +3783,8 @@ class JsonFileStorage {
 
   async getPriorInvestmentReport({ query = "", topicMap = null } = {}) {
     const { topicKey } = investmentReportTopicIdentity(query);
-    const queryText = String(query || "").toLowerCase();
     return this.state.researchReportVersions
-      .filter((item) =>
-        String(item.report_topic_key) === topicKey ||
-        String(item.report_topic || "").toLowerCase().includes(queryText)
-      )
+      .filter((item) => String(item.report_topic_key) === topicKey)
       .sort((a, b) => Number(b.version_no || 0) - Number(a.version_no || 0))
       .map((version) => ({
         id: version.job_id,

@@ -4186,7 +4186,8 @@ export class FeishuBot {
       const doc = await this.workspace.createWikiDocument({
         parentWikiToken,
         title: report.title,
-        markdown: report.markdown
+        markdown: report.markdown,
+        requireRichMarkdown: true
       });
       const wechatCandidate = await this.registerWechatPublishCandidate({
         sourceType: "investment_report",
@@ -4230,7 +4231,8 @@ export class FeishuBot {
             token: doc.token || "",
             wikiToken: doc.wikiToken || "",
             blocks: doc.blocks || 0,
-            writeMode: doc.writeMode || ""
+            writeMode: doc.writeMode || "",
+            writeDiagnostics: doc.writeDiagnostics || {}
           }
         }
       });

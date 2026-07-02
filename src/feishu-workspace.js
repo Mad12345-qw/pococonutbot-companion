@@ -219,7 +219,7 @@ export class FeishuWorkspaceClient {
     return "";
   }
 
-  async createWikiDocument({ parentWikiToken, title, markdown }) {
+  async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false }) {
     if (!parentWikiToken) throw new Error("Missing Feishu parent wiki token.");
     const parentNode = await this.getWikiNode(parentWikiToken, "wiki");
     const spaceId = parentNode.space_id || parentNode.spaceId || "";
@@ -247,10 +247,17 @@ export class FeishuWorkspaceClient {
     let writeError = "";
     let writeMode = "rich";
     let blockCount = 0;
+    let writeDiagnostics = {};
     try {
       const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown, index: 0 });
       blockCount = result.blocks || 0;
+      writeDiagnostics = {
+        evidenceLinksRewritten: result.evidenceLinksRewritten || 0,
+        evidenceAnchors: result.evidenceAnchors || 0,
+        firstLevelBlocks: result.firstLevelBlocks || 0
+      };
     } catch (error) {
+      if (requireRichMarkdown) throw error;
       logEvent("warn", "Feishu rich wiki document write failed, falling back to text blocks", {
         title,
         documentId,
@@ -273,6 +280,7 @@ export class FeishuWorkspaceClient {
       documentId,
       wikiToken,
       blocks: blockCount,
+      writeDiagnostics,
       writeMode,
       contentWritten: !writeError
     });
@@ -283,6 +291,7 @@ export class FeishuWorkspaceClient {
       title: node.title || title,
       writeError,
       writeMode,
+      writeDiagnostics,
       blocks: blockCount,
       inWiki: true
     };
