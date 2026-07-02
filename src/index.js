@@ -15,6 +15,7 @@ import { TelegramCompanionBot } from "./telegram.js";
 import { FeishuBot } from "./feishu.js";
 import { FeishuBitableClient } from "./feishu-bitable.js";
 import { FeishuWorkspaceClient } from "./feishu-workspace.js";
+import { WeChatPublisher } from "./wechat-publisher.js";
 import { setupAdminRoutes } from "./admin.js";
 import { GitHubMemoryBackup } from "./github-backup.js";
 
@@ -149,7 +150,6 @@ const feishuWorkspace = new FeishuWorkspaceClient({
   config,
   getToken: adminFeishuTenantAccessToken
 });
-setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace });
 const bitableJobs = new Map();
 
 function publicBitableJob(job) {
@@ -394,6 +394,8 @@ const ai = new AIClient(config, {
   getSetting: (key, fallback) => storage.getSetting(key, fallback)
 });
 const imageGenerator = new ImageGenerationClient(config);
+const wechatPublisher = new WeChatPublisher({ config, ai, imageGenerator });
+setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace, wechatPublisher });
 const speechToText = new SpeechToTextClient(config);
 const textToSpeech = new TextToSpeechClient(config);
 const songClient = new SongClient(config);

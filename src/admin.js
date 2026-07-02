@@ -1,11 +1,68 @@
 import { getRuntimeLogs } from "./runtime-log.js";
 import { truncate } from "./utils.js";
+import { createHash } from "node:crypto";
 
 const CHAT_DISPLAY_NAME_KEY = "chat.display_name";
 const CHAT_FEISHU_NAME_KEY = "chat.feishu_name";
 const PERSONA_PROMPT_KEY = "relationship.persona_prompt";
 const USER_DISPLAY_NAME_KEY = "user.display_name";
 const FEISHU_ALWAYS_REPLY_USERS_SETTING = "feishu.always_reply_user_ids";
+
+function stripInlineMarkdown(value = "") {
+  return String(value || "")
+    .replace(/!\[[^\]]*]\([^)]+\)/g, "")
+    .replace(/\[([^\]]+)]\([^)]+\)/g, "$1")
+    .replace(/[*_`>#-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function extractWikiTokenFromFeishuUrl(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  try {
+    const url = new URL(raw);
+    const match = url.pathname.match(/\/wiki\/([^/?#]+)/i);
+    return match?.[1] || "";
+  } catch {
+    const match = raw.match(/\/wiki\/([^/?#\s]+)/i);
+    return match?.[1] || "";
+  }
+}
+
+function extractMarkdownH1(markdown = "") {
+  const match = String(markdown || "").match(/^#\s+(.+)$/m);
+  return stripInlineMarkdown(match?.[1] || "").slice(0, 96);
+}
+
+function firstUrl(value = "") {
+  const match = String(value || "").match(/https?:\/\/[^\s)>\]]+/);
+  return match?.[0] || "";
+}
+
+export function buildLatestYoutubeWechatCandidate({ message = {}, markdown = "" } = {}) {
+  const metadata = message.metadata || {};
+  const feishuDocUrl = String(metadata.feishuDocUrl || metadata.feishu_doc_url || "").trim();
+  const title = extractMarkdownH1(markdown) || stripInlineMarkdown(String(message.content || "").split(/\r?\n/).find(Boolean) || "");
+  const hash = createHash("sha1")
+    .update(`${message.createdAt || ""}\n${feishuDocUrl}\n${title}`)
+    .digest("hex")
+    .slice(0, 12);
+  return {
+    id: `wechat:youtube:${hash}`,
+    sourceType: "youtube_research",
+    title,
+    markdown,
+    feishuDocUrl,
+    sourceUrl: metadata.sourceUrl || metadata.youtubeUrl || metadata.videoUrl || metadata.url || firstUrl(message.content),
+    status: "candidate",
+    metadata: {
+      createdBy: "admin_latest_youtube_draft",
+      sourceMessageCreatedAt: message.createdAt || "",
+      sourceMessageRelevanceScore: message.relevanceScore ?? null
+    }
+  };
+}
 
 function escapeHtml(value = "") {
   return String(value)
@@ -1293,7 +1350,7 @@ function adminPage(config) {
 </html>`;
 }
 
-export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace }) {
+export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWorkspace, wechatPublisher }) {
   const auth = adminAuth(config);
 
   app.get("/admin", auth, (_req, res) => {
@@ -1390,6 +1447,85 @@ export function setupAdminRoutes(app, { config, storage, feishuBitable, feishuWo
       const snapshot = await feishuBitable.snapshot({ appToken, sampleSize });
       res.json({ ok: true, snapshot });
     } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/admin/wechat/latest-youtube-draft", auth, async (req, res) => {
+    const startedAt = Date.now();
+    if (!wechatPublisher?.enabled) {
+      res.status(400).json({ error: "WeChat MP publishing is not configured." });
+      return;
+    }
+    if (!feishuWorkspace?.enabled) {
+      res.status(400).json({ error: "Feishu workspace access is not configured." });
+      return;
+    }
+    if (typeof storage.listYoutubeResearchHistoryForBackfill !== "function") {
+      res.status(500).json({ error: "Storage does not support YouTube research lookup." });
+      return;
+    }
+
+    const query = String(req.body?.query || "").trim();
+    const generateImages = req.body?.generateImages !== false;
+    let candidate = null;
+    try {
+      const rows = await storage.listYoutubeResearchHistoryForBackfill({ query, limit: 1 });
+      const message = rows[0];
+      if (!message) {
+        res.status(404).json({ error: "No generated YouTube Feishu article was found." });
+        return;
+      }
+
+      const feishuDocUrl = String(message.metadata?.feishuDocUrl || message.metadata?.feishu_doc_url || "").trim();
+      const wikiToken = extractWikiTokenFromFeishuUrl(feishuDocUrl);
+      if (!wikiToken) {
+        res.status(422).json({ error: "Latest YouTube article has no readable Feishu wiki token." });
+        return;
+      }
+
+      const markdown = await feishuWorkspace.readWikiNodeRawContent(wikiToken);
+      if (stripInlineMarkdown(markdown).length < 700) {
+        res.status(422).json({ error: "Latest Feishu article content is too short for a WeChat draft." });
+        return;
+      }
+
+      candidate = buildLatestYoutubeWechatCandidate({ message, markdown });
+      await storage.upsertWechatPublishCandidate(candidate);
+      const draft = await wechatPublisher.createDraft(candidate, {
+        generateImages,
+        operator: "admin_latest_youtube_draft"
+      });
+      await storage.updateWechatPublishCandidate(candidate.id, {
+        status: "draft_created",
+        draftMediaId: draft.draftMediaId,
+        error: "",
+        metadata: {
+          ...candidate.metadata,
+          imageMode: draft.imageMode,
+          draftElapsedMs: draft.elapsedMs
+        }
+      });
+      res.json({
+        ok: true,
+        candidateId: candidate.id,
+        title: draft.title,
+        draftMediaId: draft.draftMediaId,
+        imageMode: draft.imageMode,
+        elapsedMs: Date.now() - startedAt,
+        feishuDocUrl: candidate.feishuDocUrl
+      });
+    } catch (error) {
+      if (candidate?.id) {
+        await storage.updateWechatPublishCandidate(candidate.id, {
+          status: "draft_failed",
+          error: error.message,
+          metadata: {
+            ...candidate.metadata,
+            failedAt: new Date().toISOString()
+          }
+        }).catch(() => {});
+      }
       res.status(500).json({ error: error.message });
     }
   });

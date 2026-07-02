@@ -5,6 +5,7 @@ import { FeishuWorkspaceClient } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 import { WeChatPublisher } from "../src/wechat-publisher.js";
+import { buildLatestYoutubeWechatCandidate, extractWikiTokenFromFeishuUrl } from "../src/admin.js";
 
 const bot = Object.create(FeishuBot.prototype);
 bot.config = {
@@ -1242,6 +1243,31 @@ assertEqual(
     /<h2 style=/.test(wechatDraftArticle.content || "") &&
     !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
     !(wechatDraftArticle.content || "").includes("raw transcript")
+  ),
+  "true"
+);
+const latestYoutubeWechatCandidate = buildLatestYoutubeWechatCandidate({
+  message: {
+    content: "Old generated message wrapper should not become the WeChat body",
+    metadata: {
+      youtubeResearch: true,
+      feishuDocUrl: "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf?from=from_copylink",
+      sourceUrl: "https://www.youtube.com/watch?v=stoke-test"
+    },
+    createdAt: "2026-07-02T04:13:38.772Z",
+    relevanceScore: 0
+  },
+  markdown: "# Stoke Space article title\n\nFinished Feishu article body. ".repeat(60)
+});
+assertEqual(
+  "Admin WeChat latest-YouTube draft route is anchored to the finished Feishu wiki article",
+  String(
+    extractWikiTokenFromFeishuUrl(latestYoutubeWechatCandidate.feishuDocUrl) === "I25ywvDhvicSQtk7Hncc6l3Ungf" &&
+    latestYoutubeWechatCandidate.sourceType === "youtube_research" &&
+    latestYoutubeWechatCandidate.title === "Stoke Space article title" &&
+    latestYoutubeWechatCandidate.markdown.includes("Finished Feishu article body") &&
+    latestYoutubeWechatCandidate.sourceUrl === "https://www.youtube.com/watch?v=stoke-test" &&
+    latestYoutubeWechatCandidate.metadata.createdBy === "admin_latest_youtube_draft"
   ),
   "true"
 );
