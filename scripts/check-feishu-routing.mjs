@@ -807,7 +807,9 @@ assertEqual(
 assertEqual(
   "investment report synthesis does not route timeout reports through weak fallback json",
   String(
-    /allowFallback:\s*false,[\s\S]{0,80}requirePrimary:\s*true/.test(feishuSource)
+    /allowFallback:\s*false,[\s\S]{0,80}requirePrimary:\s*true/.test(feishuSource) &&
+    feishuSource.includes("primary_model_synthesis_failed_no_baseline_report_published") &&
+    !feishuSource.includes("已先用证据基线模式生成报告")
   ),
   "true"
 );
@@ -1084,20 +1086,20 @@ bot.ai = {
     throw new Error("The operation was aborted due to timeout");
   }
 };
-const timeoutFallbackReport = await bot.buildInvestmentResearchReport({
-  query: "SpaceX",
-  raw: "投研报告：SpaceX"
-}, { researchJobId: "job:timeout-fallback-test" });
+let timeoutReportError = null;
+try {
+  await bot.buildInvestmentResearchReport({
+    query: "SpaceX",
+    raw: "投研报告：SpaceX"
+  }, { researchJobId: "job:timeout-fallback-test" });
+} catch (error) {
+  timeoutReportError = error;
+}
 assertEqual(
-  "investment report timeout falls back to evidence baseline instead of failing",
+  "investment report timeout does not publish a baseline placeholder report",
   String(
-    timeoutFallbackReport.ready === true &&
-    timeoutFallbackReport.aiFallback?.reason === "ai_synthesis_timeout" &&
-    timeoutFallbackReport.markdown.includes("## 一、报告结论") &&
-    timeoutFallbackReport.markdown.includes("证据基线") &&
-    timeoutFallbackReport.markdown.includes("[证据 E1](#证据-e1)") &&
-    timeoutFallbackReport.markdown.includes("## 三、投资地图、价值池与同业对比") &&
-    !/YouTube 技术笔记|阅读导航|输出语言|内容形态|<details|<summary/.test(timeoutFallbackReport.markdown)
+    timeoutReportError &&
+    /未发布证据基线占位报告/.test(timeoutReportError.message)
   ),
   "true"
 );

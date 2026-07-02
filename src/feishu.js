@@ -4265,9 +4265,7 @@ export class FeishuBot {
         `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`,
         report.aiFallback?.reason === "ai_synthesis_partial_fallback"
           ? "生成说明：报告已按分段结构化方式生成；少数段落由结构化证据补齐。"
-          : report.aiFallback
-            ? "生成说明：模型综合超时，已先用证据基线模式生成报告；后续新增证据后可继续迭代。"
-            : "",
+          : "",
         report.topicMap?.topics?.length ? `主题图谱：已关联 ${report.topicMap.topics.length} 个节点。` : "",
         report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
       ].filter(Boolean).join("\n"));
@@ -4653,8 +4651,8 @@ export class FeishuBot {
         backfill
       }
     });
-    let structured;
     let aiFallback = null;
+    let structured;
     try {
       const synthesis = await this.synthesizeInvestmentReportStructured(request, pack);
       structured = synthesis.structured;
@@ -4665,26 +4663,29 @@ export class FeishuBot {
         };
       }
     } catch (error) {
-      aiFallback = {
+      const failure = {
         reason: /timeout|aborted/i.test(String(error?.message || "")) ? "ai_synthesis_timeout" : "ai_synthesis_failed",
         message: error.message || String(error)
       };
-      logEvent("warn", "Investment report AI synthesis fallback used", {
+      logEvent("warn", "Investment report AI synthesis failed without publishing fallback report", {
         query: request.query,
-        reason: aiFallback.reason,
-        error: truncate(aiFallback.message, 300)
+        reason: failure.reason,
+        error: truncate(failure.message, 300)
       });
       await this.storage.updateResearchJob?.(researchJobId, {
-        status: "running",
-        stage: "ai_synthesis_fallback",
+        status: "failed",
+        stage: "ai_synthesis_retryable_failed",
+        error: failure.message,
         output: {
           query: request.query,
           sources: pack.sources.length,
           evidenceCards: pack.evidenceCards.length,
-          aiFallback
+          failure,
+          publishSkipped: true,
+          reason: "primary_model_synthesis_failed_no_baseline_report_published"
         }
       });
-      structured = buildFallbackInvestmentReportStructured(pack, request, error);
+      throw new Error(`投研报告主模型综合失败，未发布证据基线占位报告：${truncate(failure.message, 300)}`);
     }
     const markdown = cleanInvestmentReportMarkdown(renderInvestmentResearchReportMarkdown(structured, pack, request));
     assertInvestmentResearchReportMarkdown(markdown);
