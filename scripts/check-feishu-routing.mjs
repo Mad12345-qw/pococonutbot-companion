@@ -1098,6 +1098,10 @@ class TestWeChatPublisher extends WeChatPublisher {
     return { media_id: "thumb_media_test", url: "https://mmbiz.qpic.cn/test-cover.png" };
   }
 
+  async uploadArticleImage() {
+    return "https://mmbiz.qpic.cn/test-inline.png";
+  }
+
   async wechatJson(path, body) {
     this.lastDraftPayload = { path, body };
     return { media_id: "draft_media_test" };
@@ -1252,6 +1256,46 @@ assertEqual(
     /<h2 style=/.test(wechatDraftArticle.content || "") &&
     !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
     !(wechatDraftArticle.content || "").includes("raw transcript")
+  ),
+  "true"
+);
+const plainWechatCandidate = {
+  ...wechatCandidate,
+  id: "wechat-plain-text-layout",
+  title: "为什么 Stoke Space 把二级热盾塞进燃料回路",
+  markdown: [
+    "为什么 Stoke Space 把二级热盾塞进燃料回路",
+    "",
+    "一、关键术语解释",
+    "Hopper: Stoke Space 在 2023 年用于验证发动机和控制系统的低空试飞原型机。",
+    "Zenith: Nova 二级使用的小型全流量分级燃烧发动机，和热盾冷却方案强相关。",
+    "",
+    "二、背景导读",
+    "这段视频真正重要的地方，不是 Stoke 又做了一台火箭，而是它把二级复用从返回表演改成了热管理、发动机循环和制造节奏之间的系统工程。",
+    "对非专业读者来说，二级复用最难理解的一点，是它既要在再入时扛住热流，又不能像传统防热瓦那样牺牲维护效率。Stoke 的方案把氢推进剂、热盾冷却和发动机循环绑定到一起，所以它讨论的不是一个孤立部件，而是一整套飞行器架构。",
+    "如果这个路径成立，读者应该关注的不是单次试飞是否好看，而是它能否把翻修时间、发动机寿命、材料供应和发射节奏压到商业闭环里。这也是它和 SpaceX 的比较真正有意义的地方。",
+    "",
+    "三、核心判断",
+    "Stoke 的反共识点在于，它没有照搬大型一级火箭的复用叙事，而是把最难回收、也最容易被忽略的上面级变成主战场。这个判断需要继续用飞行数据、发动机测试和资金节奏交叉验证。",
+    "文章应该让读者看到工程赌注，而不是只记住 30 个小喷管这个猎奇数字。喷管数量只是表象，背后是全流量分级燃烧、再生冷却热盾和姿态控制之间的耦合。",
+    "从公众号阅读体验看，这一段必须被拆成有层级的解释：先让读者知道 Hopper 是试验原型，再理解 Zenith 为什么和热盾是一体化问题，最后再把 Nova 的二级复用放回商业航天竞争里。否则读者只会看到一串英文名词和参数，完全无法形成判断。",
+    "好的科普排版应该帮助读者建立路径感：第一屏抓住主判断，术语卡片降低门槛，背景导读说明为什么现在值得看，核心判断负责把信息压缩成可转述的观点，原文摘录只承担核对功能，不应该和正文抢注意力。",
+    "",
+    "原文摘录",
+    "[0:10] Stoke is perhaps one of the most exciting rocket companies.",
+    "[0:20] It features a super unique actively cooled heat shield."
+  ].join("\n")
+};
+await wechatPublisher.createDraft(plainWechatCandidate, { generateImages: false, operator: "test-plain-layout" });
+const plainWechatHtml = wechatPublisher.lastDraftPayload?.body?.articles?.[0]?.content || "";
+assertEqual(
+  "WeChat publisher turns plain Feishu raw text into reader-grade public-account layout",
+  String(
+    plainWechatHtml.includes("先说结论") &&
+    plainWechatHtml.includes("SECTION") &&
+    plainWechatHtml.includes("border:1px solid #e5e7eb") &&
+    plainWechatHtml.includes("font-family:Menlo,Consolas,monospace") &&
+    !plainWechatHtml.includes("<p style=\"margin:15px 0;line-height:1.95;font-size:15.5px;color:#263238;letter-spacing:0;\">为什么 Stoke Space 把二级热盾塞进燃料回路</p>")
   ),
   "true"
 );

@@ -49,6 +49,53 @@ function normalizeDigest(value = "", fallback = "") {
   return (text || "一篇来自小椰工作流的深度整理，适合对同一主题长期关注的人收藏阅读。").slice(0, 120);
 }
 
+function cleanPublicTitle(value = "", fallback = "") {
+  const text = stripMarkdown(value || fallback)
+    .replace(/^(?:\u6574\u7406\u597d\u4e86|\u5df2\u6574\u7406|\u5df2\u751f\u6210|\u751f\u6210\u597d\u4e86|\u6587\u7ae0\u6574\u7406\u597d\u4e86)\s*[\uff1a:]\s*/i, "")
+    .replace(/[<>]/g, "")
+    .trim();
+  return (text || stripMarkdown(fallback) || "").slice(0, 64);
+}
+
+function removeDuplicateTitleLine(markdown = "", title = "") {
+  const cleanTitle = stripMarkdown(title);
+  if (!cleanTitle) return String(markdown || "").trim();
+  const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
+  while (lines.length && !lines[0].trim()) lines.shift();
+  if (lines.length) {
+    const first = stripMarkdown(lines[0]);
+    if (first === cleanTitle || cleanTitle.includes(first) || first.includes(cleanTitle)) {
+      lines.shift();
+    }
+  }
+  return lines.join("\n").trim();
+}
+
+function isBareSectionHeading(line = "") {
+  return /^[\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3}\u3001\S+/.test(String(line || "").trim());
+}
+
+function isWeakOpeningLine(line = "", title = "") {
+  const clean = stripMarkdown(line);
+  if (!clean || clean.length < 18) return true;
+  if (clean === stripMarkdown(title)) return true;
+  if (isBareSectionHeading(clean)) return true;
+  if (/^\[\d{1,2}:\d{2}/.test(clean)) return true;
+  if (/^https?:\/\//i.test(clean)) return true;
+  if (/^[A-Za-z][A-Za-z0-9+ .\-]{1,48}\s*[:\uff1a]\s*/.test(clean)) return true;
+  return false;
+}
+
+function readerOpeningHook(markdown = "", title = "") {
+  const paragraphs = String(markdown || "")
+    .replace(/\r\n/g, "\n")
+    .split(/\n{2,}/)
+    .map((part) => part.replace(/\n+/g, " ").trim())
+    .filter(Boolean);
+  const picked = paragraphs.find((part) => !isWeakOpeningLine(part, title)) || "";
+  return stripMarkdown(picked).slice(0, 150);
+}
+
 function cleanArticleText(value = "", max = 1200) {
   return stripMarkdown(String(value || ""))
     .replace(/\s+/g, " ")
@@ -134,7 +181,7 @@ function buildWechatLeadImagePrompt({ title = "", bodyMarkdown = "" } = {}) {
 
 function normalizeWechatMarkdownFromFeishu(candidate = {}) {
   const source = stripFeishuSourceMarkdown(candidate.markdown || "");
-  const title = normalizeTitle(candidate.title || extractMarkdownTitle(source), extractMarkdownTitle(source));
+  const title = cleanPublicTitle(normalizeTitle(candidate.title || extractMarkdownTitle(source), extractMarkdownTitle(source)), extractMarkdownTitle(source));
   let body = source.replace(/^#\s+.+\n+/, "").trim();
   body = collapseTranscriptDumpForWechat(body)
     .replace(/^##\s+[八九十]+、出处与链接/gm, "## 资料来源")
@@ -142,11 +189,12 @@ function normalizeWechatMarkdownFromFeishu(candidate = {}) {
     .replace(/\[证据\s+([A-Z]?\d+)]\(#证据-[^)]+\)/gi, "证据 $1")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
-  const first = firstParagraph(body);
+  body = removeDuplicateTitleLine(body, title);
+  const first = readerOpeningHook(body, title) || firstParagraph(body);
   return {
     title,
     digest: normalizeDigest(first, title),
-    openingHook: first.slice(0, 220),
+    openingHook: first.slice(0, 150),
     bodyMarkdown: body,
     cta: "",
     coverPrompt: buildWechatCoverPrompt({ title, digest: first, bodyMarkdown: body }),
@@ -184,12 +232,50 @@ function inlineMarkdown(value = "") {
 
 function styleFor(tag) {
   if (tag === "h1") return "font-size:22px;line-height:1.45;font-weight:700;margin:24px 0 14px;color:#111827;";
-  if (tag === "h2") return "font-size:19px;line-height:1.5;font-weight:700;margin:28px 0 12px;color:#111827;border-left:4px solid #07C160;padding-left:10px;";
-  if (tag === "h3") return "font-size:17px;line-height:1.5;font-weight:700;margin:22px 0 10px;color:#1f2937;";
-  if (tag === "blockquote") return "margin:16px 0;padding:12px 14px;background:#f6f8fa;border-left:4px solid #d0d7de;color:#374151;line-height:1.8;";
-  if (tag === "li") return "margin:6px 0;line-height:1.85;color:#1f2937;";
-  if (tag === "p") return "margin:14px 0;line-height:1.9;font-size:15.5px;color:#1f2937;";
+  if (tag === "h2") return "font-size:18px;line-height:1.55;font-weight:700;margin:34px 0 16px;color:#111827;padding:0 0 8px;border-bottom:1px solid #e5e7eb;";
+  if (tag === "h3") return "font-size:16px;line-height:1.55;font-weight:700;margin:24px 0 10px;color:#111827;";
+  if (tag === "blockquote") return "margin:18px 0;padding:14px 16px;background:#f7f8fa;border-left:4px solid #111827;color:#374151;line-height:1.85;font-size:15px;";
+  if (tag === "li") return "margin:8px 0;line-height:1.85;color:#263238;font-size:15px;";
+  if (tag === "p") return "margin:15px 0;line-height:1.95;font-size:15.5px;color:#263238;letter-spacing:0;";
   return "";
+}
+
+function sectionHeadingHtml(text = "") {
+  return [
+    '<section style="margin:36px 0 18px;">',
+    '<p style="margin:0 0 6px;color:#07C160;font-size:12px;font-weight:700;letter-spacing:1px;">SECTION</p>',
+    `<h2 style="${styleFor("h2")}">${inlineMarkdown(text)}</h2>`,
+    "</section>"
+  ].join("");
+}
+
+function termCardHtml(term = "", description = "") {
+  return [
+    '<section style="margin:12px 0;padding:13px 15px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;">',
+    `<p style="margin:0 0 6px;font-size:15px;line-height:1.55;color:#111827;font-weight:700;">${inlineMarkdown(term)}</p>`,
+    `<p style="margin:0;font-size:14.5px;line-height:1.85;color:#4b5563;">${inlineMarkdown(description)}</p>`,
+    "</section>"
+  ].join("");
+}
+
+function transcriptLineHtml(line = "") {
+  const match = String(line || "").trim().match(/^(\[\d{1,2}:\d{2}(?::\d{2})?])\s*(.+)$/);
+  if (!match) return "";
+  return [
+    '<section style="margin:8px 0;padding:9px 12px;background:#f6f8fa;border-radius:6px;">',
+    `<span style="display:inline-block;margin-right:8px;color:#6b7280;font-size:12px;font-family:Menlo,Consolas,monospace;">${escapeHtml(match[1])}</span>`,
+    `<span style="color:#374151;font-size:13.5px;line-height:1.7;">${inlineMarkdown(match[2])}</span>`,
+    "</section>"
+  ].join("");
+}
+
+function paragraphHtml(line = "") {
+  const text = String(line || "").trim();
+  const colon = text.match(/^([^:\uff1a]{2,28})[:\uff1a]\s*(.+)$/);
+  if (colon && /[\u4e00-\u9fff]/.test(colon[1])) {
+    return `<p style="${styleFor("p")}"><strong style="color:#111827;">${inlineMarkdown(colon[1])}：</strong>${inlineMarkdown(colon[2])}</p>`;
+  }
+  return `<p style="${styleFor("p")}">${inlineMarkdown(text)}</p>`;
 }
 
 function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = "", cta = "" } = {}) {
@@ -197,6 +283,8 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
   const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
   let inCode = false;
   let listOpen = false;
+  let currentSection = "";
+  let skippedOpening = false;
 
   const closeList = () => {
     if (listOpen) {
@@ -206,7 +294,12 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
   };
 
   if (openingHook) {
-    html.push(`<section style="margin:0 0 18px;padding:14px 16px;background:#f7fbf8;border-radius:8px;color:#1f2937;line-height:1.8;font-size:15px;">${inlineMarkdown(openingHook)}</section>`);
+    html.push([
+      '<section style="margin:4px 0 24px;padding:16px 18px;background:#f7fbf8;border:1px solid #dcefe4;border-radius:10px;">',
+      '<p style="margin:0 0 8px;color:#07C160;font-size:13px;font-weight:700;">先说结论</p>',
+      `<p style="margin:0;color:#1f2937;line-height:1.9;font-size:15.5px;font-weight:500;">${inlineMarkdown(openingHook)}</p>`,
+      "</section>"
+    ].join(""));
   }
   if (leadImageUrl) {
     html.push(`<p style="margin:16px 0;"><img src="${escapeHtml(leadImageUrl)}" style="max-width:100%;border-radius:8px;display:block;margin:0 auto;" /></p>`);
@@ -233,10 +326,24 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
       closeList();
       continue;
     }
+    if (openingHook && !skippedOpening) {
+      const cleanLine = stripMarkdown(line);
+      if (cleanLine === openingHook || cleanLine.includes(openingHook) || openingHook.includes(cleanLine)) {
+        skippedOpening = true;
+        continue;
+      }
+    }
     if (/^!\[[^\]]*]\((https?:\/\/[^)\s]+)\)/.test(line)) {
       closeList();
       const match = line.match(/^!\[([^\]]*)]\((https?:\/\/[^)\s]+)\)/);
       html.push(`<p style="margin:16px 0;"><img src="${escapeHtml(match[2])}" alt="${escapeHtml(match[1] || "")}" style="max-width:100%;display:block;margin:0 auto;" /></p>`);
+      continue;
+    }
+    const bareHeading = line.trim().match(/^([\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341]{1,3})\u3001(.+)$/);
+    if (bareHeading) {
+      closeList();
+      currentSection = bareHeading[2].trim();
+      html.push(sectionHeadingHtml(`${bareHeading[1]}、${currentSection}`));
       continue;
     }
     const heading = line.match(/^(#{1,3})\s+(.+)$/);
@@ -244,12 +351,29 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
       closeList();
       const level = heading[1].length;
       const tag = level === 1 ? "h1" : level === 2 ? "h2" : "h3";
-      html.push(`<${tag} style="${styleFor(tag)}">${inlineMarkdown(heading[2])}</${tag}>`);
+      if (tag === "h2") {
+        currentSection = stripMarkdown(heading[2]);
+        html.push(sectionHeadingHtml(heading[2]));
+      } else {
+        html.push(`<${tag} style="${styleFor(tag)}">${inlineMarkdown(heading[2])}</${tag}>`);
+      }
       continue;
     }
     if (/^>\s?/.test(line)) {
       closeList();
       html.push(`<blockquote style="${styleFor("blockquote")}">${inlineMarkdown(line.replace(/^>\s?/, ""))}</blockquote>`);
+      continue;
+    }
+    const transcriptHtml = transcriptLineHtml(line);
+    if (transcriptHtml) {
+      closeList();
+      html.push(transcriptHtml);
+      continue;
+    }
+    const term = line.trim().match(/^([A-Za-z][A-Za-z0-9+ .\-]{1,48})\s*[:\uff1a]\s*(.{12,})$/);
+    if (term && (/术语|解释|关键/.test(currentSection) || currentSection === "")) {
+      closeList();
+      html.push(termCardHtml(term[1], term[2]));
       continue;
     }
     const bullet = line.match(/^[-*]\s+(.+)$/);
@@ -271,7 +395,7 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", openingHook = 
       continue;
     }
     closeList();
-    html.push(`<p style="${styleFor("p")}">${inlineMarkdown(line)}</p>`);
+    html.push(paragraphHtml(line));
   }
   closeList();
   if (inCode) html.push("</pre>");
@@ -383,14 +507,17 @@ export class WeChatPublisher {
     let coverUrl = "";
     let leadImageUrl = "";
     let imageMode = "default_thumb";
+    let coverImageForInline = null;
 
     if (coverImage?.buffer) {
+      coverImageForInline = coverImage;
       const uploaded = await this.uploadPermanentImage(coverImage, "wechat-cover.png");
       coverMediaId = uploaded.media_id;
       coverUrl = uploaded.url || "";
       imageMode = "provided_cover";
     } else if (generateImages || !coverMediaId) {
       const cover = await this.generateImageOrFallback(plan.coverPrompt, plan);
+      coverImageForInline = cover;
       const uploaded = await this.uploadPermanentImage(cover, "wechat-cover.png");
       coverMediaId = uploaded.media_id;
       coverUrl = uploaded.url || "";
@@ -403,6 +530,16 @@ export class WeChatPublisher {
         leadImageUrl = await this.uploadArticleImage(lead, "wechat-inline.png");
       } catch (error) {
         logEvent("warn", "WeChat inline image generation skipped", {
+          candidateId: candidate.id || "",
+          error: error.message
+        });
+      }
+    }
+    if (!leadImageUrl && coverImageForInline?.buffer) {
+      try {
+        leadImageUrl = await this.uploadArticleImage(coverImageForInline, "wechat-lead.png");
+      } catch (error) {
+        logEvent("warn", "WeChat cover reuse as inline image skipped", {
           candidateId: candidate.id || "",
           error: error.message
         });
