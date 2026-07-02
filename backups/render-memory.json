@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T11:50:47.937Z",
+  "exportedAt": "2026-07-02T11:55:46.660Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -63469,8 +63469,8 @@
         "id": "job:investment_report:891c857280a087be",
         "sourceType": "investment_report",
         "sourceUrl": "SpaceX",
-        "status": "running",
-        "stage": "evidence_retrieval",
+        "status": "failed",
+        "stage": "interrupted_unresumable",
         "attempts": 1,
         "input": {
           "request": {
@@ -63487,9 +63487,9 @@
           ]
         },
         "output": {},
-        "error": "",
+        "error": "Investment report job was interrupted by process restart before resumable delivery metadata was recorded.",
         "createdAt": "2026-07-02T07:22:15.143Z",
-        "updatedAt": "2026-07-02T07:22:15.143Z"
+        "updatedAt": "2026-07-02T11:50:46.998Z"
       },
       {
         "id": "job:investment_report:a48cde1c843e8d0a",
@@ -63698,8 +63698,8 @@
         "id": "job:investment_report:e51d903d5b32c1f4",
         "sourceType": "investment_report",
         "sourceUrl": "航天燃料",
-        "status": "running",
-        "stage": "ai_synthesis",
+        "status": "failed",
+        "stage": "interrupted_unresumable",
         "attempts": 1,
         "input": {
           "request": {
@@ -63728,9 +63728,9 @@
           "priorReport": false,
           "evidenceCards": 104
         },
-        "error": "",
+        "error": "Investment report job was interrupted by process restart before resumable delivery metadata was recorded.",
         "createdAt": "2026-07-02T11:08:49.589Z",
-        "updatedAt": "2026-07-02T11:08:50.820Z"
+        "updatedAt": "2026-07-02T11:50:46.917Z"
       }
     ],
     "researchReferenceSources": [],
