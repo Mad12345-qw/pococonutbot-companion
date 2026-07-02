@@ -1142,13 +1142,38 @@ function cleanArticleText(value = "", max = 1400) {
 function isLowValueResearchArtifactText(value = "") {
   const text = String(value || "").trim();
   if (!text) return false;
-  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<\/?details|<summary|我先按|接下来我会/i.test(text);
+  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading|<\/?details|<summary|我先按|接下来我会/i.test(text);
+}
+
+function stripLowValueResearchArtifacts(value = "", max = 1400) {
+  const raw = String(value || "");
+  if (!raw) return "";
+  return truncate(raw
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .map((line) => {
+      if (!line) return "";
+      if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading)\s*[:：]?/i.test(line)) return "";
+      if (/<\/?details|<summary/i.test(line)) return "";
+      if (/^(?:我先按|接下来我会)/.test(line)) return "";
+      return line;
+    })
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s*YouTube\s*技术笔记\s*/ig, " ")
+    .replace(/\s*技术笔记\s*$/ig, "")
+    .replace(/<\/?details[^>]*>|<\/?summary[^>]*>/ig, " ")
+    .replace(/(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading)\s*[:：]?\s*[^。；;，,|]*/ig, " ")
+    .replace(/(?:我先按|接下来我会)[^。；;，,|]*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim(), max);
 }
 
 function cleanResearchArticleText(value = "", max = 1400) {
-  let text = cleanArticleText(value, max);
+  let text = stripLowValueResearchArtifacts(value, max);
+  text = cleanArticleText(text, max);
   if (!text) return "";
-  if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容)\s*[:：]?/i.test(text)) return "";
+  if (/^(?:#{1,6}\s*)?(?:[-*]\s*)?(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading)\s*[:：]?/i.test(text)) return "";
   if (/^(?:#{1,6}\s*)?.*YouTube\s*技术笔记\s*$/i.test(text)) {
     text = cleanYoutubeDocumentTitle(text.replace(/^#{1,6}\s*/, ""));
     if (isWeakYoutubeTitle(text)) return "";
@@ -1164,9 +1189,9 @@ function cleanResearchArticleText(value = "", max = 1400) {
 }
 
 function cleanResearchEvidenceText(value = "", max = 1400) {
-  const raw = cleanArticleText(value, max);
+  const raw = stripLowValueResearchArtifacts(value, max);
   if (/^(?:#{1,6}\s*)?.*YouTube\s*技术笔记\s*$/i.test(raw)) return "";
-  if (/^(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容)\s*[:：]?/i.test(raw)) return "";
+  if (/^(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading)\s*[:：]?/i.test(raw)) return "";
   return cleanResearchArticleText(raw, max);
 }
 
@@ -2647,6 +2672,25 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
   ]);
 }
 
+function cleanInvestmentReportMarkdown(markdown = "") {
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .filter((line) => !isLowValueResearchArtifactText(line))
+    .join("\n")
+    .replace(/[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function findInvestmentReportArtifact(markdown = "") {
+  const text = String(markdown || "");
+  const match = text.match(/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading|<details|<summary/i);
+  if (!match) return null;
+  const start = Math.max(0, match.index - 120);
+  const end = Math.min(text.length, match.index + 180);
+  return text.slice(start, end).replace(/\s+/g, " ").trim();
+}
+
 function assertInvestmentResearchReportMarkdown(markdown = "") {
   const text = String(markdown || "");
   const required = [
@@ -2663,8 +2707,9 @@ function assertInvestmentResearchReportMarkdown(markdown = "") {
   for (const item of required) {
     if (!text.includes(item)) throw new Error(`investment report missing section: ${item}`);
   }
-  if (/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary/i.test(text)) {
-    throw new Error("investment report contains low-value or unsupported article artifacts.");
+  if (/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading|<details|<summary/i.test(text)) {
+    const snippet = findInvestmentReportArtifact(text);
+    throw new Error(`investment report contains low-value or unsupported article artifacts${snippet ? ` near: ${snippet}` : ""}.`);
   }
   if (!/\`E\d+\`|证据卡/.test(text)) {
     throw new Error("investment report must expose evidence ids.");
@@ -4133,7 +4178,7 @@ export class FeishuBot {
       });
       structured = buildFallbackInvestmentReportStructured(pack, request, error);
     }
-    const markdown = renderInvestmentResearchReportMarkdown(structured, pack, request);
+    const markdown = cleanInvestmentReportMarkdown(renderInvestmentResearchReportMarkdown(structured, pack, request));
     assertInvestmentResearchReportMarkdown(markdown);
     return {
       ready: true,

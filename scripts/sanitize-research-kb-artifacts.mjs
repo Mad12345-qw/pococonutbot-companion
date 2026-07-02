@@ -40,7 +40,7 @@ function cleanYoutubeTitle(value = "") {
 function isLowValueArtifact(value = "") {
   const text = compact(value);
   if (!text) return false;
-  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<\/?details|<summary|我先按|接下来我会/i.test(text);
+  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|legacy_heading|<\/?details|<summary|我先按|接下来我会/i.test(text);
 }
 
 function cleanResearchText(value = "", max = 1400) {

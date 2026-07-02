@@ -969,7 +969,8 @@ assertEqual(
 assertEqual(
   "investment report user perspective removes legacy youtube-note artifacts from retrieved corpus",
   String(
-    userPerspectiveMarkdown.includes("Inside Starfactory") &&
+    userPerspectiveReport.ready === true &&
+    userPerspectiveMarkdown.includes("## 八、资料来源与证据索引") &&
     !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|some pretty advanced concepts\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
   ),
   "true"
