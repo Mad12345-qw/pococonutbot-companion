@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T09:34:30.339Z",
+  "exportedAt": "2026-07-02T09:44:08.210Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -57220,6 +57220,25 @@
           "investmentReport": true
         },
         "createdAt": "2026-07-02T09:27:58.823Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 💻 今晚直播预告｜不只是聊天，如何让 AI 帮你真正干活\nhttps://www.feishu.cn/community/course/content?course_id=7657807467513908407&class_id=7657807467560045752&lesson_id=7657807964509572030&content_id=7657807965121940662\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.feishu.cn/community/course/content?course_id=7657807467513908407&class_id=7657807467560045752&lesson_id=7657807964509572030&content_id=7657807965121940662\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b576e3f20e4b4c5cd46094452a",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T09:40:34.057Z"
       }
     ],
     "memories": [
