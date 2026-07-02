@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T07:32:40.669Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T07:36:46.091Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -56940,6 +56940,61 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T07:22:13.569Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 【Trae】邀请你报名「TRAE AI 创造力大赛・城市站」线下活动！7 月 5 日下午，来现场了解赛事、获取灵感，开启 3 小时作品挑战。无论是否有 AI 或开发背景都可参与，还有机会获得价值 99元的 TRAE 中国版速通 Pro 月卡。席位有限，报名后需审核后方可到场。立即报名：https://v2ig.cn/0A9B1zhBRQ8/ 拒收请回复R\nhttps://v2ig.cn/0A9B1zhBRQ8/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://v2ig.cn/0A9B1zhBRQ8/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b5502e56cb8c0572b5f207a760",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T07:35:37.171Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "user",
+        "modality": "text",
+        "content": "【Trae】邀请你报名「TRAE AI 创造力大赛・城市站」线下活动！7 月 5 日下午，来现场了解赛事、获取灵感，开启 3 小时作品挑战。无论是否有 AI 或开发背景都可参与，还有机会获得价值 99元的 TRAE 中国版速通 Pro 月卡。席位有限，报名后需审核后方可到场。立即报名：https://v2ig.cn/0A9B1zhBRQ8/ 拒收请回复R",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5502e56cb8c0572b5f207a760",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "rawUserId": "ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+          "rawUnionId": "on_7baea49dda3642850f13dcf3f6fd1d21",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T07:35:52.594Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba",
+        "role": "assistant",
+        "modality": "text",
+        "content": "收到啦，不过我对这类线下活动不太感兴趣，就不报名啦[害羞]",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_97d8b7ca418d10ce2c5fae27ceb4b8ba"
+        },
+        "createdAt": "2026-07-02T07:35:55.654Z"
       }
     ],
     "memories": [
@@ -61251,7 +61306,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:08:33.602Z",
-        "updatedAt": "2026-06-23T15:33:51.436Z"
+        "updatedAt": "2026-07-02T07:35:52.522Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61261,7 +61316,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:08:33.383Z",
-        "updatedAt": "2026-06-23T15:33:51.362Z"
+        "updatedAt": "2026-07-02T07:35:52.439Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
