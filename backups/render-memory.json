@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T08:33:34.577Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T08:42:58.134Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -57055,6 +57055,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T08:01:43.462Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研知识库清理预览",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5669eeb4a0c24fa9afa7a9480",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T08:33:56.440Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研知识库清理执行：我确认",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b566580b8b8c077e8f9a5787fc",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T08:35:03.185Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5660c3dcb8c29d6f677c139d8",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T08:35:47.239Z"
       }
     ],
     "memories": [
@@ -58686,7 +58758,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T08:01:43.388Z"
+        "updatedAt": "2026-07-02T08:35:47.171Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58696,7 +58768,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T08:01:43.231Z"
+        "updatedAt": "2026-07-02T08:35:47.101Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -63296,6 +63368,44 @@
         "error": "investment report contains low-value or unsupported article artifacts.",
         "createdAt": "2026-07-02T08:01:44.996Z",
         "updatedAt": "2026-07-02T08:04:45.346Z"
+      },
+      {
+        "id": "job:investment_report:5f6653e97eb653a0",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "sources": 6,
+          "backfill": {
+            "imported": 0,
+            "attempted": false
+          },
+          "topicCount": 0,
+          "priorReport": false,
+          "evidenceCards": 104
+        },
+        "error": "The operation was aborted due to timeout",
+        "createdAt": "2026-07-02T08:35:48.516Z",
+        "updatedAt": "2026-07-02T08:38:50.001Z"
       }
     ],
     "researchReferenceSources": [],
@@ -63560,28 +63670,6 @@
       }
     ],
     "researchEvidenceCards": [
-      {
-        "id": "127",
-        "sourceId": "source:youtube_doc_backfill:00b381560fddfa19",
-        "evidenceType": "market_financial",
-        "claim": "some pretty advanced concepts YouTube 技术笔记",
-        "quoteOriginal": "",
-        "quoteZh": "",
-        "location": "generated_doc:1",
-        "whyItMatters": "This evidence was backfilled from an existing reader-facing YouTube document so it can participate in cross-source research synthesis.",
-        "confidence": "0.58",
-        "timeSensitivity": "medium",
-        "staleRisk": "Backfilled from a generated document; recheck the original transcript or source link before using as a high-confidence investment conclusion.",
-        "evidenceStrength": "generated_article_backfill",
-        "analysisLens": "market_financial",
-        "requiresRecheck": [
-          "original_transcript",
-          "publication_date",
-          "cross_source_validation"
-        ],
-        "metadata": {},
-        "createdAt": "2026-07-02T07:23:01.430Z"
-      },
       {
         "id": "128",
         "sourceId": "source:youtube_doc_backfill:00b381560fddfa19",
@@ -64353,50 +64441,6 @@
         "createdAt": "2026-07-02T07:22:25.257Z"
       },
       {
-        "id": "55",
-        "sourceId": "source:youtube_doc_backfill:691570766327e12b",
-        "evidenceType": "general_evidence",
-        "claim": "100 times heavier YouTube 技术笔记",
-        "quoteOriginal": "",
-        "quoteZh": "",
-        "location": "generated_doc:1",
-        "whyItMatters": "This evidence was backfilled from an existing reader-facing YouTube document so it can participate in cross-source research synthesis.",
-        "confidence": "0.58",
-        "timeSensitivity": "medium",
-        "staleRisk": "Backfilled from a generated document; recheck the original transcript or source link before using as a high-confidence investment conclusion.",
-        "evidenceStrength": "generated_article_backfill",
-        "analysisLens": "general_evidence",
-        "requiresRecheck": [
-          "original_transcript",
-          "publication_date",
-          "cross_source_validation"
-        ],
-        "metadata": {},
-        "createdAt": "2026-07-02T07:22:37.099Z"
-      },
-      {
-        "id": "56",
-        "sourceId": "source:youtube_doc_backfill:691570766327e12b",
-        "evidenceType": "general_evidence",
-        "claim": "我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。接下来我会把“100倍更重”“12次以上补加注”“高位着陆推进器”“自调平腿”“NRO/LOL/LEO 的任务链条”串成一篇可直接进 Obsidian/飞书的笔记。# 为什么 Starship HLS 会牵出“12 次以上发射加注”的月球任务链",
-        "quoteOriginal": "",
-        "quoteZh": "",
-        "location": "generated_doc:2",
-        "whyItMatters": "This evidence was backfilled from an existing reader-facing YouTube document so it can participate in cross-source research synthesis.",
-        "confidence": "0.58",
-        "timeSensitivity": "medium",
-        "staleRisk": "Backfilled from a generated document; recheck the original transcript or source link before using as a high-confidence investment conclusion.",
-        "evidenceStrength": "generated_article_backfill",
-        "analysisLens": "general_evidence",
-        "requiresRecheck": [
-          "original_transcript",
-          "publication_date",
-          "cross_source_validation"
-        ],
-        "metadata": {},
-        "createdAt": "2026-07-02T07:22:37.099Z"
-      },
-      {
         "id": "57",
         "sourceId": "source:youtube_doc_backfill:691570766327e12b",
         "evidenceType": "general_evidence",
@@ -64747,28 +64791,6 @@
         ],
         "metadata": {},
         "createdAt": "2026-07-02T07:22:37.099Z"
-      },
-      {
-        "id": "91",
-        "sourceId": "source:youtube_doc_backfill:c771474e23a52cb3",
-        "evidenceType": "market_financial",
-        "claim": "some pretty advanced concepts YouTube 技术笔记",
-        "quoteOriginal": "",
-        "quoteZh": "",
-        "location": "generated_doc:1",
-        "whyItMatters": "This evidence was backfilled from an existing reader-facing YouTube document so it can participate in cross-source research synthesis.",
-        "confidence": "0.58",
-        "timeSensitivity": "medium",
-        "staleRisk": "Backfilled from a generated document; recheck the original transcript or source link before using as a high-confidence investment conclusion.",
-        "evidenceStrength": "generated_article_backfill",
-        "analysisLens": "market_financial",
-        "requiresRecheck": [
-          "original_transcript",
-          "publication_date",
-          "cross_source_validation"
-        ],
-        "metadata": {},
-        "createdAt": "2026-07-02T07:22:50.002Z"
       },
       {
         "id": "92",
@@ -66836,7 +66858,7 @@
         "likelyRecordedAt": "",
         "eventPeriod": "",
         "industryStageAtThatTime": "",
-        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、背景导读 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 二、精华总结 some pretty advanced concepts YouTube 技术笔记 📌 星舰工厂的两个小时：Elon Musk 关于\"制造才是火箭最难的部分\"以及五步工程心法 🎯 一、背景导读 2021 年夏天，YouTube 频道 Everyday Astronaut 的 Tim Dodd 受邀走进 SpaceX 位于德州 Boca Chica 的 Starbase 工厂，由 Elon Musk 本人亲自担任导游，边走边聊超过两小时，视频分成三段播出，本篇涵盖的是 Part 1 工厂部分。这次之所以重要，是因为它罕见地把镜头带进了外界几乎看不到的火箭总装车间：背景里站着 Booster 4 箭体，鼻锥附近挂着被 Tim 形容为\"恐龙捕兽夹\"的巨型钛合金栅格舵（grid fin），周围全是正在搬运不锈钢环段、堆叠贮箱的工人与设备。Musk 在开场就把整段对话的定调抛了出来：工厂（manufacturing）和设计（design）的关系被严重误读，\"制造才是最难的部分，工厂长期被低估，设计长期被高估\"，这与外界长期把 SpaceX 当作\"会画 PPT 的火箭公司\"的叙事恰好相反。 拍摄本身的语境也需要交代：这是 2021 年夏季，正值 SpaceX 用 SN8 到 SN15 一连串原型机\"炸了又炸、炸了再迭代\"的阶段，Booster 4 即将成为首飞轨道级超重型助推器。Musk 把 HLS（Human Landing System，登月版星舰）刚刚中标后的兴奋也带进了镜头。Tim 提醒观众，这一段会聊到一些相当硬核的概念（\"some pretty advanced concepts\"），但他已经在频道里放好了入门视频打底——这一",
+        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、背景导读 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 二、精华总结 some pretty advanced concepts 📌 星舰工厂的两个小时：Elon Musk 关于\"制造才是火箭最难的部分\"以及五步工程心法 🎯 一、背景导读 2021 年夏天，YouTube 频道 Everyday Astronaut 的 Tim Dodd 受邀走进 SpaceX 位于德州 Boca Chica 的 Starbase 工厂，由 Elon Musk 本人亲自担任导游，边走边聊超过两小时，视频分成三段播出，本篇涵盖的是 Part 1 工厂部分。这次之所以重要，是因为它罕见地把镜头带进了外界几乎看不到的火箭总装车间：背景里站着 Booster 4 箭体，鼻锥附近挂着被 Tim 形容为\"恐龙捕兽夹\"的巨型钛合金栅格舵（grid fin），周围全是正在搬运不锈钢环段、堆叠贮箱的工人与设备。Musk 在开场就把整段对话的定调抛了出来：工厂（manufacturing）和设计（design）的关系被严重误读，\"制造才是最难的部分，工厂长期被低估，设计长期被高估\"，这与外界长期把 SpaceX 当作\"会画 PPT 的火箭公司\"的叙事恰好相反。 拍摄本身的语境也需要交代：这是 2021 年夏季，正值 SpaceX 用 SN8 到 SN15 一连串原型机\"炸了又炸、炸了再迭代\"的阶段，Booster 4 即将成为首飞轨道级超重型助推器。Musk 把 HLS（Human Landing System，登月版星舰）刚刚中标后的兴奋也带进了镜头。Tim 提醒观众，这一段会聊到一些相当硬核的概念（\"some pretty advanced concepts\"），但他已经在频道里放好了入门视频打底——这一",
         "timeSensitivity": "medium",
         "staleIf": "The original video, company progress, regulation, production status, or market environment changed after this document was generated.",
         "requiresRecheck": [
@@ -66850,7 +66872,7 @@
           "originalDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VID3wCkQRiwGS3kare8cFG7yn9f",
           "backfilledFromGeneratedDocument": true
         },
-        "updatedAt": "2026-07-02T07:23:01.430Z"
+        "updatedAt": "2026-07-02T08:35:05.876Z"
       },
       {
         "sourceId": "source:youtube_doc_backfill:24bd2d05bcd64053",
@@ -66880,7 +66902,7 @@
         "likelyRecordedAt": "",
         "eventPeriod": "",
         "industryStageAtThatTime": "",
-        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、导读与核心结论 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 核心结论 100 times heavier YouTube 技术笔记 我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。接下来我会把“100倍更重”“12次以上补加注”“高位着陆推进器”“自调平腿”“NRO/LOL/LEO 的任务链条”串成一篇可直接进 Obsidian/飞书的笔记。# 为什么 Starship HLS 会牵出“12 次以上发射加注”的月球任务链 📌 一、导读与核心结论 SpaceX 的 Starship 在这里不是被当作普通火箭看，而是被 NASA 2021 年选中的 Human Landing System（HLS）候选器来审视：它要把一个 9 米宽、上部级超过 50 米高、干重超过 100 公吨的巨大飞行器，送去执行 Artemis 登月任务。视频的核心冲突很直接：Starship HLS 体量太大、推进剂是低温甲烷/液氧、而且任务链条里还要面对 LEO 加注、NRO 会合、月面降落和返航，所以“100 times heavier”不只是夸张说法，而是整个工程难题的来源。 “This behemoth is over seven times taller, probably about 100 times heavier when landed on the moon...” 中文理解：作者把 Starship HLS 和 Apollo 月球着陆器做对比，指出它在月面着陆时的质量和体积都远超前者，这会把着陆、姿态控制、推进剂补给和返航都推到更难的一侧。 🎯 关键术语解释 • HLS： Human Landing System，NASA Artemis 计划里负责把宇航员送",
+        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、导读与核心结论 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 核心结论 100 times heavier 我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。接下来我会把“100倍更重”“12次以上补加注”“高位着陆推进器”“自调平腿”“NRO/LOL/LEO 的任务链条”串成一篇可直接进 Obsidian/飞书的笔记。# 为什么 Starship HLS 会牵出“12 次以上发射加注”的月球任务链 📌 一、导读与核心结论 SpaceX 的 Starship 在这里不是被当作普通火箭看，而是被 NASA 2021 年选中的 Human Landing System（HLS）候选器来审视：它要把一个 9 米宽、上部级超过 50 米高、干重超过 100 公吨的巨大飞行器，送去执行 Artemis 登月任务。视频的核心冲突很直接：Starship HLS 体量太大、推进剂是低温甲烷/液氧、而且任务链条里还要面对 LEO 加注、NRO 会合、月面降落和返航，所以“100 times heavier”不只是夸张说法，而是整个工程难题的来源。 “This behemoth is over seven times taller, probably about 100 times heavier when landed on the moon...” 中文理解：作者把 Starship HLS 和 Apollo 月球着陆器做对比，指出它在月面着陆时的质量和体积都远超前者，这会把着陆、姿态控制、推进剂补给和返航都推到更难的一侧。 🎯 关键术语解释 • HLS： Human Landing System，NASA Artemis 计划里负责把宇航员送",
         "timeSensitivity": "medium",
         "staleIf": "The original video, company progress, regulation, production status, or market environment changed after this document was generated.",
         "requiresRecheck": [
@@ -66894,7 +66916,7 @@
           "originalDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/VXZZwsW7siPM82kwa8TceA3anEc",
           "backfilledFromGeneratedDocument": true
         },
-        "updatedAt": "2026-07-02T07:22:37.099Z"
+        "updatedAt": "2026-07-02T08:35:05.876Z"
       },
       {
         "sourceId": "source:youtube_doc_backfill:c771474e23a52cb3",
@@ -66902,7 +66924,7 @@
         "likelyRecordedAt": "",
         "eventPeriod": "",
         "industryStageAtThatTime": "",
-        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、导读与核心结论 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 核心结论 some pretty advanced concepts YouTube 技术笔记 📌 Elon Musk 星舰工厂导览：为什么 SpaceX 认为“制造系统”比火箭设计更难 🎯 一、导读与核心结论 Tim Dodd 在 2021 年夏天进入 SpaceX 位于 Starbase Texas 的工厂，由 Elon Musk 带路参观 Starship 这枚面向火星任务的 rocket，并围绕 manufacturing、design、cost per ton 等问题连续追问。视频的核心张力不是“星舰长什么样”，而是 Musk 反复强调：真正决定星舰能否成为可复用运输系统的，不只是发动机设计，而是能否把制造、发射场、测试、回收和单位成本一起优化。 这期是三部分 Starbase Tour 的第一集，地点主要在星舰工厂，出现了 Booster 4、Raptor、网格舵、发射塔/“筷子”捕获臂、HLS 月球版星舰等具体对象。Musk 在现场边走边解释：SpaceX 正处在完成“Stage Zero”发射系统的最后冲刺阶段，而这个地面系统的复杂度，甚至可能高于单个助推器或飞船。 “Welcome to STARBASE Texas. This is where SpaceX is building testing, and even launching their mars bound rocket Star ship.” 视频开场明确了场景：这里不是普通工厂参观，而是 SpaceX 把制造、测试、发射放在同一现场推进的星舰基地。 🧩 关键术语解释 • Starbase： SpaceX 在德州 Boca Chica 一带建设的星舰",
+        "currentRelevance": "星舰工厂里的马斯克赌局：SpaceX 想把火箭变成流水线产品 一、导读与核心结论 关键术语解释 Starship / 星舰： SpaceX 的超重型运载系统中的上面级飞船。 Super Heavy / 超重型助推器： 星舰系统的一级助推器，负责把飞船推到接近入轨条件后返回发射场。 全复用： 助推器和飞船都能快速返回、检查、再次飞行。 核心结论 some pretty advanced concepts 📌 Elon Musk 星舰工厂导览：为什么 SpaceX 认为“制造系统”比火箭设计更难 🎯 一、导读与核心结论 Tim Dodd 在 2021 年夏天进入 SpaceX 位于 Starbase Texas 的工厂，由 Elon Musk 带路参观 Starship 这枚面向火星任务的 rocket，并围绕 manufacturing、design、cost per ton 等问题连续追问。视频的核心张力不是“星舰长什么样”，而是 Musk 反复强调：真正决定星舰能否成为可复用运输系统的，不只是发动机设计，而是能否把制造、发射场、测试、回收和单位成本一起优化。 这期是三部分 Starbase Tour 的第一集，地点主要在星舰工厂，出现了 Booster 4、Raptor、网格舵、发射塔/“筷子”捕获臂、HLS 月球版星舰等具体对象。Musk 在现场边走边解释：SpaceX 正处在完成“Stage Zero”发射系统的最后冲刺阶段，而这个地面系统的复杂度，甚至可能高于单个助推器或飞船。 “Welcome to STARBASE Texas. This is where SpaceX is building testing, and even launching their mars bound rocket Star ship.” 视频开场明确了场景：这里不是普通工厂参观，而是 SpaceX 把制造、测试、发射放在同一现场推进的星舰基地。 🧩 关键术语解释 • Starbase： SpaceX 在德州 Boca Chica 一带建设的星舰",
         "timeSensitivity": "medium",
         "staleIf": "The original video, company progress, regulation, production status, or market environment changed after this document was generated.",
         "requiresRecheck": [
@@ -66916,7 +66938,7 @@
           "originalDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/UIVxwn8tmixGuXktgOoccUbfnhc",
           "backfilledFromGeneratedDocument": true
         },
-        "updatedAt": "2026-07-02T07:22:50.002Z"
+        "updatedAt": "2026-07-02T08:35:05.876Z"
       },
       {
         "sourceId": "source:youtube_doc_backfill:ca2c1212240cb60a",
@@ -66924,7 +66946,7 @@
         "likelyRecordedAt": "",
         "eventPeriod": "",
         "industryStageAtThatTime": "",
-        "currentRelevance": "First Look Inside SpaceX's Starfactory w/ Elon Musk 这篇文档由小椰根据视频字幕整理。正文保留判断和证据，来源信息统一放到文末，减少来回重复。 阅读导航 一、背景导读：先补齐市场环境、拍摄语境和术语门槛。 二、精华总结：只保留结论、反共识判断和关键证据。 三、关键技术点速览：把技术点拆成“怎么说 / 为什么重要 / 风险”。 四、详细技术拆解：展开工程逻辑、商业含义和边界条件。 五、时间线摘要：按视频进度定位内容，并可展开完整逐字稿。 六、值得继续追问的问题：沉淀后续研究线索。 七、出处与链接：来源信息只在这里出现一次。 一、背景导读 这篇笔记先把视频放回真实语境里读：它讨论的不是一个孤立的技术名词，而是「First Look Inside SpaceX's Starfactory w/ Elon Musk」背后的产业判断、工程取舍和商业后果，来自 Everyday Astronaut。 先知道这几件事 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。 如果视频涉及公司、产品或工厂现场，要把发言人的立场和拍摄场景一起看，避免把宣传语直接当成结论。 下面的术语解释只做入门铺垫，具体判断以后文的字幕证据为准。 二、精华总结 it YouTube 技术笔记 📌 走进 SpaceX 星舰工厂：量产、全复用与火星愿景 🎯 一、背景导读 SpaceX 的星舰（Starship）是人类有史以来最庞大的运载火箭系统之一，其设计目标是实现「全复用、航班化、批量生产」，并最终支撑火星城市的建设。本期视频由 Everyday Astronaut 主持，在 SpaceX 位于德州博卡奇卡（Starbase）的「Starfactory」内实地拍摄，是该工厂的首次公开曝光。在马斯克亲自带领下，镜头扫过了已成型但仍在快速演进的飞船、助推器、猛禽（Raptor）发动机产线，以及正在收尾的新厂房主体。 理解这段对话需要先掌握几个关键概念： • Starship V1 / V2 / V3：Space",
+        "currentRelevance": "First Look Inside SpaceX's Starfactory w/ Elon Musk 这篇文档由小椰根据视频字幕整理。正文保留判断和证据，来源信息统一放到文末，减少来回重复。 阅读导航 一、背景导读：先补齐市场环境、拍摄语境和术语门槛。 二、精华总结：只保留结论、反共识判断和关键证据。 三、关键技术点速览：把技术点拆成“怎么说 / 为什么重要 / 风险”。 四、详细技术拆解：展开工程逻辑、商业含义和边界条件。 五、时间线摘要：按视频进度定位内容，并可展开完整逐字稿。 六、值得继续追问的问题：沉淀后续研究线索。 七、出处与链接：来源信息只在这里出现一次。 一、背景导读 这篇笔记先把视频放回真实语境里读：它讨论的不是一个孤立的技术名词，而是「First Look Inside SpaceX's Starfactory w/ Elon Musk」背后的产业判断、工程取舍和商业后果，来自 Everyday Astronaut。 先知道这几件事 读这类技术视频时，重点不是记住每个参数，而是分清：它解决了什么瓶颈、牺牲了什么、为什么现在值得讨论。 如果视频涉及公司、产品或工厂现场，要把发言人的立场和拍摄场景一起看，避免把宣传语直接当成结论。 下面的术语解释只做入门铺垫，具体判断以后文的字幕证据为准。 二、精华总结 it 📌 走进 SpaceX 星舰工厂：量产、全复用与火星愿景 🎯 一、背景导读 SpaceX 的星舰（Starship）是人类有史以来最庞大的运载火箭系统之一，其设计目标是实现「全复用、航班化、批量生产」，并最终支撑火星城市的建设。本期视频由 Everyday Astronaut 主持，在 SpaceX 位于德州博卡奇卡（Starbase）的「Starfactory」内实地拍摄，是该工厂的首次公开曝光。在马斯克亲自带领下，镜头扫过了已成型但仍在快速演进的飞船、助推器、猛禽（Raptor）发动机产线，以及正在收尾的新厂房主体。 理解这段对话需要先掌握几个关键概念： • Starship V1 / V2 / V3：Space",
         "timeSensitivity": "medium",
         "staleIf": "The original video, company progress, regulation, production status, or market environment changed after this document was generated.",
         "requiresRecheck": [
@@ -66938,7 +66960,7 @@
           "originalDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/HPTGwHHBsiPWjbk9y0Tc7zLDnne",
           "backfilledFromGeneratedDocument": true
         },
-        "updatedAt": "2026-07-02T07:23:25.169Z"
+        "updatedAt": "2026-07-02T08:35:05.876Z"
       },
       {
         "sourceId": "source:youtube_doc_backfill:e2bb04375d320a59",
