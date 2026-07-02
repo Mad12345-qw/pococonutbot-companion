@@ -520,7 +520,17 @@ function inlineMarkdown(value = "") {
   text = text.replace(/__([^_]+)__/g, "<strong>$1</strong>");
   text = text.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   text = text.replace(/\[([^\]]+)]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2">$1</a>');
+  text = text.replace(/\*\*/g, "").replace(/__/g, "");
   return text;
+}
+
+function inlineWechatText(value = "") {
+  return inlineMarkdown(
+    String(value || "")
+      .replace(/\*\*/g, "")
+      .replace(/__/g, "")
+      .trim()
+  );
 }
 
 function styleFor(tag) {
@@ -608,7 +618,7 @@ function subPointHeadingHtml(text = "") {
   const clean = stripWechatInlineDecor(text).replace(/^\d+[.)、]\s*/, "");
   return [
     '<section style="margin:20px 0 10px;padding:0;">',
-    `<p style="margin:0;font-size:16px;line-height:1.65;font-weight:700;color:#161616;word-break:break-word;">${inlineMarkdown(clean)}</p>`,
+    `<p style="margin:0;font-size:16px;line-height:1.65;font-weight:700;color:#161616;word-break:break-word;">${inlineWechatText(clean)}</p>`,
     "</section>"
   ].join("");
 }
@@ -624,11 +634,11 @@ function numberedWechatHeading(text = "", fallbackNumber = 1) {
 }
 
 function wechatCardBulletHtml(text = "") {
-  return `<p style="margin:9px 0 0;padding-left:12px;border-left:2px solid #ffb04a;line-height:1.85;font-size:14.5px;color:#333333;word-break:break-word;">${inlineMarkdown(text)}</p>`;
+  return `<p style="margin:9px 0 0;padding-left:12px;border-left:2px solid #ffb04a;line-height:1.85;font-size:14.5px;color:#333333;word-break:break-word;">${inlineWechatText(text)}</p>`;
 }
 
 function wechatCardQuoteHtml(text = "") {
-  return `<section style="margin:10px 0 12px;padding:10px 12px;background:#fffaf6;border:1px solid #f1e3d3;border-radius:6px;color:#444444;line-height:1.78;font-size:14px;word-break:break-word;">${inlineMarkdown(text)}</section>`;
+  return `<section style="margin:10px 0 12px;padding:10px 12px;background:#fffaf6;border:1px solid #f1e3d3;border-radius:6px;color:#444444;line-height:1.78;font-size:14px;word-break:break-word;">${inlineWechatText(text)}</section>`;
 }
 
 function wechatCardParagraphHtml(line = "") {
@@ -647,7 +657,7 @@ function wechatReaderCardHtml({ kind = "core", number = "01", title = "", body =
   const bg = isTech ? "#ffffff" : "#fffaf6";
   return [
     `<section style="margin:14px 0 18px;padding:16px 16px 14px;background:${bg};border:1px solid ${border};border-radius:8px;">`,
-    `<p style="margin:0 0 10px;padding:0;font-size:16px;line-height:1.65;font-weight:700;color:#171717;word-break:break-word;"><span style="display:inline-block;min-width:34px;height:28px;line-height:28px;text-align:center;border-radius:16px;background:${badgeBg};color:#ffffff;font-size:13px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${escapeHtml(number)}</span><strong style="font-weight:700;color:#171717;">${inlineMarkdown(title)}</strong></p>`,
+    `<p style="margin:0 0 10px;padding:0;font-size:16px;line-height:1.65;font-weight:700;color:#171717;word-break:break-word;"><span style="display:inline-block;min-width:34px;height:28px;line-height:28px;text-align:center;border-radius:16px;background:${badgeBg};color:#ffffff;font-size:13px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${escapeHtml(number)}</span><strong style="font-weight:700;color:#171717;">${inlineWechatText(title)}</strong></p>`,
     body.join("\n"),
     "</section>"
   ].join("\n");
@@ -656,7 +666,7 @@ function wechatReaderCardHtml({ kind = "core", number = "01", title = "", body =
 function wechatQuestionHtml(number = 1, text = "") {
   return [
     '<section style="margin:12px 0;padding:13px 15px;background:#ffffff;border:1px solid #ececec;border-radius:8px;">',
-    `<p style="margin:0;font-size:15.5px;line-height:1.85;color:#202124;word-break:break-word;"><span style="display:inline-block;min-width:28px;height:24px;line-height:24px;text-align:center;border-radius:14px;background:#ff7a00;color:#ffffff;font-size:12px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${String(number)}</span>${inlineMarkdown(text)}</p>`,
+    `<p style="margin:0;font-size:15.5px;line-height:1.85;color:#202124;word-break:break-word;"><span style="display:inline-block;min-width:28px;height:24px;line-height:24px;text-align:center;border-radius:14px;background:#ff7a00;color:#ffffff;font-size:12px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${String(number)}</span>${inlineWechatText(text)}</p>`,
     "</section>"
   ].join("");
 }

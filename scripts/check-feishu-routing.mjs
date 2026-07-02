@@ -1360,6 +1360,7 @@ assertEqual(
     !(wechatDraftArticle.content || "").includes("width:36px;height:3px;background:#07C160") &&
     !(wechatDraftArticle.content || "").includes("#07C160") &&
     !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
+    !(wechatDraftArticle.content || "").includes("**") &&
     !(wechatDraftArticle.content || "").includes("raw transcript")
   ),
   "true"
