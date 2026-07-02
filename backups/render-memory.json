@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T04:21:37.669Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-02T05:49:30.903Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -62692,6 +62692,15 @@
       }
     ],
     "projectSources": [],
-    "projectAssets": []
+    "projectAssets": [],
+    "researchJobs": [],
+    "researchReferenceSources": [],
+    "researchSources": [],
+    "researchEvidenceCards": [],
+    "researchEntities": [],
+    "researchSourceEntities": [],
+    "researchTimeContexts": [],
+    "researchQuestions": [],
+    "researchCoverageGaps": []
   }
 }
