@@ -71,6 +71,10 @@ function changed(before, after) {
   return String(before || "") !== String(after || "");
 }
 
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
 async function main() {
   if (arg("--help")) {
     console.log([
@@ -103,6 +107,7 @@ async function main() {
     gapsUpdated: 0,
     gapsDeleted: 0,
     timeContextsUpdated: 0,
+    topicsUpdated: 0,
     samples: []
   };
 
@@ -259,6 +264,59 @@ async function main() {
           await client.query(
             `UPDATE research_time_contexts SET current_relevance = $2, stale_if = $3, updated_at = now() WHERE source_id = $1`,
             [row.source_id, currentRelevance, staleIf]
+          );
+        }
+      }
+    }
+
+    const topics = await client.query(
+      `SELECT topic_key, canonical_name, topic_type, aliases, description
+       FROM research_topics
+       WHERE canonical_name ~* 'YouTube\\s*技术笔记|技术笔记$|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会'
+          OR topic_type ~* 'YouTube\\s*技术笔记|阅读导航|输出语言|内容形态'
+          OR aliases::text ~* 'YouTube\\s*技术笔记|技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会|https?://'
+          OR description ~* 'YouTube\\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会'`
+    );
+    for (const row of topics.rows) {
+      const canonicalName =
+        cleanResearchText(row.canonical_name, 160) ||
+        cleanResearchText(row.topic_key, 160) ||
+        "历史研究主题";
+      const topicType = cleanResearchText(row.topic_type, 80) || "theme";
+      const description = cleanResearchText(row.description, 800);
+      const seenAliases = new Set();
+      const aliases = asArray(row.aliases)
+        .map((item) => {
+          const raw = compact(item, 240);
+          if (!raw || isLowValueArtifact(raw) || /^https?:\/\//i.test(raw)) return "";
+          const clean = cleanEvidenceText(raw, 160);
+          if (!clean || isLowValueArtifact(clean) || clean === canonicalName || clean.length > 80) return "";
+          const key = clean.toLowerCase();
+          if (seenAliases.has(key)) return "";
+          seenAliases.add(key);
+          return clean;
+        })
+        .filter(Boolean);
+      const beforeAliases = JSON.stringify(asArray(row.aliases));
+      const afterAliases = JSON.stringify(aliases);
+      if (
+        changed(row.canonical_name, canonicalName) ||
+        changed(row.topic_type, topicType) ||
+        beforeAliases !== afterAliases ||
+        changed(row.description, description)
+      ) {
+        summary.topicsUpdated += 1;
+        sample("research_topics", row.topic_key, `${row.canonical_name} aliases=${beforeAliases}`, `${canonicalName} aliases=${afterAliases}`);
+        if (apply) {
+          await client.query(
+            `UPDATE research_topics
+             SET canonical_name = $2,
+                 topic_type = $3,
+                 aliases = $4::jsonb,
+                 description = $5,
+                 updated_at = now()
+             WHERE topic_key = $1`,
+            [row.topic_key, canonicalName, topicType, JSON.stringify(aliases), description]
           );
         }
       }

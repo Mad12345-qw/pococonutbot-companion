@@ -2227,7 +2227,52 @@ function buildInvestmentReportEvidencePack(corpus = {}) {
     impact: cleanResearchArticleText(row.impact || "", 600),
     confidenceImpact: cleanResearchArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
   })).filter((item) => item.gap);
-  return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps, topicMap: corpus.topicMap || { topics: [], edges: [] } };
+  return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps, topicMap: normalizeInvestmentTopicMap(corpus.topicMap || { topics: [], edges: [] }) };
+}
+
+function normalizeInvestmentTopicMap(topicMap = {}) {
+  const topics = (topicMap.topics || []).map((topic) => {
+    const topicKey = cleanResearchArticleText(topic.topicKey || topic.topic_key || "", 120);
+    const canonicalName =
+      cleanResearchArticleText(topic.canonicalName || topic.canonical_name || "", 160) ||
+      cleanResearchArticleText(topic.name || "", 160) ||
+      topicKey;
+    const aliases = asArray(topic.aliases)
+      .filter((item) => !isLowValueResearchArtifactText(item))
+      .filter((item) => !/^https?:\/\//i.test(String(item || "").trim()))
+      .map((item) => cleanResearchEvidenceText(item, 160))
+      .filter(Boolean)
+      .filter((item) => item !== canonicalName)
+      .filter((item) => item.length <= 80)
+      .slice(0, 8);
+    return {
+      ...topic,
+      topicKey,
+      topic_key: topicKey,
+      canonicalName,
+      canonical_name: canonicalName,
+      topicType: cleanResearchArticleText(topic.topicType || topic.topic_type || "theme", 80) || "theme",
+      topic_type: cleanResearchArticleText(topic.topicType || topic.topic_type || "theme", 80) || "theme",
+      aliases
+    };
+  }).filter((topic) => topic.canonicalName || topic.topicKey);
+  const edges = (topicMap.edges || []).map((edge) => ({
+    ...edge,
+    fromTopicKey: cleanResearchArticleText(edge.fromTopicKey || edge.from_topic_key || "", 120),
+    from_topic_key: cleanResearchArticleText(edge.fromTopicKey || edge.from_topic_key || "", 120),
+    fromName: cleanResearchArticleText(edge.fromName || edge.from_name || "", 160),
+    from_name: cleanResearchArticleText(edge.fromName || edge.from_name || "", 160),
+    toTopicKey: cleanResearchArticleText(edge.toTopicKey || edge.to_topic_key || "", 120),
+    to_topic_key: cleanResearchArticleText(edge.toTopicKey || edge.to_topic_key || "", 120),
+    toName: cleanResearchArticleText(edge.toName || edge.to_name || "", 160),
+    to_name: cleanResearchArticleText(edge.toName || edge.to_name || "", 160),
+    edgeType: cleanResearchArticleText(edge.edgeType || edge.edge_type || "related_to", 80) || "related_to",
+    edge_type: cleanResearchArticleText(edge.edgeType || edge.edge_type || "related_to", 80) || "related_to"
+  })).filter((edge) =>
+    (edge.fromName || edge.fromTopicKey || edge.from_topic_key) &&
+    (edge.toName || edge.toTopicKey || edge.to_topic_key)
+  );
+  return { topics, edges };
 }
 
 function assessInvestmentReportReadiness(pack = {}) {
@@ -2275,14 +2320,18 @@ function investmentReportPriorPrompt(priorReport = null) {
   if (!priorReport) return "Prior report baseline: none. This is the first version for this topic.";
   const output = priorReport.output || {};
   const metadata = priorReport.metadata || {};
+  const priorTitle = cleanResearchArticleText(metadata.title || output.title || "", 180);
+  const priorOneSentence = cleanResearchArticleText(metadata.oneSentence || "", 500);
+  const priorThesis = cleanResearchArticleText(metadata.thesis || "", 700);
+  const priorDeltaSummary = cleanResearchArticleText(priorReport.deltaSummary || "", 700);
   return compactLines([
     "Prior report baseline:",
     `version=${priorReport.versionNo || "unknown"}`,
     priorReport.evidenceCutoffAt ? `evidence_cutoff=${priorReport.evidenceCutoffAt}` : "",
-    metadata.title || output.title ? `prior_title=${metadata.title || output.title}` : "",
-    metadata.oneSentence ? `prior_one_sentence=${metadata.oneSentence}` : "",
-    metadata.thesis ? `prior_thesis=${metadata.thesis}` : "",
-    priorReport.deltaSummary ? `prior_delta_summary=${priorReport.deltaSummary}` : "",
+    priorTitle ? `prior_title=${priorTitle}` : "",
+    priorOneSentence ? `prior_one_sentence=${priorOneSentence}` : "",
+    priorThesis ? `prior_thesis=${priorThesis}` : "",
+    priorDeltaSummary ? `prior_delta_summary=${priorDeltaSummary}` : "",
     "Hard rule: this prior report is only a previous thesis baseline. It is not evidence, must not be cited as evidence, must not increase source count or evidence count, and must not be used to prove a hypothesis. Use it only to explain what changed, what strengthened, what weakened, and what still needs validation."
   ]);
 }
@@ -3975,6 +4024,7 @@ export class FeishuBot {
     let topicMap = typeof this.storage.getResearchTopicMap === "function"
       ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
       : { topics: [], edges: [] };
+    topicMap = normalizeInvestmentTopicMap(topicMap);
     let priorReport = typeof this.storage.getPriorInvestmentReport === "function"
       ? await this.storage.getPriorInvestmentReport({ query: request.query, topicMap })
       : null;
@@ -3985,7 +4035,7 @@ export class FeishuBot {
       topicMap
     });
     let pack = buildInvestmentReportEvidencePack(corpus);
-    pack.topicMap = corpus.topicMap || topicMap;
+    pack.topicMap = normalizeInvestmentTopicMap(corpus.topicMap || topicMap);
     pack.priorReport = priorReport;
     const reusableReport = typeof this.storage.getReusableInvestmentReport === "function"
       ? await this.storage.getReusableInvestmentReport({
@@ -4017,6 +4067,7 @@ export class FeishuBot {
         topicMap = typeof this.storage.getResearchTopicMap === "function"
           ? await this.storage.getResearchTopicMap({ query: request.query, limit: 80 })
           : topicMap;
+        topicMap = normalizeInvestmentTopicMap(topicMap);
         priorReport = typeof this.storage.getPriorInvestmentReport === "function"
           ? await this.storage.getPriorInvestmentReport({ query: request.query, topicMap })
           : priorReport;
@@ -4027,7 +4078,7 @@ export class FeishuBot {
           topicMap
         });
         pack = buildInvestmentReportEvidencePack(corpus);
-        pack.topicMap = corpus.topicMap || topicMap;
+        pack.topicMap = normalizeInvestmentTopicMap(corpus.topicMap || topicMap);
         pack.priorReport = priorReport;
         readiness = assessInvestmentReportReadiness(pack);
       }

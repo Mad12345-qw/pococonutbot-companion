@@ -64,6 +64,28 @@ function cleanResearchText(value = "", max = 300) {
   return String(value || "").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
+function isLowValueResearchArtifactText(value = "") {
+  const text = cleanResearchText(value, 500);
+  if (!text) return false;
+  return /YouTube\s*技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<\/?details|<summary|我先按|接下来我会/i.test(text);
+}
+
+function cleanResearchTopicAlias(value = "", canonicalName = "") {
+  const raw = cleanResearchText(value, 220);
+  if (!raw || isLowValueResearchArtifactText(raw)) return "";
+  if (/^https?:\/\//i.test(raw)) return "";
+  if (/^(?:#{1,6}\s*)/.test(raw)) return "";
+  const cleaned = raw
+    .replace(/\s*YouTube\s*技术笔记\s*$/i, "")
+    .replace(/\s*技术笔记\s*$/i, "")
+    .trim();
+  if (!cleaned || isLowValueResearchArtifactText(cleaned)) return "";
+  if (cleaned === canonicalName) return "";
+  if (cleaned.length > 80) return "";
+  if (/^(?:为什么|如何|怎么|这篇|本文|视频|导读|总结|结论|证据|背景)[:：\s]/.test(cleaned)) return "";
+  return cleaned;
+}
+
 function asResearchArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -120,13 +142,20 @@ function buildResearchTopicCandidates(bundle = {}) {
   const candidates = [];
   const push = (name, topicType = "theme", role = "related", aliases = []) => {
     const clean = cleanResearchText(name, 160);
-    if (!clean || clean.length < 2) return;
+    if (!clean || clean.length < 2 || isLowValueResearchArtifactText(clean)) return;
+    const cleanAliases = mergeResearchUnique(
+      asResearchArray(aliases)
+        .map((item) => cleanResearchTopicAlias(item, clean))
+        .filter(Boolean),
+      (item) => item.toLowerCase(),
+      10
+    );
     candidates.push({
       topicKey: normalizeResearchTopicKey(clean),
       canonicalName: clean,
       topicType: inferResearchTopicType(clean, topicType),
       role,
-      aliases: mergeResearchUnique([clean, ...asResearchArray(aliases)].map((item) => cleanResearchText(item, 120)).filter(Boolean), (item) => item.toLowerCase(), 12)
+      aliases: cleanAliases
     });
   };
 

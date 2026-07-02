@@ -800,7 +800,7 @@ bot.storage = {
         topicKey: "spacex",
         canonicalName: "SpaceX",
         topicType: "company",
-        aliases: ["Starship", "Starfactory"]
+        aliases: ["Starship", "Starfactory", "100 times heavier YouTube 技术笔记", "阅读导航"]
       },
       {
         topicKey: "starship",
@@ -836,7 +836,7 @@ bot.storage = {
     topicMap: {
       topics: [
         { topicKey: "spacex", canonicalName: "SpaceX", topicType: "company", aliases: ["Starship", "Starfactory"] },
-        { topicKey: "starship", canonicalName: "Starship", topicType: "technology_or_product", aliases: ["星舰"] }
+        { topicKey: "starship", canonicalName: "Starship", topicType: "technology_or_product", aliases: ["星舰", "some pretty advanced concepts YouTube 技术笔记"] }
       ],
       edges: [
         { fromTopicKey: "spacex", fromName: "SpaceX", toTopicKey: "starship", toName: "Starship", edgeType: "develops", evidenceCount: 3 }
@@ -970,7 +970,7 @@ assertEqual(
   "investment report user perspective removes legacy youtube-note artifacts from retrieved corpus",
   String(
     userPerspectiveMarkdown.includes("Inside Starfactory") &&
-    !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
+    !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|some pretty advanced concepts\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
   ),
   "true"
 );
