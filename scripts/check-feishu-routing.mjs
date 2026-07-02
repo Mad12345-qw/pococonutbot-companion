@@ -1230,6 +1230,15 @@ assertEqual(
   ),
   "true"
 );
+const wechatCleanTitlePlan = await wechatPublisher.buildDistributionPlan({
+  ...wechatCandidate,
+  title: "整理好了：为什么 Stoke Space 把二级热盾塞进燃料回路"
+});
+assertEqual(
+  "WeChat publisher removes machine process prefixes from public article titles",
+  wechatCleanTitlePlan.title,
+  "为什么 Stoke Space 把二级热盾塞进燃料回路"
+);
 const wechatDraftResult = await wechatPublisher.createDraft(wechatCandidate, { generateImages: false, operator: "test-user" });
 const wechatDraftArticle = wechatPublisher.lastDraftPayload?.body?.articles?.[0] || {};
 assertEqual(

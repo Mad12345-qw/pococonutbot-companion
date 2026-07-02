@@ -37,7 +37,10 @@ function extractMarkdownTitle(markdown = "", fallback = "") {
 }
 
 function normalizeTitle(value = "", fallback = "") {
-  const text = stripMarkdown(value || fallback).replace(/[<>]/g, "").trim();
+  const text = stripMarkdown(value || fallback)
+    .replace(/^(整理好了|已整理|已生成|生成好了|文章整理好了)\s*[：:]\s*/i, "")
+    .replace(/[<>]/g, "")
+    .trim();
   return (text || stripMarkdown(fallback) || "值得认真读的一篇研究").slice(0, 64);
 }
 
