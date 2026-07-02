@@ -40,9 +40,25 @@ function firstUrl(value = "") {
   return match?.[0] || "";
 }
 
+function firstYoutubeUrl(...values) {
+  for (const value of values) {
+    const matches = String(value || "").match(/https?:\/\/[^\s)>\]]+/g) || [];
+    const url = matches.find((item) => /(?:youtube\.com|youtu\.be)\//i.test(item));
+    if (url) return url;
+  }
+  return "";
+}
+
 export function buildLatestYoutubeWechatCandidate({ message = {}, markdown = "" } = {}) {
   const metadata = message.metadata || {};
   const feishuDocUrl = String(metadata.feishuDocUrl || metadata.feishu_doc_url || "").trim();
+  const sourceUrl =
+    firstYoutubeUrl(metadata.sourceUrl, metadata.youtubeUrl, metadata.videoUrl, metadata.url, markdown, message.content) ||
+    metadata.sourceUrl ||
+    metadata.youtubeUrl ||
+    metadata.videoUrl ||
+    metadata.url ||
+    firstUrl(message.content);
   const title = extractMarkdownH1(markdown) || stripInlineMarkdown(String(message.content || "").split(/\r?\n/).find(Boolean) || "");
   const hash = createHash("sha1")
     .update(`${message.createdAt || ""}\n${feishuDocUrl}\n${title}`)
@@ -54,7 +70,7 @@ export function buildLatestYoutubeWechatCandidate({ message = {}, markdown = "" 
     title,
     markdown,
     feishuDocUrl,
-    sourceUrl: metadata.sourceUrl || metadata.youtubeUrl || metadata.videoUrl || metadata.url || firstUrl(message.content),
+    sourceUrl,
     status: "candidate",
     metadata: {
       createdBy: "admin_latest_youtube_draft",

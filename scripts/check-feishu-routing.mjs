@@ -1120,7 +1120,7 @@ const wechatPublisher = new TestWeChatPublisher({
     wechatMpAppId: "wx-test",
     wechatMpAppSecret: "secret-test",
     wechatMpAuthor: "小椰",
-    wechatMpCtaText: "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」",
+    wechatMpCtaText: "关注我，继续追踪产业链和技术拐点。",
     wechatMpOpenComment: false,
     wechatMpOnlyFansCanComment: false
   },
@@ -1496,6 +1496,27 @@ assertEqual(
     latestYoutubeWechatCandidate.metadata.createdBy === "admin_latest_youtube_draft"
   ),
   "true"
+);
+const latestYoutubeWechatCandidateWithFeishuOnlyMetadata = buildLatestYoutubeWechatCandidate({
+  message: {
+    content: "最新飞书文档 https://rcnx3mn0vg5z.feishu.cn/wiki/test",
+    metadata: {
+      feishuDocUrl: "https://rcnx3mn0vg5z.feishu.cn/wiki/test",
+      sourceUrl: "https://rcnx3mn0vg5z.feishu.cn/wiki/test"
+    },
+    createdAt: "2026-07-02T04:13:38.772Z"
+  },
+  markdown: [
+    "# Stoke Space article title",
+    "",
+    "## 八、出处与链接",
+    "https://youtu.be/7OxNZ-N_3vE"
+  ].join("\n")
+});
+assertEqual(
+  "Admin WeChat latest-YouTube candidate extracts real YouTube source from finished Feishu markdown",
+  latestYoutubeWechatCandidateWithFeishuOnlyMetadata.sourceUrl,
+  "https://youtu.be/7OxNZ-N_3vE"
 );
 let weakWechatCandidateRejected = false;
 try {

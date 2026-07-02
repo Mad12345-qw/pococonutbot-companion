@@ -656,6 +656,16 @@ function formatOpeningHookForWechat(value = "") {
   return text ? `“${text}”` : "";
 }
 
+function normalizeWechatCtaText(value = "") {
+  const fallback = "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」";
+  const text = String(value || "").trim();
+  if (!text) return fallback;
+  const compact = text.replace(/\s+/g, "");
+  if (compact === "关注我，继续追踪产业链和技术拐点。") return fallback;
+  if (compact === "关注我，继续追踪产业链和技术拐点") return fallback;
+  return text;
+}
+
 function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCaption = "", openingHook = "", cta = "" } = {}) {
   const html = [];
   const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
@@ -970,7 +980,7 @@ export class WeChatPublisher {
   async buildDistributionPlan(candidate = {}, _options = {}) {
     const article = normalizeWechatMarkdownFromFeishu(candidate);
     assertWechatSourceArticleReady(article, candidate);
-    article.cta = this.config.wechatMpCtaText || "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」";
+    article.cta = normalizeWechatCtaText(this.config.wechatMpCtaText);
     return article;
   }
 
