@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T10:06:55.530Z",
+  "exportedAt": "2026-07-02T10:13:39.837Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -67622,6 +67622,7 @@
         },
         "createdAt": "2026-07-02T09:27:58.678Z"
       }
-    ]
+    ],
+    "wechatPublishCandidates": []
   }
 }
