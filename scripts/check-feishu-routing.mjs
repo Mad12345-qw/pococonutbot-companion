@@ -568,6 +568,11 @@ assertEqual(
   "true"
 );
 assertEqual(
+  "youtube guided blueprint is not rewrapped by legacy summary logic",
+  String(!structuredFeishuDoc.includes("### 核心结论") && structuredFeishuDoc.indexOf("## 一、导读与核心结论") < structuredFeishuDoc.indexOf("### 关键术语解释") && structuredFeishuDoc.indexOf("### 原文摘录") > structuredFeishuDoc.indexOf("## 四、时间线摘要") && structuredFeishuDoc.indexOf("## 六、出处与链接") > structuredFeishuDoc.indexOf("## 五、值得继续追问的问题")),
+  "true"
+);
+assertEqual(
   "youtube structured pipeline plans from evidence before writing",
   String(structuredChatCalls === 6 && articlePromptIncludedEvidenceBrief),
   "true"

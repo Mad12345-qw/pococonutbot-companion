@@ -1334,6 +1334,45 @@ function buildYoutubeSourceSection(videos = []) {
   return blocks.filter(Boolean).join("\n\n") || "> 当前没有可展示的来源信息。";
 }
 
+function isGuidedYoutubeBlueprintMarkdown(markdown = "") {
+  const text = String(markdown || "");
+  return [
+    "## 一、导读与核心结论",
+    "### 关键术语解释",
+    "### 一句话结论",
+    "### 核心观点",
+    "## 二、关键技术点速览",
+    "## 四、时间线摘要",
+    "## 五、值得继续追问的问题"
+  ].every((needle) => text.includes(needle));
+}
+
+function stripYoutubeSourceSection(markdown = "") {
+  return String(markdown || "").replace(/\n+## 六、出处与链接[\s\S]*$/m, "").trim();
+}
+
+function insertYoutubeTranscriptBlocks(markdown = "", transcriptBlocks = "") {
+  const body = stripYoutubeSourceSection(markdown);
+  if (!transcriptBlocks) return body;
+  if (body.includes("### 原文摘录")) return body;
+  const transcriptSection = compactLines(["### 原文摘录", transcriptBlocks]);
+  const nextHeading = body.search(/\n## 五、值得继续追问的问题/);
+  if (nextHeading >= 0) {
+    return `${body.slice(0, nextHeading).trim()}\n\n${transcriptSection}\n\n${body.slice(nextHeading + 1).trim()}`;
+  }
+  return compactLines([body, "## 四、时间线摘要", transcriptSection]);
+}
+
+function finalizeGuidedYoutubeDocumentMarkdown(body = "", { transcriptBlocks = "", videos = [] } = {}) {
+  const withoutTitle = String(body || "").replace(/^#\s+.+\n+/, "").trim();
+  const withTranscript = insertYoutubeTranscriptBlocks(withoutTitle, transcriptBlocks);
+  return compactLines([
+    withTranscript,
+    "## 六、出处与链接",
+    buildYoutubeSourceSection(videos)
+  ]);
+}
+
 function assertReadableYoutubeDocument(markdown = "") {
   const text = String(markdown || "");
   const forbidden = [
@@ -2967,6 +3006,14 @@ export class FeishuBot {
     let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(stripYoutubeProcessPreamble(report.markdown))))
       .trim();
     body = body.replace(/^#\s+.+\n+/, "").trim();
+    if (isGuidedYoutubeBlueprintMarkdown(body)) {
+      const markdown = indentReaderLabelBullets(emphasizeReaderLabels(finalizeGuidedYoutubeDocumentMarkdown(body, {
+        transcriptBlocks,
+        videos
+      })));
+      assertReadableYoutubeDocument(markdown);
+      return markdown;
+    }
     body = stripLowValueYoutubeMetadataLines(body);
     const sections = collectYoutubeDocSections(body);
     const relocated = {
