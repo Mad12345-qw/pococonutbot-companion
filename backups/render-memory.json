@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T18:19:46.401Z",
+  "exportedAt": "2026-07-02T18:22:08.429Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -57635,6 +57635,49 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T17:13:55.713Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2\nhttps://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b5e8feb5ca0c10eac477469b60",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T18:21:08.288Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5e8feb5ca0c10eac477469b60",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T18:21:09.114Z"
       }
     ],
     "memories": [
@@ -59266,7 +59309,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T11:08:47.609Z"
+        "updatedAt": "2026-07-02T18:21:09.044Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -59276,7 +59319,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T11:08:47.451Z"
+        "updatedAt": "2026-07-02T18:21:08.966Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -64099,6 +64142,39 @@
         "error": "Investment report job was interrupted by process restart before resumable delivery metadata was recorded.",
         "createdAt": "2026-07-02T11:08:49.589Z",
         "updatedAt": "2026-07-02T11:50:46.917Z"
+      },
+      {
+        "id": "job:de8df9f11d622437",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
+        "status": "running",
+        "stage": "youtube_article_generation",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
+            "query": "",
+            "videoUrl": "https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9GI2ht_2",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "E7MQb9Y4FAE",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {},
+        "error": "",
+        "createdAt": "2026-07-02T18:21:11.077Z",
+        "updatedAt": "2026-07-02T18:21:11.077Z"
       }
     ],
     "researchReferenceSources": [],
