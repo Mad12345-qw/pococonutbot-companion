@@ -272,6 +272,51 @@ try {
   assert.equal(reportCorpus.evidenceCards.length, 1);
   assert.equal(reportCorpus.evidenceCards[0].claim, "Updated claim replaces the previous evidence set.");
 
+  await storage.upsertResearchSourceBundle({
+    topics: [
+      {
+        name: "商业航天 / Starship / 液氧甲烷发动机",
+        topicType: "theme",
+        role: "report_topic",
+        aliases: ["SpaceX", "Starship", "Raptor", "液氧甲烷", "可复用火箭"]
+      }
+    ],
+    source: {
+      sourceId: "source:test-starship-raptor",
+      sourceType: "video",
+      platform: "youtube",
+      url: "https://youtube.com/watch?v=starship-raptor",
+      title: "SpaceX Starship Raptor engine and reusable launch cadence",
+      organization: "SpaceX",
+      rawText: "Starship uses Raptor methalox engines and depends on reusable launch cadence.",
+      rawTextHash: "hash-starship-raptor",
+      docUrl: "https://example.feishu.cn/wiki/starshipraptor",
+      metadata: {
+        topic: "SpaceX Starship Raptor"
+      }
+    },
+    evidenceCards: [
+      {
+        evidenceType: "technology",
+        claim: "Raptor 液氧甲烷发动机和可复用发射节奏会影响商业航天供应链。",
+        quoteOriginal: "Raptor methalox engines drive Starship's reusable launch cadence.",
+        location: "12:30",
+        whyItMatters: "这条证据应能被中文窄查询自动检索到，而不是要求用户输入 SpaceX。"
+      }
+    ]
+  });
+  const expandedQueryCorpus = await storage.listResearchEvidenceForReport({
+    query: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    limit: 5,
+    evidenceLimit: 10
+  });
+  assert.ok(expandedQueryCorpus.sources.some((source) =>
+    String(source.source_id || source.sourceId || "") === "source:test-starship-raptor"
+  ));
+  assert.ok(expandedQueryCorpus.evidenceCards.some((card) =>
+    String(card.claim || "").includes("Raptor 液氧甲烷发动机")
+  ));
+
   await storage.addMessage({
     chatId: "feishu:test",
     userId: "feishu:user",
@@ -292,6 +337,12 @@ try {
   });
   assert.equal(history.length, 1);
   assert.equal(history[0].metadata.feishuDocUrl, "https://example.feishu.cn/wiki/backfilltoken");
+  const expandedHistory = await storage.listYoutubeResearchHistoryForBackfill({
+    query: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    limit: 5
+  });
+  assert.equal(expandedHistory.length, 1);
+  assert.equal(expandedHistory[0].metadata.feishuDocUrl, "https://example.feishu.cn/wiki/backfilltoken");
 
   console.log("Research knowledge base checks passed.");
 } finally {

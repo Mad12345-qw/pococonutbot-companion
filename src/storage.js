@@ -7,6 +7,37 @@ const { Pool } = pg;
 
 const summaryUserSeparator = "::user::";
 
+const RESEARCH_QUERY_EXPANSIONS = [
+  {
+    pattern: /商业航天|星舰|火箭|发射|航天燃料|液氧甲烷|可复用/i,
+    terms: ["商业航天", "航天", "火箭", "发射", "可复用", "可复用火箭", "液氧甲烷", "甲烷发动机", "发动机", "供应链", "产业链", "SpaceX", "Starship", "星舰", "Raptor", "猛禽", "Starlink"]
+  },
+  {
+    pattern: /液氧甲烷|甲烷发动机|methalox|raptor|猛禽/i,
+    terms: ["液氧甲烷", "甲烷", "发动机", "甲烷发动机", "Raptor", "猛禽", "Starship", "星舰", "火箭"]
+  },
+  {
+    pattern: /可复用|回收|复用|reusable/i,
+    terms: ["可复用", "复用", "回收", "可复用火箭", "Starship", "Falcon", "SpaceX", "发射成本", "发射节奏"]
+  },
+  {
+    pattern: /光模块|cpo|数据中心网络|硅光|交换机/i,
+    terms: ["光模块", "CPO", "硅光", "数据中心", "数据中心网络", "交换机", "英伟达", "NVIDIA", "AI 集群", "算力"]
+  },
+  {
+    pattern: /机器人|人形机器人|执行器|减速器|灵巧手/i,
+    terms: ["机器人", "人形机器人", "执行器", "减速器", "灵巧手", "电机", "传感器", "供应链"]
+  },
+  {
+    pattern: /液冷|储能|核电|电力|数据中心电力/i,
+    terms: ["电力", "AI 电力", "液冷", "储能", "核电", "数据中心", "电网", "供电", "散热"]
+  },
+  {
+    pattern: /ai|人工智能|大模型|openai|算力/i,
+    terms: ["AI", "人工智能", "大模型", "OpenAI", "算力", "GPU", "数据中心", "推理", "训练"]
+  }
+];
+
 function summaryKey(chatId, userId = "") {
   const normalizedUserId = String(userId || "");
   return normalizedUserId ? `${String(chatId)}${summaryUserSeparator}${normalizedUserId}` : String(chatId);
@@ -123,10 +154,22 @@ function mergeResearchUnique(values = [], keyFn = (item) => JSON.stringify(item)
   return result;
 }
 
+function researchQueryExpansionTerms(query = "") {
+  const text = String(query || "");
+  const output = [];
+  for (const item of RESEARCH_QUERY_EXPANSIONS) {
+    if (item.pattern.test(text)) output.push(...item.terms);
+  }
+  const keywordMatches = text.match(/SpaceX|Starship|Starlink|Raptor|OpenAI|NVIDIA|CPO|GPU|AI|HLS|FAA|NASA|液氧甲烷|甲烷发动机|商业航天|航天燃料|可复用火箭|可复用|火箭|发动机|供应链|产业链|光模块|数据中心网络|人形机器人|执行器|减速器|灵巧手|液冷|储能|核电|电力/gi) || [];
+  output.push(...keywordMatches);
+  return output;
+}
+
 function splitResearchTerms(query = "", extra = []) {
   return mergeResearchUnique(
     [
       ...String(query || "").split(/[\/,，、\s]+/),
+      ...researchQueryExpansionTerms(query),
       ...asResearchArray(extra)
     ]
       .map((item) => cleanResearchText(item, 80))
@@ -134,6 +177,46 @@ function splitResearchTerms(query = "", extra = []) {
     (item) => item.toLowerCase(),
     24
   );
+}
+
+function researchSearchableText(...values) {
+  return values
+    .flatMap((value) => {
+      if (Array.isArray(value)) return value;
+      if (value && typeof value === "object") return JSON.stringify(value);
+      return value;
+    })
+    .map((item) => String(item || "").toLowerCase())
+    .join("\n");
+}
+
+function scoreResearchText(text = "", terms = [], query = "") {
+  const normalized = String(text || "").toLowerCase();
+  const cleanQuery = cleanResearchText(query, 160).toLowerCase();
+  let score = cleanQuery && normalized.includes(cleanQuery) ? 12 : 0;
+  for (const rawTerm of terms || []) {
+    const term = String(rawTerm || "").toLowerCase().trim();
+    if (!term || term.length < 2) continue;
+    if (normalized.includes(term)) score += Math.min(8, Math.max(2, term.length));
+  }
+  return score;
+}
+
+function scoreResearchSourceCandidate(source = {}, evidenceCards = [], terms = [], query = "") {
+  const text = researchSearchableText(
+    source.sourceType,
+    source.source_type,
+    source.platform,
+    source.url,
+    source.title,
+    source.author,
+    source.organization,
+    source.rawText,
+    source.raw_text,
+    source.metadata,
+    ...asResearchArray(evidenceCards).flatMap((card) => [card.claim, card.quoteOriginal, card.quote_original, card.whyItMatters, card.why_it_matters])
+  );
+  return scoreResearchText(text, terms, query);
 }
 
 function buildResearchTopicCandidates(bundle = {}) {
@@ -2429,7 +2512,8 @@ class PostgresStorage {
       sourceValues.push(topicKeys);
       clauses.push(`t.topic_key = ANY($${sourceValues.length}::text[])`);
     }
-    sourceValues.push(safeLimit);
+    const candidateLimit = Math.max(safeLimit, Math.min(90, safeLimit * 5));
+    sourceValues.push(candidateLimit);
     const sourceResult = await this.pool.query(
       `SELECT DISTINCT s.source_id AS "sourceId", s.source_type AS "sourceType", s.platform,
               s.url, s.title, s.author, s.organization, s.published_at AS "publishedAt",
@@ -2451,7 +2535,17 @@ class PostgresStorage {
        LIMIT $${sourceValues.length}`,
       sourceValues
     );
-    const sourceIds = sourceResult.rows.map((row) => row.sourceId).filter(Boolean);
+    const sourceRows = sourceResult.rows
+      .map((row) => ({
+        ...row,
+        relevanceScore: scoreResearchSourceCandidate(row, [], terms, query)
+      }))
+      .sort((a, b) =>
+        Number(b.relevanceScore || 0) - Number(a.relevanceScore || 0) ||
+        String(b.analyzedAt || b.createdAt || "").localeCompare(String(a.analyzedAt || a.createdAt || ""))
+      )
+      .slice(0, safeLimit);
+    const sourceIds = sourceRows.map((row) => row.sourceId).filter(Boolean);
     if (!sourceIds.length) {
       return { sources: [], evidenceCards: [], entities: [], timeContexts: [], questions: [], coverageGaps: [], topicMap: effectiveTopicMap };
     }
@@ -2512,7 +2606,7 @@ class PostgresStorage {
       )
     ]);
     return {
-      sources: sourceResult.rows,
+      sources: sourceRows,
       evidenceCards: evidenceCards.rows,
       entities: entities.rows,
       timeContexts: timeContexts.rows,
@@ -2678,18 +2772,16 @@ class PostgresStorage {
   }
 
   async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
-    const terms = String(query || "")
-      .split(/[\/,，、\s]+/)
-      .map((item) => item.trim())
-      .filter((item) => item.length >= 2)
-      .slice(0, 10);
+    const terms = splitResearchTerms(query).slice(0, 18);
     const values = [];
     const clauses = terms.map((term) => {
       values.push(`%${term}%`);
       const slot = `$${values.length}`;
       return `(content ILIKE ${slot} OR metadata::text ILIKE ${slot})`;
     });
-    values.push(Math.max(1, Math.min(30, Number(limit) || 12)));
+    const safeLimit = Math.max(1, Math.min(30, Number(limit) || 12));
+    const candidateLimit = Math.max(safeLimit, Math.min(90, safeLimit * 5));
+    values.push(candidateLimit);
     const result = await this.pool.query(
       `SELECT content, metadata, created_at AS "createdAt"
        FROM chat_messages
@@ -2700,7 +2792,16 @@ class PostgresStorage {
        LIMIT $${values.length}`,
       values
     );
-    return result.rows;
+    return result.rows
+      .map((row) => ({
+        ...row,
+        relevanceScore: scoreResearchText(researchSearchableText(row.content, row.metadata), terms, query)
+      }))
+      .sort((a, b) =>
+        Number(b.relevanceScore || 0) - Number(a.relevanceScore || 0) ||
+        String(b.createdAt || "").localeCompare(String(a.createdAt || ""))
+      )
+      .slice(0, safeLimit);
   }
 }
 
@@ -3598,7 +3699,7 @@ class JsonFileStorage {
     const sourceMatches = (source) => {
       const sourceEvidence = this.state.researchEvidenceCards.filter((card) => String(card.source_id) === String(source.source_id));
       if (sourceEvidence.some((card) => evidenceIdsByTopic.has(Number(card.id)))) return true;
-      const text = [
+      const text = researchSearchableText(
         source.source_type,
         source.platform,
         source.url,
@@ -3606,14 +3707,24 @@ class JsonFileStorage {
         source.author,
         source.organization,
         source.raw_text,
-        JSON.stringify(source.metadata || {}),
+        source.metadata,
         ...sourceEvidence.flatMap((card) => [card.claim, card.quote_original, card.why_it_matters])
-      ].join("\n");
+      );
       return matches(text);
     };
     const sources = this.state.researchSources
       .filter(sourceMatches)
-      .sort((a, b) => String(b.analyzed_at || b.created_at || "").localeCompare(String(a.analyzed_at || a.created_at || "")))
+      .map((source) => {
+        const sourceEvidence = this.state.researchEvidenceCards.filter((card) => String(card.source_id) === String(source.source_id));
+        return {
+          ...source,
+          relevanceScore: scoreResearchSourceCandidate(source, sourceEvidence, terms, query)
+        };
+      })
+      .sort((a, b) =>
+        Number(b.relevanceScore || 0) - Number(a.relevanceScore || 0) ||
+        String(b.analyzed_at || b.created_at || "").localeCompare(String(a.analyzed_at || a.created_at || ""))
+      )
       .slice(0, Math.max(1, Math.min(30, Number(limit) || 10)));
     const sourceIds = new Set(sources.map((source) => String(source.source_id)).filter(Boolean));
     const evidenceCards = this.state.researchEvidenceCards
@@ -3772,20 +3883,22 @@ class JsonFileStorage {
   }
 
   async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
-    const terms = String(query || "")
-      .toLowerCase()
-      .split(/[\/,，、\s]+/)
-      .map((item) => item.trim())
-      .filter((item) => item.length >= 2)
-      .slice(0, 10);
+    const terms = splitResearchTerms(query).map((item) => item.toLowerCase()).slice(0, 18);
     const matches = (message) => {
       if (!terms.length) return true;
-      const text = [message.content, JSON.stringify(message.metadata || {})].join("\n").toLowerCase();
+      const text = researchSearchableText(message.content, message.metadata);
       return terms.some((term) => text.includes(term));
     };
     return this.state.messages
       .filter((message) => message.metadata?.youtubeResearch && message.metadata?.feishuDocUrl && matches(message))
-      .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")))
+      .map((message) => ({
+        ...message,
+        relevanceScore: scoreResearchText(researchSearchableText(message.content, message.metadata), terms, query)
+      }))
+      .sort((a, b) =>
+        Number(b.relevanceScore || 0) - Number(a.relevanceScore || 0) ||
+        String(b.createdAt || "").localeCompare(String(a.createdAt || ""))
+      )
       .slice(0, Math.max(1, Math.min(30, Number(limit) || 12)));
   }
 }
