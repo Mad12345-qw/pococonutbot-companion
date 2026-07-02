@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T03:34:50.554Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T03:44:56.664Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -55902,6 +55902,193 @@
           "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
         },
         "createdAt": "2026-07-02T03:30:27.787Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d\nhttps://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b6983879840c1043ed5852baf5",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T03:36:55.005Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/T-jf6tTKt3Y?si=Oux-rho3WQ7jYf6d",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b6983879840c1043ed5852baf5",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:36:55.973Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "user",
+        "modality": "text",
+        "content": "国内 AI编程 目前用的是codeBuddy，有啥更好的工具推荐吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b699f0534a4b32ada3cdedb249",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUserId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUnionId": "on_7f8cbdf2592c10291ce492f7a3abd80f",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:38:11.078Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "assistant",
+        "modality": "text",
+        "content": "codeBuddy 算是国内腾讯系的吧，其实现在国内 AI 编程工具挺多的：\n\n• Cursor（国外，但用的人很多，VSCode 底子，支持多模型）\n• Trae（字节出品的，免费的，有 Solo 模式可以自主完成任务）\n• 通义灵码（阿里，IDE 插件形式，适合日常补全）\n• CodeGeeX（智谱开源的，免费）\n• RooCode / Cline（VSCode 插件，能自主调用工具写代码）\n\n如果你要的是类似 Cursor 那种\"AI 自主写代码\"的体验，Trae 的 Solo 模式挺值得试试，国产里算能打的；想要更自由就 Cursor。要看你具体场景——纯补全、写新项目、还是改老代码？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46"
+        },
+        "createdAt": "2026-07-02T03:38:15.912Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "user",
+        "modality": "text",
+        "content": "codeX 呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69942cb4a4b4bf2da7a7ece10",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUserId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUnionId": "on_7f8cbdf2592c10291ce492f7a3abd80f",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:40:35.806Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "assistant",
+        "modality": "text",
+        "content": "codeX 啊，我不太确定你说的是哪个——是 GitHub Copilot 还是别的？可以说说具体场景吗，我帮你看看适不适合你",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46"
+        },
+        "createdAt": "2026-07-02T03:40:39.172Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "user",
+        "modality": "text",
+        "content": "OpenAI 推出的 AI 编程智能体‌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69918c2ca8b4b8ea8a2efc5f2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUserId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUnionId": "on_7f8cbdf2592c10291ce492f7a3abd80f",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:41:47.386Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "assistant",
+        "modality": "text",
+        "content": "codeX 是 OpenAI 出的 AI 编程智能体，基于 Codex 模型，能在终端、IDE、GitHub、云端多端用，主要面向复杂代码任务自主执行。\n\n不过国内用门槛比较高——需要海外网络、订阅也贵，而且本土化支持一般。\n\n如果你是为了\"找一个好用的 AI 编程工具替代 codeBuddy\"，codeX 反而不是最推荐的选择，国内直接用 Trae 或者通义灵码更香；除非你英文好、有翻墙条件、经常写 Python/JS，那 codeX 体验确实顶。\n\n你主要是写什么语言的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46"
+        },
+        "createdAt": "2026-07-02T03:41:52.884Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "user",
+        "modality": "text",
+        "content": "全自动Agent 推荐哪种呢 ？Hermes ？ workbuddy ? kimi?",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69a739f4b8b328b42e34837a5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUserId": "ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+          "rawUnionId": "on_7f8cbdf2592c10291ce492f7a3abd80f",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:44:38.152Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "role": "assistant",
+        "modality": "text",
+        "content": "全自动 Agent 这三个对比的话：\n\n• Hermes（NousResearch 出品）：开源可自部署，工具调用能力强，适合折腾和自定义\n• WorkBuddy：字节出品的，对中文场景和国内工具链适配好，开箱即用\n• Kimi（月之暗面）：长文本处理是强项，但全自动 Agent 能力相对前两个弱一些\n\n想要\"省心开箱即用 + 中文场景\"就 WorkBuddy；想折腾、深度自定义就 Hermes；Kimi 的话更适合当辅助，不太算全自动 Agent。\n\n你主要想用来干啥？是处理代码、文档还是别的？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46"
+        },
+        "createdAt": "2026-07-02T03:44:45.336Z"
       }
     ],
     "memories": [
@@ -57533,7 +57720,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T02:46:26.177Z"
+        "updatedAt": "2026-07-02T03:36:55.900Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -57543,7 +57730,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T02:46:26.093Z"
+        "updatedAt": "2026-07-02T03:36:55.826Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -59814,6 +60001,46 @@
         "metadata": {},
         "createdAt": "2026-06-19T03:21:59.904Z",
         "updatedAt": "2026-06-19T03:21:59.904Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "key": "interests.ai_coding",
+        "value": "关注国内 AI 编程工具，寻求更好替代方案推荐",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-02T03:39:16.669Z",
+        "updatedAt": "2026-07-02T03:39:16.669Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-02T03:38:11.007Z",
+        "updatedAt": "2026-07-02T03:44:38.079Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-02T03:38:10.934Z",
+        "updatedAt": "2026-07-02T03:44:38.007Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8d24c3ede0cfc0a51f5bc542f9406f46",
+        "key": "tools.coding_assistant",
+        "value": "目前使用 codeBuddy（腾讯系）作为 AI 编程工具",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-02T03:39:16.597Z",
+        "updatedAt": "2026-07-02T03:39:16.597Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
