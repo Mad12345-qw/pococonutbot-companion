@@ -61,6 +61,9 @@ app.get("/health", (_req, res) => {
     youtubeBackgroundSyncMode: "parallel_nonblocking",
     researchKnowledgeBase: true,
     researchKnowledgeBaseVersion: "multi_source_evidence_foundation_v1",
+    investmentResearchReports: true,
+    investmentResearchReportTrigger: "投研报告：",
+    investmentResearchReportWikiFolder: Boolean(config.feishuInvestmentReportParentWikiToken),
     researchArchitecturePrinciples: [
       "open_source_type_registry",
       "plan_before_generation",

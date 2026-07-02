@@ -1941,6 +1941,289 @@ function buildResearchKnowledgeBundleFromYoutubeReport(report = {}, { doc = {}, 
   };
 }
 
+function researchRowValue(row = {}, camel = "", snake = "") {
+  return row?.[camel] ?? row?.[snake || camel] ?? "";
+}
+
+function normalizeResearchSourceRow(row = {}, index = 0) {
+  const sourceId = String(researchRowValue(row, "sourceId", "source_id") || "");
+  return {
+    id: `S${index + 1}`,
+    sourceId,
+    sourceType: String(researchRowValue(row, "sourceType", "source_type") || ""),
+    platform: String(row.platform || ""),
+    title: cleanArticleText(row.title || "", 220),
+    organization: cleanArticleText(row.organization || row.author || "", 160),
+    url: String(row.url || ""),
+    docUrl: String(researchRowValue(row, "docUrl", "doc_url") || ""),
+    publishedAt: String(researchRowValue(row, "publishedAt", "published_at") || ""),
+    recordedAt: String(researchRowValue(row, "recordedAt", "recorded_at") || ""),
+    eventPeriod: String(researchRowValue(row, "eventPeriod", "event_period") || ""),
+    reliabilityLevel: String(researchRowValue(row, "reliabilityLevel", "reliability_level") || ""),
+    evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
+    conflictProfile: String(researchRowValue(row, "conflictProfile", "conflict_profile") || "")
+  };
+}
+
+function normalizeResearchEvidenceRow(row = {}, index = 0, sourceIndexById = new Map()) {
+  const sourceId = String(researchRowValue(row, "sourceId", "source_id") || "");
+  return {
+    id: `E${index + 1}`,
+    sourceId,
+    sourceRef: sourceIndexById.get(sourceId) || sourceId || "S?",
+    evidenceType: String(researchRowValue(row, "evidenceType", "evidence_type") || ""),
+    claim: cleanArticleText(row.claim || "", 500),
+    quoteOriginal: cleanArticleText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
+    quoteZh: cleanArticleText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
+    location: cleanArticleText(row.location || "", 80),
+    whyItMatters: cleanArticleText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
+    confidence: Number(row.confidence || 0),
+    timeSensitivity: String(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
+    evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
+    analysisLens: String(researchRowValue(row, "analysisLens", "analysis_lens") || "")
+  };
+}
+
+function buildInvestmentReportEvidencePack(corpus = {}) {
+  const sources = (corpus.sources || []).map(normalizeResearchSourceRow);
+  const sourceIndexById = new Map(sources.map((source) => [source.sourceId, source.id]));
+  const evidenceCards = (corpus.evidenceCards || [])
+    .map((row, index) => normalizeResearchEvidenceRow(row, index, sourceIndexById))
+    .filter((card) => card.claim || card.quoteOriginal)
+    .slice(0, 120);
+  const entities = mergeUniqueBy((corpus.entities || []).map((row) => ({
+    name: cleanArticleText(row.name || "", 120),
+    entityType: cleanArticleText(researchRowValue(row, "entityType", "entity_type") || "", 80),
+    role: cleanArticleText(row.role || "", 80),
+    sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || ""
+  })).filter((item) => item.name), (item) => `${item.name}|${item.entityType}|${item.role}`, 80);
+  const timeContexts = (corpus.timeContexts || []).map((row) => ({
+    sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
+    videoPublishedAt: cleanArticleText(researchRowValue(row, "videoPublishedAt", "video_published_at") || "", 120),
+    likelyRecordedAt: cleanArticleText(researchRowValue(row, "likelyRecordedAt", "likely_recorded_at") || "", 120),
+    eventPeriod: cleanArticleText(researchRowValue(row, "eventPeriod", "event_period") || "", 120),
+    currentRelevance: cleanArticleText(researchRowValue(row, "currentRelevance", "current_relevance") || "", 500),
+    timeSensitivity: cleanArticleText(researchRowValue(row, "timeSensitivity", "time_sensitivity") || "", 80),
+    staleIf: cleanArticleText(researchRowValue(row, "staleIf", "stale_if") || "", 400)
+  }));
+  const questions = (corpus.questions || []).map((row) => ({
+    sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
+    question: cleanArticleText(row.question || "", 500),
+    priority: Number(row.priority || 3),
+    researchDirection: cleanArticleText(researchRowValue(row, "researchDirection", "research_direction") || "", 120)
+  })).filter((item) => item.question);
+  const coverageGaps = (corpus.coverageGaps || []).map((row) => ({
+    sourceRef: sourceIndexById.get(String(researchRowValue(row, "sourceId", "source_id") || "")) || "",
+    gap: cleanArticleText(row.gap || "", 400),
+    impact: cleanArticleText(row.impact || "", 600),
+    confidenceImpact: cleanArticleText(researchRowValue(row, "confidenceImpact", "confidence_impact") || "", 120)
+  })).filter((item) => item.gap);
+  return { sources, evidenceCards, entities, timeContexts, questions, coverageGaps };
+}
+
+function assessInvestmentReportReadiness(pack = {}) {
+  const sourceCount = (pack.sources || []).length;
+  const evidenceCount = (pack.evidenceCards || []).length;
+  if (sourceCount < 2) {
+    return {
+      ready: false,
+      reason: "evidence_sources_too_few",
+      message: `当前只检索到 ${sourceCount} 个相关来源。投研报告至少需要 2 个以上来源交叉验证，避免把单一视频包装成结论。`
+    };
+  }
+  if (evidenceCount < 6) {
+    return {
+      ready: false,
+      reason: "evidence_cards_too_few",
+      message: `当前只检索到 ${evidenceCount} 条相关证据卡。投研报告至少需要 6 条以上证据，建议先继续喂相关视频、报告、网页或论文。`
+    };
+  }
+  return { ready: true, reason: "" };
+}
+
+function investmentReportEvidencePrompt(pack = {}) {
+  const sourceLines = (pack.sources || []).map((source) => [
+    `${source.id}. ${source.title || "Untitled source"}`,
+    source.organization ? `org=${source.organization}` : "",
+    source.sourceType ? `type=${source.sourceType}` : "",
+    source.publishedAt ? `published=${source.publishedAt}` : "",
+    source.recordedAt ? `recorded=${source.recordedAt}` : "",
+    source.eventPeriod ? `period=${source.eventPeriod}` : "",
+    source.reliabilityLevel ? `reliability=${source.reliabilityLevel}` : "",
+    source.conflictProfile ? `conflict=${source.conflictProfile}` : ""
+  ].filter(Boolean).join(" | "));
+  const evidenceLines = (pack.evidenceCards || []).map((card) => [
+    `${card.id} [${card.sourceRef}${card.location ? ` ${card.location}` : ""}]`,
+    card.evidenceType ? `lens=${card.evidenceType}` : "",
+    card.claim ? `claim=${card.claim}` : "",
+    card.quoteOriginal ? `quote=${card.quoteOriginal}` : "",
+    card.whyItMatters ? `why=${card.whyItMatters}` : "",
+    card.timeSensitivity ? `time=${card.timeSensitivity}` : ""
+  ].filter(Boolean).join(" | "));
+  const entityLines = (pack.entities || []).slice(0, 50).map((entity) =>
+    `${entity.name}${entity.entityType ? ` (${entity.entityType})` : ""}${entity.role ? ` role=${entity.role}` : ""}${entity.sourceRef ? ` source=${entity.sourceRef}` : ""}`
+  );
+  const gapLines = (pack.coverageGaps || []).map((gap) =>
+    `${gap.sourceRef ? `${gap.sourceRef} ` : ""}${gap.gap}${gap.impact ? ` | impact=${gap.impact}` : ""}${gap.confidenceImpact ? ` | confidence=${gap.confidenceImpact}` : ""}`
+  );
+  const questionLines = (pack.questions || []).slice(0, 30).map((question) =>
+    `${question.sourceRef ? `${question.sourceRef} ` : ""}${question.question}${question.researchDirection ? ` | direction=${question.researchDirection}` : ""}`
+  );
+  return compactLines([
+    "Sources:",
+    sourceLines.join("\n"),
+    "",
+    "Evidence cards:",
+    evidenceLines.join("\n"),
+    "",
+    "Entities:",
+    entityLines.join("\n"),
+    "",
+    "Coverage gaps:",
+    gapLines.join("\n"),
+    "",
+    "Existing follow-up questions:",
+    questionLines.join("\n")
+  ]).slice(0, 70000);
+}
+
+function normalizeEvidenceIds(value) {
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => normalizeEvidenceIds(item)).slice(0, 12);
+  }
+  return String(value || "").match(/\bE\d+\b/g) || [];
+}
+
+function normalizeInvestmentReportStructured(raw = {}, request = {}) {
+  const fallbackTitle = cleanArticleText(request.query || "产业链投研报告", 80);
+  return {
+    title: cleanArticleText(raw.title || `${fallbackTitle}：产业链证据与下一步调研`, 120),
+    oneSentence: cleanArticleText(raw.oneSentence || raw.summary || "", 500),
+    thesis: cleanArticleText(raw.thesis || raw.coreThesis || "", 900),
+    evidenceBase: asArray(raw.evidenceBase || raw.evidenceSummary).map((item) => cleanArticleText(item, 500)).filter(Boolean).slice(0, 8),
+    hypotheses: asArray(raw.hypotheses || raw.industryChainHypotheses).map((item) => ({
+      title: cleanArticleText(item.title || item.hypothesis || "", 180),
+      logic: cleanArticleText(item.logic || item.why || "", 800),
+      evidenceIds: normalizeEvidenceIds(item.evidenceIds || item.evidence).slice(0, 8),
+      counterEvidenceIds: normalizeEvidenceIds(item.counterEvidenceIds || item.counterEvidence).slice(0, 6),
+      timeRisk: cleanArticleText(item.timeRisk || item.staleRisk || "", 500),
+      confidence: cleanArticleText(item.confidence || "", 80)
+    })).filter((item) => item.title || item.logic).slice(0, 6),
+    valueChainNodes: asArray(raw.valueChainNodes || raw.nodes).map((item) => ({
+      node: cleanArticleText(item.node || item.name || "", 120),
+      whyItMatters: cleanArticleText(item.whyItMatters || item.why || "", 500),
+      signals: asArray(item.signals || item.leadingSignals).map((signal) => cleanArticleText(signal, 220)).filter(Boolean).slice(0, 6),
+      risks: asArray(item.risks || item.uncertainties).map((risk) => cleanArticleText(risk, 220)).filter(Boolean).slice(0, 6),
+      evidenceIds: normalizeEvidenceIds(item.evidenceIds).slice(0, 6)
+    })).filter((item) => item.node).slice(0, 10),
+    leadingIndicators: asArray(raw.leadingIndicators).map((item) => cleanArticleText(item, 260)).filter(Boolean).slice(0, 12),
+    risks: asArray(raw.risks || raw.counterArguments).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 10),
+    timeContextRisks: asArray(raw.timeContextRisks || raw.timeRisks).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 8),
+    nextResearchTasks: asArray(raw.nextResearchTasks || raw.nextSteps).map((item) => cleanArticleText(item, 400)).filter(Boolean).slice(0, 12)
+  };
+}
+
+function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, request = {}) {
+  const evidenceIndex = new Map((pack.evidenceCards || []).map((card) => [card.id, card]));
+  const evidenceRefs = (ids = []) => asArray(ids)
+    .map(String)
+    .filter((id) => evidenceIndex.has(id))
+    .map((id) => `\`${id}\``)
+    .join(" ");
+  const evidenceBase = structured.evidenceBase.length
+    ? structured.evidenceBase.map((item) => `- **证据基线：** ${item}`).join("\n")
+    : `- **证据基线：** 本报告基于 ${pack.sources.length} 个来源、${pack.evidenceCards.length} 条证据卡生成，所有结论必须回到文末证据索引核对。`;
+  const hypotheses = structured.hypotheses.length
+    ? structured.hypotheses.map((item, index) => compactLines([
+      `### ${index + 1}. ${item.title || "产业链假设"}`,
+      item.logic ? `- **判断逻辑：** ${item.logic}` : "",
+      evidenceRefs(item.evidenceIds) ? `  - **支持证据：** ${evidenceRefs(item.evidenceIds)}` : "",
+      evidenceRefs(item.counterEvidenceIds) ? `  - **反证线索：** ${evidenceRefs(item.counterEvidenceIds)}` : "",
+      item.timeRisk ? `  - **时间错位风险：** ${item.timeRisk}` : "",
+      item.confidence ? `  - **当前置信度：** ${item.confidence}` : ""
+    ])).join("\n\n")
+    : "- **暂不形成强假设：** 当前证据还不足以形成稳定产业链假设。";
+  const nodes = structured.valueChainNodes.length
+    ? structured.valueChainNodes.map((node) => compactLines([
+      `- **${node.node}：** ${node.whyItMatters || "需要继续验证其产业链位置和受益机制。"}`,
+      node.signals.length ? `  - **跟踪信号：** ${node.signals.join("；")}` : "",
+      node.risks.length ? `  - **风险边界：** ${node.risks.join("；")}` : "",
+      evidenceRefs(node.evidenceIds) ? `  - **相关证据：** ${evidenceRefs(node.evidenceIds)}` : ""
+    ])).join("\n")
+    : "- **待补充：** 需要更多来源来拆分明确的价值链节点。";
+  const risks = [
+    ...structured.risks.map((risk) => `- **反证/风险：** ${risk}`),
+    ...structured.timeContextRisks.map((risk) => `- **时间错位：** ${risk}`),
+    ...(pack.coverageGaps || []).slice(0, 8).map((gap) => `- **覆盖缺口：** ${gap.gap}${gap.impact ? `。${gap.impact}` : ""}`)
+  ].join("\n") || "- **风险提示：** 当前资料仍需跨来源验证，不能直接视为投资结论。";
+  const tasks = structured.nextResearchTasks.length
+    ? structured.nextResearchTasks.map((task) => `- ${task}`).join("\n")
+    : (pack.questions || []).slice(0, 8).map((question) => `- ${question.question}`).join("\n");
+  const sources = (pack.sources || []).map((source) => compactLines([
+    `- **${source.id} ${source.title || "Untitled source"}**`,
+    `  - **类型：** ${[source.sourceType, source.platform, source.organization].filter(Boolean).join(" / ") || "unknown"}`,
+    source.publishedAt || source.recordedAt || source.eventPeriod
+      ? `  - **时间：** ${[source.publishedAt && `发布 ${source.publishedAt}`, source.recordedAt && `拍摄/记录 ${source.recordedAt}`, source.eventPeriod && `事件期 ${source.eventPeriod}`].filter(Boolean).join("；")}`
+      : "  - **时间：** 未标准化，综合判断前需要复核",
+    source.url ? `  - **原始链接：** ${source.url}` : "",
+    source.docUrl ? `  - **飞书文档：** ${source.docUrl}` : "",
+    source.conflictProfile ? `  - **潜在偏差：** ${source.conflictProfile}` : ""
+  ])).join("\n");
+  const evidence = (pack.evidenceCards || []).slice(0, 80).map((card) => compactLines([
+    `- **${card.id} / ${card.sourceRef}${card.location ? ` / ${card.location}` : ""}：** ${card.claim || card.quoteOriginal}`,
+    card.quoteOriginal ? `  - **原文：** ${card.quoteOriginal}` : "",
+    card.whyItMatters ? `  - **意义：** ${card.whyItMatters}` : "",
+    card.timeSensitivity ? `  - **时间敏感性：** ${card.timeSensitivity}` : ""
+  ])).join("\n");
+  return compactLines([
+    `# ${structured.title}`,
+    "",
+    "## 一、报告结论",
+    structured.oneSentence ? `- **一句话结论：** ${structured.oneSentence}` : "",
+    structured.thesis ? `- **核心判断：** ${structured.thesis}` : "",
+    "- **使用边界：** 这是基于知识库证据生成的长期产业链研究假设，不构成短线交易建议或直接买卖建议。",
+    "",
+    "## 二、证据基础",
+    evidenceBase,
+    "",
+    "## 三、产业链假设",
+    hypotheses,
+    "",
+    "## 四、关键环节与跟踪指标",
+    nodes,
+    structured.leadingIndicators.length ? "\n### 领先指标\n" + structured.leadingIndicators.map((item) => `- ${item}`).join("\n") : "",
+    "",
+    "## 五、反证、时间错位与风险",
+    risks,
+    "",
+    "## 六、下一轮调研任务",
+    tasks || "- 继续补充跨来源证据，再生成下一版投研报告。",
+    "",
+    "## 七、资料来源与证据索引",
+    "### 来源",
+    sources,
+    "",
+    "### 证据卡",
+    evidence,
+    "",
+    `> 触发请求：${request.query || ""}`
+  ]);
+}
+
+function assertInvestmentResearchReportMarkdown(markdown = "") {
+  const text = String(markdown || "");
+  const required = ["# ", "## 一、报告结论", "## 二、证据基础", "## 三、产业链假设", "## 四、关键环节与跟踪指标", "## 五、反证、时间错位与风险", "## 六、下一轮调研任务", "## 七、资料来源与证据索引"];
+  for (const item of required) {
+    if (!text.includes(item)) throw new Error(`investment report missing section: ${item}`);
+  }
+  if (/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary/i.test(text)) {
+    throw new Error("investment report contains low-value or unsupported article artifacts.");
+  }
+  if (!/\`E\d+\`|证据卡/.test(text)) {
+    throw new Error("investment report must expose evidence ids.");
+  }
+}
+
 function markdownList(items = []) {
   return items.filter(Boolean).map((item) => `- ${item}`).join("\n");
 }
@@ -2370,6 +2653,7 @@ export class FeishuBot {
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
     const videoRequest = await this.extractVideoRequest(text, chatId);
+    const investmentReportRequest = this.extractInvestmentReportRequest(text);
     const youtubeRequest = this.extractYoutubeResearchRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
@@ -2382,6 +2666,7 @@ export class FeishuBot {
       replyToBot ||
       this.isExplicitCommand(text) ||
       webSearchRequest.requested ||
+      investmentReportRequest.requested ||
       youtubeRequest.requested ||
       songRequest.requested ||
       videoRequest.requested ||
@@ -2520,6 +2805,19 @@ export class FeishuBot {
         logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
       });
       this.finishTiming(timing, { route: "song" });
+      return;
+    }
+
+    if (investmentReportRequest.requested) {
+      this.handleInvestmentReportRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: investmentReportRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu investment report background task failed", { chatId, error: error.message });
+      });
+      this.finishTiming(timing, { route: "investment_report" });
       return;
     }
 
@@ -2738,6 +3036,17 @@ export class FeishuBot {
       .trim();
   }
 
+  extractInvestmentReportRequest(text = "") {
+    const raw = String(text || "").trim();
+    const match = raw.match(/^\u6295\u7814\u62a5\u544a\uff1a\s*([\s\S]*)$/);
+    if (!match) return { requested: false, query: "", raw };
+    return {
+      requested: true,
+      query: String(match[1] || "").trim(),
+      raw
+    };
+  }
+
   extractYoutubeResearchRequest(text = "") {
     const raw = String(text || "").trim();
     if (!raw) return { requested: false };
@@ -2777,6 +3086,210 @@ export class FeishuBot {
         extractRequestedYoutubeVideoCount(raw) || 1
       )),
       raw
+    };
+  }
+
+  async handleInvestmentReportRequest({ messageId, chatId, userId, request }) {
+    if (!request.query) {
+      await this.replyText(messageId, "请在 `投研报告：` 后面写清楚主题，例如：投研报告：商业航天 / 星舰 / 中国供应链替代");
+      return;
+    }
+    if (typeof this.storage.listResearchEvidenceForReport !== "function") {
+      await this.replyText(messageId, "研究知识库查询接口还没启用，暂时不能生成投研报告。");
+      return;
+    }
+    if (!this.workspace?.enabled) {
+      await this.replyText(messageId, "飞书文档接口还没配置好，暂时不能发布投研报告。");
+      return;
+    }
+    const parentWikiToken = String(this.config.feishuInvestmentReportParentWikiToken || "").trim();
+    if (!parentWikiToken) {
+      await this.replyText(messageId, "投研报告文件夹还没配置：请在 Render 环境变量里添加 `FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN`，我会把报告只发布到这个专用飞书文件夹。");
+      return;
+    }
+
+    await this.replyText(messageId, "收到，开始从研究知识库聚合证据生成投研报告。");
+    const timing = this.startTiming("Feishu investment report", { chatId, userId, query: request.query });
+    const researchJobId = researchSourceId("job:investment_report", `${messageId}:${Date.now()}`);
+    await this.storage.upsertResearchJob?.({
+      id: researchJobId,
+      sourceType: "investment_report",
+      sourceUrl: request.query,
+      status: "running",
+      stage: "evidence_retrieval",
+      attempts: 1,
+      input: {
+        trigger: "投研报告：",
+        request,
+        principles: [
+          "strict_trigger_only",
+          "cross_source_evidence_first",
+          "coverage_gaps_reduce_confidence",
+          "no_single_source_investment_report"
+        ]
+      }
+    });
+
+    try {
+      const report = await this.buildInvestmentResearchReport(request);
+      this.markTiming(timing, "buildReportMs");
+      if (!report.ready) {
+        await this.storage.updateResearchJob?.(researchJobId, {
+          status: "done",
+          stage: "evidence_not_enough",
+          output: {
+            query: request.query,
+            reason: report.reason,
+            sources: report.pack?.sources?.length || 0,
+            evidenceCards: report.pack?.evidenceCards?.length || 0
+          }
+        });
+        await this.replyText(messageId, [
+          `暂时不生成投研报告：${report.message}`,
+          `当前检索到来源 ${report.pack?.sources?.length || 0} 个，证据卡 ${report.pack?.evidenceCards?.length || 0} 条。`,
+          "建议先继续喂同一主题的视频、报告、网页、论文、公告或监管资料，再用 `投研报告：主题` 触发。"
+        ].join("\n"));
+        this.finishTiming(timing, { route: "investment_report", ready: false, reason: report.reason });
+        return;
+      }
+
+      const doc = await this.workspace.createWikiDocument({
+        parentWikiToken,
+        title: report.title,
+        markdown: report.markdown
+      });
+      this.markTiming(timing, "documentMs");
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "done",
+        stage: "done",
+        output: {
+          query: request.query,
+          title: report.title,
+          feishuDocUrl: doc.url || "",
+          sources: report.pack.sources.length,
+          evidenceCards: report.pack.evidenceCards.length,
+          document: {
+            token: doc.token || "",
+            wikiToken: doc.wikiToken || "",
+            blocks: doc.blocks || 0,
+            writeMode: doc.writeMode || ""
+          }
+        }
+      });
+      await this.storage.addMessage({
+        chatId,
+        userId,
+        role: "assistant",
+        modality: "text",
+        content: `投研报告已生成：${doc.url || ""}`,
+        metadata: {
+          platform: "feishu",
+          investmentReport: true,
+          query: request.query,
+          feishuDocUrl: doc.url || "",
+          sourceCount: report.pack.sources.length,
+          evidenceCards: report.pack.evidenceCards.length
+        }
+      });
+      await this.replyText(messageId, [
+        `投研报告已生成：${doc.url || ""}`,
+        `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`
+      ].join("\n"));
+      this.finishTiming(timing, {
+        route: "investment_report",
+        ready: true,
+        sources: report.pack.sources.length,
+        evidenceCards: report.pack.evidenceCards.length,
+        feishuDocCreated: Boolean(doc.url)
+      });
+    } catch (error) {
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "failed",
+        stage: "failed",
+        error: error.message
+      });
+      this.finishTiming(timing, { route: "investment_report", ok: false, error: error.message });
+      logEvent("error", "Feishu investment report failed", {
+        chatId,
+        query: request.query,
+        error: error.message
+      });
+      await this.replyText(messageId, `投研报告生成失败：${truncate(error.message, 500)}`);
+    }
+  }
+
+  async buildInvestmentResearchReport(request = {}) {
+    const corpus = await this.storage.listResearchEvidenceForReport({
+      query: request.query,
+      limit: 12,
+      evidenceLimit: 120
+    });
+    const pack = buildInvestmentReportEvidencePack(corpus);
+    const readiness = assessInvestmentReportReadiness(pack);
+    if (!readiness.ready) {
+      return { ready: false, reason: readiness.reason, message: readiness.message, pack };
+    }
+    const evidencePack = investmentReportEvidencePrompt(pack);
+    const raw = await this.ai.chat([
+      {
+        role: "system",
+        content: [
+          "You are a senior long-term industry-chain investment research analyst.",
+          "Your job is to synthesize a research report from a bounded evidence pack, not from general knowledge.",
+          "Return only one valid JSON object. Do not return Markdown.",
+          "Write in Simplified Chinese.",
+          "Every important hypothesis must cite evidence IDs from the provided evidence pack, such as E1 or E7.",
+          "If evidence is weak, say it is weak and convert it into a research task instead of pretending it is proven.",
+          "Focus on long-term industry-chain value, inflection points, value-chain nodes, leading indicators, counter-evidence, and time-context risks.",
+          "Do not give short-term trading calls, target prices, or direct buy/sell advice.",
+          "Do not mention Feishu, Obsidian, prompt, JSON, or generation process."
+        ].join(" ")
+      },
+      {
+        role: "user",
+        content: [
+          `Strict trigger: 投研报告：`,
+          `Research topic: ${request.query}`,
+          "",
+          "Evidence pack:",
+          evidencePack,
+          "",
+          "Return JSON with exactly this shape:",
+          "{",
+          '  "title": "polished Chinese research-report title",',
+          '  "oneSentence": "one decisive but evidence-bounded conclusion",',
+          '  "thesis": "core industry-chain thesis and its boundary",',
+          '  "evidenceBase": ["what the current evidence base can and cannot support"],',
+          '  "hypotheses": [{"title":"industry-chain hypothesis", "logic":"why it may be true", "evidenceIds":["E1"], "counterEvidenceIds":["E2"], "timeRisk":"what may be stale or time-misaligned", "confidence":"low/medium/high with reason"}],',
+          '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
+          '  "leadingIndicators": ["observable indicator to track next"],',
+          '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
+          '  "timeContextRisks": ["time mismatch or stale-data risk"],',
+          '  "nextResearchTasks": ["specific next research task and suggested source type"]',
+          "}",
+          "Cardinality: hypotheses 3-6, valueChainNodes 4-10, leadingIndicators 5-12, risks 4-10, nextResearchTasks 5-12."
+        ].join("\n")
+      }
+    ], {
+      maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 5200),
+      temperature: 0.15,
+      responseFormat: { type: "json_object" },
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 180000
+    });
+    const structured = normalizeInvestmentReportStructured(
+      await this.parseYoutubeJsonObject(raw, "investment research report"),
+      request
+    );
+    const markdown = renderInvestmentResearchReportMarkdown(structured, pack, request);
+    assertInvestmentResearchReportMarkdown(markdown);
+    return {
+      ready: true,
+      title: structured.title,
+      markdown,
+      structured,
+      pack
     };
   }
 

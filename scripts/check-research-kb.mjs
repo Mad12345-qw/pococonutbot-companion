@@ -165,6 +165,15 @@ try {
   assert.equal(rerunExported.researchCoverageGaps.length, 1);
   assert.equal(rerunExported.researchCoverageGaps[0].gap, "updated_gap_after_rerun");
 
+  const reportCorpus = await storage.listResearchEvidenceForReport({
+    query: "Re-running source",
+    limit: 5,
+    evidenceLimit: 10
+  });
+  assert.equal(reportCorpus.sources.length, 1);
+  assert.equal(reportCorpus.evidenceCards.length, 1);
+  assert.equal(reportCorpus.evidenceCards[0].claim, "Updated claim replaces the previous evidence set.");
+
   console.log("Research knowledge base checks passed.");
 } finally {
   process.chdir(originalCwd);

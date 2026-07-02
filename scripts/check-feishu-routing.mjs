@@ -28,6 +28,7 @@ function classify(text, options = {}) {
   const projectRequest = isProjectCreateRequest(text);
   const selfieRequest = bot.extractSelfieGenerationPrompt(text);
   const songRequest = bot.extractSongRequest(text);
+  const investmentReportRequest = bot.extractInvestmentReportRequest(text);
   const youtubeRequest = bot.extractYoutubeResearchRequest(text);
   const webSearchRequest = bot.extractWebSearchRequest(text);
   const imageRequest = extractImageGenerationIntent(text, {
@@ -42,6 +43,7 @@ function classify(text, options = {}) {
   if (projectRequest) return "project";
   if (selfieRequest.requested) return "selfie";
   if (songRequest.requested) return "song";
+  if (investmentReportRequest.requested) return "investment_report";
   if (youtubeRequest.requested) return "youtube_research";
   if (imageRequest.requested) return "image_generation";
   if (shouldUseWebSearch) {
@@ -146,6 +148,21 @@ const routeCases = [
   }
 ];
 
+routeCases.push({
+  name: "strict investment report prefix triggers report route",
+  text: "投研报告：商业航天 / 星舰 / 中国供应链替代",
+  route: "investment_report"
+});
+routeCases.push({
+  name: "investment report words without strict prefix stay normal chat",
+  text: "投研报告系统现在怎么用？",
+  route: "ai_reply"
+});
+routeCases.push({
+  name: "youtube link inside strict investment report prefix triggers report route",
+  text: "投研报告：商业航天 https://youtu.be/aFqjoCbZ4ik",
+  route: "investment_report"
+});
 routeCases.push({
   name: "youtube command uses transcript research",
   text: "youtube https://youtu.be/aFqjoCbZ4ik summarize technical details",

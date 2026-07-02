@@ -248,6 +248,7 @@ export const config = {
   feishuYoutubeParentWikiToken: process.env.FEISHU_YOUTUBE_PARENT_WIKI_TOKEN || "",
   feishuYoutubeIndexWikiToken: process.env.FEISHU_YOUTUBE_INDEX_WIKI_TOKEN || "",
   feishuYoutubeIndexDocumentId: process.env.FEISHU_YOUTUBE_INDEX_DOCUMENT_ID || "",
+  feishuInvestmentReportParentWikiToken: process.env.FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN || process.env.FEISHU_RESEARCH_REPORT_PARENT_WIKI_TOKEN || "",
   feishuWorkspaceTimeoutMs: asNumber(process.env.FEISHU_WORKSPACE_TIMEOUT_MS, 30000),
   autoMemory: asBoolean(process.env.AUTO_MEMORY, true),
   feishuTimingLogsEnabled: asBoolean(process.env.FEISHU_TIMING_LOGS_ENABLED, true),

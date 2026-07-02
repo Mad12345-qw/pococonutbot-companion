@@ -1671,6 +1671,120 @@ class PostgresStorage {
       client.release();
     }
   }
+
+  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80 } = {}) {
+    const terms = String(query || "")
+      .split(/[\/,，、\s]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2)
+      .slice(0, 10);
+    const safeLimit = Math.max(1, Math.min(30, Number(limit) || 10));
+    const sourceValues = [];
+    const clauses = terms.map((term) => {
+      sourceValues.push(`%${term}%`);
+      const slot = `$${sourceValues.length}`;
+      return [
+        `s.title ILIKE ${slot}`,
+        `s.author ILIKE ${slot}`,
+        `s.organization ILIKE ${slot}`,
+        `s.source_type ILIKE ${slot}`,
+        `s.platform ILIKE ${slot}`,
+        `s.raw_text ILIKE ${slot}`,
+        `s.metadata::text ILIKE ${slot}`,
+        `e.claim ILIKE ${slot}`,
+        `e.quote_original ILIKE ${slot}`,
+        `e.why_it_matters ILIKE ${slot}`
+      ].join(" OR ");
+    });
+    sourceValues.push(safeLimit);
+    const sourceResult = await this.pool.query(
+      `SELECT DISTINCT s.source_id AS "sourceId", s.source_type AS "sourceType", s.platform,
+              s.url, s.title, s.author, s.organization, s.published_at AS "publishedAt",
+              s.recorded_at AS "recordedAt", s.event_period AS "eventPeriod",
+              s.fetched_at AS "fetchedAt", s.analyzed_at AS "analyzedAt", s.language,
+              s.duration_text AS "durationText", s.doc_url AS "docUrl",
+              s.obsidian_path AS "obsidianPath", s.reliability_level AS "reliabilityLevel",
+              s.source_perspective AS "sourcePerspective", s.institution_type AS "institutionType",
+              s.institution_role AS "institutionRole", s.analysis_lenses AS "analysisLenses",
+              s.evidence_strength AS "evidenceStrength", s.access_level AS "accessLevel",
+              s.conflict_profile AS "conflictProfile", s.metadata,
+              s.created_at AS "createdAt", s.updated_at AS "updatedAt"
+       FROM research_sources s
+       LEFT JOIN research_evidence_cards e ON e.source_id = s.source_id
+       ${clauses.length ? `WHERE ${clauses.map((clause) => `(${clause})`).join(" OR ")}` : ""}
+       ORDER BY s.analyzed_at DESC NULLS LAST, s.created_at DESC
+       LIMIT $${sourceValues.length}`,
+      sourceValues
+    );
+    const sourceIds = sourceResult.rows.map((row) => row.sourceId).filter(Boolean);
+    if (!sourceIds.length) {
+      return { sources: [], evidenceCards: [], entities: [], timeContexts: [], questions: [], coverageGaps: [] };
+    }
+    const safeEvidenceLimit = Math.max(1, Math.min(300, Number(evidenceLimit) || 80));
+    const [evidenceCards, entities, timeContexts, questions, coverageGaps] = await Promise.all([
+      this.pool.query(
+        `SELECT id, source_id AS "sourceId", evidence_type AS "evidenceType", claim,
+                quote_original AS "quoteOriginal", quote_zh AS "quoteZh", location,
+                why_it_matters AS "whyItMatters", confidence, time_sensitivity AS "timeSensitivity",
+                stale_risk AS "staleRisk", evidence_strength AS "evidenceStrength",
+                analysis_lens AS "analysisLens", requires_recheck AS "requiresRecheck", metadata,
+                created_at AS "createdAt"
+         FROM research_evidence_cards
+         WHERE source_id = ANY($1::text[])
+         ORDER BY confidence DESC, id ASC
+         LIMIT $2`,
+        [sourceIds, safeEvidenceLimit]
+      ),
+      this.pool.query(
+        `SELECT se.source_id AS "sourceId", e.entity_id AS "entityId", e.name,
+                e.entity_type AS "entityType", se.role, e.metadata
+         FROM research_source_entities se
+         JOIN research_entities e ON e.entity_id = se.entity_id
+         WHERE se.source_id = ANY($1::text[])
+         ORDER BY se.source_id ASC, se.role ASC, e.name ASC`,
+        [sourceIds]
+      ),
+      this.pool.query(
+        `SELECT source_id AS "sourceId", video_published_at AS "videoPublishedAt",
+                likely_recorded_at AS "likelyRecordedAt", event_period AS "eventPeriod",
+                industry_stage_at_that_time AS "industryStageAtThatTime",
+                current_relevance AS "currentRelevance", time_sensitivity AS "timeSensitivity",
+                stale_if AS "staleIf", requires_recheck AS "requiresRecheck", metadata,
+                updated_at AS "updatedAt"
+         FROM research_time_contexts
+         WHERE source_id = ANY($1::text[])
+         ORDER BY source_id ASC`,
+        [sourceIds]
+      ),
+      this.pool.query(
+        `SELECT id, source_id AS "sourceId", question, related_entities AS "relatedEntities",
+                priority, research_direction AS "researchDirection",
+                suggested_source_types AS "suggestedSourceTypes", status, metadata,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM research_questions
+         WHERE source_id = ANY($1::text[])
+         ORDER BY priority ASC, updated_at DESC`,
+        [sourceIds]
+      ),
+      this.pool.query(
+        `SELECT id, source_id AS "sourceId", gap, impact, fallback_signals AS "fallbackSignals",
+                confidence_impact AS "confidenceImpact", status, metadata,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM research_coverage_gaps
+         WHERE source_id = ANY($1::text[])
+         ORDER BY updated_at DESC`,
+        [sourceIds]
+      )
+    ]);
+    return {
+      sources: sourceResult.rows,
+      evidenceCards: evidenceCards.rows,
+      entities: entities.rows,
+      timeContexts: timeContexts.rows,
+      questions: questions.rows,
+      coverageGaps: coverageGaps.rows
+    };
+  }
 }
 
 class JsonFileStorage {
@@ -2313,6 +2427,66 @@ class JsonFileStorage {
       entities: (bundle.entities || []).length,
       questions: (bundle.questions || []).length,
       coverageGaps: (bundle.coverageGaps || []).length
+    };
+  }
+
+  async listResearchEvidenceForReport({ query = "", limit = 10, evidenceLimit = 80 } = {}) {
+    const terms = String(query || "")
+      .toLowerCase()
+      .split(/[\/,，、\s]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2)
+      .slice(0, 10);
+    const matches = (value) => {
+      if (!terms.length) return true;
+      const text = String(value || "").toLowerCase();
+      return terms.some((term) => text.includes(term));
+    };
+    const sourceMatches = (source) => {
+      const sourceEvidence = this.state.researchEvidenceCards.filter((card) => String(card.source_id) === String(source.source_id));
+      const text = [
+        source.source_type,
+        source.platform,
+        source.url,
+        source.title,
+        source.author,
+        source.organization,
+        source.raw_text,
+        JSON.stringify(source.metadata || {}),
+        ...sourceEvidence.flatMap((card) => [card.claim, card.quote_original, card.why_it_matters])
+      ].join("\n");
+      return matches(text);
+    };
+    const sources = this.state.researchSources
+      .filter(sourceMatches)
+      .sort((a, b) => String(b.analyzed_at || b.created_at || "").localeCompare(String(a.analyzed_at || a.created_at || "")))
+      .slice(0, Math.max(1, Math.min(30, Number(limit) || 10)));
+    const sourceIds = new Set(sources.map((source) => String(source.source_id)).filter(Boolean));
+    const evidenceCards = this.state.researchEvidenceCards
+      .filter((card) => sourceIds.has(String(card.source_id)))
+      .sort((a, b) => Number(b.confidence || 0) - Number(a.confidence || 0))
+      .slice(0, Math.max(1, Math.min(300, Number(evidenceLimit) || 80)));
+    const entityIds = new Set(
+      this.state.researchSourceEntities
+        .filter((link) => sourceIds.has(String(link.source_id)))
+        .map((link) => String(link.entity_id))
+    );
+    const entityById = new Map(this.state.researchEntities.map((entity) => [String(entity.entity_id), entity]));
+    const entities = this.state.researchSourceEntities
+      .filter((link) => sourceIds.has(String(link.source_id)) && entityIds.has(String(link.entity_id)))
+      .map((link) => ({
+        source_id: link.source_id,
+        entity_id: link.entity_id,
+        role: link.role,
+        ...(entityById.get(String(link.entity_id)) || {})
+      }));
+    return {
+      sources,
+      evidenceCards,
+      entities,
+      timeContexts: this.state.researchTimeContexts.filter((item) => sourceIds.has(String(item.source_id))),
+      questions: this.state.researchQuestions.filter((item) => sourceIds.has(String(item.source_id))),
+      coverageGaps: this.state.researchCoverageGaps.filter((item) => sourceIds.has(String(item.source_id)))
     };
   }
 }

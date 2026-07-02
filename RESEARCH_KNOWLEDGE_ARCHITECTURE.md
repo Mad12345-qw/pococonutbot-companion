@@ -114,6 +114,25 @@ Source adapter
 -> next research tasks
 ```
 
+## Investment Report Trigger And Routing
+
+Investment reports are not generated from ordinary chat or ordinary source ingestion. They require the exact message prefix:
+
+```text
+投研报告：
+```
+
+Examples:
+
+```text
+投研报告：AI 光模块 / CPO / 数据中心网络
+投研报告：商业航天 / 星舰 / 中国供应链替代
+```
+
+This strict trigger prevents single YouTube links, casual questions, or ordinary summaries from accidentally producing a formal-looking investment report. If the evidence base has fewer than two sources or fewer than six evidence cards, the system should stop before writing and return an evidence-gap message instead of creating a weak report.
+
+Published investment reports must go to the dedicated Feishu wiki folder configured by `FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN` or `FEISHU_RESEARCH_REPORT_PARENT_WIKI_TOKEN`, not the YouTube article folder.
+
 ## Reader Document Contract
 
 Reader-facing documents must be generated from evidence and article intent first, then rendered by code:
