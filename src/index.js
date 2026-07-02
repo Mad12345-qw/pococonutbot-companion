@@ -59,6 +59,17 @@ app.get("/health", (_req, res) => {
     youtubeDocDeliveryMode: "feishu_doc_first",
     youtubeDocTemplateVersion: "guided_blueprint_parallel_slots_v27",
     youtubeBackgroundSyncMode: "parallel_nonblocking",
+    researchKnowledgeBase: true,
+    researchKnowledgeBaseVersion: "multi_source_evidence_foundation_v1",
+    researchArchitecturePrinciples: [
+      "open_source_type_registry",
+      "plan_before_generation",
+      "evidence_before_opinion",
+      "reader_document_plus_machine_evidence",
+      "time_context_first_class",
+      "coverage_gaps_reduce_confidence",
+      "no_garbage_then_reject"
+    ],
     obsidianSync: Boolean(config.obsidianSyncEnabled && config.obsidianGithubRepo && config.obsidianGithubToken),
     obsidianSyncDetails: {
       enabled: Boolean(config.obsidianSyncEnabled),

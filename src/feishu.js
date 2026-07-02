@@ -1717,6 +1717,230 @@ function assertReadableYoutubeDocument(markdown = "") {
   auditYoutubeFinishedDocument(text);
 }
 
+function researchHash(value = "") {
+  return crypto.createHash("sha1").update(String(value || ""), "utf8").digest("hex").slice(0, 16);
+}
+
+function researchSourceId(kind = "source", value = "") {
+  return `${kind}:${researchHash(value || `${kind}:${Date.now()}`)}`;
+}
+
+function normalizeResearchEntityName(value = "") {
+  return cleanArticleText(value, 120).replace(/^[-*#\s]+/, "").trim();
+}
+
+function classifyResearchEvidenceType(text = "") {
+  const value = String(text || "").toLowerCase();
+  if (/(cost|price|capex|opex|margin|revenue|valuation|tam|sam|som)/i.test(value)) return "market_financial";
+  if (/(capacity|production|factory|supply|shipment|manufactur|yield|inventory)/i.test(value)) return "supply_chain";
+  if (/(policy|regulation|license|faa|fcc|sec|approval|law)/i.test(value)) return "regulatory";
+  if (/(risk|failure|delay|constraint|bottleneck|uncertain|competition)/i.test(value)) return "risk";
+  if (/(customer|contract|order|adoption|commercial|deployment)/i.test(value)) return "commercialization";
+  if (/(engine|model|chip|robot|rocket|software|hardware|architecture|technology|technical)/i.test(value)) return "technology";
+  return "general_evidence";
+}
+
+function inferResearchEntityType(name = "") {
+  const value = String(name || "");
+  if (/(inc\.?|corp\.?|ltd\.?|llc|company|technologies|labs|systems|space|ai)$/i.test(value)) return "company";
+  if (/^[A-Z][A-Za-z0-9+.-]{1,24}$/.test(value)) return "technology_or_product";
+  return "topic";
+}
+
+function buildResearchEntitiesFromEvidenceBrief(brief = {}, videos = []) {
+  const entities = [];
+  const push = (name, role = "mentioned", entityType = "") => {
+    const clean = normalizeResearchEntityName(name);
+    if (!clean) return;
+    const type = entityType || inferResearchEntityType(clean);
+    entities.push({
+      entityId: researchSourceId(`entity:${type}`, clean.toLowerCase()),
+      name: clean,
+      entityType: type,
+      role
+    });
+  };
+  for (const anchor of brief.backgroundAnchors || []) push(anchor, "background_anchor");
+  for (const item of brief.glossarySeeds || []) push(item.term, "glossary_term", "technology_or_concept");
+  for (const video of videos || []) {
+    if (video.channel) push(video.channel, "publisher", "organization");
+  }
+  return mergeUniqueBy(entities, (item) => item.entityId, 40);
+}
+
+function buildResearchEvidenceCardsFromBrief(brief = {}) {
+  const claims = [
+    ...asArray(brief.evidenceClaims).map((item) => ({
+      claim: item.claim,
+      quoteOriginal: item.quote,
+      location: item.timestamp,
+      whyItMatters: item.whyItMatters
+    })),
+    ...asArray(brief.timelineSeeds).map((item) => ({
+      claim: item.event,
+      quoteOriginal: item.quote,
+      location: item.time || item.timestamp,
+      whyItMatters: item.importance || item.whyItMatters
+    }))
+  ];
+  return mergeUniqueBy(claims, (item) => `${item.location}|${item.quoteOriginal || item.claim}`, 40)
+    .filter((item) => item.claim || item.quoteOriginal)
+    .map((item) => {
+      const text = [item.claim, item.quoteOriginal, item.whyItMatters].filter(Boolean).join(" ");
+      const lens = classifyResearchEvidenceType(text);
+      return {
+        evidenceType: lens,
+        claim: cleanArticleText(item.claim || item.quoteOriginal, 900),
+        quoteOriginal: cleanArticleText(item.quoteOriginal || "", 1400),
+        quoteZh: "",
+        location: cleanArticleText(item.location || "", 80),
+        whyItMatters: cleanArticleText(item.whyItMatters || "", 900),
+        confidence: 0.72,
+        timeSensitivity: "medium",
+        staleRisk: "",
+        evidenceStrength: "primary_transcript",
+        analysisLens: lens,
+        requiresRecheck: []
+      };
+    });
+}
+
+function buildResearchCoverageGapsForYoutube(report = {}, videos = []) {
+  const first = videos[0] || {};
+  const gaps = [];
+  if (!first.publishedTimeText) {
+    gaps.push({
+      gap: "source_published_at_not_normalized",
+      impact: "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+      fallbackSignals: ["platform_metadata", "channel_page", "web_search_timestamp"],
+      confidenceImpact: "medium"
+    });
+  }
+  gaps.push({
+    gap: "recorded_at_usually_unknown_for_video",
+    impact: "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+    fallbackSignals: ["spoken_date_references", "event_mentions", "channel_description", "related_news_dates"],
+    confidenceImpact: "medium"
+  });
+  if ((videos || []).length < 2) {
+    gaps.push({
+      gap: "single_source_material",
+      impact: "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
+      fallbackSignals: ["company_disclosure", "regulatory_filing", "industry_report", "paper", "news", "webpage", "dataset"],
+      confidenceImpact: "high"
+    });
+  }
+  if (!report.evidenceBrief?.questionSeeds?.length) {
+    gaps.push({
+      gap: "follow_up_questions_need_cross_source_validation",
+      impact: "Initial research questions should be routed to broader source types before producing a formal investment conclusion.",
+      fallbackSignals: ["reference_source_registry", "contrarian_sources", "updated_primary_data"],
+      confidenceImpact: "medium"
+    });
+  }
+  return gaps;
+}
+
+function buildResearchKnowledgeBundleFromYoutubeReport(report = {}, { doc = {}, sync = {} } = {}) {
+  const videos = report.videos || [];
+  const first = videos[0] || {};
+  const sourceUrl = first.url || report.request?.videoUrl || report.request?.query || report.title || "";
+  const rawText = videos.map((video, index) => compactLines([
+    `Video ${index + 1}: ${video.title || ""}`,
+    video.url ? `URL: ${video.url}` : "",
+    video.channel ? `Channel: ${video.channel}` : "",
+    video.publishedTimeText ? `Published: ${video.publishedTimeText}` : "",
+    video.transcriptText || ""
+  ])).join("\n\n---\n\n");
+  const evidenceBrief = normalizeYoutubeEvidenceBrief(
+    report.evidenceBrief || buildDeterministicYoutubeEvidenceBrief({ topic: report.topic, videos }),
+    report
+  );
+  const sourceId = researchSourceId("source", sourceUrl || rawText.slice(0, 500));
+  const questions = asArray(evidenceBrief.questionSeeds).map((question, index) => ({
+    question,
+    priority: Math.min(5, index + 1),
+    researchDirection: "cross_source_validation",
+    suggestedSourceTypes: [
+      "company_disclosure",
+      "regulatory_filing",
+      "industry_report",
+      "paper",
+      "news",
+      "webpage",
+      "expert_interview",
+      "dataset",
+      "video",
+      "patent",
+      "job_posting",
+      "conference"
+    ],
+    status: "open"
+  }));
+  return {
+    source: {
+      sourceId,
+      sourceType: "video",
+      platform: "youtube",
+      url: sourceUrl,
+      title: report.title || first.title || "",
+      author: first.channel || "",
+      organization: first.channel || "",
+      publishedAt: first.publishedTimeText || "",
+      recordedAt: "",
+      eventPeriod: first.publishedTimeText || "",
+      fetchedAt: new Date().toISOString(),
+      analyzedAt: new Date().toISOString(),
+      language: first.language || "",
+      durationText: first.lengthText || "",
+      rawText,
+      rawTextHash: researchHash(rawText),
+      docUrl: doc.url || "",
+      obsidianPath: sync.notePath || "",
+      reliabilityLevel: "source_transcript",
+      sourcePerspective: "primary_or_expert_video",
+      institutionType: "primary_video",
+      institutionRole: "source_material",
+      analysisLenses: ["technology", "industry_chain", "commercialization", "risk", "time_context"],
+      evidenceStrength: "primary_transcript",
+      accessLevel: "public",
+      conflictProfile: "platform_or_speaker_bias_possible",
+      metadata: {
+        adapter: "youtube",
+        reportTopic: report.topic || "",
+        videoCount: videos.length,
+        docCreated: Boolean(doc.created),
+        obsidianSynced: Boolean(sync.synced),
+        transcriptSegments: videos.reduce((sum, video) => sum + Number(video.segmentCount || 0), 0),
+        principles: [
+          "evidence_before_opinion",
+          "time_context_first_class",
+          "coverage_gaps_reduce_confidence",
+          "do_not_generate_garbage_then_reject"
+        ]
+      }
+    },
+    evidenceCards: buildResearchEvidenceCardsFromBrief(evidenceBrief),
+    entities: buildResearchEntitiesFromEvidenceBrief(evidenceBrief, videos),
+    timeContext: {
+      videoPublishedAt: first.publishedTimeText || "",
+      likelyRecordedAt: "",
+      eventPeriod: first.publishedTimeText || "",
+      industryStageAtThatTime: "",
+      currentRelevance: evidenceBrief.narrativeConflict || evidenceBrief.thesis || "",
+      timeSensitivity: "medium",
+      staleIf: "Company progress, prices, capacity, regulation, product roadmap, or customer adoption changes materially.",
+      requiresRecheck: ["price", "capacity", "funding", "policy", "product_progress", "customer_orders", "technical_metrics"],
+      metadata: {
+        publicationDateNeedsNormalization: !first.publishedTimeText,
+        recordedAtKnown: false
+      }
+    },
+    questions,
+    coverageGaps: buildResearchCoverageGapsForYoutube(report, videos)
+  };
+}
+
 function markdownList(items = []) {
   return items.filter(Boolean).map((item) => `- ${item}`).join("\n");
 }
@@ -2576,6 +2800,25 @@ export class FeishuBot {
     }
 
     await this.replyText(messageId, "\u597d\u7684\uff0c\u6211\u6574\u7406\u597d\u7a0d\u540e\u53d1\u4f60\u54e6");
+    const researchJobId = researchSourceId("job", `${messageId}:${Date.now()}`);
+    await this.storage.upsertResearchJob?.({
+      id: researchJobId,
+      sourceType: "video",
+      sourceUrl: request.videoUrl || request.channelUrl || request.playlistUrl || request.query || "",
+      status: "running",
+      stage: "youtube_article_generation",
+      attempts: 1,
+      input: {
+        adapter: "youtube",
+        request,
+        principles: [
+          "plan_before_generation",
+          "evidence_before_opinion",
+          "reader_document_plus_machine_evidence",
+          "time_context_first_class"
+        ]
+      }
+    });
     const timing = this.startTiming("Feishu YouTube research", {
       chatId,
       userId,
@@ -2593,6 +2836,15 @@ export class FeishuBot {
         topicHint: request.topicHint || ""
       });
       const report = await this.buildYoutubeResearchReport(request);
+      await this.storage.updateResearchJob?.(researchJobId, {
+        stage: "feishu_document_generation",
+        output: {
+          topic: report.topic,
+          title: report.title,
+          videos: report.videos.length,
+          diagnostics: report.diagnostics
+        }
+      });
       this.markTiming(timing, "buildReportMs");
       const documentStartedAt = Date.now();
       const doc = await this.syncYoutubeResearchToFeishuDocument(report);
@@ -2653,8 +2905,13 @@ export class FeishuBot {
         videos: report.videos.length,
         feishuDocCreated: Boolean(doc.created)
       });
-      await this.runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing });
+      await this.runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing, researchJobId });
     } catch (error) {
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "failed",
+        stage: "failed",
+        error: error.message
+      });
       this.finishTiming(timing, { ok: false, error: error.message });
       logEvent("error", "Feishu YouTube research failed", {
         chatId,
@@ -2665,7 +2922,7 @@ export class FeishuBot {
     }
   }
 
-  async runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing }) {
+  async runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing, researchJobId = "" }) {
     const syncPromise = this.syncYoutubeResearchToObsidian(report).then((sync) => {
       this.markTiming(timing, "obsidianSyncMs");
       return sync;
@@ -2698,6 +2955,35 @@ export class FeishuBot {
     });
 
     const [sync, index] = await Promise.all([syncPromise, indexPromise]);
+    let knowledgeBase = { synced: false, reason: "not_started" };
+    try {
+      knowledgeBase = await this.syncYoutubeResearchToResearchKnowledgeBase(report, { doc, sync, index });
+      this.markTiming(timing, "researchKnowledgeBaseMs");
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "done",
+        stage: "done",
+        output: {
+          topic: report.topic,
+          title: report.title,
+          feishuDocUrl: doc.url || "",
+          obsidianPath: sync.notePath || "",
+          knowledgeBase
+        }
+      });
+    } catch (error) {
+      this.markTiming(timing, "researchKnowledgeBaseMs");
+      knowledgeBase = { synced: false, reason: error.message };
+      await this.storage.updateResearchJob?.(researchJobId, {
+        status: "failed",
+        stage: "research_knowledge_base_failed",
+        error: error.message
+      });
+      logEvent("warn", "Feishu YouTube research knowledge base sync failed", {
+        chatId,
+        title: report.title,
+        error: error.message
+      });
+    }
 
     const finalReply = this.formatYoutubeResearchReply(report, sync, doc, index);
     await this.storage.addMessage({
@@ -2721,7 +3007,9 @@ export class FeishuBot {
           documentMs: doc.diagnostics?.documentMs || 0,
           deliveryMs: doc.diagnostics?.deliveryMs || 0,
           obsidianSyncMs: timing?.steps?.obsidianSyncMs || 0,
-          feishuIndexMs: timing?.steps?.feishuIndexMs || 0
+          feishuIndexMs: timing?.steps?.feishuIndexMs || 0,
+          researchKnowledgeBaseMs: timing?.steps?.researchKnowledgeBaseMs || 0,
+          researchKnowledgeBase: knowledgeBase
         }
       }
     });
@@ -2732,7 +3020,9 @@ export class FeishuBot {
       obsidianSynced: Boolean(sync.synced),
       obsidianReason: sync.synced ? "" : sync.reason || "",
       feishuIndexSynced: Boolean(index.synced),
-      feishuIndexReason: index.synced ? "" : index.reason || ""
+      feishuIndexReason: index.synced ? "" : index.reason || "",
+      researchKnowledgeBaseSynced: Boolean(knowledgeBase.synced),
+      researchKnowledgeBaseReason: knowledgeBase.synced ? "" : knowledgeBase.reason || ""
     });
     this.finishTiming(timing, {
       ok: true,
@@ -2740,19 +3030,33 @@ export class FeishuBot {
       videos: report.videos.length,
       feishuDocCreated: Boolean(doc.created),
       obsidianSynced: Boolean(sync.synced),
-      feishuIndexSynced: Boolean(index.synced)
+      feishuIndexSynced: Boolean(index.synced),
+      researchKnowledgeBaseSynced: Boolean(knowledgeBase.synced)
     });
 
-    if (!sync.synced || !index.synced) {
+    if (!sync.synced || !index.synced || !knowledgeBase.synced) {
       const parts = [];
       if (!sync.synced) parts.push(`Obsidian：${truncate(sync.reason || "未同步", 120)}`);
       if (!index.synced) parts.push(`知识库目录：${truncate(index.reason || "未归档", 120)}`);
+      if (!knowledgeBase.synced) parts.push(`research_kb:${truncate(knowledgeBase.reason || "not_synced", 120)}`);
       await this.replyText(messageId, `后台同步没完全成功：${parts.join("；")}`);
     } else {
       await this.replyText(messageId, "同步完成：飞书知识库目录和 Obsidian 已同步。");
     }
 
-    return { sync, index };
+    return { sync, index, knowledgeBase };
+  }
+
+  async syncYoutubeResearchToResearchKnowledgeBase(report, { doc = {}, sync = {}, index = {} } = {}) {
+    if (typeof this.storage.upsertResearchSourceBundle !== "function") {
+      return { synced: false, reason: "storage_not_supported" };
+    }
+    const bundle = buildResearchKnowledgeBundleFromYoutubeReport(report, { doc, sync, index });
+    const result = await this.storage.upsertResearchSourceBundle(bundle);
+    return {
+      synced: true,
+      ...result
+    };
   }
 
   async buildYoutubeResearchReport(request = {}, options = {}) {
@@ -2808,12 +3112,13 @@ export class FeishuBot {
 
     const topic = this.resolveYoutubeReportTopic(request, videos);
     const aiStartedAt = Date.now();
-    const markdown = await this.generateYoutubeResearchMarkdown({
+    const generated = await this.generateYoutubeResearchMarkdown({
       topic,
       request,
       videos,
       failures
-    });
+    }, { returnKnowledge: true });
+    const markdown = typeof generated === "string" ? generated : generated.markdown;
     diagnostics.aiMs = elapsedMsSince(aiStartedAt);
     diagnostics.totalMs = elapsedMsSince(startedAt);
     const markdownTitle = cleanYoutubeDocumentTitle(this.extractMarkdownTitle(markdown));
@@ -2821,7 +3126,17 @@ export class FeishuBot {
     const title = isWeakYoutubeTitle(markdownTitle, topic) || looksMostlyEnglish(markdownTitle)
       ? youtubeTitleFallback({ topic, title: firstVideoTitle, videos })
       : markdownTitle;
-    return { topic, title, request, videos, failures, markdown, diagnostics };
+    return {
+      topic,
+      title,
+      request,
+      videos,
+      failures,
+      markdown,
+      diagnostics,
+      evidenceBrief: generated?.evidenceBrief || null,
+      structuredArticle: generated?.structuredArticle || null
+    };
   }
 
   async resolveYoutubeCandidateVideos(request = {}) {
@@ -2920,7 +3235,7 @@ export class FeishuBot {
     return extractJsonObject(repaired);
   }
 
-  async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }) {
+  async generateYoutubeResearchMarkdown({ topic, request, videos, failures = [] }, options = {}) {
     const sourceAnchors = buildYoutubeGenerationAnchors(videos, topic);
     const deterministicEvidenceBrief = buildDeterministicYoutubeEvidenceBrief({ topic, videos });
     const deterministicEvidenceSource = buildYoutubeEvidenceBriefSource(deterministicEvidenceBrief);
@@ -3225,7 +3540,15 @@ export class FeishuBot {
     }, evidenceBrief, { topic, videos });
     assertStructuredYoutubeArticle(structured, { topic, videos });
     const rendered = renderYoutubeStructuredArticle(structured, { topic, videos });
-    return this.decorateYoutubeMarkdown(rendered, { topic, request, videos });
+    const markdown = this.decorateYoutubeMarkdown(rendered, { topic, request, videos });
+    if (options.returnKnowledge) {
+      return {
+        markdown,
+        evidenceBrief,
+        structuredArticle: structured
+      };
+    }
+    return markdown;
   }
 
   decorateYoutubeMarkdown(markdown = "", { topic, request, videos }) {
