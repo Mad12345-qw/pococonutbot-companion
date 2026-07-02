@@ -792,6 +792,25 @@ assertEqual(
   ),
   "true"
 );
+const indexSource = fs.readFileSync(new URL("../src/index.js", import.meta.url), "utf8");
+assertEqual(
+  "investment report jobs are restart-resumable instead of disappearing during deploys",
+  String(
+    feishuSource.includes("resumeInterruptedInvestmentReports") &&
+    feishuSource.includes("interrupted_rescheduled") &&
+    feishuSource.includes("interrupted_unresumable") &&
+    /delivery:\s*\{[\s\S]{0,120}messageId,[\s\S]{0,120}chatId,[\s\S]{0,120}userId/.test(feishuSource) &&
+    indexSource.includes("resumeInterruptedInvestmentReports")
+  ),
+  "true"
+);
+assertEqual(
+  "investment report synthesis does not route timeout reports through weak fallback json",
+  String(
+    /allowFallback:\s*false,[\s\S]{0,80}requirePrimary:\s*true/.test(feishuSource)
+  ),
+  "true"
+);
 assertEqual(
   "investment report publishing requires rich Feishu blocks for evidence anchors",
   String(

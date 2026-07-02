@@ -4120,6 +4120,11 @@ export class FeishuBot {
       attempts: 1,
       input: {
         trigger: "投研报告：",
+        delivery: {
+          messageId,
+          chatId,
+          userId
+        },
         request,
         principles: [
           "strict_trigger_only",
@@ -4304,6 +4309,55 @@ export class FeishuBot {
     }
   }
 
+  async resumeInterruptedInvestmentReports({ limit = 10, staleSeconds = 30 } = {}) {
+    if (typeof this.storage.listRecentResearchJobs !== "function") return { inspected: 0, resumed: 0, marked: 0 };
+    const jobs = await this.storage.listRecentResearchJobs({ sourceType: "investment_report", limit });
+    const cutoff = Date.now() - Math.max(0, Number(staleSeconds) || 0) * 1000;
+    let inspected = 0;
+    let resumed = 0;
+    let marked = 0;
+    for (const job of jobs) {
+      if (String(job.status || "") !== "running") continue;
+      const updatedAt = Date.parse(job.updatedAt || job.updated_at || "");
+      if (Number.isFinite(updatedAt) && updatedAt > cutoff) continue;
+      inspected += 1;
+      const input = job.input || {};
+      const request = input.request || {};
+      const delivery = input.delivery || {};
+      if (!request.query || !delivery.messageId || !delivery.chatId || !delivery.userId) {
+        await this.storage.updateResearchJob?.(job.id, {
+          status: "failed",
+          stage: "interrupted_unresumable",
+          error: "Investment report job was interrupted by process restart before resumable delivery metadata was recorded."
+        });
+        marked += 1;
+        continue;
+      }
+      await this.storage.updateResearchJob?.(job.id, {
+        status: "failed",
+        stage: "interrupted_rescheduled",
+        error: "Investment report job was interrupted by process restart and rescheduled as a new job."
+      });
+      resumed += 1;
+      this.handleInvestmentReportRequest({
+        messageId: delivery.messageId,
+        chatId: delivery.chatId,
+        userId: delivery.userId,
+        request
+      }).catch((error) => {
+        logEvent("error", "Feishu interrupted investment report resume failed", {
+          jobId: job.id,
+          query: request.query,
+          error: error.message
+        });
+      });
+    }
+    if (inspected) {
+      logEvent("info", "Feishu interrupted investment reports inspected", { inspected, resumed, marked });
+    }
+    return { inspected, resumed, marked };
+  }
+
   async readFeishuDocumentTextByUrl(url = "") {
     if (!this.workspace?.enabled || !url) return "";
     const wikiToken = extractFeishuWikiToken(url);
@@ -4387,8 +4441,8 @@ export class FeishuBot {
       maxTokens,
       temperature: 0.15,
       responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      allowFallback: false,
+      requirePrimary: true,
       retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
       timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
     });

@@ -408,6 +408,11 @@ const obsidianSync = new GitHubFileSync({
 });
 const feishuBot = new FeishuBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, songClient, videoLibrary, webSearch, transcriptApi, obsidianSync });
 feishuBot.setupRoutes(app);
+setTimeout(() => {
+  feishuBot.resumeInterruptedInvestmentReports?.().catch((error) => {
+    console.error("Feishu interrupted investment report resume check failed:", error.message);
+  });
+}, 5000);
 if (config.videoLibraryPrewarmOnStart) {
   feishuBot.prewarmVideoLibrary().catch((error) => {
     console.error("Feishu video library prewarm failed:", error.message);
