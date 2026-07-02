@@ -1234,6 +1234,11 @@ assertEqual(
   ),
   "true"
 );
+assertEqual(
+  "WeChat opening hook trims to a complete reader-facing sentence",
+  String(/[。！？;；]$/.test(wechatPlan.openingHook) && !/[，,：:]$/.test(wechatPlan.openingHook)),
+  "true"
+);
 const wechatCleanTitlePlan = await wechatPublisher.buildDistributionPlan({
   ...wechatCandidate,
   title: "整理好了：为什么 Stoke Space 把二级热盾塞进燃料回路"
@@ -1292,7 +1297,8 @@ assertEqual(
   "WeChat publisher turns plain Feishu raw text into reader-grade public-account layout",
   String(
     plainWechatHtml.includes("先说结论") &&
-    plainWechatHtml.includes("SECTION") &&
+    plainWechatHtml.includes("width:36px;height:3px;background:#07C160") &&
+    !plainWechatHtml.includes(">SECTION<") &&
     plainWechatHtml.includes("border:1px solid #e5e7eb") &&
     plainWechatHtml.includes("font-family:Menlo,Consolas,monospace") &&
     !plainWechatHtml.includes("<p style=\"margin:15px 0;line-height:1.95;font-size:15.5px;color:#263238;letter-spacing:0;\">为什么 Stoke Space 把二级热盾塞进燃料回路</p>")

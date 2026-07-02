@@ -93,7 +93,24 @@ function readerOpeningHook(markdown = "", title = "") {
     .map((part) => part.replace(/\n+/g, " ").trim())
     .filter(Boolean);
   const picked = paragraphs.find((part) => !isWeakOpeningLine(part, title)) || "";
-  return stripMarkdown(picked).slice(0, 150);
+  return stripMarkdown(picked);
+}
+
+function trimToSentence(value = "", max = 150) {
+  const text = stripMarkdown(value).trim();
+  if (text.length <= max) return text;
+  const clipped = text.slice(0, max);
+  const punct = Math.max(
+    clipped.lastIndexOf("。"),
+    clipped.lastIndexOf("！"),
+    clipped.lastIndexOf("？"),
+    clipped.lastIndexOf(";"),
+    clipped.lastIndexOf("；")
+  );
+  if (punct >= 48) return clipped.slice(0, punct + 1);
+  const comma = Math.max(clipped.lastIndexOf("，"), clipped.lastIndexOf(","));
+  if (comma >= 60) return `${clipped.slice(0, comma)}。`;
+  return `${clipped.replace(/[，,；;：:\\s]+$/g, "")}。`;
 }
 
 function cleanArticleText(value = "", max = 1200) {
@@ -194,7 +211,7 @@ function normalizeWechatMarkdownFromFeishu(candidate = {}) {
   return {
     title,
     digest: normalizeDigest(first, title),
-    openingHook: first.slice(0, 150),
+    openingHook: trimToSentence(first, 150),
     bodyMarkdown: body,
     cta: "",
     coverPrompt: buildWechatCoverPrompt({ title, digest: first, bodyMarkdown: body }),
@@ -243,7 +260,7 @@ function styleFor(tag) {
 function sectionHeadingHtml(text = "") {
   return [
     '<section style="margin:36px 0 18px;">',
-    '<p style="margin:0 0 6px;color:#07C160;font-size:12px;font-weight:700;letter-spacing:1px;">SECTION</p>',
+    '<p style="margin:0 0 8px;width:36px;height:3px;background:#07C160;border-radius:999px;"></p>',
     `<h2 style="${styleFor("h2")}">${inlineMarkdown(text)}</h2>`,
     "</section>"
   ].join("");
