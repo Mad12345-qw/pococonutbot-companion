@@ -912,6 +912,9 @@ bot.ai = {
       thesis: "Starfactory 的产业意义在于把火箭制造从项目制推向接近航空制造的节拍，但这个判断必须同时受 Raptor 产能、FAA 节奏和成本数据约束。",
       topicBoundary: "本报告只讨论 SpaceX 星舰制造和商业航天供应链，不把上一版报告当作新证据，也不覆盖短线交易建议。",
       industryMap: ["上游材料与焊接设备", "Raptor 发动机制造和测试", "整箭总装与地面设施", "发射监管与保险", "Starlink 和深空任务需求"],
+      investableMap: ["不可把 SpaceX 本体直接当作可投资标的，应映射到发动机、材料、地面设施、卫星需求和监管服务等公开可跟踪环节。", "中国商业航天替代链条应单独比较技术路线和政策节奏。"],
+      valuePools: ["若星舰产线化成立，价值池可能从单次发射转向发动机制造、测试设施、地面系统和卫星部署需求。", "真正兑现需要成本、产能和可靠性数据同时支持。"],
+      peerComparison: ["SpaceX 与中国液氧甲烷商业火箭公司应比较发动机成熟度、发射场资源、监管节奏和客户需求。", "Starship 与 Falcon 9 的替代关系要看成本曲线和任务适配性。"],
       timeCalibration: ["主要视频证据来自 2024-2025 年，需要用 2026 年发射节奏复核。", "Starfactory 进度变化快，产能结论高度时间敏感。", "上一版报告只用于对比判断变化，不作为证据。"],
       deltaSincePrior: "相对上一版，本版把关注点从泛泛的产线化，收窄到发动机节拍、监管节奏和成本验证三条可跟踪线索。",
       evidenceBase: ["当前证据覆盖两个视频来源和六条证据卡，但缺少独立成本、产能和监管数据。"],
@@ -927,8 +930,18 @@ bot.ai = {
         { node: "发射成本", whyItMatters: "成本下降是商业需求扩张前提。", signals: ["单位发射成本", "复用次数"], risks: ["口径不透明"], evidenceIds: ["E6"] }
       ],
       leadingIndicators: ["Raptor 月产量", "Starship 年发射次数", "FAA 审批周期", "单次任务成本口径", "Starlink 发射需求"],
+      catalystCalendar: [
+        { horizon: "3-6 个月", event: "下一次 Starship 试飞和 FAA 审批进度", watch: "审批周期是否缩短，试飞是否支持更高 cadence", evidenceIds: ["E4"] },
+        { horizon: "6-12 个月", event: "Raptor 产能和测试通过率线索", watch: "是否出现可量化月产能或测试数据", evidenceIds: ["E5"] }
+      ],
+      scenarios: [
+        { name: "乐观情景", condition: "试飞、监管、发动机产能同步改善", implication: "地面设施、发动机和卫星部署链条优先受益", evidenceIds: ["E1", "E5"] },
+        { name: "中性情景", condition: "工厂进展继续，但监管和成本数据仍不透明", implication: "维持观察清单，不形成强投资结论", evidenceIds: ["E4"] },
+        { name: "悲观情景", condition: "监管延迟或发动机可靠性反复", implication: "产线化假设下修，相关供应链弹性推后", evidenceIds: ["E4", "E5"] }
+      ],
       risks: ["视频来源存在公司访问偏差", "缺少独立成本数据", "监管节奏可能推翻产线假设", "发动机可靠性仍需验证"],
       timeContextRisks: ["2024 年工厂状态不能直接外推到 2026 年。", "试飞进度更新会迅速改变结论。"],
+      falsificationConditions: ["若 FAA 审批周期持续拉长，年发射 cadence 假设下修。", "若 Raptor 产能和可靠性没有改善，产线化外溢需求假设下修。", "若独立成本数据不支持明显下降，商业需求弹性假设下修。"],
       nextResearchTasks: ["查 FAA 公开审批和事故调查记录", "追踪 Raptor 产能公开线索", "对比中国商业航天液氧甲烷路线", "补充 Starlink 发射需求数据", "寻找供应链设备和材料侧公开资料"]
     });
   }
@@ -939,7 +952,8 @@ const userPerspectiveReport = await bot.buildInvestmentResearchReport({
 }, { researchJobId: "job:user-perspective-test" });
 const userPerspectiveMarkdown = userPerspectiveReport.markdown || "";
 const userPerspectiveOpening = sectionBetween(userPerspectiveMarkdown, "## 一、报告结论", "## 二、主题边界与产业链地图");
-const userPerspectiveBoundary = sectionBetween(userPerspectiveMarkdown, "## 二、主题边界与产业链地图", "## 三、证据基础与时间校准");
+const userPerspectiveBoundary = sectionBetween(userPerspectiveMarkdown, "## 二、主题边界与产业链地图", "## 三、投资地图、价值池与同业对比");
+const userPerspectiveInvestmentMap = sectionBetween(userPerspectiveMarkdown, "## 三、投资地图、价值池与同业对比", "## 四、证据基础与时间校准");
 const userPerspectiveEvidence = sectionBetween(userPerspectiveMarkdown, "### 证据卡", "> 触发请求");
 assertEqual(
   "investment report user perspective renders a readable evidence-grounded report",
@@ -950,12 +964,17 @@ assertEqual(
     !userPerspectiveMarkdown.includes("# SpaceX 的真正变量") &&
     userPerspectiveMarkdown.includes("## 一、报告结论") &&
     userPerspectiveMarkdown.includes("## 二、主题边界与产业链地图") &&
-    userPerspectiveMarkdown.includes("## 三、证据基础与时间校准") &&
-    userPerspectiveMarkdown.includes("## 八、资料来源与证据索引") &&
+    userPerspectiveMarkdown.includes("## 三、投资地图、价值池与同业对比") &&
+    userPerspectiveMarkdown.includes("## 四、证据基础与时间校准") &&
+    userPerspectiveMarkdown.includes("## 六、关键环节、跟踪指标与催化剂") &&
+    userPerspectiveMarkdown.includes("## 七、情景分析、反证与证伪条件") &&
+    userPerspectiveMarkdown.includes("## 九、资料来源与证据索引") &&
     userPerspectiveMarkdown.includes("## 先读：研究时间、证据编号与适用边界") &&
     userPerspectiveOpening.includes("一句话结论") &&
     userPerspectiveBoundary.includes("研究边界") &&
-    userPerspectiveMarkdown.includes("证据 E1") &&
+    userPerspectiveInvestmentMap.includes("投资地图") &&
+    userPerspectiveMarkdown.includes("[证据 E1](#证据-e1)") &&
+    userPerspectiveMarkdown.includes("#### 证据 E1") &&
     userPerspectiveMarkdown.includes("S1/S2 代表资料来源，E1/E2 代表证据卡") &&
     userPerspectiveMarkdown.includes("当前证据覆盖两个视频来源") &&
     !/YouTube 技术笔记|阅读导航|输出语言|内容形态|这部分没有生成到有效内容|<details|<summary|我先按|接下来我会/.test(userPerspectiveMarkdown) &&
@@ -972,7 +991,7 @@ assertEqual(
   "investment report user perspective removes legacy youtube-note artifacts from retrieved corpus",
   String(
     userPerspectiveReport.ready === true &&
-    userPerspectiveMarkdown.includes("## 八、资料来源与证据索引") &&
+    userPerspectiveMarkdown.includes("## 九、资料来源与证据索引") &&
     !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|some pretty advanced concepts\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
   ),
   "true"
@@ -993,7 +1012,8 @@ assertEqual(
     timeoutFallbackReport.aiFallback?.reason === "ai_synthesis_timeout" &&
     timeoutFallbackReport.markdown.includes("## 一、报告结论") &&
     timeoutFallbackReport.markdown.includes("证据基线") &&
-    timeoutFallbackReport.markdown.includes("证据 E1") &&
+    timeoutFallbackReport.markdown.includes("[证据 E1](#证据-e1)") &&
+    timeoutFallbackReport.markdown.includes("## 三、投资地图、价值池与同业对比") &&
     !/YouTube 技术笔记|阅读导航|输出语言|内容形态|<details|<summary/.test(timeoutFallbackReport.markdown)
   ),
   "true"

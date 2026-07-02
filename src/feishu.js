@@ -2472,6 +2472,38 @@ function normalizeEvidenceIds(value) {
   return String(value || "").match(/\bE\d+\b/g) || [];
 }
 
+function normalizeReportListItem(item, itemMax = 500) {
+  if (item && typeof item === "object" && !Array.isArray(item)) {
+    const title = cleanResearchArticleText(item.title || item.name || item.node || item.segment || item.horizon || item.scenario || "", 120);
+    const body = cleanResearchArticleText(
+      item.summary || item.logic || item.why || item.whyItMatters || item.condition || item.implication || item.watch || item.event || item.risk || item.task || item.description || "",
+      itemMax
+    );
+    const evidence = normalizeEvidenceIds(item.evidenceIds || item.evidence).slice(0, 4).join("、");
+    return cleanResearchArticleText([
+      title,
+      body ? `${title ? "：" : ""}${body}` : "",
+      evidence ? `（证据：${evidence}）` : ""
+    ].join(""), itemMax);
+  }
+  return cleanResearchArticleText(item, itemMax);
+}
+
+function normalizeReportList(value, max = 10, itemMax = 500) {
+  return asArray(value).map((item) => normalizeReportListItem(item, itemMax)).filter(Boolean).slice(0, max);
+}
+
+function evidenceAnchor(id = "") {
+  const value = String(id || "").trim().toLowerCase();
+  return value ? `#证据-${value}` : "";
+}
+
+function evidenceMarkdownLink(id = "") {
+  const value = String(id || "").trim().toUpperCase();
+  const anchor = evidenceAnchor(value);
+  return value && anchor ? `[证据 ${value}](${anchor})` : "";
+}
+
 function normalizeInvestmentReportStructured(raw = {}, request = {}) {
   const fallbackTitle = cleanResearchArticleText(request.query || "产业链投研报告", 80) || "产业链投研报告";
   const cleanTitle = cleanResearchArticleText(raw.title || "", 120);
@@ -2484,6 +2516,9 @@ function normalizeInvestmentReportStructured(raw = {}, request = {}) {
     timeCalibration: asArray(raw.timeCalibration || raw.timeContext).map((item) => cleanResearchArticleText(item, 500)).filter(Boolean).slice(0, 10),
     deltaSincePrior: cleanResearchArticleText(raw.deltaSincePrior || raw.versionDelta || "", 900),
     evidenceBase: asArray(raw.evidenceBase || raw.evidenceSummary).map((item) => cleanResearchArticleText(item, 500)).filter(Boolean).slice(0, 8),
+    investableMap: normalizeReportList(raw.investableMap || raw.investmentMap || raw.publicMarketMap, 10, 500),
+    valuePools: normalizeReportList(raw.valuePools || raw.profitPools || raw.marketMap, 10, 500),
+    peerComparison: normalizeReportList(raw.peerComparison || raw.competitiveLandscape || raw.alternativeRoutes, 10, 500),
     hypotheses: asArray(raw.hypotheses || raw.industryChainHypotheses).map((item) => ({
       title: cleanResearchArticleText(item.title || item.hypothesis || "", 180),
       logic: cleanResearchArticleText(item.logic || item.why || "", 800),
@@ -2500,8 +2535,21 @@ function normalizeInvestmentReportStructured(raw = {}, request = {}) {
       evidenceIds: normalizeEvidenceIds(item.evidenceIds).slice(0, 6)
     })).filter((item) => item.node).slice(0, 10),
     leadingIndicators: asArray(raw.leadingIndicators).map((item) => cleanResearchArticleText(item, 260)).filter(Boolean).slice(0, 12),
+    scenarios: asArray(raw.scenarios || raw.scenarioAnalysis).map((item) => ({
+      name: cleanResearchArticleText(item.name || item.scenario || "", 120),
+      condition: cleanResearchArticleText(item.condition || item.trigger || "", 500),
+      implication: cleanResearchArticleText(item.implication || item.impact || "", 600),
+      evidenceIds: normalizeEvidenceIds(item.evidenceIds || item.evidence).slice(0, 6)
+    })).filter((item) => item.name || item.condition || item.implication).slice(0, 5),
+    catalystCalendar: asArray(raw.catalystCalendar || raw.catalysts).map((item) => ({
+      horizon: cleanResearchArticleText(item.horizon || item.timeframe || "", 120),
+      event: cleanResearchArticleText(item.event || item.catalyst || "", 400),
+      watch: cleanResearchArticleText(item.watch || item.signal || "", 400),
+      evidenceIds: normalizeEvidenceIds(item.evidenceIds || item.evidence).slice(0, 6)
+    })).filter((item) => item.event || item.watch).slice(0, 10),
     risks: asArray(raw.risks || raw.counterArguments).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 10),
     timeContextRisks: asArray(raw.timeContextRisks || raw.timeRisks).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 8),
+    falsificationConditions: normalizeReportList(raw.falsificationConditions || raw.disconfirmingEvidence || raw.whatWouldChangeMind, 10, 500),
     nextResearchTasks: asArray(raw.nextResearchTasks || raw.nextSteps).map((item) => cleanResearchArticleText(item, 400)).filter(Boolean).slice(0, 12)
   };
 }
@@ -2546,6 +2594,21 @@ function buildFallbackInvestmentReportStructured(pack = {}, request = {}, error 
       "当前版本优先沉淀可追踪线索，不做短线交易建议。",
       timeoutNote
     ],
+    investableMap: [
+      `围绕「${query}」先按可观察产业链节点拆分，不把不可直接投资的主体强行等同于投资标的。`,
+      "优先映射到上游材料/设备、核心部件、测试验证、制造集成、应用需求、监管服务等可跟踪环节。",
+      "每个可投资方向必须继续补齐公开公司、订单、产能、客户和财务口径，不能只凭视频叙事下结论。"
+    ],
+    valuePools: [
+      "真正值得跟踪的价值池不是单一热点名词，而是成本下降、产能扩张、可靠性提升和需求放量之间的联动。",
+      "如果证据指向制造节拍提升，重点看设备、关键部件、测试设施、材料工艺和运维服务是否同步受益。",
+      "如果证据指向需求端扩张，重点看客户预算、任务频率、替代方案成本和监管容量。"
+    ],
+    peerComparison: [
+      "同业/替代路线比较必须围绕技术路线、成本曲线、产能节拍、监管约束和客户需求展开。",
+      "当前证据不足时，先列出需要比较的路线和变量，不把单一公司叙事直接外推成行业结论。",
+      "后续优先补充中美差异、领先公司与追赶公司、传统方案与新技术路线的公开可核验材料。"
+    ],
     hypotheses: topEvidence.slice(0, 4).map((card, index) => ({
       title: cleanResearchArticleText(card.claim || card.quoteOriginal || `待验证假设 ${index + 1}`, 160),
       logic: cleanResearchArticleText(card.whyItMatters || "这条证据提示了一个可能影响产业链判断的变量，但还需要跨来源验证。", 700),
@@ -2569,6 +2632,31 @@ function buildFallbackInvestmentReportStructured(pack = {}, request = {}, error 
       "客户订单或实际需求变化",
       "竞争路线变化"
     ],
+    scenarios: [
+      {
+        name: "乐观情景",
+        condition: "核心技术进展、产能节拍、监管许可和需求端同时改善。",
+        implication: "产业链机会可能从主题叙事转向订单、产能和利润兑现，需要优先跟踪最卡脖子的节点。",
+        evidenceIds: topEvidence.slice(0, 2).map((card) => card.id).filter(Boolean)
+      },
+      {
+        name: "中性情景",
+        condition: "技术路线继续推进，但成本、监管或产能数据仍不透明。",
+        implication: "更适合作为观察清单和产业链假设池，等待可量化领先指标确认。",
+        evidenceIds: topEvidence.slice(2, 4).map((card) => card.id).filter(Boolean)
+      },
+      {
+        name: "悲观情景",
+        condition: "关键测试失败、监管延迟、成本口径被证伪或需求不及预期。",
+        implication: "应降低结论置信度，把相关机会退回到调研任务，不继续强化原假设。",
+        evidenceIds: topEvidence.slice(4, 6).map((card) => card.id).filter(Boolean)
+      }
+    ],
+    catalystCalendar: [
+      { horizon: "3-6 个月", event: "补齐最新一手来源和监管/公告材料。", watch: "是否出现能直接验证产能、成本、订单或政策变化的新证据。", evidenceIds: topEvidence.slice(0, 2).map((card) => card.id).filter(Boolean) },
+      { horizon: "6-12 个月", event: "观察关键节点是否从叙事进入可量化兑现。", watch: "交付节奏、客户需求、成本口径和竞争路线是否同步变化。", evidenceIds: topEvidence.slice(2, 4).map((card) => card.id).filter(Boolean) },
+      { horizon: "12-24 个月", event: "复盘产业链机会是否形成持续趋势。", watch: "是否出现产业链扩产、利润改善、技术替代或监管框架变化。", evidenceIds: topEvidence.slice(4, 6).map((card) => card.id).filter(Boolean) }
+    ],
     risks: [
       "现有资料可能来自同一叙事圈层，存在观点重复。",
       "旧视频和当前市场状态可能错位。",
@@ -2578,6 +2666,12 @@ function buildFallbackInvestmentReportStructured(pack = {}, request = {}, error 
     timeContextRisks: [
       "视频发布时间不等于事件发生时间。",
       "产业链结论会随政策、技术进度和融资环境变化。"
+    ],
+    falsificationConditions: [
+      "如果最新一手来源显示关键技术路线进度停滞，原先的产业链放量假设必须下修。",
+      "如果成本、产能、订单或监管数据与视频叙事相反，应优先相信可核验数据。",
+      "如果新增反证来自独立来源并能解释核心变量，本报告相关假设要降级为观察项。",
+      "如果同业替代路线更快兑现，原主题的价值链映射需要重画。"
     ],
     nextResearchTasks: [
       `补充「${query}」的一手来源：官方公告、监管记录、财报、论文或行业数据。`,
@@ -2634,9 +2728,18 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
   const evidenceIndex = new Map((pack.evidenceCards || []).map((card) => [card.id, card]));
   const evidenceRefs = (ids = []) => asArray(ids)
     .map(String)
+    .map((id) => id.trim().toUpperCase())
     .filter((id) => evidenceIndex.has(id))
-    .map((id) => `证据 ${id}`)
+    .map((id) => evidenceMarkdownLink(id))
+    .filter(Boolean)
     .join("、");
+  const renderList = (items = [], label = "") => asArray(items).length
+    ? asArray(items).map((item) => `- ${label ? `**${label}：** ` : ""}${item}`).join("\n")
+    : "";
+  const markdownBlock = (lines = []) => lines
+    .map((line) => String(line || "").replace(/[ \t]+$/g, ""))
+    .filter((line) => line.trim())
+    .join("\n");
   const graphTopics = (pack.topicMap?.topics || []).slice(0, 20).map((topic) => (
     `- **${topic.canonicalName || topic.canonical_name || topic.topicKey || topic.topic_key}：** ${topic.topicType || topic.topic_type || "theme"}${(topic.aliases || []).length ? `；别名/相关叫法：${(topic.aliases || []).slice(0, 5).join("、")}` : ""}`
   )).join("\n");
@@ -2651,7 +2754,7 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
   ]) || "- **研究边界：** 当前主题图谱仍在积累，先以本次证据包中的来源、实体、时间线和产业链节点为边界。";
   const timeCalibration = compactLines([
     structured.timeCalibration.length ? structured.timeCalibration.map((item) => `- **时间校准：** ${item}`).join("\n") : "",
-    ...(pack.timeContexts || []).slice(0, 8).map((context) => compactLines([
+    ...(pack.timeContexts || []).slice(0, 8).map((context) => markdownBlock([
       `- **${context.sourceRef || "来源"}：** ${[
         context.videoPublishedAt && `发布 ${context.videoPublishedAt}`,
         context.likelyRecordedAt && `拍摄/记录 ${context.likelyRecordedAt}`,
@@ -2664,8 +2767,13 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
   const evidenceBase = structured.evidenceBase.length
     ? structured.evidenceBase.map((item) => `- **证据基线：** ${item}`).join("\n")
     : `- **证据基线：** 本报告基于 ${pack.sources.length} 个来源、${pack.evidenceCards.length} 条证据卡生成，所有结论必须回到文末证据索引核对。`;
+  const investmentMap = compactLines([
+    structured.investableMap.length ? "### 投资地图\n" + renderList(structured.investableMap, "可跟踪方向") : "",
+    structured.valuePools.length ? "\n### 价值池\n" + renderList(structured.valuePools, "价值来源") : "",
+    structured.peerComparison.length ? "\n### 同业与替代路线\n" + renderList(structured.peerComparison, "比较维度") : ""
+  ]) || "- **待补充：** 当前证据还不足以形成可跟踪投资地图，需要继续补齐公开公司、上下游关系、订单、产能和成本资料。";
   const hypotheses = structured.hypotheses.length
-    ? structured.hypotheses.map((item, index) => compactLines([
+    ? structured.hypotheses.map((item, index) => markdownBlock([
       `### ${index + 1}. ${item.title || "产业链假设"}`,
       item.logic ? `- **判断逻辑：** ${item.logic}` : "",
       evidenceRefs(item.evidenceIds) ? `  - **支持证据：** ${evidenceRefs(item.evidenceIds)}` : "",
@@ -2675,22 +2783,39 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     ])).join("\n\n")
     : "- **暂不形成强假设：** 当前证据还不足以形成稳定产业链假设。";
   const nodes = structured.valueChainNodes.length
-    ? structured.valueChainNodes.map((node) => compactLines([
+    ? structured.valueChainNodes.map((node) => markdownBlock([
       `- **${node.node}：** ${node.whyItMatters || "需要继续验证其产业链位置和受益机制。"}`,
       node.signals.length ? `  - **跟踪信号：** ${node.signals.join("；")}` : "",
       node.risks.length ? `  - **风险边界：** ${node.risks.join("；")}` : "",
       evidenceRefs(node.evidenceIds) ? `  - **相关证据：** ${evidenceRefs(node.evidenceIds)}` : ""
     ])).join("\n")
     : "- **待补充：** 需要更多来源来拆分明确的价值链节点。";
+  const catalysts = structured.catalystCalendar.length
+    ? structured.catalystCalendar.map((item) => markdownBlock([
+      `- **${item.horizon || "待定时间窗"}：** ${item.event || "观察关键进展"}`,
+      item.watch ? `  - **跟踪重点：** ${item.watch}` : "",
+      evidenceRefs(item.evidenceIds) ? `  - **相关证据：** ${evidenceRefs(item.evidenceIds)}` : ""
+    ])).join("\n")
+    : "- **待补充：** 当前证据还不足以形成明确催化剂日历。";
+  const scenarios = structured.scenarios.length
+    ? structured.scenarios.map((item) => markdownBlock([
+      `- **${item.name || "情景"}：** ${item.condition || "触发条件待补充"}`,
+      item.implication ? `  - **产业链含义：** ${item.implication}` : "",
+      evidenceRefs(item.evidenceIds) ? `  - **相关证据：** ${evidenceRefs(item.evidenceIds)}` : ""
+    ])).join("\n")
+    : "- **待补充：** 需要更多跨来源证据来拆分乐观、中性和悲观情景。";
   const risks = mergeUniqueBy([
     ...structured.risks.map((risk) => `- **反证/风险：** ${risk}`),
     ...structured.timeContextRisks.map((risk) => `- **时间错位：** ${risk}`),
     ...(pack.coverageGaps || []).slice(0, 8).map((gap) => `- **覆盖缺口：** ${gap.gap}${gap.impact ? `。${gap.impact}` : ""}`)
   ].filter(Boolean), (item) => item.replace(/^\-\s+\*\*[^：]+：\*\*\s*/, ""), 18).join("\n") || "- **风险提示：** 当前资料仍需跨来源验证，不能直接视为投资结论。";
+  const falsification = structured.falsificationConditions.length
+    ? renderList(structured.falsificationConditions, "证伪条件")
+    : "- **证伪条件：** 如果新增一手证据推翻关键技术进度、成本口径、产能节拍、监管进展或客户需求，本报告相关假设必须下修。";
   const tasks = structured.nextResearchTasks.length
     ? structured.nextResearchTasks.map((task) => `- ${task}`).join("\n")
     : (pack.questions || []).slice(0, 8).map((question) => `- ${question.question}`).join("\n");
-  const sources = (pack.sources || []).map((source) => compactLines([
+  const sources = (pack.sources || []).map((source) => markdownBlock([
     `- **来源 ${source.id}：${source.title || "未命名来源"}**`,
     `  - **类型：** ${[source.sourceType, source.platform, source.organization].filter(Boolean).join(" / ") || "未标注"}`,
     source.publishedAt || source.recordedAt || source.eventPeriod
@@ -2700,8 +2825,10 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     source.docUrl ? `  - **飞书文档：** ${source.docUrl}` : "",
     source.conflictProfile ? `  - **潜在偏差：** ${source.conflictProfile}` : ""
   ])).join("\n");
-  const evidence = (pack.evidenceCards || []).slice(0, 80).map((card) => compactLines([
-    `- **证据 ${card.id}｜来源 ${card.sourceRef}${card.location ? `｜${card.location}` : ""}：** ${card.claim || card.quoteOriginal}`,
+  const evidence = (pack.evidenceCards || []).slice(0, 80).map((card) => markdownBlock([
+    `#### 证据 ${card.id}`,
+    `- **来源：** ${card.sourceRef}${card.location ? `｜${card.location}` : ""}`,
+    card.claim ? `- **证据内容：** ${card.claim}` : "",
     card.quoteOriginal ? `  - **原文：** ${card.quoteOriginal}` : "",
     card.whyItMatters ? `  - **意义：** ${card.whyItMatters}` : "",
     card.timeSensitivity ? `  - **时间敏感性：** ${card.timeSensitivity}` : ""
@@ -2718,29 +2845,41 @@ function renderInvestmentResearchReportMarkdown(structured = {}, pack = {}, requ
     "## 二、主题边界与产业链地图",
     topicBoundary,
     "",
-    "## 三、证据基础与时间校准",
+    "## 三、投资地图、价值池与同业对比",
+    investmentMap,
+    "",
+    "## 四、证据基础与时间校准",
     evidenceBase,
     "",
     "### 时间校准",
     timeCalibration,
     "",
-    "## 四、产业链假设",
+    "## 五、产业链假设",
     hypotheses,
     "",
-    "## 五、关键环节与跟踪指标",
+    "## 六、关键环节、跟踪指标与催化剂",
     nodes,
     structured.leadingIndicators.length ? "\n### 领先指标\n" + structured.leadingIndicators.map((item) => `- ${item}`).join("\n") : "",
+    "\n### 催化剂日历",
+    catalysts,
     "",
-    "## 六、反证、时间错位与风险",
+    "## 七、情景分析、反证与证伪条件",
+    "### 情景分析",
+    scenarios,
+    "",
+    "### 反证、时间错位与覆盖缺口",
     risks,
     "",
-    "## 七、迭代变化与下一轮调研任务",
+    "### 证伪条件",
+    falsification,
+    "",
+    "## 八、迭代变化与下一轮调研任务",
     pack.priorReport
       ? `- **相对上一版：** ${structured.deltaSincePrior || "本版已读取上一版报告作为判断基线，但模型没有形成明确变化总结，建议优先复核新增证据。"}`
       : "- **版本状态：** 这是该主题的第一版报告，后续同主题报告会自动读取上一版作为判断基线。",
     tasks || "- 继续补充跨来源证据，再生成下一版投研报告。",
     "",
-    "## 八、资料来源与证据索引",
+    "## 九、资料来源与证据索引",
     "### 来源",
     sources,
     "",
@@ -2774,12 +2913,13 @@ function assertInvestmentResearchReportMarkdown(markdown = "") {
     "## 先读：研究时间、证据编号与适用边界",
     "## 一、报告结论",
     "## 二、主题边界与产业链地图",
-    "## 三、证据基础与时间校准",
-    "## 四、产业链假设",
-    "## 五、关键环节与跟踪指标",
-    "## 六、反证、时间错位与风险",
-    "## 七、迭代变化与下一轮调研任务",
-    "## 八、资料来源与证据索引"
+    "## 三、投资地图、价值池与同业对比",
+    "## 四、证据基础与时间校准",
+    "## 五、产业链假设",
+    "## 六、关键环节、跟踪指标与催化剂",
+    "## 七、情景分析、反证与证伪条件",
+    "## 八、迭代变化与下一轮调研任务",
+    "## 九、资料来源与证据索引"
   ];
   for (const item of required) {
     if (!text.includes(item)) throw new Error(`investment report missing section: ${item}`);
@@ -4271,11 +4411,14 @@ export class FeishuBot {
           '  "thesis": "core industry-chain thesis and its boundary",',
           '  "topicBoundary": "what this report includes, excludes, and why this boundary fits the evidence",',
           '  "industryMap": ["specific value-chain or ecosystem map item grounded in the evidence"],',
+          '  "investableMap": ["investable or trackable public-market direction, mapped to evidence and still bounded by uncertainty"],',
+          '  "valuePools": ["where long-term value may accrue: cost, capacity, reliability, demand, regulation, software, services, or supply-chain bottleneck"],',
+          '  "peerComparison": ["peer, substitute route, region, or technology-route comparison dimension to investigate next"],',
           '  "timeCalibration": ["source date, event date, current relevance, and stale-data risk"],',
           '  "deltaSincePrior": "what changed versus prior report baseline; if no prior report, say this is v1 baseline",',
           '  "evidenceBase": ["what the current evidence base can and cannot support"]',
           "}",
-          "Cardinality: industryMap 4-10, timeCalibration 3-8, evidenceBase 3-6."
+          "Cardinality: industryMap 4-10, investableMap 3-8, valuePools 3-8, peerComparison 3-8, timeCalibration 3-8, evidenceBase 3-6."
         ].join("\n")
       },
       {
@@ -4300,9 +4443,10 @@ export class FeishuBot {
           "Fill only this value-chain node schema:",
           "{",
           '  "valueChainNodes": [{"node":"value-chain node", "whyItMatters":"why this node may matter", "signals":["observable leading signal"], "risks":["risk or boundary"], "evidenceIds":["E1"]}],',
-          '  "leadingIndicators": ["observable indicator to track next"]',
+          '  "leadingIndicators": ["observable indicator to track next"],',
+          '  "catalystCalendar": [{"horizon":"3-6 months / 6-12 months / 12-24 months", "event":"specific catalyst to watch", "watch":"what data confirms or weakens it", "evidenceIds":["E1"]}]',
           "}",
-          "Cardinality: valueChainNodes 4-10, leadingIndicators 5-12."
+          "Cardinality: valueChainNodes 4-10, leadingIndicators 5-12, catalystCalendar 3-8."
         ].join("\n")
       },
       {
@@ -4313,11 +4457,13 @@ export class FeishuBot {
           "",
           "Fill only this risk and research-task schema:",
           "{",
+          '  "scenarios": [{"name":"optimistic/base/bearish scenario in Chinese", "condition":"what must happen", "implication":"industry-chain investment implication", "evidenceIds":["E1"]}],',
           '  "risks": ["counter-evidence, missing data, or alternative explanation"],',
           '  "timeContextRisks": ["time mismatch or stale-data risk"],',
+          '  "falsificationConditions": ["specific evidence that would disconfirm or downgrade the thesis"],',
           '  "nextResearchTasks": ["specific next research task and suggested source type"]',
           "}",
-          "Cardinality: risks 4-10, timeContextRisks 2-8, nextResearchTasks 5-12."
+          "Cardinality: scenarios 3-5, risks 4-10, timeContextRisks 2-8, falsificationConditions 3-8, nextResearchTasks 5-12."
         ].join("\n")
       }
     ];
@@ -4348,13 +4494,19 @@ export class FeishuBot {
       ...fallback,
       ...merged,
       industryMap: asArray(merged.industryMap).length ? merged.industryMap : fallback.industryMap,
+      investableMap: asArray(merged.investableMap).length ? merged.investableMap : fallback.investableMap,
+      valuePools: asArray(merged.valuePools).length ? merged.valuePools : fallback.valuePools,
+      peerComparison: asArray(merged.peerComparison).length ? merged.peerComparison : fallback.peerComparison,
       timeCalibration: asArray(merged.timeCalibration).length ? merged.timeCalibration : fallback.timeCalibration,
       evidenceBase: asArray(merged.evidenceBase).length ? merged.evidenceBase : fallback.evidenceBase,
       hypotheses: asArray(merged.hypotheses).length ? merged.hypotheses : fallback.hypotheses,
       valueChainNodes: asArray(merged.valueChainNodes).length ? merged.valueChainNodes : fallback.valueChainNodes,
       leadingIndicators: asArray(merged.leadingIndicators).length ? merged.leadingIndicators : fallback.leadingIndicators,
+      catalystCalendar: asArray(merged.catalystCalendar).length ? merged.catalystCalendar : fallback.catalystCalendar,
+      scenarios: asArray(merged.scenarios).length ? merged.scenarios : fallback.scenarios,
       risks: asArray(merged.risks).length ? merged.risks : fallback.risks,
       timeContextRisks: asArray(merged.timeContextRisks).length ? merged.timeContextRisks : fallback.timeContextRisks,
+      falsificationConditions: asArray(merged.falsificationConditions).length ? merged.falsificationConditions : fallback.falsificationConditions,
       nextResearchTasks: asArray(merged.nextResearchTasks).length ? merged.nextResearchTasks : fallback.nextResearchTasks
     };
     return {
