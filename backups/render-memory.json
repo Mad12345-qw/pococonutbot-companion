@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T04:11:47.077Z",
+  "exportedAt": "2026-07-02T04:21:37.669Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -56493,6 +56493,70 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T04:05:30.053Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：为什么 Stoke Space 把二级热盾塞进燃料回路，就能用 30 个小喷管挑战 SpaceX 的复用霸权\n主题：2 years ago\n视频：1 条\n- 1. The Underdogs Taking On SpaceX [Stoke Space 2025]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\n耗时诊断：字幕 1.4s / AI 7m57s / 飞书 4.1s / 总计 8m02s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "2 years ago",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "youtubeDiagnostics": {
+            "aiMs": 476856,
+            "totalMs": 478264,
+            "failures": 0,
+            "deliveryMs": 899,
+            "documentMs": 4103,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1405,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-02T04:13:36.652Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：为什么 Stoke Space 把二级热盾塞进燃料回路，就能用 30 个小喷管挑战 SpaceX 的复用霸权\n主题：2 years ago\n视频：1 条\n- 1. The Underdogs Taking On SpaceX [Stoke Space 2025]（Everyday Astronaut / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf\n耗时诊断：字幕 1.4s / AI 7m57s / 飞书 4.1s / 发卡 899ms / 总计 8m03s\nObsidian：已同步到 youtube/2-years-ago-The-Underdogs-Taking-On-SpaceX-Stoke-Space-2025.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "2 years ago",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/I25ywvDhvicSQtk7Hncc6l3Ungf",
+          "obsidianPath": "youtube/2-years-ago-The-Underdogs-Taking-On-SpaceX-Stoke-Space-2025.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 476856,
+            "totalMs": 478264,
+            "failures": 0,
+            "deliveryMs": 899,
+            "documentMs": 4103,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 1405,
+            "feishuIndexMs": 1300,
+            "obsidianSyncMs": 734,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-02T04:13:38.772Z"
       }
     ],
     "memories": [
