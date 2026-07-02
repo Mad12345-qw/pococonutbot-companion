@@ -10,6 +10,7 @@ import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
 import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { WeChatPublisher } from "./wechat-publisher.js";
 
 const execFileAsync = promisify(execFile);
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
@@ -2913,6 +2914,7 @@ export class FeishuBot {
       config,
       getToken: () => this.tenantAccessToken()
     });
+    this.wechatPublisher = new WeChatPublisher({ config, ai, imageGenerator });
     this.projectEngine = new ProjectEngine({
       config,
       storage,
@@ -3026,6 +3028,9 @@ export class FeishuBot {
     const event = payload.event || payload;
     const action = event.action || payload.action || {};
     const value = action.value || action || {};
+    if (value.action === "wechat_publish_draft") {
+      return this.handleWechatPublishAction({ event, payload, value });
+    }
     if (value.action !== "worldcup_vote") {
       return { toast: { type: "info", content: "这个按钮我收到了。" } };
     }
@@ -3101,6 +3106,195 @@ export class FeishuBot {
       ...collectIdsDeep(event.operator || {}),
       ...collectIdsDeep(payload.operator || {})
     ]);
+  }
+
+  async handleWechatPublishAction({ event = {}, payload = {}, value = {} } = {}) {
+    const candidateId = String(value.candidate_id || value.candidateId || "").trim();
+    const generateImages = value.generate_images === true ||
+      value.generateImages === true ||
+      String(value.generate_images || value.generateImages || "").toLowerCase() === "true";
+    if (!candidateId) {
+      return { toast: { type: "warning", content: "没有拿到可发布文章 ID。" } };
+    }
+    if (!this.wechatPublisher?.enabled) {
+      return { toast: { type: "warning", content: "公众号发布还没有配置 AppID/AppSecret。" } };
+    }
+    const candidate = await this.storage.getWechatPublishCandidate?.(candidateId);
+    if (!candidate?.markdown) {
+      return { toast: { type: "warning", content: "这篇候选文章没有找到，可能是旧卡片或存储还没同步。" } };
+    }
+
+    const operator = this.extractCardActionOperatorId(event, payload);
+    await this.storage.updateWechatPublishCandidate?.(candidateId, {
+      status: "publishing",
+      error: "",
+      metadata: {
+        ...(candidate.metadata || {}),
+        lastPublishStartedAt: new Date().toISOString(),
+        lastPublishOperator: operator,
+        generateImages
+      }
+    });
+
+    try {
+      const result = await this.wechatPublisher.createDraft(candidate, { generateImages, operator });
+      await this.storage.updateWechatPublishCandidate?.(candidateId, {
+        status: "draft_created",
+        draftMediaId: result.draftMediaId || "",
+        error: "",
+        metadata: {
+          ...(candidate.metadata || {}),
+          lastPublishStartedAt: new Date().toISOString(),
+          lastPublishFinishedAt: new Date().toISOString(),
+          lastPublishOperator: operator,
+          generateImages,
+          wechat: result
+        }
+      });
+      return {
+        toast: {
+          type: "success",
+          content: `已创建公众号草稿：${result.title || candidate.title || "文章"}`
+        },
+        card: {
+          type: "raw",
+          data: this.buildWechatPublishResultCard({ candidate, result })
+        }
+      };
+    } catch (error) {
+      await this.storage.updateWechatPublishCandidate?.(candidateId, {
+        status: "failed",
+        error: error.message,
+        metadata: {
+          ...(candidate.metadata || {}),
+          lastPublishFailedAt: new Date().toISOString(),
+          lastPublishOperator: operator,
+          generateImages
+        }
+      });
+      logEvent("error", "WeChat draft creation failed", {
+        candidateId,
+        generateImages,
+        error: error.message
+      });
+      return {
+        toast: {
+          type: "warning",
+          content: `公众号草稿创建失败：${truncate(error.message, 80)}`
+        }
+      };
+    }
+  }
+
+  async registerWechatPublishCandidate(candidate = {}) {
+    if (!candidate.markdown || !this.storage.upsertWechatPublishCandidate) return null;
+    const id = candidate.id || researchSourceId("wechat_candidate", [
+      candidate.sourceType || "",
+      candidate.title || "",
+      candidate.feishuDocUrl || "",
+      candidate.sourceUrl || "",
+      Date.now()
+    ].join("|"));
+    const row = {
+      id,
+      sourceType: candidate.sourceType || "",
+      title: candidate.title || "",
+      markdown: candidate.markdown || "",
+      feishuDocUrl: candidate.feishuDocUrl || "",
+      sourceUrl: candidate.sourceUrl || "",
+      status: "candidate",
+      metadata: {
+        ...(candidate.metadata || {}),
+        createdBy: "xiaoye",
+        wechatDraftOnly: true
+      }
+    };
+    await this.storage.upsertWechatPublishCandidate(row);
+    return row;
+  }
+
+  wechatPublishActions(candidate = null) {
+    if (!candidate?.id) return [];
+    return [
+      {
+        tag: "button",
+        text: { tag: "plain_text", content: "生成公众号草稿" },
+        type: "primary",
+        value: {
+          action: "wechat_publish_draft",
+          candidate_id: candidate.id,
+          generate_images: false
+        }
+      },
+      {
+        tag: "button",
+        text: { tag: "plain_text", content: "配图后生成草稿" },
+        type: "default",
+        value: {
+          action: "wechat_publish_draft",
+          candidate_id: candidate.id,
+          generate_images: true
+        }
+      }
+    ];
+  }
+
+  buildWechatPublishResultCard({ candidate = {}, result = {} } = {}) {
+    return {
+      config: { wide_screen_mode: true, enable_forward: true },
+      header: {
+        template: "green",
+        title: { tag: "plain_text", content: "公众号草稿已创建" }
+      },
+      elements: [
+        {
+          tag: "div",
+          text: {
+            tag: "lark_md",
+            content: cardMarkdown(compactLines([
+              `**${result.title || candidate.title || "文章"}**`,
+              result.draftMediaId ? `草稿 media_id：${result.draftMediaId}` : "",
+              result.imageMode ? `配图模式：${result.imageMode}` : "",
+              "下一步：到微信公众号后台预览、微调封面和摘要，再确认发布。"
+            ]), 700)
+          }
+        }
+      ]
+    };
+  }
+
+  buildWechatCandidateCard({ candidate = {}, title = "", doc = {}, sourceType = "" } = {}) {
+    const actions = [];
+    if (doc.url) {
+      actions.push({
+        tag: "button",
+        text: { tag: "plain_text", content: "打开飞书文档" },
+        type: "default",
+        url: doc.url
+      });
+    }
+    actions.push(...this.wechatPublishActions(candidate));
+    return {
+      config: { wide_screen_mode: true, enable_forward: true },
+      header: {
+        template: "green",
+        title: { tag: "plain_text", content: "公众号分发候选" }
+      },
+      elements: [
+        {
+          tag: "div",
+          text: {
+            tag: "lark_md",
+            content: cardMarkdown(compactLines([
+              `**${title || candidate.title || "这篇文章"}**`,
+              sourceType ? `来源：${sourceType}` : "",
+              "可以把它生成到微信公众号草稿箱。发布前会自动做标题、摘要、导语和关注引导，不会直接群发。"
+            ]), 700)
+          }
+        },
+        { tag: "action", actions }
+      ]
+    };
   }
 
   async recordWorldCupVote({ pollId = "", option = "", label = "", options = null, title = "", operator = "" }) {
@@ -3854,6 +4048,19 @@ export class FeishuBot {
         title: report.title,
         markdown: report.markdown
       });
+      const wechatCandidate = await this.registerWechatPublishCandidate({
+        sourceType: "investment_report",
+        title: report.title,
+        markdown: report.markdown,
+        feishuDocUrl: doc.url || "",
+        sourceUrl: "",
+        metadata: {
+          query: request.query,
+          sources: report.pack?.sources?.length || 0,
+          evidenceCards: report.pack?.evidenceCards?.length || 0,
+          topicCount: report.topicMap?.topics?.length || 0
+        }
+      });
       this.markTiming(timing, "documentMs");
       const versionInfo = typeof this.storage.recordInvestmentReportVersion === "function"
         ? await this.storage.recordInvestmentReportVersion({
@@ -3878,6 +4085,7 @@ export class FeishuBot {
           topicCount: report.topicMap?.topics?.length || 0,
           backfill: report.backfill || {},
           aiFallback: report.aiFallback || null,
+          wechatCandidateId: wechatCandidate?.id || "",
           document: {
             token: doc.token || "",
             wikiToken: doc.wikiToken || "",
@@ -3897,6 +4105,7 @@ export class FeishuBot {
           investmentReport: true,
           query: request.query,
           feishuDocUrl: doc.url || "",
+          wechatCandidateId: wechatCandidate?.id || "",
           version: versionInfo || null,
           sourceCount: report.pack.sources.length,
           evidenceCards: report.pack.evidenceCards.length,
@@ -3915,6 +4124,21 @@ export class FeishuBot {
         report.topicMap?.topics?.length ? `主题图谱：已关联 ${report.topicMap.topics.length} 个节点。` : "",
         report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
       ].filter(Boolean).join("\n"));
+      if (wechatCandidate?.id) {
+        try {
+          await this.replyCard(messageId, this.buildWechatCandidateCard({
+            candidate: wechatCandidate,
+            title: report.title,
+            doc,
+            sourceType: "投研报告"
+          }));
+        } catch (cardError) {
+          logEvent("warn", "Investment report WeChat candidate card failed", {
+            candidateId: wechatCandidate.id,
+            error: cardError.message
+          });
+        }
+      }
       this.finishTiming(timing, {
         route: "investment_report",
         ready: true,
@@ -4342,11 +4566,28 @@ export class FeishuBot {
         documentMs: elapsedMsSince(documentStartedAt)
       };
       this.markTiming(timing, "feishuDocumentMs");
+      const wechatCandidate = doc.created
+        ? await this.registerWechatPublishCandidate({
+            sourceType: "youtube_research",
+            title: this.resolveYoutubeDocumentTitle(report),
+            markdown: doc.markdown || report.markdown || "",
+            feishuDocUrl: doc.url || "",
+            sourceUrl: report.videos?.[0]?.url || "",
+            metadata: {
+              topic: report.topic,
+              videos: (report.videos || []).map((video) => ({
+                title: video.title || "",
+                url: video.url || "",
+                channel: video.channel || ""
+              })).slice(0, 8)
+            }
+          })
+        : null;
       const pendingSync = { synced: false, notePath: "", topicPath: "", reason: "pending" };
       const pendingIndex = { synced: false, reason: doc.created ? "pending" : "doc_not_created" };
       const deliveryStartedAt = Date.now();
       const reply = this.formatYoutubeResearchReply(report, pendingSync, doc, pendingIndex);
-      const card = this.buildYoutubeResearchCard(report, pendingSync, doc, pendingIndex);
+      const card = this.buildYoutubeResearchCard(report, pendingSync, doc, pendingIndex, wechatCandidate);
       let delivered = "card";
       try {
         await this.replyCard(messageId, card);
@@ -4377,6 +4618,7 @@ export class FeishuBot {
           videoCount: report.videos.length,
           obsidianPath: "",
           feishuDocUrl: doc.url || "",
+          wechatCandidateId: wechatCandidate?.id || "",
           feishuIndexSynced: false,
           backgroundSyncPending: true,
           youtubeDiagnostics: {
@@ -5136,6 +5378,7 @@ export class FeishuBot {
         wikiToken: doc.wikiToken || "",
         inWiki: Boolean(doc.inWiki),
         title: doc.title || report.title,
+        markdown,
         writeError: doc.writeError || "",
         writeMode: doc.writeMode || "",
         blocks: doc.blocks || 0,
@@ -5341,7 +5584,7 @@ export class FeishuBot {
     ]);
   }
 
-  buildYoutubeResearchCard(report, sync = {}, doc = {}, indexSync = {}) {
+  buildYoutubeResearchCard(report, sync = {}, doc = {}, indexSync = {}, wechatCandidate = null) {
     const videos = report.videos || [];
     const firstVideo = videos[0] || {};
     const docStatus = doc.created && doc.url
@@ -5385,6 +5628,7 @@ export class FeishuBot {
         url: firstVideo.url
       });
     }
+    actions.push(...this.wechatPublishActions(wechatCandidate));
 
     const elements = [
       {

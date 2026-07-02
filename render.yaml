@@ -177,6 +177,24 @@ services:
         value: "3"
       - key: INVESTMENT_REPORT_REUSE_MAX_AGE_MINUTES
         value: "720"
+      - key: WECHAT_MP_ENABLED
+        value: "false"
+      - key: WECHAT_MP_APP_ID
+        sync: false
+      - key: WECHAT_MP_APP_SECRET
+        sync: false
+      - key: WECHAT_MP_AUTHOR
+        value: 小椰
+      - key: WECHAT_MP_DEFAULT_THUMB_MEDIA_ID
+        sync: false
+      - key: WECHAT_MP_CTA_TEXT
+        sync: false
+      - key: WECHAT_MP_AI_TIMEOUT_MS
+        value: "60000"
+      - key: WECHAT_MP_OPEN_COMMENT
+        value: "false"
+      - key: WECHAT_MP_ONLY_FANS_CAN_COMMENT
+        value: "false"
       - key: OBSIDIAN_SYNC_ENABLED
         value: "true"
       - key: OBSIDIAN_GITHUB_TOKEN

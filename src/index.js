@@ -68,6 +68,9 @@ app.get("/health", (_req, res) => {
     researchTopicGraph: true,
     investmentReportVersioning: true,
     investmentThesisLedger: true,
+    wechatMpPublishing: Boolean(config.wechatMpEnabled && config.wechatMpAppId && config.wechatMpAppSecret),
+    wechatMpDefaultCover: Boolean(config.wechatMpDefaultThumbMediaId),
+    wechatMpDraftOnly: true,
     investmentReportArchitecture: "evidence_topic_graph_plus_iterative_thesis_baseline",
     researchArchitecturePrinciples: [
       "open_source_type_registry",

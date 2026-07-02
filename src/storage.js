@@ -360,6 +360,24 @@ class PostgresStorage {
       CREATE INDEX IF NOT EXISTS idx_research_jobs_status_updated
         ON research_jobs (status, updated_at DESC);
 
+      CREATE TABLE IF NOT EXISTS wechat_publish_candidates (
+        id TEXT PRIMARY KEY,
+        source_type TEXT NOT NULL DEFAULT '',
+        title TEXT NOT NULL DEFAULT '',
+        markdown TEXT NOT NULL DEFAULT '',
+        feishu_doc_url TEXT NOT NULL DEFAULT '',
+        source_url TEXT NOT NULL DEFAULT '',
+        status TEXT NOT NULL DEFAULT 'candidate',
+        draft_media_id TEXT NOT NULL DEFAULT '',
+        error TEXT NOT NULL DEFAULT '',
+        metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+
+      CREATE INDEX IF NOT EXISTS idx_wechat_publish_candidates_status_updated
+        ON wechat_publish_candidates (status, updated_at DESC);
+
       CREATE TABLE IF NOT EXISTS research_reference_sources (
         source_key TEXT PRIMARY KEY,
         name TEXT NOT NULL,
@@ -715,7 +733,8 @@ class PostgresStorage {
       researchTopicEdges,
       researchEvidenceTopics,
       researchReportVersions,
-      researchThesisLedger
+      researchThesisLedger,
+      wechatPublishCandidates
     ] = await Promise.all([
       this.pool.query(
         `SELECT chat_id AS "chatId", user_id AS "userId", role, modality, content, metadata, created_at AS "createdAt"
@@ -891,6 +910,14 @@ class PostgresStorage {
                 created_at AS "createdAt"
          FROM research_thesis_ledger
          ORDER BY created_at ASC, id ASC`
+      ),
+      this.pool.query(
+        `SELECT id, source_type AS "sourceType", title, markdown,
+                feishu_doc_url AS "feishuDocUrl", source_url AS "sourceUrl",
+                status, draft_media_id AS "draftMediaId", error, metadata,
+                created_at AS "createdAt", updated_at AS "updatedAt"
+         FROM wechat_publish_candidates
+         ORDER BY created_at ASC`
       )
     ]);
 
@@ -917,7 +944,8 @@ class PostgresStorage {
       researchTopicEdges: researchTopicEdges.rows,
       researchEvidenceTopics: researchEvidenceTopics.rows,
       researchReportVersions: researchReportVersions.rows,
-      researchThesisLedger: researchThesisLedger.rows
+      researchThesisLedger: researchThesisLedger.rows,
+      wechatPublishCandidates: wechatPublishCandidates.rows
     };
   }
 
@@ -947,6 +975,7 @@ class PostgresStorage {
       await client.query("DELETE FROM research_topic_edges");
       await client.query("DELETE FROM research_topics");
       await client.query("DELETE FROM research_reference_sources");
+      await client.query("DELETE FROM wechat_publish_candidates");
       await client.query("DELETE FROM research_jobs");
 
       for (const message of state.messages || []) {
@@ -1127,6 +1156,40 @@ class PostgresStorage {
             String(job.error || ""),
             job.createdAt || job.created_at || new Date().toISOString(),
             job.updatedAt || job.updated_at || new Date().toISOString()
+          ]
+        );
+      }
+
+      for (const candidate of state.wechatPublishCandidates || []) {
+        await client.query(
+          `INSERT INTO wechat_publish_candidates
+             (id, source_type, title, markdown, feishu_doc_url, source_url,
+              status, draft_media_id, error, metadata, created_at, updated_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+           ON CONFLICT (id)
+           DO UPDATE SET source_type = EXCLUDED.source_type,
+                         title = EXCLUDED.title,
+                         markdown = EXCLUDED.markdown,
+                         feishu_doc_url = EXCLUDED.feishu_doc_url,
+                         source_url = EXCLUDED.source_url,
+                         status = EXCLUDED.status,
+                         draft_media_id = EXCLUDED.draft_media_id,
+                         error = EXCLUDED.error,
+                         metadata = EXCLUDED.metadata,
+                         updated_at = EXCLUDED.updated_at`,
+          [
+            String(candidate.id || ""),
+            String(candidate.sourceType || candidate.source_type || ""),
+            String(candidate.title || ""),
+            String(candidate.markdown || ""),
+            String(candidate.feishuDocUrl || candidate.feishu_doc_url || ""),
+            String(candidate.sourceUrl || candidate.source_url || ""),
+            String(candidate.status || "candidate"),
+            String(candidate.draftMediaId || candidate.draft_media_id || ""),
+            String(candidate.error || ""),
+            JSON.stringify(candidate.metadata || {}),
+            candidate.createdAt || candidate.created_at || new Date().toISOString(),
+            candidate.updatedAt || candidate.updated_at || new Date().toISOString()
           ]
         );
       }
@@ -1835,6 +1898,85 @@ class PostgresStorage {
     values.push(String(jobId || ""));
     await this.pool.query(
       `UPDATE research_jobs
+       SET ${assignments.join(", ")}, updated_at = now()
+       WHERE id = $${values.length}`,
+      values
+    );
+  }
+
+  async upsertWechatPublishCandidate(candidate = {}) {
+    const id = String(candidate.id || "");
+    if (!id) return "";
+    const result = await this.pool.query(
+      `INSERT INTO wechat_publish_candidates
+         (id, source_type, title, markdown, feishu_doc_url, source_url, status, draft_media_id, error, metadata)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       ON CONFLICT (id)
+       DO UPDATE SET source_type = EXCLUDED.source_type,
+                     title = EXCLUDED.title,
+                     markdown = EXCLUDED.markdown,
+                     feishu_doc_url = EXCLUDED.feishu_doc_url,
+                     source_url = EXCLUDED.source_url,
+                     status = EXCLUDED.status,
+                     draft_media_id = EXCLUDED.draft_media_id,
+                     error = EXCLUDED.error,
+                     metadata = EXCLUDED.metadata,
+                     updated_at = now()
+       RETURNING id`,
+      [
+        id,
+        String(candidate.sourceType || candidate.source_type || ""),
+        String(candidate.title || ""),
+        String(candidate.markdown || ""),
+        String(candidate.feishuDocUrl || candidate.feishu_doc_url || ""),
+        String(candidate.sourceUrl || candidate.source_url || ""),
+        String(candidate.status || "candidate"),
+        String(candidate.draftMediaId || candidate.draft_media_id || ""),
+        String(candidate.error || ""),
+        JSON.stringify(candidate.metadata || {})
+      ]
+    );
+    return result.rows[0]?.id || "";
+  }
+
+  async getWechatPublishCandidate(id = "") {
+    if (!id) return null;
+    const result = await this.pool.query(
+      `SELECT id,
+              source_type AS "sourceType",
+              title,
+              markdown,
+              feishu_doc_url AS "feishuDocUrl",
+              source_url AS "sourceUrl",
+              status,
+              draft_media_id AS "draftMediaId",
+              error,
+              metadata,
+              created_at AS "createdAt",
+              updated_at AS "updatedAt"
+       FROM wechat_publish_candidates
+       WHERE id = $1
+       LIMIT 1`,
+      [String(id)]
+    );
+    return result.rows[0] || null;
+  }
+
+  async updateWechatPublishCandidate(id = "", updates = {}) {
+    const assignments = [];
+    const values = [];
+    const push = (column, value) => {
+      assignments.push(`${column} = $${values.length + 1}`);
+      values.push(value);
+    };
+    if (updates.status !== undefined) push("status", String(updates.status || ""));
+    if (updates.draftMediaId !== undefined) push("draft_media_id", String(updates.draftMediaId || ""));
+    if (updates.error !== undefined) push("error", String(updates.error || ""));
+    if (updates.metadata !== undefined) push("metadata", JSON.stringify(updates.metadata || {}));
+    if (!assignments.length) return;
+    values.push(String(id || ""));
+    await this.pool.query(
+      `UPDATE wechat_publish_candidates
        SET ${assignments.join(", ")}, updated_at = now()
        WHERE id = $${values.length}`,
       values
@@ -2588,7 +2730,8 @@ class JsonFileStorage {
       researchTopicEdges: [],
       researchEvidenceTopics: [],
       researchReportVersions: [],
-      researchThesisLedger: []
+      researchThesisLedger: [],
+      wechatPublishCandidates: []
     };
   }
 
@@ -2617,6 +2760,7 @@ class JsonFileStorage {
       this.state.researchEvidenceTopics = Array.isArray(this.state.researchEvidenceTopics) ? this.state.researchEvidenceTopics : [];
       this.state.researchReportVersions = Array.isArray(this.state.researchReportVersions) ? this.state.researchReportVersions : [];
       this.state.researchThesisLedger = Array.isArray(this.state.researchThesisLedger) ? this.state.researchThesisLedger : [];
+      this.state.wechatPublishCandidates = Array.isArray(this.state.wechatPublishCandidates) ? this.state.wechatPublishCandidates : [];
     } catch {
       await this.flush();
     }
@@ -2701,7 +2845,8 @@ class JsonFileStorage {
       researchTopicEdges: this.state.researchTopicEdges,
       researchEvidenceTopics: this.state.researchEvidenceTopics,
       researchReportVersions: this.state.researchReportVersions,
-      researchThesisLedger: this.state.researchThesisLedger
+      researchThesisLedger: this.state.researchThesisLedger,
+      wechatPublishCandidates: this.state.wechatPublishCandidates
     };
   }
 
@@ -2729,7 +2874,8 @@ class JsonFileStorage {
       researchTopicEdges: Array.isArray(state.researchTopicEdges) ? state.researchTopicEdges : [],
       researchEvidenceTopics: Array.isArray(state.researchEvidenceTopics) ? state.researchEvidenceTopics : [],
       researchReportVersions: Array.isArray(state.researchReportVersions) ? state.researchReportVersions : [],
-      researchThesisLedger: Array.isArray(state.researchThesisLedger) ? state.researchThesisLedger : []
+      researchThesisLedger: Array.isArray(state.researchThesisLedger) ? state.researchThesisLedger : [],
+      wechatPublishCandidates: Array.isArray(state.wechatPublishCandidates) ? state.wechatPublishCandidates : []
     };
     await this.flush();
   }
@@ -3071,6 +3217,50 @@ class JsonFileStorage {
     if (updates.output !== undefined) row.output = updates.output || {};
     if (updates.error !== undefined) row.error = String(updates.error || "");
     row.updated_at = new Date().toISOString();
+    await this.flush();
+  }
+
+  async upsertWechatPublishCandidate(candidate = {}) {
+    const now = new Date().toISOString();
+    const id = String(candidate.id || "");
+    if (!id) return "";
+    const row = {
+      id,
+      sourceType: String(candidate.sourceType || candidate.source_type || ""),
+      title: String(candidate.title || ""),
+      markdown: String(candidate.markdown || ""),
+      feishuDocUrl: String(candidate.feishuDocUrl || candidate.feishu_doc_url || ""),
+      sourceUrl: String(candidate.sourceUrl || candidate.source_url || ""),
+      status: String(candidate.status || "candidate"),
+      draftMediaId: String(candidate.draftMediaId || candidate.draft_media_id || ""),
+      error: String(candidate.error || ""),
+      metadata: candidate.metadata || {},
+      createdAt: now,
+      updatedAt: now
+    };
+    const index = this.state.wechatPublishCandidates.findIndex((item) => String(item.id) === id);
+    if (index >= 0) {
+      row.createdAt = this.state.wechatPublishCandidates[index].createdAt || now;
+      this.state.wechatPublishCandidates[index] = row;
+    } else {
+      this.state.wechatPublishCandidates.push(row);
+    }
+    await this.flush();
+    return id;
+  }
+
+  async getWechatPublishCandidate(id = "") {
+    return this.state.wechatPublishCandidates.find((item) => String(item.id) === String(id || "")) || null;
+  }
+
+  async updateWechatPublishCandidate(id = "", updates = {}) {
+    const row = await this.getWechatPublishCandidate(id);
+    if (!row) return;
+    if (updates.status !== undefined) row.status = String(updates.status || "");
+    if (updates.draftMediaId !== undefined) row.draftMediaId = String(updates.draftMediaId || "");
+    if (updates.error !== undefined) row.error = String(updates.error || "");
+    if (updates.metadata !== undefined) row.metadata = updates.metadata || {};
+    row.updatedAt = new Date().toISOString();
     await this.flush();
   }
 
