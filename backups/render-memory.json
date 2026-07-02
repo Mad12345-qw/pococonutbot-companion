@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T03:09:32.168Z",
+  "exportedAt": "2026-07-02T03:17:09.788Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -55751,6 +55751,49 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T02:46:26.250Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] Hermes Agent 推出迄今最大更新——准确率https://www.youtube.com/watch?v=u121jU2L0OY Experts）：Orchestrator（如 Opus 4.8）动态调度 DeepSeek V4、GLM 5.2 和 ChatGPT 5.5，彼此弥补盲区；\nhttps://www.youtube.com/watch?v=u121jU2L0OY",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.youtube.com/watch?v=u121jU2L0OY"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b693ac6b8b0b1079bef524f5df",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-02T03:13:10.288Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "Hermes Agent 推出迄今最大更新——准确率https://www.youtube.com/watch?v=u121jU2L0OY Experts）：Orchestrator（如 Opus 4.8）动态调度 DeepSeek V4、GLM 5.2 和 ChatGPT 5.5，彼此弥补盲区；\n• 基于缓存的低成本架构，让多模型协同真正实用；\n• 全新「电脑控制」能力，Hermes 可直接操作你的桌面；\n• `/learn` 技能：任意对话一键转为可复用技能，支持从代码仓库自动构建；\n• 原生语音聊天支持，更自然的人机交互。\n\n还快速覆盖 iMessage 集成、后台常驻 Agent、全新桌面 App 等亮点。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b693ac6b8b0b1079bef524f5df",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:13:11.121Z"
       }
     ],
     "memories": [
@@ -58632,7 +58675,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-01T17:25:16.300Z"
+        "updatedAt": "2026-07-02T03:13:11.049Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58642,7 +58685,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-01T17:25:16.230Z"
+        "updatedAt": "2026-07-02T03:13:10.960Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
