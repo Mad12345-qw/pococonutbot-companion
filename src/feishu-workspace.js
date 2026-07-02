@@ -50,6 +50,43 @@ function markdownToBlocks(markdown = "") {
     .slice(0, 300);
 }
 
+export const DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID = "oc_bd5099233ce701edc7879f798aa9925c";
+export const DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT = "加入我们，持续追踪SpaceX、AI、Robot！";
+
+export function feishuOpenChatUrl(chatId = "") {
+  const clean = String(chatId || "").trim();
+  if (!clean) return "";
+  return `https://applink.feishu.cn/client/chat/open?openChatId=${encodeURIComponent(clean)}`;
+}
+
+export function buildFeishuArticleGroupPrelude(config = {}) {
+  const chatId = String(config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
+  const inviteText = String(config.feishuArticleGroupInviteText || DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT).trim();
+  if (!chatId || !inviteText) return "";
+  const url = feishuOpenChatUrl(chatId);
+  if (!url) return "";
+  return [inviteText, "", `[加入群聊](${url})`].join("\n");
+}
+
+export function withFeishuArticleGroupPrelude(markdown = "", config = {}) {
+  const body = String(markdown || "").trimStart();
+  const prelude = buildFeishuArticleGroupPrelude(config);
+  if (!prelude || body.includes(feishuOpenChatUrl(config.feishuArticleGroupChatId))) {
+    return body;
+  }
+  const lines = body.split(/\r?\n/);
+  if (/^#\s+/.test(lines[0] || "")) {
+    return [lines[0], "", prelude, "", ...lines.slice(1)]
+      .join("\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+  return [prelude, "", body]
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function cleanConvertedBlock(block = {}) {
   if (!block || typeof block !== "object") return block;
   const cleaned = JSON.parse(JSON.stringify(block));
@@ -163,9 +200,10 @@ function isFolderPermissionError(error) {
 }
 
 export class FeishuWorkspaceClient {
-  constructor({ config, getToken }) {
+  constructor({ config, getToken, onDocumentCreated = null }) {
     this.config = config;
     this.getToken = getToken;
+    this.onDocumentCreated = typeof onDocumentCreated === "function" ? onDocumentCreated : null;
   }
 
   get enabled() {
@@ -219,7 +257,21 @@ export class FeishuWorkspaceClient {
     return "";
   }
 
-  async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false }) {
+  async notifyDocumentCreated(document = {}, meta = {}) {
+    if (!this.onDocumentCreated || !document.url) return null;
+    try {
+      return await this.onDocumentCreated(document, meta);
+    } catch (error) {
+      logEvent("warn", "Feishu document created callback failed", {
+        title: document.title || meta.title || "",
+        url: document.url || "",
+        error: error.message
+      });
+      return { sent: false, error: error.message };
+    }
+  }
+
+  async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false, articleGroupSourceType = "" }) {
     if (!parentWikiToken) throw new Error("Missing Feishu parent wiki token.");
     const parentNode = await this.getWikiNode(parentWikiToken, "wiki");
     const spaceId = parentNode.space_id || parentNode.spaceId || "";
@@ -248,8 +300,9 @@ export class FeishuWorkspaceClient {
     let writeMode = "rich";
     let blockCount = 0;
     let writeDiagnostics = {};
+    const documentMarkdown = withFeishuArticleGroupPrelude(markdown, this.config);
     try {
-      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown, index: 0 });
+      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown, index: 0 });
       blockCount = result.blocks || 0;
       writeDiagnostics = {
         evidenceLinksRewritten: result.evidenceLinksRewritten || 0,
@@ -266,7 +319,7 @@ export class FeishuWorkspaceClient {
       });
       writeMode = "text_fallback";
       try {
-        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown });
+        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown });
         blockCount = result.blocks || 0;
       } catch (fallbackError) {
         writeError = fallbackError.message;
@@ -284,7 +337,7 @@ export class FeishuWorkspaceClient {
       writeMode,
       contentWritten: !writeError
     });
-    return {
+    const created = {
       token: documentId,
       wikiToken,
       url: node.url || (wikiToken ? `${this.config.feishuDocBaseUrl || "https://www.feishu.cn"}/wiki/${wikiToken}` : this.docUrl(documentId)),
@@ -295,6 +348,11 @@ export class FeishuWorkspaceClient {
       blocks: blockCount,
       inWiki: true
     };
+    created.articleGroupNotification = await this.notifyDocumentCreated(created, {
+      title,
+      sourceType: articleGroupSourceType
+    });
+    return created;
   }
 
   async getChatInfo(chatId) {
@@ -427,7 +485,7 @@ export class FeishuWorkspaceClient {
     return { document, documentId, usedFolder: Boolean(body.folder_token) };
   }
 
-  async createDocument({ title, markdown }) {
+  async createDocument({ title, markdown, articleGroupSourceType = "" }) {
     let record;
     let folderFallback = false;
     try {
@@ -448,8 +506,9 @@ export class FeishuWorkspaceClient {
     let writeError = "";
     let writeMode = "rich";
     let blockCount = 0;
+    const documentMarkdown = withFeishuArticleGroupPrelude(markdown, this.config);
     try {
-      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown, index: 0 });
+      const result = await this.insertRichMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown, index: 0 });
       blockCount = result.blocks || 0;
     } catch (error) {
       logEvent("warn", "Feishu rich document write failed, falling back to text blocks", {
@@ -459,11 +518,11 @@ export class FeishuWorkspaceClient {
       });
       writeMode = "text_fallback";
       try {
-        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown });
+        const result = await this.insertPlainTextMarkdown({ documentId, parentBlockId: documentId, markdown: documentMarkdown });
         blockCount = result.blocks || 0;
       } catch (fallbackError) {
         writeError = fallbackError.message;
-        const blocks = markdownToBlocks(markdown);
+        const blocks = markdownToBlocks(documentMarkdown);
         logEvent("warn", "Feishu document created but content write failed", {
           title,
           documentId,
@@ -485,7 +544,7 @@ export class FeishuWorkspaceClient {
       folderUsed: Boolean(record.usedFolder),
       folderFallback
     });
-    return {
+    const created = {
       token: documentId,
       url: this.docUrl(documentId),
       title: document.title || title,
@@ -494,6 +553,11 @@ export class FeishuWorkspaceClient {
       blocks: blockCount,
       folderFallback
     };
+    created.articleGroupNotification = await this.notifyDocumentCreated(created, {
+      title,
+      sourceType: articleGroupSourceType
+    });
+    return created;
   }
 
   async appendMarkdownToDocument({ documentId, markdown }) {

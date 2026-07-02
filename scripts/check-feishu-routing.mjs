@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { extractImageGenerationIntent } from "../src/image-intent.js";
 import { FeishuBot } from "../src/feishu.js";
-import { FeishuWorkspaceClient } from "../src/feishu-workspace.js";
+import { FeishuWorkspaceClient, buildFeishuArticleGroupPrelude, withFeishuArticleGroupPrelude } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 import { WeChatPublisher } from "../src/wechat-publisher.js";
@@ -85,6 +85,33 @@ function sectionBetween(markdown = "", startHeading = "", endHeading = "") {
 function countBullets(markdown = "") {
   return (String(markdown || "").match(/^\s*[-*]\s+/gm) || []).length;
 }
+
+const articleGroupConfig = {
+  feishuArticleGroupChatId: "oc_test_group",
+  feishuArticleGroupInviteText: "加入我们，持续追踪SpaceX、AI、Robot！"
+};
+const articleGroupPrelude = buildFeishuArticleGroupPrelude(articleGroupConfig);
+assertEqual(
+  "Feishu article group prelude uses configured invite text",
+  String(articleGroupPrelude.includes(articleGroupConfig.feishuArticleGroupInviteText)),
+  "true"
+);
+assertEqual(
+  "Feishu article group prelude uses an open chat link",
+  String(articleGroupPrelude.includes("https://applink.feishu.cn/client/chat/open?openChatId=oc_test_group")),
+  "true"
+);
+const articleWithPrelude = withFeishuArticleGroupPrelude("# 正文标题\n\n## 一、正文", articleGroupConfig);
+assertEqual(
+  "Feishu article group prelude is inserted after the document title",
+  String(articleWithPrelude.startsWith("# 正文标题\n\n加入我们，持续追踪SpaceX、AI、Robot！")),
+  "true"
+);
+assertEqual(
+  "Feishu article group prelude is idempotent",
+  String(countOccurrences(withFeishuArticleGroupPrelude(articleWithPrelude, articleGroupConfig), "加入我们，持续追踪SpaceX、AI、Robot！")),
+  "1"
+);
 
 const routeCases = [
   {
@@ -821,6 +848,16 @@ assertEqual(
   "investment report publishing requires rich Feishu blocks for evidence anchors",
   String(
     /createWikiDocument\(\{[\s\S]{0,220}requireRichMarkdown:\s*true/.test(feishuSource)
+  ),
+  "true"
+);
+assertEqual(
+  "YouTube and investment Feishu documents notify the configured article group",
+  String(
+    feishuSource.includes("async notifyArticleGroup") &&
+    feishuSource.includes("sendTextToChat") &&
+    feishuSource.includes("articleGroupSourceType: \"YouTube 精读\"") &&
+    feishuSource.includes("articleGroupSourceType: \"投研报告\"")
   ),
   "true"
 );

@@ -5,7 +5,11 @@ import { extractImageGenerationIntent } from "./image-intent.js";
 import { buildSearchCard, buildWorldCupPollResultCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
 import { buildPremiumPollCard, buildPremiumSearchCard, renderPremiumSearchCardImage } from "./feishu-premium-card-renderer.js";
 import { buildSystemPrompt } from "./persona.js";
-import { FeishuWorkspaceClient } from "./feishu-workspace.js";
+import {
+  DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID,
+  DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT,
+  FeishuWorkspaceClient
+} from "./feishu-workspace.js";
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
@@ -3052,7 +3056,12 @@ export class FeishuBot {
     this.sentBotMessageIds = new Map();
     this.workspace = new FeishuWorkspaceClient({
       config,
-      getToken: () => this.tenantAccessToken()
+      getToken: () => this.tenantAccessToken(),
+      onDocumentCreated: (document, meta) => this.notifyArticleGroup({
+        title: document.title || meta?.title || "",
+        url: document.url || "",
+        sourceType: meta?.sourceType || ""
+      })
     });
     this.wechatPublisher = new WeChatPublisher({ config, ai, imageGenerator });
     this.projectEngine = new ProjectEngine({
@@ -4192,8 +4201,10 @@ export class FeishuBot {
         parentWikiToken,
         title: report.title,
         markdown: report.markdown,
-        requireRichMarkdown: true
+        requireRichMarkdown: true,
+        articleGroupSourceType: "投研报告"
       });
+      const groupNotification = doc.articleGroupNotification || null;
       const wechatCandidate = await this.registerWechatPublishCandidate({
         sourceType: "investment_report",
         title: report.title,
@@ -4232,6 +4243,7 @@ export class FeishuBot {
           backfill: report.backfill || {},
           aiFallback: report.aiFallback || null,
           wechatCandidateId: wechatCandidate?.id || "",
+          articleGroupNotification: groupNotification || null,
           document: {
             token: doc.token || "",
             wikiToken: doc.wikiToken || "",
@@ -4253,6 +4265,7 @@ export class FeishuBot {
           query: request.query,
           feishuDocUrl: doc.url || "",
           wechatCandidateId: wechatCandidate?.id || "",
+          articleGroupNotification: groupNotification || null,
           version: versionInfo || null,
           sourceCount: report.pack.sources.length,
           evidenceCards: report.pack.evidenceCards.length,
@@ -5574,12 +5587,15 @@ export class FeishuBot {
         ? await this.workspace.createWikiDocument({
             parentWikiToken,
             title: this.resolveYoutubeDocumentTitle(report),
-            markdown
+            markdown,
+            articleGroupSourceType: "YouTube 精读"
           })
         : await this.workspace.createDocument({
             title: this.resolveYoutubeDocumentTitle(report),
-            markdown
+            markdown,
+            articleGroupSourceType: "YouTube 精读"
           });
+      const groupNotification = doc.articleGroupNotification || null;
       return {
         created: true,
         url: doc.url || "",
@@ -5591,7 +5607,8 @@ export class FeishuBot {
         writeError: doc.writeError || "",
         writeMode: doc.writeMode || "",
         blocks: doc.blocks || 0,
-        folderFallback: Boolean(doc.folderFallback)
+        folderFallback: Boolean(doc.folderFallback),
+        articleGroupNotification: groupNotification || null
       };
     } catch (error) {
       logEvent("warn", "Feishu YouTube document sync failed", {
@@ -7851,6 +7868,49 @@ export class FeishuBot {
     });
     this.rememberBotMessage(response);
     return response;
+  }
+
+  async sendTextToChat(chatId, text) {
+    const targetChatId = String(chatId || "").trim();
+    if (!targetChatId) return null;
+    const response = await this.feishuPost("/open-apis/im/v1/messages?receive_id_type=chat_id", {
+      receive_id: targetChatId,
+      msg_type: "text",
+      content: JSON.stringify({ text: String(text || "") })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async notifyArticleGroup({ title = "", url = "", sourceType = "" } = {}) {
+    const chatId = String(this.config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
+    const docUrl = String(url || "").trim();
+    if (!chatId || !docUrl) return { sent: false, reason: "not_configured" };
+    const inviteText = String(this.config.feishuArticleGroupInviteText || "").trim() || DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT;
+    const label = sourceType ? `${sourceType}已生成` : "飞书文档已生成";
+    const text = [
+      inviteText,
+      "",
+      `${label}：${String(title || "未命名文档").trim()}`,
+      docUrl
+    ].join("\n");
+    try {
+      await this.sendTextToChat(chatId, text);
+      logEvent("info", "Feishu article group notification sent", {
+        chatId,
+        title: title || "",
+        sourceType: sourceType || ""
+      });
+      return { sent: true, chatId };
+    } catch (error) {
+      logEvent("warn", "Feishu article group notification failed", {
+        chatId,
+        title: title || "",
+        sourceType: sourceType || "",
+        error: error.message
+      });
+      return { sent: false, chatId, error: error.message };
+    }
   }
 
   async replyCard(messageId, card) {
