@@ -6,6 +6,8 @@ import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 import { WeChatPublisher } from "../src/wechat-publisher.js";
 import { buildLatestYoutubeWechatCandidate, extractWikiTokenFromFeishuUrl } from "../src/admin.js";
+import { resolveImageEndpoint } from "../src/config.js";
+import { ImageGenerationClient } from "../src/image-client.js";
 
 const bot = Object.create(FeishuBot.prototype);
 bot.config = {
@@ -1102,6 +1104,10 @@ class TestWeChatPublisher extends WeChatPublisher {
     return "https://mmbiz.qpic.cn/test-inline.png";
   }
 
+  async downloadFirstAvailableImage() {
+    return { buffer: Buffer.from("test-thumbnail"), mimeType: "image/jpeg" };
+  }
+
   async wechatJson(path, body) {
     this.lastDraftPayload = { path, body };
     return { media_id: "draft_media_test" };
@@ -1114,7 +1120,7 @@ const wechatPublisher = new TestWeChatPublisher({
     wechatMpAppId: "wx-test",
     wechatMpAppSecret: "secret-test",
     wechatMpAuthor: "小椰",
-    wechatMpCtaText: "关注小椰，继续追踪产业链和技术拐点。",
+    wechatMpCtaText: "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」",
     wechatMpOpenComment: false,
     wechatMpOnlyFansCanComment: false
   },
@@ -1136,6 +1142,7 @@ const wechatFeishuMarkdown = [
   "- **Starship：** SpaceX 的超重型飞船系统，这里重点不是单次发射，而是产线节奏和复用逻辑。",
   "- **Raptor：** 星舰使用的发动机，决定产线能不能持续交付和快速测试。",
   "- **Stage Zero：** 发射塔、地面管线和捕获系统组成的基础设施，是高频发射的地面瓶颈。",
+  "- **wet mass / dry mass：** 湿质量是满载推进剂时的质量，干质量是推进剂耗尽后的质量。",
   "",
   "## 二、背景导读",
   "这段视频的价值不在于参观工厂本身，而在于它把 SpaceX 的核心矛盾摆到台前：如果火箭仍然像传统航天项目一样按任务手工打磨，星舰就无法支撑高频发射、月球任务和 Starlink 部署。",
@@ -1223,10 +1230,11 @@ assertEqual(
   "WeChat publisher adapts the finished Feishu article instead of regenerating from structured JSON",
   String(
     wechatPlan.bodyMarkdown.includes("Starfactory 把航天问题改写成制造业问题") &&
-    wechatPlan.bodyMarkdown.includes("原文核对") &&
     wechatPlan.coverPrompt.includes("Starfactory") &&
     wechatPlan.coverPrompt.includes("Raptor") &&
     wechatPlan.coverPrompt.includes("specific scene") &&
+    !wechatPlan.bodyMarkdown.includes("原文核对") &&
+    !wechatPlan.bodyMarkdown.includes("时间线摘要") &&
     !wechatPlan.bodyMarkdown.includes("This line should not be dumped into WeChat as raw transcript") &&
     !wechatPlan.bodyMarkdown.includes("```") &&
     !wechatPlan.bodyMarkdown.includes("主题聚合") &&
@@ -1258,10 +1266,62 @@ assertEqual(
     wechatDraftArticle.title === wechatCandidate.title &&
     wechatDraftArticle.thumb_media_id === "thumb_media_test" &&
     wechatDraftArticle.content_source_url === wechatCandidate.feishuDocUrl &&
+    (wechatDraftArticle.content || "").includes("https://mmbiz.qpic.cn/test-inline.png") &&
+    (wechatDraftArticle.content || "").indexOf("https://mmbiz.qpic.cn/test-inline.png") < (wechatDraftArticle.content || "").indexOf("先说结论") &&
+    (wechatDraftArticle.content || "").includes('font-size:19px;line-height:1.55;font-weight:700;text-align:center;">先说结论') &&
+    (wechatDraftArticle.content || "").includes("封面来自原视频，完整资料与原视频见文末「阅读原文」。") &&
+    (wechatDraftArticle.content || "").includes("Raptor 是产线化是否成立的硬约束") &&
+    (wechatDraftArticle.content || "").includes("地面系统决定高频发射能否闭环") &&
+    (wechatDraftArticle.content || "").includes("wet mass / dry mass") &&
+    (wechatDraftArticle.content || "").includes("关注我，继续追踪产业链和技术拐点<br />原视频点击左下方「阅读原文」") &&
+    !(wechatDraftArticle.content || "").includes("关注我，继续追踪产业链和技术拐点。") &&
+    (wechatDraftArticle.content || "").includes("border-left:4px solid #ff7a00;border-right:4px solid #ff7a00") &&
+    (wechatDraftArticle.content || "").includes("text-align:center;font-weight:600") &&
+    !(wechatDraftArticle.content || "").includes("把关键证据拆开看") &&
+    !(wechatDraftArticle.content || "").includes("关键技术点速览") &&
+    !/[🔹🎯🧩📌]/u.test(wechatDraftArticle.content || "") &&
+    ((wechatDraftArticle.content || "").match(/接下来最该追问什么/g) || []).length <= 1 &&
+    !(wechatDraftArticle.content || "").includes("feishu.cn/wiki/test") &&
     /<h2 style=/.test(wechatDraftArticle.content || "") &&
+    !(wechatDraftArticle.content || "").includes("width:36px;height:3px;background:#07C160") &&
+    !(wechatDraftArticle.content || "").includes("#07C160") &&
     !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
     !(wechatDraftArticle.content || "").includes("raw transcript")
   ),
+  "true"
+);
+assertEqual(
+  "WeChat opening hook renders smaller quoted copy without trailing sentence punctuation",
+  String(
+    (wechatDraftArticle.content || "").includes('line-height:1.9;font-size:14.8px;font-weight:600;word-break:break-word;">“') &&
+    /”<\/p><\/section>/.test(wechatDraftArticle.content || "") &&
+    !/[。！？!?；;]”<\/p><\/section>/.test(wechatDraftArticle.content || "")
+  ),
+  "true"
+);
+assertEqual(
+  "WeChat public article hides one-sentence conclusion wording",
+  String(!(wechatDraftArticle.content || "").includes(">一句话结论</p>")),
+  "true"
+);
+assertEqual(
+  "WeChat draft renders visible section bands",
+  String((wechatDraftArticle.content || "").includes("border-left:4px solid #ff7a00") && (wechatDraftArticle.content || "").includes("border:1px solid #ececec") && (wechatDraftArticle.content || "").includes("border-radius:8px;text-align:center")),
+  "true"
+);
+assertEqual(
+  "WeChat draft renders boxed technical breakdown cards",
+  String((wechatDraftArticle.content || "").includes("border:1px solid #e6e6e6")),
+  "true"
+);
+assertEqual(
+  "WeChat draft renders numbered core or technical cards",
+  String((wechatDraftArticle.content || "").includes(">01</span>")),
+  "true"
+);
+assertEqual(
+  "WeChat draft indents card explanation lines",
+  String((wechatDraftArticle.content || "").includes("padding-left:12px;border-left:2px solid #ffb04a")),
   "true"
 );
 const plainWechatCandidate = {
@@ -1297,10 +1357,18 @@ assertEqual(
   "WeChat publisher turns plain Feishu raw text into reader-grade public-account layout",
   String(
     plainWechatHtml.includes("先说结论") &&
-    plainWechatHtml.includes("width:36px;height:3px;background:#07C160") &&
+    plainWechatHtml.includes("读前先懂这几个词") &&
+    plainWechatHtml.includes("这件事为什么现在值得看") &&
+    plainWechatHtml.includes("真正值得带走的判断") &&
+    !plainWechatHtml.includes("#07C160") &&
+    !plainWechatHtml.includes("border-left:4px solid #07C160") &&
+    !plainWechatHtml.includes("width:36px;height:3px;background:#07C160") &&
     !plainWechatHtml.includes(">SECTION<") &&
-    plainWechatHtml.includes("border:1px solid #e5e7eb") &&
-    plainWechatHtml.includes("font-family:Menlo,Consolas,monospace") &&
+    plainWechatHtml.includes("border:1px solid #ececec") &&
+    plainWechatHtml.indexOf("这件事为什么现在值得看") >= 0 &&
+    plainWechatHtml.indexOf("读前先懂这几个词") > plainWechatHtml.indexOf("这件事为什么现在值得看") &&
+    !plainWechatHtml.includes("这些词不用背") &&
+    !plainWechatHtml.includes("[0:10] Stoke is perhaps one of the most exciting rocket companies.") &&
     !plainWechatHtml.includes("<p style=\"margin:15px 0;line-height:1.95;font-size:15.5px;color:#263238;letter-spacing:0;\">为什么 Stoke Space 把二级热盾塞进燃料回路</p>")
   ),
   "true"
@@ -1726,5 +1794,67 @@ assertEqual(
   }).includes("联网资料卡"),
   false
 );
+
+assertEqual(
+  "Mikoto guide URL resolves to image API endpoint",
+  resolveImageEndpoint("https://api.mikoto.vip/image-api-guide.html?user_id=123&token=redacted"),
+  "https://api.mikoto.vip/v1/images/generations"
+);
+
+assertEqual(
+  "Mikoto custom URL resolves to image API endpoint",
+  resolveImageEndpoint("https://api.mikoto.vip/custom/example"),
+  "https://api.mikoto.vip/v1/images/generations"
+);
+
+const originalFetchForImage = globalThis.fetch;
+const imageFetchCalls = [];
+globalThis.fetch = async (url, options = {}) => {
+  imageFetchCalls.push({ url: String(url), method: options.method || "GET" });
+  if (String(url).endsWith("/v1/images/generations/async")) {
+    return new Response(JSON.stringify({ task_id: "task_test_1", status: "queued", poll_url: "/v1/images/tasks/task_test_1" }), {
+      status: 200,
+      headers: { "content-type": "application/json" }
+    });
+  }
+  if (String(url).endsWith("/v1/images/tasks/task_test_1")) {
+    return new Response(JSON.stringify({
+      status: "success",
+      result: {
+        data: [{ b64_json: Buffer.from("fake-image").toString("base64") }]
+      }
+    }), {
+      status: 200,
+      headers: { "content-type": "application/json" }
+    });
+  }
+  throw new Error(`unexpected image fetch url: ${url}`);
+};
+try {
+  const imageClient = new ImageGenerationClient({
+    imageGenerationEnabled: true,
+    imageApiKey: "test-key",
+    imageApiUrl: "https://api.mikoto.vip/v1/images/generations",
+    imageModel: "gpt-image-2",
+    imageSize: "1024x1024",
+    imageTimeoutMs: 20000,
+    imageAsyncEnabled: true,
+    imageAsyncPollIntervalMs: 3000
+  });
+  const image = await imageClient.generate("article-specific cover");
+  assertEqual("image async client returns generated buffer", String(image.buffer.length > 0), "true");
+  assertEqual(
+    "image async client creates async task",
+    String(imageFetchCalls.some((call) => call.method === "POST" && call.url.endsWith("/v1/images/generations/async"))),
+    "true"
+  );
+  assertEqual(
+    "image async client polls task endpoint",
+    String(imageFetchCalls.some((call) => call.method === "GET" && call.url.endsWith("/v1/images/tasks/task_test_1"))),
+    "true"
+  );
+} finally {
+  globalThis.fetch = originalFetchForImage;
+}
 
 console.log("Feishu routing checks passed.");
