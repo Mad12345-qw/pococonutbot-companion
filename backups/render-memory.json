@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T16:22:57.343Z",
+  "exportedAt": "2026-07-02T16:32:57.785Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -57563,6 +57563,54 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-02T16:20:50.153Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "技术我已经拆解了！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5d46a824a0c06726f9f0b0514",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T16:23:40.001Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "技术实现上拆成几个关键组件：\n\n| 组件 | 来源 | 作用 |\n|------|------|------|\n| Transformer 骨干 | Qwen2.5-7B（扩展） | 核心推理引擎 |\n| 音频编码/解码 | Mimi（Kyutai） | 24kHz 实时音频，80ms一帧 |\n| 视频编码/解码 | Wan-VAE（Wan2.1） | 192p 25fps，160ms一个单元 |\n| 流式注意力 | Block-Causal Attention | 保证时序因果+多模态混合 |\n| 生成方式 | Flow Matching | 音频+视频联合去噪生成 |\n| 推理架构 | Thinker + Performer 双GPU | Thinker做编码+Transformer，Performer做生成 |\n\n为什么它比级联快？ 级联方案每个模块之间有序列化延迟：ASR等说完→LLM等ASR→TTS等LLM。Wan-Streamer 是流式的，每160ms处理一个chunk，不等说完就开始准备回应。而且音频/视频生成和文本生成是同步的，不是\"先生成文字再转语音\"。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5d47fef4a4c1c1c3d5cf19e47",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T16:23:51.592Z"
       }
     ],
     "memories": [
@@ -61734,7 +61782,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-02T16:20:41.458Z"
+        "updatedAt": "2026-07-02T16:23:51.521Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61744,7 +61792,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-02T16:20:41.369Z"
+        "updatedAt": "2026-07-02T16:23:51.450Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
