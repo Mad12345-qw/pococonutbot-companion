@@ -316,6 +316,55 @@ try {
   assert.ok(expandedQueryCorpus.evidenceCards.some((card) =>
     String(card.claim || "").includes("Raptor 液氧甲烷发动机")
   ));
+  await storage.upsertResearchJob({
+    id: "job:spacex-report",
+    sourceType: "investment_report",
+    sourceUrl: "SpaceX",
+    status: "done",
+    stage: "done",
+    output: { title: "SpaceX 产业链报告", feishuDocUrl: "https://example.feishu.cn/wiki/spacexreport" }
+  });
+  await storage.recordInvestmentReportVersion({
+    jobId: "job:spacex-report",
+    query: "SpaceX",
+    topicMap: expandedQueryCorpus.topicMap,
+    structured: {
+      title: "SpaceX 产业链报告",
+      oneSentence: "SpaceX is only one evidence anchor, not every aerospace report identity.",
+      hypotheses: []
+    },
+    pack: expandedQueryCorpus
+  });
+  const expandedPriorBeforeOwnReport = await storage.getPriorInvestmentReport({
+    query: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    topicMap: expandedQueryCorpus.topicMap
+  });
+  assert.equal(expandedPriorBeforeOwnReport, null);
+  await storage.upsertResearchJob({
+    id: "job:methalox-supply-chain-report",
+    sourceType: "investment_report",
+    sourceUrl: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    status: "done",
+    stage: "done",
+    output: { title: "商业航天液氧甲烷发动机供应链报告", feishuDocUrl: "https://example.feishu.cn/wiki/methaloxreport" }
+  });
+  const expandedVersion = await storage.recordInvestmentReportVersion({
+    jobId: "job:methalox-supply-chain-report",
+    query: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    topicMap: expandedQueryCorpus.topicMap,
+    structured: {
+      title: "商业航天液氧甲烷发动机供应链报告",
+      oneSentence: "The report identity follows the user's research topic, while evidence retrieval may use SpaceX assets.",
+      hypotheses: []
+    },
+    pack: expandedQueryCorpus
+  });
+  assert.equal(expandedVersion.versionNo, 1);
+  const expandedPriorAfterOwnReport = await storage.getPriorInvestmentReport({
+    query: "商业航天液氧甲烷发动机与可复用火箭的供应链",
+    topicMap: expandedQueryCorpus.topicMap
+  });
+  assert.equal(expandedPriorAfterOwnReport.feishuDocUrl || expandedPriorAfterOwnReport.output?.feishuDocUrl, "https://example.feishu.cn/wiki/methaloxreport");
 
   await storage.addMessage({
     chatId: "feishu:test",

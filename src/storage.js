@@ -38,6 +38,8 @@ const RESEARCH_QUERY_EXPANSIONS = [
   }
 ];
 
+const RESEARCH_IDENTITY_KEYWORD_PATTERN = /SpaceX|Starship|Starlink|Raptor|OpenAI|NVIDIA|CPO|GPU|AI|HLS|FAA|NASA|液氧甲烷|甲烷发动机|商业航天|航天燃料|可复用火箭|可复用|火箭|发动机|供应链|产业链|光模块|数据中心网络|人形机器人|执行器|减速器|灵巧手|液冷|储能|核电|电力/gi;
+
 function summaryKey(chatId, userId = "") {
   const normalizedUserId = String(userId || "");
   return normalizedUserId ? `${String(chatId)}${summaryUserSeparator}${normalizedUserId}` : String(chatId);
@@ -160,9 +162,25 @@ function researchQueryExpansionTerms(query = "") {
   for (const item of RESEARCH_QUERY_EXPANSIONS) {
     if (item.pattern.test(text)) output.push(...item.terms);
   }
-  const keywordMatches = text.match(/SpaceX|Starship|Starlink|Raptor|OpenAI|NVIDIA|CPO|GPU|AI|HLS|FAA|NASA|液氧甲烷|甲烷发动机|商业航天|航天燃料|可复用火箭|可复用|火箭|发动机|供应链|产业链|光模块|数据中心网络|人形机器人|执行器|减速器|灵巧手|液冷|储能|核电|电力/gi) || [];
+  const keywordMatches = text.match(RESEARCH_IDENTITY_KEYWORD_PATTERN) || [];
   output.push(...keywordMatches);
   return output;
+}
+
+function investmentReportTopicIdentity(query = "") {
+  const clean = cleanResearchText(String(query || "").replace(/^投研报告[:：]\s*/i, ""), 180);
+  const keywordMatches = clean.match(RESEARCH_IDENTITY_KEYWORD_PATTERN) || [];
+  const rawParts = clean
+    .replace(/[的之与和及以及关于围绕相关研究分析报告投研]/g, " ")
+    .split(/[\/,，、\s:：|]+/)
+    .map((item) => cleanResearchText(item, 80))
+    .filter((item) => item.length >= 2 && item.length <= 24);
+  const terms = mergeResearchUnique([...keywordMatches, ...rawParts], (item) => item.toLowerCase(), 8);
+  const topicName = terms.length >= 2 ? terms.join(" / ") : clean;
+  return {
+    topicName: topicName || clean || "产业链投研报告",
+    topicKey: normalizeResearchTopicKey(topicName || clean || "产业链投研报告")
+  };
 }
 
 function splitResearchTerms(query = "", extra = []) {
@@ -2617,9 +2635,7 @@ class PostgresStorage {
   }
 
   async getPriorInvestmentReport({ query = "", topicMap = null } = {}) {
-    const topicKey = normalizeResearchTopicKey(
-      topicMap?.topics?.[0]?.canonicalName || query
-    );
+    const { topicKey } = investmentReportTopicIdentity(query);
     const result = await this.pool.query(
       `SELECT job.id, job.output, job.updated_at AS "updatedAt",
               version.report_topic AS "reportTopic",
@@ -2698,8 +2714,7 @@ class PostgresStorage {
     pack = {},
     priorReport = null
   } = {}) {
-    const topicName = cleanResearchText(topicMap?.topics?.[0]?.canonicalName || query, 180);
-    const topicKey = normalizeResearchTopicKey(topicName || query);
+    const { topicName, topicKey } = investmentReportTopicIdentity(query);
     const maxResult = await this.pool.query(
       `SELECT COALESCE(MAX(version_no), 0)::int AS max_version
        FROM research_report_versions
@@ -3757,7 +3772,7 @@ class JsonFileStorage {
   }
 
   async getPriorInvestmentReport({ query = "", topicMap = null } = {}) {
-    const topicKey = normalizeResearchTopicKey(topicMap?.topics?.[0]?.canonicalName || query);
+    const { topicKey } = investmentReportTopicIdentity(query);
     const queryText = String(query || "").toLowerCase();
     return this.state.researchReportVersions
       .filter((item) =>
@@ -3830,8 +3845,7 @@ class JsonFileStorage {
     priorReport = null
   } = {}) {
     const now = new Date().toISOString();
-    const topicName = cleanResearchText(topicMap?.topics?.[0]?.canonicalName || query, 180);
-    const topicKey = normalizeResearchTopicKey(topicName || query);
+    const { topicName, topicKey } = investmentReportTopicIdentity(query);
     const maxVersion = this.state.researchReportVersions
       .filter((item) => String(item.report_topic_key) === topicKey)
       .reduce((max, item) => Math.max(max, Number(item.version_no || 0)), 0);
