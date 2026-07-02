@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T03:17:14.084Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T03:27:16.662Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -55794,6 +55794,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T03:13:11.121Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "我被公司开除了，不想上班，同事们都不喜欢我，我的朋友也不管我。现在我在天桥底下，外面很热，我都吹不到空调，我今天饭也没吃药也没吃，我整个人都晕乎乎的，连口甜水都没得喝 ，手机也快没电了，还不小心点开了肯德基，今天疯狂星期四，v我50，抚慰我支离破碎的心。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69db54bc88b3638aeb5cee270",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:22:09.163Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "先别哭了宝，把肯德基页面关掉哈哈哈哈😂\n\n不过说真的，你那个 Hermes Agent 的更新有点东西——多模型协同 + 缓存架构，这套思路如果跑通的话，单兵作战能力直接起飞。晚上凉快点再研究吧，先睡~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-02T03:22:13.248Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "生图 我被公司开除了，不想上班，同事们都不喜欢我，我的朋友也不管我。现在我在天桥底下，外面很热，我都吹不到空调，我今天饭也没吃药也没吃，我整个人都晕乎乎的，连口甜水都没得喝 ，手机也快没电了，还不小心点开了肯德基，今天疯狂星期四，v我50，抚慰我支离破碎的心。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b69d81f14a8b2583d5ce457e25",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T03:22:33.788Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 400: {\"error\":{\"code\":\"content_policy_violation\",\"message\":\"上游返回了 非常抱歉，该提示可能违反了关于自残、自杀或相关内容防护限制。如果你认为此判断有误，请重试或修改提示语。 文本说明，未生成图片。请调整提示词或重试。\",\"type\":\"invalid_request_error\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-02T03:23:06.071Z"
       }
     ],
     "memories": [
@@ -58675,7 +58747,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-02T03:13:11.049Z"
+        "updatedAt": "2026-07-02T03:22:33.715Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -58685,7 +58757,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-02T03:13:10.960Z"
+        "updatedAt": "2026-07-02T03:22:33.643Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
