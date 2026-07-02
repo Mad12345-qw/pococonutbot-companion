@@ -174,6 +174,27 @@ try {
   assert.equal(reportCorpus.evidenceCards.length, 1);
   assert.equal(reportCorpus.evidenceCards[0].claim, "Updated claim replaces the previous evidence set.");
 
+  await storage.addMessage({
+    chatId: "feishu:test",
+    userId: "feishu:user",
+    role: "assistant",
+    modality: "system",
+    content: "SpaceX Starfactory research document synced.",
+    metadata: {
+      platform: "feishu",
+      youtubeResearch: true,
+      topic: "SpaceX",
+      title: "First Look Inside SpaceX Starfactory",
+      feishuDocUrl: "https://example.feishu.cn/wiki/backfilltoken"
+    }
+  });
+  const history = await storage.listYoutubeResearchHistoryForBackfill({
+    query: "SpaceX",
+    limit: 5
+  });
+  assert.equal(history.length, 1);
+  assert.equal(history[0].metadata.feishuDocUrl, "https://example.feishu.cn/wiki/backfilltoken");
+
   console.log("Research knowledge base checks passed.");
 } finally {
   process.chdir(originalCwd);

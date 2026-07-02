@@ -1941,6 +1941,126 @@ function buildResearchKnowledgeBundleFromYoutubeReport(report = {}, { doc = {}, 
   };
 }
 
+function extractBackfillEvidenceCardsFromDocument(text = "", { max = 18 } = {}) {
+  const lines = String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.replace(/^[-*#>\s]+/, "").trim())
+    .filter((line) => line.length >= 24 && line.length <= 900)
+    .filter((line) => !/^(来源|出处|原始链接|飞书文档|Obsidian|触发请求)[:：]/i.test(line));
+  const picked = [];
+  const preferred = lines.filter((line) => /结论|判断|证据|重要|风险|瓶颈|成本|产能|供应链|技术|商业|时间|为什么|意味着|关键|反证/.test(line));
+  for (const line of [...preferred, ...lines]) {
+    if (picked.some((item) => item === line || item.includes(line) || line.includes(item))) continue;
+    picked.push(line);
+    if (picked.length >= max) break;
+  }
+  return picked.map((line, index) => {
+    const lens = classifyResearchEvidenceType(line);
+    return {
+      evidenceType: lens,
+      claim: cleanArticleText(line, 900),
+      quoteOriginal: "",
+      quoteZh: "",
+      location: `generated_doc:${index + 1}`,
+      whyItMatters: "This evidence was backfilled from an existing reader-facing YouTube document so it can participate in cross-source research synthesis.",
+      confidence: 0.58,
+      timeSensitivity: "medium",
+      staleRisk: "Backfilled from a generated document; recheck the original transcript or source link before using as a high-confidence investment conclusion.",
+      evidenceStrength: "generated_article_backfill",
+      analysisLens: lens,
+      requiresRecheck: ["original_transcript", "publication_date", "cross_source_validation"]
+    };
+  });
+}
+
+function buildResearchKnowledgeBundleFromYoutubeHistoryDoc(history = {}, rawText = "", request = {}) {
+  const metadata = history.metadata || {};
+  const docUrl = metadata.feishuDocUrl || "";
+  const title =
+    cleanYoutubeDocumentTitle(metadata.title || "") ||
+    cleanArticleText(String(rawText || "").match(/^#\s+(.+)$/m)?.[1] || "", 160) ||
+    cleanArticleText(String(history.content || "").split(/\r?\n/).find(Boolean) || request.query || "YouTube research document", 160);
+  const sourceId = researchSourceId("source:youtube_doc_backfill", docUrl || title);
+  const evidenceCards = extractBackfillEvidenceCardsFromDocument(rawText, { max: 18 });
+  const entities = mergeUniqueBy([
+    ...extractYoutubeQuestionKeywords([request.query, title, rawText.slice(0, 4000)].join("\n"), 12).map((name) => ({
+      entityId: researchSourceId("entity:topic", String(name).toLowerCase()),
+      name,
+      entityType: inferResearchEntityType(name),
+      role: "backfilled_topic"
+    }))
+  ], (item) => item.entityId, 20);
+  return {
+    source: {
+      sourceId,
+      sourceType: "video_article_backfill",
+      platform: "feishu_youtube_doc",
+      url: metadata.sourceUrl || metadata.originalUrl || "",
+      title,
+      author: metadata.channel || "",
+      organization: metadata.channel || "",
+      publishedAt: "",
+      recordedAt: "",
+      eventPeriod: "",
+      fetchedAt: new Date().toISOString(),
+      analyzedAt: new Date().toISOString(),
+      language: "zh-CN",
+      durationText: "",
+      rawText,
+      rawTextHash: researchHash(rawText),
+      docUrl,
+      obsidianPath: metadata.obsidianPath || "",
+      reliabilityLevel: "generated_reader_document",
+      sourcePerspective: "backfilled_youtube_article",
+      institutionType: "public_video_summary",
+      institutionRole: "source_material_backfill",
+      analysisLenses: ["technology", "industry_chain", "commercialization", "risk", "time_context"],
+      evidenceStrength: "generated_article_backfill",
+      accessLevel: "private_knowledge_base",
+      conflictProfile: "summary_generation_bias_possible",
+      metadata: {
+        adapter: "youtube_history_backfill",
+        reportTopic: metadata.topic || request.query || "",
+        originalMessageCreatedAt: history.createdAt || history.created_at || "",
+        backfillCreatedAt: new Date().toISOString(),
+        requiresOriginalTranscriptRecheck: true
+      }
+    },
+    evidenceCards,
+    entities,
+    timeContext: {
+      videoPublishedAt: "",
+      likelyRecordedAt: "",
+      eventPeriod: "",
+      industryStageAtThatTime: "",
+      currentRelevance: cleanArticleText(rawText.slice(0, 900), 900),
+      timeSensitivity: "medium",
+      staleIf: "The original video, company progress, regulation, production status, or market environment changed after this document was generated.",
+      requiresRecheck: ["original_transcript", "source_date", "company_progress", "regulation", "cross_source_validation"],
+      metadata: {
+        backfilledFromGeneratedDocument: true,
+        originalDocUrl: docUrl
+      }
+    },
+    questions: [
+      {
+        question: `哪些原始字幕、官方材料、监管记录或产业数据可以验证「${request.query || title}」这条研究线？`,
+        priority: 1,
+        researchDirection: "cross_source_validation",
+        suggestedSourceTypes: ["video", "company_disclosure", "regulatory_record", "industry_report", "dataset", "paper", "news"]
+      }
+    ],
+    coverageGaps: [
+      {
+        gap: "backfilled_from_generated_reader_document",
+        impact: "This source was recovered from an existing reader document rather than the original transcript ingestion path; use it to recover research continuity, but recheck primary source material before high-confidence conclusions.",
+        fallbackSignals: ["original_transcript", "youtube_metadata", "company_disclosure", "regulatory_record", "industry_data"],
+        confidenceImpact: "medium"
+      }
+    ]
+  };
+}
+
 function researchRowValue(row = {}, camel = "", snake = "") {
   return row?.[camel] ?? row?.[snake || camel] ?? "";
 }
@@ -3141,14 +3261,18 @@ export class FeishuBot {
             query: request.query,
             reason: report.reason,
             sources: report.pack?.sources?.length || 0,
-            evidenceCards: report.pack?.evidenceCards?.length || 0
+            evidenceCards: report.pack?.evidenceCards?.length || 0,
+            backfill: report.backfill || {}
           }
         });
         await this.replyText(messageId, [
           `暂时不生成投研报告：${report.message}`,
           `当前检索到来源 ${report.pack?.sources?.length || 0} 个，证据卡 ${report.pack?.evidenceCards?.length || 0} 条。`,
+          report.backfill?.attempted
+            ? `历史文档回填：找到 ${report.backfill.candidates || 0} 篇候选文档，成功回填 ${report.backfill.imported || 0} 篇。`
+            : "",
           "建议先继续喂同一主题的视频、报告、网页、论文、公告或监管资料，再用 `投研报告：主题` 触发。"
-        ].join("\n"));
+        ].filter(Boolean).join("\n"));
         this.finishTiming(timing, { route: "investment_report", ready: false, reason: report.reason });
         return;
       }
@@ -3168,6 +3292,7 @@ export class FeishuBot {
           feishuDocUrl: doc.url || "",
           sources: report.pack.sources.length,
           evidenceCards: report.pack.evidenceCards.length,
+          backfill: report.backfill || {},
           document: {
             token: doc.token || "",
             wikiToken: doc.wikiToken || "",
@@ -3193,8 +3318,9 @@ export class FeishuBot {
       });
       await this.replyText(messageId, [
         `投研报告已生成：${doc.url || ""}`,
-        `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`
-      ].join("\n"));
+        `证据基础：${report.pack.sources.length} 个来源，${report.pack.evidenceCards.length} 条证据卡。`,
+        report.backfill?.imported ? `已自动从历史 YouTube 文档回填 ${report.backfill.imported} 篇。` : ""
+      ].filter(Boolean).join("\n"));
       this.finishTiming(timing, {
         route: "investment_report",
         ready: true,
@@ -3218,16 +3344,77 @@ export class FeishuBot {
     }
   }
 
+  async readFeishuDocumentTextByUrl(url = "") {
+    if (!this.workspace?.enabled || !url) return "";
+    const wikiToken = extractFeishuWikiToken(url);
+    if (wikiToken) return this.workspace.readWikiNodeRawContent(wikiToken);
+    const docxId = extractFeishuDocxId(url);
+    if (docxId) return this.workspace.readDocumentRawContent(docxId);
+    return "";
+  }
+
+  async backfillInvestmentReportEvidenceFromYoutubeHistory(request = {}) {
+    if (typeof this.storage.listYoutubeResearchHistoryForBackfill !== "function") {
+      return { attempted: false, imported: 0, reason: "history_lookup_not_supported" };
+    }
+    if (typeof this.storage.upsertResearchSourceBundle !== "function") {
+      return { attempted: false, imported: 0, reason: "research_bundle_write_not_supported" };
+    }
+    if (!this.workspace?.enabled) {
+      return { attempted: false, imported: 0, reason: "feishu_workspace_not_enabled" };
+    }
+    const history = await this.storage.listYoutubeResearchHistoryForBackfill({
+      query: request.query,
+      limit: 12
+    });
+    let imported = 0;
+    const errors = [];
+    for (const item of history) {
+      const metadata = item.metadata || {};
+      const docUrl = metadata.feishuDocUrl || "";
+      if (!docUrl) continue;
+      try {
+        const rawText = await this.readFeishuDocumentTextByUrl(docUrl);
+        if (!rawText || rawText.length < 300) continue;
+        const bundle = buildResearchKnowledgeBundleFromYoutubeHistoryDoc(item, rawText, request);
+        if (!bundle.evidenceCards.length) continue;
+        await this.storage.upsertResearchSourceBundle(bundle);
+        imported += 1;
+      } catch (error) {
+        errors.push({ docUrl, error: error.message });
+      }
+    }
+    return {
+      attempted: true,
+      imported,
+      candidates: history.length,
+      errors: errors.slice(0, 5)
+    };
+  }
+
   async buildInvestmentResearchReport(request = {}) {
-    const corpus = await this.storage.listResearchEvidenceForReport({
+    let corpus = await this.storage.listResearchEvidenceForReport({
       query: request.query,
       limit: 12,
       evidenceLimit: 120
     });
-    const pack = buildInvestmentReportEvidencePack(corpus);
-    const readiness = assessInvestmentReportReadiness(pack);
+    let pack = buildInvestmentReportEvidencePack(corpus);
+    let readiness = assessInvestmentReportReadiness(pack);
+    let backfill = { attempted: false, imported: 0 };
     if (!readiness.ready) {
-      return { ready: false, reason: readiness.reason, message: readiness.message, pack };
+      backfill = await this.backfillInvestmentReportEvidenceFromYoutubeHistory(request);
+      if (backfill.imported > 0) {
+        corpus = await this.storage.listResearchEvidenceForReport({
+          query: request.query,
+          limit: 12,
+          evidenceLimit: 120
+        });
+        pack = buildInvestmentReportEvidencePack(corpus);
+        readiness = assessInvestmentReportReadiness(pack);
+      }
+    }
+    if (!readiness.ready) {
+      return { ready: false, reason: readiness.reason, message: readiness.message, pack, backfill };
     }
     const evidencePack = investmentReportEvidencePrompt(pack);
     const raw = await this.ai.chat([
@@ -3289,7 +3476,8 @@ export class FeishuBot {
       title: structured.title,
       markdown,
       structured,
-      pack
+      pack,
+      backfill
     };
   }
 

@@ -64,6 +64,7 @@ app.get("/health", (_req, res) => {
     investmentResearchReports: true,
     investmentResearchReportTrigger: "投研报告：",
     investmentResearchReportWikiFolder: Boolean(config.feishuInvestmentReportParentWikiToken),
+    investmentResearchHistoryBackfill: true,
     researchArchitecturePrinciples: [
       "open_source_type_registry",
       "plan_before_generation",

@@ -1785,6 +1785,32 @@ class PostgresStorage {
       coverageGaps: coverageGaps.rows
     };
   }
+
+  async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
+    const terms = String(query || "")
+      .split(/[\/,，、\s]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2)
+      .slice(0, 10);
+    const values = [];
+    const clauses = terms.map((term) => {
+      values.push(`%${term}%`);
+      const slot = `$${values.length}`;
+      return `(content ILIKE ${slot} OR metadata::text ILIKE ${slot})`;
+    });
+    values.push(Math.max(1, Math.min(30, Number(limit) || 12)));
+    const result = await this.pool.query(
+      `SELECT content, metadata, created_at AS "createdAt"
+       FROM chat_messages
+       WHERE metadata->>'youtubeResearch' = 'true'
+         AND (metadata->>'feishuDocUrl') IS NOT NULL
+         ${clauses.length ? `AND (${clauses.join(" OR ")})` : ""}
+       ORDER BY created_at DESC
+       LIMIT $${values.length}`,
+      values
+    );
+    return result.rows;
+  }
 }
 
 class JsonFileStorage {
@@ -2488,5 +2514,23 @@ class JsonFileStorage {
       questions: this.state.researchQuestions.filter((item) => sourceIds.has(String(item.source_id))),
       coverageGaps: this.state.researchCoverageGaps.filter((item) => sourceIds.has(String(item.source_id)))
     };
+  }
+
+  async listYoutubeResearchHistoryForBackfill({ query = "", limit = 12 } = {}) {
+    const terms = String(query || "")
+      .toLowerCase()
+      .split(/[\/,，、\s]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length >= 2)
+      .slice(0, 10);
+    const matches = (message) => {
+      if (!terms.length) return true;
+      const text = [message.content, JSON.stringify(message.metadata || {})].join("\n").toLowerCase();
+      return terms.some((term) => text.includes(term));
+    };
+    return this.state.messages
+      .filter((message) => message.metadata?.youtubeResearch && message.metadata?.feishuDocUrl && matches(message))
+      .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")))
+      .slice(0, Math.max(1, Math.min(30, Number(limit) || 12)));
   }
 }
