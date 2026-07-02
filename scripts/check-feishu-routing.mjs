@@ -1269,16 +1269,20 @@ assertEqual(
     (wechatDraftArticle.content || "").includes("https://mmbiz.qpic.cn/test-inline.png") &&
     (wechatDraftArticle.content || "").indexOf("https://mmbiz.qpic.cn/test-inline.png") < (wechatDraftArticle.content || "").indexOf("先说结论") &&
     (wechatDraftArticle.content || "").includes('font-size:19px;line-height:1.55;font-weight:700;text-align:center;">先说结论') &&
-    (wechatDraftArticle.content || "").includes("封面来自原视频，完整资料与原视频见文末「阅读原文」。") &&
+    (wechatDraftArticle.content || "").includes("封面来自原视频，完整资料与原视频见文末「阅读原文」") &&
+    !(wechatDraftArticle.content || "").includes("封面来自原视频，完整资料与原视频见文末「阅读原文」。") &&
     (wechatDraftArticle.content || "").includes("Raptor 是产线化是否成立的硬约束") &&
     (wechatDraftArticle.content || "").includes("地面系统决定高频发射能否闭环") &&
     (wechatDraftArticle.content || "").includes("wet mass / dry mass") &&
-    (wechatDraftArticle.content || "").includes("关注我，继续追踪产业链和技术拐点<br />原视频点击左下方「阅读原文」") &&
+    (wechatDraftArticle.content || "").includes("关注我，持续追踪SpaceX、AI、Robot！<br />原视频点击左下方「阅读原文」并加入我们！") &&
     !(wechatDraftArticle.content || "").includes("关注我，继续追踪产业链和技术拐点。") &&
+    !(wechatDraftArticle.content || "").includes("关注我，继续追踪产业链和技术拐点<br />原视频点击左下方「阅读原文」") &&
     (wechatDraftArticle.content || "").includes("border-left:4px solid #ff7a00;border-right:4px solid #ff7a00") &&
     (wechatDraftArticle.content || "").includes("text-align:center;font-weight:600") &&
     !(wechatDraftArticle.content || "").includes("把关键证据拆开看") &&
     !(wechatDraftArticle.content || "").includes("关键技术点速览") &&
+    !(wechatDraftArticle.content || "").includes("标志性金句") &&
+    !(wechatDraftArticle.content || "").includes("最反共识的判断") &&
     !/[🔹🎯🧩📌]/u.test(wechatDraftArticle.content || "") &&
     ((wechatDraftArticle.content || "").match(/接下来最该追问什么/g) || []).length <= 1 &&
     !(wechatDraftArticle.content || "").includes("feishu.cn/wiki/test") &&
@@ -1316,7 +1320,12 @@ assertEqual(
 );
 assertEqual(
   "WeChat draft renders numbered core or technical cards",
-  String((wechatDraftArticle.content || "").includes(">01</span>")),
+  String((wechatDraftArticle.content || "").includes(">01</span><strong") && !(wechatDraftArticle.content || "").includes("max-width:82%")),
+  "true"
+);
+assertEqual(
+  "WeChat draft renders follow-up questions as numbered cards",
+  String((wechatDraftArticle.content || "").includes(">1</span>Raptor 月产量") && (wechatDraftArticle.content || "").includes(">2</span>FAA 审批周期")),
   "true"
 );
 assertEqual(

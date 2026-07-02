@@ -225,6 +225,7 @@ function trimSectionForWechat(lines = [], heading = "") {
   let chars = 0;
   let timelineItems = 0;
   let inCode = false;
+  let skippingPublicSubsection = false;
   for (const rawLine of lines) {
     const line = String(rawLine || "").trimEnd();
     if (/^```/.test(line)) {
@@ -232,6 +233,15 @@ function trimSectionForWechat(lines = [], heading = "") {
       continue;
     }
     if (inCode) continue;
+    const cleanLine = stripWechatInlineDecor(stripMarkdown(line.replace(/^#{1,6}\s+/, ""))).trim();
+    if (/^(标志性金句|最反共识的判断)$/.test(cleanLine)) {
+      skippingPublicSubsection = true;
+      continue;
+    }
+    if (skippingPublicSubsection && /^(一句话结论|一句话总结|核心观点|关键术语解释)$/.test(cleanLine)) {
+      skippingPublicSubsection = false;
+    }
+    if (skippingPublicSubsection) continue;
     if (/raw transcript|完整逐字稿|完整字幕|全文逐字/i.test(line)) continue;
     if (/^\[\d{1,2}:\d{2}/.test(line) || /^[-*]\s+\[\d{1,2}:\d{2}/.test(line)) {
       timelineItems += 1;
@@ -637,13 +647,18 @@ function wechatReaderCardHtml({ kind = "core", number = "01", title = "", body =
   const bg = isTech ? "#ffffff" : "#fffaf6";
   return [
     `<section style="margin:14px 0 18px;padding:16px 16px 14px;background:${bg};border:1px solid ${border};border-radius:8px;">`,
-    '<section style="margin:0 0 10px;padding:0;">',
-    `<span style="display:inline-block;width:34px;height:28px;line-height:28px;text-align:center;border-radius:16px;background:${badgeBg};color:#ffffff;font-size:13px;font-weight:700;margin-right:8px;vertical-align:top;">${escapeHtml(number)}</span>`,
-    `<span style="display:inline-block;max-width:82%;font-size:16px;line-height:1.65;font-weight:700;color:#171717;word-break:break-word;vertical-align:top;">${inlineMarkdown(title)}</span>`,
-    "</section>",
+    `<p style="margin:0 0 10px;padding:0;font-size:16px;line-height:1.65;font-weight:700;color:#171717;word-break:break-word;"><span style="display:inline-block;min-width:34px;height:28px;line-height:28px;text-align:center;border-radius:16px;background:${badgeBg};color:#ffffff;font-size:13px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${escapeHtml(number)}</span><strong style="font-weight:700;color:#171717;">${inlineMarkdown(title)}</strong></p>`,
     body.join("\n"),
     "</section>"
   ].join("\n");
+}
+
+function wechatQuestionHtml(number = 1, text = "") {
+  return [
+    '<section style="margin:12px 0;padding:13px 15px;background:#ffffff;border:1px solid #ececec;border-radius:8px;">',
+    `<p style="margin:0;font-size:15.5px;line-height:1.85;color:#202124;word-break:break-word;"><span style="display:inline-block;min-width:28px;height:24px;line-height:24px;text-align:center;border-radius:14px;background:#ff7a00;color:#ffffff;font-size:12px;font-weight:700;margin:0 8px 0 0;vertical-align:1px;">${String(number)}</span>${inlineMarkdown(text)}</p>`,
+    "</section>"
+  ].join("");
 }
 
 function isWechatLabelHeading(line = "") {
@@ -657,14 +672,11 @@ function formatOpeningHookForWechat(value = "") {
 }
 
 function normalizeWechatCtaText(value = "") {
-  const fallback = "关注我，继续追踪产业链和技术拐点\n原视频点击左下方「阅读原文」";
+  const fallback = "关注我，持续追踪SpaceX、AI、Robot！\n原视频点击左下方「阅读原文」并加入我们！";
   const text = String(value || "").trim();
   if (!text) return fallback;
   if (!text.includes("原视频点击左下方")) return fallback;
-  const compact = text.replace(/\s+/g, "");
-  if (compact === "关注我，继续追踪产业链和技术拐点。") return fallback;
-  if (compact === "关注我，继续追踪产业链和技术拐点") return fallback;
-  return text;
+  return fallback;
 }
 
 function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCaption = "", openingHook = "", cta = "" } = {}) {
@@ -677,6 +689,7 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
   let activeCard = null;
   let coreCardCount = 0;
   let technicalCardCount = 0;
+  let questionCount = 0;
   let skippedOpening = false;
 
   const closeList = () => {
@@ -795,6 +808,7 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
       flushCard();
       currentSection = bareHeading[2].trim();
       currentSubsection = "";
+      questionCount = 0;
       html.push(sectionHeadingHtml(`${bareHeading[1]}、${currentSection}`));
       continue;
     }
@@ -809,6 +823,7 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
         currentSubsection = "";
         coreCardCount = 0;
         technicalCardCount = 0;
+        questionCount = 0;
         html.push(sectionHeadingHtml(heading[2]));
       } else if (level >= 4) {
         const headingText = stripWechatInlineDecor(heading[2]);
@@ -860,6 +875,13 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
         activeCard.body.push(wechatCardBulletHtml(bullet[1]));
         continue;
       }
+      if (/追问|问题/.test(currentSection)) {
+        closeList();
+        flushCard();
+        questionCount += 1;
+        html.push(wechatQuestionHtml(questionCount, bullet[1]));
+        continue;
+      }
       if (!listOpen) {
         html.push('<ul style="padding-left:1.2em;margin:10px 0 18px;">');
         listOpen = true;
@@ -873,6 +895,13 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
         activeCard.body.push(wechatCardBulletHtml(ordered[1]));
         continue;
       }
+      if (/追问|问题/.test(currentSection)) {
+        closeList();
+        flushCard();
+        questionCount += 1;
+        html.push(wechatQuestionHtml(questionCount, ordered[1]));
+        continue;
+      }
       if (!listOpen) {
         html.push('<ul style="padding-left:1.2em;margin:10px 0 18px;">');
         listOpen = true;
@@ -882,6 +911,12 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
     }
     closeList();
     if (isBareEnglishLongLine(decoratedLine)) continue;
+    if (/追问|问题/.test(currentSection)) {
+      flushCard();
+      questionCount += 1;
+      html.push(wechatQuestionHtml(questionCount, decoratedLine));
+      continue;
+    }
     pushBlock(activeCard ? wechatCardParagraphHtml(decoratedLine) : paragraphHtml(decoratedLine));
   }
   closeList();
@@ -1056,7 +1091,7 @@ export class WeChatPublisher {
       if (thumbnail?.buffer) {
         try {
           leadImageUrl = await this.uploadArticleImage(thumbnail, "wechat-video-thumbnail.jpg");
-          leadImageCaption = "封面来自原视频，完整资料与原视频见文末「阅读原文」。";
+          leadImageCaption = "封面来自原视频，完整资料与原视频见文末「阅读原文」";
         } catch (error) {
           logEvent("warn", "WeChat source video thumbnail upload skipped", {
             candidateId: candidate.id || "",
