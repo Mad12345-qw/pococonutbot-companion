@@ -29,6 +29,7 @@ function classify(text, options = {}) {
   const projectRequest = isProjectCreateRequest(text);
   const selfieRequest = bot.extractSelfieGenerationPrompt(text);
   const songRequest = bot.extractSongRequest(text);
+  const cleanupRequest = bot.extractResearchKbCleanupRequest(text);
   const investmentReportRequest = bot.extractInvestmentReportRequest(text);
   const youtubeRequest = bot.extractYoutubeResearchRequest(text);
   const webSearchRequest = bot.extractWebSearchRequest(text);
@@ -44,6 +45,7 @@ function classify(text, options = {}) {
   if (projectRequest) return "project";
   if (selfieRequest.requested) return "selfie";
   if (songRequest.requested) return "song";
+  if (cleanupRequest.requested) return cleanupRequest.apply ? "research_kb_cleanup:apply" : "research_kb_cleanup:preview";
   if (investmentReportRequest.requested) return "investment_report";
   if (youtubeRequest.requested) return "youtube_research";
   if (imageRequest.requested) return "image_generation";
@@ -153,6 +155,21 @@ routeCases.push({
   name: "strict investment report prefix triggers report route",
   text: "投研报告：商业航天 / 星舰 / 中国供应链替代",
   route: "investment_report"
+});
+routeCases.push({
+  name: "research kb cleanup preview has strict route",
+  text: "投研知识库清理预览",
+  route: "research_kb_cleanup:preview"
+});
+routeCases.push({
+  name: "research kb cleanup apply requires explicit confirmation",
+  text: "投研知识库清理执行：我确认",
+  route: "research_kb_cleanup:apply"
+});
+routeCases.push({
+  name: "research kb cleanup apply without confirmation stays preview route",
+  text: "投研知识库清理执行",
+  route: "research_kb_cleanup:preview"
 });
 routeCases.push({
   name: "investment report words without strict prefix stay normal chat",

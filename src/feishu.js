@@ -1,4 +1,6 @@
 import crypto from "node:crypto";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { extractImageGenerationIntent } from "./image-intent.js";
 import { buildSearchCard, buildWorldCupPollResultCard, inferSearchFreshness, searchKindFromText } from "./feishu-card-templates.js";
 import { buildPremiumPollCard, buildPremiumSearchCard, renderPremiumSearchCardImage } from "./feishu-premium-card-renderer.js";
@@ -9,6 +11,7 @@ import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
 import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
+const execFileAsync = promisify(execFile);
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
 
@@ -2948,6 +2951,7 @@ export class FeishuBot {
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
     const videoRequest = await this.extractVideoRequest(text, chatId);
+    const researchKbCleanupRequest = this.extractResearchKbCleanupRequest(text);
     const investmentReportRequest = this.extractInvestmentReportRequest(text);
     const youtubeRequest = this.extractYoutubeResearchRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
@@ -2961,6 +2965,7 @@ export class FeishuBot {
       replyToBot ||
       this.isExplicitCommand(text) ||
       webSearchRequest.requested ||
+      researchKbCleanupRequest.requested ||
       investmentReportRequest.requested ||
       youtubeRequest.requested ||
       songRequest.requested ||
@@ -3100,6 +3105,19 @@ export class FeishuBot {
         logEvent("error", "Feishu song background task failed", { chatId, error: error.message });
       });
       this.finishTiming(timing, { route: "song" });
+      return;
+    }
+
+    if (researchKbCleanupRequest.requested) {
+      this.handleResearchKbCleanupRequest({
+        messageId: message.message_id,
+        chatId,
+        userId,
+        request: researchKbCleanupRequest
+      }).catch((error) => {
+        logEvent("error", "Feishu research KB cleanup background task failed", { chatId, error: error.message });
+      });
+      this.finishTiming(timing, { route: "research_kb_cleanup", apply: researchKbCleanupRequest.apply });
       return;
     }
 
@@ -3342,6 +3360,20 @@ export class FeishuBot {
     };
   }
 
+  extractResearchKbCleanupRequest(text = "") {
+    const raw = String(text || "").trim();
+    if (raw === "投研知识库清理预览") {
+      return { requested: true, apply: false, raw };
+    }
+    if (raw === "投研知识库清理执行") {
+      return { requested: true, apply: false, needsConfirmation: true, raw };
+    }
+    if (/^投研知识库清理执行\s*[：:]\s*我确认$/.test(raw)) {
+      return { requested: true, apply: true, raw };
+    }
+    return { requested: false, apply: false, raw };
+  }
+
   extractYoutubeResearchRequest(text = "") {
     const raw = String(text || "").trim();
     if (!raw) return { requested: false };
@@ -3382,6 +3414,73 @@ export class FeishuBot {
       )),
       raw
     };
+  }
+
+  async handleResearchKbCleanupRequest({ messageId, request }) {
+    if (request.needsConfirmation) {
+      await this.replyText(messageId, [
+        "为了避免误清理，请发送完整确认命令：",
+        "",
+        "投研知识库清理执行：我确认"
+      ].join("\n"));
+      return;
+    }
+    if (!process.env.DATABASE_URL) {
+      await this.replyText(messageId, "当前服务环境没有 `DATABASE_URL`，无法清理线上研究库。请确认这条命令是在 Render 部署服务里触发的。");
+      return;
+    }
+    await this.replyText(messageId, request.apply
+      ? "收到，开始清理旧 Markdown 时代遗留的研究库污染。"
+      : "收到，先预览旧 Markdown 时代遗留污染，不会修改数据库。"
+    );
+    try {
+      const args = ["scripts/sanitize-research-kb-artifacts.mjs"];
+      if (request.apply) args.push("--apply");
+      const { stdout, stderr } = await execFileAsync(process.execPath, args, {
+        cwd: process.cwd(),
+        timeout: 120000,
+        maxBuffer: 1024 * 1024
+      });
+      const output = String(stdout || "").trim();
+      let summary = null;
+      try {
+        summary = JSON.parse(output);
+      } catch {
+        summary = null;
+      }
+      if (!summary) {
+        await this.replyText(messageId, `清理脚本已结束，但输出格式不完整：${truncate(output || stderr || "无输出", 1000)}`);
+        return;
+      }
+      const changedCount = [
+        summary.sourcesUpdated,
+        summary.evidenceUpdated,
+        summary.evidenceDeleted,
+        summary.questionsUpdated,
+        summary.questionsDeleted,
+        summary.gapsUpdated,
+        summary.gapsDeleted,
+        summary.timeContextsUpdated
+      ].reduce((sum, item) => sum + Number(item || 0), 0);
+      const sampleLines = (summary.samples || []).slice(0, 5).map((item, index) =>
+        `${index + 1}. ${item.table} ${item.id}: ${item.before || "(空)"} -> ${item.after || "(删除)"}`
+      );
+      await this.replyText(messageId, [
+        request.apply ? "投研知识库清理完成。" : "投研知识库清理预览完成，未修改数据库。",
+        "",
+        `总影响项：${changedCount}`,
+        `来源标题更新：${summary.sourcesUpdated || 0}`,
+        `证据更新：${summary.evidenceUpdated || 0}`,
+        `证据删除：${summary.evidenceDeleted || 0}`,
+        `问题更新/删除：${Number(summary.questionsUpdated || 0)}/${Number(summary.questionsDeleted || 0)}`,
+        `缺口更新/删除：${Number(summary.gapsUpdated || 0)}/${Number(summary.gapsDeleted || 0)}`,
+        `时间语境更新：${summary.timeContextsUpdated || 0}`,
+        sampleLines.length ? "\n样例：\n" + sampleLines.join("\n") : "",
+        !request.apply && changedCount > 0 ? "\n确认无误后发送：投研知识库清理执行：我确认" : ""
+      ].filter(Boolean).join("\n"));
+    } catch (error) {
+      await this.replyText(messageId, `投研知识库清理失败：${truncate(error.message, 800)}`);
+    }
   }
 
   async handleInvestmentReportRequest({ messageId, chatId, userId, request }) {
