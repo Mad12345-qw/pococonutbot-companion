@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T09:24:18.522Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-02T09:34:08.947Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -57175,6 +57175,51 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-02T09:16:08.765Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b56a7344498b2c9aebd9021c95",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-02T09:25:54.162Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "投研报告已生成：https://rcnx3mn0vg5z.feishu.cn/wiki/KZYqwtZHUitNjUkiBPpcGwxGnbd",
+        "metadata": {
+          "query": "SpaceX",
+          "version": {
+            "topicKey": "spacex",
+            "versionNo": 1
+          },
+          "platform": "feishu",
+          "aiFallback": null,
+          "sourceCount": 6,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/KZYqwtZHUitNjUkiBPpcGwxGnbd",
+          "evidenceCards": 104,
+          "investmentReport": true
+        },
+        "createdAt": "2026-07-02T09:27:58.823Z"
       }
     ],
     "memories": [
@@ -58806,7 +58851,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T09:16:08.692Z"
+        "updatedAt": "2026-07-02T09:25:54.088Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -58816,7 +58861,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T09:16:08.532Z"
+        "updatedAt": "2026-07-02T09:25:54.014Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -63490,6 +63535,56 @@
         "error": "investment report contains low-value or unsupported article artifacts.",
         "createdAt": "2026-07-02T08:54:32.882Z",
         "updatedAt": "2026-07-02T08:57:34.900Z"
+      },
+      {
+        "id": "job:investment_report:ba2d2d74d47862f7",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "done",
+        "stage": "done",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "title": "SpaceX与星舰：从火箭设计到工厂节拍化的产业价值链拐点",
+          "sources": 6,
+          "version": {
+            "topicKey": "spacex",
+            "versionNo": 1
+          },
+          "backfill": {
+            "imported": 0,
+            "attempted": false
+          },
+          "document": {
+            "token": "I5S8dwFewo2EOsxmeMMcx2wOntd",
+            "blocks": 433,
+            "wikiToken": "KZYqwtZHUitNjUkiBPpcGwxGnbd",
+            "writeMode": "rich"
+          },
+          "aiFallback": null,
+          "topicCount": 0,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/KZYqwtZHUitNjUkiBPpcGwxGnbd",
+          "evidenceCards": 104
+        },
+        "error": "",
+        "createdAt": "2026-07-02T09:25:55.639Z",
+        "updatedAt": "2026-07-02T09:27:58.751Z"
       }
     ],
     "researchReferenceSources": [],
@@ -67310,7 +67405,204 @@
     "researchTopics": [],
     "researchTopicEdges": [],
     "researchEvidenceTopics": [],
-    "researchReportVersions": [],
-    "researchThesisLedger": []
+    "researchReportVersions": [
+      {
+        "jobId": "job:investment_report:ba2d2d74d47862f7",
+        "reportTopic": "SpaceX",
+        "reportTopicKey": "spacex",
+        "versionNo": 1,
+        "priorJobId": null,
+        "evidenceCutoffAt": "2026-07-02T09:27:58.233Z",
+        "sourceCount": 6,
+        "evidenceCount": 104,
+        "topicCount": 0,
+        "deltaSummary": "本报告为该研究主题的v1基线版本，无前序报告可做delta比较；因此deltaSincePrior字段仅用于声明：以下结论与价值链框架是首次建立，后续版本将用星舰试飞台账、Starfactory实际节拍、Raptor单台成本、Stoke Nova首飞结果作为增量证据迭代基线。",
+        "metadata": {
+          "title": "SpaceX与星舰：从火箭设计到工厂节拍化的产业价值链拐点",
+          "thesis": "把SpaceX与星舰放进产业价值链视角：火箭本体设计只是入口，真正的胜负在于地面系统（Stage Zero）、轨道级热盾完全可复用、发动机低成本量产、工厂线性相邻流节拍四条链路能否在同一年内闭环；其中工厂与节拍是最长、最难的一段，决定了每吨入轨成本的下降斜率。报告边界限定在证据可支撑的工程与制造命题，不延伸到估值、短期股价或单一国家航天预算。",
+          "topicKeys": [],
+          "oneSentence": "在现有证据包内，SpaceX真正的护城河已经不是星舰能否入轨，而是能否把全复用热防护、塔臂捕获、Raptor量产与Starfactory节拍化生产同时跑通；这条价值链决定可复用中型与超重型火箭的长期单位入轨成本曲线，而Stoke Space等中量级竞品用耦合式推进-热管理赌注在同一根曲线上施压。",
+          "priorVersionNo": null
+        },
+        "createdAt": "2026-07-02T09:27:58.233Z"
+      }
+    ],
+    "researchThesisLedger": [
+      {
+        "id": "1",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "SpaceX 的产业护城河正在从发动机设计转向制造系统与全复用节奏",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "medium",
+        "evidenceCardIds": [
+          "E36",
+          "E40",
+          "E55",
+          "E58",
+          "E62",
+          "E70",
+          "E71",
+          "E72"
+        ],
+        "counterEvidenceCardIds": [
+          "E49",
+          "E50",
+          "E66",
+          "E80",
+          "E86"
+        ],
+        "timeHorizon": "证据多来自 2021 年工厂导览与早期星舰迭代语境，2024-2025 年塔臂捕获、猛禽 V3、Block 2 等里程碑若已落地或节奏快于预期，则制造门槛本身会被加快摊薄，本假设的稀缺性需重新评估；若实际节奏不及，则假设反而加强——存在显著的时间错位风险，应在后续用 2024 年后的试飞回收数据与产能数据交叉验证。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.312Z"
+      },
+      {
+        "id": "2",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "Stage Zero（发射场与塔架）与箭体一同构成完整产品，任何只把焦点放在飞行器本体的估值或判断都会系统性低估 SpaceX",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "medium",
+        "evidenceCardIds": [
+          "E37",
+          "E41",
+          "E42",
+          "E43",
+          "E44",
+          "E45",
+          "E97"
+        ],
+        "counterEvidenceCardIds": [
+          "E74",
+          "E81",
+          "E86"
+        ],
+        "timeHorizon": "假设依赖 2021 年的导览口径，2024-2025 年若 Starbase 与 LC-39A 等发射场地面系统已显著成熟、复用节奏跑通，则发射场稀缺性会下降，本假设的边际解释力需要重新称重；若仍未跑通，则假设反而被强化——属于双向时间敏感。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.389Z"
+      },
+      {
+        "id": "3",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "猛禽（Raptor 系列）的真正竞争优势不是发动机设计本身，而是低成本量产能力，且 V3 将进一步把评价指标从性能转向成本函数",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "medium",
+        "evidenceCardIds": [
+          "E38",
+          "E46",
+          "E47",
+          "E48",
+          "E60",
+          "E61",
+          "E86"
+        ],
+        "counterEvidenceCardIds": [
+          "E45",
+          "E49",
+          "E50",
+          "E66",
+          "E80"
+        ],
+        "timeHorizon": "Raptor V3 的具体量产节拍与成本数据为证据包所未覆盖；证据多停留在 2021 工厂口径与 Musk 设计哲学陈述，缺少 2024 年后量产实测的支撑——属于偏向推断而非已验证的判断，需后续用产能与单价数据补强。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.462Z"
+      },
+      {
+        "id": "4",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "星舰仍处于逐层渲染阶段，每次试飞的产出主要是数据而非交付载荷，行业评估其商业兑现节奏必须按实验平台节奏而非卫星节奏来折现",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "medium",
+        "evidenceCardIds": [
+          "E72",
+          "E75",
+          "E76",
+          "E77",
+          "E78",
+          "E79",
+          "E80",
+          "E81"
+        ],
+        "counterEvidenceCardIds": [
+          "E74",
+          "E84",
+          "E86"
+        ],
+        "timeHorizon": "时间风险最高的一项——从 2021 视角看是“仍然在迭代”，但 2024-2025 已有 IFT 系列多次试飞与回收测试，若其中某些里程碑已显著成熟，则迭代属性会下降，行业研究应把“实验平台”属性折现为时间衰减函数而不是标签。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.534Z"
+      },
+      {
+        "id": "5",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "Starship HLS 的工程风险源于尺寸/质量引发的多段补给链与月球着陆几何，而非发动机本身",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "low",
+        "evidenceCardIds": [
+          "E19",
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24",
+          "E25",
+          "E26"
+        ],
+        "counterEvidenceCardIds": [
+          "E32",
+          "E49",
+          "E50"
+        ],
+        "timeHorizon": "补给链判断强烈依赖最终质量配置（E34 明确写出这是风险点），当前质量数据与监管口径存在不确定性；同时 2024-2025 年若质量已下降或补给架构简化，假设风险敞口下降。该链路与 NASA 合同进度耦合，时间风险高于前三项。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.606Z"
+      },
+      {
+        "id": "6",
+        "reportJobId": "job:investment_report:ba2d2d74d47862f7",
+        "topicKey": "spacex",
+        "thesis": "敢于双线押注“完全可复用 + 主动再生冷却热盾”的玩家（Stoke Space / Nova 类），构成对 SpaceX 复用霸权的非对称竞争威胁点",
+        "thesisType": "industry_chain_hypothesis",
+        "conviction": "low",
+        "evidenceCardIds": [
+          "E2",
+          "E3",
+          "E4",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10"
+        ],
+        "counterEvidenceCardIds": [
+          "E5",
+          "E70"
+        ],
+        "timeHorizon": "这是六项假设中证据偏弱的一项——所有 Stoke / Nova / Zenith 证据来自同一条视频的整理稿，且带有 source-bias 与 summary-generation-bias 警告（见 Sources S6）。任何首飞推迟、监管收紧、Hydrogen 供应链问题都会让这条假设显著降权；同时若 SpaceX 自身的快速完全复用率先跑通，则该威胁被结构性吸收。建议作为独立的“竞争结构”研究线在下一轮单独验证，而非作为 SpaceX 报告主结论。",
+        "status": "active",
+        "metadata": {
+          "versionNo": 1
+        },
+        "createdAt": "2026-07-02T09:27:58.678Z"
+      }
+    ]
   }
 }
