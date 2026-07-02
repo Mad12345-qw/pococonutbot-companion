@@ -591,7 +591,8 @@ assertEqual(
   "true"
 );
 const finalOpeningSection = sectionBetween(structuredFeishuDoc, "## 一、导读与核心结论", "## 二、关键技术点速览");
-const finalIntroText = sectionBetween(structuredFeishuDoc, "## 一、导读与核心结论", "### 关键术语解释");
+const finalGlossaryText = sectionBetween(structuredFeishuDoc, "### 关键术语解释", "### 背景解读");
+const finalBackgroundText = sectionBetween(structuredFeishuDoc, "### 背景解读", "### 一句话结论");
 const finalTimelineSection = sectionBetween(structuredFeishuDoc, "## 四、时间线摘要", "## 五、值得继续追问的问题");
 const finalQuestionsSection = sectionBetween(structuredFeishuDoc, "## 五、值得继续追问的问题", "## 六、出处与链接");
 assertEqual(
@@ -600,18 +601,28 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube finished article snapshot has focused intro prose",
-  String(finalIntroText.length > 120 && finalIntroText.length < 900),
+  "youtube finished article snapshot puts glossary before background",
+  String(structuredFeishuDoc.indexOf("### 关键术语解释") < structuredFeishuDoc.indexOf("### 背景解读") && structuredFeishuDoc.indexOf("### 背景解读") < structuredFeishuDoc.indexOf("### 一句话结论")),
   "true"
 );
 assertEqual(
-  "youtube finished article snapshot intro is prose not bullet wall",
-  String(!/^[-*]\s+/m.test(finalIntroText)),
+  "youtube finished article snapshot has beginner glossary first",
+  String(countBullets(finalGlossaryText) >= 3 && finalGlossaryText.includes("Starship HLS") && finalGlossaryText.includes("LEO")),
   "true"
 );
 assertEqual(
-  "youtube finished article snapshot keeps opening as article prose before glossary",
-  String(finalOpeningSection.includes("### 一句话结论") && finalOpeningSection.includes("### 核心观点") && finalOpeningSection.includes("### 标志性金句") && finalOpeningSection.includes("### 最反共识的判断") && countOccurrences(finalOpeningSection, "### 关键术语解释") === 1),
+  "youtube finished article snapshot has focused background prose",
+  String(finalBackgroundText.length > 120 && finalBackgroundText.length < 1000),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot background is prose not bullet wall",
+  String(!/^[-*]\s+/m.test(finalBackgroundText)),
+  "true"
+);
+assertEqual(
+  "youtube finished article snapshot keeps opening as reader-first article structure",
+  String(finalOpeningSection.includes("### 背景解读") && finalOpeningSection.includes("### 一句话结论") && finalOpeningSection.includes("### 核心观点") && finalOpeningSection.includes("### 标志性金句") && finalOpeningSection.includes("### 最反共识的判断") && countOccurrences(finalOpeningSection, "### 关键术语解释") === 1),
   "true"
 );
 assertEqual(
@@ -638,7 +649,7 @@ assertEqual(
   "youtube structured pipeline positively guides each writing slot",
   String([
     "Build a writer-ready brief",
-    "Write paragraph 1 as the article hook",
+    "Write paragraph 1 as `video scene and viewing context`",
     "Each explanation should answer",
     "Each corePoints title should be a judgment sentence",
     "techPoints should be scan-friendly",
@@ -684,7 +695,7 @@ bot.ai = {
       return '{"thesis":"坏 JSON 测试","titleAngles":["坏 JSON 测试" "缺逗号"],"narrativeConflict":"x"}';
     }
     if (userContent.includes("Repair this evidence brief")) return JSON.stringify(hlsEvidenceBrief);
-    if (userContent.includes("fixed title/context schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
     if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
     if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
     if (userContent.includes("fixed technical schema")) return JSON.stringify(hlsTechPart);

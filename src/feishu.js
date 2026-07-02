@@ -1218,10 +1218,13 @@ function renderYoutubeStructuredArticle(article = {}, report = {}) {
     `# ${title}`,
     "",
     "## 一、导读与核心结论",
-    paragraphs.join("\n\n"),
     glossary.length ? compactLines([
       "### 关键术语解释",
       glossary.map((item) => `- **${item.term.replace(/[：:]\s*$/, "")}：** ${item.explanation}`).join("\n")
+    ]) : "",
+    paragraphs.length ? compactLines([
+      "### 背景解读",
+      paragraphs.join("\n\n")
     ]) : "",
     oneSentence ? compactLines(["### 一句话结论", oneSentence]) : "",
     corePoints.length ? compactLines([
@@ -2669,13 +2672,14 @@ export class FeishuBot {
           "Do not write headings such as YouTube 技术笔记, 技术笔记, 背景导读, or 精华总结 inside content fields.",
           "Do not pad the article with process metadata. Do not mention output language, content form, Obsidian, Feishu, Markdown, or source links in content fields.",
           "Never write a process preface such as `我先按...整理`, `接下来我会...`, or `可直接进 Obsidian/飞书`.",
-          "Open with context that lowers the reading barrier: market/industry/historical backdrop, why this video was recorded, and plain-language explanations of specialist terms.",
+          "Write background interpretation that lowers the reading barrier after the glossary: explain why the video was recorded, the industry or historical environment at the time of recording, the current industry environment when relevant, and why this specific video matters now.",
           "Do not write generic background filler like `不是某个孤立知识点`, `产业判断、工程取舍和商业后果`, or `重点不是记住每个参数`. Background must name concrete people, artifacts, events, terms, and tensions from the transcript.",
           "Every title and point must be reader-facing and specific. Never use the raw video title as a section title unless it is already a polished Chinese title.",
           "Write the title as a Chinese column judgment: `为什么/如何 <specific object> <changes/forces/reveals> <specific consequence>`.",
-          "Write paragraph 1 as the article hook: name the concrete object, the main conflict, and why a smart reader should care.",
-          "Write paragraph 2 as reading context: explain the video/scene/market/technical background using evidence anchors.",
-          "If a third paragraph is needed, lower the reading barrier by introducing the task chain or problem map before details."
+          "Write paragraph 1 as `video scene and viewing context`: name the speaker/channel/video scene, concrete object, main conflict, and why a smart non-specialist should care.",
+          "Write paragraph 2 as `industry and technical environment`: explain the market/industry/historical backdrop at recording time and the present-day relevance when the transcript supports it.",
+          "If a third paragraph is needed, write it as `reader map`: introduce the task chain or problem map in plain language before details.",
+          "Do not define glossary terms here unless needed for the sentence. The glossary will be rendered before this background section."
         ].join(" ")
       },
       {
@@ -2688,12 +2692,12 @@ export class FeishuBot {
           "Evidence brief that must drive the article:",
           evidenceBriefSource,
           "",
-          "Fill only this fixed title/context schema:",
+          "Fill only this fixed title/background schema:",
           "{",
           '  "title": "specific polished Chinese article title",',
-          '  "contextParagraphs": ["2-4 concrete paragraphs; first two mention at least 3 source anchors"]',
+          '  "contextParagraphs": ["2-4 concrete background paragraphs; first two mention at least 3 source anchors and explain video scene, recording context, industry environment, and present relevance when evidence supports it"]',
           "}",
-          "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. Background must be concrete, not a reusable template."
+          "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. Background must be concrete and beginner-friendly, not a reusable template."
         ].join("\n")
       }
     ], {
