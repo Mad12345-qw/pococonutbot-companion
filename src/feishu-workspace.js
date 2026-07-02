@@ -73,6 +73,86 @@ function normalizeConvertedDocument(data = {}) {
   };
 }
 
+function collectTextRunContents(value, output = []) {
+  if (!value || typeof value !== "object") return output;
+  if (Array.isArray(value)) {
+    for (const item of value) collectTextRunContents(item, output);
+    return output;
+  }
+  if (value.text_run?.content) output.push(String(value.text_run.content));
+  for (const item of Object.values(value)) collectTextRunContents(item, output);
+  return output;
+}
+
+function collectEvidenceBlockIds(blocks = []) {
+  const output = new Map();
+  for (const block of blocks) {
+    const blockId = String(block?.block_id || "").trim();
+    if (!blockId) continue;
+    const text = collectTextRunContents(block).join("").trim();
+    const match = text.match(/^证据\s+(E\d+)$/i);
+    if (match) output.set(match[1].toUpperCase(), blockId);
+  }
+  return output;
+}
+
+function normalizeLinkUrl(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
+function rewriteEvidenceLinksInValue(value, evidenceBlockIds, documentUrl = "") {
+  if (!value || typeof value !== "object") return;
+  if (Array.isArray(value)) {
+    for (const item of value) rewriteEvidenceLinksInValue(item, evidenceBlockIds, documentUrl);
+    return;
+  }
+  const link = value.text_run?.text_element_style?.link;
+  if (link?.url) {
+    const normalized = normalizeLinkUrl(link.url);
+    const match = normalized.match(/^#证据-(e\d+)$/i);
+    const evidenceId = match?.[1]?.toUpperCase() || "";
+    const blockId = evidenceId ? evidenceBlockIds.get(evidenceId) : "";
+    if (blockId) link.url = encodeURIComponent(`${documentUrl}#${blockId}`);
+  }
+  for (const item of Object.values(value)) rewriteEvidenceLinksInValue(item, evidenceBlockIds, documentUrl);
+}
+
+function rewriteEvidenceLinksToBlockAnchors({ blocks = [], documentUrl = "" } = {}) {
+  if (!documentUrl) return { rewritten: 0, evidenceAnchors: 0 };
+  const evidenceBlockIds = collectEvidenceBlockIds(blocks);
+  if (!evidenceBlockIds.size) return { rewritten: 0, evidenceAnchors: 0 };
+  let before = 0;
+  let after = 0;
+  const countPlaceholderLinks = () => {
+    let count = 0;
+    const walk = (value) => {
+      if (!value || typeof value !== "object") return;
+      if (Array.isArray(value)) {
+        for (const item of value) walk(item);
+        return;
+      }
+      const url = value.text_run?.text_element_style?.link?.url;
+      if (url && /^#证据-e\d+$/i.test(normalizeLinkUrl(url))) count += 1;
+      for (const item of Object.values(value)) walk(item);
+    };
+    walk(blocks);
+    return count;
+  };
+  before = countPlaceholderLinks();
+  rewriteEvidenceLinksInValue(blocks, evidenceBlockIds, documentUrl);
+  after = countPlaceholderLinks();
+  return {
+    rewritten: Math.max(0, before - after),
+    evidenceAnchors: evidenceBlockIds.size
+  };
+}
+
 function normalizeRows(rows = []) {
   return rows.map((row) => row.map((cell) => String(cell ?? "").slice(0, 40000)));
 }
@@ -449,6 +529,10 @@ export class FeishuWorkspaceClient {
   async insertRichMarkdown({ documentId, parentBlockId = documentId, markdown, index = -1 }) {
     if (!documentId) throw new Error("Missing Feishu document id.");
     const converted = await this.convertMarkdownToBlocks(markdown);
+    const linkRewrite = rewriteEvidenceLinksToBlockAnchors({
+      blocks: converted.blocks,
+      documentUrl: this.docUrl(documentId)
+    });
     if (converted.blocks.length > 1000) {
       throw new Error(`Feishu rich document is too large for one descendant write: ${converted.blocks.length} blocks`);
     }
@@ -466,13 +550,17 @@ export class FeishuWorkspaceClient {
     logEvent("info", "Feishu rich markdown inserted", {
       documentId,
       blocks: converted.blocks.length,
-      firstLevelBlocks: converted.firstLevelBlockIds.length
+      firstLevelBlocks: converted.firstLevelBlockIds.length,
+      evidenceLinksRewritten: linkRewrite.rewritten,
+      evidenceAnchors: linkRewrite.evidenceAnchors
     });
     return {
       appended: true,
       rich: true,
       blocks: converted.blocks.length,
-      firstLevelBlocks: converted.firstLevelBlockIds.length
+      firstLevelBlocks: converted.firstLevelBlockIds.length,
+      evidenceLinksRewritten: linkRewrite.rewritten,
+      evidenceAnchors: linkRewrite.evidenceAnchors
     };
   }
 

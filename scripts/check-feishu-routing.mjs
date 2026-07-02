@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import { extractImageGenerationIntent } from "../src/image-intent.js";
 import { FeishuBot } from "../src/feishu.js";
+import { FeishuWorkspaceClient } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 
@@ -993,6 +994,62 @@ assertEqual(
     userPerspectiveReport.ready === true &&
     userPerspectiveMarkdown.includes("## 九、资料来源与证据索引") &&
     !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|some pretty advanced concepts\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
+  ),
+  "true"
+);
+const workspaceClient = new FeishuWorkspaceClient({
+  config: { feishuDocBaseUrl: "https://rcnx3mn0vg5z.feishu.cn" },
+  getToken: async () => "test-token"
+});
+let insertedDescendantBody = null;
+workspaceClient.convertMarkdownToBlocks = async () => ({
+  firstLevelBlockIds: ["body_1", "evidence_heading_1"],
+  blocks: [
+    {
+      block_id: "body_1",
+      block_type: 2,
+      text: {
+        elements: [
+          { text_run: { content: "相关证据：" } },
+          {
+            text_run: {
+              content: "证据 E1",
+              text_element_style: {
+                link: { url: encodeURIComponent("#证据-e1") }
+              }
+            }
+          }
+        ],
+        style: {}
+      }
+    },
+    {
+      block_id: "evidence_heading_1",
+      block_type: 6,
+      heading4: {
+        elements: [
+          { text_run: { content: "证据 E1" } }
+        ],
+        style: {}
+      }
+    }
+  ]
+});
+workspaceClient.request = async (_path, options = {}) => {
+  insertedDescendantBody = options.body;
+  return {};
+};
+const richInsertResult = await workspaceClient.insertRichMarkdown({
+  documentId: "doc_test_123",
+  parentBlockId: "doc_test_123",
+  markdown: userPerspectiveMarkdown
+});
+const rewrittenEvidenceLink = insertedDescendantBody?.descendants?.[0]?.text?.elements?.[1]?.text_run?.text_element_style?.link?.url || "";
+assertEqual(
+  "Feishu rich writer rewrites evidence markdown links to real block anchors",
+  String(
+    richInsertResult.evidenceLinksRewritten === 1 &&
+    decodeURIComponent(rewrittenEvidenceLink) === "https://rcnx3mn0vg5z.feishu.cn/docx/doc_test_123#evidence_heading_1"
   ),
   "true"
 );
