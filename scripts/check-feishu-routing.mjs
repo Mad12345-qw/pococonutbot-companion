@@ -939,6 +939,14 @@ assertEqual(
   ),
   "true"
 );
+assertEqual(
+  "investment report user perspective removes legacy youtube-note artifacts from retrieved corpus",
+  String(
+    userPerspectiveMarkdown.includes("Inside Starfactory") &&
+    !/Inside Starfactory\s+YouTube 技术笔记|100 times heavier\s+YouTube 技术笔记|legacy_heading|阅读导航/.test(userPerspectiveMarkdown)
+  ),
+  "true"
+);
 
 bot.ai = {
   chat: async () => JSON.stringify({

@@ -1160,6 +1160,13 @@ function cleanResearchArticleText(value = "", max = 1400) {
   return truncate(text, max);
 }
 
+function cleanResearchEvidenceText(value = "", max = 1400) {
+  const raw = cleanArticleText(value, max);
+  if (/^(?:#{1,6}\s*)?.*YouTube\s*技术笔记\s*$/i.test(raw)) return "";
+  if (/^(?:阅读导航|输出语言|内容形态|这部分没有生成到有效内容)\s*[:：]?/i.test(raw)) return "";
+  return cleanResearchArticleText(raw, max);
+}
+
 function buildYoutubeEvidenceBriefSource(brief = {}) {
   const source = {
     thesis: cleanArticleText(brief.thesis, 600),
@@ -2001,7 +2008,8 @@ function extractBackfillEvidenceCardsFromDocument(text = "", { max = 18 } = {}) 
     .map((line) => line.replace(/^[-*#>\s]+/, "").trim())
     .filter((line) => line.length >= 24 && line.length <= 900)
     .filter((line) => !/^(来源|出处|原始链接|飞书文档|Obsidian|触发请求)[:：]/i.test(line))
-    .map((line) => cleanResearchArticleText(line, 900))
+    .filter((line) => !isLowValueResearchArtifactText(line))
+    .map((line) => cleanResearchEvidenceText(line, 900))
     .filter((line) => line && !isLowValueResearchArtifactText(line));
   const picked = [];
   const preferred = lines.filter((line) => /结论|判断|证据|重要|风险|瓶颈|成本|产能|供应链|技术|商业|时间|为什么|意味着|关键|反证/.test(line));
@@ -2014,7 +2022,7 @@ function extractBackfillEvidenceCardsFromDocument(text = "", { max = 18 } = {}) 
     const lens = classifyResearchEvidenceType(line);
     return {
       evidenceType: lens,
-      claim: cleanResearchArticleText(line, 900),
+      claim: cleanResearchEvidenceText(line, 900),
       quoteOriginal: "",
       quoteZh: "",
       location: `generated_doc:${index + 1}`,
@@ -2170,11 +2178,11 @@ function normalizeResearchEvidenceRow(row = {}, index = 0, sourceIndexById = new
     sourceId,
     sourceRef: sourceIndexById.get(sourceId) || sourceId || "S?",
     evidenceType: String(researchRowValue(row, "evidenceType", "evidence_type") || ""),
-    claim: cleanResearchArticleText(row.claim || "", 500),
-    quoteOriginal: cleanResearchArticleText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
-    quoteZh: cleanResearchArticleText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
-    location: cleanResearchArticleText(row.location || "", 80),
-    whyItMatters: cleanResearchArticleText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
+    claim: cleanResearchEvidenceText(row.claim || "", 500),
+    quoteOriginal: cleanResearchEvidenceText(researchRowValue(row, "quoteOriginal", "quote_original") || "", 500),
+    quoteZh: cleanResearchEvidenceText(researchRowValue(row, "quoteZh", "quote_zh") || "", 500),
+    location: cleanResearchEvidenceText(row.location || "", 80),
+    whyItMatters: cleanResearchEvidenceText(researchRowValue(row, "whyItMatters", "why_it_matters") || "", 500),
     confidence: Number(row.confidence || 0),
     timeSensitivity: String(researchRowValue(row, "timeSensitivity", "time_sensitivity") || ""),
     evidenceStrength: String(researchRowValue(row, "evidenceStrength", "evidence_strength") || ""),
