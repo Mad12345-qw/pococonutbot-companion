@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T01:31:37.689Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-03T01:41:47.405Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -58108,6 +58108,49 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-03T00:56:39.794Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U\nhttps://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b456ca4eca8c1e454b78ecfe05",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T01:36:40.647Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b456ca4eca8c1e454b78ecfe05",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T01:36:41.699Z"
       }
     ],
     "memories": [
@@ -59739,7 +59782,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-02T19:37:53.891Z"
+        "updatedAt": "2026-07-03T01:36:41.631Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -59749,7 +59792,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-02T19:37:53.813Z"
+        "updatedAt": "2026-07-03T01:36:41.542Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -64715,6 +64758,39 @@
         "error": "",
         "createdAt": "2026-07-02T19:37:56.001Z",
         "updatedAt": "2026-07-02T19:48:43.086Z"
+      },
+      {
+        "id": "job:b962270176af5a91",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
+        "status": "running",
+        "stage": "youtube_article_generation",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
+            "query": "",
+            "videoUrl": "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "x2meJPOn9ws",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {},
+        "error": "",
+        "createdAt": "2026-07-03T01:36:43.450Z",
+        "updatedAt": "2026-07-03T01:36:43.450Z"
       }
     ],
     "researchReferenceSources": [],
