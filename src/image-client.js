@@ -50,6 +50,10 @@ function isRetryableFetchError(error) {
   );
 }
 
+function isRetryableImageStatus(status) {
+  return status === 408 || status === 409 || status === 429 || status === 500 || status === 502 || status === 503 || status === 504;
+}
+
 function formatTimeoutMessage(timeoutMs) {
   const seconds = Math.round(timeoutMs / 1000);
   return `生图接口超过 ${seconds} 秒还没返回，可能是图片模型排队或冷启动。你可以稍后再试，或者把描述简化一点。`;
@@ -96,6 +100,7 @@ export class ImageGenerationClient {
     });
 
     let response;
+    let text = "";
     let lastFetchError = null;
     for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
       try {
@@ -108,7 +113,19 @@ export class ImageGenerationClient {
           },
           body: JSON.stringify(body)
         });
-        break;
+        text = await response.text();
+        if (response.ok || attempt >= maxAttempts || !isRetryableImageStatus(response.status)) {
+          break;
+        }
+        logEvent("warn", "Image API returned retryable error; retrying", {
+          status: response.status,
+          body: truncate(text, 300),
+          model: this.config.imageModel,
+          elapsedMs: Date.now() - startedAt,
+          attempt,
+          maxAttempts
+        });
+        await sleep(Math.min(1000 * attempt, 5000));
       } catch (error) {
         lastFetchError = error;
         const elapsedMs = Date.now() - startedAt;
@@ -132,7 +149,6 @@ export class ImageGenerationClient {
     }
     if (!response && lastFetchError) throw new Error(formatNetworkMessage(lastFetchError, maxAttempts));
 
-    const text = await response.text();
     if (!response.ok) {
       logEvent("error", "Image API returned error", {
         status: response.status,
