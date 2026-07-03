@@ -787,9 +787,17 @@ function isLowValueYoutubeMetadataLine(line = "") {
 }
 
 function stripLowValueYoutubeMetadataLines(markdown = "") {
-  return String(markdown || "")
-    .split(/\r?\n/)
-    .filter((line) => !isLowValueYoutubeMetadataLine(line))
+  const lines = [];
+  let inFence = false;
+  for (const line of String(markdown || "").split(/\r?\n/)) {
+    if (/^\s*```/.test(line)) {
+      inFence = !inFence;
+      lines.push(line);
+      continue;
+    }
+    if (inFence || !isLowValueYoutubeMetadataLine(line)) lines.push(line);
+  }
+  return lines
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
@@ -1176,6 +1184,10 @@ function cleanArticleText(value = "", max = 1400) {
   return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
 }
 
+function stripMarkdownFencedCodeBlocks(markdown = "") {
+  return String(markdown || "").replace(/(^|\n)```[\s\S]*?(?:\n```|$)/g, "\n");
+}
+
 const youtubeProcessArtifactPattern =
   /(?:我\s*先.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|接下来\s*我\s*会.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|下面\s*我\s*会.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|我\s*(?:会|将)\s*把.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|先按你给的|根据你给的时间戳|时间戳骨架|整理成中文(?:技术)?简报|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))/i;
 
@@ -1207,10 +1219,22 @@ function cleanYoutubeArticleText(value = "", max = 1400) {
 }
 
 function stripYoutubeProcessArtifactLines(markdown = "") {
-  return String(markdown || "")
-    .split(/\r?\n/)
-    .map((line) => stripYoutubeProcessArtifactFragments(line))
-    .filter((line) => line.trim() && !isYoutubeProcessArtifactText(line))
+  const lines = [];
+  let inFence = false;
+  for (const rawLine of String(markdown || "").split(/\r?\n/)) {
+    if (/^\s*```/.test(rawLine)) {
+      inFence = !inFence;
+      lines.push(rawLine);
+      continue;
+    }
+    if (inFence) {
+      lines.push(rawLine);
+      continue;
+    }
+    const line = stripYoutubeProcessArtifactFragments(rawLine);
+    if (line.trim() && !isYoutubeProcessArtifactText(line)) lines.push(line);
+  }
+  return lines
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
@@ -1938,6 +1962,7 @@ function repairYoutubeDocumentBeforeAudit(markdown = "", report = {}) {
 
 function auditYoutubeFinishedDocument(markdown = "") {
   const text = String(markdown || "");
+  const articleText = stripMarkdownFencedCodeBlocks(text);
   const requiredOrder = [
     "## 一、关键术语解释",
     "## 二、背景导读",
@@ -1967,15 +1992,16 @@ function auditYoutubeFinishedDocument(markdown = "") {
     if (!core.includes(needle)) throw new Error(`reader audit failed: missing ${needle}`);
   }
   if (!timeline.includes("### 原文摘录")) throw new Error("reader audit failed: timeline must include source excerpt index.");
-  if (/<\/?details|<summary/i.test(timeline)) throw new Error("reader audit failed: transcript excerpt must not use raw HTML.");
+  if (/<\/?details|<summary/i.test(stripMarkdownFencedCodeBlocks(timeline))) throw new Error("reader audit failed: transcript excerpt must not use raw HTML.");
   if (countMarkdownBullets(questions) < 4) throw new Error("reader audit failed: follow-up questions are too thin.");
-  if (/输出语言|内容形态|来源链接|字幕语言|阅读导航/.test(text)) throw new Error("reader audit failed: low-value metadata leaked into article.");
+  if (/输出语言|内容形态|来源链接|字幕语言|阅读导航/.test(articleText)) throw new Error("reader audit failed: low-value metadata leaked into article.");
   if ((text.match(/## 八、出处与链接/g) || []).length !== 1 || !sources.trim()) throw new Error("reader audit failed: source section must appear once at the end.");
 }
 
 function assertReadableYoutubeDocument(markdown = "") {
   const text = String(markdown || "");
-  if (isYoutubeProcessArtifactText(text)) {
+  const articleText = stripMarkdownFencedCodeBlocks(text);
+  if (isYoutubeProcessArtifactText(articleText)) {
     throw new Error("YouTube Feishu document failed quality gate: assistant process artifact leaked into article.");
   }
   const forbidden = [
@@ -1987,7 +2013,7 @@ function assertReadableYoutubeDocument(markdown = "") {
     /(?:^|\n)#{1,6}\s*.*YouTube\s*技术笔记/i,
     /<\/?details|<summary/i
   ];
-  const hit = forbidden.find((pattern) => pattern.test(text));
+  const hit = forbidden.find((pattern) => pattern.test(articleText));
   if (hit) throw new Error(`YouTube Feishu document failed quality gate: ${hit}`);
   auditYoutubeFinishedDocument(text);
 }
@@ -6185,6 +6211,21 @@ export class FeishuBot {
       .map((video, index) => buildTranscriptExcerptBlock(video, index))
       .filter(Boolean)
       .join("\n\n");
+    if (report.structuredArticle && report.evidenceBrief) {
+      const structured = normalizeYoutubeStructuredArticle(report.structuredArticle, report.evidenceBrief, {
+        topic: report.topic,
+        title: report.title,
+        videos
+      });
+      assertStructuredYoutubeArticle(structured, { topic: report.topic, title: report.title, videos });
+      const body = renderYoutubeStructuredArticle(structured, { topic: report.topic, title: report.title, videos });
+      const markdown = repairYoutubeDocumentBeforeAudit(indentReaderLabelBullets(emphasizeReaderLabels(finalizeGuidedYoutubeDocumentMarkdown(body, {
+        transcriptBlocks,
+        videos
+      }))), report);
+      assertReadableYoutubeDocument(markdown);
+      return markdown;
+    }
     let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(stripYoutubeProcessPreamble(report.markdown))))
       .trim();
     body = stripYoutubeProcessArtifactLines(body);

@@ -530,7 +530,10 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
       lengthText: "01:02:03",
       language: "en",
       url: "https://www.youtube.com/watch?v=test1234567",
-      transcriptText: Array.from({ length: 30 }, (_, index) => `[0:${String(index).padStart(2, "0")}] Transcript line ${index + 1}.`).join("\n")
+      transcriptText: [
+        ...Array.from({ length: 30 }, (_, index) => `[0:${String(index).padStart(2, "0")}] Transcript line ${index + 1}.`),
+        "[0:31] 我会把这句话保留在原文索引里，因为这是视频字幕证据，不是模型过程话。"
+      ].join("\n")
     }
   ],
   markdown: [
@@ -654,6 +657,11 @@ assertEqual(
     !mobileDocMarkdown.includes("发到飞书文档") &&
     !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")
   ),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc keeps process-like phrases inside transcript evidence blocks",
+  String(mobileDocMarkdown.includes("我会把这句话保留在原文索引里，因为这是视频字幕证据，不是模型过程话。")),
   "true"
 );
 assertEqual(
@@ -896,9 +904,28 @@ const structuredFeishuDoc = bot.buildFeishuYoutubeDocumentMarkdown({
     transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
   }]
 });
+const structuredFeishuDocFromSlots = bot.buildFeishuYoutubeDocumentMarkdown({
+  topic: "Starship HLS",
+  title: "月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
+  markdown: "我先按时间戳骨架整理成中文技术简报，接下来我会把内容发到飞书。",
+  evidenceBrief: hlsEvidenceBrief,
+  structuredArticle: hlsArticle,
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
 assertEqual(
   "youtube structured pipeline renders reader-grade article",
   String(structuredFeishuDoc.includes("## 一、关键术语解释") && structuredFeishuDoc.includes("## 二、背景导读") && structuredFeishuDoc.includes("## 三、导读与核心结论") && structuredFeishuDoc.includes("## 四、关键技术点速览") && structuredFeishuDoc.includes("## 八、出处与链接") && !structuredFeishuDoc.includes("YouTube 技术笔记") && !structuredFeishuDoc.includes("我先按")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu publishing uses structured slots instead of contaminated markdown when available",
+  String(structuredFeishuDocFromSlots.includes("## 一、关键术语解释") && structuredFeishuDocFromSlots.includes("Starship HLS") && !structuredFeishuDocFromSlots.includes("我先按时间戳骨架") && !structuredFeishuDocFromSlots.includes("接下来我会")),
   "true"
 );
 assertEqual(
