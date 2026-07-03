@@ -421,23 +421,37 @@ function articleGroupTopicLabel(title = "", sourceType = "") {
   return "这篇";
 }
 
+function articleGroupDiscussionVariantSeed(text = "") {
+  return Array.from(String(text || "")).reduce((sum, char) => (sum + char.charCodeAt(0)) % 9973, 0);
+}
+
+function buildArticleGroupDiscussionClosing({ cleanTitle = "", question = "", counter = "", core = "" } = {}) {
+  const focus = cleanArticleGroupDiscussionText(counter || core || cleanTitle, 70);
+  const variants = [
+    focus ? `我更想听听大家的判断：${focus} 里面，哪个前提最需要继续验证？` : "你会从哪个角度继续查证这件事？",
+    "如果只选一个后续观察指标，你会盯技术兑现、供应链位置，还是商业化节奏？",
+    "欢迎直接补证据、给反例，或者把你看到的相关线索丢进来。",
+    "这个问题不急着下结论，大家更想先拆哪一层？"
+  ];
+  return variants[articleGroupDiscussionVariantSeed(`${cleanTitle}\n${question}`) % variants.length];
+}
+
 function buildArticleGroupDiscussionText({ title = "", sourceType = "", markdown = "" } = {}) {
   const cleanTitle = cleanArticleGroupDiscussionText(title, 120) || "新文章";
   const label = articleGroupTopicLabel(cleanTitle, sourceType);
   const counter = firstMeaningfulMarkdownLine(markdownSectionSnippet(markdown, "### 最反共识的判断"));
   const core = firstMeaningfulMarkdownLine(markdownSectionSnippet(markdown, "### 核心观点"));
   let question = "";
-  if (/SpaceX/i.test(cleanTitle) && /火星|使命|叙事/.test(`${cleanTitle} ${counter} ${core}`)) {
-    question = "SpaceX 一直强调火星使命，这到底是技术路线、组织信仰，还是商业航天的融资工具？";
-  } else if (/^(为什么|为何|如何|怎么)/.test(cleanTitle)) {
-    question = `${cleanTitle.replace(/[。！？!?]+$/g, "")}？`;
-  } else if (counter) {
+  if (counter) {
     question = `${counter} 这个判断成立吗？如果成立，最先变化的会是技术路线、产业链位置，还是资本叙事？`;
   } else if (core) {
     question = `${core} 这件事，真正值得盯的是技术变化、产业链机会，还是资本叙事？`;
+  } else if (/^(为什么|为何|如何|怎么)/.test(cleanTitle)) {
+    question = `${cleanTitle.replace(/[。！？!?]+$/g, "")}？`;
   } else {
     question = `${cleanTitle} 这件事，真正值得盯的是技术变化、产业链机会，还是资本叙事？`;
   }
+  const closing = buildArticleGroupDiscussionClosing({ cleanTitle, question, counter, core });
   const intro = /投研/.test(sourceType)
     ? `新整理了一份 ${label} 报告，里面有个问题挺值得展开：`
     : `新整理了一篇 ${label} 精读，里面有个问题挺值得展开：`;
@@ -446,7 +460,7 @@ function buildArticleGroupDiscussionText({ title = "", sourceType = "", markdown
     "",
     question,
     "",
-    "我觉得这个问题挺适合从技术、产业链和资本叙事三个角度一起看。大家怎么看？"
+    closing
   ].join("\n");
 }
 
