@@ -332,6 +332,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。",
     "接下来我会把“100倍更重”“12次以上补加注”串成一篇可直接进 Obsidian/飞书的笔记。",
     "我先接下来我会把这条视频整理成可直接进 Obsidian/飞书的中文技术简报。",
+    "我先接下来我会我会把这条视频整理成中文专栏文章，发到飞书文档里。真正的正文标题：SpaceX 如何把火箭从奢侈品改造成基础设施。",
     "---",
     "title: test",
     "---",
@@ -436,7 +437,7 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc strips combined process-preface variants",
-  String(!mobileDocMarkdown.includes("我先接下来我会") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
+  String(!mobileDocMarkdown.includes("我先接下来我会") && !mobileDocMarkdown.includes("我会把这条视频整理") && !mobileDocMarkdown.includes("发到飞书文档") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
   "true"
 );
 assertEqual(

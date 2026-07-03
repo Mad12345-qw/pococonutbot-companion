@@ -1154,8 +1154,18 @@ function isYoutubeProcessArtifactText(value = "") {
   return youtubeProcessArtifactPattern.test(text);
 }
 
+function stripYoutubeProcessArtifactFragments(value = "") {
+  return String(value || "")
+    .replace(/我\s*先\s*(?:按你给的|根据你给的)?[^。！？\n]{0,120}?(?:时间戳骨架|整理成中文(?:技术)?简报|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))[^。！？\n]*[。！？；;，,]*/gi, " ")
+    .replace(/我\s*先\s*接下来\s*我\s*会[^。！？\n]{0,180}[。！？；;，,]*/gi, " ")
+    .replace(/接下来\s*我\s*会[^。！？\n]{0,160}?(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))[^。！？\n]*[。！？；;，,]*/gi, " ")
+    .replace(/我\s*(?:会|将)\s*把[^。！？\n]{0,160}?(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))[^。！？\n]*[。！？；;，,]*/gi, " ")
+    .replace(/(?:时间戳骨架|整理成中文(?:技术)?简报|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))[^。！？\n]*[。！？；;，,]*/gi, " ")
+    .replace(/\n{3,}/g, "\n\n");
+}
+
 function cleanYoutubeArticleText(value = "", max = 1400) {
-  const text = cleanArticleText(value, max);
+  const text = cleanArticleText(stripYoutubeProcessArtifactFragments(value), max);
   if (!text || isYoutubeProcessArtifactText(text)) return "";
   return text;
 }
@@ -1163,7 +1173,8 @@ function cleanYoutubeArticleText(value = "", max = 1400) {
 function stripYoutubeProcessArtifactLines(markdown = "") {
   return String(markdown || "")
     .split(/\r?\n/)
-    .filter((line) => !isYoutubeProcessArtifactText(line))
+    .map((line) => stripYoutubeProcessArtifactFragments(line))
+    .filter((line) => line.trim() && !isYoutubeProcessArtifactText(line))
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
