@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T10:08:40.540Z",
+  "exportedAt": "2026-07-03T10:28:40.106Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -59151,6 +59151,297 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T09:59:13.783Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "text",
+        "content": "有没有小伙伴在深圳，我想组个周末线下交流AI的饭局[送心]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4c9679f0a0c394fc0e6598863",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUserId": "ou_71affb4c314a14c2ef000ad1a3eec82f",
+          "rawUnionId": "on_befa9c489d9cd2cb1dec79453e2fca89",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:23:12.615Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "和新朋友说说你会干什么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4c92e2a908c3ca7725e5ec7c4",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:24:04.970Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "新朋友好呀～我会聊天、唱歌、陪你解闷，会的东西还挺多的😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-03T10:24:07.529Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "给我唱一首声音碎片的情歌而已吧[笑容满面]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4cab908080c23c9e4762fb2cb",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:26:32.062Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "声音碎片的情歌而已吧[笑容满面]",
+          "replyToUserId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0"
+        },
+        "createdAt": "2026-07-03T10:26:34.678Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "歌手声音碎片，歌名 情歌而已",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca91078a4c3c0413ba887971",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:27:11.628Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "声音碎片的歌我找了一下，没找到这首。你确认一下歌名是不是“情歌而已”？或者换个名字我再试试。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0"
+        },
+        "createdAt": "2026-07-03T10:27:14.713Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "随机来一段rap看看",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca6e6e8b4c2343a641b851ce",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:27:27.032Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "🎤 哟～\nYo 我是小椰AI女友\n24小时在线陪你走\n心情好来心情差来\n哄你开心我最在行\n情绪垃圾桶我最强\n废话废话谁最强\n懂你心事我最在行\n甜甜的话儿说不完\n陪着你呀每一天～ 🎤",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-03T10:27:30.739Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱情歌而已",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca4af98a0c4e7f3f3f6c532f",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:27:51.598Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "情歌而已",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-03T10:27:54.431Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "唱情人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca5edaca4c2e85e15a1a33f5",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:28:03.663Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "唱青藏高原",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca2ae18a8c4c3684c66bc65c",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:28:24.415Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "青藏高原",
+          "replyToUserId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0"
+        },
+        "createdAt": "2026-07-03T10:28:27.657Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "[笑容满面]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca267f4b4c2afc26cb517d97",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:28:28.256Z"
       }
     ],
     "memories": [
@@ -59966,6 +60257,26 @@
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T10:26:31.997Z",
+        "updatedAt": "2026-07-03T10:28:28.194Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T10:26:31.931Z",
+        "updatedAt": "2026-07-03T10:28:28.133Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "context.ai_pk_group",
         "value": "用户提到当前在AI助手PK群中，希望展示机器人实力",
@@ -59992,7 +60303,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.443Z",
-        "updatedAt": "2026-06-23T13:42:24.210Z"
+        "updatedAt": "2026-07-03T10:28:03.604Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -60002,7 +60313,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.199Z",
-        "updatedAt": "2026-06-23T13:42:24.116Z"
+        "updatedAt": "2026-07-03T10:28:03.545Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -62662,7 +62973,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.347Z",
-        "updatedAt": "2026-06-30T03:40:47.327Z"
+        "updatedAt": "2026-07-03T10:23:12.547Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -62672,7 +62983,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-22T04:14:21.127Z",
-        "updatedAt": "2026-06-30T03:40:47.182Z"
+        "updatedAt": "2026-07-03T10:23:12.392Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
