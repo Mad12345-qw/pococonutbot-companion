@@ -6229,7 +6229,7 @@ export class FeishuBot {
         template: doc.created ? "indigo" : "orange",
         title: {
           tag: "plain_text",
-          content: doc.created ? "YouTube 技术笔记已整理" : "YouTube 技术笔记待归档"
+          content: doc.created ? "视频深度解读已整理" : "视频深度解读待归档"
         }
       },
       elements

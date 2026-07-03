@@ -888,6 +888,11 @@ assertEqual(
   "true"
 );
 assertEqual(
+  "YouTube result card avoids machine-note wording",
+  String(!feishuSource.includes("YouTube 技术笔记已整理") && !feishuSource.includes("YouTube 技术笔记待归档")),
+  "true"
+);
+assertEqual(
   "Feishu documents render the group entry as a native chat card before falling back to a link",
   String(
     feishuWorkspaceSource.includes("insertArticleGroupChatCard") &&
