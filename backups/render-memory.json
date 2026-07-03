@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T16:51:39.239Z",
+  "exportedAt": "2026-07-03T17:21:39.307Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61707,6 +61707,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T16:47:40.926Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "user",
+        "modality": "text",
+        "content": "测试企业开发者后台自建应用和个人身份建立飞书机器人，有什么不同",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4aa1bbf8a8b2a3f9674645a38",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUserId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUnionId": "on_09dfaa88fef3f5eb968394ee5f01db9a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:18:52.582Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "assistant",
+        "modality": "text",
+        "content": "企业自建应用和个人身份建机器人区别还挺大的，简单给你捋一下：\n\n企业自建应用\n• 需要企业管理员在后台创建，拿到 corp_id 和 app_secret\n• 权限范围大，能调用通讯录、文档、日历、会议等几乎所有开放接口\n• 机器人可以加进很多群、能读历史消息、能发富文本卡片\n• 配置稍微复杂点，要做权限申请和事件订阅\n\n个人身份建机器人\n• 用个人飞书账号直接在开发者后台建\n• corp_id 是个人版的，scope 很受限，基本只能发消息，很多高级接口调不了\n• 适合自己玩、学习、做个轻量通知机器人\n• 上不了架、不能用商店流程\n\n你现在是想做这种「AI 女友/陪伴」类的私聊机器人吧？如果要长期跑、能多群用、能读消息上下文，走企业自建会更顺手 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269"
+        },
+        "createdAt": "2026-07-03T17:18:57.720Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "user",
+        "modality": "text",
+        "content": "单词打卡助手，每天大概有80-100个听学生录音和判断打分的话，个人版的飞书机器人可以做到吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ab7aafca4b2248cfb7476bc0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUserId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUnionId": "on_09dfaa88fef3f5eb968394ee5f01db9a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:21:31.624Z"
       }
     ],
     "memories": [
@@ -65173,12 +65233,22 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "interest.feishu_bot_type",
+        "value": "想了解企业自建应用机器人与个人身份建立机器人的区别",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-03T17:19:44.772Z",
+        "updatedAt": "2026-07-03T17:19:44.772Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:33:22.785Z",
-        "updatedAt": "2026-06-18T03:33:22.785Z"
+        "updatedAt": "2026-07-03T17:21:31.560Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -65188,7 +65258,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:33:22.550Z",
-        "updatedAt": "2026-06-18T03:33:22.550Z"
+        "updatedAt": "2026-07-03T17:21:31.496Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "project.ai_companion_bot",
+        "value": "在搭建一个AI陪伴类私聊机器人",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-03T17:19:44.836Z",
+        "updatedAt": "2026-07-03T17:19:44.836Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
