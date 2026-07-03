@@ -5450,6 +5450,8 @@ export class FeishuBot {
       temperature: 0,
       forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
       requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      allowFallback: false,
+      retryAttempts: this.config.youtubeResearchAiRetryAttempts || 3,
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
     return extractJsonObject(repaired);
@@ -5459,6 +5461,16 @@ export class FeishuBot {
     const sourceAnchors = buildYoutubeGenerationAnchors(videos, topic);
     const deterministicEvidenceBrief = buildDeterministicYoutubeEvidenceBrief({ topic, videos });
     const deterministicEvidenceSource = buildYoutubeEvidenceBriefSource(deterministicEvidenceBrief);
+    const youtubeStructuredAiOptions = ({ maxTokens, temperature = 0.2 } = {}) => ({
+      maxTokens,
+      temperature,
+      responseFormat: { type: "json_object" },
+      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
+      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
+      allowFallback: false,
+      retryAttempts: this.config.youtubeResearchAiRetryAttempts || 3,
+      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
+    });
     const sourceText = videos.map((video, index) => compactLines([
       `Video ${index + 1}: ${video.title}`,
       `URL: ${video.url}`,
@@ -5517,14 +5529,10 @@ export class FeishuBot {
           sourceText
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
-      temperature: 0.1,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.1
+    }));
     const evidenceBrief = mergeYoutubeEvidenceBriefs(
       deterministicEvidenceBrief,
       await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
@@ -5574,14 +5582,10 @@ export class FeishuBot {
           "Quality bar: the title must be a Chinese judgment-style column title, not an English raw video title and never `<topic> YouTube 技术笔记`. Background must be concrete and beginner-friendly, not a reusable template."
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1800),
-      temperature: 0.2,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.2
+    }));
     const glossaryRawPromise = this.ai.chat([
       {
         role: "system",
@@ -5610,14 +5614,10 @@ export class FeishuBot {
           "Cardinality: glossary 3-8."
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1600),
-      temperature: 0.15,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.15
+    }));
     const coreRawPromise = this.ai.chat([
       {
         role: "system",
@@ -5653,14 +5653,10 @@ export class FeishuBot {
           "Cardinality: corePoints 4-8, quotes 2-4, counterintuitive 3."
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 2400),
-      temperature: 0.2,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.2
+    }));
     const techRawPromise = this.ai.chat([
       {
         role: "system",
@@ -5691,14 +5687,10 @@ export class FeishuBot {
           "Each bullet must add engineering logic, commercial meaning, or boundary conditions instead of repeating the opening."
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
-      temperature: 0.2,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.2
+    }));
     const timelineRawPromise = this.ai.chat([
       {
         role: "system",
@@ -5728,14 +5720,10 @@ export class FeishuBot {
           "Questions must be anchored to actual people, objects, terms, numbers, or tensions in this transcript."
         ].join("\n")
       }
-    ], {
+    ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
-      temperature: 0.2,
-      responseFormat: { type: "json_object" },
-      forcePrimaryWithFallback: Boolean(this.config.youtubeResearchForcePrimaryWithFallback),
-      requirePrimary: Boolean(this.config.youtubeResearchRequirePrimary),
-      timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
-    });
+      temperature: 0.2
+    }));
     const [
       titleContextPart,
       glossaryPart,

@@ -315,6 +315,148 @@ assertEqual(
   "3"
 );
 
+const youtubeAiOptionsBot = Object.create(FeishuBot.prototype);
+youtubeAiOptionsBot.config = {
+  youtubeResearchSummaryMaxTokens: 2600,
+  youtubeResearchMaxTranscriptChars: 60000,
+  youtubeResearchAiTimeoutMs: 180000,
+  youtubeResearchAiRetryAttempts: 3,
+  youtubeResearchForcePrimaryWithFallback: true,
+  youtubeResearchRequirePrimary: false
+};
+const capturedYoutubeAiOptions = [];
+youtubeAiOptionsBot.ai = {
+  chat: async (messages, options = {}) => {
+    capturedYoutubeAiOptions.push(options);
+    const content = messages.map((message) => String(message.content || "")).join("\n");
+    if (content.includes("Return JSON with exactly this shape")) {
+      return JSON.stringify({
+        thesis: "Starship 测试把商业航天竞争从单次发射推向高频迭代能力",
+        titleAngles: ["Starship 的真正门槛：不是火箭更大，而是迭代更快"],
+        narrativeConflict: "视频展示的冲突是硬件规模、试验节奏和工程风险之间的拉扯。",
+        backgroundAnchors: ["Starship", "Super Heavy", "SpaceX", "发射塔", "猛禽发动机"],
+        glossarySeeds: [
+          { term: "Starship", evidence: "0:10 Starship", plainMeaning: "SpaceX 的大型飞船系统。" },
+          { term: "Super Heavy", evidence: "0:20 booster", plainMeaning: "负责把飞船送上去的一级助推器。" },
+          { term: "快速复用", evidence: "0:30 reuse", plainMeaning: "让火箭像运输工具一样反复使用。" }
+        ],
+        evidenceClaims: [
+          { claim: "发射系统的价值来自高频迭代。", timestamp: "0:10", quote: "rapid iteration", whyItMatters: "它决定成本下降速度。" },
+          { claim: "回收能力改变任务经济性。", timestamp: "0:20", quote: "reuse", whyItMatters: "它影响单位发射成本。" },
+          { claim: "发动机可靠性是核心约束。", timestamp: "0:30", quote: "engine", whyItMatters: "它决定能否规模化。" },
+          { claim: "发射塔是系统一部分。", timestamp: "0:40", quote: "tower", whyItMatters: "它影响周转效率。" },
+          { claim: "测试失败也会进入学习闭环。", timestamp: "0:50", quote: "test", whyItMatters: "它解释了试飞节奏。" },
+          { claim: "商业航天竞争变成系统工程。", timestamp: "1:00", quote: "system", whyItMatters: "它影响产业链判断。" }
+        ],
+        timelineSeeds: Array.from({ length: 8 }, (_, index) => ({
+          time: `0:${String(index + 10).padStart(2, "0")}`,
+          event: `第 ${index + 1} 个关键场景`,
+          importance: "帮助读者定位证据。",
+          quote: "source quote"
+        })),
+        questionSeeds: [
+          "Starship 的复用节奏何时能稳定？",
+          "猛禽发动机可靠性如何验证？",
+          "发射塔会不会成为产能瓶颈？",
+          "供应链哪些环节最容易受益？",
+          "监管节奏会如何影响商业化？"
+        ]
+      });
+    }
+    if (content.includes("fixed title/background schema")) {
+      return JSON.stringify({
+        title: "Starship 的真正门槛：不是火箭更大，而是迭代更快",
+        contextParagraphs: [
+          "这条视频的背景是 SpaceX 围绕 Starship 进行高频试验，行业关注点从单次发射成功转向可复用系统能否稳定运转。",
+          "对非专业读者来说，理解这条视频要先抓住一个矛盾：火箭硬件越大，真正难的反而是制造、测试、回收和再发射组成的系统效率。"
+        ]
+      });
+    }
+    if (content.includes("fixed glossary schema")) {
+      return JSON.stringify({
+        glossary: [
+          { term: "Starship", explanation: "SpaceX 的大型飞船系统，用来承担更重载荷和深空任务。" },
+          { term: "Super Heavy", explanation: "Starship 的一级助推器，负责起飞阶段的大推力。" },
+          { term: "快速复用", explanation: "火箭完成任务后尽快回收、检查并再次发射的能力。" }
+        ]
+      });
+    }
+    if (content.includes("fixed core schema")) {
+      return JSON.stringify({
+        oneSentence: "Starship 的核心看点不是尺寸，而是 SpaceX 能否把火箭变成可高频迭代的运输系统。",
+        corePoints: Array.from({ length: 4 }, (_, index) => ({
+          title: `核心判断 ${index + 1}：复用能力决定商业航天成本曲线`,
+          evidence: "rapid iteration",
+          why: "它决定发射成本能否持续下降。",
+          takeaway: "读者应关注系统周转，而不只是单次试飞。"
+        })),
+        quotes: [
+          { title: "高频迭代", original: "rapid iteration", meaning: "强调试验速度。", implication: "工程学习速度可能成为壁垒。" },
+          { title: "复用系统", original: "reuse", meaning: "强调回收再发射。", implication: "成本结构会被重新定义。" }
+        ],
+        counterintuitive: [
+          "火箭越大，不代表商业价值越确定。",
+          "失败试飞也可能是学习资产。",
+          "发射塔和地面系统可能和飞船一样关键。"
+        ]
+      });
+    }
+    if (content.includes("fixed technical schema")) {
+      return JSON.stringify({
+        techPoints: Array.from({ length: 3 }, (_, index) => ({
+          name: `技术点 ${index + 1}`,
+          says: "视频把它放在复用系统里讲。",
+          importance: "它影响发射频率和成本。",
+          risk: "稳定性仍需更多验证。"
+        })),
+        detailSections: Array.from({ length: 3 }, (_, index) => ({
+          title: `技术拆解 ${index + 1}`,
+          bullets: ["这一点把硬件能力和商业化效率连接起来。", "边界条件是可靠性、监管和地面系统。"]
+        }))
+      });
+    }
+    if (content.includes("fixed timeline/question schema")) {
+      return JSON.stringify({
+        timeline: Array.from({ length: 8 }, (_, index) => ({
+          time: `0:${String(index + 10).padStart(2, "0")}`,
+          event: `时间线事件 ${index + 1}`,
+          importance: "这一刻帮助读者理解证据链。",
+          evidence: "source quote"
+        })),
+        questions: [
+          "复用节奏何时稳定？",
+          "发动机可靠性如何验证？",
+          "发射塔会不会成为瓶颈？",
+          "供应链哪些环节最受益？",
+          "监管节奏如何影响商业化？"
+        ]
+      });
+    }
+    throw new Error("unexpected YouTube AI prompt");
+  }
+};
+await youtubeAiOptionsBot.generateYoutubeResearchMarkdown({
+  topic: "SpaceX",
+  request: { raw: "youtube https://youtu.be/test", videoUrl: "https://youtu.be/test" },
+  videos: [{
+    title: "Starship test",
+    channel: "SpaceX",
+    url: "https://youtu.be/test",
+    language: "en",
+    transcriptText: Array.from({ length: 20 }, (_, index) => `[0:${String(index + 10).padStart(2, "0")}] rapid iteration reuse engine tower system ${index + 1}`).join("\n")
+  }]
+});
+assertEqual(
+  "youtube structured generation never uses fallback model",
+  String(capturedYoutubeAiOptions.length >= 6 && capturedYoutubeAiOptions.every((option) => option.allowFallback === false)),
+  "true"
+);
+assertEqual(
+  "youtube structured generation retries primary before failing",
+  String(capturedYoutubeAiOptions.every((option) => option.retryAttempts === 3)),
+  "true"
+);
+
 const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
   topic: "GPU",
   title: "building the best GPU possible YouTube 技术笔记",
