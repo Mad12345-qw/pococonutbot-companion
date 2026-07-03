@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T16:31:39.324Z",
+  "exportedAt": "2026-07-03T16:41:39.133Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61520,6 +61520,169 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T16:31:06.116Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "前三个感觉朦朦胧胧的，然后我把3用了一次那个变清晰的功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a0f4c7ca8c3602731ec3814e",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:32:26.017Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "role": "user",
+        "modality": "text",
+        "content": "收到[致敬]这个是在Studio网站上生成的吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a0ab0e8a0c4b1d55f085dec5",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUserId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUnionId": "on_3d95ebfeae3e5440174df0ba08cce08d",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:33:13.785Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "我是改短剧的台词来着，前后一对比很明显的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a0bcdc0a0c38ed780ff4d11c",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:33:21.694Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "这里",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a0692aca0c2950a0f0d921d8",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:34:15.742Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "那个3用了一次音频降噪会轻一点朦胧感",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a048a80a0c4b91bdbead8dbe",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:34:46.389Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 好的感谢反馈！也可以试下我们的1.5版本，最近也会上到Studio网站~\nhttps://platform.mosi.cn/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://platform.mosi.cn/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a170b9ca4c2ebea5b3ffa273",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T16:38:54.189Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "role": "user",
+        "modality": "text",
+        "content": "好的感谢反馈！也可以试下我们的1.5版本，最近也会上到Studio网站~\nhttps://platform.mosi.cn/ 账号是通的~\n[Link content]\n[Web page] https://platform.mosi.cn/\nMosi Platform Playground",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4a170b9ca4c2ebea5b3ffa273",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUserId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUnionId": "on_3d95ebfeae3e5440174df0ba08cce08d",
+          "linkContext": "[Web page] https://platform.mosi.cn/\nMosi Platform Playground",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:38:55.151Z"
       }
     ],
     "memories": [
@@ -62815,6 +62978,26 @@
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:33:13.715Z",
+        "updatedAt": "2026-07-03T16:38:55.084Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:33:13.640Z",
+        "updatedAt": "2026-07-03T16:38:55.014Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
         "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
@@ -62861,7 +63044,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:02:01.716Z",
-        "updatedAt": "2026-07-03T16:31:06.048Z"
+        "updatedAt": "2026-07-03T16:34:46.331Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -62871,7 +63054,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:02:01.624Z",
-        "updatedAt": "2026-07-03T16:31:05.981Z"
+        "updatedAt": "2026-07-03T16:34:46.272Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
