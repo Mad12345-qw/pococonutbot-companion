@@ -486,6 +486,43 @@ export class FeishuWorkspaceClient {
     }
   }
 
+  async applyDocumentPermissionSettings(documentId) {
+    if (!documentId) return { applied: false, reason: "not_configured" };
+    const permissionSetting = {
+      external_access_entity: "open",
+      share_entity: "same_tenant",
+      manage_collaborator_entity: "collaborator_full_access",
+      copy_entity: "anyone_can_view",
+      security_entity: "only_full_access",
+      comment_entity: "anyone_can_view",
+      link_share_entity: "tenant_readable"
+    };
+    try {
+      await this.request(`/open-apis/drive/v2/permissions/${encodeURIComponent(documentId)}/public?type=docx`, {
+        method: "PATCH",
+        body: permissionSetting
+      });
+      let effectiveSetting = {};
+      try {
+        effectiveSetting = await this.request(`/open-apis/drive/v2/permissions/${encodeURIComponent(documentId)}/public?type=docx`);
+      } catch (readError) {
+        effectiveSetting = { readbackError: readError.message };
+      }
+      logEvent("info", "Feishu document permission settings applied", {
+        documentId,
+        permissionSetting,
+        effectiveSetting
+      });
+      return { applied: true, permissionSetting, effectiveSetting };
+    } catch (error) {
+      logEvent("warn", "Feishu document permission settings skipped", {
+        documentId,
+        error: error.message
+      });
+      return { applied: false, reason: error.message, permissionSetting };
+    }
+  }
+
   async applyDocumentCoverImage({ documentId, coverImageUrl = "", sourceUrl = "" } = {}) {
     const imageUrl = resolveDocumentCoverImageUrl({ coverImageUrl, sourceUrl });
     if (!documentId || !imageUrl) return { applied: false, reason: "not_configured" };
@@ -567,6 +604,8 @@ export class FeishuWorkspaceClient {
     if (!writeError) {
       const displaySettingsResult = await this.applyDocumentDisplaySettings(documentId);
       writeDiagnostics.displaySettings = displaySettingsResult;
+      const permissionSettingsResult = await this.applyDocumentPermissionSettings(documentId);
+      writeDiagnostics.permissionSettings = permissionSettingsResult;
       const coverResult = await this.applyDocumentCoverImage({
         documentId,
         coverImageUrl,
@@ -795,6 +834,8 @@ export class FeishuWorkspaceClient {
     if (!writeError) {
       const displaySettingsResult = await this.applyDocumentDisplaySettings(documentId);
       writeDiagnostics.displaySettings = displaySettingsResult;
+      const permissionSettingsResult = await this.applyDocumentPermissionSettings(documentId);
+      writeDiagnostics.permissionSettings = permissionSettingsResult;
       const coverResult = await this.applyDocumentCoverImage({
         documentId,
         coverImageUrl,

@@ -1239,6 +1239,21 @@ assertEqual(
   "true"
 );
 assertEqual(
+  "Feishu documents apply sharing permissions matching the reader screenshot",
+  String(
+    feishuWorkspaceSource.includes("applyDocumentPermissionSettings") &&
+    feishuWorkspaceSource.includes("/open-apis/drive/v2/permissions/") &&
+    feishuWorkspaceSource.includes("external_access_entity: \"open\"") &&
+    feishuWorkspaceSource.includes("manage_collaborator_entity: \"collaborator_full_access\"") &&
+    feishuWorkspaceSource.includes("copy_entity: \"anyone_can_view\"") &&
+    feishuWorkspaceSource.includes("security_entity: \"only_full_access\"") &&
+    feishuWorkspaceSource.includes("comment_entity: \"anyone_can_view\"") &&
+    feishuWorkspaceSource.includes("link_share_entity: \"tenant_readable\"") &&
+    /const permissionSettingsResult = await this\.applyDocumentPermissionSettings/.test(feishuWorkspaceSource)
+  ),
+  "true"
+);
+assertEqual(
   "research knowledge base reuses entities by natural key instead of failing on duplicate entity ids",
   String(
     storageSource.includes("ON CONFLICT (name, entity_type)") &&
