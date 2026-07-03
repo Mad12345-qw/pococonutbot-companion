@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T18:21:39.183Z",
+  "exportedAt": "2026-07-03T22:51:38.794Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62007,6 +62007,42 @@
           "replyToUserId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a"
         },
         "createdAt": "2026-07-03T18:12:17.170Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "role": "user",
+        "modality": "text",
+        "content": "CCSWITCH里面怎么配置CLAUDECODE的DEEPSEEK接口",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb7e5440cb0b2e3764b39cb29f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUserId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUnionId": "on_308fac02bde7cfa79c217b7fcb336de4",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T22:42:05.219Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你是问用 Claude Code 通过 CCSwitch 接 DeepSeek 的 API 吗？大体上这样配：\n\n1. CCSwitch 里新建一个 Provider，选 OpenAI Compatible 类型\n2. API Base 填 https://api.deepseek.com/v1\n3. API Key 填你在 DeepSeek 申请的 sk-xxx\n4. Model 填 deepseek-chat（要 reasoning 就填 deepseek-reasoner）\n5. 保存后启动 Claude Code，记得在客户端里把模型切到这个新 Provider\n\nDeepSeek 接口是 OpenAI 兼容的，所以走 CCSwitch 当 OpenAI 兼容接是最稳的。你现在卡在哪一步啦？是连不上还是模型列表没出来 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_da76b0220213f928916386a0a6debf0c"
+        },
+        "createdAt": "2026-07-03T22:42:11.818Z"
       }
     ],
     "memories": [
@@ -67089,6 +67125,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T07:55:23.563Z",
         "updatedAt": "2026-06-23T14:14:42.752Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T22:42:05.150Z",
+        "updatedAt": "2026-07-03T22:42:05.150Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T22:42:05.062Z",
+        "updatedAt": "2026-07-03T22:42:05.062Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
