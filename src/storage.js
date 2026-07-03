@@ -2007,6 +2007,18 @@ class PostgresStorage {
     );
   }
 
+  async mergeResearchJobOutput(jobId, patch = {}) {
+    const result = await this.pool.query(
+      `UPDATE research_jobs
+       SET output = COALESCE(output, '{}'::jsonb) || $1::jsonb,
+           updated_at = now()
+       WHERE id = $2
+       RETURNING output`,
+      [JSON.stringify(patch || {}), String(jobId || "")]
+    );
+    return result.rows[0]?.output || {};
+  }
+
   async listRecentResearchJobs({ sourceType = "", limit = 20 } = {}) {
     const safeLimit = Math.max(1, Math.min(100, Number(limit) || 20));
     const values = [];
@@ -3391,6 +3403,18 @@ class JsonFileStorage {
     if (updates.error !== undefined) row.error = String(updates.error || "");
     row.updated_at = new Date().toISOString();
     await this.flush();
+  }
+
+  async mergeResearchJobOutput(jobId, patch = {}) {
+    const row = this.state.researchJobs.find((item) => String(item.id) === String(jobId));
+    if (!row) return {};
+    row.output = {
+      ...(row.output || {}),
+      ...(patch || {})
+    };
+    row.updated_at = new Date().toISOString();
+    await this.flush();
+    return row.output;
   }
 
   async listRecentResearchJobs({ sourceType = "", limit = 20 } = {}) {

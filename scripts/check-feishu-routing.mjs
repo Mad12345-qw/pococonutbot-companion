@@ -457,6 +457,69 @@ assertEqual(
   "true"
 );
 
+const cacheLifecycleBot = Object.create(FeishuBot.prototype);
+const cacheNow = Date.now();
+const cacheJobs = [
+  {
+    id: "fresh_job",
+    sourceType: "video",
+    sourceUrl: "https://youtu.be/cache-test",
+    output: {
+      youtubeArticleParts: {
+        expiresAt: new Date(cacheNow + 60 * 60 * 1000).toISOString(),
+        updatedAt: new Date(cacheNow).toISOString(),
+        parts: {
+          evidenceBrief: { status: "done", data: { thesis: "cached thesis" } },
+          tech: { status: "failed", error: "timeout" }
+        }
+      }
+    }
+  },
+  {
+    id: "expired_job",
+    sourceType: "video",
+    sourceUrl: "https://youtu.be/expired-cache",
+    output: {
+      youtubeArticleParts: {
+        expiresAt: new Date(cacheNow - 60 * 1000).toISOString(),
+        updatedAt: new Date(cacheNow - 25 * 60 * 60 * 1000).toISOString(),
+        parts: {
+          evidenceBrief: { status: "done", data: { thesis: "old thesis" } }
+        }
+      }
+    }
+  }
+];
+cacheLifecycleBot.storage = {
+  listRecentResearchJobs: async ({ sourceType = "" } = {}) => cacheJobs.filter((job) => !sourceType || job.sourceType === sourceType),
+  mergeResearchJobOutput: async (jobId, patch) => {
+    const job = cacheJobs.find((item) => item.id === jobId);
+    job.output = { ...(job.output || {}), ...(patch || {}) };
+    return job.output;
+  }
+};
+const reusableCache = await cacheLifecycleBot.findReusableYoutubeArticlePartCache("https://youtu.be/cache-test");
+assertEqual(
+  "youtube article part cache reuses fresh failed-job parts",
+  String(Boolean(reusableCache?.parts?.evidenceBrief?.data?.thesis)),
+  "true"
+);
+await cacheLifecycleBot.clearExpiredYoutubeArticlePartCaches();
+assertEqual(
+  "youtube article part cache clears expired parts after 24h",
+  String(cacheJobs[1].output.youtubeArticleParts.clearedIntermediateParts === true && !cacheJobs[1].output.youtubeArticleParts.parts),
+  "true"
+);
+await cacheLifecycleBot.clearYoutubeArticlePartCacheAfterPublish("fresh_job", {
+  report: { title: "Published article" },
+  doc: { created: true, url: "https://feishu.example/doc" }
+});
+assertEqual(
+  "youtube article part cache clears intermediate parts after publish",
+  String(cacheJobs[0].output.youtubeArticleParts.clearedIntermediateParts === true && !cacheJobs[0].output.youtubeArticleParts.parts),
+  "true"
+);
+
 const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
   topic: "GPU",
   title: "building the best GPU possible YouTube 技术笔记",

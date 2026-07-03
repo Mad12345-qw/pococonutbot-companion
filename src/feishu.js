@@ -17,6 +17,7 @@ import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, remov
 import { WeChatPublisher } from "./wechat-publisher.js";
 
 const execFileAsync = promisify(execFile);
+const YOUTUBE_ARTICLE_PART_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
 
@@ -1959,6 +1960,64 @@ function assertReadableYoutubeDocument(markdown = "") {
   const hit = forbidden.find((pattern) => pattern.test(text));
   if (hit) throw new Error(`YouTube Feishu document failed quality gate: ${hit}`);
   auditYoutubeFinishedDocument(text);
+}
+
+function youtubeArticlePartsSourceKey(sourceUrl = "") {
+  return researchHash(String(sourceUrl || "").trim().toLowerCase());
+}
+
+function summarizeYoutubeArticleParts(cache = {}) {
+  const parts = cache?.parts && typeof cache.parts === "object" ? cache.parts : {};
+  const entries = Object.entries(parts);
+  const done = entries.filter(([, part]) => part?.status === "done").length;
+  const failed = entries.filter(([, part]) => part?.status === "failed").length;
+  return {
+    total: entries.length,
+    done,
+    failed,
+    succeeded: done,
+    failedParts: entries.filter(([, part]) => part?.status === "failed").map(([name]) => name),
+    cachedPartNames: entries.filter(([, part]) => part?.status === "done").map(([name]) => name),
+    updatedAt: cache.updatedAt || ""
+  };
+}
+
+function isFreshYoutubeArticlePartsCache(cache = {}, sourceKey = "") {
+  if (!cache || typeof cache !== "object") return false;
+  if (sourceKey && cache.sourceKey && cache.sourceKey !== sourceKey) return false;
+  if (!cache.parts || typeof cache.parts !== "object") return false;
+  const expiresAt = Date.parse(cache.expiresAt || "");
+  return Number.isFinite(expiresAt) && expiresAt > Date.now();
+}
+
+function buildYoutubeArticlePartsCache({ sourceKey = "", parts = {}, recoveredFromJobId = "" } = {}) {
+  const now = new Date();
+  const expiresAt = new Date(now.getTime() + YOUTUBE_ARTICLE_PART_CACHE_TTL_MS);
+  return {
+    cacheVersion: 1,
+    sourceKey,
+    recoveredFromJobId,
+    createdAt: now.toISOString(),
+    updatedAt: now.toISOString(),
+    expiresAt: expiresAt.toISOString(),
+    parts: parts && typeof parts === "object" ? parts : {}
+  };
+}
+
+function markYoutubeArticlePart(cache = {}, partName = "", part = {}) {
+  const now = new Date();
+  return {
+    ...cache,
+    updatedAt: now.toISOString(),
+    expiresAt: new Date(now.getTime() + YOUTUBE_ARTICLE_PART_CACHE_TTL_MS).toISOString(),
+    parts: {
+      ...(cache.parts || {}),
+      [partName]: {
+        ...part,
+        updatedAt: now.toISOString()
+      }
+    }
+  };
 }
 
 function researchHash(value = "") {
@@ -4991,6 +5050,76 @@ export class FeishuBot {
     return inferSearchFreshness(text, this.config.bochaSearchFreshness || "noLimit");
   }
 
+  async mergeResearchJobOutput(researchJobId = "", patch = {}) {
+    if (!researchJobId) return {};
+    if (typeof this.storage.mergeResearchJobOutput === "function") {
+      return this.storage.mergeResearchJobOutput(researchJobId, patch);
+    }
+    const jobs = await this.storage.listRecentResearchJobs?.({ limit: 100 }) || [];
+    const current = jobs.find((job) => String(job.id) === String(researchJobId))?.output || {};
+    const output = { ...current, ...(patch || {}) };
+    await this.storage.updateResearchJob?.(researchJobId, { output });
+    return output;
+  }
+
+  async clearExpiredYoutubeArticlePartCaches() {
+    const jobs = await this.storage.listRecentResearchJobs?.({ sourceType: "video", limit: 100 }) || [];
+    const now = Date.now();
+    let cleared = 0;
+    for (const job of jobs) {
+      const cache = job.output?.youtubeArticleParts;
+      if (!cache?.parts) continue;
+      const expiresAt = Date.parse(cache.expiresAt || "");
+      if (Number.isFinite(expiresAt) && expiresAt > now) continue;
+      await this.mergeResearchJobOutput(job.id, {
+        youtubeArticleParts: {
+          clearedIntermediateParts: true,
+          clearReason: "expired_after_24h",
+          clearedAt: new Date().toISOString(),
+          summary: summarizeYoutubeArticleParts(cache)
+        }
+      });
+      cleared += 1;
+    }
+    if (cleared) {
+      logEvent("info", "Expired YouTube article part caches cleared", { cleared });
+    }
+  }
+
+  async findReusableYoutubeArticlePartCache(sourceUrl = "") {
+    const sourceKey = youtubeArticlePartsSourceKey(sourceUrl);
+    if (!sourceKey) return null;
+    const jobs = await this.storage.listRecentResearchJobs?.({ sourceType: "video", limit: 100 }) || [];
+    for (const job of jobs) {
+      if (String(job.sourceUrl || job.source_url || "") !== String(sourceUrl || "")) continue;
+      const cache = job.output?.youtubeArticleParts;
+      if (!isFreshYoutubeArticlePartsCache(cache, sourceKey)) continue;
+      const summary = summarizeYoutubeArticleParts(cache);
+      if (!summary.done) continue;
+      return {
+        ...cache,
+        recoveredFromJobId: job.id
+      };
+    }
+    return null;
+  }
+
+  async clearYoutubeArticlePartCacheAfterPublish(researchJobId = "", { report = {}, doc = {} } = {}) {
+    if (!researchJobId || !doc.created) return;
+    const current = (await this.mergeResearchJobOutput(researchJobId, {})) || {};
+    const cache = current.youtubeArticleParts || {};
+    await this.mergeResearchJobOutput(researchJobId, {
+      youtubeArticleParts: {
+        clearedIntermediateParts: true,
+        clearReason: "published",
+        clearedAt: new Date().toISOString(),
+        summary: summarizeYoutubeArticleParts(cache),
+        title: report.title || "",
+        feishuDocUrl: doc.url || ""
+      }
+    });
+  }
+
   async handleYoutubeResearchRequest({ messageId, chatId, userId, request }) {
     if (!this.transcriptApi?.enabled) {
       await this.replyText(messageId, "\u0059\u006f\u0075\u0054\u0075\u0062\u0065 \u5b57\u5e55\u63d0\u53d6\u8fd8\u6ca1\u914d\u7f6e\u597d\uff0c\u9700\u8981\u5728 Render \u91cc\u52a0 TRANSCRIPT_API_KEY\u3002");
@@ -5003,10 +5132,13 @@ export class FeishuBot {
 
     await this.replyText(messageId, "\u597d\u7684\uff0c\u6211\u6574\u7406\u597d\u7a0d\u540e\u53d1\u4f60\u54e6");
     const researchJobId = researchSourceId("job", `${messageId}:${Date.now()}`);
+    const researchSourceUrl = request.videoUrl || request.channelUrl || request.playlistUrl || request.query || "";
+    await this.clearExpiredYoutubeArticlePartCaches();
+    const reusableArticleParts = await this.findReusableYoutubeArticlePartCache(researchSourceUrl);
     await this.storage.upsertResearchJob?.({
       id: researchJobId,
       sourceType: "video",
-      sourceUrl: request.videoUrl || request.channelUrl || request.playlistUrl || request.query || "",
+      sourceUrl: researchSourceUrl,
       status: "running",
       stage: "youtube_article_generation",
       attempts: 1,
@@ -5019,6 +5151,9 @@ export class FeishuBot {
           "reader_document_plus_machine_evidence",
           "time_context_first_class"
         ]
+      },
+      output: {
+        ...(reusableArticleParts ? { youtubeArticleParts: reusableArticleParts } : {})
       }
     });
     const timing = this.startTiming("Feishu YouTube research", {
@@ -5037,15 +5172,19 @@ export class FeishuBot {
         hasUrl: Boolean(request.videoUrl || request.channelUrl || request.playlistUrl),
         topicHint: request.topicHint || ""
       });
-      const report = await this.buildYoutubeResearchReport(request);
+      const report = await this.buildYoutubeResearchReport(request, {
+        researchJobId,
+        youtubeArticleParts: reusableArticleParts,
+        sourceUrl: researchSourceUrl
+      });
+      await this.mergeResearchJobOutput(researchJobId, {
+        topic: report.topic,
+        title: report.title,
+        videos: report.videos.length,
+        diagnostics: report.diagnostics
+      });
       await this.storage.updateResearchJob?.(researchJobId, {
         stage: "feishu_document_generation",
-        output: {
-          topic: report.topic,
-          title: report.title,
-          videos: report.videos.length,
-          diagnostics: report.diagnostics
-        }
       });
       this.markTiming(timing, "buildReportMs");
       const documentStartedAt = Date.now();
@@ -5055,6 +5194,7 @@ export class FeishuBot {
         documentMs: elapsedMsSince(documentStartedAt)
       };
       this.markTiming(timing, "feishuDocumentMs");
+      await this.clearYoutubeArticlePartCacheAfterPublish(researchJobId, { report, doc });
       const wechatCandidate = doc.created
         ? await this.registerWechatPublishCandidate({
             sourceType: "youtube_research",
@@ -5179,16 +5319,16 @@ export class FeishuBot {
     try {
       knowledgeBase = await this.syncYoutubeResearchToResearchKnowledgeBase(report, { doc, sync, index });
       this.markTiming(timing, "researchKnowledgeBaseMs");
+      await this.mergeResearchJobOutput(researchJobId, {
+        topic: report.topic,
+        title: report.title,
+        feishuDocUrl: doc.url || "",
+        obsidianPath: sync.notePath || "",
+        knowledgeBase
+      });
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "done",
-        stage: "done",
-        output: {
-          topic: report.topic,
-          title: report.title,
-          feishuDocUrl: doc.url || "",
-          obsidianPath: sync.notePath || "",
-          knowledgeBase
-        }
+        stage: "done"
       });
     } catch (error) {
       this.markTiming(timing, "researchKnowledgeBaseMs");
@@ -5337,7 +5477,12 @@ export class FeishuBot {
       request,
       videos,
       failures
-    }, { returnKnowledge: true });
+    }, {
+      returnKnowledge: true,
+      researchJobId: options.researchJobId || "",
+      youtubeArticleParts: options.youtubeArticleParts || null,
+      sourceUrl: options.sourceUrl || request.videoUrl || request.channelUrl || request.playlistUrl || request.query || ""
+    });
     const markdown = typeof generated === "string" ? generated : generated.markdown;
     diagnostics.aiMs = elapsedMsSince(aiStartedAt);
     diagnostics.totalMs = elapsedMsSince(startedAt);
@@ -5480,8 +5625,47 @@ export class FeishuBot {
       "Transcript:",
       truncate(video.transcriptText, this.config.youtubeResearchMaxTranscriptChars || 60000)
     ])).join("\n\n---\n\n");
+    const cacheSourceUrl = options.sourceUrl || request.videoUrl || request.channelUrl || request.playlistUrl || request.query || videos[0]?.url || "";
+    const cacheSourceKey = youtubeArticlePartsSourceKey(cacheSourceUrl);
+    let articlePartCache = isFreshYoutubeArticlePartsCache(options.youtubeArticleParts, cacheSourceKey)
+      ? {
+          ...options.youtubeArticleParts,
+          parts: { ...(options.youtubeArticleParts.parts || {}) }
+        }
+      : buildYoutubeArticlePartsCache({ sourceKey: cacheSourceKey });
+    const cachedArticlePart = (name) => {
+      const part = articlePartCache.parts?.[name];
+      return part?.status === "done" && part.data ? part.data : null;
+    };
+    const persistArticlePart = async (name, part) => {
+      articlePartCache = markYoutubeArticlePart(articlePartCache, name, part);
+      if (options.researchJobId) {
+        await this.mergeResearchJobOutput(options.researchJobId, {
+          youtubeArticleParts: articlePartCache
+        });
+      }
+    };
+    const runCachedArticlePart = async (name, label, rawFactory) => {
+      const cached = cachedArticlePart(name);
+      if (cached) return cached;
+      try {
+        const raw = await rawFactory();
+        const data = await this.parseYoutubeJsonObject(raw, label);
+        await persistArticlePart(name, { status: "done", data });
+        return data;
+      } catch (error) {
+        await persistArticlePart(name, {
+          status: "failed",
+          error: truncate(error.message, 500)
+        });
+        throw error;
+      }
+    };
 
-    const evidenceRaw = await this.ai.chat([
+    const cachedEvidenceBrief = cachedArticlePart("evidenceBrief");
+    const evidenceBrief = cachedEvidenceBrief || await (async () => {
+      try {
+        const evidenceRaw = await this.ai.chat([
       {
         role: "system",
         content: [
@@ -5529,19 +5713,29 @@ export class FeishuBot {
           sourceText
         ].join("\n")
       }
-    ], youtubeStructuredAiOptions({
-      maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
-      temperature: 0.1
-    }));
-    const evidenceBrief = mergeYoutubeEvidenceBriefs(
-      deterministicEvidenceBrief,
-      await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
-      { topic, videos }
-    );
+      ], youtubeStructuredAiOptions({
+        maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
+        temperature: 0.1
+      }));
+        const parsedEvidenceBrief = mergeYoutubeEvidenceBriefs(
+          deterministicEvidenceBrief,
+          await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
+          { topic, videos }
+        );
+        await persistArticlePart("evidenceBrief", { status: "done", data: parsedEvidenceBrief });
+        return parsedEvidenceBrief;
+      } catch (error) {
+        await persistArticlePart("evidenceBrief", {
+          status: "failed",
+          error: truncate(error.message, 500)
+        });
+        throw error;
+      }
+    })();
     assertYoutubeEvidenceBrief(evidenceBrief, { topic, videos });
     const evidenceBriefSource = buildYoutubeEvidenceBriefSource(evidenceBrief);
 
-    const titleContextRawPromise = this.ai.chat([
+    const titleContextPartPromise = runCachedArticlePart("titleContext", "article title context", () => this.ai.chat([
       {
         role: "system",
         content: [
@@ -5585,8 +5779,8 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1800),
       temperature: 0.2
-    }));
-    const glossaryRawPromise = this.ai.chat([
+    })));
+    const glossaryPartPromise = runCachedArticlePart("glossary", "article glossary", () => this.ai.chat([
       {
         role: "system",
         content: [
@@ -5617,8 +5811,8 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1600),
       temperature: 0.15
-    }));
-    const coreRawPromise = this.ai.chat([
+    })));
+    const corePartPromise = runCachedArticlePart("core", "article core arguments", () => this.ai.chat([
       {
         role: "system",
         content: [
@@ -5656,8 +5850,8 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 2400),
       temperature: 0.2
-    }));
-    const techRawPromise = this.ai.chat([
+    })));
+    const techPartPromise = runCachedArticlePart("tech", "article technical sections", () => this.ai.chat([
       {
         role: "system",
         content: [
@@ -5690,8 +5884,8 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
       temperature: 0.2
-    }));
-    const timelineRawPromise = this.ai.chat([
+    })));
+    const timelinePartPromise = runCachedArticlePart("timeline", "article timeline", () => this.ai.chat([
       {
         role: "system",
         content: [
@@ -5723,20 +5917,30 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
       temperature: 0.2
-    }));
+    })));
+    const partResults = await Promise.allSettled([
+      titleContextPartPromise,
+      glossaryPartPromise,
+      corePartPromise,
+      techPartPromise,
+      timelinePartPromise
+    ]);
+    const failedParts = partResults
+      .map((result, index) => ({ result, name: ["titleContext", "glossary", "core", "tech", "timeline"][index] }))
+      .filter((item) => item.result.status === "rejected");
+    if (failedParts.length) {
+      const reason = failedParts
+        .map((item) => `${item.name}: ${truncate(item.result.reason?.message || String(item.result.reason || ""), 180)}`)
+        .join(" | ");
+      throw new Error(`YouTube article part generation failed after primary-model retries: ${reason}`);
+    }
     const [
       titleContextPart,
       glossaryPart,
       corePart,
       techPart,
       timelinePart
-    ] = await Promise.all([
-      titleContextRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article title context")),
-      glossaryRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article glossary")),
-      coreRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article core arguments")),
-      techRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article technical sections")),
-      timelineRawPromise.then((raw) => this.parseYoutubeJsonObject(raw, "article timeline"))
-    ]);
+    ] = partResults.map((item) => item.value);
     const structured = normalizeYoutubeStructuredArticle({
       title: titleContextPart.title,
       opening: {
