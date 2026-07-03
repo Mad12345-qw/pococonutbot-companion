@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T15:51:39.723Z",
+  "exportedAt": "2026-07-03T16:11:38.822Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61159,6 +61159,198 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T15:44:31.655Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "我试了一下音色设计的那个功能",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4981b4d8b8b3222441791c061",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:02:01.787Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "复刻音频不像",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b499ecc54a4b28e48b63426f1e",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:02:09.889Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "assistant",
+        "modality": "text",
+        "content": "复刻音频不太像吗？是哪里偏差比较大，音色还是语调节奏？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174"
+        },
+        "createdAt": "2026-07-03T16:02:13.814Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "差别还是蛮大的",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b499e47a8a8b39f8ac3e745176",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:02:28.452Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "音色，语调节奏（断句这一块）都不准",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49aa6530a0b1b80ce29e791ba",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:07:40.647Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "assistant",
+        "modality": "text",
+        "content": "音色和断句节奏都跑偏了哈，这种一般跟参考音频质量和采样参数都有关系。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174"
+        },
+        "createdAt": "2026-07-03T16:07:46.136Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "音色感觉很模糊，用了音频降噪之后稍微好一点点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49a8e1bca0b26efcd35960b02",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:08:03.976Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "assistant",
+        "modality": "text",
+        "content": "降噪后好一点就好办些，可以试试多喂几段不同情绪、不同节奏的样本进去，让它学得更全面一点。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174"
+        },
+        "createdAt": "2026-07-03T16:08:08.275Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "你这个语音的断句比我用的那个还好点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49a4ec38a0b36d2813e28354b",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:09:08.326Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "assistant",
+        "modality": "text",
+        "content": "那敢情好，说明这个音色底子还是不错的，就是之前参考音频没喂好。下次你想做点啥样的语音，我帮你跑跑看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174"
+        },
+        "createdAt": "2026-07-03T16:09:11.950Z"
       }
     ],
     "memories": [
@@ -62471,6 +62663,26 @@
         "metadata": {},
         "createdAt": "2026-06-19T04:53:22.807Z",
         "updatedAt": "2026-06-22T11:26:34.532Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:02:01.716Z",
+        "updatedAt": "2026-07-03T16:09:08.261Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:02:01.624Z",
+        "updatedAt": "2026-07-03T16:09:08.196Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
