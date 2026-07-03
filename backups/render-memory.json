@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T17:21:39.307Z",
+  "exportedAt": "2026-07-03T17:31:40.372Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61767,6 +61767,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T17:21:31.624Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "assistant",
+        "modality": "text",
+        "content": "个人版的能撑，但会撞到几个墙，先说结论：\n\n能做的\n• 收消息、发文字/卡片回复\n• 用户私聊机器人发录音触发打卡\n\n比较吃力的\n• 80–100 人/天并发倒不算高，但个人版应用有 QPS 和权限限制，批量回传评分结果容易触发限流\n• 个人版机器人拿不到群通讯录、没办法统一管理学生名单，做打卡的「全员点名」会很难\n• 录音文件要走飞书上传/下载接口，个人版 storage 权限比较窄，量大了不太稳\n• 不能上架，没法直接发链接给学生添加，得一个个扫码加\n\n如果只是小范围试水，个人版够用；要稳定跑下来、打分逻辑还能区分学生，建议走企业自建一个 bot，把录音存到自己的 OSS，评分用 async 任务排队，别压在飞书回调里同步跑 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269"
+        },
+        "createdAt": "2026-07-03T17:21:37.688Z"
       }
     ],
     "memories": [
@@ -65269,6 +65281,36 @@
         "metadata": {},
         "createdAt": "2026-07-03T17:19:44.836Z",
         "updatedAt": "2026-07-03T17:19:44.836Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "project.word_checkin_bot",
+        "value": "正在搭建一个单词打卡助手，每天处理约80-100个学生的录音听写和判断打分",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T17:22:13.281Z",
+        "updatedAt": "2026-07-03T17:22:13.281Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "project.word_checkin_bot.concern",
+        "value": "关心个人版飞书机器人是否能承载此打卡场景",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-03T17:22:13.399Z",
+        "updatedAt": "2026-07-03T17:22:13.399Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "key": "project.word_checkin_bot.scale",
+        "value": "每日录音量约80-100条，需考虑并发和稳定性",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-03T17:22:13.341Z",
+        "updatedAt": "2026-07-03T17:22:13.341Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
