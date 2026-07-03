@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T09:08:41.239Z",
+  "exportedAt": "2026-07-03T09:48:39.792Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -59072,6 +59072,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T07:26:09.957Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6",
+        "role": "user",
+        "modality": "text",
+        "content": "更新了以后卡片模式掉了开不了了怎么办，修了半天了[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4c05d310b4b3fc718f010dd47",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_30b79e9d4fd79129b10eccea8d28f7d6",
+          "rawUserId": "ou_30b79e9d4fd79129b10eccea8d28f7d6",
+          "rawUnionId": "on_1d0750c2cbe47834dfd36b8ce7ea98b5",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T09:45:28.092Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6",
+        "role": "assistant",
+        "modality": "text",
+        "content": "卡片模式掉是指之前那条Raptor 2的内容吗？\n可以试试清缓存或者换无痕模式开一下，有时候是插件冲突 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6"
+        },
+        "createdAt": "2026-07-03T09:45:36.248Z"
       }
     ],
     "memories": [
@@ -62224,6 +62260,26 @@
         "metadata": {},
         "createdAt": "2026-06-26T21:37:09.142Z",
         "updatedAt": "2026-06-26T21:37:09.142Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T09:45:28.023Z",
+        "updatedAt": "2026-07-03T09:45:28.023Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T09:45:27.924Z",
+        "updatedAt": "2026-07-03T09:45:27.924Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
