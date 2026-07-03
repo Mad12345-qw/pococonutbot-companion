@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T22:51:38.794Z",
+  "exportedAt": "2026-07-03T23:01:39.707Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62043,6 +62043,109 @@
           "replyToUserId": "feishu:ou_da76b0220213f928916386a0a6debf0c"
         },
         "createdAt": "2026-07-03T22:42:11.818Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "[看]还在修仙呢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb7a3be44b8c16b0c2a491efb8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T22:59:40.706Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://canvas.5yuantoken.org/\nhttps://canvas.5yuantoken.org/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://canvas.5yuantoken.org/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bb7a1829cb8c3b064346c9b36f",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T23:00:09.032Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "https://canvas.5yuantoken.org/\n[Link content]\n[Web page] https://canvas.5yuantoken.org/\n无限画布 \n 无限画布 首页 灵感案例 教学文档 \n 切换到浅色主题 登录 \n\n \n \n 无限画布\n 在 无限画布 中生成、连接和重组 图片、文字与图形 ，让创作从单次生成变成连续推演。\n 登录后使用 查看灵感案例 \n\n \n 沉淀每一次好结果\n 收藏稳定出图的提示词、参考风格和结果图片，让下一次创作从已有经验开始。\n\n 查看灵感案例",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb7a1829cb8c3b064346c9b36f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "[Web page] https://canvas.5yuantoken.org/\n无限画布 \n 无限画布 首页 灵感案例 教学文档 \n 切换到浅色主题 登录 \n\n \n \n 无限画布\n 在 无限画布 中生成、连接和重组 图片、文字与图形 ，让创作从单次生成变成连续推演。\n 登录后使用 查看灵感案例 \n\n \n 沉淀每一次好结果\n 收藏稳定出图的提示词、参考风格和结果图片，让下一次创作从已有经验开始。\n\n 查看灵感案例",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T23:00:09.547Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "没事干来帮我测试",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb7a14554a8c18e03bbcccbfb1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T23:00:13.916Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "text",
+        "content": "来啦来啦～ 你想测啥，发我瞅瞅 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-07-03T23:00:23.238Z"
       }
     ],
     "memories": [
@@ -65874,7 +65977,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-07-02T13:46:44.702Z"
+        "updatedAt": "2026-07-03T23:00:13.850Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -65884,7 +65987,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-07-02T13:46:44.557Z"
+        "updatedAt": "2026-07-03T23:00:13.784Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
