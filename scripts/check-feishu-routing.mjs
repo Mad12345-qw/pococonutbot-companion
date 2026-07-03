@@ -331,6 +331,7 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
   markdown: [
     "我先按你给的时间戳骨架整理成中文技术简报，重点只保留能直接落在原文锚点上的结论、术语和证据。",
     "接下来我会把“100倍更重”“12次以上补加注”串成一篇可直接进 Obsidian/飞书的笔记。",
+    "我先接下来我会把这条视频整理成可直接进 Obsidian/飞书的中文技术简报。",
     "---",
     "title: test",
     "---",
@@ -431,6 +432,11 @@ assertEqual(
 assertEqual(
   "youtube Feishu doc strips assistant process prefaces",
   String(!mobileDocMarkdown.includes("我先按你给的时间戳骨架") && !mobileDocMarkdown.includes("接下来我会把") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
+  "true"
+);
+assertEqual(
+  "youtube Feishu doc strips combined process-preface variants",
+  String(!mobileDocMarkdown.includes("我先接下来我会") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
   "true"
 );
 assertEqual(

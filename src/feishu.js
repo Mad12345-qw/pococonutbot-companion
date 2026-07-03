@@ -454,6 +454,7 @@ const GENERATION_FIRST_PRINCIPLES = [
   "Generation contract: get the direction right before writing. Do not produce low-quality draft content and rely on later rejection or cleanup.",
   "Plan from evidence first: identify the reader goal, topic boundary, concrete source anchors, time context, and required structure before generating prose.",
   "The model fills bounded content fields; code owns layout, section order, metadata placement, source links, and final rendering.",
+  "Every generated JSON string must be final reader-facing article content, never a promise about what the assistant will do next.",
   "Never output internal process notes, generic template filler, placeholder failure text, repeated metadata, unsupported HTML, or database-style fields as reader content.",
   "If evidence is insufficient for a claim, write a bounded uncertainty or next research task instead of inventing confident prose."
 ];
@@ -1144,6 +1145,30 @@ function cleanArticleText(value = "", max = 1400) {
   return truncate(String(value || "").replace(/\s+/g, " ").trim(), max);
 }
 
+const youtubeProcessArtifactPattern =
+  /(?:我\s*先.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|接下来\s*我\s*会.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|下面\s*我\s*会.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|我\s*(?:会|将)\s*把.{0,40}(?:整理|生成|写成|串成|放进|进入|发送|发你|发给你)|先按你给的|根据你给的时间戳|时间戳骨架|整理成中文(?:技术)?简报|可直接(?:进入|进)\s*(?:Obsidian|飞书)|直接(?:进入|进)\s*(?:Obsidian|飞书))/i;
+
+function isYoutubeProcessArtifactText(value = "") {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  return youtubeProcessArtifactPattern.test(text);
+}
+
+function cleanYoutubeArticleText(value = "", max = 1400) {
+  const text = cleanArticleText(value, max);
+  if (!text || isYoutubeProcessArtifactText(text)) return "";
+  return text;
+}
+
+function stripYoutubeProcessArtifactLines(markdown = "") {
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .filter((line) => !isYoutubeProcessArtifactText(line))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function isLowValueResearchArtifactText(value = "") {
   const text = String(value || "").trim();
   if (!text) return false;
@@ -1436,24 +1461,24 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
     normalized.title = source.titleAngles[0] || youtubeTitleFallback(report);
   }
   const anchors = source.backgroundAnchors.slice(0, 5).join("、");
-  const contextParagraphs = asArray(normalized.opening.contextParagraphs).map((item) => cleanArticleText(item, 1000)).filter(Boolean);
+  const contextParagraphs = asArray(normalized.opening.contextParagraphs).map((item) => cleanYoutubeArticleText(item, 1000)).filter(Boolean);
   if (contextParagraphs.length < 2) {
     normalized.opening.contextParagraphs = [
       `这条视频值得先放回具体语境里看：${anchors || report.topic || "视频中的关键对象"}不是孤立信息点，而是理解后续判断的入口。读者先抓住视频反复出现的对象、数字和场景，再进入结论会轻松很多。`,
       source.narrativeConflict || `本文要解释的主线是：${source.thesis}`
     ];
   }
-  const glossary = asArray(normalized.opening.glossary).filter((item) => cleanArticleText(item?.term) && cleanArticleText(item?.explanation || item?.description));
+  const glossary = asArray(normalized.opening.glossary).filter((item) => cleanYoutubeArticleText(item?.term) && cleanYoutubeArticleText(item?.explanation || item?.description));
   if (glossary.length < 3) {
     normalized.opening.glossary = source.glossarySeeds.slice(0, 6).map((item) => ({
       term: item.term,
       explanation: item.plainMeaning || `这是视频中反复出现的核心对象，后文会围绕它解释证据和判断。`
     }));
   }
-  if (!cleanArticleText(normalized.opening.oneSentence)) {
+  if (!cleanYoutubeArticleText(normalized.opening.oneSentence)) {
     normalized.opening.oneSentence = source.thesis;
   }
-  const corePoints = asArray(normalized.opening.corePoints).filter((item) => cleanArticleText(item?.title) && cleanArticleText(item?.evidence || item?.quote));
+  const corePoints = asArray(normalized.opening.corePoints).filter((item) => cleanYoutubeArticleText(item?.title) && cleanYoutubeArticleText(item?.evidence || item?.quote));
   if (corePoints.length < 3) {
     normalized.opening.corePoints = source.evidenceClaims.slice(0, 6).map((item, index) => ({
       title: item.claim || `关键判断 ${index + 1}`,
@@ -1473,7 +1498,7 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
   if (asArray(normalized.opening.counterintuitive).length < 3) {
     normalized.opening.counterintuitive = source.evidenceClaims.slice(0, 3).map((item) => `容易被忽略的是：${item.whyItMatters || item.claim}`);
   }
-  const techPoints = asArray(normalized.techPoints).filter((item) => cleanArticleText(item?.name || item?.title) && cleanArticleText(item?.says || item?.inVideo));
+  const techPoints = asArray(normalized.techPoints).filter((item) => cleanYoutubeArticleText(item?.name || item?.title) && cleanYoutubeArticleText(item?.says || item?.inVideo));
   if (techPoints.length < 2) {
     normalized.techPoints = source.evidenceClaims.slice(0, 5).map((item, index) => ({
       name: source.backgroundAnchors[index] || item.claim || `关键技术点 ${index + 1}`,
@@ -1494,7 +1519,7 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       }
     ];
   }
-  const timeline = asArray(normalized.timeline).filter((item) => cleanArticleText(item?.time || item?.timestamp) && cleanArticleText(item?.event || item?.whatHappens));
+  const timeline = asArray(normalized.timeline).filter((item) => cleanYoutubeArticleText(item?.time || item?.timestamp) && cleanYoutubeArticleText(item?.event || item?.whatHappens));
   if (timeline.length < 6) {
     normalized.timeline = source.timelineSeeds.slice(0, 18).map((item) => ({
       time: item.time,
@@ -1513,56 +1538,56 @@ function renderYoutubeStructuredArticle(article = {}, report = {}) {
   const fallbackTitle = structuredArticleFallbackTitle(article, report);
   const title = cleanYoutubeDocumentTitle(article.title || fallbackTitle) || fallbackTitle;
   const opening = article.opening || {};
-  const paragraphs = asArray(opening.contextParagraphs).map((item) => cleanArticleText(item, 900)).filter(Boolean);
+  const paragraphs = asArray(opening.contextParagraphs).map((item) => cleanYoutubeArticleText(item, 900)).filter(Boolean);
   const glossary = asArray(opening.glossary)
     .map((item) => ({
-      term: cleanArticleText(item?.term, 80),
-      explanation: cleanArticleText(item?.explanation || item?.description, 500)
+      term: cleanYoutubeArticleText(item?.term, 80),
+      explanation: cleanYoutubeArticleText(item?.explanation || item?.description, 500)
     }))
     .filter((item) => item.term && item.explanation);
-  const oneSentence = cleanArticleText(opening.oneSentence || article.oneSentence, 700);
+  const oneSentence = cleanYoutubeArticleText(opening.oneSentence || article.oneSentence, 700);
   const corePoints = asArray(opening.corePoints || article.corePoints)
     .map((item, index) => ({
-      title: cleanArticleText(item?.title || `核心观点 ${index + 1}`, 120),
-      evidence: cleanArticleText(item?.evidence || item?.quote, 700),
-      why: cleanArticleText(item?.why || item?.importance, 700),
-      takeaway: cleanArticleText(item?.takeaway || item?.readerTakeaway, 700)
+      title: cleanYoutubeArticleText(item?.title || `核心观点 ${index + 1}`, 120),
+      evidence: cleanYoutubeArticleText(item?.evidence || item?.quote, 700),
+      why: cleanYoutubeArticleText(item?.why || item?.importance, 700),
+      takeaway: cleanYoutubeArticleText(item?.takeaway || item?.readerTakeaway, 700)
     }))
     .filter((item) => item.title && (item.evidence || item.why || item.takeaway));
   const quotes = asArray(opening.quotes || article.quotes)
     .map((item, index) => ({
-      title: cleanArticleText(item?.title || `金句 ${index + 1}`, 80),
-      original: cleanArticleText(item?.original || item?.quote, 700),
-      meaning: cleanArticleText(item?.meaning, 700),
-      implication: cleanArticleText(item?.implication || item?.transfer, 700)
+      title: cleanYoutubeArticleText(item?.title || `金句 ${index + 1}`, 80),
+      original: cleanYoutubeArticleText(item?.original || item?.quote, 700),
+      meaning: cleanYoutubeArticleText(item?.meaning, 700),
+      implication: cleanYoutubeArticleText(item?.implication || item?.transfer, 700)
     }))
     .filter((item) => item.original);
   const counterintuitive = asArray(opening.counterintuitive || article.counterintuitive)
-    .map((item) => cleanArticleText(item, 600))
+    .map((item) => cleanYoutubeArticleText(item, 600))
     .filter(Boolean);
   const techPoints = asArray(article.techPoints)
     .map((item, index) => ({
-      name: cleanArticleText(item?.name || item?.title || `技术点 ${index + 1}`, 120),
-      says: cleanArticleText(item?.says || item?.inVideo, 700),
-      importance: cleanArticleText(item?.importance || item?.why, 700),
-      risk: cleanArticleText(item?.risk || item?.uncertainty, 700)
+      name: cleanYoutubeArticleText(item?.name || item?.title || `技术点 ${index + 1}`, 120),
+      says: cleanYoutubeArticleText(item?.says || item?.inVideo, 700),
+      importance: cleanYoutubeArticleText(item?.importance || item?.why, 700),
+      risk: cleanYoutubeArticleText(item?.risk || item?.uncertainty, 700)
     }))
     .filter((item) => item.name && (item.says || item.importance || item.risk));
   const detailSections = asArray(article.detailSections)
     .map((section, index) => ({
-      title: cleanArticleText(section?.title || `拆解 ${index + 1}`, 120),
-      bullets: asArray(section?.bullets).map((item) => cleanArticleText(item, 700)).filter(Boolean)
+      title: cleanYoutubeArticleText(section?.title || `拆解 ${index + 1}`, 120),
+      bullets: asArray(section?.bullets).map((item) => cleanYoutubeArticleText(item, 700)).filter(Boolean)
     }))
     .filter((section) => section.title && section.bullets.length);
   const timeline = asArray(article.timeline)
     .map((item) => ({
-      time: cleanArticleText(item?.time || item?.timestamp, 40),
-      event: cleanArticleText(item?.event || item?.whatHappens, 700),
-      importance: cleanArticleText(item?.importance || item?.whyItMatters, 700),
-      evidence: cleanArticleText(item?.evidence || item?.quote, 500)
+      time: cleanYoutubeArticleText(item?.time || item?.timestamp, 40),
+      event: cleanYoutubeArticleText(item?.event || item?.whatHappens, 700),
+      importance: cleanYoutubeArticleText(item?.importance || item?.whyItMatters, 700),
+      evidence: cleanYoutubeArticleText(item?.evidence || item?.quote, 500)
     }))
     .filter((item) => item.time && item.event);
-  const questions = asArray(article.questions).map((item) => cleanArticleText(item, 500)).filter(Boolean);
+  const questions = asArray(article.questions).map((item) => cleanYoutubeArticleText(item, 500)).filter(Boolean);
 
   const lines = [
     `# ${title}`,
@@ -1779,6 +1804,9 @@ function auditYoutubeFinishedDocument(markdown = "") {
 
 function assertReadableYoutubeDocument(markdown = "") {
   const text = String(markdown || "");
+  if (isYoutubeProcessArtifactText(text)) {
+    throw new Error("YouTube Feishu document failed quality gate: assistant process artifact leaked into article.");
+  }
   const forbidden = [
     /阅读导航/,
     /这篇文档由小椰根据视频字幕整理/,
@@ -5598,7 +5626,7 @@ export class FeishuBot {
     }, evidenceBrief, { topic, videos });
     assertStructuredYoutubeArticle(structured, { topic, videos });
     const rendered = renderYoutubeStructuredArticle(structured, { topic, videos });
-    const markdown = this.decorateYoutubeMarkdown(rendered, { topic, request, videos });
+    const markdown = this.decorateYoutubeMarkdown(stripYoutubeProcessArtifactLines(rendered), { topic, request, videos });
     if (options.returnKnowledge) {
       return {
         markdown,
@@ -5739,6 +5767,7 @@ export class FeishuBot {
       .join("\n\n");
     let body = convertMarkdownTablesToMobileLists(removeObsidianSyntax(stripMarkdownFrontmatter(stripYoutubeProcessPreamble(report.markdown))))
       .trim();
+    body = stripYoutubeProcessArtifactLines(body);
     body = stripLowValueYoutubeMetadataLines(body);
     body = body.replace(/^#\s+.+\n+/, "").trim();
     if (isGuidedYoutubeBlueprintMarkdown(body)) {
