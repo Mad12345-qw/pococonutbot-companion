@@ -333,6 +333,9 @@ const mobileDocMarkdown = bot.buildFeishuYoutubeDocumentMarkdown({
     "接下来我会把“100倍更重”“12次以上补加注”串成一篇可直接进 Obsidian/飞书的笔记。",
     "我先接下来我会把这条视频整理成可直接进 Obsidian/飞书的中文技术简报。",
     "我先接下来我会我会把这条视频整理成中文专栏文章，发到飞书文档里。真正的正文标题：SpaceX 如何把火箭从奢侈品改造成基础设施。",
+    "我先按接下来我会我会把这条视频整理成中文专栏文章并发到飞书文档里",
+    "我会把视频内容串成一篇适合飞书阅读的文章发给你",
+    "接下来我会把 SpaceX、星舰基地和猛禽发动机串成一篇文章。",
     "---",
     "title: test",
     "---",
@@ -437,7 +440,15 @@ assertEqual(
 );
 assertEqual(
   "youtube Feishu doc strips combined process-preface variants",
-  String(!mobileDocMarkdown.includes("我先接下来我会") && !mobileDocMarkdown.includes("我会把这条视频整理") && !mobileDocMarkdown.includes("发到飞书文档") && !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")),
+  String(
+    !mobileDocMarkdown.includes("我先接下来我会") &&
+    !mobileDocMarkdown.includes("我先按接下来") &&
+    !mobileDocMarkdown.includes("我会把这条视频整理") &&
+    !mobileDocMarkdown.includes("我会把视频内容串成") &&
+    !mobileDocMarkdown.includes("接下来我会把 SpaceX") &&
+    !mobileDocMarkdown.includes("发到飞书文档") &&
+    !mobileDocMarkdown.includes("可直接进 Obsidian/飞书")
+  ),
   "true"
 );
 assertEqual(
