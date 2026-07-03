@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T17:31:40.372Z",
+  "exportedAt": "2026-07-03T17:41:39.364Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61779,6 +61779,198 @@
           "replyToUserId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269"
         },
         "createdAt": "2026-07-03T17:21:37.688Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "嗯嗯，因为我剧本台词需要改的就这一句所以也没有用长语句",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b66c904a4b39434e7668fa8d",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:33:54.452Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "我用可灵做出来的已经挺好了，个别字发音不对啥的，今天刚好看到你们的宣传 然后试了一下",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b65f724a8b3bb5d8d5caaac1",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:34:45.756Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "希望你们能越做越好[呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b62ab38a4b25ff79206ac7f7",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:35:04.490Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "已经很晚了，还不睡啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b635138a8b30eed0caf614a4",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:35:23.622Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "大模型工程师这么肝嘛",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b6198a0a4b20d99cc0a91b8d",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:35:51.255Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+        "role": "user",
+        "modality": "text",
+        "content": "睡了睡了[天色已晚]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b7feb74a0c00d8922acdc982",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUserId": "ou_35ffd5a4fbecbbe5fcf3ff9fa3b9508f",
+          "rawUnionId": "on_3d95ebfeae3e5440174df0ba08cce08d",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:36:20.277Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "我是刚把我的短剧完善完了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b7ffbe8a4b3b5fd9feadff60",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:36:23.411Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174",
+        "role": "user",
+        "modality": "text",
+        "content": "熬了四个大夜，每天干到两点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4b7ce484a4b21711a52747ea4",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUserId": "ou_6bcfdf5e86023d0edb3ac39406bf5174",
+          "rawUnionId": "on_9f340d53ed9129ceef2d5b378c571d1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T17:36:36.605Z"
       }
     ],
     "memories": [
@@ -63080,7 +63272,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:33:13.715Z",
-        "updatedAt": "2026-07-03T16:47:40.859Z"
+        "updatedAt": "2026-07-03T17:36:20.213Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -63090,7 +63282,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:33:13.640Z",
-        "updatedAt": "2026-07-03T16:47:40.762Z"
+        "updatedAt": "2026-07-03T17:36:20.147Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -63140,7 +63332,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:02:01.716Z",
-        "updatedAt": "2026-07-03T16:34:46.331Z"
+        "updatedAt": "2026-07-03T17:36:36.541Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -63150,7 +63342,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T16:02:01.624Z",
-        "updatedAt": "2026-07-03T16:34:46.272Z"
+        "updatedAt": "2026-07-03T17:36:36.476Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
