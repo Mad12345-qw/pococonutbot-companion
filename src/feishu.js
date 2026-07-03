@@ -423,13 +423,8 @@ function articleGroupTopicLabel(title = "", sourceType = "") {
 
 function buildArticleGroupDiscussionText({ title = "", sourceType = "" } = {}) {
   const cleanTitle = cleanArticleGroupDiscussionText(title, 120) || "新文章";
-  const label = articleGroupTopicLabel(cleanTitle, sourceType);
-  const intro = /投研/.test(sourceType)
-    ? `新整理了一份 ${label} 报告，标题本身就是今天最值得聊的问题：`
-    : `新整理了一篇 ${label} 精读，标题本身就是今天最值得聊的问题：`;
   return [
-    intro,
-    "",
+    "新整理了一篇精读，开放式问题，欢迎讨论！",
     cleanTitle,
     "",
     "欢迎直接补充证据、反例，或者把你看到的相关线索丢进来。"
@@ -9265,7 +9260,8 @@ export class FeishuBot {
     ].join("\n");
     try {
       await this.sendTextToChat(chatId, text);
-      const ttsSent = await this.sendSpeechToChat(chatId, discussionText);
+      const ttsText = cleanArticleGroupDiscussionText(title, 120) || "新文章";
+      const ttsSent = await this.sendSpeechToChat(chatId, ttsText);
       logEvent("info", "Feishu article group notification sent", {
         chatId,
         title: title || "",
