@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T16:11:38.822Z",
+  "exportedAt": "2026-07-03T16:21:39.397Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61351,6 +61351,103 @@
           "replyToUserId": "feishu:ou_6bcfdf5e86023d0edb3ac39406bf5174"
         },
         "createdAt": "2026-07-03T16:09:11.950Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "role": "user",
+        "modality": "text",
+        "content": "来一首搁浅",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49b68ddca8b320e7c3f485abd",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUserId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUnionId": "on_69929750aa53c669cdd826f2f099b801",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:12:54.124Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "搁浅",
+          "replyToUserId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2"
+        },
+        "createdAt": "2026-07-03T16:12:57.154Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "role": "user",
+        "modality": "text",
+        "content": "我让你唱",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49b71168a4b0380c63ce7db1c",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUserId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUnionId": "on_69929750aa53c669cdd826f2f099b801",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:13:19.875Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我真唱不了，现在发不出声音来，也没法合成那种带旋律的音频。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2"
+        },
+        "createdAt": "2026-07-03T16:13:24.630Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "role": "user",
+        "modality": "text",
+        "content": "[笑哭]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b49b2481cacb24b4614f255256",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUserId": "ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+          "rawUnionId": "on_69929750aa53c669cdd826f2f099b801",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T16:14:02.336Z"
       }
     ],
     "memories": [
@@ -62643,6 +62740,26 @@
         "metadata": {},
         "createdAt": "2026-06-22T12:05:15.483Z",
         "updatedAt": "2026-07-03T12:47:57.398Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:12:54.063Z",
+        "updatedAt": "2026-07-03T16:14:02.273Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_4cd0b41dee1c87c9b4945cf49e0beee2",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T16:12:54.002Z",
+        "updatedAt": "2026-07-03T16:14:02.211Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
