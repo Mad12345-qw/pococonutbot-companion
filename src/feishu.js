@@ -8553,25 +8553,76 @@ export class FeishuBot {
     return response;
   }
 
+  async sendAudioToChat(chatId, fileKey, durationMs) {
+    const targetChatId = String(chatId || "").trim();
+    if (!targetChatId || !fileKey) return null;
+    const response = await this.feishuPost("/open-apis/im/v1/messages?receive_id_type=chat_id", {
+      receive_id: targetChatId,
+      msg_type: "audio",
+      content: JSON.stringify({
+        file_key: fileKey,
+        duration: Math.max(1000, Number(durationMs || 1000))
+      })
+    });
+    this.rememberBotMessage(response);
+    return response;
+  }
+
+  async sendSpeechToChat(chatId, text) {
+    const targetChatId = String(chatId || "").trim();
+    if (!targetChatId || !this.textToSpeech?.isEnabled(this.config.feishuTtsVoiceId)) {
+      return false;
+    }
+    try {
+      const speech = await this.textToSpeech.synthesize(text, {
+        voiceId: this.config.feishuTtsVoiceId,
+        maxInputChars: this.config.feishuTtsMaxInputChars
+      });
+      const opus = await convertWavToOpus(speech.buffer, { fileName: "article-group.opus" });
+      const fileKey = await this.uploadAudio({
+        buffer: opus.buffer,
+        contentType: opus.contentType,
+        fileName: opus.fileName,
+        durationMs: speech.durationMs
+      });
+      await this.sendAudioToChat(targetChatId, fileKey, speech.durationMs);
+      logEvent("info", "Feishu article group TTS notification sent", {
+        chatId: targetChatId,
+        textChars: String(text || "").length,
+        durationMs: speech.durationMs
+      });
+      return true;
+    } catch (error) {
+      logEvent("warn", "Feishu article group TTS notification failed", {
+        chatId: targetChatId,
+        error: error.message
+      });
+      return false;
+    }
+  }
+
   async notifyArticleGroup({ title = "", url = "", sourceType = "", markdown = "" } = {}) {
     const chatId = String(this.config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
     const docUrl = String(url || "").trim();
     if (!chatId || !docUrl) return { sent: false, reason: "not_configured" };
     const label = sourceType ? `${sourceType}已生成` : "飞书文档已生成";
+    const discussionText = buildArticleGroupDiscussionText({ title, sourceType, markdown });
     const text = [
-      buildArticleGroupDiscussionText({ title, sourceType, markdown }),
+      discussionText,
       "",
       `${label}：${String(title || "未命名文档").trim()}`,
       docUrl
     ].join("\n");
     try {
       await this.sendTextToChat(chatId, text);
+      const ttsSent = await this.sendSpeechToChat(chatId, discussionText);
       logEvent("info", "Feishu article group notification sent", {
         chatId,
         title: title || "",
-        sourceType: sourceType || ""
+        sourceType: sourceType || "",
+        ttsSent
       });
-      return { sent: true, chatId };
+      return { sent: true, chatId, ttsSent };
     } catch (error) {
       logEvent("warn", "Feishu article group notification failed", {
         chatId,

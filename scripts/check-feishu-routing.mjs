@@ -113,10 +113,15 @@ assertEqual(
   "1"
 );
 let articleGroupNotificationText = "";
+let articleGroupTtsText = "";
 bot.config.feishuArticleGroupChatId = "oc_test_group";
 bot.sendTextToChat = async (_chatId, text) => {
   articleGroupNotificationText = text;
   return { message_id: "om_article_group_test" };
+};
+bot.sendSpeechToChat = async (_chatId, text) => {
+  articleGroupTtsText = text;
+  return true;
 };
 bot.rememberBotMessage = () => {};
 await bot.notifyArticleGroup({
@@ -138,6 +143,16 @@ assertEqual(
     articleGroupNotificationText.includes("SpaceX 一直强调火星使命，这到底是技术路线、组织信仰，还是商业航天的融资工具？") &&
     articleGroupNotificationText.includes("大家怎么看？") &&
     !articleGroupNotificationText.includes("加入我们")
+  ),
+  "true"
+);
+assertEqual(
+  "Feishu article group TTS only reads the discussion prompt",
+  String(
+    articleGroupTtsText.includes("新整理了一篇 SpaceX / 商业航天 精读") &&
+    articleGroupTtsText.includes("大家怎么看？") &&
+    !articleGroupTtsText.includes("YouTube 精读已生成") &&
+    !articleGroupTtsText.includes("https://feishu.example")
   ),
   "true"
 );
