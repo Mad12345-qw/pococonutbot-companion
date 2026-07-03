@@ -2781,8 +2781,90 @@ function investmentReportPriorPrompt(priorReport = null) {
   ]);
 }
 
-function investmentReportEvidencePrompt(pack = {}) {
-  const sourceLines = (pack.sources || []).map((source) => [
+const INVESTMENT_REPORT_PART_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const INVESTMENT_REPORT_PART_CACHE_VERSION = 2;
+
+function investmentReportPartsTopicKey(query = "") {
+  return researchHash(String(query || "").trim().toLowerCase());
+}
+
+function investmentEvidenceSegmentTerms(segment = "") {
+  const common = [
+    "cost", "capacity", "production", "supply", "demand", "customer", "risk",
+    "regulation", "market", "commercial", "technology", "bottleneck", "timeline",
+    "成本", "产能", "供应链", "需求", "客户", "风险", "监管", "市场", "商业化", "技术", "瓶颈", "时间"
+  ];
+  const segmentTerms = {
+    opening: ["thesis", "strategy", "industry", "value", "map", "comparison", "prior", "战略", "产业", "价值", "对比", "结论"],
+    hypotheses: ["hypothesis", "evidence", "counter", "confidence", "claim", "反证", "假设", "证据", "置信", "判断"],
+    nodes: ["node", "supplier", "factory", "component", "indicator", "catalyst", "节点", "设备", "材料", "工厂", "指标", "催化"],
+    risks_tasks: ["risk", "delay", "failure", "stale", "gap", "falsify", "uncertain", "风险", "延迟", "失败", "缺口", "证伪", "不确定"]
+  };
+  return [...common, ...(segmentTerms[segment] || [])];
+}
+
+function investmentEvidenceSegmentScore(card = {}, segment = "", index = 0) {
+  const text = [
+    card.evidenceType,
+    card.analysisLens,
+    card.claim,
+    card.quoteOriginal,
+    card.whyItMatters,
+    card.timeSensitivity,
+    card.evidenceStrength
+  ].filter(Boolean).join(" ").toLowerCase();
+  let score = Math.max(0, 120 - index) * 0.01;
+  for (const term of investmentEvidenceSegmentTerms(segment)) {
+    if (text.includes(String(term).toLowerCase())) score += 2;
+  }
+  if (card.claim) score += 3;
+  if (card.whyItMatters) score += 2;
+  if (card.timeSensitivity) score += segment === "risks_tasks" || segment === "opening" ? 3 : 1;
+  if (card.evidenceStrength && !/generated_article_backfill/i.test(card.evidenceStrength)) score += 2;
+  if (/generated_article_backfill|legacy_heading|阅读导航|youtube 技术笔记/i.test(text)) score -= 20;
+  return score;
+}
+
+function selectInvestmentEvidenceCardsForSegment(pack = {}, segment = "", maxCards = 48) {
+  const cards = (pack.evidenceCards || []).filter((card) => card.claim || card.quoteOriginal);
+  if (!cards.length) return [];
+  const perSource = new Map();
+  for (const card of cards) {
+    const key = card.sourceRef || "unknown";
+    if (!perSource.has(key)) perSource.set(key, []);
+    if (perSource.get(key).length < 3) perSource.get(key).push(card);
+  }
+  const anchors = [...perSource.values()].flat();
+  const ranked = cards
+    .map((card, index) => ({ card, score: investmentEvidenceSegmentScore(card, segment, index) }))
+    .sort((a, b) => b.score - a.score)
+    .map((item) => item.card);
+  return mergeUniqueBy([...anchors, ...ranked], (card) => card.id, maxCards);
+}
+
+function compactInvestmentEvidenceCard(card = {}, { includeQuote = false } = {}) {
+  const quote = includeQuote
+    ? cleanResearchEvidenceText(card.quoteOriginal || "", 180)
+    : "";
+  return [
+    `${card.id} [${card.sourceRef}${card.location ? ` ${card.location}` : ""}]`,
+    card.evidenceType ? `lens=${card.evidenceType}` : "",
+    card.analysisLens ? `analysis=${card.analysisLens}` : "",
+    card.claim ? `claim=${cleanResearchEvidenceText(card.claim, 260)}` : "",
+    quote ? `quote=${quote}` : "",
+    card.whyItMatters ? `why=${cleanResearchEvidenceText(card.whyItMatters, 220)}` : "",
+    card.timeSensitivity ? `time=${cleanResearchEvidenceText(card.timeSensitivity, 160)}` : ""
+  ].filter(Boolean).join(" | ");
+}
+
+function investmentReportEvidencePrompt(pack = {}, options = {}) {
+  const segment = options.segment || "";
+  const maxEvidenceCards = Math.max(12, Math.min(80, Number(options.maxEvidenceCards || 48)));
+  const includeQuote = Boolean(options.includeQuote);
+  const selectedEvidenceCards = segment
+    ? selectInvestmentEvidenceCardsForSegment(pack, segment, maxEvidenceCards)
+    : (pack.evidenceCards || []).slice(0, maxEvidenceCards);
+  const sourceLines = (pack.sources || []).slice(0, 12).map((source) => [
     `${source.id}. ${source.title || "Untitled source"}`,
     source.organization ? `org=${source.organization}` : "",
     source.sourceType ? `type=${source.sourceType}` : "",
@@ -2792,14 +2874,7 @@ function investmentReportEvidencePrompt(pack = {}) {
     source.reliabilityLevel ? `reliability=${source.reliabilityLevel}` : "",
     source.conflictProfile ? `conflict=${source.conflictProfile}` : ""
   ].filter(Boolean).join(" | "));
-  const evidenceLines = (pack.evidenceCards || []).map((card) => [
-    `${card.id} [${card.sourceRef}${card.location ? ` ${card.location}` : ""}]`,
-    card.evidenceType ? `lens=${card.evidenceType}` : "",
-    card.claim ? `claim=${card.claim}` : "",
-    card.quoteOriginal ? `quote=${card.quoteOriginal}` : "",
-    card.whyItMatters ? `why=${card.whyItMatters}` : "",
-    card.timeSensitivity ? `time=${card.timeSensitivity}` : ""
-  ].filter(Boolean).join(" | "));
+  const evidenceLines = selectedEvidenceCards.map((card) => compactInvestmentEvidenceCard(card, { includeQuote }));
   const entityLines = (pack.entities || []).slice(0, 50).map((entity) =>
     `${entity.name}${entity.entityType ? ` (${entity.entityType})` : ""}${entity.role ? ` role=${entity.role}` : ""}${entity.sourceRef ? ` source=${entity.sourceRef}` : ""}`
   );
@@ -2818,6 +2893,7 @@ function investmentReportEvidencePrompt(pack = {}) {
     sourceLines.join("\n"),
     "",
     "Evidence cards:",
+    segment ? `Selected for segment=${segment}. Total available=${(pack.evidenceCards || []).length}; selected=${selectedEvidenceCards.length}. Use only provided evidence IDs.` : "",
     evidenceLines.join("\n"),
     "",
     "Entities:",
@@ -2828,7 +2904,7 @@ function investmentReportEvidencePrompt(pack = {}) {
     "",
     "Existing follow-up questions:",
     questionLines.join("\n")
-  ]).slice(0, 70000);
+  ]).slice(0, Number(options.maxChars || 32000));
 }
 
 function investmentReportSynthesisSystemPrompt() {
@@ -5130,8 +5206,61 @@ export class FeishuBot {
     };
   }
 
-  async synthesizeInvestmentReportStructured(request = {}, pack = {}) {
-    const evidencePack = investmentReportEvidencePrompt(pack);
+  async findReusableInvestmentReportPartCache(request = {}) {
+    const topicKey = investmentReportPartsTopicKey(request.query || "");
+    if (!topicKey || typeof this.storage.listRecentResearchJobs !== "function") return null;
+    const jobs = await this.storage.listRecentResearchJobs({ sourceType: "investment_report", limit: 50 }) || [];
+    for (const job of jobs) {
+      const output = job.output || {};
+      const input = job.input || {};
+      const query = input.request?.query || input.query || output.query || job.sourceUrl || job.source_url || "";
+      if (investmentReportPartsTopicKey(query) !== topicKey) continue;
+      const cache = output.investmentReportParts;
+      if (!cache || cache.cacheVersion !== INVESTMENT_REPORT_PART_CACHE_VERSION) continue;
+      if (cache.topicKey && cache.topicKey !== topicKey) continue;
+      const expiresAt = Date.parse(cache.expiresAt || "");
+      if (!Number.isFinite(expiresAt) || expiresAt <= Date.now()) continue;
+      const parts = cache.parts && typeof cache.parts === "object" ? cache.parts : {};
+      if (!Object.values(parts).some((part) => part?.status === "done" && part.data)) continue;
+      return {
+        ...cache,
+        parts: { ...parts },
+        recoveredFromJobId: job.id
+      };
+    }
+    return null;
+  }
+
+  buildInvestmentReportPartCache(request = {}, parts = {}, failures = []) {
+    const now = new Date();
+    return {
+      cacheVersion: INVESTMENT_REPORT_PART_CACHE_VERSION,
+      topicKey: investmentReportPartsTopicKey(request.query || ""),
+      query: request.query || "",
+      createdAt: now.toISOString(),
+      updatedAt: now.toISOString(),
+      expiresAt: new Date(now.getTime() + INVESTMENT_REPORT_PART_CACHE_TTL_MS).toISOString(),
+      parts: parts && typeof parts === "object" ? parts : {},
+      failures: failures.slice(0, 8)
+    };
+  }
+
+  async persistInvestmentReportPartCache(researchJobId = "", request = {}, parts = {}, failures = []) {
+    if (!researchJobId) return;
+    await this.mergeResearchJobOutput(researchJobId, {
+      investmentReportParts: this.buildInvestmentReportPartCache(request, parts, failures)
+    });
+  }
+
+  async synthesizeInvestmentReportStructured(request = {}, pack = {}, optionsOverride = {}) {
+    const configuredInvestmentTimeout = Number(process.env.INVESTMENT_REPORT_AI_TIMEOUT_MS || 0);
+    const investmentTimeoutMs = configuredInvestmentTimeout > 0
+      ? configuredInvestmentTimeout
+      : Math.max(
+        Number(this.config.youtubeResearchAiTimeoutMs || 0),
+        Number(this.config.aiTimeoutMs || 0),
+        180000
+      );
     const options = (maxTokens) => ({
       maxTokens,
       temperature: 0.15,
@@ -5139,21 +5268,27 @@ export class FeishuBot {
       allowFallback: false,
       forcePrimaryWithFallback: true,
       retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
-      timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
+      timeoutMs: investmentTimeoutMs
     });
-    const common = [
+    const buildCommon = (part) => [
       `Strict trigger: 投研报告：`,
       `Research topic: ${request.query}`,
       "",
       "Evidence pack:",
-      evidencePack
+      investmentReportEvidencePrompt(pack, {
+        segment: part.label,
+        maxEvidenceCards: part.maxEvidenceCards || 48,
+        includeQuote: Boolean(part.includeQuote),
+        maxChars: part.maxEvidenceChars || 32000
+      })
     ].join("\n");
     const parts = [
       {
         label: "opening",
         maxTokens: 1800,
+        maxEvidenceCards: 42,
         user: [
-          common,
+          "__COMMON__",
           "",
           "Fill only this report-opening schema:",
           "{",
@@ -5175,8 +5310,10 @@ export class FeishuBot {
       {
         label: "hypotheses",
         maxTokens: 2400,
+        maxEvidenceCards: 58,
+        includeQuote: true,
         user: [
-          common,
+          "__COMMON__",
           "",
           "Fill only this hypothesis schema:",
           "{",
@@ -5188,8 +5325,9 @@ export class FeishuBot {
       {
         label: "nodes",
         maxTokens: 2200,
+        maxEvidenceCards: 54,
         user: [
-          common,
+          "__COMMON__",
           "",
           "Fill only this value-chain node schema:",
           "{",
@@ -5203,8 +5341,9 @@ export class FeishuBot {
       {
         label: "risks_tasks",
         maxTokens: 1800,
+        maxEvidenceCards: 50,
         user: [
-          common,
+          "__COMMON__",
           "",
           "Fill only this risk and research-task schema:",
           "{",
@@ -5218,27 +5357,82 @@ export class FeishuBot {
         ].join("\n")
       }
     ];
-    const settled = await Promise.allSettled(parts.map(async (part) => {
+    const reusableCache = optionsOverride.investmentReportParts || await this.findReusableInvestmentReportPartCache(request);
+    const cachedParts = reusableCache?.parts && typeof reusableCache.parts === "object" ? { ...reusableCache.parts } : {};
+    const completedParts = {};
+    const partsToRun = [];
+    for (const part of parts) {
+      const cached = cachedParts[part.label];
+      if (cached?.status === "done" && cached.data) {
+        completedParts[part.label] = cached;
+        logEvent("info", "Investment report part cache hit", {
+          part: part.label,
+          query: request.query,
+          recoveredFromJobId: reusableCache?.recoveredFromJobId || ""
+        });
+      } else {
+        partsToRun.push(part);
+      }
+    }
+    const settled = await Promise.allSettled(partsToRun.map(async (part) => {
+      const startedAt = Date.now();
+      const userContent = part.user.replace("__COMMON__", buildCommon(part));
       const raw = await this.ai.chat([
         { role: "system", content: investmentReportSynthesisSystemPrompt() },
-        { role: "user", content: part.user }
+        { role: "user", content: userContent }
       ], options(part.maxTokens));
+      const value = await this.parseYoutubeJsonObject(raw, `investment research report ${part.label}`);
       return {
         label: part.label,
-        value: await this.parseYoutubeJsonObject(raw, `investment research report ${part.label}`)
+        value,
+        elapsedMs: Date.now() - startedAt
       };
     }));
     const merged = {};
     const failures = [];
+    const cacheParts = { ...cachedParts, ...completedParts };
     for (const result of settled) {
       if (result.status === "fulfilled") {
+        cacheParts[result.value.label] = {
+          status: "done",
+          data: result.value.value,
+          elapsedMs: result.value.elapsedMs,
+          updatedAt: new Date().toISOString()
+        };
         Object.assign(merged, result.value.value || {});
+        logEvent("info", "Investment report part generated", {
+          part: result.value.label,
+          query: request.query,
+          elapsedMs: result.value.elapsedMs
+        });
       } else {
-        failures.push({ message: result.reason?.message || String(result.reason || "") });
+        const part = partsToRun[settled.indexOf(result)];
+        const failure = {
+          part: part?.label || "unknown",
+          message: result.reason?.message || String(result.reason || "")
+        };
+        cacheParts[failure.part] = {
+          status: "failed",
+          error: truncate(failure.message, 500),
+          updatedAt: new Date().toISOString()
+        };
+        failures.push(failure);
+        logEvent("warn", "Investment report part generation failed", {
+          part: failure.part,
+          query: request.query,
+          error: truncate(failure.message, 500)
+        });
       }
     }
-    if (failures.length === parts.length) {
-      throw new Error(failures[0]?.message || "investment report segmented synthesis failed");
+    for (const [label, part] of Object.entries(completedParts)) {
+      Object.assign(merged, part.data || {});
+      if (!cacheParts[label]) cacheParts[label] = part;
+    }
+    await this.persistInvestmentReportPartCache(optionsOverride.researchJobId || "", request, cacheParts, failures);
+    if (failures.length) {
+      const labels = failures.map((failure) => failure.part).filter(Boolean).join(", ");
+      const messages = failures.map((failure) => `${failure.part}: ${failure.message}`).join(" | ");
+      throw new Error(`investment report segmented synthesis failed in ${labels || "unknown"}; completed parts cached for 24h. ${truncate(messages, 600)}`);
     }
     const fallback = buildFallbackInvestmentReportStructured(pack, request, failures[0] || null);
     const rawStructured = {
@@ -5351,7 +5545,7 @@ export class FeishuBot {
     let aiFallback = null;
     let structured;
     try {
-      const synthesis = await this.synthesizeInvestmentReportStructured(request, pack);
+      const synthesis = await this.synthesizeInvestmentReportStructured(request, pack, { researchJobId });
       structured = synthesis.structured;
       if (synthesis.failures.length) {
         aiFallback = {
@@ -5372,15 +5566,15 @@ export class FeishuBot {
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "failed",
         stage: "ai_synthesis_retryable_failed",
-        error: failure.message,
-        output: {
-          query: request.query,
-          sources: pack.sources.length,
-          evidenceCards: pack.evidenceCards.length,
-          failure,
-          publishSkipped: true,
-          reason: "primary_model_synthesis_failed_no_baseline_report_published"
-        }
+        error: failure.message
+      });
+      await this.mergeResearchJobOutput(researchJobId, {
+        query: request.query,
+        sources: pack.sources.length,
+        evidenceCards: pack.evidenceCards.length,
+        failure,
+        publishSkipped: true,
+        reason: "primary_model_synthesis_failed_no_baseline_report_published"
       });
       throw new Error(`投研报告主模型综合失败，未发布证据基线占位报告：${truncate(failure.message, 300)}`);
     }

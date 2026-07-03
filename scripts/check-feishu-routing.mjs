@@ -2089,6 +2089,28 @@ assertEqual(
   String(weakWechatCandidateRejected),
   "true"
 );
+const investmentJobOutputs = new Map();
+bot.storage.mergeResearchJobOutput = async (jobId, patch) => {
+  const current = investmentJobOutputs.get(jobId) || {};
+  const output = { ...current, ...(patch || {}) };
+  investmentJobOutputs.set(jobId, output);
+  return output;
+};
+bot.storage.updateResearchJob = async (jobId, updates = {}) => {
+  if (updates.output !== undefined) {
+    investmentJobOutputs.set(jobId, updates.output || {});
+  }
+};
+bot.storage.listRecentResearchJobs = async ({ sourceType = "", limit = 20 } = {}) => {
+  if (sourceType && sourceType !== "investment_report") return [];
+  return [...investmentJobOutputs.entries()].slice(0, limit).map(([id, output]) => ({
+    id,
+    sourceType: "investment_report",
+    sourceUrl: output.query || "SpaceX",
+    input: { request: { query: output.query || "SpaceX" } },
+    output
+  }));
+};
 bot.ai = {
   chat: async () => {
     throw new Error("The operation was aborted due to timeout");
@@ -2108,6 +2130,76 @@ assertEqual(
   String(
     timeoutReportError &&
     /未发布证据基线占位报告/.test(timeoutReportError.message)
+  ),
+  "true"
+);
+const timeoutPartCache = investmentJobOutputs.get("job:timeout-fallback-test")?.investmentReportParts || {};
+assertEqual(
+  "investment report timeout records segment-level retry state instead of losing the whole job",
+  String(
+    timeoutPartCache.cacheVersion === 2 &&
+    Object.values(timeoutPartCache.parts || {}).filter((part) => part.status === "failed").length === 4 &&
+    timeoutPartCache.failures?.length === 4
+  ),
+  "true"
+);
+investmentJobOutputs.clear();
+bot.ai = {
+  chat: async (messages = []) => {
+    const content = messages[1]?.content || "";
+    if (/risk and research-task schema/.test(content)) {
+      throw new Error("The operation was aborted due to timeout");
+    }
+    if (/hypothesis schema/.test(content)) {
+      return JSON.stringify({
+        hypotheses: [
+          { title: "产线化把价值链压力外溢到发动机和测试设施", logic: "证据显示工厂节拍、Raptor 产能和监管节奏共同决定放量。", evidenceIds: ["E1", "E5"], counterEvidenceIds: ["E4"], timeRisk: "监管节奏变化会让旧判断失效。", confidence: "medium" }
+        ]
+      });
+    }
+    if (/value-chain node schema/.test(content)) {
+      return JSON.stringify({
+        valueChainNodes: [
+          { node: "Raptor 发动机", whyItMatters: "发动机节拍可能决定星舰放量。", signals: ["月产量"], risks: ["可靠性波动"], evidenceIds: ["E5"] }
+        ],
+        leadingIndicators: ["Raptor 月产量"],
+        catalystCalendar: [
+          { horizon: "3-6 个月", event: "下一轮试飞与监管审批", watch: "审批周期是否缩短", evidenceIds: ["E4"] }
+        ]
+      });
+    }
+    return JSON.stringify({
+      title: "SpaceX 产业链报告：星舰产线化背后的长期变量",
+      oneSentence: "SpaceX 的长期研究重点应放在产线节拍、发动机产能和监管约束。",
+      thesis: "星舰产线化如果成立，价值链压力会外溢到发动机、测试设施、地面系统和监管服务。",
+      topicBoundary: "本报告只讨论 SpaceX 星舰制造和商业航天供应链，上一版报告只作为判断基线。",
+      industryMap: ["发动机", "测试设施", "监管审批", "卫星部署"],
+      investableMap: ["发动机与测试设备", "地面设施与运维"],
+      valuePools: ["产能扩张", "成本下降"],
+      peerComparison: ["中美商业航天路线"],
+      timeCalibration: ["2024-2026 年资料需要按事件期校准"],
+      deltaSincePrior: "本版聚焦产线节拍。",
+      evidenceBase: ["基于结构化证据卡生成。"]
+    });
+  }
+};
+let partialReportError = null;
+try {
+  await bot.buildInvestmentResearchReport({
+    query: "SpaceX",
+    raw: "投研报告：SpaceX"
+  }, { researchJobId: "job:partial-cache-test" });
+} catch (error) {
+  partialReportError = error;
+}
+const partialCache = investmentJobOutputs.get("job:partial-cache-test")?.investmentReportParts || {};
+assertEqual(
+  "investment report partial timeout caches successful segments and refuses a degraded report",
+  String(
+    partialReportError &&
+    /risks_tasks/.test(partialReportError.message) &&
+    Object.values(partialCache.parts || {}).filter((part) => part.status === "done").length === 3 &&
+    partialCache.parts?.risks_tasks?.status === "failed"
   ),
   "true"
 );
