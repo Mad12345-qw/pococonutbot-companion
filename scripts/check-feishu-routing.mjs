@@ -1259,6 +1259,10 @@ const wechatFeishuMarkdown = [
   "- **Raptor：** 星舰使用的发动机，决定产线能不能持续交付和快速测试。",
   "- **Stage Zero：** 发射塔、地面管线和捕获系统组成的基础设施，是高频发射的地面瓶颈。",
   "- **wet mass / dry mass：** 湿质量是满载推进剂时的质量，干质量是推进剂耗尽后的质量。",
+  "- **膜冷却（film cooling）：** 膜冷却是在燃烧室内壁附近额外喷入一部分推进剂，让它形成贴着金属壁面的保护层，降低燃烧室头部和喉部被高温烧穿的风险。",
+  "Raptor 2",
+  "Raptor 2 是 SpaceX 星舰系统使用的新版甲烷/液氧发动机，相比 Raptor 1 删除、合并、简化了大量外部部件，并把标准工作室压提高到约 300 bar。",
+  "全流量分级燃烧循环（full flow staged combustion）：全流量分级燃烧循环是一种火箭发动机循环，燃料和氧化剂在进入主燃烧室前，先分别通过各自的预燃室和涡轮泵，再以高压气体形式进入主燃烧室燃烧。",
   "",
   "## 二、背景导读",
   "这段视频的价值不在于参观工厂本身，而在于它把 SpaceX 的核心矛盾摆到台前：如果火箭仍然像传统航天项目一样按任务手工打磨，星舰就无法支撑高频发射、月球任务和 Starlink 部署。",
@@ -1410,6 +1414,15 @@ assertEqual(
     !(wechatDraftArticle.content || "").includes("## 三、导读与核心结论") &&
     !(wechatDraftArticle.content || "").includes("**") &&
     !(wechatDraftArticle.content || "").includes("raw transcript")
+  ),
+  "true"
+);
+assertEqual(
+  "WeChat glossary keywords render as consistent bold terms",
+  String(
+    (wechatDraftArticle.content || "").includes("<strong style=\"color:#161616;font-weight:700;\">Raptor 2：</strong>Raptor 2 是 SpaceX") &&
+    (wechatDraftArticle.content || "").includes("<strong style=\"color:#161616;font-weight:700;\">全流量分级燃烧循环（full flow staged combustion）：</strong>全流量分级燃烧循环") &&
+    !(wechatDraftArticle.content || "").includes("margin:0 0 6px;font-size:15px;line-height:1.55;color:#161616;font-weight:700;word-break:break-word;\">Raptor 2</p>")
   ),
   "true"
 );

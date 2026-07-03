@@ -285,14 +285,14 @@ function compactGlossaryForWechat(lines = []) {
     .slice(isWechatTopSectionLine(lines[0] || "") ? 1 : 0)
     .map((line) => String(line || "").trim())
     .filter(Boolean);
-  for (let index = 0; index < bodyLines.length && entries.length < 5; index += 1) {
+  for (let index = 0; index < bodyLines.length && entries.length < 8; index += 1) {
     const line = bodyLines[index];
-    let match = line.match(/^[-*•]?\s*(?:\*\*)?([^:*：]{2,48})(?:\*\*)?\s*[:：]\s*(.{8,})$/);
-    if (match) {
-      entries.push({ term: match[1], desc: match[2] });
+    const parsed = parseWechatTermDefinition(line);
+    if (parsed) {
+      entries.push({ term: parsed.term, desc: parsed.description });
       continue;
     }
-    if (/^[A-Za-z][A-Za-z0-9+ .\/\-]{1,48}$/.test(line) && bodyLines[index + 1]) {
+    if (isStandaloneWechatTerm(line) && bodyLines[index + 1]) {
       entries.push({ term: line, desc: bodyLines[index + 1] });
       index += 1;
     }
@@ -587,13 +587,40 @@ function subsectionHeadingHtml(text = "") {
   ].join("");
 }
 
+function parseWechatTermDefinition(line = "") {
+  const text = stripWechatInlineDecor(String(line || "").trim())
+    .replace(/^[-*•]\s+/, "")
+    .trim();
+  if (!text) return null;
+  const match = text.match(/^(?:\*\*)?(.{2,90}?)[：:](?:\*\*)?\s*(.{8,})$/);
+  if (!match) return null;
+  const term = stripWechatInlineDecor(stripMarkdown(match[1])).replace(/[：:\s]+$/g, "").trim();
+  const description = String(match[2] || "").trim();
+  if (!term || !description) return null;
+  if (/^(为什么重要|读者该抓住什么|视频里怎么说|风险或不确定性|含义|可迁移启发|关键证据|边界条件)$/.test(term)) return null;
+  if (term.length > 80) return null;
+  return { term, description };
+}
+
+function isStandaloneWechatTerm(line = "") {
+  const text = stripWechatInlineDecor(stripMarkdown(line)).trim();
+  if (!text || text.length > 80) return false;
+  if (/[。！？；，,]/.test(text)) return false;
+  if (/^(一|二|三|四|五|六|七|八|九|十)、/.test(text)) return false;
+  if (/^(一句话总结|一句话结论|核心观点|详细技术拆解|接下来最该追问什么)$/.test(text)) return false;
+  return /[A-Za-z0-9]/.test(text) || /[\u4e00-\u9fff]{2,}/.test(text);
+}
+
+function isWechatGlossaryContext(section = "", subsection = "") {
+  return /关键术语|术语解释|术语速览/.test(`${section}\n${subsection}`);
+}
+
+function glossaryTermLineHtml(term = "", description = "") {
+  return `<p style="${styleFor("p")}"><strong style="color:#161616;font-weight:700;">${inlineMarkdown(term)}：</strong>${inlineMarkdown(description)}</p>`;
+}
+
 function termCardHtml(term = "", description = "") {
-  return [
-    '<section style="margin:11px 0;padding:13px 15px;background:#ffffff;border:1px solid #ececec;border-radius:8px;">',
-    `<p style="margin:0 0 6px;font-size:15px;line-height:1.55;color:#161616;font-weight:700;word-break:break-word;">${inlineMarkdown(term)}</p>`,
-    `<p style="margin:0;font-size:14.5px;line-height:1.85;color:#4a4a4a;word-break:break-word;">${inlineMarkdown(description)}</p>`,
-    "</section>"
-  ].join("");
+  return glossaryTermLineHtml(term, description);
 }
 
 function transcriptLineHtml(line = "") {
@@ -886,11 +913,11 @@ function markdownToWechatHtml(markdown = "", { leadImageUrl = "", leadImageCapti
       html.push(transcriptHtml);
       continue;
     }
-    const term = decoratedLine.match(/^([A-Za-z][A-Za-z0-9+ .\/\-]{1,48})\s*[:\uff1a]\s*(.{12,})$/);
-    if (term && (/术语|解释|关键/.test(currentSection) || /术语|解释|关键/.test(currentSubsection) || currentSection === "")) {
+    const term = parseWechatTermDefinition(decoratedLine);
+    if (term && (isWechatGlossaryContext(currentSection, currentSubsection) || currentSection === "")) {
       closeList();
       flushCard();
-      html.push(termCardHtml(term[1], term[2]));
+      html.push(termCardHtml(term.term, term.description));
       continue;
     }
     const bullet = decoratedLine.match(/^[-*•]\s+(.+)$/);
