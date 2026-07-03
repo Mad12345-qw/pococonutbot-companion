@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T05:29:15.763Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-03T05:39:22.743Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -58662,6 +58662,49 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T05:15:19.748Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q\nhttps://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b40e7502c84c2cdc09615ca961",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T05:37:33.162Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b40e7502c84c2cdc09615ca961",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T05:37:34.134Z"
       }
     ],
     "memories": [
@@ -60293,7 +60336,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-03T05:15:19.678Z"
+        "updatedAt": "2026-07-03T05:37:34.064Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -60303,7 +60346,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-03T05:15:19.595Z"
+        "updatedAt": "2026-07-03T05:37:33.975Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -66977,6 +67020,808 @@
         "error": "YouTube article part generation failed after primary-model retries: timeline: primary AI API response did not contain text: {\"id\":\"resp_030736031e3cdd10016a4746042fb08190b7829e8f492f5faa\",\"object\":\"chat.completion\",\"created\":1783055912,\"m\n...[truncated]",
         "createdAt": "2026-07-03T05:15:21.634Z",
         "updatedAt": "2026-07-03T05:19:36.471Z"
+      },
+      {
+        "id": "job:87fa38be0fd78997",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q",
+        "status": "running",
+        "stage": "feishu_document_generation",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q",
+            "query": "",
+            "videoUrl": "https://youtu.be/SA8ZBJWo73E?si=QbODGhmaWd-KVs8Q",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "SA8ZBJWo73E",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {
+          "title": "为什么Starbase工厂把星舰竞争从发射台推向制造试错现场",
+          "topic": "SpaceX",
+          "videos": 1,
+          "diagnostics": {
+            "aiMs": 85157,
+            "totalMs": 86004,
+            "failures": 0,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 776,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "youtubeArticleParts": {
+            "parts": {
+              "core": {
+                "data": {
+                  "quotes": [
+                    {
+                      "title": "工厂比火箭更难",
+                      "meaning": "马斯克把难点从单枚火箭制造转向工厂建设，说明Starship项目的核心挑战是持续生产和迭代，而不是一次性造出展示品。",
+                      "original": "is relatively easy compared to the factory.",
+                      "implication": "在复杂硬件项目里，真正的竞争力往往来自制造系统和反馈速度，而不只是产品设计。"
+                    },
+                    {
+                      "title": "QD arm必须工作",
+                      "meaning": "快速连接臂不是附属设备，而是发射流程中必须可靠运行的关键接口。",
+                      "original": "We do need the QD arm to work.",
+                      "implication": "可复用系统的瓶颈常出现在接口和地面流程上；只优化主体设备，无法保证整体周转能力。"
+                    },
+                    {
+                      "title": "下一次迭代会更好",
+                      "meaning": "SpaceX接受当前版本不完美，并把改进寄托在下一轮硬件迭代中。",
+                      "original": "It'll be a lot better with the next iteration.",
+                      "implication": "高速工程组织不是靠一次定型降低风险，而是靠可制造、可测试、可修改的节奏降低长期不确定性。"
+                    },
+                    {
+                      "title": "热防护瓦像龙鳞",
+                      "meaning": "这个比喻把星舰外部热防护瓦的覆盖形态变得直观，也引出再入热防护的工程风险。",
+                      "original": "Yeah, it looks like dragon scales.",
+                      "implication": "复杂技术需要可视化锚点帮助理解，但真正要评估的是它在峰值热环境和重复使用中的表现。"
+                    }
+                  ],
+                  "corePoints": [
+                    {
+                      "why": "这限定了视频的真实主题：它不是一次发射解说，而是一次制造现场导览。SpaceX要解决的不是只把星舰送上天，而是如何在工厂里持续组装、修改和推出下一版硬件。",
+                      "title": "Starbase Factory的三个装配帐篷把战场从发射台移到工厂",
+                      "evidence": "[0:02] “Welcome to part two of my tour of SpaceX's Starbase Factory”；[0:13] “we're actually going to go inside the three main assembly tents”",
+                      "takeaway": "理解Starship，不能只盯发射画面；Starbase工厂本身就是SpaceX可复用火箭能力的一部分。"
+                    },
+                    {
+                      "why": "Raptor不是孤立零件，而是星舰和超重型助推器的核心动力系统；Raptor-Vac的出现说明同一套架构要适配不同飞行环境。对SpaceX来说，制造能力必须支持发动机配置差异和持续改型，而不只是生产一个固定型号。",
+                      "title": "Raptor和Raptor-Vac说明星舰系统从一开始就是多版本发动机工程",
+                      "evidence": "[0:43] “All right, let's go check out some Raptor engines.”；[2:35] “Rap-Vac or Raptor-Vac”",
+                      "takeaway": "Raptor的意义不只是推力，而是它把星舰项目推入持续制造、测试和版本分化的工程节奏。"
+                    },
+                    {
+                      "why": "SpaceX愿意让外界看到工厂，但公开视频并不等于无限披露。马斯克的说法显示，Starbase的开放性建立在一个现实之上：很多硬件细节本来就长期暴露在外部观察中，同时仍受技术敏感性和合规边界约束。",
+                      "title": "ITAR与长焦镜头的对话揭示了Starbase公开化的边界",
+                      "evidence": "[0:45] “I think there's a good chance that ITAR and COMS might not want all this”；[0:53] “It just can't be any more than people are already getting from... Telephoto lenses.”",
+                      "takeaway": "Starbase的“公开试错”不是没有边界的透明，而是在可见现场、监管限制和工程传播之间寻找平衡。"
+                    },
+                    {
+                      "why": "这组证据把Starship放回2021年夏季的试验语境：项目目标是轨道级能力和快速复用，但当时仍承认首次轨道尝试可能失败。SpaceX的策略不是等待所有不确定性消失，而是通过硬件迭代、试飞反馈和工厂改版压缩学习周期。",
+                      "title": "“下一次迭代会更好”把Starship定义为连续改版项目",
+                      "evidence": "[11:29] “It'll be a lot better with the next iteration.”；[15:13] “What if the first orbital attempt just goes totally,”",
+                      "takeaway": "Starship早期失败风险不是叙事漏洞，而是SpaceX迭代模型中的预期输入。"
+                    },
+                    {
+                      "why": "完全可复用不只取决于飞船和助推器能否飞回来，还取决于发射塔、机械臂、快速连接和地面接口能否跟上高频周转。QD arm必须工作，意味着发射前加注、连接、脱离等地面动作本身就是系统成败的一环。",
+                      "title": "Mechazilla和QD arm证明地面系统也是可复用架构的核心硬件",
+                      "evidence": "[20:41] “Mech-zilla?”；[35:09] “We do need the QD arm to work.”",
+                      "takeaway": "Starship的复用能力不在火箭本体上闭环；Mechazilla和QD arm把发射场变成了火箭架构的一部分。"
+                    },
+                    {
+                      "why": "热防护不是抽象的高温问题，而是星舰再入时面对峰值热流的工程问题。瓦片像“龙鳞”的视觉形态帮助读者理解覆盖方式，但真正的风险在于这些瓦片能否在极端热环境和重复使用中保持可靠。",
+                      "title": "热防护瓦的“dragon scales”和peak heat把复用难题具体化",
+                      "evidence": "[37:10] “Yeah, it looks like dragon scales.”；[38:59] “Peak heat. - Peak heat.”",
+                      "takeaway": "星舰要复用，必须经受再入峰值热环境；热防护瓦不是外壳装饰，而是复用经济性的前提。"
+                    },
+                    {
+                      "why": "这句话改变了评价SpaceX的重点：单次造出火箭只是门槛，更难的是建设一个能快速吸收设计变化、维持装配节奏、支撑巨型结构生产的工厂系统。高 bay、更高 high bay和装配流程的迭代，都指向同一个战略问题：产能和学习速度决定项目上限。",
+                      "title": "“工厂比火箭更难”把SpaceX护城河从设计转向制造系统",
+                      "evidence": "[44:29] “is relatively easy compared to the factory.”",
+                      "takeaway": "SpaceX真正难复制的可能不是某张火箭图纸，而是把图纸快速变成下一批硬件的工厂能力。"
+                    }
+                  ],
+                  "oneSentence": "SpaceX在Starbase展示的关键不是某个单点黑科技，而是把Raptor、热防护瓦、QD arm、Mechazilla和高 bay 装配一起纳入公开迭代现场，用工厂化试错缩短超重型可复用火箭的学习周期。",
+                  "counterintuitive": [
+                    "聪明读者可能会以为Starship的关键战场是发射台，但视频把核心场景放在Starbase Factory和三个装配帐篷里，说明制造流程本身才是系统能力的来源。",
+                    "很多人会把可复用火箭理解成“飞船回来就结束”，但Mechazilla和QD arm的证据显示，地面系统能否连接、脱离、捕获和支持周转同样决定复用是否成立。",
+                    "外界容易把SpaceX的公开视频理解成单纯宣传透明，但ITAR、COMS和长焦镜头的对话表明，这种公开发生在技术敏感性、既有可见范围和合规边界之间。"
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:18:26.637Z"
+              },
+              "tech": {
+                "data": {
+                  "techPoints": [
+                    {
+                      "name": "Starbase Factory三座主要装配帐篷",
+                      "risk": "公开视频只能证明现场存在这些装配空间和硬件讨论，不能推出完整产能、良率或批量节拍。",
+                      "says": "视频从“SpaceX's Starbase Factory”第二部分进入，并明确说会走进“三个主要装配帐篷”，把观察对象放在工厂内部而不是发射台上。",
+                      "importance": "这说明Starship的关键工作不是单枚火箭展示，而是把发动机、结构件、热防护和地面接口放进同一个制造现场反复调整；工厂能力直接决定迭代速度。"
+                    },
+                    {
+                      "name": "Raptor与Raptor Vacuum发动机体系",
+                      "risk": "证据只来自导览中的口头和现场观察，不能补写未给出的推力、循环方式、寿命或正式规格。",
+                      "says": "参观早段就转向“some Raptor engines”，随后提到“Rap-Vac or Raptor-Vac”，显示同一星舰系统中存在不同使用环境的发动机版本。",
+                      "importance": "发动机不是孤立零件，而是Starship和超重型助推器复用架构的核心约束；海平面版和真空版的区分，会影响装配、测试和飞行任务分工。"
+                    },
+                    {
+                      "name": "ITAR、COMS与长焦镜头边界",
+                      "risk": "文章不能把镜头里可见的结构扩展成工程图纸级判断；技术敏感参数、内部测试数据和合规结论都不在证据范围内。",
+                      "says": "开场对发动机拍摄尺度的讨论提到“ITAR and COMS might not want all this”，马斯克又说公开内容不能超过外界已经通过“Telephoto lenses”看到的范围。",
+                      "importance": "这把Starbase的公开迭代放在现实边界内：SpaceX可以展示制造现场和硬件方向，但仍受航天技术披露管制和商业保密限制。"
+                    },
+                    {
+                      "name": "Mechazilla与QD arm地面系统",
+                      "risk": "视频能支撑地面系统很关键，但不能证明Mechazilla捕获方案或QD arm在所有轨道级任务中已经成熟。",
+                      "says": "对话中出现“Mech-zilla?”，随后马斯克明确说“We do need the QD arm to work.”，把发射塔机械臂和快速断开臂放进星舰成败链条。",
+                      "importance": "完全可复用不是只让火箭飞回来，还要求地面加注、连接、撤离、捕获或周转系统可靠协同；地面基础设施成为火箭架构的一部分。"
+                    },
+                    {
+                      "name": "热防护瓦、dragon scales与peak heat",
+                      "risk": "“像龙鳞”只是视觉比喻，不能替代材料性能、粘接可靠性、掉瓦概率或重复飞行后的维护成本数据。",
+                      "says": "星舰热防护瓦被形容为“dragon scales”，对话又明确提到“Peak heat”，把外观观察和再入峰值热环境联系起来。",
+                      "importance": "热防护决定Starship能否从一次飞行走向复用；瓦片不仅要隔热，还要覆盖大面积外壳并承受再入最严酷阶段的热负荷。"
+                    },
+                    {
+                      "name": "下一次迭代与首次轨道级尝试失败风险",
+                      "risk": "快速迭代能加快学习，但也会把发动机、热防护、结构、地面接口和飞行节奏之间的耦合风险集中暴露出来。",
+                      "says": "马斯克说“It'll be a lot better with the next iteration.”，同时现场谈到首次入轨尝试可能失败的情形。",
+                      "importance": "这揭示SpaceX的工程节奏：把失败风险前置到试飞和制造循环中，用下一版硬件压缩学习周期，而不是等待单次完美定型。"
+                    }
+                  ],
+                  "detailSections": [
+                    {
+                      "title": "为什么工厂比单次发射更关键",
+                      "bullets": [
+                        "视频在0:02就限定为Starbase Factory参观，0:13进入三座主要装配帐篷；这让文章的技术中心从“发射是否成功”转向“硬件如何被连续制造和改版”。",
+                        "马斯克在44:29说相关工作“compared to the factory”相对容易，支撑一个核心判断：Starship的护城河不只是设计图，而是把巨型结构、发动机、热防护和地面设备持续转化为实物的工厂系统。",
+                        "高 bay 与更高 high bay 的建设说明工厂本身也在迭代；当火箭尺寸、吊装流程和总装顺序变化时，厂房和装配节拍也必须跟着变化。",
+                        "商业含义是明确的：若工厂不能稳定输出改进后的硬件，完全可复用带来的低成本愿景就无法靠单次演示兑现。"
+                      ]
+                    },
+                    {
+                      "title": "Raptor不是单一发动机标签",
+                      "bullets": [
+                        "0:43的“some Raptor engines”和2:35的“Rap-Vac or Raptor-Vac”说明视频讨论的是一个发动机家族，而不是一个固定型号。",
+                        "工程上，海平面工作和真空工作面对不同环境；同一火箭系统要同时管理发动机版本、安装位置、测试需求和后续改型。",
+                        "马斯克11:29提到“next iteration”会更好，意味着发动机设计、制造和整车集成之间存在持续反馈，而非一次定型后只做发射运营。",
+                        "边界条件是：证据没有给出Raptor或Raptor Vacuum的正式性能参数，因此只能讨论版本分工和迭代逻辑，不能推导具体推力、寿命或成本。"
+                      ]
+                    },
+                    {
+                      "title": "地面设备进入可复用架构",
+                      "bullets": [
+                        "20:41出现Mechazilla，35:09又说QD arm必须工作，这两个锚点显示发射塔、机械臂和快速连接臂不是旁支设备，而是星舰系统工程的一部分。",
+                        "QD arm的工程价值在于连接与快速脱离：发射前需要地面系统向火箭提供推进剂、电气或其他接口，发射时这些接口又必须可靠撤离。",
+                        "如果目标是快速周转，地面设备的可靠性会直接影响发射节奏；火箭即使完成制造，也可能被接口、加注或塔架动作卡住。",
+                        "风险在于，视频只说明这些系统很重要，不足以证明捕获、快速周转或长期重复使用已经达到运营级可靠性。"
+                      ]
+                    },
+                    {
+                      "title": "热防护的难点不只是耐高温",
+                      "bullets": [
+                        "37:10的“dragon scales”给出了热防护瓦的可视化锚点，38:59的“Peak heat”则把问题指向再入过程中的峰值热环境。",
+                        "工程上，大面积瓦片系统同时牵涉材料隔热、外形覆盖、安装方式、飞行振动和再入热流；任一环节都可能影响复用后的检查和维护。",
+                        "对商业化来说，热防护若每次飞行后都需要大量修复，快速复用的经济性会被维护时间和人工成本抵消。",
+                        "证据没有展开瓦片材料、掉落率或重复飞行后的状态，因此文章应把它写成关键风险点，而不是已解决的结论。"
+                      ]
+                    },
+                    {
+                      "title": "公开试错的边界",
+                      "bullets": [
+                        "0:45提到ITAR和COMS，0:53又提到外界通过长焦镜头已经能看到许多细节；这说明Starbase的公开性是在监管、保密和现实可见性之间取平衡。",
+                        "公开视频适合支撑现场逻辑：哪些硬件被放在一起讨论，哪些系统被马斯克认为关键，哪些问题仍处在迭代中。",
+                        "公开视频不适合支撑敏感或未披露细节：例如内部测试数据、精确结构尺寸、发动机性能表、供应链良率和正式合规判断。",
+                        "写作上的边界是把SpaceX描述为“在公开工厂现场压缩学习周期”，而不是宣称所有核心技术都已经公开或所有风险都已消除。"
+                      ]
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:19:35.739Z"
+              },
+              "glossary": {
+                "data": {
+                  "glossary": [
+                    {
+                      "term": "Starbase Factory",
+                      "explanation": "Starbase Factory是SpaceX在得州博卡奇卡用于建造、装配和改进Starship相关硬件的工厂现场。它出现在视频开头，因为这次导览的重点不是一次发射，而是三个主要装配帐篷、发动机、结构件和地面系统如何被放在同一个制造现场中迭代。理解这个词可以避免把视频误读成普通火箭发射解说；它真正指向的是SpaceX把研发过程工厂化、现场化的方式。"
+                    },
+                    {
+                      "term": "Raptor engine",
+                      "explanation": "Raptor engine是SpaceX为Starship飞船和Super Heavy助推器开发的核心火箭发动机。视频很早就进入Raptor发动机区域，说明发动机制造和改型是Starbase工厂导览的中心内容之一。理解它可以避免把Starship看成单纯的大型外壳工程；它的可复用能力和试飞节奏都离不开Raptor能否持续改进、稳定生产和适配不同任务。"
+                    },
+                    {
+                      "term": "Raptor-Vac",
+                      "explanation": "Raptor-Vac是Raptor发动机的真空版，主要面向太空环境中的高效推进，而不是贴近地面发射时的工作条件。视频提到Rap-Vac或Raptor-Vac，是为了说明Starship系统内部并不只有一种发动机配置。理解这个词可以避免把所有Raptor都当成完全相同的型号；不同飞行阶段需要不同发动机版本。"
+                    },
+                    {
+                      "term": "ITAR",
+                      "explanation": "ITAR是美国对军民两用和航天相关技术出口、传播的管制框架。视频开头讨论是否能拍摄Raptor等工厂细节时提到ITAR，说明公开参观并不等于可以无限披露工程信息。理解这个词可以避免一个误解：SpaceX在Starbase展示硬件，不代表所有发动机参数、结构细节或制造方法都能被公开解释。"
+                    },
+                    {
+                      "term": "Mechazilla",
+                      "explanation": "Mechazilla是SpaceX给Starship发射塔机械臂系统起的昵称，和发射、捕获以及快速周转有关。它出现在视频中，是因为Starship的可复用架构不只依赖飞船和助推器本身，也依赖地面基础设施能否配合。理解这个词可以避免把可复用火箭只理解成“火箭飞回来”；发射塔和机械臂也是整个系统的一部分。"
+                    },
+                    {
+                      "term": "QD arm",
+                      "explanation": "QD arm指快速连接臂，用于在发射前把推进剂、电气或其他地面系统连接到火箭，并在发射时快速脱离。马斯克在视频里说它必须工作，说明地面支持设备会直接影响发射流程和可靠性。理解这个词可以避免低估发射台接口的难度；可复用火箭的快速周转不仅是飞行问题，也是加注、连接、断开和撤离问题。"
+                    },
+                    {
+                      "term": "heat shield tiles",
+                      "explanation": "heat shield tiles是Starship外部用于再入大气时隔热的热防护瓦。视频里马斯克把它的外观形容成类似“龙鳞”，这是一个直观的现场视觉锚点。理解这个词可以避免把热防护看成普通外壳材料；这些瓦片关系到飞船能否承受再入时的极端热环境，并在复用后继续飞行。"
+                    },
+                    {
+                      "term": "peak heat",
+                      "explanation": "peak heat指飞船再入大气过程中热环境最强、热流最高的阶段。视频在讨论热防护时明确提到这个概念，因为热防护系统真正要应对的不是一般高温，而是特定飞行阶段的峰值热负荷。理解它可以避免把再入风险简单理解成“会变热”；关键问题是热防护瓦能否在最严苛的瞬间保护飞船结构。"
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:17:36.993Z"
+              },
+              "timeline": {
+                "data": {
+                  "timeline": [
+                    {
+                      "time": "0:02",
+                      "event": "视频进入SpaceX Starbase Factory导览的第二部分，讨论的重心从外部想象转到工厂内部的装配现场。",
+                      "evidence": "Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "importance": "这限定了全文边界：读者要把它理解成一段关于制造、装配和迭代的工厂观察，而不是普通的发射解说。"
+                    },
+                    {
+                      "time": "0:05",
+                      "event": "马斯克作为主要讲解者直接带路，给出第一手的工程判断和取舍。",
+                      "evidence": "with the ultimate tour guide, Elon Musk",
+                      "importance": "这意味着视频中的很多判断来自SpaceX决策层本身，能作为理解其制造逻辑的一线证据。"
+                    },
+                    {
+                      "time": "0:13",
+                      "event": "镜头明确进入三个主要装配帐篷，显示Starbase的核心是持续装配和实物硬件迭代。",
+                      "evidence": "we're actually going to go inside the three main assembly tents",
+                      "importance": "这把叙事重心钉在制造流程上，也提示后文要围绕帐篷、部件和装配节奏来理解星舰。"
+                    },
+                    {
+                      "time": "0:45",
+                      "event": "开场就提到ITAR和COMS之类的合规顾虑，说明工厂细节本身带有技术敏感性。",
+                      "evidence": "I think there's a good chance that ITAR and COMS might not want all this",
+                      "importance": "这提醒读者，公开视频里的可见内容并不等于完整技术披露，也解释了SpaceX为什么会控制展示尺度。"
+                    },
+                    {
+                      "time": "0:53",
+                      "event": "马斯克解释公开视频的边界，称外界通过长焦镜头已经能看到很多东西。",
+                      "evidence": "It just can't be any more than people are already getting from... Telephoto lenses.",
+                      "importance": "这把“公开试错”放进一个现实语境：SpaceX并非突然放开机密，而是在既有可见性的基础上把工厂化过程展示出来。"
+                    },
+                    {
+                      "time": "0:43",
+                      "event": "参观很早就切到Raptor发动机，明确把推进系统放在星舰制造的中心。",
+                      "evidence": "All right, let's go check out some Raptor engines.",
+                      "importance": "这说明星舰不是先有整机再补发动机，而是发动机迭代、装配和测试本身就是系统工程的核心。"
+                    },
+                    {
+                      "time": "2:35",
+                      "event": "对话提到Raptor-Vac，显示同一发动机家族存在面向不同任务环境的版本。",
+                      "evidence": "Rap-Vac or Raptor-Vac",
+                      "importance": "这有助于理解星舰推进系统的分工，不会把Raptor误解成单一固定型号。"
+                    },
+                    {
+                      "time": "11:29",
+                      "event": "马斯克直接说下一次迭代会更好，强调硬件是在连续改版中逼近可用状态。",
+                      "evidence": "It'll be a lot better with the next iteration.",
+                      "importance": "这体现了SpaceX的制造文化：不是一次定型，而是在装配、测试和飞行反馈里不断压缩改进周期。"
+                    },
+                    {
+                      "time": "13:08",
+                      "event": "现场出现“good attach mechanism”的判断，讨论焦点转向部件如何稳定连接和快速装配。",
+                      "evidence": "We have, I think, a good attach mechanism.",
+                      "importance": "这类连接方案决定了火箭能否高效制造和维护，是工厂化路径中的基础问题。"
+                    },
+                    {
+                      "time": "15:13",
+                      "event": "视频明确谈到首次轨道尝试可能直接失败，暴露出项目仍处在高风险试验阶段。",
+                      "evidence": "What if the first orbital attempt just goes totally,",
+                      "importance": "这说明星舰当时还不是成熟产品，而是把轨道级验证和工程不确定性公开放在同一个现场里。"
+                    },
+                    {
+                      "time": "20:20",
+                      "event": "对话继续转向发射和着陆布置的限制，强调地面系统必须避免和火箭路径过近。",
+                      "evidence": "not have it be too close to land,",
+                      "importance": "这把焦点从飞行器本体扩展到发射场布局，说明可复用火箭的难点也在地面基础设施。"
+                    },
+                    {
+                      "time": "20:41",
+                      "event": "发射塔机械臂被称作Mech-zilla，地面回收与支撑系统开始作为星舰架构的一部分进入叙事。",
+                      "evidence": "Mech-zilla?",
+                      "importance": "这代表SpaceX把发射塔、捕获和操作机构当成火箭系统的一环，而不是附属设备。"
+                    },
+                    {
+                      "time": "33:54",
+                      "event": "马斯克提到下一周要把booster装上去，说明装配节奏已经进入高频推进阶段。",
+                      "evidence": "So then we want to mount the booster next week.",
+                      "importance": "这反映出Starbase的价值不只在研发概念，而在于把大型硬件快速推到下一步装配和测试。"
+                    },
+                    {
+                      "time": "35:09",
+                      "event": "马斯克明确表示快速断开臂必须可靠工作，地面接口被点名为发射成功的关键条件。",
+                      "evidence": "We do need the QD arm to work.",
+                      "importance": "这强化了一个核心判断：星舰的可复用性不仅取决于火箭，还取决于加注、断开和撤离这套地面系统。"
+                    },
+                    {
+                      "time": "37:10",
+                      "event": "热防护瓦片被形容成dragon scales，星舰再入防热结构以直观形式出现在现场。",
+                      "evidence": "Yeah, it looks like dragon scales.",
+                      "importance": "这把热防护从抽象材料问题变成可见的装配问题，也把再入生存能力拉到文章中心。"
+                    },
+                    {
+                      "time": "38:59",
+                      "event": "对话直接提到peak heat，把热防护讨论锁定在再入时的峰值热环境。",
+                      "evidence": "Peak heat. - Peak heat.",
+                      "importance": "这说明星舰面对的是极端热流而不是一般高温，热防护成败直接决定可复用路线是否成立。"
+                    },
+                    {
+                      "time": "44:29",
+                      "event": "马斯克把火箭本体与工厂能力作对比，强调工厂的难度甚至高于火箭设计。",
+                      "evidence": "is relatively easy compared to the factory.",
+                      "importance": "这是全文最重要的制造论点之一：SpaceX的护城河不仅是发动机和飞行器，更是把它们批量做出来的工厂体系。"
+                    }
+                  ],
+                  "questions": [
+                    "围绕Raptor和Raptor-Vac的分工，视频里哪些具体判断已经足够支持“发动机体系比单一型号更重要”这个结论，哪些还需要外部性能数据验证？",
+                    "Mechazilla和QD arm如果要真正进入高频复用流程，最先暴露的问题更可能是结构精度、控制可靠性、热环境耐受，还是维护时间？",
+                    "热防护瓦片被称作dragon scales，但视频没有给出完整材料参数；要判断它是否能支撑peak heat阶段的再入，接下来该追踪哪些测试或飞行结果？",
+                    "马斯克说下一次迭代会更好，这种快速改版逻辑在Starbase工厂里具体依赖哪些前提，特别是供应链、装配节拍和质量控制？",
+                    "视频提到首次轨道尝试可能失败；如果第一次入轨失败，最能说明问题的是推进系统、热防护、地面接口还是整体集成节奏？",
+                    "ITAR和COMS的顾虑意味着哪些工厂细节不能从公开视频直接推出，哪些只能停留在观察层面而不能当成正式规格？",
+                    "“工厂比火箭更难”这个判断若要成立，应该优先看Starbase的哪些外部信号：量产节拍、复用次数、发射周转时间，还是装配设施本身的扩建速度？"
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:39:01.397Z"
+              },
+              "titleContext": {
+                "data": {
+                  "title": "为什么Starbase工厂把星舰竞争从发射台推向制造试错现场",
+                  "contextParagraphs": [
+                    "这段视频发生在2021年夏季，Everyday Astronaut频道的Tim Dodd进入SpaceX位于得州博卡奇卡的Starbase Factory，第二部分导览由Elon Musk亲自带路。开场不是火箭升空画面，而是三个主要装配帐篷、Raptor发动机和一连串可被镜头捕捉到的硬件细节；Tim还立刻提到ITAR和COMS的披露边界，马斯克则回应说，外界通过长焦镜头已经能看到不少东西。这个场景的冲突很清楚：SpaceX一边把超重型可复用火箭推进到公开可见的制造现场，一边仍要守住航天技术信息的边界。对非航天专业读者来说，价值也在这里：星舰不是一个“更大的火箭”故事，而是一次把发动机、热防护、地面接口和工厂节奏绑在一起的系统实验。",
+                    "录制时，Starship仍处在从地面制造走向轨道级尝试的高风险阶段，视频里甚至谈到首次入轨尝试可能彻底失败。马斯克在现场反复把问题拉回迭代：Raptor会有下一版，Raptor-Vac对应不同任务环境，热防护瓦像“龙鳞”一样覆盖在飞船外表面，还要面对再入时的peak heat。与此同时，Mechazilla、QD arm和发射塔不再只是配套设施，而是可复用架构的一部分，因为马斯克明确说快速断开臂必须工作。今天回看这段2021年的工厂导览，它的重要性不在于某个口头参数，而在于它提前展示了SpaceX的核心赌注：真正难的未必是单次发射，而是让工厂、测试、装配和地面系统形成足够快的学习循环。",
+                    "读这段导览，可以把问题拆成三条线：第一，Raptor和Raptor-Vac说明星舰的动力系统本身就在持续改型；第二，热防护瓦、attach mechanism和peak heat把可复用的风险落到材料、连接和再入环境上；第三，高bay、更高的high bay、装配帐篷、Mechazilla和QD arm说明Starbase工厂也在跟着火箭一起进化。马斯克说“相比工厂，火箭相对容易”，这不是轻描淡写的夸张，而是理解这段视频的入口：SpaceX真正公开展示的，是一条把失败、改版和制造能力压缩到同一个现场里的路径。"
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:17:12.471Z"
+              },
+              "evidenceBrief": {
+                "data": {
+                  "thesis": "SpaceX在Starbase把Raptor发动机、热防护瓦、快速连接臂和高 bay 装配流程放进同一个公开迭代现场，改变了超重型可复用火箭从封闭研发到工厂化试错的制造路径。",
+                  "titleAngles": [
+                    "Starbase工厂里，SpaceX如何把火箭研发变成公开试错",
+                    "从Raptor到Mechazilla：SpaceX把可复用火箭推向工厂化的现场逻辑",
+                    "为什么Starship的关键战场不是发射台，而是Starbase工厂",
+                    "Elon Musk的Starbase导览：一枚火箭如何在装配帐篷里被重新定义"
+                  ],
+                  "glossarySeeds": [
+                    {
+                      "term": "Starbase Factory",
+                      "evidence": "[0:02] Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "plainMeaning": "SpaceX在得州博卡奇卡建设和组装星舰相关硬件的工厂区域，是这段参观的核心场景。"
+                    },
+                    {
+                      "term": "Raptor engine",
+                      "evidence": "[0:43] All right, let's go check out some Raptor engines.",
+                      "plainMeaning": "SpaceX为星舰和超重型助推器开发的火箭发动机；理解它有助于读懂视频里关于制造、改型和性能讨论的重点。"
+                    },
+                    {
+                      "term": "Raptor-Vac",
+                      "evidence": "[2:35] - [Tim] So, Rap-Vac or Raptor-Vac has it's own",
+                      "plainMeaning": "Raptor发动机的真空版，通常用于太空中的高效推进；它和海平面版发动机的用途不同。"
+                    },
+                    {
+                      "term": "ITAR",
+                      "evidence": "[0:45] So, by the way, I think there's a good chance that ITAR and COMS might not want all this-",
+                      "plainMeaning": "美国对军民两用或航天相关技术出口与传播的管制框架；视频开头提到它，说明拍摄工厂细节可能涉及信息披露边界。"
+                    },
+                    {
+                      "term": "Mechazilla",
+                      "evidence": "[20:41] - [Tim] Mech-zilla?",
+                      "plainMeaning": "SpaceX给星舰发射塔机械臂系统起的昵称；它与后续关于发射、回收和地面基础设施的讨论相关。"
+                    },
+                    {
+                      "term": "QD arm",
+                      "evidence": "[35:09] - We do need the QD arm to work.",
+                      "plainMeaning": "快速断开臂，用来在发射前给火箭连接推进剂、电气或其他地面系统，并在发射时迅速脱离。"
+                    },
+                    {
+                      "term": "heat shield tiles",
+                      "evidence": "[37:10] - [Elon] Yeah, it looks like dragon scales.",
+                      "plainMeaning": "星舰外部用于再入大气时隔热的瓦片；马斯克把它形容成“龙鳞”，帮助初学者直观理解其外观和覆盖方式。"
+                    },
+                    {
+                      "term": "peak heat",
+                      "evidence": "[38:59] - [Tim] Peak heat. - Peak heat.",
+                      "plainMeaning": "飞船再入大气时经历最高热流或最强热环境的阶段；这是判断热防护系统是否可靠的关键概念。"
+                    },
+                    {
+                      "term": "Tim",
+                      "evidence": "Tim",
+                      "plainMeaning": "这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。"
+                    },
+                    {
+                      "term": "like",
+                      "evidence": "like",
+                      "plainMeaning": "这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。"
+                    }
+                  ],
+                  "questionSeeds": [
+                    "《Starbase Tour with Elon Musk [PART 2 // Summer 2021]》里围绕 **Tim、have、you** 的核心判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？",
+                    "如果 **Tim、have、you** 要从演示、访谈或局部案例走向规模化落地，最可能先卡在成本、可靠性、供应链、法规还是组织执行？",
+                    "视频里没有充分展开的边界条件是什么：适用场景、失败模式、维护成本、数据假设，还是用户采用门槛？",
+                    "未来应该追踪哪些信号来验证这篇文章的判断：**laughs、Elon、just**，还是更直接的商业化/量产/复用结果？",
+                    "如果把视频里的方法迁移到另一个项目，哪些前提一变，结论就会完全失效？"
+                  ],
+                  "timelineSeeds": [
+                    {
+                      "time": "0:02",
+                      "event": "视频在这里展开了一个关键论据：Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "quote": "Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "6:12",
+                      "event": "视频在这里展开了一个关键论据：- [Tim] Right.",
+                      "quote": "- [Tim] Right.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "13:08",
+                      "event": "视频在这里展开了一个关键论据：We have, I think, a good attach mechanism.",
+                      "quote": "We have, I think, a good attach mechanism.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "20:20",
+                      "event": "视频在这里展开了一个关键论据：not have it be too close to land,",
+                      "quote": "not have it be too close to land,",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "26:58",
+                      "event": "视频在这里展开了一个关键论据：- [Tim] Yeah.",
+                      "quote": "- [Tim] Yeah.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "33:54",
+                      "event": "视频在这里展开了一个关键论据：- [Elon] So then we want to mount the booster next week.",
+                      "quote": "- [Elon] So then we want to mount the booster next week.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "41:15",
+                      "event": "视频在这里展开了一个关键论据：It's quite low.",
+                      "quote": "It's quite low.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "49:02",
+                      "event": "视频在这里展开了一个关键论据：- It'll definitely help.",
+                      "quote": "- It'll definitely help.",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "55:58",
+                      "event": "视频在这里展开了一个关键论据：So maybe this could pitch even more",
+                      "quote": "So maybe this could pitch even more",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    }
+                  ],
+                  "evidenceClaims": [
+                    {
+                      "claim": "这段视频是一次星舰工厂参观的第二部分，核心场景不是发射现场，而是SpaceX的Starbase Factory内部。",
+                      "quote": "Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "timestamp": "0:02",
+                      "whyItMatters": "这限定了文章的讨论边界：应聚焦工厂、装配、发动机和基础设施，而不是把它写成一次普通发射解说。"
+                    },
+                    {
+                      "claim": "马斯克本人是这次工厂参观的主要讲解者。",
+                      "quote": "with the ultimate tour guide, Elon Musk.",
+                      "timestamp": "0:05",
+                      "whyItMatters": "信息来源直接来自SpaceX创始人和关键决策者，文章可以把这些说法视为一线访谈证据，但仍需区分口头判断与正式规格。"
+                    },
+                    {
+                      "claim": "本集会进入三个主要装配帐篷，说明视频关注的是制造流程和实物硬件细节。",
+                      "quote": "we're actually going to go inside the three main assembly tents",
+                      "timestamp": "0:13",
+                      "whyItMatters": "这为后续写作提供结构线索：可以围绕装配空间、发动机区、热防护和地面系统等现场观察展开。"
+                    },
+                    {
+                      "claim": "视频开头主动提到ITAR和信息披露边界，显示SpaceX工厂细节存在技术敏感性。",
+                      "quote": "I think there's a good chance that ITAR and COMS might not want all this",
+                      "timestamp": "0:45",
+                      "whyItMatters": "这提醒文章不要把公开视频中的可见细节扩写成未经证实的工程图纸或敏感参数，也可说明航天制造公开化与管制之间的张力。"
+                    },
+                    {
+                      "claim": "马斯克认为外部已经能通过长焦镜头获得大量工厂信息，因此公开视频并非完全突破既有可见范围。",
+                      "quote": "It just can't be any more than people are already getting from... Telephoto lenses.",
+                      "timestamp": "0:53",
+                      "whyItMatters": "这解释了为什么SpaceX愿意展示一些工厂内部画面：公开透明并不等于披露所有机密，而是与现场长期被观察的现实有关。"
+                    },
+                    {
+                      "claim": "视频很早就把Raptor发动机作为参观重点之一。",
+                      "quote": "All right, let's go check out some Raptor engines.",
+                      "timestamp": "0:43",
+                      "whyItMatters": "Raptor是星舰系统的核心硬件；文章若解释SpaceX，应把发动机制造和迭代放在中心位置。"
+                    },
+                    {
+                      "claim": "讨论中出现Raptor-Vac，说明星舰发动机体系不止一种配置。",
+                      "quote": "Rap-Vac or Raptor-Vac",
+                      "timestamp": "2:35",
+                      "whyItMatters": "这有助于向初学者解释同一火箭系统内存在不同任务环境的发动机版本，避免把Raptor理解成单一固定型号。"
+                    },
+                    {
+                      "claim": "马斯克提到下一次迭代会更好，显示SpaceX的制造逻辑强调快速改进。",
+                      "quote": "It'll be a lot better with the next iteration.",
+                      "timestamp": "11:29",
+                      "whyItMatters": "这可支撑文章讨论SpaceX的工程文化：硬件不是一次定型，而是在测试、制造和飞行反馈中持续更新。"
+                    },
+                    {
+                      "claim": "现场谈到首次入轨尝试可能失败的情形，说明当时项目仍处在高风险试验阶段。",
+                      "quote": "What if the first orbital attempt just goes totally,",
+                      "timestamp": "15:13",
+                      "whyItMatters": "这能帮助读者理解2021年夏季语境下的星舰：目标宏大，但仍在从地面制造走向轨道验证。"
+                    },
+                    {
+                      "claim": "发射塔机械臂系统在对话中被称为Mech-zilla，显示SpaceX地面系统也具有复杂工程角色。",
+                      "quote": "Mech-zilla?",
+                      "timestamp": "20:41",
+                      "whyItMatters": "星舰不只是火箭本体；文章需要把发射塔、机械臂、快速连接等地面基础设施纳入SpaceX系统工程。"
+                    },
+                    {
+                      "claim": "马斯克明确说快速断开臂必须工作，说明地面支持设备是发射成败的关键环节。",
+                      "quote": "We do need the QD arm to work.",
+                      "timestamp": "35:09",
+                      "whyItMatters": "这能支撑一个重要观点：可重复使用火箭的难点不只在飞行器，还在发射前后的接口、加注和撤离系统。"
+                    },
+                    {
+                      "claim": "热防护瓦片被形容为像龙鳞，说明视频中有对星舰外部热防护结构的直观观察。",
+                      "quote": "Yeah, it looks like dragon scales.",
+                      "timestamp": "37:10",
+                      "whyItMatters": "这个现场比喻适合给初学者建立图像感，并引出再入热防护为什么是星舰可重复使用的核心难题。"
+                    },
+                    {
+                      "claim": "对话明确提到peak heat，显示再入峰值热环境是讨论热防护时的关键指标。",
+                      "quote": "Peak heat. - Peak heat.",
+                      "timestamp": "38:59",
+                      "whyItMatters": "这为文章解释热防护提供技术锚点：问题不是普通高温，而是飞船再入过程中特定阶段的极端热负荷。"
+                    },
+                    {
+                      "claim": "马斯克把工厂建设的重要性提升到与火箭本体相当甚至更高的位置。",
+                      "quote": "is relatively easy compared to the factory.",
+                      "timestamp": "44:29",
+                      "whyItMatters": "这可作为文章的中心论点之一：SpaceX的护城河不仅是火箭设计，还包括把设计快速转化为批量硬件的工厂能力。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：- [Tim] Right.",
+                      "quote": "- [Tim] Right.",
+                      "timestamp": "6:12",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：We have, I think, a good attach mechanism.",
+                      "quote": "We have, I think, a good attach mechanism.",
+                      "timestamp": "13:08",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    }
+                  ],
+                  "backgroundAnchors": [
+                    "2021年夏季，Tim Dodd进入SpaceX Starbase Factory第二部分导览现场，导览者是Elon Musk",
+                    "Starbase的三个主要装配帐篷是开场进入的核心场景",
+                    "Raptor与Raptor Vacuum发动机是早段讨论对象，并涉及外界通过长焦镜头已能看到大量细节的现实",
+                    "ITAR与COMS合规顾虑出现在开场对发动机拍摄尺度的对话中",
+                    "Starship热防护瓦与类似dragon scales的外观，是关于再入峰值热流和隔热材料风险的具体视觉锚点",
+                    "首次轨道级尝试可能失败的讨论，构成快速试飞与工程不确定性的背景",
+                    "Mechazilla和快速连接臂/QD arm代表发射塔、捕获与地面系统成为可复用架构一部分",
+                    "高 bay 与更高 high bay 的建设说明Starbase工厂本身仍在随火箭尺寸和装配需求迭代",
+                    "门、翼、结构件、stretch forming over a big mandrel等细节体现制造简化与装配精度之间的权衡",
+                    "对工厂难度高于单次发射的判断，是文章开头应建立的核心背景判断",
+                    "Tim",
+                    "like"
+                  ],
+                  "narrativeConflict": "读者需要先理解的张力是：Starship追求完全可复用和快速周转，但它面对的不是单一技术难题，而是发动机、热防护、地面支持设备、巨型结构装配和轨道级试飞节奏之间的系统性耦合；SpaceX选择把这些问题暴露在Starbase的公开工厂现场中，用连续迭代压缩学习周期。"
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:16:43.111Z"
+              },
+              "evidenceBriefThesis": {
+                "data": {
+                  "thesis": "SpaceX在Starbase把Raptor发动机、热防护瓦、快速连接臂和高 bay 装配流程放进同一个公开迭代现场，改变了超重型可复用火箭从封闭研发到工厂化试错的制造路径。",
+                  "titleAngles": [
+                    "Starbase工厂里，SpaceX如何把火箭研发变成公开试错",
+                    "从Raptor到Mechazilla：SpaceX把可复用火箭推向工厂化的现场逻辑",
+                    "为什么Starship的关键战场不是发射台，而是Starbase工厂",
+                    "Elon Musk的Starbase导览：一枚火箭如何在装配帐篷里被重新定义"
+                  ],
+                  "backgroundAnchors": [
+                    "2021年夏季，Tim Dodd进入SpaceX Starbase Factory第二部分导览现场，导览者是Elon Musk",
+                    "Starbase的三个主要装配帐篷是开场进入的核心场景",
+                    "Raptor与Raptor Vacuum发动机是早段讨论对象，并涉及外界通过长焦镜头已能看到大量细节的现实",
+                    "ITAR与COMS合规顾虑出现在开场对发动机拍摄尺度的对话中",
+                    "Starship热防护瓦与类似dragon scales的外观，是关于再入峰值热流和隔热材料风险的具体视觉锚点",
+                    "首次轨道级尝试可能失败的讨论，构成快速试飞与工程不确定性的背景",
+                    "Mechazilla和快速连接臂/QD arm代表发射塔、捕获与地面系统成为可复用架构一部分",
+                    "高 bay 与更高 high bay 的建设说明Starbase工厂本身仍在随火箭尺寸和装配需求迭代",
+                    "门、翼、结构件、stretch forming over a big mandrel等细节体现制造简化与装配精度之间的权衡",
+                    "对工厂难度高于单次发射的判断，是文章开头应建立的核心背景判断"
+                  ],
+                  "narrativeConflict": "读者需要先理解的张力是：Starship追求完全可复用和快速周转，但它面对的不是单一技术难题，而是发动机、热防护、地面支持设备、巨型结构装配和轨道级试飞节奏之间的系统性耦合；SpaceX选择把这些问题暴露在Starbase的公开工厂现场中，用连续迭代压缩学习周期。"
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:15:36.793Z"
+              },
+              "evidenceBriefTermsEvidence": {
+                "data": {
+                  "glossarySeeds": [
+                    {
+                      "term": "Starbase Factory",
+                      "evidence": "[0:02] Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "plainMeaning": "SpaceX在得州博卡奇卡建设和组装星舰相关硬件的工厂区域，是这段参观的核心场景。"
+                    },
+                    {
+                      "term": "Raptor engine",
+                      "evidence": "[0:43] All right, let's go check out some Raptor engines.",
+                      "plainMeaning": "SpaceX为星舰和超重型助推器开发的火箭发动机；理解它有助于读懂视频里关于制造、改型和性能讨论的重点。"
+                    },
+                    {
+                      "term": "Raptor-Vac",
+                      "evidence": "[2:35] - [Tim] So, Rap-Vac or Raptor-Vac has it's own",
+                      "plainMeaning": "Raptor发动机的真空版，通常用于太空中的高效推进；它和海平面版发动机的用途不同。"
+                    },
+                    {
+                      "term": "ITAR",
+                      "evidence": "[0:45] So, by the way, I think there's a good chance that ITAR and COMS might not want all this-",
+                      "plainMeaning": "美国对军民两用或航天相关技术出口与传播的管制框架；视频开头提到它，说明拍摄工厂细节可能涉及信息披露边界。"
+                    },
+                    {
+                      "term": "Mechazilla",
+                      "evidence": "[20:41] - [Tim] Mech-zilla?",
+                      "plainMeaning": "SpaceX给星舰发射塔机械臂系统起的昵称；它与后续关于发射、回收和地面基础设施的讨论相关。"
+                    },
+                    {
+                      "term": "QD arm",
+                      "evidence": "[35:09] - We do need the QD arm to work.",
+                      "plainMeaning": "快速断开臂，用来在发射前给火箭连接推进剂、电气或其他地面系统，并在发射时迅速脱离。"
+                    },
+                    {
+                      "term": "heat shield tiles",
+                      "evidence": "[37:10] - [Elon] Yeah, it looks like dragon scales.",
+                      "plainMeaning": "星舰外部用于再入大气时隔热的瓦片；马斯克把它形容成“龙鳞”，帮助初学者直观理解其外观和覆盖方式。"
+                    },
+                    {
+                      "term": "peak heat",
+                      "evidence": "[38:59] - [Tim] Peak heat. - Peak heat.",
+                      "plainMeaning": "飞船再入大气时经历最高热流或最强热环境的阶段；这是判断热防护系统是否可靠的关键概念。"
+                    }
+                  ],
+                  "evidenceClaims": [
+                    {
+                      "claim": "这段视频是一次星舰工厂参观的第二部分，核心场景不是发射现场，而是SpaceX的Starbase Factory内部。",
+                      "quote": "Welcome to part two of my tour of SpaceX's Starbase Factory",
+                      "timestamp": "0:02",
+                      "whyItMatters": "这限定了文章的讨论边界：应聚焦工厂、装配、发动机和基础设施，而不是把它写成一次普通发射解说。"
+                    },
+                    {
+                      "claim": "马斯克本人是这次工厂参观的主要讲解者。",
+                      "quote": "with the ultimate tour guide, Elon Musk.",
+                      "timestamp": "0:05",
+                      "whyItMatters": "信息来源直接来自SpaceX创始人和关键决策者，文章可以把这些说法视为一线访谈证据，但仍需区分口头判断与正式规格。"
+                    },
+                    {
+                      "claim": "本集会进入三个主要装配帐篷，说明视频关注的是制造流程和实物硬件细节。",
+                      "quote": "we're actually going to go inside the three main assembly tents",
+                      "timestamp": "0:13",
+                      "whyItMatters": "这为后续写作提供结构线索：可以围绕装配空间、发动机区、热防护和地面系统等现场观察展开。"
+                    },
+                    {
+                      "claim": "视频开头主动提到ITAR和信息披露边界，显示SpaceX工厂细节存在技术敏感性。",
+                      "quote": "I think there's a good chance that ITAR and COMS might not want all this",
+                      "timestamp": "0:45",
+                      "whyItMatters": "这提醒文章不要把公开视频中的可见细节扩写成未经证实的工程图纸或敏感参数，也可说明航天制造公开化与管制之间的张力。"
+                    },
+                    {
+                      "claim": "马斯克认为外部已经能通过长焦镜头获得大量工厂信息，因此公开视频并非完全突破既有可见范围。",
+                      "quote": "It just can't be any more than people are already getting from... Telephoto lenses.",
+                      "timestamp": "0:53",
+                      "whyItMatters": "这解释了为什么SpaceX愿意展示一些工厂内部画面：公开透明并不等于披露所有机密，而是与现场长期被观察的现实有关。"
+                    },
+                    {
+                      "claim": "视频很早就把Raptor发动机作为参观重点之一。",
+                      "quote": "All right, let's go check out some Raptor engines.",
+                      "timestamp": "0:43",
+                      "whyItMatters": "Raptor是星舰系统的核心硬件；文章若解释SpaceX，应把发动机制造和迭代放在中心位置。"
+                    },
+                    {
+                      "claim": "讨论中出现Raptor-Vac，说明星舰发动机体系不止一种配置。",
+                      "quote": "Rap-Vac or Raptor-Vac",
+                      "timestamp": "2:35",
+                      "whyItMatters": "这有助于向初学者解释同一火箭系统内存在不同任务环境的发动机版本，避免把Raptor理解成单一固定型号。"
+                    },
+                    {
+                      "claim": "马斯克提到下一次迭代会更好，显示SpaceX的制造逻辑强调快速改进。",
+                      "quote": "It'll be a lot better with the next iteration.",
+                      "timestamp": "11:29",
+                      "whyItMatters": "这可支撑文章讨论SpaceX的工程文化：硬件不是一次定型，而是在测试、制造和飞行反馈中持续更新。"
+                    },
+                    {
+                      "claim": "现场谈到首次入轨尝试可能失败的情形，说明当时项目仍处在高风险试验阶段。",
+                      "quote": "What if the first orbital attempt just goes totally,",
+                      "timestamp": "15:13",
+                      "whyItMatters": "这能帮助读者理解2021年夏季语境下的星舰：目标宏大，但仍在从地面制造走向轨道验证。"
+                    },
+                    {
+                      "claim": "发射塔机械臂系统在对话中被称为Mech-zilla，显示SpaceX地面系统也具有复杂工程角色。",
+                      "quote": "Mech-zilla?",
+                      "timestamp": "20:41",
+                      "whyItMatters": "星舰不只是火箭本体；文章需要把发射塔、机械臂、快速连接等地面基础设施纳入SpaceX系统工程。"
+                    },
+                    {
+                      "claim": "马斯克明确说快速断开臂必须工作，说明地面支持设备是发射成败的关键环节。",
+                      "quote": "We do need the QD arm to work.",
+                      "timestamp": "35:09",
+                      "whyItMatters": "这能支撑一个重要观点：可重复使用火箭的难点不只在飞行器，还在发射前后的接口、加注和撤离系统。"
+                    },
+                    {
+                      "claim": "热防护瓦片被形容为像龙鳞，说明视频中有对星舰外部热防护结构的直观观察。",
+                      "quote": "Yeah, it looks like dragon scales.",
+                      "timestamp": "37:10",
+                      "whyItMatters": "这个现场比喻适合给初学者建立图像感，并引出再入热防护为什么是星舰可重复使用的核心难题。"
+                    },
+                    {
+                      "claim": "对话明确提到peak heat，显示再入峰值热环境是讨论热防护时的关键指标。",
+                      "quote": "Peak heat. - Peak heat.",
+                      "timestamp": "38:59",
+                      "whyItMatters": "这为文章解释热防护提供技术锚点：问题不是普通高温，而是飞船再入过程中特定阶段的极端热负荷。"
+                    },
+                    {
+                      "claim": "马斯克把工厂建设的重要性提升到与火箭本体相当甚至更高的位置。",
+                      "quote": "is relatively easy compared to the factory.",
+                      "timestamp": "44:29",
+                      "whyItMatters": "这可作为文章的中心论点之一：SpaceX的护城河不仅是火箭设计，还包括把设计快速转化为批量硬件的工厂能力。"
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T05:16:42.597Z"
+              }
+            },
+            "createdAt": "2026-07-03T05:15:22.564Z",
+            "expiresAt": "2026-07-04T05:39:01.397Z",
+            "sourceKey": "0106bbb29e50c4c4",
+            "updatedAt": "2026-07-03T05:39:01.397Z",
+            "cacheVersion": 1,
+            "recoveredFromJobId": "job:bbdcdeba1072be47"
+          }
+        },
+        "error": "",
+        "createdAt": "2026-07-03T05:37:36.109Z",
+        "updatedAt": "2026-07-03T05:39:02.268Z"
       }
     ],
     "researchReferenceSources": [],
