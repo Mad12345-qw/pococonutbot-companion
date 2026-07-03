@@ -722,9 +722,10 @@ assertEqual(
   "true"
 );
 
+let repairedReaderAuditDoc = "";
 let rejectedReaderAuditFailure = false;
 try {
-  bot.buildFeishuYoutubeDocumentMarkdown({
+  repairedReaderAuditDoc = bot.buildFeishuYoutubeDocumentMarkdown({
     topic: "Starship HLS",
     title: "月球版星舰的真正难题：不是飞到月球，而是把补加注链条跑通",
     videos: [{
@@ -779,8 +780,13 @@ try {
   rejectedReaderAuditFailure = true;
 }
 assertEqual(
-  "youtube finished article reader audit rejects bullet-wall background",
+  "youtube finished article reader audit repairs bullet-wall background instead of rejecting the whole document",
   String(rejectedReaderAuditFailure),
+  "false"
+);
+assertEqual(
+  "youtube finished article reader audit keeps repaired background reader-friendly",
+  String(!/## 二、背景导读[\s\S]{0,120}\n\s*[-*]\s+/.test(repairedReaderAuditDoc) && repairedReaderAuditDoc.includes("## 八、出处与链接")),
   "true"
 );
 assertEqual(

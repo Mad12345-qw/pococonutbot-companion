@@ -1467,6 +1467,8 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       `这条视频值得先放回具体语境里看：${anchors || report.topic || "视频中的关键对象"}不是孤立信息点，而是理解后续判断的入口。读者先抓住视频反复出现的对象、数字和场景，再进入结论会轻松很多。`,
       source.narrativeConflict || `本文要解释的主线是：${source.thesis}`
     ];
+  } else {
+    normalized.opening.contextParagraphs = contextParagraphs;
   }
   const glossary = asArray(normalized.opening.glossary).filter((item) => cleanYoutubeArticleText(item?.term) && cleanYoutubeArticleText(item?.explanation || item?.description));
   if (glossary.length < 3) {
@@ -1474,9 +1476,13 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       term: item.term,
       explanation: item.plainMeaning || `这是视频中反复出现的核心对象，后文会围绕它解释证据和判断。`
     }));
+  } else {
+    normalized.opening.glossary = glossary;
   }
   if (!cleanYoutubeArticleText(normalized.opening.oneSentence)) {
     normalized.opening.oneSentence = source.thesis;
+  } else {
+    normalized.opening.oneSentence = cleanYoutubeArticleText(normalized.opening.oneSentence, 700);
   }
   const corePoints = asArray(normalized.opening.corePoints).filter((item) => cleanYoutubeArticleText(item?.title) && cleanYoutubeArticleText(item?.evidence || item?.quote));
   if (corePoints.length < 3) {
@@ -1486,17 +1492,34 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       why: item.whyItMatters || "这条证据决定了读者应该如何理解视频里的核心判断。",
       takeaway: "先看证据，再看结论，避免把视频信息误读成空泛观点。"
     }));
+  } else {
+    normalized.opening.corePoints = corePoints;
   }
-  if (!asArray(normalized.opening.quotes).some((item) => cleanArticleText(item?.original || item?.quote))) {
+  const quotes = asArray(normalized.opening.quotes)
+    .map((item) => ({
+      title: cleanYoutubeArticleText(item?.title, 80),
+      original: cleanYoutubeArticleText(item?.original || item?.quote, 700),
+      meaning: cleanYoutubeArticleText(item?.meaning, 700),
+      implication: cleanYoutubeArticleText(item?.implication || item?.transfer, 700)
+    }))
+    .filter((item) => item.original);
+  if (!quotes.length) {
     normalized.opening.quotes = source.evidenceClaims.slice(0, 3).map((item, index) => ({
       title: `原文证据 ${index + 1}`,
       original: item.quote,
       meaning: item.whyItMatters,
       implication: "好判断必须能回到原文证据，而不是只停留在概括。"
     })).filter((item) => item.original);
+  } else {
+    normalized.opening.quotes = quotes;
   }
-  if (asArray(normalized.opening.counterintuitive).length < 3) {
+  const counterintuitive = asArray(normalized.opening.counterintuitive)
+    .map((item) => cleanYoutubeArticleText(item, 600))
+    .filter(Boolean);
+  if (counterintuitive.length < 3) {
     normalized.opening.counterintuitive = source.evidenceClaims.slice(0, 3).map((item) => `容易被忽略的是：${item.whyItMatters || item.claim}`);
+  } else {
+    normalized.opening.counterintuitive = counterintuitive;
   }
   const techPoints = asArray(normalized.techPoints).filter((item) => cleanYoutubeArticleText(item?.name || item?.title) && cleanYoutubeArticleText(item?.says || item?.inVideo));
   if (techPoints.length < 2) {
@@ -1506,8 +1529,16 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       importance: item.whyItMatters || "它决定了后文判断是否站得住。",
       risk: "仍需要结合完整视频上下文和外部资料验证边界条件。"
     }));
+  } else {
+    normalized.techPoints = techPoints;
   }
-  if (!asArray(normalized.detailSections).some((section) => asArray(section?.bullets).length)) {
+  const detailSections = asArray(normalized.detailSections)
+    .map((section) => ({
+      title: cleanYoutubeArticleText(section?.title, 120),
+      bullets: asArray(section?.bullets).map((item) => cleanYoutubeArticleText(item, 700)).filter(Boolean)
+    }))
+    .filter((section) => section.title && section.bullets.length);
+  if (!detailSections.length) {
     normalized.detailSections = [
       {
         title: "证据链如何支撑主判断",
@@ -1518,6 +1549,8 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
         bullets: source.questionSeeds.slice(0, 4).map((item) => `后续仍要追问：${item}`)
       }
     ];
+  } else {
+    normalized.detailSections = detailSections;
   }
   const timeline = asArray(normalized.timeline).filter((item) => cleanYoutubeArticleText(item?.time || item?.timestamp) && cleanYoutubeArticleText(item?.event || item?.whatHappens));
   if (timeline.length < 6) {
@@ -1527,9 +1560,14 @@ function normalizeYoutubeStructuredArticle(article = {}, evidenceBrief = {}, rep
       importance: item.importance,
       evidence: item.quote
     }));
+  } else {
+    normalized.timeline = timeline;
   }
-  if (asArray(normalized.questions).filter(Boolean).length < 4) {
+  const questions = asArray(normalized.questions).map((item) => cleanYoutubeArticleText(item, 500)).filter(Boolean);
+  if (questions.length < 4) {
     normalized.questions = source.questionSeeds.slice(0, 8);
+  } else {
+    normalized.questions = questions;
   }
   return normalized;
 }
@@ -1661,12 +1699,12 @@ function assertStructuredYoutubeArticle(article = {}, report = {}) {
     throw new Error("YouTube structured article failed quality gate: weak Chinese title.");
   }
   const opening = article.opening || {};
-  const context = asArray(opening.contextParagraphs).map((item) => cleanArticleText(item, 1000)).filter(Boolean);
-  const glossary = asArray(opening.glossary).filter((item) => cleanArticleText(item?.term) && cleanArticleText(item?.explanation || item?.description));
-  const corePoints = asArray(opening.corePoints || article.corePoints).filter((item) => cleanArticleText(item?.title) && cleanArticleText(item?.evidence || item?.quote));
-  const techPoints = asArray(article.techPoints).filter((item) => cleanArticleText(item?.name || item?.title) && cleanArticleText(item?.says || item?.inVideo));
-  const timeline = asArray(article.timeline).filter((item) => cleanArticleText(item?.time || item?.timestamp) && cleanArticleText(item?.event || item?.whatHappens));
-  const questions = asArray(article.questions).filter((item) => cleanArticleText(item));
+  const context = asArray(opening.contextParagraphs).map((item) => cleanYoutubeArticleText(item, 1000)).filter(Boolean);
+  const glossary = asArray(opening.glossary).filter((item) => cleanYoutubeArticleText(item?.term) && cleanYoutubeArticleText(item?.explanation || item?.description));
+  const corePoints = asArray(opening.corePoints || article.corePoints).filter((item) => cleanYoutubeArticleText(item?.title) && cleanYoutubeArticleText(item?.evidence || item?.quote));
+  const techPoints = asArray(article.techPoints).filter((item) => cleanYoutubeArticleText(item?.name || item?.title) && cleanYoutubeArticleText(item?.says || item?.inVideo));
+  const timeline = asArray(article.timeline).filter((item) => cleanYoutubeArticleText(item?.time || item?.timestamp) && cleanYoutubeArticleText(item?.event || item?.whatHappens));
+  const questions = asArray(article.questions).filter((item) => cleanYoutubeArticleText(item));
   if (context.length < 2) throw new Error("YouTube structured article failed quality gate: opening context is too thin.");
   if (glossary.length < 3) throw new Error("YouTube structured article failed quality gate: glossary is missing.");
   if (corePoints.length < 3) throw new Error("YouTube structured article failed quality gate: evidence-backed core points are missing.");
@@ -1763,6 +1801,92 @@ function markdownSectionBetween(markdown = "", startHeading = "", endHeading = "
   const afterStart = start + startHeading.length;
   const end = endHeading ? text.indexOf(endHeading, afterStart) : -1;
   return (end >= 0 ? text.slice(afterStart, end) : text.slice(afterStart)).trim();
+}
+
+function replaceMarkdownSection(markdown = "", startHeading = "", endHeading = "", replacement = "") {
+  const text = String(markdown || "");
+  const start = text.indexOf(startHeading);
+  if (start < 0) return text;
+  const afterStart = start + startHeading.length;
+  const end = endHeading ? text.indexOf(endHeading, afterStart) : -1;
+  const before = text.slice(0, afterStart).trimEnd();
+  const after = end >= 0 ? text.slice(end).trimStart() : "";
+  return compactLines([
+    before,
+    String(replacement || "").trim(),
+    after
+  ]);
+}
+
+function youtubeFallbackGlossary(report = {}, minimum = 3) {
+  const videos = report.videos || [];
+  const keywordText = [
+    report.topic,
+    report.title,
+    ...videos.map((video) => `${video.title || ""} ${video.channel || ""} ${truncate(video.transcriptText || "", 1500)}`)
+  ].join(" ");
+  const terms = extractYoutubeQuestionKeywords(keywordText, Math.max(minimum, 5));
+  return terms.slice(0, minimum).map((term) =>
+    `- **${term.replace(/[：:]\s*$/, "")}：** 这是理解这条视频判断链条的关键对象或术语，读者可以先把它当作后文反复出现的线索。`
+  ).join("\n");
+}
+
+function repairYoutubeGlossarySection(markdown = "", report = {}) {
+  const start = "## 一、关键术语解释";
+  const end = "## 二、背景导读";
+  const section = markdownSectionBetween(markdown, start, end);
+  if (countMarkdownBullets(section) >= 3) return markdown;
+  const existing = section
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => /^[-*]\s+/.test(line));
+  const fallback = youtubeFallbackGlossary(report, 3)
+    .split(/\r?\n/)
+    .filter(Boolean);
+  const merged = mergeUniqueBy([...existing, ...fallback], (item) => item.replace(/\s+/g, " ").toLowerCase(), 6).join("\n");
+  return replaceMarkdownSection(markdown, start, end, merged);
+}
+
+function repairYoutubeBackgroundSection(markdown = "", report = {}) {
+  const start = "## 二、背景导读";
+  const end = "## 三、导读与核心结论";
+  const section = markdownSectionBetween(markdown, start, end);
+  if (!section) return markdown;
+  if (!/^\s*[-*]\s+/m.test(section) && section.length >= 120 && section.length <= 1400) return markdown;
+  const prose = section
+    .split(/\r?\n/)
+    .map((line) => line.replace(/^\s*[-*]\s+/, "").trim())
+    .filter(Boolean)
+    .join("\n\n");
+  const fallback = splitYoutubeBackgroundAndGlossary(buildYoutubeBackgroundFallback(report)).background;
+  const repaired = prose.length >= 120 ? prose : fallback;
+  return replaceMarkdownSection(markdown, start, end, repaired);
+}
+
+function repairYoutubeQuestionsSection(markdown = "", report = {}) {
+  const start = "## 七、值得继续追问的问题";
+  const end = "## 八、出处与链接";
+  const section = markdownSectionBetween(markdown, start, end);
+  if (countMarkdownBullets(section) >= 4) return markdown;
+  const existing = section
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^[-*]\s+/.test(line));
+  const fallback = buildYoutubeQuestionsFallback(report)
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^[-*]\s+/.test(line));
+  const merged = mergeUniqueBy([...existing, ...fallback], (item) => item.replace(/\s+/g, " ").toLowerCase(), 8).join("\n");
+  return replaceMarkdownSection(markdown, start, end, merged);
+}
+
+function repairYoutubeDocumentBeforeAudit(markdown = "", report = {}) {
+  let repaired = stripYoutubeProcessArtifactLines(markdown);
+  repaired = repairYoutubeGlossarySection(repaired, report);
+  repaired = repairYoutubeBackgroundSection(repaired, report);
+  repaired = repairYoutubeQuestionsSection(repaired, report);
+  return repaired;
 }
 
 function auditYoutubeFinishedDocument(markdown = "") {
@@ -5771,10 +5895,10 @@ export class FeishuBot {
     body = stripLowValueYoutubeMetadataLines(body);
     body = body.replace(/^#\s+.+\n+/, "").trim();
     if (isGuidedYoutubeBlueprintMarkdown(body)) {
-      const markdown = indentReaderLabelBullets(emphasizeReaderLabels(finalizeGuidedYoutubeDocumentMarkdown(body, {
+      const markdown = repairYoutubeDocumentBeforeAudit(indentReaderLabelBullets(emphasizeReaderLabels(finalizeGuidedYoutubeDocumentMarkdown(body, {
         transcriptBlocks,
         videos
-      })));
+      }))), report);
       assertReadableYoutubeDocument(markdown);
       return markdown;
     }
@@ -5858,7 +5982,7 @@ export class FeishuBot {
       "## 八、出处与链接",
       buildYoutubeSourceSection(videos)
     ];
-    const markdown = indentReaderLabelBullets(emphasizeReaderLabels(compactLines(blocks)));
+    const markdown = repairYoutubeDocumentBeforeAudit(indentReaderLabelBullets(emphasizeReaderLabels(compactLines(blocks))), report);
     assertReadableYoutubeDocument(markdown);
     return markdown;
   }
