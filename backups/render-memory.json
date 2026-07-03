@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T12:27:17.292Z",
+  "exportedAt": "2026-07-03T12:37:16.419Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -59815,6 +59815,78 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-03T12:21:25.097Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片上下文\n\n## 用户/组织信息\n- **显示名称**：Toeny马\n- **所属组织**：飞书用户0530NW的组织\n- **认证状态**：未认证\n\n## 头像\n- 圆形头像，显示一位戴眼镜、穿深色西装打领带的男士\n\n## 顶部装饰\n- 蓝色波浪状渐变背景图案\n\n## 操作按钮（自上而下，自左向右）\n| 图标 | 文字 |\n|------|------|\n| 💬 消息图标 | 消息 |\n| 📞 电话图标 | 语音 |\n| 📹 摄像机图标 | 视频 |\n\n## 底部链接\n- 备注与描述\n- 编辑内容\n\n---\n\n**画面类型**：飞书(Feishu) 个人/组织主页信息卡片，含头像、名称、组织、认证标签、三个联系方式按钮及编辑入口。无额外文字内容、表格或清单。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4e863e38bcb26f7e38c9d93ef",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_09e5d8b6a7b3b9261b9da696735cff43",
+          "rawUserId": "ou_09e5d8b6a7b3b9261b9da696735cff43",
+          "rawUnionId": "on_bed6c1cf0a15f474f5491fced7bf71d6",
+          "linkContext": "",
+          "imageContext": "# 图片上下文\n\n## 用户/组织信息\n- **显示名称**：Toeny马\n- **所属组织**：飞书用户0530NW的组织\n- **认证状态**：未认证\n\n## 头像\n- 圆形头像，显示一位戴眼镜、穿深色西装打领带的男士\n\n## 顶部装饰\n- 蓝色波浪状渐变背景图案\n\n## 操作按钮（自上而下，自左向右）\n| 图标 | 文字 |\n|------|------|\n| 💬 消息图标 | 消息 |\n| 📞 电话图标 | 语音 |\n| 📹 摄像机图标 | 视频 |\n\n## 底部链接\n- 备注与描述\n- 编辑内容\n\n---\n\n**画面类型**：飞书(Feishu) 个人/组织主页信息卡片，含头像、名称、组织、认证标签、三个联系方式按钮及编辑入口。无额外文字内容、表格或清单。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T12:35:40.479Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "role": "assistant",
+        "modality": "text",
+        "content": "[Toeny马 的个人信息] 显示这是 Toeny马，未认证，飞书用户 0530NW 的组织账号，可以发起消息、语音或视频。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43"
+        },
+        "createdAt": "2026-07-03T12:35:45.476Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "role": "user",
+        "modality": "text",
+        "content": "这个人和群主是一块的吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4e84a0c8b4b39958c29c764ad",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_09e5d8b6a7b3b9261b9da696735cff43",
+          "rawUserId": "ou_09e5d8b6a7b3b9261b9da696735cff43",
+          "rawUnionId": "on_bed6c1cf0a15f474f5491fced7bf71d6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T12:36:04.330Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "role": "assistant",
+        "modality": "text",
+        "content": "群里我看不太出来他和群主是不是一起的，得问群主本人确认比较稳妥。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43"
+        },
+        "createdAt": "2026-07-03T12:36:08.838Z"
       }
     ],
     "memories": [
@@ -61047,6 +61119,26 @@
         "metadata": {},
         "createdAt": "2026-06-22T14:44:39.167Z",
         "updatedAt": "2026-06-22T14:44:39.167Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T12:35:40.409Z",
+        "updatedAt": "2026-07-03T12:36:04.266Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_09e5d8b6a7b3b9261b9da696735cff43",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T12:35:40.278Z",
+        "updatedAt": "2026-07-03T12:36:04.201Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
