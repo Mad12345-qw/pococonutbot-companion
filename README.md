@@ -1,59 +1,86 @@
 # Pococonut Companion
 
-Pococonut Companion 是一个面向 Telegram 与飞书的长期运行 Agent 助手。它不是单一聊天机器人，也不是一次性视频总结脚本，而是一套把对话、内容生成、飞书文档、YouTube 深度整理、跨来源研究知识库和长期产业链投研工作流放在同一条轨道上的个人智能助理系统。
+> A Feishu-first personal research agent for turning videos, documents, conversations, and public sources into reader-grade knowledge documents and long-term industry-chain research assets.
 
-当前主定义：
+Pococonut Companion is a long-running multi-channel Agent system for Chinese knowledge work. It connects Telegram, Feishu, YouTube transcript research, WeChat Official Account draft publishing, memory management, and a multi-source investment-research knowledge base into one workflow.
 
-> 一个可部署到 Render 的多通道 Agent 助手，核心面向中文用户，支持日常对话、语音/图片/生图、飞书知识生产、YouTube 研究文档生成，以及基于证据图谱的长期产业链投研分析。
+It is not a simple chat bot and not a one-off YouTube summarizer. The core goal is to help an individual researcher continuously turn messy public information into:
 
-## 核心能力
+- polished Feishu documents that are readable by humans
+- structured evidence cards that are reusable by machines
+- topic/entity/time-context graphs for later retrieval
+- versioned industry-chain research reports with traceable evidence
 
-### 多通道 Agent 助手
+## Current Status
 
-- Telegram 私聊与群聊：支持普通聊天、智能插话、群聊上下文记忆。
-- 飞书机器人：支持消息回复、飞书云文档生成、飞书知识库/文档库写入。
-- 网页后台：通过 `/admin` 管理记忆、摘要、人格和运行状态。
-- 健康检查：通过 `/health` 查看当前能力开关、配置状态和架构版本。
+- Deployed as a Render Web Service.
+- Uses Node.js 20+, Express, Postgres or local JSON storage.
+- Supports OpenAI-compatible chat APIs, image generation APIs, STT/TTS, Feishu Open Platform, Telegram Bot API, TranscriptAPI-compatible YouTube transcript extraction, and WeChat Official Account draft creation.
+- Formal YouTube research documents and investment reports are generated through structured JSON slots and program rendering, not freeform Markdown.
+- Formal document paths can be configured to use the primary model only. If the primary model fails, the system should fail clearly instead of publishing degraded fallback content.
 
-### 多模态交互
+## What It Does
 
-- 文字对话：兼容 OpenAI-style Chat Completions API。
-- 图片理解：Telegram 图片会转换为 `image_url` 输入给视觉模型。
-- 语音理解：语音先经 STT/Whisper 转写，再进入主模型。
-- 语音回复：支持 Telegram 与飞书不同声音配置。
-- 生图：支持 `/draw`、`/image`、`/imagine`、`画图`、`生图`、`生成图片` 等触发方式。
-- 角色化自拍：内置小椰形象与参考照，可生成角色化图片回复。
+### 1. Multi-Channel Agent
 
-### 记忆与上下文
+- Telegram private chat and group chat.
+- Feishu bot message handling.
+- Admin panel at `/admin`.
+- Health endpoint at `/health`.
+- Long-term memory, recent context, summaries, and optional GitHub backup.
 
-- 分用户长期记忆：公共记忆与个人记忆分层保存。
-- 对话摘要：长对话会沉淀摘要，避免上下文无限膨胀。
-- 存储后端：支持 Postgres，也支持本地 JSON 文件作为轻量开发模式。
-- GitHub 备份：可将记忆定时备份到私有仓库分支。
+### 2. Feishu Knowledge Document Generation
 
-### 飞书文档生产
+For YouTube links, the system can:
 
-- YouTube 链接自动提取字幕并生成中文深度文档。
-- 文档采用“先证据抽取、再文章立意、再结构化内容、最后程序渲染”的流程。
-- 支持关键术语、背景导读、核心结论、技术拆解、时间线、原文摘录、继续追问和出处索引。
-- 生成前先约束证据边界、读者目标和结构化字段，质量闸门只作为最后保险，阻止过程话、占位符、重复元数据、`YouTube 技术笔记`、裸 HTML 等内容进入成品文档。
+1. fetch transcript and metadata
+2. extract evidence and article intent
+3. generate bounded structured content fields
+4. render a polished Feishu document
+5. add source metadata, timeline navigation, transcript excerpts, and group entry cards
+6. write reusable research assets into the knowledge base
 
-### 长期投研知识库
+The document structure is reader-first:
 
-- 任意信息源都归一成 `source + evidence_cards + entities + time_context + questions + coverage_gaps`。
-- 支持视频、访谈、播客、研报、财报、公告、论文、专利、网页、新闻、数据集、招聘信息、会议资料、人工笔记等开放 source type。
-- 证据卡保留原文、位置、含义、时间敏感性、置信度和复核触发条件。
-- 时间维度是一等数据：发布时间、拍摄/记录时间、事件期、分析时间、过期条件都会进入结构化层。
+- key terms before dense technical discussion
+- background interpretation before conclusions
+- concrete article thesis instead of raw video titles
+- core judgments, evidence, technical breakdown, timeline, follow-up questions, and source index
+- no process prefaces, internal metadata dumps, placeholders, raw HTML, or low-value labels such as `YouTube 技术笔记`
 
-### 产业链投研报告
+### 3. Investment Research Knowledge Base
 
-投研报告需要严格触发：
+The research layer normalizes every useful source into a shared structure:
+
+```text
+source
+-> evidence_cards
+-> entities
+-> time_context
+-> research_questions
+-> coverage_gaps
+-> topic graph links
+```
+
+Supported source types are intentionally open-ended:
+
+- videos, interviews, podcasts
+- sell-side reports, consulting reports, filings, earnings calls
+- papers, patents, official docs, datasets
+- webpages, news, conference materials, job postings
+- manual notes and future source adapters
+
+Time context is treated as first-class data. A stale video, a newly published paper, and an old company filing should not be mixed into one conclusion without calibration.
+
+### 4. Investment Report Workflow
+
+Investment reports require a strict trigger:
 
 ```text
 投研报告：主题
 ```
 
-示例：
+Examples:
 
 ```text
 投研报告：AI 光模块 / CPO / 数据中心网络
@@ -62,9 +89,9 @@ Pococonut Companion 是一个面向 Telegram 与飞书的长期运行 Agent 助�
 投研报告：液氧甲烷
 ```
 
-系统不会因为普通聊天、单个 YouTube 链接或随口提到“投研报告”就自动生成正式报告。正式报告必须满足跨来源证据要求，避免把单一视频包装成投资结论。
+The system should not turn one video into a formal investment conclusion. A report is generated only after retrieving and calibrating a broader evidence pack.
 
-投研报告固定结构：
+The report structure is controlled by code:
 
 1. 报告结论
 2. 主题边界与产业链地图
@@ -75,7 +102,23 @@ Pococonut Companion 是一个面向 Telegram 与飞书的长期运行 Agent 助�
 7. 迭代变化与下一轮调研任务
 8. 资料来源与证据索引
 
-## 架构概览
+Previous reports are treated as prior thesis baselines, not as new evidence. New reports should compare against the prior baseline and explain which judgments strengthened, weakened, or changed.
+
+### 5. WeChat Official Account Drafts
+
+The WeChat publisher adapts finished Feishu articles into WeChat-compatible HTML drafts instead of regenerating the article from scratch.
+
+It supports:
+
+- official draft API payloads
+- cover image handling through `thumb_media_id`
+- article-specific visual styling
+- public-account friendly section layout
+- source-link reduction to lower public-platform risk
+
+Draft creation is not the same as mass sending. Final publication should still be reviewed in WeChat.
+
+## Architecture
 
 ```text
 Telegram / Feishu / Admin
@@ -86,12 +129,14 @@ Message Router
         +--> Chat Agent
         +--> Image / Voice / Search Tools
         +--> YouTube Research Pipeline
+        +--> WeChat Draft Publisher
         +--> Investment Report Pipeline
         |
         v
 Storage Layer
         |
         +--> chat_messages / memories / summaries
+        +--> research_jobs
         +--> research_sources
         +--> research_evidence_cards
         +--> research_entities
@@ -100,21 +145,27 @@ Storage Layer
         +--> research_report_versions / research_thesis_ledger
 ```
 
-### YouTube 研究文档链路
+### YouTube Research Pipeline
 
 ```text
 YouTube link
 -> transcript extraction
--> evidence brief
--> article intent
--> structured slots
--> reader-grade Markdown
--> Feishu document
+-> deterministic evidence anchors
+-> primary-model evidence planning
+-> structured article slots
+-> program-rendered Feishu document
 -> research source bundle
 -> topic graph linking
 ```
 
-### 投研报告链路
+Recent stability principle:
+
+- Time-index extraction is deterministic and program-driven.
+- The model handles thesis, interpretation, evidence meaning, and prose.
+- Long videos are split into bounded JSON tasks instead of one giant freeform prompt.
+- Per-part timing is logged so timeout planning can be based on real p95/p99 data, not guessing.
+
+### Investment Report Pipeline
 
 ```text
 投研报告：主题
@@ -130,50 +181,60 @@ YouTube link
 -> report version + thesis ledger
 ```
 
-## 设计原则
+## Design Principles
 
-- 文章优先：读者看到的是成品文档，不是模型过程日志。
-- 证据优先：观点必须回到原文、来源、时间和位置。
-- 正向引导：生成前就约束模型产出正确内容，不把系统设计成“先生成垃圾、再打回重试”。
-- 程序渲染：标题、章节、加粗、缩进、出处和证据索引由代码控制。
-- 开放信息源：后续接报告、财报、论文、专利、网页、数据集不需要重做底层架构。
-- 图谱优先：知识库不是简单文件夹，而是类似 Obsidian 的主题节点、别名、边和证据链接。
-- 时间优先：旧视频、旧报告和当前产业环境必须区分，否则投研结论会错位。
-- 迭代优先：上一版报告只作为观点基线，不作为事实证据；新版报告要说明判断增强、削弱或变化。
+- **Reader-first output**: the user sees a finished article or report, not model logs.
+- **Evidence before opinion**: claims need source, quote/location, and time context.
+- **Direction before generation**: prompts constrain the correct output shape before prose is produced.
+- **Program rendering**: code owns headings, order, metadata placement, source sections, indentation, and evidence anchors.
+- **No degraded formal output**: for formal documents, a clear failure is better than publishing a low-quality fallback.
+- **Open source types**: new sources should be adapter work, not database redesign.
+- **Graph-first knowledge**: topics, aliases, edges, entities, and evidence links matter more than folders.
+- **Time-aware research**: old context, current context, and event time must be separated.
+- **Iterative research**: prior reports are judgment baselines, not factual evidence.
 
-## 技术栈
+## Tech Stack
 
-- Runtime：Node.js 20+
-- Web Server：Express
-- Database：Postgres 或本地 JSON
-- Messaging：Telegram Bot API、飞书开放平台
-- AI：OpenAI-compatible Chat Completions API
-- Media：STT、TTS、图片理解、生图接口
-- Deployment：Render
-- Optional Sync：GitHub memory backup、Obsidian/GitHub sync
+- Runtime: Node.js 20+
+- Server: Express
+- Storage: Postgres or local JSON
+- Messaging: Telegram Bot API, Feishu Open Platform
+- Documents: Feishu wiki/doc APIs
+- AI: OpenAI-compatible Chat Completions API
+- Transcripts: TranscriptAPI-compatible YouTube transcript adapter
+- Media: STT, TTS, image understanding, image generation
+- Publishing: WeChat Official Account draft API
+- Deployment: Render
+- Optional sync: GitHub memory backup, Obsidian/GitHub note sync
 
-## 主要目录
+## Repository Map
 
 ```text
 src/
-  index.js                    # Express app, health check, route bootstrap
-  feishu.js                   # Feishu bot, YouTube research, investment report flow
-  telegram.js                 # Telegram bot integration
-  storage.js                  # Postgres / JSON storage and research schema
-  ai-client.js                # OpenAI-compatible model client
-  transcript-api-client.js    # YouTube transcript adapter
-  feishu-workspace.js         # Feishu document/wiki APIs
-  admin.js                    # Admin UI routes
+  index.js                    Express app, health check, bootstrap
+  feishu.js                   Feishu bot, YouTube research, investment reports
+  telegram.js                 Telegram bot integration
+  storage.js                  Postgres / JSON storage and research schema
+  ai-client.js                OpenAI-compatible model client
+  transcript-api-client.js    YouTube transcript adapter
+  feishu-workspace.js         Feishu document/wiki APIs
+  wechat-publisher.js         WeChat Official Account draft generation
+  admin.js                    Admin UI routes
 
 scripts/
-  check-feishu-routing.mjs    # Message routing regression checks
-  check-research-kb.mjs       # Research knowledge base regression checks
+  check-feishu-routing.mjs    Routing and document-generation regression tests
+  check-research-kb.mjs       Research knowledge base checks
+  sanitize-research-kb-artifacts.mjs
 
-RESEARCH_KNOWLEDGE_ARCHITECTURE.md
-  # Multi-source research and investment knowledge architecture
+docs / root docs
+  RESEARCH_KNOWLEDGE_ARCHITECTURE.md
+  RENDER_SETUP.md
+  FEISHU_SETUP.md
+  FEISHU_CONTEXT_ROUTING.md
+  OBSIDIAN_YOUTUBE_SETUP.md
 ```
 
-## 本地运行
+## Quick Start
 
 ```powershell
 npm install
@@ -182,42 +243,74 @@ npm run check
 npm start
 ```
 
-打开后台：
+Admin:
 
 ```text
 http://127.0.0.1:3000/admin
 ```
 
-健康检查：
+Health check:
 
 ```text
 http://127.0.0.1:3000/health
 ```
 
-## Render 部署
+## Core Configuration
 
-部署说明见：
+Minimum local configuration depends on which capability you want to run.
 
-```text
-RENDER_SETUP.md
-FEISHU_SETUP.md
-FEISHU_CONTEXT_ROUTING.md
-OBSIDIAN_YOUTUBE_SETUP.md
+### Chat
+
+```env
+AI_API_KEY=
+AI_URL=
+AI_MODEL=gpt-5.5
+AI_COMPATIBILITY=openai
 ```
 
-关键配置包括：
+### Feishu
 
-- `DATABASE_URL`
-- `FEISHU_APP_ID`
-- `FEISHU_APP_SECRET`
-- `FEISHU_VERIFICATION_TOKEN`
-- `FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN`
-- `TRANSCRIPT_API_KEY`
-- `AI_API_KEY`
-- `AI_URL`
-- `AI_MODEL`
+```env
+FEISHU_APP_ID=
+FEISHU_APP_SECRET=
+FEISHU_VERIFICATION_TOKEN=
+FEISHU_ENCRYPT_KEY=
+```
 
-## 测试与质量闸门
+### YouTube Research
+
+```env
+TRANSCRIPT_API_ENABLED=true
+TRANSCRIPT_API_KEY=
+YOUTUBE_RESEARCH_AI_TIMEOUT_MS=180000
+```
+
+### Investment Reports
+
+```env
+FEISHU_INVESTMENT_REPORT_PARENT_WIKI_TOKEN=
+INVESTMENT_REPORT_AI_TIMEOUT_MS=90000
+```
+
+### WeChat Drafts
+
+```env
+WECHAT_MP_ENABLED=true
+WECHAT_MP_APP_ID=
+WECHAT_MP_APP_SECRET=
+WECHAT_MP_DEFAULT_THUMB_MEDIA_ID=
+```
+
+### Storage
+
+```env
+DATABASE_URL=
+DB_SSL=false
+```
+
+Do not commit real secrets. `.env` and `.env.*` are ignored; `.env.example` should contain placeholders only.
+
+## Testing
 
 ```powershell
 npm run check
@@ -225,35 +318,56 @@ node scripts\check-research-kb.mjs
 git diff --check
 ```
 
-检查覆盖：
+The regression suite checks:
 
-- 飞书/Telegram 路由不会误触发。
-- 严格 `投研报告：` 前缀才会进入投研报告流。
-- YouTube 文档不会出现低质量过程文本、重复标题、模板废话或裸 HTML。
-- 研究知识库可写入开放信息源、证据卡、实体、时间上下文和覆盖缺口。
-- 主题图谱可按别名检索证据。
-- 投研报告可记录 v1/v2 版本，并读取上一版作为观点基线。
+- Feishu and Telegram routing behavior
+- strict `投研报告：` trigger handling
+- YouTube article structure and low-value artifact prevention
+- primary-model-only formal generation paths
+- research source, evidence card, entity, topic graph, and report-version behavior
+- Feishu evidence anchors
+- WeChat draft formatting and source adaptation
 
-## 投资研究边界
+## Deployment
 
-本项目面向长期产业链研究，不输出短线交易信号、目标价或直接买卖建议。它适合帮助个人研究者持续追踪：
+Render deployment notes are in [RENDER_SETUP.md](RENDER_SETUP.md).
 
-- AI 基础设施、光模块、CPO、数据中心网络
-- 商业航天、星舰、中国供应链替代、航天燃料路线
-- 人形机器人、执行器、减速器、灵巧手
-- AI 电力、液冷、储能、核电
-- 其他由公开资料、专家访谈、论文、公告和数据集支撑的长期产业主题
+Recommended production setup:
 
-当资料不足时，系统应生成 coverage gaps 和下一轮调研任务，而不是编造确定结论。
+- one Render Web Service
+- Postgres database
+- Feishu app credentials
+- Transcript API credentials
+- primary AI provider credentials
+- optional image/STT/TTS/WeChat credentials
+- GitHub backup for memory if running on ephemeral infrastructure
 
-## 架构参考
+## Research Boundary
 
-本项目吸收了以下系统的设计思想，但不是它们的复制品：
+This project is designed for long-term industry-chain research, not short-term trading signals.
 
-- [Microsoft GraphRAG](https://github.com/microsoft/graphrag)：从非结构化文本中抽取实体、关系和社区摘要，用图谱增强私有语料推理。
-- [OpenBB](https://github.com/OpenBB-finance/OpenBB)：多源金融数据接入和研究工作台思路。
-- [FinRobot](https://github.com/ai4finance-foundation/finrobot)：金融分析 Agent 与研究报告工作流。
-- [TradingAgents](https://github.com/tauricresearch/tradingagents)：多角色分析、辩论和风险审议框架。
-- [Obsidian](https://obsidian.md/)：双链、主题网络和个人知识图谱的组织方式。
+It can help track topics such as:
 
-本仓库的取舍是：优先服务中文个人研究者的实际工作流，把公开资料、视频、报告、论文和后续调研任务沉淀成可追溯证据图谱，再生成读者友好的飞书文档和长期可迭代的产业链研究报告。
+- AI infrastructure, optical modules, CPO, data-center networking
+- commercial space, Starship, launch systems, supply-chain localization, propellant routes
+- humanoid robots, actuators, reducers, dexterous hands
+- AI power, liquid cooling, storage, nuclear power
+- other evidence-backed public research themes
+
+It should not output target prices, direct buy/sell instructions, or conclusions unsupported by evidence. Missing data should become coverage gaps and next research tasks.
+
+## Reference Inspiration
+
+This project borrows design ideas from, but does not copy:
+
+- [Microsoft GraphRAG](https://github.com/microsoft/graphrag): entity and relationship extraction over private corpora
+- [OpenBB](https://github.com/OpenBB-finance/OpenBB): multi-source financial research workbench
+- [FinRobot](https://github.com/ai4finance-foundation/finrobot): financial analysis agents and report workflows
+- [TradingAgents](https://github.com/tauricresearch/tradingagents): multi-role analysis and risk debate
+- [Obsidian](https://obsidian.md/): linked personal knowledge graphs
+
+The practical tradeoff here is to serve a Chinese individual researcher first: ingest public materials, preserve traceable evidence, generate readable Feishu documents, and compound long-term research judgment through topic graphs and report versions.
+
+## License
+
+No open-source license has been declared yet. If you plan to share this repository publicly, add a license before encouraging third-party reuse.
