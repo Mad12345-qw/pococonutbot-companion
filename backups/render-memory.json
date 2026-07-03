@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T00:07:48.886Z",
+  "exportedAt": "2026-07-03T00:57:49.404Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -58072,6 +58072,42 @@
           "replyToUserId": "feishu:ou_66151593abc5a16866d728c9eee2c483"
         },
         "createdAt": "2026-07-03T00:05:27.415Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽，小椰是我做的机器人，在这个群里主要辅助做SpaceX、AI、Robot三个板块的学习和研究，欢迎一起交流学习和研究",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b44c2d5c4b4c3969c6f180b0fe",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T00:56:36.445Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "谢谢介绍～我是小椰，主要陪你和群里朋友一起玩 SpaceX、AI、Robot 这三个方向。\n\n欢迎随时来聊，看新消息、聊项目、或者头脑风暴都可以～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-03T00:56:39.794Z"
       }
     ],
     "memories": [
@@ -60264,6 +60300,56 @@
         "metadata": {},
         "createdAt": "2026-06-16T15:44:56.603Z",
         "updatedAt": "2026-06-16T16:04:56.838Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interest.domains",
+        "value": "SpaceX,AI,Robot",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T00:56:59.679Z",
+        "updatedAt": "2026-07-03T00:56:59.679Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T00:56:36.378Z",
+        "updatedAt": "2026-07-03T00:56:36.378Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T00:56:36.289Z",
+        "updatedAt": "2026-07-03T00:56:36.289Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "role.bot_owner",
+        "value": "用户是小椰机器人的创建者",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T00:56:59.540Z",
+        "updatedAt": "2026-07-03T00:56:59.540Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "role.community_purpose",
+        "value": "小椰机器人在群里主要辅助SpaceX、AI、Robot三个板块的学习和研究",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T00:56:59.610Z",
+        "updatedAt": "2026-07-03T00:56:59.610Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
