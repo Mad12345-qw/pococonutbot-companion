@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T14:41:22.616Z",
+  "exportedAt": "2026-07-03T14:46:47.485Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -60484,6 +60484,78 @@
           "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
         },
         "createdAt": "2026-07-03T14:34:13.360Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3ee97c237aacd0081576a89a151d5182",
+        "role": "user",
+        "modality": "text",
+        "content": "你飞书群里面发的就是语音呀",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b48ecf464a4c49d5f5c962a451",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3ee97c237aacd0081576a89a151d5182",
+          "rawUserId": "ou_3ee97c237aacd0081576a89a151d5182",
+          "rawUnionId": "on_430970fe21eace8ac70ef5fb5bd6c2d9",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T14:41:44.934Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3ee97c237aacd0081576a89a151d5182",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我这边确实只能发文字，没语音能力哈 🙈",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3ee97c237aacd0081576a89a151d5182"
+        },
+        "createdAt": "2026-07-03T14:41:48.938Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3ee97c237aacd0081576a89a151d5182",
+        "role": "user",
+        "modality": "text",
+        "content": "我用的是hermes agent，我需要怎么让我的hermes在飞书中能发语音给我，给我整理一份文字版教程\n[Link content]\n[Web page] https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\n【飞行社】AI 搜索时代的 GEO 变现完全手册 \n \n \n 飞行社\n \n 首页 \n \n\n \n 课程 \n 知识 \n 模板 \n 频道 \n 活动 \n 首页\n\n \n\n 课程\n\n 知识\n\n 模板\n\n 频道\n\n 活动\n\n 更多 \n\n \n \n \n \n\n \n\n 加载中\n\n \n \n \n 3 \n\n \n 41 \n\n 分享 \n\n \n \n \n 1 天前 \n 收藏 \n\n \n 讨论区\n \n\n \n 0 /2000 \n \n \n\n \n\n \n -->",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b48e30310a8c1b729db57c96aa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3ee97c237aacd0081576a89a151d5182",
+          "rawUserId": "ou_3ee97c237aacd0081576a89a151d5182",
+          "rawUnionId": "on_430970fe21eace8ac70ef5fb5bd6c2d9",
+          "linkContext": "[Web page] https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\n【飞行社】AI 搜索时代的 GEO 变现完全手册 \n \n \n 飞行社\n \n 首页 \n \n\n \n 课程 \n 知识 \n 模板 \n 频道 \n 活动 \n 首页\n\n \n\n 课程\n\n 知识\n\n 模板\n\n 频道\n\n 活动\n\n 更多 \n\n \n \n \n \n\n \n\n 加载中\n\n \n \n \n 3 \n\n \n 41 \n\n 分享 \n\n \n \n \n 1 天前 \n 收藏 \n\n \n 讨论区\n \n\n \n 0 /2000 \n \n \n\n \n\n \n -->",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T14:44:51.193Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3ee97c237aacd0081576a89a151d5182",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个我目前手头没找到 hermes agent 发语音的现成教程，强行写容易坑你 😅\n\n大体思路通常是这几步：\n1. 飞书后台建一个机器人应用，开通「发送消息」权限，主要用到 audio 类型的消息体。\n2. 上传音频文件拿到 file_key，再用 im/v1/messages 接口发 audio 类型消息。\n3. hermes agent 侧加一个 action，把 TTS 输出（mp3/wav）传到飞书拿 file_key，再调用发送接口。\n4. 音频放在能公网访问的存储，或者用飞书自己的素材上传接口。\n\n要写出能直接跑的那种具体步骤，我需要 hermes agent 的文档或你项目的实际情况，不然容易瞎编。要不你贴一下 hermes agent 的文档链接，或者说说它现在怎么发文字的，我顺着改？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3ee97c237aacd0081576a89a151d5182"
+        },
+        "createdAt": "2026-07-03T14:45:03.871Z"
       }
     ],
     "memories": [
@@ -63845,7 +63917,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T14:32:33.243Z",
-        "updatedAt": "2026-07-03T14:32:33.243Z"
+        "updatedAt": "2026-07-03T14:44:51.130Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -63855,7 +63927,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T14:32:33.176Z",
-        "updatedAt": "2026-07-03T14:32:33.176Z"
+        "updatedAt": "2026-07-03T14:44:51.066Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -65828,8 +65900,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
-        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-03T11:28:39.694Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-03T11:28:39.726Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-03T11:28:39.694Z\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastActivityAt\":\"2026-07-03T14:44:21.378Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-03T14:44:21.417Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
@@ -83480,7 +83552,7 @@
         "sourceUrl": "https://youtu.be/jUr_L2EPGjM?si=-rcypKyRqSfZzstF",
         "status": "failed",
         "draftMediaId": "",
-        "error": "Image API error 504: {\"error\":{\"message\":\"status 504\",\"type\":\"server_error\",\"code\":\"internal_server_error\"}}",
+        "error": "Image API error 503: {\"error\":{\"message\":\"auth_unavailable: no auth available (providers=image2, model=gpt-image-2)\",\"type\":\"server_error\",\"code\":\"internal_server_error\"}}",
         "metadata": {
           "topic": "all the",
           "videos": [
@@ -83493,11 +83565,11 @@
           "createdBy": "xiaoye",
           "generateImages": true,
           "wechatDraftOnly": true,
-          "lastPublishFailedAt": "2026-07-03T14:29:50.230Z",
+          "lastPublishFailedAt": "2026-07-03T14:42:43.532Z",
           "lastPublishOperator": "ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-03T12:53:45.738Z",
-        "updatedAt": "2026-07-03T14:29:50.686Z"
+        "updatedAt": "2026-07-03T14:42:43.983Z"
       }
     ]
   }
