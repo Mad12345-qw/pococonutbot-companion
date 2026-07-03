@@ -3653,6 +3653,9 @@ export class FeishuBot {
     await this.storage.setSetting(this.communityOpsDailyKey(chatId), JSON.stringify({
       prompts: Number(state.prompts || 0),
       lastPromptAt: state.lastPromptAt || "",
+      lastPromptIndex: Number.isFinite(Number(state.lastPromptIndex)) ? Number(state.lastPromptIndex) : -1,
+      lastPromptText: state.lastPromptText || "",
+      lastActivityAt: state.lastActivityAt || "",
       linkHints: Number(state.linkHints || 0),
       lastLinkHintAt: state.lastLinkHintAt || ""
     }));
@@ -3667,12 +3670,24 @@ export class FeishuBot {
     return true;
   }
 
-  async markCommunityOpsPromptSent(chatId = "") {
+  async markCommunityOpsActivity(chatId = "", patch = {}) {
+    const state = await this.communityOpsDailyState(chatId);
+    await this.saveCommunityOpsDailyState(chatId, {
+      ...state,
+      ...patch,
+      lastActivityAt: patch.lastActivityAt || new Date().toISOString()
+    });
+  }
+
+  async markCommunityOpsPromptReserved(chatId = "", prompt = {}) {
     const state = await this.communityOpsDailyState(chatId);
     await this.saveCommunityOpsDailyState(chatId, {
       ...state,
       prompts: Number(state.prompts || 0) + 1,
-      lastPromptAt: new Date().toISOString()
+      lastPromptAt: new Date().toISOString(),
+      lastActivityAt: new Date().toISOString(),
+      lastPromptIndex: Number.isFinite(Number(prompt.index)) ? Number(prompt.index) : -1,
+      lastPromptText: prompt.text || ""
     });
   }
 
@@ -3692,7 +3707,7 @@ export class FeishuBot {
         ].join("\n");
   }
 
-  buildCommunityIdlePrompt() {
+  buildCommunityIdlePrompt(state = {}) {
     const prompts = [
       [
         "今天可以先抛一个小问题：",
@@ -3716,9 +3731,13 @@ export class FeishuBot {
         "如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。"
       ].join("\n")
     ];
-    const hour = new Date().getHours();
-    const index = hour < 12 ? 0 : hour < 19 ? 1 : 2;
-    return prompts[index];
+    const sent = Math.max(0, Number(state.prompts || 0));
+    const lastIndex = Number(state.lastPromptIndex);
+    let index = sent % prompts.length;
+    if (Number.isFinite(lastIndex) && prompts.length > 1 && index === lastIndex) {
+      index = (index + 1) % prompts.length;
+    }
+    return { text: prompts[index], index };
   }
 
   async runCommunityOpsIdleCheck() {
@@ -3731,10 +3750,16 @@ export class FeishuBot {
         ? Date.now() - new Date(latest.created_at || latest.createdAt).getTime()
         : Number.POSITIVE_INFINITY;
       const idleMinutes = Math.max(30, Number(this.config.feishuCommunityOpsIdleMinutes || process.env.FEISHU_COMMUNITY_OPS_IDLE_MINUTES || 120));
+      const state = await this.communityOpsDailyState(chatId);
+      const stateIdleMs = state.lastActivityAt
+        ? Date.now() - Date.parse(state.lastActivityAt)
+        : Number.POSITIVE_INFINITY;
       if (idleMs < idleMinutes * 60 * 1000) continue;
-      await this.sendTextToChat(chatId, this.buildCommunityIdlePrompt());
-      await this.markCommunityOpsPromptSent(chatId);
-      logEvent("info", "Feishu community ops idle prompt sent", { chatId, idleMinutes });
+      if (stateIdleMs < idleMinutes * 60 * 1000) continue;
+      const prompt = this.buildCommunityIdlePrompt(state);
+      await this.markCommunityOpsPromptReserved(chatId, prompt);
+      await this.sendTextToChat(chatId, prompt.text);
+      logEvent("info", "Feishu community ops idle prompt sent", { chatId, idleMinutes, promptIndex: prompt.index });
     }
   }
 
@@ -3755,6 +3780,7 @@ export class FeishuBot {
       ...(Array.isArray(event.member_list) ? event.member_list : [])
     ];
     const multiple = members.length > 1;
+    await this.markCommunityOpsActivity(chatId);
     await this.sendTextToChat(chatId, this.buildCommunityWelcomeText({ multiple }));
     logEvent("info", "Feishu community ops welcome sent", { chatId, members: members.length || 1 });
   }
@@ -3766,6 +3792,7 @@ export class FeishuBot {
     const state = await this.communityOpsDailyState(chatId);
     if (Number(state.linkHints || 0) >= 2) return false;
     if (state.lastLinkHintAt && Date.now() - Date.parse(state.lastLinkHintAt) < 3 * 60 * 60 * 1000) return false;
+    const now = new Date().toISOString();
     await this.sendTextToChat(rawFeishuChatId(chatId), [
       "这条资料可以先放进研究线索里。",
       "",
@@ -3774,7 +3801,8 @@ export class FeishuBot {
     await this.saveCommunityOpsDailyState(chatId, {
       ...state,
       linkHints: Number(state.linkHints || 0) + 1,
-      lastLinkHintAt: new Date().toISOString()
+      lastLinkHintAt: now,
+      lastActivityAt: now
     });
     logEvent("info", "Feishu community ops link hint sent", { chatId: rawFeishuChatId(chatId), userId });
     return true;

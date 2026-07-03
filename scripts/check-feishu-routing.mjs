@@ -204,6 +204,12 @@ assertEqual(
   String(communityOpsSent.length),
   "1"
 );
+await bot.runCommunityOpsIdleCheck();
+assertEqual(
+  "community ops welcome suppresses immediate idle prompt",
+  String(communityOpsSent.length),
+  "1"
+);
 await bot.maybeHandleCommunityPassiveMessage({
   chatId: `feishu:${DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID}`,
   userId: "feishu:ou_test",
@@ -218,6 +224,29 @@ assertEqual(
     communityOpsSent[1].text.includes("产业链环节")
   ),
   "true"
+);
+await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
+  prompts: 1,
+  lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  lastActivityAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  lastPromptIndex: 0,
+  lastPromptText: "今天可以先抛一个小问题："
+});
+await bot.runCommunityOpsIdleCheck();
+assertEqual(
+  "community ops rotates idle prompts instead of repeating the same question",
+  String(
+    communityOpsSent.length === 3 &&
+    communityOpsSent[2].text.includes("换个角度看") &&
+    !communityOpsSent[2].text.includes("今天可以先抛一个小问题")
+  ),
+  "true"
+);
+await bot.runCommunityOpsIdleCheck();
+assertEqual(
+  "community ops reserved prompt state prevents immediate duplicate idle prompts",
+  String(communityOpsSent.length),
+  "3"
 );
 let webSearchReplyText = "";
 let webSearchCardCount = 0;
