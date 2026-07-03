@@ -1580,6 +1580,19 @@ function assertYoutubeEvidenceBrief(brief = {}, report = {}) {
   if (source.timelineSeeds.length < 6) throw new Error("YouTube evidence brief failed: missing timeline seeds.");
 }
 
+function buildYoutubeTimelinePartFromEvidenceBrief(evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  return {
+    timeline: source.timelineSeeds.slice(0, 18).map((item) => ({
+      time: item.time,
+      event: item.event,
+      importance: item.importance,
+      evidence: item.quote
+    })).filter((item) => item.time && item.event),
+    questions: source.questionSeeds.slice(0, 8)
+  };
+}
+
 function structuredArticleFallbackTitle(article = {}, report = {}) {
   const title = cleanYoutubeDocumentTitle(article.title || "");
   if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
@@ -6098,7 +6111,23 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
       temperature: 0.2
-    })));
+    }))).catch(async (error) => {
+      const data = buildYoutubeTimelinePartFromEvidenceBrief(evidenceBrief, { topic, videos });
+      if (data.timeline.length < 6 || data.questions.length < 4) throw error;
+      await persistArticlePart("timeline", {
+        status: "done",
+        data,
+        source: "evidenceBrief",
+        modelError: truncate(error.message, 500)
+      });
+      logEvent("warn", "YouTube article timeline rebuilt from evidence brief after model response failure", {
+        part: "timeline",
+        timelineItems: data.timeline.length,
+        questions: data.questions.length,
+        error: truncate(error.message, 500)
+      });
+      return data;
+    });
     const partResults = await Promise.allSettled([
       titleContextPartPromise,
       glossaryPartPromise,

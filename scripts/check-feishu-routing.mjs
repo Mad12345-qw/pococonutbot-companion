@@ -2094,6 +2094,55 @@ assertEqual(
   "true"
 );
 
+let timelineFailureCalls = 0;
+let timelineFailurePromptSeen = false;
+bot.ai = {
+  chat: async (messages = []) => {
+    timelineFailureCalls += 1;
+    const allContent = messages.map((message) => String(message?.content || "")).join("\n");
+    const userContent = String(messages.at(-1)?.content || "");
+    if (allContent.includes("Focus only on article thesis")) {
+      return JSON.stringify({
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (allContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
+      });
+    }
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
+    if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
+    if (userContent.includes("fixed technical schema")) return JSON.stringify(hlsTechPart);
+    if (userContent.includes("fixed timeline/question schema")) {
+      timelineFailurePromptSeen = true;
+      throw new Error("primary AI API response did not contain text");
+    }
+    throw new Error("unexpected timeline failure prompt");
+  }
+};
+const timelineFailureDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline rebuilds failed timeline from evidence brief",
+  String(timelineFailureCalls === 7 && timelineFailurePromptSeen && timelineFailureDoc.includes("100 times heavier") && timelineFailureDoc.includes("12 or more launches")),
+  "true"
+);
+
 let emptyArticleSlotCalls = 0;
 bot.ai = {
   chat: async (messages = []) => {
