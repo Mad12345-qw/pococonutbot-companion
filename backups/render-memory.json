@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T06:42:03.352Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-03T06:52:10.441Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -58865,6 +58865,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T05:57:49.187Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b41e7ebf4acc1eae34e1552621",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T06:45:40.618Z"
       }
     ],
     "memories": [
@@ -60496,7 +60520,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-03T05:57:49.117Z"
+        "updatedAt": "2026-07-03T06:45:40.551Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -60506,7 +60530,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-03T05:57:48.976Z"
+        "updatedAt": "2026-07-03T06:45:40.405Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -67330,6 +67354,49 @@
         "error": "投研报告主模型综合失败，未发布证据基线占位报告：Primary AI is disabled, but this request requires the primary model.",
         "createdAt": "2026-07-03T05:57:50.402Z",
         "updatedAt": "2026-07-03T05:57:52.239Z"
+      },
+      {
+        "id": "job:investment_report:1a8d619e9e38e9d2",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "delivery": {
+            "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+            "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+            "messageId": "om_x100b6b41e7ebf4acc1eae34e1552621"
+          },
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "reason": "primary_model_synthesis_failed_no_baseline_report_published",
+          "failure": {
+            "reason": "ai_synthesis_timeout",
+            "message": "The operation was aborted due to timeout"
+          },
+          "sources": 8,
+          "evidenceCards": 120,
+          "publishSkipped": true
+        },
+        "error": "投研报告主模型综合失败，未发布证据基线占位报告：The operation was aborted due to timeout",
+        "createdAt": "2026-07-03T06:45:42.086Z",
+        "updatedAt": "2026-07-03T06:47:14.318Z"
       }
     ],
     "researchReferenceSources": [],
