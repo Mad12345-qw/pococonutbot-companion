@@ -5651,7 +5651,7 @@ export class FeishuBot {
       retryAttempts: Math.min(this.config.youtubeResearchAiRetryAttempts || 3, 2),
       timeoutMs: Math.min(
         this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000,
-        150000
+        180000
       )
     });
     const sourceText = buildYoutubeBoundedEvidenceSource(videos, 6000);
@@ -5677,15 +5677,33 @@ export class FeishuBot {
     };
     const runCachedArticlePart = async (name, label, rawFactory) => {
       const cached = cachedArticlePart(name);
-      if (cached) return cached;
+      if (cached) {
+        logEvent("info", "YouTube article part cache hit", {
+          part: name,
+          label
+        });
+        return cached;
+      }
+      const startedAt = Date.now();
       try {
         const raw = await rawFactory();
         const data = await this.parseYoutubeJsonObject(raw, label);
         await persistArticlePart(name, { status: "done", data });
+        logEvent("info", "YouTube article part generated", {
+          part: name,
+          label,
+          elapsedMs: Date.now() - startedAt
+        });
         return data;
       } catch (error) {
         await persistArticlePart(name, {
           status: "failed",
+          error: truncate(error.message, 500)
+        });
+        logEvent("warn", "YouTube article part generation failed", {
+          part: name,
+          label,
+          elapsedMs: Date.now() - startedAt,
           error: truncate(error.message, 500)
         });
         throw error;
