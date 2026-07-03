@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T23:11:38.950Z",
+  "exportedAt": "2026-07-03T23:21:39.283Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62170,6 +62170,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T23:10:00.414Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "role": "user",
+        "modality": "text",
+        "content": "DS装上了，谢谢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb06e50d4a0c4a57504b3d129c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUserId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUnionId": "on_308fac02bde7cfa79c217b7fcb336de4",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T23:13:18.391Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "role": "user",
+        "modality": "text",
+        "content": "CLAUDECODE接中转站的话，是不是新增就行了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb0792b20a0b2c5fcdb0aa73f9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUserId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUnionId": "on_308fac02bde7cfa79c217b7fcb336de4",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T23:19:31.484Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da76b0220213f928916386a0a6debf0c",
+        "role": "user",
+        "modality": "text",
+        "content": "选择自定义配置",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb0774a64a0b2eeedda7378ca4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUserId": "ou_da76b0220213f928916386a0a6debf0c",
+          "rawUnionId": "on_308fac02bde7cfa79c217b7fcb336de4",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T23:19:57.075Z"
       }
     ],
     "memories": [
@@ -67261,7 +67333,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T22:42:05.150Z",
-        "updatedAt": "2026-07-03T22:42:05.150Z"
+        "updatedAt": "2026-07-03T23:19:57.011Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -67271,7 +67343,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T22:42:05.062Z",
-        "updatedAt": "2026-07-03T22:42:05.062Z"
+        "updatedAt": "2026-07-03T23:19:56.947Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
