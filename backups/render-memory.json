@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T11:08:39.452Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-03T11:30:55.665Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -64840,8 +64840,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-03T08:58:41.323Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-03T08:58:41.355Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-03T11:28:39.694Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-03T11:28:39.726Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
