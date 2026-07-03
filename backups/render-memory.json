@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T17:41:39.364Z",
+  "exportedAt": "2026-07-03T18:21:39.183Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -61971,6 +61971,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T17:36:36.605Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "好久不见贾维斯啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4bf9a204a0b2ad02088b78805",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T18:12:11.376Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哎不对哦，我叫小椰啦～ 是不是认错人啦[委屈]",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a"
+        },
+        "createdAt": "2026-07-03T18:12:17.170Z"
       }
     ],
     "memories": [
@@ -66352,7 +66388,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-06-23T16:07:02.165Z"
+        "updatedAt": "2026-07-03T18:12:11.307Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66362,7 +66398,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-06-23T16:07:02.082Z"
+        "updatedAt": "2026-07-03T18:12:11.221Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
