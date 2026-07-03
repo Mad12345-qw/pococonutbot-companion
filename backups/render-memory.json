@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T10:28:40.106Z",
+  "exportedAt": "2026-07-03T10:38:40.502Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -59442,6 +59442,142 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-03T10:28:28.256Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "唱电台情歌",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca0c9b8acc379f7aa3f253c4",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:28:50.211Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首我刚刚试了一下，没唱出来。你把歌名说准一点，最好带上歌手，我再给你找一版。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "电台情歌",
+          "replyToUserId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0"
+        },
+        "createdAt": "2026-07-03T10:28:52.796Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF\nhttps://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca08384b4c17cab7c9b014bb",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T10:28:54.446Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca08384b4c17cab7c9b014bb",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:28:55.270Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "user",
+        "modality": "text",
+        "content": "唱莫文蔚的歌 随便哪首都可以",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4ca1975ca8c1ce4c65dcbed16",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUserId": "ou_06a8ed244933e6081e04a95d8674d0e0",
+          "rawUnionId": "on_2c3fc70f94657c8f6931fb54ec5c772e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T10:29:11.820Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 阴天 - 莫文蔚",
+        "metadata": {
+          "singer": "莫文蔚",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "阴天",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_06a8ed244933e6081e04a95d8674d0e0"
+        },
+        "createdAt": "2026-07-03T10:30:44.056Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "audio",
+        "content": "Song reply: 情人 - G.E.M. 邓紫棋",
+        "metadata": {
+          "singer": "G.E.M. 邓紫棋",
+          "quality": "SQ无损",
+          "platform": "feishu",
+          "songName": "情人",
+          "defaulted": false,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-03T10:31:01.672Z"
       }
     ],
     "memories": [
@@ -60263,7 +60399,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T10:26:31.997Z",
-        "updatedAt": "2026-07-03T10:28:28.194Z"
+        "updatedAt": "2026-07-03T10:29:11.754Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -60273,7 +60409,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T10:26:31.931Z",
-        "updatedAt": "2026-07-03T10:28:28.133Z"
+        "updatedAt": "2026-07-03T10:29:11.687Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -61093,7 +61229,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-03T07:13:50.274Z"
+        "updatedAt": "2026-07-03T10:28:55.201Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -61103,7 +61239,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-03T07:13:50.185Z"
+        "updatedAt": "2026-07-03T10:28:55.128Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -68101,6 +68237,736 @@
         "error": "",
         "createdAt": "2026-07-03T07:13:51.659Z",
         "updatedAt": "2026-07-03T07:17:21.509Z"
+      },
+      {
+        "id": "job:931278f6a4ef8005",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF",
+            "query": "",
+            "videoUrl": "https://youtu.be/GwUm2KjMOXc?si=c1MXVPLJa2AzcjfF",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "GwUm2KjMOXc",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {
+          "youtubeArticleParts": {
+            "parts": {
+              "core": {
+                "data": {
+                  "quotes": [
+                    {
+                      "title": "从通信到思考的制造网络",
+                      "meaning": "Moravy说的核心变化是，工厂里的系统不只是传递信息，而是开始让信息触发跨环节判断和改动。",
+                      "original": "All these things talk to each other, but they don't think to each other. And now they're thinking to each other.",
+                      "implication": "制造AI的价值不在于某个孤立工具更聪明，而在于能否把检测结果变成工程动作。"
+                    },
+                    {
+                      "title": "下游缺陷反推上游参数",
+                      "meaning": "问题在后段被发现，但真正需要调整的可能是更早的公差、定义和制造设定。",
+                      "original": "this is happening downstream. We need changes upstream. You know that's in terms of tolerancing and definition.",
+                      "implication": "成熟的质量系统不只追求更快返修，而是追求让同类问题以后更少发生。"
+                    },
+                    {
+                      "title": "车辆自己听见并记录异响",
+                      "meaning": "车辆经过异响测试路段时，会听取噪声并把问题记录回系统。",
+                      "original": "They also go over the bump, squeak, and rattle track, listen to the noises, and document them back",
+                      "implication": "当产品本身成为测试传感器，质量数据的密度和反馈速度都会改变。"
+                    },
+                    {
+                      "title": "Full Self-Hearing这个内部说法",
+                      "meaning": "特斯拉把车辆自检异响的能力戏称为Full Self-Hearing，借用了自动驾驶的命名方式。",
+                      "original": "we call it full selfhearing",
+                      "implication": "这个梗背后的重点是文化迁移：自动驾驶中的感知、记录和反馈思路正在被搬进制造质量控制。"
+                    }
+                  ],
+                  "corePoints": [
+                    {
+                      "why": "这说明特斯拉谈的不是抽象AI，而是把车辆完成装配后的园区移动流程自动化。对制造业务来说，厂区内部转运也会影响节拍、人工调度和交付前流程，不再只是道路驾驶能力的延伸展示。",
+                      "title": "车辆从end of line自动开到logistics yard，把自动驾驶能力带进了厂区转运",
+                      "evidence": "[0:02] \"our cars drive themselves from the end of line to, you know, to the logistics yard now\"",
+                      "takeaway": "先记住这个场景：车不是只在公路上自动驾驶，也开始在工厂下线后的流程里自己移动。"
+                    },
+                    {
+                      "why": "异响、松动和装配问题过去很依赖末端检查人员的经验判断；Moravy描述的流程把测试路段、车辆传感和问题记录连在一起，使缺陷变成可以回传、分派和分析的数据。",
+                      "title": "bump, squeak, and rattle track让车辆自己记录异响，质检从人工听诊转向数据记录",
+                      "evidence": "[0:08] \"They also go over the bump, squeak, and rattle track, listen to the noises, and document them back\"",
+                      "takeaway": "Full Self-Hearing的关键不是名字好玩，而是车辆开始成为质检数据的采集者。"
+                    },
+                    {
+                      "why": "这条证据限定了系统的角色：它不是把人从质量流程里完全拿掉，而是把发现问题、记录问题和提示修复对象自动化。工程意义在于减少模糊反馈，让现场人员更快知道问题落点。",
+                      "title": "记录的问题会告诉people what to fix，自动化仍然服务于现场修复决策",
+                      "evidence": "[0:11] \"document them back and tell the the the people what to fix\"",
+                      "takeaway": "不要把这理解成无人质检；更准确的理解是机器发现和记录，人类根据更明确的反馈修正。"
+                    },
+                    {
+                      "why": "这句话把单点自动化和制造网络区分开来。系统之间会通信只是基础，真正的战略价值在于检测、生产和工程改动之间能形成反馈链，让后段数据触发前段调整。",
+                      "title": "things talk to each other到thinking to each other，说明特斯拉在做跨环节闭环",
+                      "evidence": "[0:22] \"All these things talk to each other, but they don't think to each other. And now they're thinking to each other.\"",
+                      "takeaway": "特斯拉想强调的不是更多设备联网，而是让设备数据改变工程判断。"
+                    },
+                    {
+                      "why": "制造质量如果只在末端修补，成本会留在返工和检查环节；把下游缺陷反馈到上游公差与定义，意味着质量改进进入设计、工艺和装配参数本身。这是从补救型质检转向预防型制造的信号。",
+                      "title": "downstream问题推动upstream公差和definition调整，质量控制开始前移",
+                      "evidence": "[0:27] \"this is happening downstream. We need changes upstream. You know that's in terms of tolerancing and definition.\"",
+                      "takeaway": "最重要的变化不是发现坏件，而是用坏件暴露的模式修改更早的制造规则。"
+                    },
+                    {
+                      "why": "这是闭环质量的具体例子：生产线末端扫描所有车辆的车身匹配度，再把结果传给车身团队。它把车门、盖板、翼子板等装配一致性问题变成持续可见的数据，而不是偶发投诉或抽检报告。",
+                      "title": "每辆车的body fit扫描让body团队立即知道standings要改什么",
+                      "evidence": "[0:32] \"body fit we scan all the cars at the end of the line. Immediately the body guys know we need to go change on the standings\"",
+                      "takeaway": "body fit扫描的价值在于规模化反馈：每辆车都在给上游车身设定提供证据。"
+                    },
+                    {
+                      "why": "Moravy把J.D. Power IQS排名提升和真实世界AI放在同一段讨论里，这提示两者可能有关联；但现有证据只显示他说到了二者，不能单独证明AI应用直接导致排名变化。严谨写法必须保留这个边界。",
+                      "title": "IQS第三和real world AI相邻出现，但片段不足以证明直接因果",
+                      "evidence": "[0:44] \"JD Power came out with this like two days ago. We're like number three in IQS now. I think the amount of real world AI\"",
+                      "takeaway": "可以把IQS当作需要追踪的质量信号，但不要把访谈片段扩写成已被证明的因果结论。"
+                    }
+                  ],
+                  "oneSentence": "特斯拉园区里真正重要的变化不是多了一条自动测试线，而是汽车、扫描系统和工程团队正在组成一个能把下游缺陷反推到上游公差与定义的制造反馈网络。",
+                  "counterintuitive": [
+                    "聪明读者可能以为这段视频的重点是车辆会自己开到物流场；但证据改变了重心，自动转运只是入口，更关键的是车辆在下线后继续生成质量反馈。",
+                    "很多人会把质检自动化理解为替代工人；但[0:11]显示系统会告诉人员修什么，当前更像是把发现、记录和分派问题做得更精确。",
+                    "IQS排名上升很容易被解读成real world AI已经证明有效；但现有片段只能支持Moravy把两者放在同一讨论里，因果关系还需要外部数据验证。"
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:31:22.804Z"
+              },
+              "tech": {
+                "data": {
+                  "techPoints": [
+                    {
+                      "name": "end of line到logistics yard的自动转运",
+                      "risk": "片段只说明了从end of line到logistics yard的场景，不能推出所有厂区、所有车型或所有转运路径都已完全自动化。",
+                      "says": "Lars Moravy说，车辆现在会从生产线末端自动驶向logistics yard。",
+                      "importance": "这把自动化从公路驾驶扩展到工厂园区内部流程；车辆下线后的移动本身也变成可编排、可记录的制造环节。"
+                    },
+                    {
+                      "name": "bump, squeak, and rattle track异响测试",
+                      "risk": "证据没有说明噪声识别的准确率、误报率、漏报率，也没有说明复杂背景噪声下的判断边界。",
+                      "says": "车辆会驶过bump, squeak, and rattle track，听取噪声并把问题记录回来。",
+                      "importance": "颠簸、异响和松动问题过去依赖人工听诊和经验判断；把车辆传感、测试路段和记录系统结合起来，可以让缺陷更早形成可追踪数据。"
+                    },
+                    {
+                      "name": "Full Self-Hearing内部说法",
+                      "risk": "full selfhearing在片段中更像内部命名或玩笑式说法，不能直接等同于一个已公开定义、具备统一规格的产品功能。",
+                      "says": "Moravy把车辆在测试中自己听异响并记录问题称为full selfhearing。",
+                      "importance": "这个说法把特斯拉熟悉的自动驾驶叙事迁移到制造质检：车不只是被检查的对象，也成为采集缺陷信号的节点。"
+                    },
+                    {
+                      "name": "从talk to each other到think to each other",
+                      "risk": "“think to each other”是概括性表述，片段没有展开算法架构、决策权限、人类审批流程或系统之间的数据接口。",
+                      "says": "Moravy说这些东西过去会彼此通信，但不会彼此思考；现在它们开始彼此思考。",
+                      "importance": "关键变化不是单点检测工具增加，而是检测轨道、扫描系统、车辆和工程团队之间形成反馈链，让数据能触发跨环节改动。"
+                    },
+                    {
+                      "name": "downstream缺陷倒逼upstream公差和定义",
+                      "risk": "证据没有说明哪些公差被改、改动周期多长、改动后是否通过长期质量数据验证。",
+                      "says": "Moravy提到问题发生在下游时，需要上游改变，具体包括tolerancing和definition。",
+                      "importance": "这说明质量控制不只是末端返修；如果下游数据能反向改动公差和定义，制造系统就能把重复缺陷转化为设计和工艺参数调整。"
+                    },
+                    {
+                      "name": "end of line的body fit全车扫描",
+                      "risk": "片段没有定义standings的具体含义，也没有说明扫描指标、合格阈值、设备校准方式或异常车的处置流程。",
+                      "says": "Moravy说body fit会在生产线末端扫描所有车辆，body团队能立刻知道需要改哪些standings。",
+                      "importance": "全车扫描把车门、盖板、翼子板等贴合问题变成批量数据，而不是孤立返修记录；这有助于发现系统性装配偏差。"
+                    },
+                    {
+                      "name": "IQS排名与real world AI的谨慎关联",
+                      "risk": "现有片段只能证明IQS排名和real world AI在访谈中相邻出现，不能单独证明排名提升由这些AI制造系统直接造成。",
+                      "says": "Moravy提到J.D. Power刚发布结果，特斯拉在IQS中到第三名，随后谈到real world AI的数量。",
+                      "importance": "这给商业层面提供了一个可追踪信号：制造AI如果有效，最终应反映到新车早期质量、返修压力和交付体验上。"
+                    }
+                  ],
+                  "detailSections": [
+                    {
+                      "title": "园区里的车不只是被转运，而是在进入制造反馈链",
+                      "bullets": [
+                        "从end of line自动驶向logistics yard，说明车辆下线后的移动过程本身已经成为工厂自动化的一部分，而不是单纯等待人工挪车。",
+                        "如果车辆能在园区内按流程自动移动，它就可以把转运、测试、停放和问题记录连接起来；这让物流场不只是停车区域，也可能成为质量数据流的一段。",
+                        "商业意义在于减少下线后流程中的人工依赖和等待时间，但片段没有给出节拍、吞吐量、人工节省比例或异常接管机制。"
+                      ]
+                    },
+                    {
+                      "title": "异响测试从人工听诊变成车辆参与记录",
+                      "bullets": [
+                        "bump, squeak, and rattle track通过颠簸和车身扭转载荷暴露噪声、松动和装配问题，适合发现静态扫描不一定能看到的缺陷。",
+                        "Moravy说车辆会listen to the noises并document them back，这意味着噪声不是只被现场人员听到，而是进入可回传、可分派的记录系统。",
+                        "工程边界在于噪声问题往往受路面、温度、车速、载荷和装配状态影响；片段没有说明Full Self-Hearing如何区分真实缺陷和测试环境噪声。"
+                      ]
+                    },
+                    {
+                      "title": "下游数据改上游参数，是这套系统的制造核心",
+                      "bullets": [
+                        "“this is happening downstream. We need changes upstream”说明问题发现点和问题修正点不同：缺陷可能在末端测试暴露，但根因可能在更早的设计、公差或装配定义。",
+                        "tolerancing和definition是关键对象，因为车身缝隙、齐平度和装配一致性通常受零件尺寸允许范围与工艺定义影响。",
+                        "如果反馈只停留在返修工单，系统价值有限；只有当body团队能根据end of line扫描结果调整standings、公差或定义，质量闭环才真正形成。"
+                      ]
+                    },
+                    {
+                      "title": "body fit全车扫描把车身匹配问题变成批量信号",
+                      "bullets": [
+                        "Moravy说all the cars会在end of line进行body fit扫描，这比抽检更适合发现批次性偏差和渐进式漂移。",
+                        "body guys能immediately知道要改哪些standings，说明扫描结果被设计成面向工程团队行动，而不是只生成检查记录。",
+                        "边界条件是片段没有解释扫描覆盖哪些部位、如何判断门盖翼子板的缝隙和齐平度、以及异常数据如何避免把偶发问题误判成上游设定问题。"
+                      ]
+                    },
+                    {
+                      "title": "质量指标可以追踪，但不能把IQS直接写成因果证明",
+                      "bullets": [
+                        "J.D. Power IQS排名升至第三是一个外部质量信号，适合用来观察特斯拉早期质量是否在改善。",
+                        "Moravy在提到IQS后谈real world AI，说明他把真实世界AI应用与质量改进放在同一叙事中，但片段本身没有给出统计因果。",
+                        "更稳妥的判断是：IQS可以作为后续验证制造AI成效的观察指标之一，还需要更多外部数据来确认这些工厂反馈系统对排名变化的贡献。"
+                      ]
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:31:15.863Z"
+              },
+              "glossary": {
+                "data": {
+                  "glossary": [
+                    {
+                      "term": "end of line",
+                      "explanation": "指汽车完成主要装配后到达生产线末端的位置，通常会进入检查、测试、转运或交付前流程。视频里说特斯拉车辆会从这里自动开往物流场，用来说明厂区自动化已经进入生产后的流转环节。理解这个词可以避免把“自动驾驶”只想成公共道路上的功能，而忽略它在工厂内部也能承担移动和质检流程。"
+                    },
+                    {
+                      "term": "logistics yard",
+                      "explanation": "指工厂或园区内用于停放、调度和转运车辆的物流场地。视频中车辆从生产线末端自动开到这里，说明特斯拉正在把下线后的车辆移动也纳入自动化网络。这个词能避免误解为车辆已经直接开向消费者或公共道路；这里说的是厂区内的物流流程。"
+                    },
+                    {
+                      "term": "bump, squeak, and rattle track",
+                      "explanation": "这是用于暴露异响和装配问题的测试路段，会通过颠簸、扭转等路况让车辆发出可能的噪声。视频里车辆会经过这段路，听取并记录噪音问题，成为质量反馈的一部分。理解它可以避免把质检想成只靠静态目视检查；这里关注的是车辆在动态行驶状态下暴露的松动、摩擦和装配问题。"
+                    },
+                    {
+                      "term": "Full Self-Hearing",
+                      "explanation": "这是Lars Moravy在访谈中提到的内部说法，借用了“Full Self-Driving”的命名方式，意思是车辆在测试中能“听见”自己的异响并记录问题。它出现在视频里，是为了说明特斯拉把传感、记录和反馈能力用于制造质检，而不只是用于驾驶。这个词可以避免误解为正式对外销售功能；从证据看，它更像是对工厂自检能力的形象化说法。"
+                    },
+                    {
+                      "term": "downstream / upstream",
+                      "explanation": "downstream指流程后段发现问题的环节，upstream指更早的设计、制造、装配或参数定义环节。视频中Moravy说下游发生的问题需要推动上游改变，说明质检不只是末端修补，而是要反向影响制造规则。理解这组词可以避免把质量控制看成“发现坏车再修车”，而应看到它在改变更早的工艺和设计决策。"
+                    },
+                    {
+                      "term": "tolerancing",
+                      "explanation": "指公差设定，也就是零件尺寸、位置和装配误差允许在多大范围内波动。视频里它和上游改变一起出现，说明下游质量数据可能会倒逼工程团队调整允许误差和定义。这个词可以避免把车身缝隙、异响或装配一致性简单归因于工人操作；很多问题可能来自公差规则本身。"
+                    },
+                    {
+                      "term": "body fit",
+                      "explanation": "指车身部件之间的装配匹配度，例如车门、机盖、翼子板之间的缝隙、齐平度和贴合情况。视频里说生产线末端会扫描所有车辆的body fit，并把结果反馈给车身团队。理解它可以避免把扫描系统看成泛泛的外观检查；这里的重点是用每辆车的数据帮助团队调整车身装配设定。"
+                    },
+                    {
+                      "term": "IQS",
+                      "explanation": "IQS是J.D. Power的Initial Quality Study，即新车初始质量研究，用来比较新车早期出现的问题数量。视频里Moravy提到特斯拉在IQS中升到第三，并紧接着谈到real world AI，但现有片段只能说明两者在访谈中相邻出现。理解这个词可以避免把排名提升直接、完全归因于AI；更稳妥的说法是，它是评估质量变化的外部指标之一。"
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:30:49.925Z"
+              },
+              "timeline": {
+                "data": {
+                  "timeline": [
+                    {
+                      "time": "0:00",
+                      "event": "Moravy开始引出工厂内部正在发生的变化，话题从一个具体例子切入。",
+                      "evidence": "Okay. So, so like",
+                      "importance": "这提示读者，后面的论点不是泛泛谈AI，而是围绕特斯拉园区里的制造、检测和反馈流程展开。"
+                    },
+                    {
+                      "time": "0:02",
+                      "event": "Moravy说特斯拉车辆已经能从生产线末端自动驶向物流场地。",
+                      "evidence": "our cars drive themselves from the end of line to, you know, to the logistics yard now",
+                      "importance": "这把“园区里正在发生的事”落到一个可验证场景：自动化不只用于道路驾驶，也进入了工厂内部转运流程。"
+                    },
+                    {
+                      "time": "0:08",
+                      "event": "车辆会经过bump, squeak, and rattle track，用颠簸和异响测试暴露装配问题。",
+                      "evidence": "They also go over the bump, squeak, and rattle track",
+                      "importance": "这个环节说明园区测试不是单纯把车开到停车场，而是在下线后继续制造质量数据。"
+                    },
+                    {
+                      "time": "0:08",
+                      "event": "车辆在异响测试中会“听”噪声并记录下来。",
+                      "evidence": "listen to the noises, and document them back",
+                      "importance": "这说明质量检测正在从人工听诊，转向车辆自身传感、识别和记录问题的流程。"
+                    },
+                    {
+                      "time": "0:11",
+                      "event": "测试记录会反馈给现场人员，告诉他们需要修正什么。",
+                      "evidence": "document them back and tell the the the people what to fix",
+                      "importance": "这体现了人机协作的角色分工：系统发现和归档问题，人员据此维修或推动改进。"
+                    },
+                    {
+                      "time": "0:15",
+                      "event": "Moravy把这种车辆自检异响的能力称为“full selfhearing”。",
+                      "evidence": "we call it full selfhearing",
+                      "importance": "这个内部说法把自动驾驶语境延伸到制造质检，帮助读者理解特斯拉如何描述工厂里的新能力。"
+                    },
+                    {
+                      "time": "0:22",
+                      "event": "Moravy说这些系统过去只是彼此通信，现在开始“彼此思考”。",
+                      "evidence": "All these things talk to each other, but they don't think to each other. And now they're thinking to each other.",
+                      "importance": "这句话概括了核心变化：重点不是增加单点工具，而是让制造、检测和工程反馈形成闭环。"
+                    },
+                    {
+                      "time": "0:27",
+                      "event": "Moravy说明下游发现的问题需要推动上游改变。",
+                      "evidence": "this is happening downstream. We need changes upstream",
+                      "importance": "这把质量控制从末端修补提升到流程前段：问题在后面暴露，但解决方案可能要回到设计、工艺或装配定义中。"
+                    },
+                    {
+                      "time": "0:30",
+                      "event": "他把上游改动具体指向公差和定义。",
+                      "evidence": "that's in terms of tolerancing and definition",
+                      "importance": "这说明反馈不是抽象建议，而可能影响零件尺寸允许范围、装配标准和车身匹配规则。"
+                    },
+                    {
+                      "time": "0:32",
+                      "event": "Moravy举出body fit案例：生产线末端会扫描所有车辆。",
+                      "evidence": "body fit we scan all the cars at the end of the line",
+                      "importance": "这是最具体的质量闭环例子之一：每辆车的车身匹配度被量化，成为后续工程判断的输入。"
+                    },
+                    {
+                      "time": "0:32",
+                      "event": "扫描结果会让车身团队迅速知道哪些设定需要调整。",
+                      "evidence": "Immediately the body guys know we need to go change on the standings",
+                      "importance": "这说明数据反馈不是停留在报告层，而是直接连接到负责车身装配和设定的团队。"
+                    },
+                    {
+                      "time": "0:44",
+                      "event": "Moravy提到J.D. Power最近发布的IQS结果，并称特斯拉现在排到第三。",
+                      "evidence": "JD Power came out with this like two days ago. We're like number three in IQS now",
+                      "importance": "这个指标可作为质量改善的外部参照，但现有片段只能证明他把IQS与后续AI话题相邻提出，不能单独证明因果。"
+                    },
+                    {
+                      "time": "0:47",
+                      "event": "Moravy把话题转向real world AI的应用量。",
+                      "evidence": "I think the amount of real world AI",
+                      "importance": "这把前面的自动转运、异响记录、扫描反馈归入更大的判断：真实世界AI正在从车辆驾驶扩展到制造和质检系统。"
+                    }
+                  ],
+                  "questions": [
+                    "Moravy提到车辆从end of line自动开到logistics yard，这套流程目前覆盖哪些车型、哪些工厂，以及是否已经稳定用于日常生产？",
+                    "bump, squeak, and rattle track上的“full selfhearing”如何判断噪声来源：它依赖车内麦克风、现有传感器，还是额外的测试设备？",
+                    "车辆记录异响后反馈给人员的流程中，系统能否自动定位到具体零件或装配工位，还是仍需要人工复核？",
+                    "下游问题推动上游修改tolerancing and definition时，特斯拉如何避免为了修一个局部问题而引入新的装配偏差？",
+                    "body fit扫描所有车辆后，车身团队看到的是单车缺陷、批次趋势，还是可以直接对应到某个工装、供应商或工位的诊断结果？",
+                    "Moravy提到J.D. Power IQS第三名与real world AI相邻出现，但还需要哪些外部数据才能验证AI制造闭环与IQS改善之间的关系？",
+                    "这些制造AI系统的成本和维护负担有多高，尤其是扫描设备、噪声识别、数据标注和工程团队响应时间？",
+                    "“things talk to each other”到“think to each other”的变化，哪些决策已经能由系统自动触发，哪些仍必须由工程师审批？"
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:31:43.380Z"
+              },
+              "titleContext": {
+                "error": "primary AI API response did not contain text: {\"id\":\"resp_0d7b3009ceb64e8a016a478f4fe3d48190907ce8b7ab95f499\",\"object\":\"chat.completion\",\"created\":1783074652,\"model\":\"gpt-5.5\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":9627,\"completion_tokens\":1011,\"total_tokens\":10638,\"prompt_tokens_details\":{\"cached_tokens\":4608}}}",
+                "status": "failed",
+                "updatedAt": "2026-07-03T10:30:53.033Z"
+              },
+              "evidenceBrief": {
+                "data": {
+                  "thesis": "特斯拉正在把工厂里的汽车、检测轨道、扫描系统和工程团队连接成会相互反馈的制造网络，从而改变质量控制从人工发现问题到下游数据驱动上游改动的方式。",
+                  "titleAngles": [
+                    "当汽车开始向工厂汇报问题：特斯拉制造质量的下一步",
+                    "从自驾到自检：特斯拉把AI塞进生产线之后",
+                    "会‘听’异响的车，正在改写特斯拉工厂的质检逻辑",
+                    "特斯拉工厂的新变化：下游缺陷如何倒逼上游设计",
+                    "Full Self-Hearing背后：制造业AI不只是在路上开车"
+                  ],
+                  "glossarySeeds": [
+                    {
+                      "term": "end of line",
+                      "evidence": "[0:02] \"our cars drive themselves from the end of line\"",
+                      "plainMeaning": "生产线末端，指车辆完成主要装配后进入检查、转运或交付前流程的位置。"
+                    },
+                    {
+                      "term": "logistics yard",
+                      "evidence": "[0:03]-[0:06] \"from the end of line to, you know, to the logistics yard now\"",
+                      "plainMeaning": "物流场地，指工厂或园区里用于车辆停放、调度、转运的区域。"
+                    },
+                    {
+                      "term": "bump, squeak, and rattle track",
+                      "evidence": "[0:08]-[0:09] \"go over the bump, squeak, and rattle track\"",
+                      "plainMeaning": "异响测试路段，通过颠簸、扭转等路况让车辆暴露噪音、松动和装配问题。"
+                    },
+                    {
+                      "term": "full selfhearing",
+                      "evidence": "[0:15]-[0:16] \"we call it full selfhearing\"",
+                      "plainMeaning": "受自动驾驶说法启发的内部玩笑式说法，意思是车辆能在测试中“听见”自己的异响并记录问题。"
+                    },
+                    {
+                      "term": "downstream / upstream",
+                      "evidence": "[0:27]-[0:29] \"this is happening downstream. We need changes upstream\"",
+                      "plainMeaning": "下游是后面发现问题的环节，上游是更早的设计、制造或装配环节；下游反馈会推动上游改动。"
+                    },
+                    {
+                      "term": "tolerancing",
+                      "evidence": "[0:30] \"that's in terms of tolerancing and definition\"",
+                      "plainMeaning": "公差设定，指零件尺寸和装配误差允许范围的定义；它会影响车身缝隙、装配质量和一致性。"
+                    },
+                    {
+                      "term": "body fit",
+                      "evidence": "[0:32] \"So like body fit we scan all the cars at the end of the line\"",
+                      "plainMeaning": "车身装配匹配度，通常包括门、盖、翼子板等部件之间的缝隙、齐平度和整体贴合情况。"
+                    },
+                    {
+                      "term": "IQS",
+                      "evidence": "[0:44]-[0:46] \"JD Power came out with this like two days ago. We're like number three in IQS now\"",
+                      "plainMeaning": "Initial Quality Study，J.D. Power的新车初始质量研究，用来比较新车早期质量问题的多少。"
+                    },
+                    {
+                      "term": "real world AI",
+                      "evidence": "[0:47] \"the amount of real world AI\"",
+                      "plainMeaning": "真实场景中的人工智能应用，不只是实验室模型，而是直接用于车辆、工厂检测、流程反馈等实际运营环节。"
+                    },
+                    {
+                      "term": "you",
+                      "evidence": "you",
+                      "plainMeaning": "这是理解本视频判断链条的核心对象或术语，读者可以先把它当作后文反复出现的线索。"
+                    }
+                  ],
+                  "questionSeeds": [
+                    "《EXCLUSIVE: Tesla VP Announces Big Event Coming | Lars Moravy》里围绕 **like、you、Tesla** 的核心判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？",
+                    "如果 **like、you、Tesla** 要从演示、访谈或局部案例走向规模化落地，最可能先卡在成本、可靠性、供应链、法规还是组织执行？",
+                    "视频里没有充分展开的边界条件是什么：适用场景、失败模式、维护成本、数据假设，还是用户采用门槛？",
+                    "未来应该追踪哪些信号来验证这篇文章的判断：**Lars、know、happening**，还是更直接的商业化/量产/复用结果？",
+                    "如果把视频里的方法迁移到另一个项目，哪些前提一变，结论就会完全失效？"
+                  ],
+                  "timelineSeeds": [
+                    {
+                      "time": "0:00",
+                      "event": "视频在这里展开了一个关键论据：Okay. So, so like",
+                      "quote": "Okay. So, so like",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "5:52",
+                      "event": "视频在这里展开了一个关键论据：burst build, right?",
+                      "quote": "burst build, right?",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "11:14",
+                      "event": "视频在这里展开了一个关键论据：>> like feel it the same way I do but it's",
+                      "quote": ">> like feel it the same way I do but it's",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "17:13",
+                      "event": "视频在这里展开了一个关键论据：autonomous vehicles, through, you know,",
+                      "quote": "autonomous vehicles, through, you know,",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "23:01",
+                      "event": "视频在这里展开了一个关键论据：>> in like two to three minutes, give some",
+                      "quote": ">> in like two to three minutes, give some",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "29:05",
+                      "event": "视频在这里展开了一个关键论据：where it's it started and like where are",
+                      "quote": "where it's it started and like where are",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "34:24",
+                      "event": "视频在这里展开了一个关键论据：for for listening to you talk on the",
+                      "quote": "for for listening to you talk on the",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "39:58",
+                      "event": "视频在这里展开了一个关键论据：investment and sometimes finance won't",
+                      "quote": "investment and sometimes finance won't",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "time": "45:21",
+                      "event": "视频在这里展开了一个关键论据：aren't it's not like we hired a new",
+                      "quote": "aren't it's not like we hired a new",
+                      "importance": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    }
+                  ],
+                  "evidenceClaims": [
+                    {
+                      "claim": "特斯拉园区内已经让车辆在生产线末端自动驶向物流场地，这说明自动化不只发生在道路驾驶，也进入了厂区内部转运流程。",
+                      "quote": "our cars drive themselves from the end of line to, you know, to the logistics yard now",
+                      "timestamp": "0:02",
+                      "whyItMatters": "这个细节把“校园里正在发生的事”落到具体场景：车从生产线末端到物流场的移动正在被自动化。"
+                    },
+                    {
+                      "claim": "车辆会经过颠簸、异响测试路段，并主动记录噪音问题。",
+                      "quote": "They also go over the bump, squeak, and rattle track, listen to the noises, and document them back",
+                      "timestamp": "0:08",
+                      "whyItMatters": "这说明园区测试环节不是单纯人工听诊，而是把车辆自身的传感、记录和质量反馈结合起来。"
+                    },
+                    {
+                      "claim": "记录下来的测试问题会反馈给人员，让他们知道需要修正什么。",
+                      "quote": "document them back and tell the the the people what to fix",
+                      "timestamp": "0:11",
+                      "whyItMatters": "这提供了人机协作的证据：自动化系统发现问题，仍然服务于现场人员的维修和改进决策。"
+                    },
+                    {
+                      "claim": "Lars Moravy把这种车辆自检异响的能力称为“full selfhearing”。",
+                      "quote": "we call it full selfhearing",
+                      "timestamp": "0:15",
+                      "whyItMatters": "这个说法是文章可以解释的核心梗：它把自动驾驶文化延伸到工厂质量检测，便于读者理解特斯拉内部如何命名新能力。"
+                    },
+                    {
+                      "claim": "Moravy认为厂区里的系统正在从“彼此通信”走向“彼此思考”，也就是让数据触发跨环节改进。",
+                      "quote": "All these things talk to each other, but they don't think to each other. And now they're thinking to each other.",
+                      "timestamp": "0:22",
+                      "whyItMatters": "这句话概括了园区变化的方向：不是增加单点工具，而是让制造、检测和反馈系统形成闭环。"
+                    },
+                    {
+                      "claim": "下游发现的问题会推动上游修改公差和定义，说明质量改进正在更早介入制造流程。",
+                      "quote": "this is happening downstream. We need changes upstream. You know that's in terms of tolerancing and definition.",
+                      "timestamp": "0:27",
+                      "whyItMatters": "这为文章提供了制造逻辑：质量问题不是只在末端修补，而是反向影响设计和工艺参数。"
+                    },
+                    {
+                      "claim": "车身匹配度会在生产线末端被扫描，随后车身团队能迅速知道需要调整哪些设定。",
+                      "quote": "body fit we scan all the cars at the end of the line. Immediately the body guys know we need to go change on the standings",
+                      "timestamp": "0:32",
+                      "whyItMatters": "这是一个具体、可视化的质量闭环案例：扫描每辆车，再把结果反馈给负责车身的团队。"
+                    },
+                    {
+                      "claim": "Moravy把近期J.D. Power IQS排名提升与真实世界AI应用联系起来，但现有片段只能证明他说到了二者相邻出现，不能单独证明因果。",
+                      "quote": "JD Power came out with this like two days ago. We're like number three in IQS now. I think the amount of real world AI",
+                      "timestamp": "0:44",
+                      "whyItMatters": "这个证据可用于谨慎写作：它提示质量指标和AI应用可能有关联，但需要避免把片段扩写成未经证实的直接因果。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：Okay. So, so like",
+                      "quote": "Okay. So, so like",
+                      "timestamp": "0:00",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：burst build, right?",
+                      "quote": "burst build, right?",
+                      "timestamp": "5:52",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：>> like feel it the same way I do but it's",
+                      "quote": ">> like feel it the same way I do but it's",
+                      "timestamp": "11:14",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：autonomous vehicles, through, you know,",
+                      "quote": "autonomous vehicles, through, you know,",
+                      "timestamp": "17:13",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：>> in like two to three minutes, give some",
+                      "quote": ">> in like two to three minutes, give some",
+                      "timestamp": "23:01",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：where it's it started and like where are",
+                      "quote": "where it's it started and like where are",
+                      "timestamp": "29:05",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：for for listening to you talk on the",
+                      "quote": "for for listening to you talk on the",
+                      "timestamp": "34:24",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    },
+                    {
+                      "claim": "视频在这里展开了一个关键论据：investment and sometimes finance won't",
+                      "quote": "investment and sometimes finance won't",
+                      "timestamp": "39:58",
+                      "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。"
+                    }
+                  ],
+                  "backgroundAnchors": [
+                    "Lars Moravy作为特斯拉工程高管在访谈中解释工厂内部变化",
+                    "车辆从生产线末端自动驶向logistics yard的场景",
+                    "bump, squeak, and rattle track用于发现异响和装配问题",
+                    "Full Self-Hearing这个内部说法，指车辆自己听噪声并记录问题",
+                    "产线末端对所有车辆进行body fit扫描",
+                    "下游发现的问题反馈给body团队，推动上游standings、公差和定义调整",
+                    "访谈中提到JD Power IQS排名，特斯拉升至第三",
+                    "real world AI从自动驾驶扩展到制造、质检和工程反馈",
+                    "‘things talk to each other’到‘think to each other’的变化表述",
+                    "you",
+                    "like",
+                    "know"
+                  ],
+                  "narrativeConflict": "传统汽车制造依赖产线末端检查、人工记录和工程师追溯问题，而Lars Moravy描述的特斯拉工厂正在让车辆从下线后自动开到物流场、经过异响测试轨道、记录噪声并反馈给负责修复的人；更关键的冲突在于，这些系统过去只是彼此通信，现在开始用真实世界AI把下游质量信号转化为上游公差、定义和车身匹配的调整。"
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:30:07.627Z"
+              },
+              "evidenceBriefThesis": {
+                "data": {
+                  "thesis": "特斯拉正在把工厂里的汽车、检测轨道、扫描系统和工程团队连接成会相互反馈的制造网络，从而改变质量控制从人工发现问题到下游数据驱动上游改动的方式。",
+                  "titleAngles": [
+                    "当汽车开始向工厂汇报问题：特斯拉制造质量的下一步",
+                    "从自驾到自检：特斯拉把AI塞进生产线之后",
+                    "会‘听’异响的车，正在改写特斯拉工厂的质检逻辑",
+                    "特斯拉工厂的新变化：下游缺陷如何倒逼上游设计",
+                    "Full Self-Hearing背后：制造业AI不只是在路上开车"
+                  ],
+                  "backgroundAnchors": [
+                    "Lars Moravy作为特斯拉工程高管在访谈中解释工厂内部变化",
+                    "车辆从生产线末端自动驶向logistics yard的场景",
+                    "bump, squeak, and rattle track用于发现异响和装配问题",
+                    "Full Self-Hearing这个内部说法，指车辆自己听噪声并记录问题",
+                    "产线末端对所有车辆进行body fit扫描",
+                    "下游发现的问题反馈给body团队，推动上游standings、公差和定义调整",
+                    "访谈中提到JD Power IQS排名，特斯拉升至第三",
+                    "real world AI从自动驾驶扩展到制造、质检和工程反馈",
+                    "‘things talk to each other’到‘think to each other’的变化表述"
+                  ],
+                  "narrativeConflict": "传统汽车制造依赖产线末端检查、人工记录和工程师追溯问题，而Lars Moravy描述的特斯拉工厂正在让车辆从下线后自动开到物流场、经过异响测试轨道、记录噪声并反馈给负责修复的人；更关键的冲突在于，这些系统过去只是彼此通信，现在开始用真实世界AI把下游质量信号转化为上游公差、定义和车身匹配的调整。"
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:29:12.546Z"
+              },
+              "evidenceBriefTermsEvidence": {
+                "data": {
+                  "glossarySeeds": [
+                    {
+                      "term": "end of line",
+                      "evidence": "[0:02] \"our cars drive themselves from the end of line\"",
+                      "plainMeaning": "生产线末端，指车辆完成主要装配后进入检查、转运或交付前流程的位置。"
+                    },
+                    {
+                      "term": "logistics yard",
+                      "evidence": "[0:03]-[0:06] \"from the end of line to, you know, to the logistics yard now\"",
+                      "plainMeaning": "物流场地，指工厂或园区里用于车辆停放、调度、转运的区域。"
+                    },
+                    {
+                      "term": "bump, squeak, and rattle track",
+                      "evidence": "[0:08]-[0:09] \"go over the bump, squeak, and rattle track\"",
+                      "plainMeaning": "异响测试路段，通过颠簸、扭转等路况让车辆暴露噪音、松动和装配问题。"
+                    },
+                    {
+                      "term": "full selfhearing",
+                      "evidence": "[0:15]-[0:16] \"we call it full selfhearing\"",
+                      "plainMeaning": "受自动驾驶说法启发的内部玩笑式说法，意思是车辆能在测试中“听见”自己的异响并记录问题。"
+                    },
+                    {
+                      "term": "downstream / upstream",
+                      "evidence": "[0:27]-[0:29] \"this is happening downstream. We need changes upstream\"",
+                      "plainMeaning": "下游是后面发现问题的环节，上游是更早的设计、制造或装配环节；下游反馈会推动上游改动。"
+                    },
+                    {
+                      "term": "tolerancing",
+                      "evidence": "[0:30] \"that's in terms of tolerancing and definition\"",
+                      "plainMeaning": "公差设定，指零件尺寸和装配误差允许范围的定义；它会影响车身缝隙、装配质量和一致性。"
+                    },
+                    {
+                      "term": "body fit",
+                      "evidence": "[0:32] \"So like body fit we scan all the cars at the end of the line\"",
+                      "plainMeaning": "车身装配匹配度，通常包括门、盖、翼子板等部件之间的缝隙、齐平度和整体贴合情况。"
+                    },
+                    {
+                      "term": "IQS",
+                      "evidence": "[0:44]-[0:46] \"JD Power came out with this like two days ago. We're like number three in IQS now\"",
+                      "plainMeaning": "Initial Quality Study，J.D. Power的新车初始质量研究，用来比较新车早期质量问题的多少。"
+                    },
+                    {
+                      "term": "real world AI",
+                      "evidence": "[0:47] \"the amount of real world AI\"",
+                      "plainMeaning": "真实场景中的人工智能应用，不只是实验室模型，而是直接用于车辆、工厂检测、流程反馈等实际运营环节。"
+                    }
+                  ],
+                  "evidenceClaims": [
+                    {
+                      "claim": "特斯拉园区内已经让车辆在生产线末端自动驶向物流场地，这说明自动化不只发生在道路驾驶，也进入了厂区内部转运流程。",
+                      "quote": "our cars drive themselves from the end of line to, you know, to the logistics yard now",
+                      "timestamp": "0:02",
+                      "whyItMatters": "这个细节把“校园里正在发生的事”落到具体场景：车从生产线末端到物流场的移动正在被自动化。"
+                    },
+                    {
+                      "claim": "车辆会经过颠簸、异响测试路段，并主动记录噪音问题。",
+                      "quote": "They also go over the bump, squeak, and rattle track, listen to the noises, and document them back",
+                      "timestamp": "0:08",
+                      "whyItMatters": "这说明园区测试环节不是单纯人工听诊，而是把车辆自身的传感、记录和质量反馈结合起来。"
+                    },
+                    {
+                      "claim": "记录下来的测试问题会反馈给人员，让他们知道需要修正什么。",
+                      "quote": "document them back and tell the the the people what to fix",
+                      "timestamp": "0:11",
+                      "whyItMatters": "这提供了人机协作的证据：自动化系统发现问题，仍然服务于现场人员的维修和改进决策。"
+                    },
+                    {
+                      "claim": "Lars Moravy把这种车辆自检异响的能力称为“full selfhearing”。",
+                      "quote": "we call it full selfhearing",
+                      "timestamp": "0:15",
+                      "whyItMatters": "这个说法是文章可以解释的核心梗：它把自动驾驶文化延伸到工厂质量检测，便于读者理解特斯拉内部如何命名新能力。"
+                    },
+                    {
+                      "claim": "Moravy认为厂区里的系统正在从“彼此通信”走向“彼此思考”，也就是让数据触发跨环节改进。",
+                      "quote": "All these things talk to each other, but they don't think to each other. And now they're thinking to each other.",
+                      "timestamp": "0:22",
+                      "whyItMatters": "这句话概括了园区变化的方向：不是增加单点工具，而是让制造、检测和反馈系统形成闭环。"
+                    },
+                    {
+                      "claim": "下游发现的问题会推动上游修改公差和定义，说明质量改进正在更早介入制造流程。",
+                      "quote": "this is happening downstream. We need changes upstream. You know that's in terms of tolerancing and definition.",
+                      "timestamp": "0:27",
+                      "whyItMatters": "这为文章提供了制造逻辑：质量问题不是只在末端修补，而是反向影响设计和工艺参数。"
+                    },
+                    {
+                      "claim": "车身匹配度会在生产线末端被扫描，随后车身团队能迅速知道需要调整哪些设定。",
+                      "quote": "body fit we scan all the cars at the end of the line. Immediately the body guys know we need to go change on the standings",
+                      "timestamp": "0:32",
+                      "whyItMatters": "这是一个具体、可视化的质量闭环案例：扫描每辆车，再把结果反馈给负责车身的团队。"
+                    },
+                    {
+                      "claim": "Moravy把近期J.D. Power IQS排名提升与真实世界AI应用联系起来，但现有片段只能证明他说到了二者相邻出现，不能单独证明因果。",
+                      "quote": "JD Power came out with this like two days ago. We're like number three in IQS now. I think the amount of real world AI",
+                      "timestamp": "0:44",
+                      "whyItMatters": "这个证据可用于谨慎写作：它提示质量指标和AI应用可能有关联，但需要避免把片段扩写成未经证实的直接因果。"
+                    }
+                  ]
+                },
+                "status": "done",
+                "updatedAt": "2026-07-03T10:30:06.526Z"
+              }
+            },
+            "createdAt": "2026-07-03T10:28:57.328Z",
+            "expiresAt": "2026-07-04T10:31:43.380Z",
+            "sourceKey": "21a4c1f9d505ad3f",
+            "updatedAt": "2026-07-03T10:31:43.380Z",
+            "cacheVersion": 1,
+            "recoveredFromJobId": ""
+          }
+        },
+        "error": "YouTube article part generation failed after primary-model retries: titleContext: primary AI API response did not contain text: {\"id\":\"resp_0d7b3009ceb64e8a016a478f4fe3d48190907ce8b7ab95f499\",\"object\":\"chat.completion\",\"created\":1783074652,\"m\n...[truncated]",
+        "createdAt": "2026-07-03T10:28:56.624Z",
+        "updatedAt": "2026-07-03T10:31:44.034Z"
       }
     ],
     "researchReferenceSources": [],
