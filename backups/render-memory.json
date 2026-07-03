@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-02T19:57:50.389Z",
+  "exportedAt": "2026-07-03T00:07:48.886Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -58036,6 +58036,42 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-02T19:48:43.156Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "user",
+        "modality": "text",
+        "content": "抱歉，在测试机器人，它一下子爆发了，刷屏了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b5b851750a4c10074924d4fd8a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_66151593abc5a16866d728c9eee2c483",
+          "rawUserId": "ou_66151593abc5a16866d728c9eee2c483",
+          "rawUnionId": "on_4c5ca688b804239831de79b3963bd6ad",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T00:05:23.493Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_66151593abc5a16866d728c9eee2c483",
+        "role": "assistant",
+        "modality": "text",
+        "content": "没事没事，已经清干净了 👌",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66151593abc5a16866d728c9eee2c483"
+        },
+        "createdAt": "2026-07-03T00:05:27.415Z"
       }
     ],
     "memories": [
@@ -61287,7 +61323,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.700Z",
-        "updatedAt": "2026-06-20T07:06:06.249Z"
+        "updatedAt": "2026-07-03T00:05:23.424Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61297,7 +61333,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:22:09.482Z",
-        "updatedAt": "2026-06-20T07:06:06.040Z"
+        "updatedAt": "2026-07-03T00:05:23.335Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
