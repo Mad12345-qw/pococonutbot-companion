@@ -367,6 +367,72 @@ function cleanMarkdownInline(text = "") {
     .trim();
 }
 
+function cleanArticleGroupDiscussionText(text = "", max = 140) {
+  return truncate(cleanMarkdownInline(String(text || "")
+    .replace(/!\[[^\]]*]\([^)]+\)/g, "")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/^\s*[-*]\s+/gm, "")
+    .replace(/^\s*\d+[.)、]\s+/gm, "")
+    .replace(/^>\s*/gm, "")
+    .replace(/\s+/g, " ")
+    .trim()), max).replace(/[。！？!?；;，,：:]+$/g, "");
+}
+
+function markdownSectionSnippet(markdown = "", heading = "") {
+  const text = stripMarkdownFencedCodeBlocks(String(markdown || ""));
+  const start = text.indexOf(heading);
+  if (start < 0) return "";
+  const afterStart = start + heading.length;
+  const rest = text.slice(afterStart);
+  const next = rest.search(/\n#{1,6}\s+/);
+  return (next >= 0 ? rest.slice(0, next) : rest).trim();
+}
+
+function firstMeaningfulMarkdownLine(markdown = "") {
+  return String(markdown || "")
+    .split(/\r?\n/)
+    .map((line) => cleanArticleGroupDiscussionText(line, 180))
+    .find((line) => line.length >= 12) || "";
+}
+
+function articleGroupTopicLabel(title = "", sourceType = "") {
+  const raw = `${title} ${sourceType}`;
+  if (/SpaceX|星舰|火星|商业航天|航天/i.test(raw)) return "SpaceX / 商业航天";
+  if (/\bAI\b|人工智能|OpenAI|大模型|算力|光模块|CPO|数据中心/i.test(raw)) return "AI";
+  if (/Robot|机器人|人形机器人|执行器|减速器|灵巧手/i.test(raw)) return "Robot";
+  if (/投研/.test(sourceType)) return "投研";
+  return "这篇";
+}
+
+function buildArticleGroupDiscussionText({ title = "", sourceType = "", markdown = "" } = {}) {
+  const cleanTitle = cleanArticleGroupDiscussionText(title, 120) || "新文章";
+  const label = articleGroupTopicLabel(cleanTitle, sourceType);
+  const counter = firstMeaningfulMarkdownLine(markdownSectionSnippet(markdown, "### 最反共识的判断"));
+  const core = firstMeaningfulMarkdownLine(markdownSectionSnippet(markdown, "### 核心观点"));
+  let question = "";
+  if (/SpaceX/i.test(cleanTitle) && /火星|使命|叙事/.test(`${cleanTitle} ${counter} ${core}`)) {
+    question = "SpaceX 一直强调火星使命，这到底是技术路线、组织信仰，还是商业航天的融资工具？";
+  } else if (/^(为什么|为何|如何|怎么)/.test(cleanTitle)) {
+    question = `${cleanTitle.replace(/[。！？!?]+$/g, "")}？`;
+  } else if (counter) {
+    question = `${counter} 这个判断成立吗？如果成立，最先变化的会是技术路线、产业链位置，还是资本叙事？`;
+  } else if (core) {
+    question = `${core} 这件事，真正值得盯的是技术变化、产业链机会，还是资本叙事？`;
+  } else {
+    question = `${cleanTitle} 这件事，真正值得盯的是技术变化、产业链机会，还是资本叙事？`;
+  }
+  const intro = /投研/.test(sourceType)
+    ? `新整理了一份 ${label} 报告，里面有个问题挺值得展开：`
+    : `新整理了一篇 ${label} 精读，里面有个问题挺值得展开：`;
+  return [
+    intro,
+    "",
+    question,
+    "",
+    "我觉得这个问题挺适合从技术、产业链和资本叙事三个角度一起看。大家怎么看？"
+  ].join("\n");
+}
+
 function formatFeishuPlainText(text = "") {
   const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
   const output = [];
@@ -3343,7 +3409,8 @@ export class FeishuBot {
       onDocumentCreated: (document, meta) => this.notifyArticleGroup({
         title: document.title || meta?.title || "",
         url: document.url || "",
-        sourceType: meta?.sourceType || ""
+        sourceType: meta?.sourceType || "",
+        markdown: meta?.markdown || ""
       })
     });
     this.wechatPublisher = new WeChatPublisher({ config, ai, imageGenerator });
@@ -8486,14 +8553,13 @@ export class FeishuBot {
     return response;
   }
 
-  async notifyArticleGroup({ title = "", url = "", sourceType = "" } = {}) {
+  async notifyArticleGroup({ title = "", url = "", sourceType = "", markdown = "" } = {}) {
     const chatId = String(this.config.feishuArticleGroupChatId || DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID).trim();
     const docUrl = String(url || "").trim();
     if (!chatId || !docUrl) return { sent: false, reason: "not_configured" };
-    const inviteText = String(this.config.feishuArticleGroupInviteText || "").trim() || DEFAULT_FEISHU_ARTICLE_GROUP_INVITE_TEXT;
     const label = sourceType ? `${sourceType}已生成` : "飞书文档已生成";
     const text = [
-      inviteText,
+      buildArticleGroupDiscussionText({ title, sourceType, markdown }),
       "",
       `${label}：${String(title || "未命名文档").trim()}`,
       docUrl

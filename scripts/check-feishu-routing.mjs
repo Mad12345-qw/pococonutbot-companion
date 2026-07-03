@@ -112,6 +112,35 @@ assertEqual(
   String(countOccurrences(withFeishuArticleGroupPrelude(articleWithPrelude, articleGroupConfig), "加入我们，持续追踪SpaceX、AI、Robot！")),
   "1"
 );
+let articleGroupNotificationText = "";
+bot.config.feishuArticleGroupChatId = "oc_test_group";
+bot.sendTextToChat = async (_chatId, text) => {
+  articleGroupNotificationText = text;
+  return { message_id: "om_article_group_test" };
+};
+bot.rememberBotMessage = () => {};
+await bot.notifyArticleGroup({
+  title: "为什么SpaceX把火星使命改写成新航天市场规则",
+  url: "https://feishu.example/wiki/test",
+  sourceType: "YouTube 精读",
+  markdown: [
+    "## 三、导读与核心结论",
+    "### 核心观点",
+    "#### 1. SpaceX 一直强调火星使命，是技术路线和组织动员共同作用的结果",
+    "### 最反共识的判断",
+    "- 火星使命不只是愿景口号，也可能是商业航天融资和组织动员的长期工具。"
+  ].join("\n")
+});
+assertEqual(
+  "Feishu article group notification starts with a discussion prompt instead of invite copy",
+  String(
+    articleGroupNotificationText.includes("新整理了一篇 SpaceX / 商业航天 精读") &&
+    articleGroupNotificationText.includes("SpaceX 一直强调火星使命，这到底是技术路线、组织信仰，还是商业航天的融资工具？") &&
+    articleGroupNotificationText.includes("大家怎么看？") &&
+    !articleGroupNotificationText.includes("加入我们")
+  ),
+  "true"
+);
 const wechatActions = bot.wechatPublishActions({ id: "candidate-test" });
 assertEqual(
   "WeChat publish card exposes one unified draft button",

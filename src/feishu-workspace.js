@@ -606,7 +606,8 @@ export class FeishuWorkspaceClient {
     };
     created.articleGroupNotification = await this.notifyDocumentCreated(created, {
       title,
-      sourceType: articleGroupSourceType
+      sourceType: articleGroupSourceType,
+      markdown: documentMarkdown
     });
     return created;
   }
@@ -831,7 +832,8 @@ export class FeishuWorkspaceClient {
     };
     created.articleGroupNotification = await this.notifyDocumentCreated(created, {
       title,
-      sourceType: articleGroupSourceType
+      sourceType: articleGroupSourceType,
+      markdown: documentMarkdown
     });
     return created;
   }
