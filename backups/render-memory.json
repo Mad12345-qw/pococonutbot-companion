@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T02:52:04.757Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-03T02:57:56.329Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -65089,8 +65089,8 @@
         "id": "job:aecbae7add255ab2",
         "sourceType": "video",
         "sourceUrl": "https://youtu.be/x2meJPOn9ws?si=sRMG5iGDW3uJJ56U",
-        "status": "running",
-        "stage": "youtube_article_generation",
+        "status": "failed",
+        "stage": "failed",
         "attempts": 1,
         "input": {
           "adapter": "youtube",
@@ -65113,10 +65113,26 @@
             "time_context_first_class"
           ]
         },
-        "output": {},
-        "error": "",
+        "output": {
+          "youtubeArticleParts": {
+            "parts": {
+              "evidenceBrief": {
+                "error": "The operation was aborted due to timeout",
+                "status": "failed",
+                "updatedAt": "2026-07-03T02:54:14.749Z"
+              }
+            },
+            "createdAt": "2026-07-03T02:45:12.340Z",
+            "expiresAt": "2026-07-04T02:54:14.749Z",
+            "sourceKey": "cffee7a50dfd5a84",
+            "updatedAt": "2026-07-03T02:54:14.749Z",
+            "cacheVersion": 1,
+            "recoveredFromJobId": ""
+          }
+        },
+        "error": "The operation was aborted due to timeout",
         "createdAt": "2026-07-03T02:45:11.153Z",
-        "updatedAt": "2026-07-03T02:45:11.153Z"
+        "updatedAt": "2026-07-03T02:54:15.295Z"
       }
     ],
     "researchReferenceSources": [],
