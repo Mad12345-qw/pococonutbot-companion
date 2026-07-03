@@ -5646,7 +5646,15 @@ export class FeishuBot {
       retryAttempts: this.config.youtubeResearchAiRetryAttempts || 3,
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const sourceText = buildYoutubeBoundedEvidenceSource(videos, 12000);
+    const youtubeEvidenceAiOptions = ({ maxTokens, temperature = 0.15 } = {}) => ({
+      ...youtubeStructuredAiOptions({ maxTokens, temperature }),
+      retryAttempts: Math.min(this.config.youtubeResearchAiRetryAttempts || 3, 2),
+      timeoutMs: Math.min(
+        this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000,
+        150000
+      )
+    });
+    const sourceText = buildYoutubeBoundedEvidenceSource(videos, 6000);
     const cacheSourceUrl = options.sourceUrl || request.videoUrl || request.channelUrl || request.playlistUrl || request.query || videos[0]?.url || "";
     const cacheSourceKey = youtubeArticlePartsSourceKey(cacheSourceUrl);
     let articlePartCache = isFreshYoutubeArticlePartsCache(options.youtubeArticleParts, cacheSourceKey)
@@ -5685,63 +5693,103 @@ export class FeishuBot {
     };
 
     const cachedEvidenceBrief = cachedArticlePart("evidenceBrief");
+    const compactSourceAnchors = truncate(sourceAnchors || "", 2500);
+    const compactSourceText = truncate(sourceText || "", 6000);
+    const evidenceBriefInput = [
+      `Topic: ${topic}`,
+      `User request: ${request.raw || request.query || request.videoUrl}`,
+      failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
+      compactSourceAnchors ? `Timestamp and keyword anchors:\n${compactSourceAnchors}` : "",
+      "",
+      "Selected source transcripts:",
+      compactSourceText
+    ].filter(Boolean).join("\n");
+    const evidenceBriefSystem = [
+      generationFirstPrinciplesText(),
+      "You prepare evidence for a Chinese column writer before the article is written.",
+      "Return only valid JSON. Do not write Markdown, article prose, process notes, or explanations.",
+      "Use Simplified Chinese for analysis fields, but keep source quotes in their original language.",
+      "Every field must be grounded in transcript evidence, named objects, named people, terms, numbers, scenes, or timestamped events.",
+      "Deterministic evidence package extracted by code will be merged after your answer; do not try to restate every available timestamp.",
+      "Do not mention output language, Feishu, Obsidian, Markdown, transcript language, source links, or generation process."
+    ].join(" ");
     const evidenceBrief = cachedEvidenceBrief || await (async () => {
       try {
-        const evidenceRaw = await this.ai.chat([
-      {
-        role: "system",
-        content: [
-          generationFirstPrinciplesText(),
-          "You are the evidence editor before a Chinese column writer writes the article.",
-          "Your only job is to extract a concrete article brief from YouTube transcripts.",
-          "Do not write the article. Do not write Markdown. Return only valid JSON.",
-          "Use Simplified Chinese for analysis fields, but keep source quotes in their original language.",
-          "Everything must be grounded in transcript evidence, named objects, named people, terms, numbers, scenes, or timestamped events.",
-          "You are not starting from a blank page: a deterministic evidence package has already been extracted from timestamps, transcript lines, video titles, and keywords.",
-          "Use that deterministic evidence package as the minimum evidence floor. You may refine wording, merge duplicates, and improve judgment, but you must not omit its concrete timestamp seeds, source quotes, or core anchors.",
-          "Build a writer-ready brief: thesis should state the main conflict as `why/how <specific object> changes <specific task/market/technology>`, not `this video is about...`.",
-          "backgroundAnchors should be concrete nouns a reader can see or research: people, companies, products, places, technologies, dates, numbers, scenes.",
-          "evidenceClaims should pair one claim with one timestamp/quote and one reason it matters to the article thesis.",
-          "timelineSeeds should become article navigation: each item must include what happened and why that moment changes the reader's understanding.",
-          "questionSeeds should point to follow-up research lines, not generic questions."
-        ].join(" ")
-      },
-      {
-        role: "user",
-        content: [
-          `Topic: ${topic}`,
-          `User request: ${request.raw || request.query || request.videoUrl}`,
-          failures.length ? `Failed videos: ${failures.join(" | ")}` : "",
-          sourceAnchors ? `\nTimestamp and keyword anchors:\n${sourceAnchors}` : "",
-          "",
-          "Deterministic evidence package already extracted by code. Start from this package, improve it, and keep its concrete evidence coverage:",
-          deterministicEvidenceSource,
-          "",
-          "Return JSON with exactly this shape:",
-          "{",
-          '  "thesis": "one specific article thesis in Chinese, not a title and not a summary label",',
-          '  "titleAngles": ["3-5 polished Chinese title angles based on the thesis"],',
-          '  "narrativeConflict": "the central tension a reader should understand before details",',
-          '  "backgroundAnchors": ["specific people/products/events/technologies/scenes/numbers that must appear in opening context"],',
-          '  "glossarySeeds": [{"term":"term", "evidence":"source phrase or timestamp evidence", "plainMeaning":"beginner-friendly meaning"}],',
-          '  "evidenceClaims": [{"claim":"concrete claim", "timestamp":"0:00", "quote":"short original quote or faithful evidence", "whyItMatters":"why this evidence matters"}],',
-          '  "timelineSeeds": [{"time":"0:00", "event":"what happens", "importance":"why it matters", "quote":"optional source quote"}],',
-          '  "questionSeeds": ["concrete unresolved questions anchored to evidence"]',
-          "}",
-          "Minimums: backgroundAnchors 5, glossarySeeds 3, evidenceClaims 6, timelineSeeds 8, questionSeeds 5.",
-          "Do not mention output language, Feishu, Obsidian, Markdown, transcript language, source links, or generation process.",
-          "",
-          "Source transcripts:",
-          sourceText
-        ].join("\n")
-      }
-      ], youtubeStructuredAiOptions({
-        maxTokens: Math.min(this.config.youtubeResearchSummaryMaxTokens || 2600, 2200),
-        temperature: 0.1
-      }));
+        const thesisPartPromise = runCachedArticlePart("evidenceBriefThesis", "evidence brief thesis", () => this.ai.chat([
+          {
+            role: "system",
+            content: [
+              evidenceBriefSystem,
+              "Focus only on article thesis, title angles, narrative conflict, and concrete background anchors.",
+              "The thesis must state the main conflict as `why/how <specific object> changes <specific task/market/technology>`, not `this video is about...`."
+            ].join(" ")
+          },
+          {
+            role: "user",
+            content: [
+              evidenceBriefInput,
+              "",
+              "Return JSON with exactly this shape:",
+              "{",
+              '  "thesis": "one specific article thesis in Chinese, not a title and not a summary label",',
+              '  "titleAngles": ["3-5 polished Chinese title angles based on the thesis"],',
+              '  "narrativeConflict": "the central tension a reader should understand before details",',
+              '  "backgroundAnchors": ["5-10 specific people/products/events/technologies/scenes/numbers that must appear in opening context"]',
+              "}",
+              "Do not use the raw video title as the thesis or a title angle."
+            ].join("\n")
+          }
+        ], youtubeEvidenceAiOptions({
+          maxTokens: 900,
+          temperature: 0.1
+        })));
+        const termsEvidencePartPromise = runCachedArticlePart("evidenceBriefTermsEvidence", "evidence brief terms and evidence", () => this.ai.chat([
+          {
+            role: "system",
+            content: [
+              evidenceBriefSystem,
+              "Focus only on beginner glossary terms and evidence-backed claims.",
+              "Each glossary term must unlock the later article. Each evidence claim must pair a concrete claim with one timestamp or quote and why it matters."
+            ].join(" ")
+          },
+          {
+            role: "user",
+            content: [
+              evidenceBriefInput,
+              "",
+              "Return JSON with exactly this shape:",
+              "{",
+              '  "glossarySeeds": [{"term":"term", "evidence":"source phrase or timestamp evidence", "plainMeaning":"beginner-friendly meaning"}],',
+              '  "evidenceClaims": [{"claim":"concrete claim", "timestamp":"0:00", "quote":"short original quote or faithful evidence", "whyItMatters":"why this evidence matters"}]',
+              "}",
+              "Minimums: glossarySeeds 3, evidenceClaims 6."
+            ].join("\n")
+          }
+        ], youtubeEvidenceAiOptions({
+          maxTokens: 1100,
+          temperature: 0.12
+        })));
+        const partResults = await Promise.allSettled([
+          thesisPartPromise,
+          termsEvidencePartPromise
+        ]);
+        const failedParts = partResults
+          .map((result, index) => ({ result, name: ["evidenceBriefThesis", "evidenceBriefTermsEvidence"][index] }))
+          .filter((item) => item.result.status === "rejected");
+        if (failedParts.length) {
+          const reason = failedParts
+            .map((item) => `${item.name}: ${truncate(item.result.reason?.message || String(item.result.reason || ""), 180)}`)
+            .join(" | ");
+          throw new Error(`YouTube evidence brief generation failed after primary-model retries: ${reason}`);
+        }
+        const evidenceModelParts = {
+          ...Object.assign({}, ...partResults.map((item) => item.value)),
+          timelineSeeds: deterministicEvidenceBrief.timelineSeeds,
+          questionSeeds: deterministicEvidenceBrief.questionSeeds
+        };
         const parsedEvidenceBrief = mergeYoutubeEvidenceBriefs(
           deterministicEvidenceBrief,
-          await this.parseYoutubeJsonObject(evidenceRaw, "evidence brief"),
+          evidenceModelParts,
           { topic, videos }
         );
         await persistArticlePart("evidenceBrief", { status: "done", data: parsedEvidenceBrief });

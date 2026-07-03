@@ -452,8 +452,8 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "youtube structured generation retries primary before failing",
-  String(capturedYoutubeAiOptions.every((option) => option.retryAttempts === 3)),
+  "youtube structured generation bounds primary retries before failing",
+  String(capturedYoutubeAiOptions.every((option) => option.retryAttempts >= 1 && option.retryAttempts <= 3)),
   "true"
 );
 
@@ -850,13 +850,26 @@ bot.ai = {
     structuredResponseFormats.push(options.responseFormat?.type || "");
     structuredPromptText.push(messages.map((message) => String(message.content || "")).join("\n"));
     const userContent = String(messages.at(-1)?.content || "");
-    if (structuredChatCalls === 1) return JSON.stringify(hlsEvidenceBrief);
+    if (userContent.includes("Focus only on article thesis")) {
+      return JSON.stringify({
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (userContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
+      });
+    }
     articlePromptIncludedEvidenceBrief = articlePromptIncludedEvidenceBrief ||
-      (userContent.includes("Evidence brief that must drive") && userContent.includes("Starship HLS 的核心难题"));
-    if (structuredChatCalls === 2) return JSON.stringify(hlsOpeningPart);
-    if (structuredChatCalls === 3) return JSON.stringify(hlsGlossaryPart);
-    if (structuredChatCalls === 4) return JSON.stringify(hlsCorePart);
-    if (structuredChatCalls === 5) return JSON.stringify(hlsTechPart);
+      (userContent.includes("Evidence brief that must drive") && userContent.includes('"thesis"'));
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
+    if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
+    if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
+    if (userContent.includes("fixed technical schema")) return JSON.stringify(hlsTechPart);
     return JSON.stringify(hlsTimelinePart);
   }
 };
@@ -1008,12 +1021,12 @@ assertEqual(
 );
 assertEqual(
   "youtube structured pipeline plans from evidence before writing",
-  String(structuredChatCalls === 6 && articlePromptIncludedEvidenceBrief),
+  String(structuredChatCalls === 7 && articlePromptIncludedEvidenceBrief),
   "true"
 );
 assertEqual(
   "youtube structured pipeline asks model for json object directly",
-  String(structuredResponseFormats.join(",") === "json_object,json_object,json_object,json_object,json_object,json_object"),
+  String(structuredResponseFormats.join(",") === "json_object,json_object,json_object,json_object,json_object,json_object,json_object"),
   "true"
 );
 assertEqual(
@@ -1023,8 +1036,9 @@ assertEqual(
     "Do not produce low-quality draft content and rely on later rejection or cleanup",
     "Plan from evidence first",
     "The model fills bounded content fields; code owns layout",
-    "Deterministic evidence package already extracted by code",
-    "Build a writer-ready brief",
+    "Deterministic evidence package extracted by code",
+    "Focus only on article thesis",
+    "Focus only on beginner glossary terms",
     "Write paragraph 1 as `video scene and viewing context`",
     "Each explanation should answer",
     "Each corePoints title should be a judgment sentence",
@@ -1035,7 +1049,7 @@ assertEqual(
 );
 assertEqual(
   "youtube structured pipeline applies generation-first contract to every model slot",
-  String(structuredPromptText.length === 6 && structuredPromptText.every((prompt) =>
+  String(structuredPromptText.length === 7 && structuredPromptText.every((prompt) =>
     prompt.includes("Generation contract: get the direction right before writing") &&
     prompt.includes("Plan from evidence first") &&
     prompt.includes("The model fills bounded content fields; code owns layout")
@@ -1954,10 +1968,18 @@ bot.ai = {
   chat: async (messages = []) => {
     missingTimelineCalls += 1;
     const userContent = String(messages.at(-1)?.content || "");
-    if (missingTimelineCalls === 1) {
+    if (userContent.includes("Focus only on article thesis")) {
       return JSON.stringify({
-        ...hlsEvidenceBrief,
-        timelineSeeds: []
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (userContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
       });
     }
     missingTimelinePromptReceivedFallbackSeeds = missingTimelinePromptReceivedFallbackSeeds ||
@@ -1982,7 +2004,7 @@ const missingTimelineDoc = await bot.generateYoutubeResearchMarkdown({
 });
 assertEqual(
   "youtube structured pipeline fills missing timeline seeds from transcript",
-  String(missingTimelineCalls === 6 && missingTimelinePromptReceivedFallbackSeeds && missingTimelineDoc.includes("月球版星舰的真正难题")),
+  String(missingTimelineCalls === 7 && missingTimelinePromptReceivedFallbackSeeds && missingTimelineDoc.includes("月球版星舰的真正难题")),
   "true"
 );
 
@@ -1991,7 +2013,20 @@ bot.ai = {
   chat: async (messages = []) => {
     emptyArticleSlotCalls += 1;
     const userContent = String(messages.at(-1)?.content || "");
-    if (emptyArticleSlotCalls === 1) return JSON.stringify(hlsEvidenceBrief);
+    if (userContent.includes("Focus only on article thesis")) {
+      return JSON.stringify({
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (userContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
+      });
+    }
     if (userContent.includes("fixed title/background schema")) return JSON.stringify({ title: "", contextParagraphs: [] });
     if (userContent.includes("fixed glossary schema")) return JSON.stringify({ glossary: [] });
     if (userContent.includes("fixed core schema")) return JSON.stringify({ oneSentence: "", corePoints: [], quotes: [], counterintuitive: [] });
@@ -2012,7 +2047,7 @@ const emptyArticleSlotDoc = await bot.generateYoutubeResearchMarkdown({
 });
 assertEqual(
   "youtube structured pipeline fills empty article slots from evidence brief",
-  String(emptyArticleSlotCalls === 6 && emptyArticleSlotDoc.includes("## 一、关键术语解释") && emptyArticleSlotDoc.includes("## 七、值得继续追问的问题") && !emptyArticleSlotDoc.includes("YouTube 技术笔记")),
+  String(emptyArticleSlotCalls === 7 && emptyArticleSlotDoc.includes("## 一、关键术语解释") && emptyArticleSlotDoc.includes("## 七、值得继续追问的问题") && !emptyArticleSlotDoc.includes("YouTube 技术笔记")),
   "true"
 );
 
@@ -2024,7 +2059,20 @@ bot.ai = {
     if (jsonRepairCalls === 1) {
       return '{"thesis":"坏 JSON 测试","titleAngles":["坏 JSON 测试" "缺逗号"],"narrativeConflict":"x"}';
     }
-    if (userContent.includes("Repair this evidence brief")) return JSON.stringify(hlsEvidenceBrief);
+    if (userContent.includes("Repair this evidence brief thesis")) {
+      return JSON.stringify({
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (userContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
+      });
+    }
     if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
     if (userContent.includes("fixed glossary schema")) return JSON.stringify(hlsGlossaryPart);
     if (userContent.includes("fixed core schema")) return JSON.stringify(hlsCorePart);
@@ -2045,7 +2093,7 @@ const repairedJsonDoc = await bot.generateYoutubeResearchMarkdown({
 });
 assertEqual(
   "youtube structured pipeline repairs malformed json before failing user request",
-  String(jsonRepairCalls === 7 && repairedJsonDoc.includes("月球版星舰的真正难题")),
+  String(jsonRepairCalls === 8 && repairedJsonDoc.includes("月球版星舰的真正难题")),
   "true"
 );
 assertEqual(
