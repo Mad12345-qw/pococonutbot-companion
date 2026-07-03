@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T05:49:23.365Z",
+  "exportedAt": "2026-07-03T05:59:22.818Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -58779,6 +58779,92 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-03T05:39:51.694Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "欢迎各位大佬加入交流，机器人助理刚刚搭建好，点击机器人的帮助文档可以跳转到小椰的github仓库，有什么建议随时提，目的就是尽一切可能帮助咱们一起共创研究分享",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b40a70a4cbcc2e9d0d74a7d8e0",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T05:54:38.855Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "GitHub 热门仓库 Top 3\n1. usestrix/strix（Python · 2,137 stars today）：Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.\n2. JuliusBrussee/caveman（JavaScript · 926 stars today）：🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman\n3. msitarzewski/agency-agents（Shell · 3,032 stars today）：A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
+        "metadata": {
+          "platform": "feishu",
+          "resultCount": 3,
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "githubTrending": true
+        },
+        "createdAt": "2026-07-03T05:55:00.235Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "向大佬们学习～",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b40a58ea4acc3b9c6d2427f377",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUnionId": "on_241ed317be2997da80ab2862a31e9565",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T05:55:01.891Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "投研报告：SpaceX",
+        "metadata": {
+          "chatType": "p2p",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b40bb74dc80c4b30f917694054",
+          "rawChatId": "oc_9f61031767f94d46117a615895dde8c7",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T05:57:49.187Z"
       }
     ],
     "memories": [
@@ -60410,7 +60496,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:30.241Z",
-        "updatedAt": "2026-07-03T05:37:34.064Z"
+        "updatedAt": "2026-07-03T05:57:49.117Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -60420,7 +60506,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-08T04:43:29.995Z",
-        "updatedAt": "2026-07-03T05:37:33.975Z"
+        "updatedAt": "2026-07-03T05:57:48.976Z"
       },
       {
         "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
@@ -60990,7 +61076,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-03T00:56:36.378Z"
+        "updatedAt": "2026-07-03T05:54:38.783Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -61000,7 +61086,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-03T00:56:36.289Z"
+        "updatedAt": "2026-07-03T05:54:38.697Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -61021,6 +61107,26 @@
         "metadata": {},
         "createdAt": "2026-07-03T00:56:59.610Z",
         "updatedAt": "2026-07-03T00:56:59.610Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T05:55:01.821Z",
+        "updatedAt": "2026-07-03T05:55:01.821Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-03T05:55:01.753Z",
+        "updatedAt": "2026-07-03T05:55:01.753Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
@@ -67176,6 +67282,49 @@
         "error": "",
         "createdAt": "2026-07-03T05:37:36.109Z",
         "updatedAt": "2026-07-03T05:39:51.624Z"
+      },
+      {
+        "id": "job:investment_report:de16cc27f7eb52ef",
+        "sourceType": "investment_report",
+        "sourceUrl": "SpaceX",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "request": {
+            "raw": "投研报告：SpaceX",
+            "query": "SpaceX",
+            "requested": true
+          },
+          "trigger": "投研报告：",
+          "delivery": {
+            "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+            "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+            "messageId": "om_x100b6b40bb74dc80c4b30f917694054"
+          },
+          "principles": [
+            "strict_trigger_only",
+            "generation_direction_first",
+            "do_not_generate_garbage_then_reject",
+            "cross_source_evidence_first",
+            "coverage_gaps_reduce_confidence",
+            "no_single_source_investment_report"
+          ]
+        },
+        "output": {
+          "query": "SpaceX",
+          "reason": "primary_model_synthesis_failed_no_baseline_report_published",
+          "failure": {
+            "reason": "ai_synthesis_failed",
+            "message": "Primary AI is disabled, but this request requires the primary model."
+          },
+          "sources": 8,
+          "evidenceCards": 120,
+          "publishSkipped": true
+        },
+        "error": "投研报告主模型综合失败，未发布证据基线占位报告：Primary AI is disabled, but this request requires the primary model.",
+        "createdAt": "2026-07-03T05:57:50.402Z",
+        "updatedAt": "2026-07-03T05:57:52.239Z"
       }
     ],
     "researchReferenceSources": [],
