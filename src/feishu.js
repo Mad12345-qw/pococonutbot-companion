@@ -5137,7 +5137,7 @@ export class FeishuBot {
       temperature: 0.15,
       responseFormat: { type: "json_object" },
       allowFallback: false,
-      requirePrimary: true,
+      forcePrimaryWithFallback: true,
       retryAttempts: Math.max(1, Math.min(2, Number(this.config.investmentReportAiRetryAttempts || 1))),
       timeoutMs: this.config.investmentReportAiTimeoutMs || this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 90000
     });

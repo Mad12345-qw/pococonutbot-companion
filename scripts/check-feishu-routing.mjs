@@ -1255,9 +1255,9 @@ assertEqual(
   "true"
 );
 assertEqual(
-  "investment report synthesis does not route timeout reports through weak fallback json",
+  "investment report synthesis calls the primary model directly without weak fallback json",
   String(
-    /allowFallback:\s*false,[\s\S]{0,80}requirePrimary:\s*true/.test(feishuSource) &&
+    /allowFallback:\s*false,[\s\S]{0,120}forcePrimaryWithFallback:\s*true/.test(feishuSource) &&
     feishuSource.includes("primary_model_synthesis_failed_no_baseline_report_published") &&
     !feishuSource.includes("已先用证据基线模式生成报告")
   ),
