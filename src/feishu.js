@@ -20,9 +20,26 @@ const execFileAsync = promisify(execFile);
 const YOUTUBE_ARTICLE_PART_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|发张照片|发一张照片|看看你|你长什么样|你的样子|小椰的样子|小椰照片|小椰自拍)/i;
+const COMMUNITY_OPS_SETTING_KEY = "feishu.community_ops.chat_ids";
 
 function platformId(id = "") {
   return `feishu:${String(id || "")}`;
+}
+
+function rawFeishuChatId(id = "") {
+  return String(id || "").trim().replace(/^feishu:/i, "");
+}
+
+function splitConfigList(value = "") {
+  return String(value || "")
+    .split(/[,\n，]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function configBoolean(value, fallback = false) {
+  if (value == null || value === "") return fallback;
+  return ["1", "true", "yes", "y", "on"].includes(String(value).toLowerCase());
 }
 
 function normalizeReplyIdentity(value = "") {
@@ -3416,6 +3433,7 @@ export class FeishuBot {
     this.chatQueues = new Map();
     this.seenMessageIds = new Set();
     this.sentBotMessageIds = new Map();
+    this.communityOpsScheduler = null;
     this.workspace = new FeishuWorkspaceClient({
       config,
       getToken: () => this.tenantAccessToken(),
@@ -3433,6 +3451,7 @@ export class FeishuBot {
       ai,
       feishuWorkspace: this.workspace
     });
+    this.startCommunityOpsScheduler();
   }
 
   get enabled() {
@@ -3473,6 +3492,190 @@ export class FeishuBot {
       totalMs,
       steps: timing.steps
     });
+  }
+
+  startCommunityOpsScheduler() {
+    const intervalMs = Math.max(
+      5 * 60 * 1000,
+      Number(this.config.feishuCommunityOpsCheckIntervalMs || process.env.FEISHU_COMMUNITY_OPS_CHECK_INTERVAL_MS || 30 * 60 * 1000)
+    );
+    if (!this.storage || !intervalMs) return;
+    this.communityOpsScheduler = setInterval(() => {
+      this.runCommunityOpsIdleCheck().catch((error) => {
+        logEvent("warn", "Feishu community ops idle check failed", { error: error.message });
+      });
+    }, intervalMs);
+    this.communityOpsScheduler.unref?.();
+  }
+
+  async communityOpsChatIds() {
+    const configured = [
+      ...(this.config.feishuCommunityOpsChatIds || []),
+      ...splitConfigList(process.env.FEISHU_COMMUNITY_OPS_CHAT_IDS || ""),
+      DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID
+    ];
+    const stored = await this.storage.getSetting(COMMUNITY_OPS_SETTING_KEY, configured.join(","));
+    return [...new Set(String(stored || configured.join(","))
+      .split(/[,\n，]+/)
+      .map(rawFeishuChatId)
+      .filter(Boolean))];
+  }
+
+  async isCommunityOpsChat(chatId = "") {
+    const raw = rawFeishuChatId(chatId);
+    if (!raw) return false;
+    return (await this.communityOpsChatIds()).includes(raw);
+  }
+
+  communityOpsDateKey(date = new Date()) {
+    return date.toISOString().slice(0, 10);
+  }
+
+  communityOpsDailyKey(chatId = "", date = new Date()) {
+    return `feishu.community_ops.daily.${rawFeishuChatId(chatId)}.${this.communityOpsDateKey(date)}`;
+  }
+
+  async communityOpsDailyState(chatId = "") {
+    try {
+      return JSON.parse(await this.storage.getSetting(this.communityOpsDailyKey(chatId), "{}")) || {};
+    } catch {
+      return {};
+    }
+  }
+
+  async saveCommunityOpsDailyState(chatId = "", state = {}) {
+    await this.storage.setSetting(this.communityOpsDailyKey(chatId), JSON.stringify({
+      prompts: Number(state.prompts || 0),
+      lastPromptAt: state.lastPromptAt || "",
+      linkHints: Number(state.linkHints || 0),
+      lastLinkHintAt: state.lastLinkHintAt || ""
+    }));
+  }
+
+  async canSendCommunityOpsPrompt(chatId = "") {
+    if (!(await this.isCommunityOpsChat(chatId))) return false;
+    const state = await this.communityOpsDailyState(chatId);
+    const limit = Math.max(0, Number(this.config.feishuCommunityOpsDailyPromptLimit || process.env.FEISHU_COMMUNITY_OPS_DAILY_PROMPT_LIMIT || 3));
+    if (Number(state.prompts || 0) >= limit) return false;
+    if (state.lastPromptAt && Date.now() - Date.parse(state.lastPromptAt) < 2 * 60 * 60 * 1000) return false;
+    return true;
+  }
+
+  async markCommunityOpsPromptSent(chatId = "") {
+    const state = await this.communityOpsDailyState(chatId);
+    await this.saveCommunityOpsDailyState(chatId, {
+      ...state,
+      prompts: Number(state.prompts || 0) + 1,
+      lastPromptAt: new Date().toISOString()
+    });
+  }
+
+  buildCommunityWelcomeText({ multiple = false } = {}) {
+    return multiple
+      ? [
+          "欢迎几位新朋友来到 SpaceX、AI、Robot！",
+          "",
+          "这里不是单向信息流，更像一个共同研究的小组：大家可以分享视频、报告、论文、新闻，也可以直接抛问题和判断。",
+          "小椰会帮忙整理重点、归纳讨论线索，把有价值的信息沉淀下来。"
+        ].join("\n")
+      : [
+          "欢迎新朋友来到 SpaceX、AI、Robot！",
+          "",
+          "这里不是单向信息流，更像一个共同研究的小组：大家可以分享视频、报告、论文、新闻，也可以直接抛问题和判断。",
+          "小椰会帮忙整理重点、归纳讨论线索，把有价值的信息沉淀下来。"
+        ].join("\n");
+  }
+
+  buildCommunityIdlePrompt() {
+    const prompts = [
+      [
+        "今天可以先抛一个小问题：",
+        "",
+        "如果只看未来 3-5 年，SpaceX 真正外溢到产业链的能力，最先会体现在发射频率、制造体系，还是轨道服务？",
+        "",
+        "这个问题不需要有标准答案，大家可以按自己的观察来聊。"
+      ].join("\n"),
+      [
+        "换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：",
+        "",
+        "如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？",
+        "",
+        "我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。"
+      ].join("\n"),
+      [
+        "今天留一个适合一起拆的问题：",
+        "",
+        "AI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？",
+        "",
+        "如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。"
+      ].join("\n")
+    ];
+    const hour = new Date().getHours();
+    const index = hour < 12 ? 0 : hour < 19 ? 1 : 2;
+    return prompts[index];
+  }
+
+  async runCommunityOpsIdleCheck() {
+    const chatIds = await this.communityOpsChatIds();
+    for (const chatId of chatIds) {
+      if (!(await this.canSendCommunityOpsPrompt(chatId))) continue;
+      const recent = await this.storage.getRecentMessages(platformId(chatId), 12);
+      const latest = recent[0];
+      const idleMs = latest?.created_at || latest?.createdAt
+        ? Date.now() - new Date(latest.created_at || latest.createdAt).getTime()
+        : Number.POSITIVE_INFINITY;
+      const idleMinutes = Math.max(30, Number(this.config.feishuCommunityOpsIdleMinutes || process.env.FEISHU_COMMUNITY_OPS_IDLE_MINUTES || 120));
+      if (idleMs < idleMinutes * 60 * 1000) continue;
+      await this.sendTextToChat(chatId, this.buildCommunityIdlePrompt());
+      await this.markCommunityOpsPromptSent(chatId);
+      logEvent("info", "Feishu community ops idle prompt sent", { chatId, idleMinutes });
+    }
+  }
+
+  async handleCommunityMemberAdded(payload = {}) {
+    const event = payload.event || payload;
+    const chatId = rawFeishuChatId(
+      event.chat_id ||
+      event.open_chat_id ||
+      event.chat?.chat_id ||
+      event.chat?.open_chat_id ||
+      event.operator?.chat_id ||
+      ""
+    );
+    if (!chatId || !(await this.isCommunityOpsChat(chatId))) return;
+    const members = [
+      ...(Array.isArray(event.users) ? event.users : []),
+      ...(Array.isArray(event.members) ? event.members : []),
+      ...(Array.isArray(event.member_list) ? event.member_list : [])
+    ];
+    const multiple = members.length > 1;
+    await this.sendTextToChat(chatId, this.buildCommunityWelcomeText({ multiple }));
+    logEvent("info", "Feishu community ops welcome sent", { chatId, members: members.length || 1 });
+  }
+
+  async maybeHandleCommunityPassiveMessage({ chatId = "", userId = "", text = "", message = {} } = {}) {
+    if (!(await this.isCommunityOpsChat(chatId))) return false;
+    const hasUrl = /https?:\/\/\S+/i.test(String(text || "")) || this.extractUrlsFromFeishuMessage(message).length > 0;
+    if (!hasUrl) return false;
+    const state = await this.communityOpsDailyState(chatId);
+    if (Number(state.linkHints || 0) >= 2) return false;
+    if (state.lastLinkHintAt && Date.now() - Date.parse(state.lastLinkHintAt) < 3 * 60 * 60 * 1000) return false;
+    await this.sendTextToChat(rawFeishuChatId(chatId), [
+      "这条资料可以先放进研究线索里。",
+      "",
+      "更值得看的不是单条信息本身，而是它指向了哪个技术节点、产业链环节，或者后续需要验证的变化。"
+    ].join("\n"));
+    await this.saveCommunityOpsDailyState(chatId, {
+      ...state,
+      linkHints: Number(state.linkHints || 0) + 1,
+      lastLinkHintAt: new Date().toISOString()
+    });
+    logEvent("info", "Feishu community ops link hint sent", { chatId: rawFeishuChatId(chatId), userId });
+    return true;
+  }
+
+  feishuWebSearchCardsEnabled() {
+    return Boolean(this.config.feishuWebSearchCardsEnabled) || configBoolean(process.env.FEISHU_WEB_SEARCH_CARDS_ENABLED, false);
   }
 
   setupRoutes(app) {
@@ -3959,6 +4162,16 @@ export class FeishuBot {
   enqueueEvent(payload) {
     if (!this.enabled) return;
     const eventType = payload?.header?.event_type || payload?.type || "";
+    if (/im\.chat\.member.*(?:added|add)|chat_member.*(?:added|add)/i.test(eventType)) {
+      const eventId = payload?.header?.event_id || payload?.uuid || "";
+      if (eventId) {
+        if (this.seenMessageIds.has(eventId)) return;
+        this.seenMessageIds.add(eventId);
+      }
+      this.handleCommunityMemberAdded(payload)
+        .catch((error) => console.error("Feishu community member event failed:", error.message));
+      return;
+    }
     if (eventType !== "im.message.receive_v1") return;
 
     const message = payload?.event?.message;
@@ -4048,6 +4261,15 @@ export class FeishuBot {
       selfieRequest.requested ||
       projectRequest ||
       this.config.triggerMode === "all";
+    if (!explicitReply && chatType !== "p2p") {
+      const handledByCommunityOps = await this.maybeHandleCommunityPassiveMessage({
+        chatId,
+        userId,
+        text: rawMessageText || rawText,
+        message
+      });
+      if (handledByCommunityOps) return;
+    }
     if (!explicitReply && chatType !== "p2p" && mentionInfo.mentionedOtherOnly) {
       logEvent("info", "Feishu group message mentioned another user; skipped smart reply", {
         messageId: message.message_id || "",
@@ -6676,14 +6898,21 @@ export class FeishuBot {
       logEvent("info", "Feishu web search started", { chatId, userId, query: request.query, freshness: request.freshness });
       const search = await this.webSearch.search(request.query, { freshness: request.freshness });
       const summary = await this.generateWebSearchSummary(request.query, search.results);
-      const card = await this.buildWebSearchCard({ query: request.query, search, summary });
-      await this.replyCard(messageId, card);
+      const sendCard = this.feishuWebSearchCardsEnabled();
+      if (sendCard) {
+        const card = await this.buildWebSearchCard({ query: request.query, search, summary });
+        await this.replyCard(messageId, card);
+      } else {
+        await this.replyText(messageId, this.formatWebSearchText({ query: request.query, results: search.results, summary }));
+      }
       await this.storage.addMessage({
         chatId,
         userId,
         role: "assistant",
-        modality: "card",
-        content: `联网资料卡：${request.query}\n${summary}`,
+        modality: sendCard ? "card" : "text",
+        content: sendCard
+          ? `联网资料卡：${request.query}\n${summary}`
+          : this.formatWebSearchText({ query: request.query, results: search.results, summary }),
         metadata: {
           platform: "feishu",
           replyToUserId: userId,
@@ -6691,7 +6920,12 @@ export class FeishuBot {
           resultCount: search.results.length
         }
       });
-      logEvent("info", "Feishu web search card sent", { chatId, query: request.query, results: search.results.length });
+      logEvent("info", "Feishu web search sent", {
+        chatId,
+        query: request.query,
+        results: search.results.length,
+        card: sendCard
+      });
     } catch (error) {
       logEvent("error", "Feishu web search failed", { chatId, query: request.query, error: error.message });
       await this.replyText(messageId, `\u6211\u521a\u521a\u641c\u4e86\u4e00\u4e0b\uff0c\u4f46\u6ca1\u628a\u7ed3\u679c\u6574\u7406\u51fa\u6765\uff1a${truncate(error.message, 500)}`);
@@ -6741,14 +6975,22 @@ export class FeishuBot {
         index: index + 1
       }))
     };
-    const card = await this.buildWebSearchCard({ query: query || "今天 GitHub 热门仓库 Top 3", search, summary });
-    await this.replyCard(messageId, card);
+    const displayQuery = query || "今天 GitHub 热门仓库 Top 3";
+    const sendCard = this.feishuWebSearchCardsEnabled();
+    if (sendCard) {
+      const card = await this.buildWebSearchCard({ query: displayQuery, search, summary });
+      await this.replyCard(messageId, card);
+    } else {
+      await this.replyText(messageId, this.formatWebSearchText({ query: displayQuery, results: search.results, summary }));
+    }
     await this.storage.addMessage({
       chatId,
       userId,
       role: "assistant",
-      modality: "card",
-      content: `GitHub 热门仓库 Top 3\n${summary}`,
+      modality: sendCard ? "card" : "text",
+      content: sendCard
+        ? `GitHub 热门仓库 Top 3\n${summary}`
+        : this.formatWebSearchText({ query: displayQuery, results: search.results, summary }),
       metadata: {
         platform: "feishu",
         replyToUserId: userId,
@@ -6756,7 +6998,11 @@ export class FeishuBot {
         resultCount: repos.length
       }
     });
-    logEvent("info", "Feishu GitHub trending card sent", { chatId, results: repos.length });
+    logEvent("info", "Feishu GitHub trending sent", {
+      chatId,
+      results: repos.length,
+      card: sendCard
+    });
   }
 
   async fetchGithubTrendingRepos(limit = 3) {
@@ -8628,6 +8874,21 @@ export class FeishuBot {
       });
       return false;
     }
+  }
+
+  formatWebSearchText({ query = "", results = [], summary = "" } = {}) {
+    const sources = (results || []).slice(0, 3).map((item, index) => {
+      const title = cardText(item.title || item.siteName || item.url || `来源 ${index + 1}`, 80);
+      const url = String(item.url || item.displayUrl || "").trim();
+      return `${index + 1}. ${title}${url ? `\n${url}` : ""}`;
+    });
+    return compactLines([
+      `我刚刚查了一下：${query}`,
+      "",
+      summary || this.fallbackWebSearchSummary(results),
+      sources.length ? "\n可参考来源：" : "",
+      sources.join("\n")
+    ]);
   }
 
   async notifyArticleGroup({ title = "", url = "", sourceType = "", markdown = "" } = {}) {

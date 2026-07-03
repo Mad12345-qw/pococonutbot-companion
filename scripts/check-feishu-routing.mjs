@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { extractImageGenerationIntent } from "../src/image-intent.js";
 import { FeishuBot } from "../src/feishu.js";
-import { FeishuWorkspaceClient, buildFeishuArticleGroupPrelude, feishuYoutubeThumbnailUrl, withFeishuArticleGroupPrelude } from "../src/feishu-workspace.js";
+import { DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, FeishuWorkspaceClient, buildFeishuArticleGroupPrelude, feishuYoutubeThumbnailUrl, withFeishuArticleGroupPrelude } from "../src/feishu-workspace.js";
 import { isProjectCreateRequest } from "../src/project-engine.js";
 import { getReplyDeliveryPreference } from "../src/utils.js";
 import { WeChatPublisher } from "../src/wechat-publisher.js";
@@ -26,7 +26,9 @@ bot.config = {
   ownerUserIds: []
 };
 bot.storage = {
-  getSetting: async (_key, fallback) => fallback
+  getSetting: async (_key, fallback) => fallback,
+  setSetting: async () => {},
+  getRecentMessages: async () => []
 };
 
 function classify(text, options = {}) {
@@ -154,6 +156,96 @@ assertEqual(
     !articleGroupTtsText.includes("YouTube 精读已生成") &&
     !articleGroupTtsText.includes("https://feishu.example")
   ),
+  "true"
+);
+const communityOpsSettings = new Map();
+const communityOpsSent = [];
+bot.config.feishuCommunityOpsChatIds = [DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID];
+bot.config.feishuCommunityOpsDailyPromptLimit = 3;
+bot.config.feishuWebSearchCardsEnabled = false;
+bot.storage = {
+  getSetting: async (key, fallback) => communityOpsSettings.get(key) ?? fallback,
+  setSetting: async (key, value) => {
+    communityOpsSettings.set(key, value);
+  },
+  getRecentMessages: async () => []
+};
+bot.sendTextToChat = async (chatId, text) => {
+  communityOpsSent.push({ chatId, text });
+  return { message_id: `om_${communityOpsSent.length}` };
+};
+await bot.handleCommunityMemberAdded({
+  header: { event_type: "im.chat.member.user.added_v1" },
+  event: {
+    chat_id: DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID,
+    users: [{ user_id: "ou_new" }]
+  }
+});
+assertEqual(
+  "community ops welcomes only the configured research group with decentralized wording",
+  String(
+    communityOpsSent.length === 1 &&
+    communityOpsSent[0].chatId === DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID &&
+    communityOpsSent[0].text.includes("SpaceX、AI、Robot") &&
+    communityOpsSent[0].text.includes("共同研究的小组") &&
+    !communityOpsSent[0].text.includes("小椰产业观察群")
+  ),
+  "true"
+);
+await bot.handleCommunityMemberAdded({
+  header: { event_type: "im.chat.member.user.added_v1" },
+  event: {
+    chat_id: "oc_other_group",
+    users: [{ user_id: "ou_new" }]
+  }
+});
+assertEqual(
+  "community ops ignores non-whitelisted Feishu groups",
+  String(communityOpsSent.length),
+  "1"
+);
+await bot.maybeHandleCommunityPassiveMessage({
+  chatId: `feishu:${DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID}`,
+  userId: "feishu:ou_test",
+  text: "这篇资料不错 https://example.com/report",
+  message: { content: JSON.stringify({ text: "https://example.com/report" }), message_type: "text" }
+});
+assertEqual(
+  "community ops lightly nudges shared links into research clues",
+  String(
+    communityOpsSent.length === 2 &&
+    communityOpsSent[1].text.includes("研究线索") &&
+    communityOpsSent[1].text.includes("产业链环节")
+  ),
+  "true"
+);
+let webSearchReplyText = "";
+let webSearchCardCount = 0;
+bot.webSearch = {
+  enabled: true,
+  search: async () => ({
+    results: [
+      { title: "Example source", url: "https://example.com/source", summary: "source summary", snippet: "", siteName: "Example", index: 1 }
+    ]
+  })
+};
+bot.generateWebSearchSummary = async () => "这里是文字版搜索摘要。";
+bot.replyText = async (_messageId, text) => {
+  webSearchReplyText = text;
+};
+bot.replyCard = async () => {
+  webSearchCardCount += 1;
+};
+bot.storage.addMessage = async () => {};
+await bot.handleWebSearchRequest({
+  messageId: "om_search",
+  chatId: `feishu:${DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID}`,
+  userId: "feishu:ou_test",
+  request: { query: "机器人帮助文档", freshness: "noLimit" }
+});
+assertEqual(
+  "Feishu web search sends text instead of the deprecated reference card by default",
+  String(webSearchCardCount === 0 && webSearchReplyText.includes("我刚刚查了一下") && webSearchReplyText.includes("可参考来源")),
   "true"
 );
 const wechatActions = bot.wechatPublishActions({ id: "candidate-test" });
