@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T07:18:40.646Z",
+  "exportedAt": "2026-07-03T07:28:39.796Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -58940,6 +58940,138 @@
           }
         },
         "createdAt": "2026-07-03T07:17:21.578Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片 OCR 上下文\n\n## 主体书籍（画面中央，红色封面）\n\n**《养龙虾：OpenClaw 与 AI 智能体时代》**\n- 作者：杜南 著\n- 作序：朱嘉明\n- 副标题：AI 智能体如何重塑我们的工作、生活与未来\n- 宣传语：\n  - \"人人都能养的 AI 龙虾\"\n  - \"每个人的 AI 必备技能\"\n  - \"能赚钱、能提效 普通人也能抓住 AI 红利\"\n- 出版社：中国出版集团 · 中译出版社\n- 封面有红色卡通龙虾吉祥物\n\n## 周围可见的其他书籍\n\n1. **《硬道理：上市公司高质量发展的十项修炼》**——宋志平 著，机械工业出版社\n   - 上架有\"上市公司总裁研修班\"\"上海高级金融学院\"等培训项目宣传\n2. **《硬道理》（上下卷）**：上卷\"上海诞生的中国式现代化\"，下卷\"上海诞生的世界级企业与制度创新\"\n3. **《反内卷》**（上下卷）——宋志平 著，刘俏荐读\n4. **《重塑商业》**（红色封面，部分被遮挡）：\"给商业人士的醒脑之作 / 给商学读者的叩门之选\"\n5. **《生物（学？）》**（粉紫色封面，标题部分被遮挡）\n6. **《投资中，我相信的事》**——孟岩 著（蓝色封面，两本）\n7. **《龙虾养成记：从零掌握 AI 智能体实操入门》**——李尚龙 著，清华大学出版社\n8. **《底层逻辑》**（白色封面，蓝色大字）——刘润 著，副标题\"理解商业...\"（部分被遮挡）\n9. **《The Underlying L...》**（英文书，标题被遮挡）\n10. **《数学思...》**（底部，部分被遮挡）\n\n## 场景\n书店或书展展台画面，以《养龙虾：OpenClaw 与 AI 智能体时代》为视觉中心，周围陈列多本商业管理、AI、财经类畅销书。\n\n## 关键词索引\nOpenClaw、AI 智能体、龙虾、杜南、朱嘉明、李尚龙、养龙虾、硬道理、反内卷、重塑商业、底层逻辑、孟岩、宋志平",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b426335f858b2ec1e397d3f697",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "# 图片 OCR 上下文\n\n## 主体书籍（画面中央，红色封面）\n\n**《养龙虾：OpenClaw 与 AI 智能体时代》**\n- 作者：杜南 著\n- 作序：朱嘉明\n- 副标题：AI 智能体如何重塑我们的工作、生活与未来\n- 宣传语：\n  - \"人人都能养的 AI 龙虾\"\n  - \"每个人的 AI 必备技能\"\n  - \"能赚钱、能提效 普通人也能抓住 AI 红利\"\n- 出版社：中国出版集团 · 中译出版社\n- 封面有红色卡通龙虾吉祥物\n\n## 周围可见的其他书籍\n\n1. **《硬道理：上市公司高质量发展的十项修炼》**——宋志平 著，机械工业出版社\n   - 上架有\"上市公司总裁研修班\"\"上海高级金融学院\"等培训项目宣传\n2. **《硬道理》（上下卷）**：上卷\"上海诞生的中国式现代化\"，下卷\"上海诞生的世界级企业与制度创新\"\n3. **《反内卷》**（上下卷）——宋志平 著，刘俏荐读\n4. **《重塑商业》**（红色封面，部分被遮挡）：\"给商业人士的醒脑之作 / 给商学读者的叩门之选\"\n5. **《生物（学？）》**（粉紫色封面，标题部分被遮挡）\n6. **《投资中，我相信的事》**——孟岩 著（蓝色封面，两本）\n7. **《龙虾养成记：从零掌握 AI 智能体实操入门》**——李尚龙 著，清华大学出版社\n8. **《底层逻辑》**（白色封面，蓝色大字）——刘润 著，副标题\"理解商业...\"（部分被遮挡）\n9. **《The Underlying L...》**（英文书，标题被遮挡）\n10. **《数学思...》**（底部，部分被遮挡）\n\n## 场景\n书店或书展展台画面，以《养龙虾：OpenClaw 与 AI 智能体时代》为视觉中心，周围陈列多本商业管理、AI、财经类畅销书。\n\n## 关键词索引\nOpenClaw、AI 智能体、龙虾、杜南、朱嘉明、李尚龙、养龙虾、硬道理、反内卷、重塑商业、底层逻辑、孟岩、宋志平",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T07:21:27.394Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "笑死，这书名起得真有网感哈哈\n\"养龙虾\"三个字直接戳普通人——AI智能体听着高冷，养只龙虾就接地气了，朱嘉明作序也挺有排面 👀",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-03T07:21:36.465Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "龙哥什么时候出书",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b426075e0a8b1bc7a76fddb316",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T07:22:07.170Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "前段时间真有一个人联系我  让我出钱5万块 帮我全部搞定什么版号  编排 发行商     我自己都没研究明白呢  怎么能误人子弟",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b427de634a0c23bfddfe915b9c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T07:22:33.182Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "我觉得作为入门教程问题不大，而且有商业变现模式。就是投资有点大[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b420ec87c84b20cf315e9e3f9e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T07:25:58.715Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "宝妈收割机",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b420e7064b4b2fa64958d8cffa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T07:26:09.957Z"
       }
     ],
     "memories": [
@@ -61901,7 +62033,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-02T17:13:55.645Z"
+        "updatedAt": "2026-07-03T07:26:09.890Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -61911,7 +62043,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-02T17:13:55.561Z"
+        "updatedAt": "2026-07-03T07:26:09.822Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -62551,7 +62683,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-01T16:15:01.403Z"
+        "updatedAt": "2026-07-03T07:22:33.115Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -62561,7 +62693,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-01T16:15:01.330Z"
+        "updatedAt": "2026-07-03T07:22:33.043Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
