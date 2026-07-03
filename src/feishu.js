@@ -1640,6 +1640,65 @@ function buildYoutubeTitleContextPartFromEvidenceBrief(evidenceBrief = {}, repor
   };
 }
 
+function buildYoutubeGlossaryPartFromEvidenceBrief(evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  return {
+    glossary: source.glossarySeeds.slice(0, 8).map((item) => ({
+      term: item.term,
+      explanation: item.plainMeaning || `这是视频中反复出现的核心对象，后文会围绕它解释证据和判断。`
+    })).filter((item) => item.term && item.explanation)
+  };
+}
+
+function buildYoutubeCorePartFromEvidenceBrief(evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  const claims = source.evidenceClaims.slice(0, 8);
+  return {
+    oneSentence: source.thesis,
+    corePoints: claims.slice(0, 6).map((item, index) => ({
+      title: item.claim || `关键判断 ${index + 1}`,
+      evidence: item.timestamp ? `[${item.timestamp}] ${item.quote}` : item.quote,
+      why: item.whyItMatters || "这条证据决定了读者应该如何理解视频里的核心判断。",
+      takeaway: "先看证据，再看结论，避免把视频信息误读成空泛观点。"
+    })).filter((item) => item.title && item.evidence),
+    quotes: claims.slice(0, 4).map((item, index) => ({
+      title: `原文证据 ${index + 1}`,
+      original: item.quote,
+      meaning: item.whyItMatters || item.claim,
+      implication: "好判断必须能回到原文证据，而不是只停留在概括。"
+    })).filter((item) => item.original),
+    counterintuitive: claims.slice(0, 3).map((item) =>
+      `容易被忽略的是：${item.whyItMatters || item.claim}`
+    ).filter(Boolean)
+  };
+}
+
+function buildYoutubeTechPartFromEvidenceBrief(evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  const claims = source.evidenceClaims.slice(0, 8);
+  const techPoints = claims.slice(0, 6).map((item, index) => ({
+    name: source.backgroundAnchors[index] || item.claim || `关键技术点 ${index + 1}`,
+    says: item.quote || item.claim,
+    importance: item.whyItMatters || "它决定了后文判断是否站得住。",
+    risk: "仍需要结合完整视频上下文和外部资料验证边界条件。"
+  })).filter((item) => item.name && item.says);
+  return {
+    techPoints,
+    detailSections: [
+      {
+        title: "证据链如何支撑主判断",
+        bullets: claims.slice(0, 4).map((item) =>
+          `${item.timestamp ? `[${item.timestamp}] ` : ""}${item.claim}：${item.whyItMatters || "这条证据帮助限定正文判断的边界。"}`
+        ).filter(Boolean)
+      },
+      {
+        title: "读者需要注意的边界",
+        bullets: source.questionSeeds.slice(0, 4).map((item) => `后续仍要追问：${item}`)
+      }
+    ].filter((section) => section.bullets.length)
+  };
+}
+
 function structuredArticleFallbackTitle(article = {}, report = {}) {
   const title = cleanYoutubeDocumentTitle(article.title || "");
   if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
@@ -6495,7 +6554,22 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1600),
       temperature: 0.15
-    })));
+    }))).catch(async (error) => {
+      const data = buildYoutubeGlossaryPartFromEvidenceBrief(evidenceBrief, { topic, videos });
+      if (data.glossary.length < 3) throw error;
+      await persistArticlePart("glossary", {
+        status: "done",
+        data,
+        source: "evidenceBrief",
+        modelError: truncate(error.message, 500)
+      });
+      logEvent("warn", "YouTube article glossary rebuilt from evidence brief after model response failure", {
+        part: "glossary",
+        terms: data.glossary.length,
+        error: truncate(error.message, 500)
+      });
+      return data;
+    });
     const corePartPromise = runCachedArticlePart("core", "article core arguments", () => this.ai.chat([
       {
         role: "system",
@@ -6534,7 +6608,23 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 2400),
       temperature: 0.2
-    })));
+    }))).catch(async (error) => {
+      const data = buildYoutubeCorePartFromEvidenceBrief(evidenceBrief, { topic, videos });
+      if (data.corePoints.length < 3 || data.quotes.length < 1) throw error;
+      await persistArticlePart("core", {
+        status: "done",
+        data,
+        source: "evidenceBrief",
+        modelError: truncate(error.message, 500)
+      });
+      logEvent("warn", "YouTube article core rebuilt from evidence brief after model response failure", {
+        part: "core",
+        corePoints: data.corePoints.length,
+        quotes: data.quotes.length,
+        error: truncate(error.message, 500)
+      });
+      return data;
+    });
     const techPartPromise = runCachedArticlePart("tech", "article technical sections", () => this.ai.chat([
       {
         role: "system",
@@ -6568,7 +6658,23 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 3000),
       temperature: 0.2
-    })));
+    }))).catch(async (error) => {
+      const data = buildYoutubeTechPartFromEvidenceBrief(evidenceBrief, { topic, videos });
+      if (data.techPoints.length < 2 || data.detailSections.length < 1) throw error;
+      await persistArticlePart("tech", {
+        status: "done",
+        data,
+        source: "evidenceBrief",
+        modelError: truncate(error.message, 500)
+      });
+      logEvent("warn", "YouTube article tech sections rebuilt from evidence brief after model response failure", {
+        part: "tech",
+        techPoints: data.techPoints.length,
+        detailSections: data.detailSections.length,
+        error: truncate(error.message, 500)
+      });
+      return data;
+    });
     const timelinePartPromise = runCachedArticlePart("timeline", "article timeline", () => this.ai.chat([
       {
         role: "system",

@@ -2411,6 +2411,65 @@ assertEqual(
   "true"
 );
 
+let secondarySlotFailureCalls = 0;
+let secondarySlotFailurePrompts = 0;
+bot.ai = {
+  chat: async (messages = []) => {
+    secondarySlotFailureCalls += 1;
+    const allContent = messages.map((message) => String(message?.content || "")).join("\n");
+    const userContent = String(messages.at(-1)?.content || "");
+    if (allContent.includes("Focus only on article thesis")) {
+      return JSON.stringify({
+        thesis: hlsEvidenceBrief.thesis,
+        titleAngles: hlsEvidenceBrief.titleAngles,
+        narrativeConflict: hlsEvidenceBrief.narrativeConflict,
+        backgroundAnchors: hlsEvidenceBrief.backgroundAnchors
+      });
+    }
+    if (allContent.includes("Focus only on beginner glossary terms")) {
+      return JSON.stringify({
+        glossarySeeds: hlsEvidenceBrief.glossarySeeds,
+        evidenceClaims: hlsEvidenceBrief.evidenceClaims
+      });
+    }
+    if (userContent.includes("fixed title/background schema")) return JSON.stringify(hlsOpeningPart);
+    if (
+      userContent.includes("fixed glossary schema") ||
+      userContent.includes("fixed core schema") ||
+      userContent.includes("fixed technical schema")
+    ) {
+      secondarySlotFailurePrompts += 1;
+      throw new Error("primary AI API response did not contain text");
+    }
+    if (userContent.includes("fixed timeline/question schema")) return JSON.stringify(hlsTimelinePart);
+    throw new Error("unexpected secondary slot failure prompt");
+  }
+};
+const secondarySlotFailureDoc = await bot.generateYoutubeResearchMarkdown({
+  topic: "Starship HLS",
+  request: { raw: "https://youtu.be/test" },
+  videos: [{
+    title: "100 times heavier",
+    channel: "Test Channel",
+    language: "en",
+    url: "https://www.youtube.com/watch?v=testhls",
+    transcriptText: "[0:00] 100 times heavier.\n[1:20] 12 or more launches.\n[3:40] LEO refueling.\n[6:10] high mounted landing thrusters.\n[8:30] self leveling legs.\n[10:00] mission chain."
+  }]
+});
+assertEqual(
+  "youtube structured pipeline rebuilds failed glossary core and tech slots from evidence brief",
+  String(
+    secondarySlotFailureCalls === 7 &&
+    secondarySlotFailurePrompts === 3 &&
+    secondarySlotFailureDoc.includes("## 一、关键术语解释") &&
+    secondarySlotFailureDoc.includes("### 核心观点") &&
+    secondarySlotFailureDoc.includes("## 五、详细技术拆解") &&
+    secondarySlotFailureDoc.includes("100 times heavier") &&
+    !secondarySlotFailureDoc.includes("YouTube 技术笔记")
+  ),
+  "true"
+);
+
 let emptyArticleSlotCalls = 0;
 bot.ai = {
   chat: async (messages = []) => {
