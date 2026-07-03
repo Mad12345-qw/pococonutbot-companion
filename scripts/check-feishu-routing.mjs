@@ -142,8 +142,10 @@ assertEqual(
   "Feishu article group notification starts with a discussion prompt instead of invite copy",
   String(
     articleGroupNotificationText.includes("新整理了一篇 SpaceX / 商业航天 精读") &&
-    articleGroupNotificationText.includes("火星使命不只是愿景口号") &&
-    articleGroupNotificationText.includes("这个判断成立吗") &&
+    articleGroupNotificationText.includes("为什么SpaceX把火星使命改写成新航天市场规则") &&
+    articleGroupNotificationText.includes("欢迎直接补充证据、反例") &&
+    !articleGroupNotificationText.includes("火星使命不只是愿景口号") &&
+    !articleGroupNotificationText.includes("这个判断成立吗") &&
     !articleGroupNotificationText.includes("我觉得这个问题挺适合从技术、产业链和资本叙事三个角度一起看。大家怎么看？") &&
     !articleGroupNotificationText.includes("加入我们")
   ),
@@ -153,6 +155,7 @@ assertEqual(
   "Feishu article group TTS only reads the discussion prompt",
   String(
     articleGroupTtsText.includes("新整理了一篇 SpaceX / 商业航天 精读") &&
+    articleGroupTtsText.includes("为什么SpaceX把火星使命改写成新航天市场规则") &&
     !articleGroupTtsText.includes("我觉得这个问题挺适合从技术、产业链和资本叙事三个角度一起看。大家怎么看？") &&
     !articleGroupTtsText.includes("YouTube 精读已生成") &&
     !articleGroupTtsText.includes("https://feishu.example")
