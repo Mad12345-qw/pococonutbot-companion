@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-03T09:48:39.792Z",
+  "exportedAt": "2026-07-03T10:08:40.540Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -59108,6 +59108,49 @@
           "replyToUserId": "feishu:ou_30b79e9d4fd79129b10eccea8d28f7d6"
         },
         "createdAt": "2026-07-03T09:45:36.248Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\nhttps://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b4c306768a8b48ec6741d7764d",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-03T09:59:12.363Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\n[Link content]\n[Web page] https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\n【飞行社】AI 搜索时代的 GEO 变现完全手册 \n \n \n 飞行社\n \n 首页 \n \n\n \n 课程 \n 知识 \n 模板 \n 频道 \n 活动 \n 首页\n\n \n\n 课程\n\n 知识\n\n 模板\n\n 频道\n\n 活动\n\n 更多 \n\n \n \n \n \n\n \n\n 加载中\n\n \n \n \n 1 \n\n \n 29 \n\n 分享 \n\n \n \n \n 1 天前 \n 收藏 \n\n \n 讨论区\n \n\n \n 0 /2000 \n \n \n\n \n\n \n -->",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b4c306768a8b48ec6741d7764d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "[Web page] https://www.feishu.cn/community/prompts?id=7657887833063050426&from=ug_from_subscribe_update\n【飞行社】AI 搜索时代的 GEO 变现完全手册 \n \n \n 飞行社\n \n 首页 \n \n\n \n 课程 \n 知识 \n 模板 \n 频道 \n 活动 \n 首页\n\n \n\n 课程\n\n 知识\n\n 模板\n\n 频道\n\n 活动\n\n 更多 \n\n \n \n \n \n\n \n\n 加载中\n\n \n \n \n 1 \n\n \n 29 \n\n 分享 \n\n \n \n \n 1 天前 \n 收藏 \n\n \n 讨论区\n \n\n \n 0 /2000 \n \n \n\n \n\n \n -->",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-03T09:59:13.783Z"
       }
     ],
     "memories": [
@@ -62739,7 +62782,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-03T07:22:33.115Z"
+        "updatedAt": "2026-07-03T09:59:13.724Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -62749,7 +62792,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-03T07:22:33.043Z"
+        "updatedAt": "2026-07-03T09:59:13.649Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
