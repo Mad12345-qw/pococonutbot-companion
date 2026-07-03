@@ -1121,6 +1121,36 @@ function buildYoutubeGenerationAnchors(videos = [], topic = "") {
   ]);
 }
 
+function buildYoutubeBoundedEvidenceSource(videos = [], maxChars = 12000) {
+  const chunks = [];
+  let chars = 0;
+  const push = (line = "") => {
+    const text = String(line || "").trim();
+    if (!text) return false;
+    if (chars + text.length + 1 > maxChars) return false;
+    chunks.push(text);
+    chars += text.length + 1;
+    return true;
+  };
+  for (const [index, video] of videos.slice(0, 3).entries()) {
+    push(`Video ${index + 1}: ${video.title || ""}`);
+    if (video.url) push(`URL: ${video.url}`);
+    if (video.channel) push(`Channel: ${video.channel}`);
+    if (video.language) push(`Transcript language: ${video.language}`);
+    const lines = transcriptIndexLines(video.transcriptText || "");
+    if (!lines.length) continue;
+    push("Selected timestamp evidence:");
+    const selected = [];
+    for (const line of lines.slice(0, 30)) selected.push(line);
+    const stride = Math.max(1, Math.floor(lines.length / 30));
+    for (let i = 30; i < lines.length && selected.length < 60; i += stride) selected.push(lines[i]);
+    for (const line of selected) {
+      if (!push(`- ${line}`)) return chunks.join("\n");
+    }
+  }
+  return chunks.join("\n");
+}
+
 function extractJsonObject(text = "") {
   const raw = String(text || "").trim()
     .replace(/^```(?:json)?\s*/i, "")
@@ -5616,15 +5646,7 @@ export class FeishuBot {
       retryAttempts: this.config.youtubeResearchAiRetryAttempts || 3,
       timeoutMs: this.config.youtubeResearchAiTimeoutMs || this.config.aiTimeoutMs || 120000
     });
-    const sourceText = videos.map((video, index) => compactLines([
-      `Video ${index + 1}: ${video.title}`,
-      `URL: ${video.url}`,
-      video.channel ? `Channel: ${video.channel}` : "",
-      video.language ? `Transcript language: ${video.language}` : "",
-      video.lengthText ? `Length: ${video.lengthText}` : "",
-      "Transcript:",
-      truncate(video.transcriptText, this.config.youtubeResearchMaxTranscriptChars || 60000)
-    ])).join("\n\n---\n\n");
+    const sourceText = buildYoutubeBoundedEvidenceSource(videos, 12000);
     const cacheSourceUrl = options.sourceUrl || request.videoUrl || request.channelUrl || request.playlistUrl || request.query || videos[0]?.url || "";
     const cacheSourceKey = youtubeArticlePartsSourceKey(cacheSourceUrl);
     let articlePartCache = isFreshYoutubeArticlePartsCache(options.youtubeArticleParts, cacheSourceKey)
