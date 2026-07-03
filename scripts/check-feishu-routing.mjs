@@ -1334,7 +1334,16 @@ assertEqual(
 assertEqual(
   "YouTube Feishu documents can derive a stable thumbnail URL for document cover placement",
   feishuYoutubeThumbnailUrl("https://youtu.be/E7MQb9Y4FAE?si=Qwp_G2Nc9Gl2ht_2"),
-  "https://i.ytimg.com/vi/E7MQb9Y4FAE/hqdefault.jpg"
+  "https://i.ytimg.com/vi/E7MQb9Y4FAE/maxresdefault.jpg"
+);
+assertEqual(
+  "YouTube Feishu document cover avoids low-resolution hqdefault fallback",
+  String(
+    feishuWorkspaceSource.includes("maxresdefault.jpg") &&
+    feishuWorkspaceSource.includes("sddefault.jpg") &&
+    !feishuWorkspaceSource.includes("hqdefault.jpg")
+  ),
+  "true"
 );
 assertEqual(
   "YouTube Feishu document publishing passes sourceUrl into real DocX cover application",

@@ -81,7 +81,17 @@ export function feishuYoutubeVideoIdFromUrl(value = "") {
 export function feishuYoutubeThumbnailUrl(sourceUrl = "") {
   const videoId = feishuYoutubeVideoIdFromUrl(sourceUrl);
   if (!videoId) return "";
-  return `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+  return `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/maxresdefault.jpg`;
+}
+
+export function feishuYoutubeCoverImageUrls(sourceUrl = "") {
+  const videoId = feishuYoutubeVideoIdFromUrl(sourceUrl);
+  if (!videoId) return [];
+  const encoded = encodeURIComponent(videoId);
+  return [
+    `https://i.ytimg.com/vi/${encoded}/maxresdefault.jpg`,
+    `https://i.ytimg.com/vi/${encoded}/sddefault.jpg`
+  ];
 }
 
 export function buildFeishuArticleGroupPrelude(config = {}) {
@@ -115,10 +125,10 @@ function feishuArticleGroupChatCardIndex(markdown = "") {
   return /^#\s+/.test(lines[0] || "") ? 2 : 1;
 }
 
-function resolveDocumentCoverImageUrl({ coverImageUrl = "", sourceUrl = "" } = {}) {
+function resolveDocumentCoverImageUrls({ coverImageUrl = "", sourceUrl = "" } = {}) {
   const explicit = String(coverImageUrl || "").trim();
-  if (/^https?:\/\/\S+$/i.test(explicit)) return explicit;
-  return feishuYoutubeThumbnailUrl(sourceUrl);
+  if (/^https?:\/\/\S+$/i.test(explicit)) return [explicit];
+  return feishuYoutubeCoverImageUrls(sourceUrl);
 }
 
 function extensionFromMimeType(mimeType = "") {
@@ -524,26 +534,30 @@ export class FeishuWorkspaceClient {
   }
 
   async applyDocumentCoverImage({ documentId, coverImageUrl = "", sourceUrl = "" } = {}) {
-    const imageUrl = resolveDocumentCoverImageUrl({ coverImageUrl, sourceUrl });
-    if (!documentId || !imageUrl) return { applied: false, reason: "not_configured" };
-    try {
-      const image = await this.downloadDocumentCoverImage(imageUrl);
-      const token = await this.uploadDocumentCoverImage({ documentId, image });
-      const result = await this.updateDocumentCover({ documentId, token });
-      logEvent("info", "Feishu document cover applied", {
-        documentId,
-        imageUrl,
-        bytes: image.buffer.length
-      });
-      return { ...result, imageUrl, bytes: image.buffer.length };
-    } catch (error) {
-      logEvent("warn", "Feishu document cover skipped", {
-        documentId,
-        imageUrl,
-        error: error.message
-      });
-      return { applied: false, imageUrl, reason: error.message };
+    const imageUrls = resolveDocumentCoverImageUrls({ coverImageUrl, sourceUrl });
+    if (!documentId || !imageUrls.length) return { applied: false, reason: "not_configured" };
+    let lastError = "";
+    for (const imageUrl of imageUrls) {
+      try {
+        const image = await this.downloadDocumentCoverImage(imageUrl);
+        const token = await this.uploadDocumentCoverImage({ documentId, image });
+        const result = await this.updateDocumentCover({ documentId, token });
+        logEvent("info", "Feishu document cover applied", {
+          documentId,
+          imageUrl,
+          bytes: image.buffer.length
+        });
+        return { ...result, imageUrl, bytes: image.buffer.length };
+      } catch (error) {
+        lastError = error.message;
+        logEvent("warn", "Feishu document cover candidate skipped", {
+          documentId,
+          imageUrl,
+          error: error.message
+        });
+      }
     }
+    return { applied: false, imageUrl: imageUrls[0] || "", triedImageUrls: imageUrls, reason: lastError || "no_cover_candidate_available" };
   }
 
   async createWikiDocument({ parentWikiToken, title, markdown, requireRichMarkdown = false, articleGroupSourceType = "", sourceUrl = "", coverImageUrl = "" }) {
