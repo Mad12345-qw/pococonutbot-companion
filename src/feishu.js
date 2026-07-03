@@ -1610,6 +1610,36 @@ function buildYoutubeTimelinePartFromEvidenceBrief(evidenceBrief = {}, report = 
   };
 }
 
+function buildYoutubeTitleContextPartFromEvidenceBrief(evidenceBrief = {}, report = {}) {
+  const source = normalizeYoutubeEvidenceBrief(evidenceBrief, report);
+  const videos = report.videos || [];
+  const firstVideo = videos[0] || {};
+  const rawTitle = cleanYoutubeDocumentTitle(firstVideo.title || report.title || report.topic || "这条视频");
+  const channel = cleanYoutubeArticleText(firstVideo.channel || "", 80);
+  const anchors = source.backgroundAnchors.slice(0, 6);
+  const anchorText = anchors.length ? anchors.join("、") : cleanYoutubeDocumentTitle(report.topic || rawTitle);
+  const evidenceFocus = source.evidenceClaims[0]?.claim || source.timelineSeeds[0]?.event || source.thesis;
+  const title = source.titleAngles.find((item) =>
+    item &&
+    !isWeakYoutubeTitle(item, report.topic || "") &&
+    !looksMostlyEnglish(item)
+  ) || (!isWeakYoutubeTitle(source.thesis, report.topic || "") && !looksMostlyEnglish(source.thesis)
+    ? cleanYoutubeDocumentTitle(source.thesis).slice(0, 80)
+    : youtubeTitleFallback({ ...report, videos }));
+  return {
+    title,
+    contextParagraphs: [
+      `${channel ? `${channel} 的` : ""}《${rawTitle}》把 ${anchorText} 放进同一条问题链里。先抓住这几个对象，再看后面的字幕和证据，读者会更容易理解这条视频真正讨论的是：${source.thesis}`,
+      source.narrativeConflict
+        ? `这篇文章的阅读背景可以先简化成一句话：${source.narrativeConflict} 这也是为什么正文会把术语、核心判断、技术拆解和时间线分开处理，而不是只做一段普通摘要。`
+        : `这篇文章会围绕 ${evidenceFocus} 展开，把视频里的判断拆成可核对的证据、技术约束和后续追问。`,
+      evidenceFocus
+        ? `对非专业读者来说，最值得先留意的线索是：${evidenceFocus} 后面的核心观点和技术拆解，都会回到这类原文证据上。`
+        : ""
+    ].filter(Boolean)
+  };
+}
+
 function structuredArticleFallbackTitle(article = {}, report = {}) {
   const title = cleanYoutubeDocumentTitle(article.title || "");
   if (!isWeakYoutubeTitle(title, report.topic || "") && !looksMostlyEnglish(title)) return title;
@@ -6389,7 +6419,23 @@ export class FeishuBot {
     ], youtubeStructuredAiOptions({
       maxTokens: Math.max(this.config.youtubeResearchSummaryMaxTokens || 2600, 1800),
       temperature: 0.2
-    })));
+    }))).catch(async (error) => {
+      const data = buildYoutubeTitleContextPartFromEvidenceBrief(evidenceBrief, { topic, videos, title: topic });
+      if (!data.title || data.contextParagraphs.length < 2) throw error;
+      await persistArticlePart("titleContext", {
+        status: "done",
+        data,
+        source: "evidenceBrief",
+        modelError: truncate(error.message, 500)
+      });
+      logEvent("warn", "YouTube article title context rebuilt from evidence brief after model response failure", {
+        part: "titleContext",
+        title: data.title,
+        contextParagraphs: data.contextParagraphs.length,
+        error: truncate(error.message, 500)
+      });
+      return data;
+    });
     const glossaryPartPromise = runCachedArticlePart("glossary", "article glossary", () => this.ai.chat([
       {
         role: "system",
