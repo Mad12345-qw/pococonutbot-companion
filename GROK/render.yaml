@@ -21,7 +21,7 @@ services:
       - key: GROK_CLI_CWD
         value: /tmp/grok-feishu-bridge-cwd
       - key: GROK_CLI_ARGS_JSON
-        value: '["--no-auto-update","--always-approve","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]'
+        value: '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]'
       - key: MAX_CARD_CONTENT_CHARS
         value: "90000"
       - key: MAX_REPLY_CHARS
