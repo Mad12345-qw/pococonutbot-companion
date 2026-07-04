@@ -716,6 +716,95 @@ function shouldUseMediaGeneration(text = "") {
   return /(生成|做|制作|create|generate|make).{0,30}(图片|照片|图像|视频|动图|短片|image|photo|picture|video|mp4|gif)|(?:图片|照片|图像|视频|动图|短片).{0,30}(生成|做|制作|create|generate|make|打招呼|动起来|animate)/i.test(text);
 }
 
+function mediaKind(text = "") {
+  if (/(视频|短片|mp4|video|动起来|打招呼|animate)/i.test(text)) return "video";
+  if (/(图片|照片|图像|image|photo|picture|gif)/i.test(text)) return "image";
+  return "";
+}
+
+function isDeepResearch(text = "") {
+  return /(深度|详细|全面|对比|分析|报告|调研|研究|多来源|多个来源|引用来源|长文|方案|strategy|research|compare|analysis|report)/i.test(text);
+}
+
+function isQuickFact(text = "") {
+  return String(text || "").trim().length <= 80
+    && /(是什么|什么意思|多少|是谁|哪天|今天|现在|股价|价格|定义|解释|when|what|who|price)/i.test(text);
+}
+
+function classifyTask(text = "") {
+  const media = mediaKind(text);
+  if (media === "video") {
+    return {
+      kind: "video",
+      maxTurns: config.mediaMaxTurns,
+      title: "Grok 视频生成",
+      webSearch: false,
+      mediaTask: true,
+      rules: [
+        "Task hint: this is a video/media request.",
+        "If recent media files are listed above and the user says this/that image, treat them as useful context.",
+        "Use your own judgment, but avoid spending the whole turn exploring optional approaches. Return the real .mp4 path once produced."
+      ]
+    };
+  }
+  if (media === "image") {
+    return {
+      kind: "image",
+      maxTurns: 12,
+      title: "Grok 图片生成",
+      webSearch: false,
+      mediaTask: true,
+      rules: [
+        "Task hint: this is an image/media request.",
+        "Use your own judgment. Return the real image path once produced."
+      ]
+    };
+  }
+  if (shouldUseWebSearch(text)) {
+    const deep = isDeepResearch(text);
+    return {
+      kind: deep ? "research" : "quick_search",
+      maxTurns: deep ? 18 : 10,
+      title: "Grok 联网检索",
+      webSearch: true,
+      mediaTask: false,
+      rules: deep
+        ? [
+            "Task hint: this asks for deeper current research.",
+            "Use your own judgment on sources and depth, but stop when the answer is well-supported."
+          ]
+        : [
+            "Task hint: this looks like a quick current/factual lookup.",
+            "Use your own judgment, but avoid unnecessary extra searches once the fact is clear."
+          ]
+    };
+  }
+  if (isQuickFact(text)) {
+    return {
+      kind: "quick_fact",
+      maxTurns: 6,
+      title: "Grok 回复",
+      webSearch: false,
+      mediaTask: false,
+      rules: [
+        "Task hint: this looks like a simple question.",
+        "Answer directly unless you genuinely need tools."
+      ]
+    };
+  }
+  return {
+    kind: "chat",
+    maxTurns: 8,
+    title: "Grok 回复",
+    webSearch: false,
+    mediaTask: false,
+    rules: [
+      "Task hint: normal conversation.",
+      "Use your own judgment."
+    ]
+  };
+}
+
 function grokCliArgs(prompt, { maxTurns } = {}) {
   const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"20\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
   const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "20", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
@@ -733,7 +822,7 @@ function grokCliArgs(prompt, { maxTurns } = {}) {
   return resolvedArgs;
 }
 
-function buildGrokPrompt(userPrompt = "", { mediaContext = [], mediaTask = false } = {}) {
+function buildGrokPrompt(userPrompt = "", { mediaContext = [], mediaTask = false, taskRules = [] } = {}) {
   const mediaLines = mediaContext.length
     ? ["Recent media files from this Feishu chat, use them when the user refers to this image/video:", ...mediaContext.map((item) => `- ${item.type}: ${item.path}`)]
     : [];
@@ -749,6 +838,7 @@ function buildGrokPrompt(userPrompt = "", { mediaContext = [], mediaTask = false
   return [
     config.systemPrompt,
     ...mediaLines,
+    ...taskRules,
     ...mediaRules,
     "User message:",
     String(userPrompt || "").trim()
@@ -784,11 +874,11 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, mediaContext = [], mediaTask = false } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, mediaContext = [], mediaTask = false, taskRules = [] } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
-  const effectivePrompt = buildGrokPrompt(prompt, { mediaContext, mediaTask });
+  const effectivePrompt = buildGrokPrompt(prompt, { mediaContext, mediaTask, taskRules });
   return new Promise((resolve, reject) => {
     const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns }), {
       env: process.env,
@@ -1665,21 +1755,22 @@ async function processFeishuMessage(payload) {
   const chatId = message.chat_id || event.message?.chat_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
-  const mediaTask = shouldUseMediaGeneration(prompt);
-  const mediaContext = mediaTask ? recentMediaForChat(chatId) : [];
+  const task = classifyTask(prompt);
+  const mediaContext = task.mediaTask ? recentMediaForChat(chatId) : [];
 
   const job = {
     id: messageId,
     promptPreview: prompt.slice(0, 120),
     status: "running",
-    webSearch: shouldUseWebSearch(prompt),
-    mediaTask,
+    taskKind: task.kind,
+    webSearch: task.webSearch,
+    mediaTask: task.mediaTask,
     mediaContextCount: mediaContext.length,
     startedAt: new Date().toISOString()
   };
   jobs.set(messageId, job);
 
-  const title = job.webSearch ? "Grok 联网检索" : "Grok 回复";
+  const title = task.title;
   let updater = null;
   try {
     const streamingCard = await feishu.replyStreamingCard(
@@ -1700,9 +1791,10 @@ async function processFeishuMessage(payload) {
       webSearch: job.webSearch
     });
     const answer = await callGrokCli(prompt, {
-      maxTurns: mediaTask ? config.mediaMaxTurns : undefined,
+      maxTurns: task.maxTurns,
       mediaContext,
-      mediaTask,
+      mediaTask: task.mediaTask,
+      taskRules: task.rules,
       onText: (fullText) => {
         updater.patchAnswer(stripLocalMediaPaths(fullText) || "媒体生成中，正在等待 Grok 返回真实文件。");
       },
