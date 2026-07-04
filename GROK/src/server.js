@@ -2068,6 +2068,77 @@ app.get("/debug/grok-media-test", async (req, res) => {
   }
 });
 
+app.get("/debug/grok-media-job", (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  const prompt = String(req.query.prompt || "Generate a 2-second minimal MP4 test video: blue sky with one slow white cloud. Use Grok Build official video generation and return the saved local MP4 path.").slice(0, 500);
+  const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 30000), 300000);
+  const jobId = `debug-media-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
+  const task = classifyTask(prompt);
+  const job = {
+    id: jobId,
+    debug: true,
+    sentToChat: false,
+    status: "running",
+    promptPreview: prompt.slice(0, 120),
+    taskKind: task.kind,
+    timeoutMs,
+    startedAt: new Date().toISOString()
+  };
+  jobs.set(jobId, job);
+  res.json({ ok: true, jobId, status: job.status, taskKind: job.taskKind, timeoutMs, sentToChat: false, poll: `/debug/grok-media-job/${jobId}` });
+
+  (async () => {
+    try {
+      const answer = task.kind === "video"
+        ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
+        : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
+      const imagePaths = extractLocalImagePaths(answer);
+      const videoPaths = extractLocalVideoPaths(answer);
+      const uploadedImages = [];
+      const uploadedVideos = [];
+      for (const imagePath of imagePaths) {
+        const imageKey = await feishu.uploadImage(imagePath);
+        uploadedImages.push({ name: path.basename(imagePath), imageKeyPrefix: imageKey.slice(0, 8) });
+      }
+      for (const videoPath of videoPaths) {
+        const fileKey = await feishu.uploadFile(videoPath, path.extname(videoPath).toLowerCase() === ".mp4" ? "mp4" : "stream");
+        uploadedVideos.push({ name: path.basename(videoPath), fileKeyPrefix: fileKey.slice(0, 8) });
+      }
+      Object.assign(job, {
+        status: "completed",
+        completedAt: new Date().toISOString(),
+        textPreview: stripLocalMediaPaths(answer).slice(0, 500),
+        foundImages: imagePaths.length,
+        foundVideos: videoPaths.length,
+        uploadedImages,
+        uploadedVideos
+      });
+    } catch (error) {
+      Object.assign(job, {
+        status: "failed",
+        completedAt: new Date().toISOString(),
+        error: error.message
+      });
+    }
+  })();
+});
+
+app.get("/debug/grok-media-job/:id", (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  const job = jobs.get(req.params.id);
+  if (!job) {
+    res.status(404).json({ ok: false, error: "job not found" });
+    return;
+  }
+  res.json({ ok: true, job });
+});
+
 app.post("/feishu/events", async (req, res) => {
   let payload;
   try {
