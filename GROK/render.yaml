@@ -26,6 +26,10 @@ services:
         value: "90000"
       - key: MAX_REPLY_CHARS
         value: "3500"
+      - key: MAX_IMAGE_BYTES
+        value: "10485760"
+      - key: MAX_VIDEO_BYTES
+        value: "31457280"
       - key: FEISHU_APP_ID
         sync: false
       - key: FEISHU_APP_SECRET

@@ -52,7 +52,9 @@ $envVars = @(
   @{ key = "GROK_CLI_CWD"; value = "/tmp/grok-feishu-bridge-cwd" },
   @{ key = "GROK_CLI_ARGS_JSON"; value = '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--max-turns","20","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]' },
   @{ key = "MAX_CARD_CONTENT_CHARS"; value = "90000" },
-  @{ key = "MAX_REPLY_CHARS"; value = "3500" }
+  @{ key = "MAX_REPLY_CHARS"; value = "3500" },
+  @{ key = "MAX_IMAGE_BYTES"; value = "10485760" },
+  @{ key = "MAX_VIDEO_BYTES"; value = "31457280" }
 )
 
 if (-not [string]::IsNullOrWhiteSpace($grokDeploymentKey)) {

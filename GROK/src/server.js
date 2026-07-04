@@ -4,6 +4,7 @@ import { promisify } from "node:util";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import zlib from "node:zlib";
 import express from "express";
 
 const STARTED_AT = new Date();
@@ -18,7 +19,9 @@ const DEFAULT_SYSTEM_PROMPT = [
   "Be direct, include dates for time-sensitive facts, and do not invent sources.",
   "If a searched company is private and has no public stock ticker, say that clearly before giving valuation or secondary-market context.",
   "In headless CLI mode, stop searching once you have enough reliable evidence to answer.",
-  "Treat --max-turns as an upper bound, not a target; prefer a concise final answer over continuing optional searches."
+  "Treat --max-turns as an upper bound, not a target; prefer a concise final answer over continuing optional searches.",
+  "For image generation requests, only claim success when you create or return an actual image file path or downloadable image URL.",
+  "For video generation requests, only claim success when you create or return an actual MP4 file path or downloadable video URL."
 ].join("\n");
 
 function envFlag(name, fallback = false) {
@@ -45,6 +48,8 @@ const config = {
   grokCliTimeoutMs: envNumber("GROK_CLI_TIMEOUT_MS", 540000),
   maxCardContentChars: envNumber("MAX_CARD_CONTENT_CHARS", 90000),
   maxReplyChars: envNumber("MAX_REPLY_CHARS", 3500),
+  maxImageBytes: envNumber("MAX_IMAGE_BYTES", 10 * 1024 * 1024),
+  maxVideoBytes: envNumber("MAX_VIDEO_BYTES", 30 * 1024 * 1024),
   debugToken: process.env.DEBUG_TOKEN || "",
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
 };
@@ -127,6 +132,134 @@ function cardMarkdown(value = "", max = config.maxCardContentChars) {
     .replace(/\n{4,}/g, "\n\n\n")
     .trim();
   return clean.length > max ? `${clean.slice(0, Math.max(0, max - 20))}\n\n…内容过长，已分段继续。` : clean;
+}
+
+function escapeRegExp(value = "") {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function imageMimeType(filePath = "") {
+  const ext = path.extname(filePath).toLowerCase();
+  if (ext === ".png") return "image/png";
+  if (ext === ".webp") return "image/webp";
+  if (ext === ".gif") return "image/gif";
+  return "image/jpeg";
+}
+
+function isSafeGrokFilePath(filePath = "", { pattern, maxBytes }) {
+  if (!filePath || !pattern.test(filePath)) return false;
+  const resolved = path.resolve(filePath);
+  const root = path.resolve(config.grokCliCwd);
+  if (resolved !== root && !resolved.startsWith(`${root}${path.sep}`)) return false;
+  try {
+    const stat = fs.statSync(resolved);
+    return stat.isFile() && stat.size > 0 && stat.size <= maxBytes;
+  } catch {
+    return false;
+  }
+}
+
+function isSafeGrokImagePath(filePath = "") {
+  return isSafeGrokFilePath(filePath, {
+    pattern: /\.(?:png|jpe?g|webp|gif)$/i,
+    maxBytes: config.maxImageBytes
+  });
+}
+
+function isSafeGrokVideoPath(filePath = "") {
+  return isSafeGrokFilePath(filePath, {
+    pattern: /\.(?:mp4|mov|webm)$/i,
+    maxBytes: config.maxVideoBytes
+  });
+}
+
+function extractLocalPaths(text = "", pattern, validator, limit = 4) {
+  const paths = [];
+  const seen = new Set();
+  let match;
+  while ((match = pattern.exec(String(text || ""))) !== null && paths.length < limit) {
+    const candidate = match[1].replace(/[),.;:，。；：]+$/g, "");
+    const resolved = path.resolve(candidate);
+    if (!seen.has(resolved) && validator(resolved)) {
+      seen.add(resolved);
+      paths.push(resolved);
+    }
+  }
+  return paths;
+}
+
+function extractLocalImagePaths(text = "", limit = 4) {
+  return extractLocalPaths(text, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi, isSafeGrokImagePath, limit);
+}
+
+function extractLocalVideoPaths(text = "", limit = 2) {
+  return extractLocalPaths(text, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi, isSafeGrokVideoPath, limit);
+}
+
+function stripLocalMediaPaths(text = "") {
+  let clean = String(text || "");
+  const localPaths = [...extractLocalImagePaths(clean), ...extractLocalVideoPaths(clean)];
+  for (const filePath of localPaths) {
+    clean = clean.replace(new RegExp(escapeRegExp(filePath), "g"), "");
+    clean = clean.replace(new RegExp(escapeRegExp(`file://${filePath}`), "g"), "");
+  }
+  return sanitizeGrokOutput(clean)
+    .split("\n")
+    .filter((line) => !/^\s*(图片文件路径|视频文件路径|媒体文件路径|文件路径|本地路径|path|image path|video path|media path|url)[:：]?\s*$/i.test(line))
+    .join("\n")
+    .trim();
+}
+
+function crc32(buffer) {
+  let crc = -1;
+  for (const byte of buffer) {
+    crc ^= byte;
+    for (let index = 0; index < 8; index += 1) {
+      crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+    }
+  }
+  return (crc ^ -1) >>> 0;
+}
+
+function pngChunk(type, data = Buffer.alloc(0)) {
+  const name = Buffer.from(type, "ascii");
+  const length = Buffer.alloc(4);
+  length.writeUInt32BE(data.length, 0);
+  const crc = Buffer.alloc(4);
+  crc.writeUInt32BE(crc32(Buffer.concat([name, data])), 0);
+  return Buffer.concat([length, name, data, crc]);
+}
+
+function solidPng(width = 640, height = 360, rgba = [28, 45, 74, 255]) {
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(width, 0);
+  ihdr.writeUInt32BE(height, 4);
+  ihdr[8] = 8;
+  ihdr[9] = 6;
+  const row = Buffer.alloc(1 + width * 4);
+  row[0] = 0;
+  for (let x = 0; x < width; x += 1) {
+    row[1 + x * 4] = rgba[0];
+    row[2 + x * 4] = rgba[1];
+    row[3 + x * 4] = rgba[2];
+    row[4 + x * 4] = rgba[3];
+  }
+  const raw = Buffer.concat(Array.from({ length: height }, () => row));
+  return Buffer.concat([
+    Buffer.from("89504e470d0a1a0a", "hex"),
+    pngChunk("IHDR", ihdr),
+    pngChunk("IDAT", zlib.deflateSync(raw)),
+    pngChunk("IEND")
+  ]);
+}
+
+function ensureVideoThumbnail() {
+  const thumbnailPath = path.join(config.grokCliCwd, "video-thumbnail.png");
+  if (!fs.existsSync(thumbnailPath)) {
+    fs.mkdirSync(path.dirname(thumbnailPath), { recursive: true });
+    fs.writeFileSync(thumbnailPath, solidPng());
+  }
+  return thumbnailPath;
 }
 
 function extractUrlsFromText(text = "", limit = 3) {
@@ -989,6 +1122,110 @@ class FeishuClient {
     return data;
   }
 
+  async uploadImage(filePath) {
+    const resolved = path.resolve(filePath);
+    if (!isSafeGrokImagePath(resolved)) {
+      throw new Error(`Refusing to upload unsafe or missing image path: ${resolved}`);
+    }
+    const token = await this.tenantAccessToken();
+    const buffer = fs.readFileSync(resolved);
+    const form = new FormData();
+    form.append("image_type", "message");
+    form.append("image", new Blob([buffer], { type: imageMimeType(resolved) }), path.basename(resolved));
+    const response = await fetch("https://open.feishu.cn/open-apis/im/v1/images", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: form
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu image upload failed ${response.status}: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    const imageKey = data?.data?.image_key || data?.image_key || "";
+    if (!imageKey) throw new Error(`Feishu image upload did not return image_key: ${JSON.stringify(data).slice(0, 500)}`);
+    return imageKey;
+  }
+
+  async uploadFile(filePath, fileType = "stream") {
+    const resolved = path.resolve(filePath);
+    if (!isSafeGrokVideoPath(resolved)) {
+      throw new Error(`Refusing to upload unsafe or missing video path: ${resolved}`);
+    }
+    const token = await this.tenantAccessToken();
+    const buffer = fs.readFileSync(resolved);
+    const form = new FormData();
+    form.append("file_type", fileType);
+    form.append("file_name", path.basename(resolved));
+    form.append("file", new Blob([buffer], { type: "application/octet-stream" }), path.basename(resolved));
+    const response = await fetch("https://open.feishu.cn/open-apis/im/v1/files", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: form
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu file upload failed ${response.status}: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    const fileKey = data?.data?.file_key || data?.file_key || "";
+    if (!fileKey) throw new Error(`Feishu file upload did not return file_key: ${JSON.stringify(data).slice(0, 500)}`);
+    return fileKey;
+  }
+
+  async replyImage(messageId, imageKey) {
+    if (!messageId || !imageKey) return null;
+    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "image",
+      content: JSON.stringify({ image_key: imageKey })
+    });
+  }
+
+  async replyMedia(messageId, fileKey, imageKey) {
+    if (!messageId || !fileKey || !imageKey) return null;
+    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "media",
+      content: JSON.stringify({ file_key: fileKey, image_key: imageKey })
+    });
+  }
+
+  async replyFile(messageId, fileKey) {
+    if (!messageId || !fileKey) return null;
+    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "file",
+      content: JSON.stringify({ file_key: fileKey })
+    });
+  }
+
+  async replyLocalImages(messageId, imagePaths = []) {
+    const sent = [];
+    for (const imagePath of imagePaths) {
+      const imageKey = await this.uploadImage(imagePath);
+      await this.replyImage(messageId, imageKey);
+      sent.push({ imagePath, imageKey });
+    }
+    return sent;
+  }
+
+  async replyLocalVideos(messageId, videoPaths = []) {
+    const sent = [];
+    for (const videoPath of videoPaths) {
+      const ext = path.extname(videoPath).toLowerCase();
+      const fileKey = await this.uploadFile(videoPath, ext === ".mp4" ? "mp4" : "stream");
+      if (ext === ".mp4") {
+        const thumbnailKey = await this.uploadImage(ensureVideoThumbnail());
+        await this.replyMedia(messageId, fileKey, thumbnailKey);
+        sent.push({ videoPath, fileKey, type: "media" });
+      } else {
+        await this.replyFile(messageId, fileKey);
+        sent.push({ videoPath, fileKey, type: "file" });
+      }
+    }
+    return sent;
+  }
+
   async replyText(messageId, text) {
     if (!messageId) return;
     for (const chunk of splitReply(sanitizeFeishuText(text), config.maxReplyChars)) {
@@ -1247,6 +1484,24 @@ app.get("/debug/cardkit-test", async (req, res) => {
   }
 });
 
+app.get("/debug/media-upload-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const imageKey = await feishu.uploadImage(ensureVideoThumbnail());
+    res.json({
+      ok: true,
+      uploaded: true,
+      imageKeyPrefix: imageKey.slice(0, 8),
+      sentToChat: false
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
 app.post("/feishu/events", async (req, res) => {
   let payload;
   try {
@@ -1328,7 +1583,7 @@ async function processFeishuMessage(payload) {
     });
     const answer = await callGrokCli(prompt, {
       onText: (fullText) => {
-        updater.patchAnswer(fullText);
+        updater.patchAnswer(stripLocalMediaPaths(fullText) || "媒体生成中，正在等待 Grok 返回真实文件。");
       },
       onEvent: (event) => {
         const status = describeGrokEvent(event);
@@ -1338,9 +1593,28 @@ async function processFeishuMessage(payload) {
         }
       }
     });
+    const imagePaths = extractLocalImagePaths(answer);
+    const videoPaths = extractLocalVideoPaths(answer);
+    const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
     job.status = "completed";
     job.completedAt = new Date().toISOString();
-    await updater.patchAnswer(answer, true);
+    if (imagePaths.length || videoPaths.length) {
+      await updater.patchAnswer(answerWithoutMediaPaths || "媒体已生成，正在上传到飞书。", true);
+      const sentImages = await feishu.replyLocalImages(messageId, imagePaths);
+      const sentVideos = await feishu.replyLocalVideos(messageId, videoPaths);
+      job.imageCount = sentImages.length;
+      job.videoCount = sentVideos.length;
+      const sentSummary = [
+        sentImages.length ? `${sentImages.length} 张图片` : "",
+        sentVideos.length ? `${sentVideos.length} 个视频` : ""
+      ].filter(Boolean).join("、");
+      const finalText = answerWithoutMediaPaths
+        ? `${answerWithoutMediaPaths}\n\n已发送 ${sentSummary}。`
+        : `媒体已生成，已发送 ${sentSummary}。`;
+      await updater.patchAnswer(finalText, true);
+    } else {
+      await updater.patchAnswer(answer, true);
+    }
     await updater.finish();
   } catch (error) {
     job.status = "failed";
