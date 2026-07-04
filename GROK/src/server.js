@@ -6,6 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import zlib from "node:zlib";
 import express from "express";
+import ffmpegPath from "ffmpeg-static";
 import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
 
 const STARTED_AT = new Date();
@@ -360,6 +361,63 @@ function ensureVideoThumbnail() {
   return thumbnailPath;
 }
 
+function runFfmpeg(args, timeoutMs = 60000) {
+  return new Promise((resolve, reject) => {
+    if (!ffmpegPath) {
+      reject(new Error("ffmpeg-static did not provide a binary path."));
+      return;
+    }
+
+    const child = spawn(ffmpegPath, args, { windowsHide: true });
+    const stderr = [];
+    const timer = setTimeout(() => {
+      child.kill("SIGKILL");
+      reject(new Error("FFmpeg timed out while extracting video thumbnail."));
+    }, timeoutMs);
+
+    child.stderr.on("data", (chunk) => stderr.push(chunk));
+    child.on("error", (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      if (code === 0) {
+        resolve();
+        return;
+      }
+      const detail = Buffer.concat(stderr).toString("utf8");
+      reject(new Error(`FFmpeg thumbnail extraction failed ${code}: ${detail.slice(0, 800)}`));
+    });
+  });
+}
+
+async function createVideoThumbnail(videoPath = "") {
+  const resolvedVideo = path.resolve(videoPath);
+  if (!isSafeGrokVideoPath(resolvedVideo)) {
+    throw new Error(`Refusing to thumbnail unsafe or missing video path: ${resolvedVideo}`);
+  }
+
+  const thumbnailDir = path.join(config.grokCliCwd, "video-thumbnails");
+  fs.mkdirSync(thumbnailDir, { recursive: true });
+  const thumbnailPath = path.join(thumbnailDir, `${crypto.randomUUID()}.jpg`);
+
+  await runFfmpeg([
+    "-y",
+    "-ss", "0.5",
+    "-i", resolvedVideo,
+    "-frames:v", "1",
+    "-vf", "scale=720:-2",
+    "-q:v", "3",
+    thumbnailPath
+  ]);
+
+  if (!isSafeGrokImagePath(thumbnailPath)) {
+    throw new Error(`Generated thumbnail is not a safe image path: ${thumbnailPath}`);
+  }
+  return thumbnailPath;
+}
+
 function safeDeleteLocalFile(filePath = "") {
   if (!filePath) return false;
   const resolved = path.resolve(filePath);
@@ -378,6 +436,21 @@ function safeDeleteLocalFile(filePath = "") {
   } catch {
     return false;
   }
+}
+
+function mediaPathPreview(filePath = "") {
+  const resolved = path.resolve(filePath);
+  const roots = [
+    ["cwd", path.resolve(config.grokCliCwd)],
+    ["grokSessions", path.resolve(os.homedir(), ".grok", "sessions")],
+    ["grokGenerated", path.resolve(os.homedir(), ".grok", "generated-media")]
+  ];
+  for (const [label, root] of roots) {
+    if (resolved === root || resolved.startsWith(`${root}${path.sep}`)) {
+      return `${label}:${path.relative(root, resolved)}`;
+    }
+  }
+  return `basename:${path.basename(resolved)}`;
 }
 
 function safeDeleteLocalFiles(filePaths = []) {
@@ -1774,10 +1847,12 @@ class FeishuClient {
       const ext = path.extname(videoPath).toLowerCase();
       const fileKey = await this.uploadFile(videoPath, ext === ".mp4" ? "mp4" : "stream");
       if (ext === ".mp4") {
-        const thumbnailKey = await this.uploadImage(ensureVideoThumbnail());
+        const thumbnailPath = await createVideoThumbnail(videoPath);
+        const thumbnailKey = await this.uploadImage(thumbnailPath);
         await this.replyMedia(messageId, fileKey, thumbnailKey);
+        safeDeleteLocalFile(thumbnailPath);
         safeDeleteLocalFile(videoPath);
-        sent.push({ videoPath, fileKey, type: "media" });
+        sent.push({ videoPath, thumbnailPath, fileKey, type: "media" });
       } else {
         await this.replyFile(messageId, fileKey);
         safeDeleteLocalFile(videoPath);
@@ -2130,7 +2205,23 @@ app.get("/debug/grok-media-test", async (req, res) => {
     }
     for (const videoPath of videoPaths) {
       const fileKey = await feishu.uploadFile(videoPath, path.extname(videoPath).toLowerCase() === ".mp4" ? "mp4" : "stream");
-      uploadedVideos.push({ name: path.basename(videoPath), fileKeyPrefix: fileKey.slice(0, 8) });
+      let thumbnail = null;
+      if (path.extname(videoPath).toLowerCase() === ".mp4") {
+        const thumbnailPath = await createVideoThumbnail(videoPath);
+        const imageKey = await feishu.uploadImage(thumbnailPath);
+        thumbnail = {
+          name: path.basename(thumbnailPath),
+          pathPreview: mediaPathPreview(thumbnailPath),
+          imageKeyPrefix: imageKey.slice(0, 8)
+        };
+        safeDeleteLocalFile(thumbnailPath);
+      }
+      uploadedVideos.push({
+        name: path.basename(videoPath),
+        pathPreview: mediaPathPreview(videoPath),
+        fileKeyPrefix: fileKey.slice(0, 8),
+        thumbnail
+      });
     }
     res.json({
       ok: true,
@@ -2185,7 +2276,23 @@ app.get("/debug/grok-media-job", (req, res) => {
       }
       for (const videoPath of videoPaths) {
         const fileKey = await feishu.uploadFile(videoPath, path.extname(videoPath).toLowerCase() === ".mp4" ? "mp4" : "stream");
-        uploadedVideos.push({ name: path.basename(videoPath), fileKeyPrefix: fileKey.slice(0, 8) });
+        let thumbnail = null;
+        if (path.extname(videoPath).toLowerCase() === ".mp4") {
+          const thumbnailPath = await createVideoThumbnail(videoPath);
+          const imageKey = await feishu.uploadImage(thumbnailPath);
+          thumbnail = {
+            name: path.basename(thumbnailPath),
+            pathPreview: mediaPathPreview(thumbnailPath),
+            imageKeyPrefix: imageKey.slice(0, 8)
+          };
+          safeDeleteLocalFile(thumbnailPath);
+        }
+        uploadedVideos.push({
+          name: path.basename(videoPath),
+          pathPreview: mediaPathPreview(videoPath),
+          fileKeyPrefix: fileKey.slice(0, 8),
+          thumbnail
+        });
       }
       Object.assign(job, {
         status: "completed",
