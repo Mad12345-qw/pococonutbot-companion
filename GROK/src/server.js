@@ -568,6 +568,94 @@ async function callGrokCli(prompt, { onText, onEvent } = {}) {
   });
 }
 
+async function probeGrokCli(prompt, timeoutMs = 60000) {
+  fs.mkdirSync(config.grokCliCwd, { recursive: true });
+  const command = await ensureGrokCliCommand();
+  const args = grokCliArgs(prompt);
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, {
+      env: process.env,
+      windowsHide: true,
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    const events = [];
+    let stdout = "";
+    let stderr = "";
+    let lineBuffer = "";
+    let textLength = 0;
+    let finished = false;
+    const finish = (result) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timer);
+      resolve(result);
+    };
+    const timer = setTimeout(() => {
+      child.kill("SIGTERM");
+      finish({
+        ok: false,
+        timedOut: true,
+        command,
+        args: args.map((arg) => (arg === prompt ? "{{prompt}}" : arg)),
+        events,
+        textLength,
+        stderrTail: sanitizeGrokOutput(stderr).slice(-1200),
+        stdoutTail: sanitizeGrokOutput(stdout).slice(-1200)
+      });
+    }, timeoutMs);
+    child.stdout.on("data", (chunk) => {
+      const piece = chunk.toString("utf8");
+      stdout += piece;
+      lineBuffer += piece;
+      const lines = lineBuffer.split(/\r?\n/);
+      lineBuffer = lines.pop() || "";
+      for (const line of lines) {
+        const event = parseStreamingJsonLine(line);
+        if (!event) continue;
+        const delta = event.type === "text" ? streamingEventText(event) : "";
+        if (delta) textLength += delta.length;
+        if (events.length < 40) {
+          events.push({
+            type: event.type || "",
+            name: event.name || event.tool || "",
+            textLength: delta.length
+          });
+        }
+      }
+    });
+    child.stderr.on("data", (chunk) => { stderr += chunk.toString("utf8"); });
+    child.on("error", (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on("close", (code) => {
+      const event = parseStreamingJsonLine(lineBuffer);
+      if (event) {
+        const delta = event.type === "text" ? streamingEventText(event) : "";
+        if (delta) textLength += delta.length;
+        if (events.length < 40) {
+          events.push({
+            type: event.type || "",
+            name: event.name || event.tool || "",
+            textLength: delta.length
+          });
+        }
+      }
+      finish({
+        ok: code === 0,
+        timedOut: false,
+        exitCode: code,
+        command,
+        args: args.map((arg) => (arg === prompt ? "{{prompt}}" : arg)),
+        events,
+        textLength,
+        stderrTail: sanitizeGrokOutput(stderr).slice(-1200),
+        stdoutTail: sanitizeGrokOutput(stdout).slice(-1200)
+      });
+    });
+  });
+}
+
 async function answerWithGrok(prompt) {
   return callGrokCli(prompt);
 }
@@ -886,6 +974,21 @@ app.get("/debug/grok-test", async (req, res) => {
     const command = await ensureGrokCliCommand();
     const answer = await callGrokCli(prompt);
     res.json({ ok: true, command, answer: answer.slice(0, 2000) });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/grok-probe", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const prompt = String(req.query.prompt || "用一句中文回答：probe").slice(0, 500);
+    const timeoutMs = Math.min(envNumber("DEBUG_PROBE_TIMEOUT_MS", 60000), 90000);
+    const result = await probeGrokCli(prompt, timeoutMs);
+    res.status(result.ok ? 200 : 504).json(result);
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
   }
