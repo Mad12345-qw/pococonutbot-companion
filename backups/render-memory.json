@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T05:11:39.932Z",
+  "exportedAt": "2026-07-04T06:51:42.953Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62455,6 +62455,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-04T04:40:59.833Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n# 图片内容提取\n\n## 主题\n茅台 × 廉价咖啡跨界营销的概念海报，主题为\"碰瓷的本质\"——语义寄生与语义爆炸。\n\n## 主标题/副标题\n- **标题**：在注意力极度稀缺的**后真相时代**\n- **副标题**：跨界不再是\"强强联手\"，而是一场蓄意的**语义寄生**\n- **底部大标题**：碰瓷的本质\n- **底部标语**：不是合作，而是掠夺；不是共赢，而是寄生。\n\n## 四大核心概念模块\n\n### 1. 语义寄生（SEMANTIC PARASITISM）\n品牌不再是静态的资产，而是具有传染性的生物宿主。通过寄生、嫁接、篡改，实现价值的暴力转移。\n\n### 2. 语义爆炸（SEMANTIC EXPLOSION）\n利用认知失调产生的巨大信息熵，在用户大脑中引发一场小型的\"语义爆炸\"。\n\n### 3. 高价值语义锚点 × 低价值/异质载体\n- **高价值端 — 茅台**：阶级 | 稀缺 | 权威 | 传统\n- **低价值端 — 廉价咖啡**：平民 | 速消 | 低价 | 日常\n\n### 4. 文化撕裂与流量掠夺（CULTURAL RUPTURE & TRAFFIC PLUNDER）\n这种暴力对接撕裂了原有的文化边界，让品牌在冲突的废墟中获取高频的原始流量。\n\n## 语义爆炸触发的心理关键词（6个）\n荒诞感 / 冲突感 / 认知失调 / 认知失调（重复）/ 阶级想感 / 猎奇心理\n\n## 营销效果指标（右下角四项）\n- 👁 高曝光 HIGH EXPOSURE\n- 🔁 强传播 STRONG VIRALITY\n- 💧 低成本 LOW COST\n- 📈 高转化潜力 HIGH CONVERSION POTENTIAL\n\n## 信息熵值\n信息熵值：∞（配心跳波形图）\n\n## 视觉主体\n中央为茅台酒瓶（红白配色，标有\"贵州茅台酒 KWEICHOW MOUTAI\"）刺穿插入一杯外带咖啡杯（标\"COFFEE 咖啡\"），背景为破碎玻璃、传统中式楼阁、围观人群剪影，整体色调为暗黑+金红撞色。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bbe9a9ca0a4c219fd1317ae2c2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "# 图片内容提取\n\n## 主题\n茅台 × 廉价咖啡跨界营销的概念海报，主题为\"碰瓷的本质\"——语义寄生与语义爆炸。\n\n## 主标题/副标题\n- **标题**：在注意力极度稀缺的**后真相时代**\n- **副标题**：跨界不再是\"强强联手\"，而是一场蓄意的**语义寄生**\n- **底部大标题**：碰瓷的本质\n- **底部标语**：不是合作，而是掠夺；不是共赢，而是寄生。\n\n## 四大核心概念模块\n\n### 1. 语义寄生（SEMANTIC PARASITISM）\n品牌不再是静态的资产，而是具有传染性的生物宿主。通过寄生、嫁接、篡改，实现价值的暴力转移。\n\n### 2. 语义爆炸（SEMANTIC EXPLOSION）\n利用认知失调产生的巨大信息熵，在用户大脑中引发一场小型的\"语义爆炸\"。\n\n### 3. 高价值语义锚点 × 低价值/异质载体\n- **高价值端 — 茅台**：阶级 | 稀缺 | 权威 | 传统\n- **低价值端 — 廉价咖啡**：平民 | 速消 | 低价 | 日常\n\n### 4. 文化撕裂与流量掠夺（CULTURAL RUPTURE & TRAFFIC PLUNDER）\n这种暴力对接撕裂了原有的文化边界，让品牌在冲突的废墟中获取高频的原始流量。\n\n## 语义爆炸触发的心理关键词（6个）\n荒诞感 / 冲突感 / 认知失调 / 认知失调（重复）/ 阶级想感 / 猎奇心理\n\n## 营销效果指标（右下角四项）\n- 👁 高曝光 HIGH EXPOSURE\n- 🔁 强传播 STRONG VIRALITY\n- 💧 低成本 LOW COST\n- 📈 高转化潜力 HIGH CONVERSION POTENTIAL\n\n## 信息熵值\n信息熵值：∞（配心跳波形图）\n\n## 视觉主体\n中央为茅台酒瓶（红白配色，标有\"贵州茅台酒 KWEICHOW MOUTAI\"）刺穿插入一杯外带咖啡杯（标\"COFFEE 咖啡\"），背景为破碎玻璃、传统中式楼阁、围观人群剪影，整体色调为暗黑+金红撞色。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T06:51:07.594Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我看到这张图了～ 用\"语义寄生\"解释茅台×廉价的跨界碰瓷，挺狠的。\n\n把\"高价值锚点×低价值载体\"硬拧成一条线，靠认知失调拉流量——视觉爆点拉满，但套路跟拼好饭盲盒饭搭子是同一个逻辑：身份反差制造戏剧冲突。\n\n不过这张比盲盒那个狠的地方在于：它直接点了\"碰瓷的本质=寄生\"，把品牌方当宿主来解构，瑞幸们就是微生物蹭血喝。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
+        },
+        "createdAt": "2026-07-04T06:51:19.026Z"
       }
     ],
     "memories": [
@@ -65616,7 +65652,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-03T15:44:31.583Z"
+        "updatedAt": "2026-07-04T06:51:07.521Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -65626,7 +65662,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-03T15:44:31.511Z"
+        "updatedAt": "2026-07-04T06:51:07.420Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
