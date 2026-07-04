@@ -14,6 +14,21 @@ const execFileAsync = promisify(execFile);
 const GROK_EXECUTABLE_NAME = process.platform === "win32" ? "grok.exe" : "grok";
 const STREAM_ANSWER_ELEMENT_ID = "answer_md";
 const STREAM_STATUS_ELEMENT_ID = "status_md";
+const CARD_HEADER_TEMPLATES = new Set([
+  "default",
+  "blue",
+  "wathet",
+  "turquoise",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "carmine",
+  "violet",
+  "purple",
+  "indigo",
+  "grey"
+]);
 const DEFAULT_SYSTEM_PROMPT = [
   "You are Grok connected to a Feishu bot.",
   "Reply in the user's language.",
@@ -526,8 +541,8 @@ function sourceButtonsV2(text = "") {
   }));
 }
 
-function grokHeaderTemplate() {
-  return "grey";
+function grokHeaderTemplate(template = "") {
+  return CARD_HEADER_TEMPLATES.has(template) ? template : "grey";
 }
 
 function grokModeLabel(title = "", { webSearch = false } = {}) {
@@ -584,7 +599,7 @@ function grokFooterNote({ webSearch = false } = {}) {
   };
 }
 
-function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务" } = {}) {
+function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务", headerTemplate = "" } = {}) {
   const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}`);
   return {
     schema: "2.0",
@@ -603,7 +618,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
       }
     },
     header: {
-      template: grokHeaderTemplate(),
+      template: grokHeaderTemplate(headerTemplate),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
@@ -638,7 +653,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
   };
 }
 
-function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } = {}) {
+function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false, headerTemplate = "" } = {}) {
   const safe = sanitizeFeishuText(text);
   const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}\n${safe}`);
   const elements = [
@@ -672,7 +687,7 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
       }
     },
     header: {
-      template: grokHeaderTemplate(),
+      template: grokHeaderTemplate(headerTemplate),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
@@ -692,7 +707,7 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
   };
 }
 
-function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, part = 1, total = 1 } = {}) {
+function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, part = 1, total = 1, headerTemplate = "" } = {}) {
   const safe = sanitizeFeishuText(text);
   const elements = [
     {
@@ -727,7 +742,7 @@ function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, 
       update_multi: true
     },
     header: {
-      template: grokHeaderTemplate(),
+      template: grokHeaderTemplate(headerTemplate),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
@@ -2020,6 +2035,7 @@ const app = express();
 const feishu = new FeishuClient();
 const seenMessageIds = new Map();
 const jobs = new Map();
+let latestPrivateMessage = null;
 
 app.use(express.json({ limit: "2mb" }));
 app.set("trust proxy", true);
@@ -2160,6 +2176,66 @@ app.get("/debug/cardkit-test", async (req, res) => {
       }
     }, 2);
     res.json({ ok: true, cardId, cardMode: "cardkit-json-2.0-streaming" });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/card-style-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  if (!latestPrivateMessage?.messageId) {
+    res.status(409).json({
+      ok: false,
+      error: "No recent private Feishu message target. Send the bot a private message first, then retry this endpoint."
+    });
+    return;
+  }
+
+  const requested = String(req.query.templates || req.query.template || "grey")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const templates = (requested.includes("all") ? [...CARD_HEADER_TEMPLATES] : requested)
+    .filter((item, index, list) => CARD_HEADER_TEMPLATES.has(item) && list.indexOf(item) === index)
+    .slice(0, 13);
+  if (!templates.length) {
+    res.status(400).json({ ok: false, error: `Unsupported template. Allowed: ${[...CARD_HEADER_TEMPLATES].join(", ")}` });
+    return;
+  }
+
+  try {
+    const sent = [];
+    for (const template of templates) {
+      const cardId = await feishu.createCardEntity(buildFinalCard(
+        [
+          `Header template: ${template}`,
+          "",
+          "This is a real Feishu mobile preview card. Compare this header color on iPhone and desktop.",
+          "",
+          "No Grok request was executed."
+        ].join("\n"),
+        `Grok ${template}`,
+        { headerTemplate: template }
+      ));
+      const response = await feishu.replyCardEntity(latestPrivateMessage.messageId, cardId);
+      sent.push({
+        template,
+        cardId,
+        replyMessageId: feishuMessageId(response)
+      });
+    }
+    res.json({
+      ok: true,
+      sentTo: {
+        messageId: latestPrivateMessage.messageId,
+        chatType: latestPrivateMessage.chatType,
+        receivedAt: latestPrivateMessage.receivedAt
+      },
+      sent
+    });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
   }
@@ -2375,6 +2451,15 @@ async function processFeishuMessage(payload) {
   const messageId = message.message_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
+  if (message.chat_type === "p2p") {
+    latestPrivateMessage = {
+      messageId,
+      chatId: message.chat_id || "",
+      chatType: message.chat_type,
+      receivedAt: new Date().toISOString(),
+      promptPreview: prompt.slice(0, 80)
+    };
+  }
   const task = classifyTask(prompt);
   const quotedContext = await feishu.quotedContextFromMessage(message);
   const quotedTempFiles = quotedContext?.files?.map((item) => item.path).filter(Boolean) || [];
