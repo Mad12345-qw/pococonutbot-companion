@@ -23,6 +23,9 @@ $feishuAppId = Require-Env "FEISHU_APP_ID"
 $feishuAppSecret = Require-Env "FEISHU_APP_SECRET"
 $grokDeploymentKey = [Environment]::GetEnvironmentVariable("GROK_DEPLOYMENT_KEY", "Process")
 $grokAuthJsonB64 = [Environment]::GetEnvironmentVariable("GROK_AUTH_JSON_B64", "Process")
+$upstashRedisRestUrl = [Environment]::GetEnvironmentVariable("UPSTASH_REDIS_REST_URL", "Process")
+$upstashRedisRestToken = [Environment]::GetEnvironmentVariable("UPSTASH_REDIS_REST_TOKEN", "Process")
+$authEncryptionKey = [Environment]::GetEnvironmentVariable("AUTH_ENCRYPTION_KEY", "Process")
 $debugToken = [Environment]::GetEnvironmentVariable("DEBUG_TOKEN", "Process")
 
 if ([string]::IsNullOrWhiteSpace($grokDeploymentKey) -and [string]::IsNullOrWhiteSpace($grokAuthJsonB64)) {
@@ -53,6 +56,8 @@ $envVars = @(
   @{ key = "GROK_MEDIA_MAX_TURNS"; value = "10" },
   @{ key = "GROK_VIDEO_MAX_TURNS"; value = "10" },
   @{ key = "GROK_VIDEO_MODEL"; value = "grok-build" },
+  @{ key = "GROK_AUTH_SYNC_ENABLED"; value = "true" },
+  @{ key = "GROK_AUTH_REDIS_KEY"; value = "feishu-grok-bridge:grok-auth" },
   @{ key = "GROK_CLI_ARGS_JSON"; value = '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--max-turns","10","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]' },
   @{ key = "MAX_CARD_CONTENT_CHARS"; value = "90000" },
   @{ key = "MAX_REPLY_CHARS"; value = "3500" },
@@ -65,6 +70,15 @@ if (-not [string]::IsNullOrWhiteSpace($grokDeploymentKey)) {
 }
 if (-not [string]::IsNullOrWhiteSpace($grokAuthJsonB64)) {
   $envVars += @{ key = "GROK_AUTH_JSON_B64"; value = $grokAuthJsonB64 }
+}
+if (-not [string]::IsNullOrWhiteSpace($upstashRedisRestUrl)) {
+  $envVars += @{ key = "UPSTASH_REDIS_REST_URL"; value = $upstashRedisRestUrl }
+}
+if (-not [string]::IsNullOrWhiteSpace($upstashRedisRestToken)) {
+  $envVars += @{ key = "UPSTASH_REDIS_REST_TOKEN"; value = $upstashRedisRestToken }
+}
+if (-not [string]::IsNullOrWhiteSpace($authEncryptionKey)) {
+  $envVars += @{ key = "AUTH_ENCRYPTION_KEY"; value = $authEncryptionKey }
 }
 if (-not [string]::IsNullOrWhiteSpace($debugToken)) {
   $envVars += @{ key = "DEBUG_TOKEN"; value = $debugToken }

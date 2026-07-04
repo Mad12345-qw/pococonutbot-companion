@@ -6,6 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import zlib from "node:zlib";
 import express from "express";
+import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
 
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
@@ -54,6 +55,7 @@ const config = {
   videoMaxTurns: envNumber("GROK_VIDEO_MAX_TURNS", 10),
   videoModel: process.env.GROK_VIDEO_MODEL || "grok-build",
   debugToken: process.env.DEBUG_TOKEN || "",
+  grokAuthSyncEnabled: envFlag("GROK_AUTH_SYNC_ENABLED", false),
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
 };
 
@@ -64,6 +66,32 @@ function parseJson(value, fallback) {
     return fallback;
   }
 }
+
+let lastObservedGrokAuthHash = "";
+
+function currentGrokAuthHash() {
+  try {
+    const authPath = grokAuthPath();
+    if (!fs.existsSync(authPath)) return "";
+    return sha256Hex(fs.readFileSync(authPath));
+  } catch {
+    return "";
+  }
+}
+
+async function syncGrokAuthIfChanged(reason = "unknown") {
+  if (!config.grokAuthSyncEnabled || !authStoreConfigured()) return;
+  const authPath = grokAuthPath();
+  if (!fs.existsSync(authPath)) return;
+  const json = fs.readFileSync(authPath, "utf8");
+  const hash = sha256Hex(Buffer.from(json, "utf8"));
+  if (hash && hash === lastObservedGrokAuthHash) return;
+  const result = await saveAuthJsonToStore(json);
+  lastObservedGrokAuthHash = hash;
+  console.log(`Grok auth synced to Redis after ${reason}: ${result.hashPrefix}`);
+}
+
+lastObservedGrokAuthHash = currentGrokAuthHash();
 
 function redactSensitive(value = "") {
   return String(value || "")
@@ -1051,6 +1079,9 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
     child.on("close", (code) => {
       processClosed = true;
       clearTimeout(timer);
+      syncGrokAuthIfChanged("grok-cli").catch((error) => {
+        console.warn(`Grok auth Redis sync failed: ${error.message}`);
+      });
       const trailing = parseStreamingJsonLine(lineBuffer);
       if (trailing?.type === "text" && streamingEventText(trailing)) {
         sawStreamingEvent = true;
@@ -1920,6 +1951,18 @@ app.get("/debug/grok-config", (req, res) => {
     mediaConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.mediaMaxTurns }),
     videoConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.videoMaxTurns, model: config.videoModel })
   });
+});
+
+app.get("/debug/grok-auth-status", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    res.json({ ok: true, auth: await authStoreStatus() });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
 });
 
 app.get("/debug/jobs", (req, res) => {
