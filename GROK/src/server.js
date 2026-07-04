@@ -505,14 +505,9 @@ function grokStatusMarkdown(status = "") {
 
 function grokFooterNote({ webSearch = false } = {}) {
   return {
-    tag: "note",
+    tag: "markdown",
     element_id: "grok_footer",
-    elements: [
-      {
-        tag: "plain_text",
-        content: webSearch ? "X1 · Grok Bridge · 联网检索" : "X1 · Grok Bridge"
-      }
-    ]
+    content: webSearch ? "X1 · Grok Bridge · 联网检索" : "X1 · Grok Bridge"
   };
 }
 
