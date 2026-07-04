@@ -708,6 +708,66 @@ function extractMessageText(message = {}) {
   return stripAtTags(content.text || content.title || content.description || "");
 }
 
+function quotedMessageId(message = {}) {
+  const own = message.message_id || "";
+  for (const key of ["parent_id", "parent_message_id", "root_id", "root_message_id"]) {
+    const value = message[key];
+    if (typeof value === "string" && value && value !== own) return value;
+  }
+  return "";
+}
+
+function safeName(value = "") {
+  return String(value || "file").replace(/[^A-Za-z0-9._-]+/g, "_").slice(0, 120) || "file";
+}
+
+function extFromContentType(contentType = "", fallback = ".bin") {
+  const clean = String(contentType || "").toLowerCase();
+  if (clean.includes("png")) return ".png";
+  if (clean.includes("webp")) return ".webp";
+  if (clean.includes("gif")) return ".gif";
+  if (clean.includes("jpeg") || clean.includes("jpg")) return ".jpg";
+  if (clean.includes("mp4")) return ".mp4";
+  if (clean.includes("quicktime")) return ".mov";
+  if (clean.includes("webm")) return ".webm";
+  if (clean.includes("pdf")) return ".pdf";
+  return fallback;
+}
+
+function messageContentKeys(message = {}) {
+  const content = parseContent(message.content);
+  const keys = [];
+  const seen = new Set();
+  const add = (type, key, fallbackName = "") => {
+    if (typeof key === "string" && key && !seen.has(`${type}:${key}`)) {
+      seen.add(`${type}:${key}`);
+      keys.push({ type, key, name: fallbackName || key });
+    }
+  };
+  if (message.message_type === "image") {
+    add("image", content.image_key, "quoted-image.jpg");
+  } else if (message.message_type === "media") {
+    add("file", content.file_key, content.file_name || "quoted-video.mp4");
+    add("image", content.image_key, "quoted-video-thumbnail.jpg");
+  } else if (message.message_type === "file") {
+    add("file", content.file_key, content.file_name || content.name || "quoted-file.bin");
+  } else if (message.message_type === "audio") {
+    add("file", content.file_key, content.file_name || "quoted-audio.bin");
+  }
+  const walk = (value) => {
+    if (!value || typeof value !== "object") return;
+    if (Array.isArray(value)) {
+      for (const item of value) walk(item);
+      return;
+    }
+    add("image", value.image_key, value.file_name || value.name || "quoted-image.jpg");
+    add("file", value.file_key, value.file_name || value.name || "quoted-file.bin");
+    for (const item of Object.values(value)) walk(item);
+  };
+  walk(content);
+  return keys;
+}
+
 function shouldUseWebSearch(text = "") {
   return /(最新|今天|今日|现在|当前|实时|联网|搜索|查一下|股价|价格|新闻|市值|估值|财报|汇率|天气|多少|latest|today|current|real[- ]?time|search|stock|price|news|valuation)/i.test(text);
 }
@@ -740,11 +800,7 @@ function classifyTask(text = "") {
       title: "Grok 视频生成",
       webSearch: false,
       mediaTask: true,
-      rules: [
-        "Task hint: this is a video/media request.",
-        "If recent media files are listed above and the user says this/that image, treat them as useful context.",
-        "Use your own judgment, but avoid spending the whole turn exploring optional approaches. Return the real .mp4 path once produced."
-      ]
+      rules: []
     };
   }
   if (media === "image") {
@@ -754,10 +810,7 @@ function classifyTask(text = "") {
       title: "Grok 图片生成",
       webSearch: false,
       mediaTask: true,
-      rules: [
-        "Task hint: this is an image/media request.",
-        "Use your own judgment. Return the real image path once produced."
-      ]
+      rules: []
     };
   }
   if (shouldUseWebSearch(text)) {
@@ -768,15 +821,7 @@ function classifyTask(text = "") {
       title: "Grok 联网检索",
       webSearch: true,
       mediaTask: false,
-      rules: deep
-        ? [
-            "Task hint: this asks for deeper current research.",
-            "Use your own judgment on sources and depth, but stop when the answer is well-supported."
-          ]
-        : [
-            "Task hint: this looks like a quick current/factual lookup.",
-            "Use your own judgment, but avoid unnecessary extra searches once the fact is clear."
-          ]
+      rules: []
     };
   }
   if (isQuickFact(text)) {
@@ -786,10 +831,7 @@ function classifyTask(text = "") {
       title: "Grok 回复",
       webSearch: false,
       mediaTask: false,
-      rules: [
-        "Task hint: this looks like a simple question.",
-        "Answer directly unless you genuinely need tools."
-      ]
+      rules: []
     };
   }
   return {
@@ -798,10 +840,7 @@ function classifyTask(text = "") {
     title: "Grok 回复",
     webSearch: false,
     mediaTask: false,
-    rules: [
-      "Task hint: normal conversation.",
-      "Use your own judgment."
-    ]
+    rules: []
   };
 }
 
@@ -822,24 +861,20 @@ function grokCliArgs(prompt, { maxTurns } = {}) {
   return resolvedArgs;
 }
 
-function buildGrokPrompt(userPrompt = "", { mediaContext = [], mediaTask = false, taskRules = [] } = {}) {
-  const mediaLines = mediaContext.length
-    ? ["Recent media files from this Feishu chat, use them when the user refers to this image/video:", ...mediaContext.map((item) => `- ${item.type}: ${item.path}`)]
-    : [];
-  const mediaRules = mediaTask
+function buildGrokPrompt(userPrompt = "", { quotedContext = null, taskRules = [] } = {}) {
+  const quotedLines = quotedContext
     ? [
-        "Media task rules:",
-        "- Do not brainstorm or explain the plan for many turns.",
-        "- For video requests, prefer the fastest viable MP4 path. If a recent image is available, create a short 2-4 second MP4 from that image with simple zoom/pan or lightweight motion, then return the real .mp4 path.",
-        "- If true image-to-video animation is unavailable, still produce a simple MP4 from the reference image rather than looping on tool attempts.",
-        "- Stop immediately after producing the real media file path."
-      ]
+        "The user explicitly replied to or quoted this Feishu message. Treat it as referenced context, then use your own agent judgment.",
+        quotedContext.text ? `Quoted text:\n${quotedContext.text}` : "",
+        ...quotedContext.files.map((item) => item.path
+          ? `Quoted ${item.type} file: ${item.path}`
+          : `Quoted ${item.type || "resource"} could not be downloaded: ${item.error || "unknown error"}`)
+      ].filter(Boolean)
     : [];
   return [
     config.systemPrompt,
-    ...mediaLines,
+    ...quotedLines,
     ...taskRules,
-    ...mediaRules,
     "User message:",
     String(userPrompt || "").trim()
   ].filter(Boolean).join("\n\n");
@@ -874,11 +909,11 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, mediaContext = [], mediaTask = false, taskRules = [] } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, quotedContext = null, taskRules = [] } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
-  const effectivePrompt = buildGrokPrompt(prompt, { mediaContext, mediaTask, taskRules });
+  const effectivePrompt = buildGrokPrompt(prompt, { quotedContext, taskRules });
   return new Promise((resolve, reject) => {
     const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns }), {
       env: process.env,
@@ -1273,6 +1308,86 @@ class FeishuClient {
     return data;
   }
 
+  async get(path) {
+    const token = await this.tenantAccessToken();
+    const response = await fetch(`https://open.feishu.cn${path}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu API failed ${response.status}: ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    return data;
+  }
+
+  async download(path, destPath) {
+    const token = await this.tenantAccessToken();
+    const response = await fetch(`https://open.feishu.cn${path}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      throw new Error(`Feishu download failed ${response.status}: ${body.slice(0, 500)}`);
+    }
+    const contentType = response.headers.get("content-type") || "";
+    const buffer = Buffer.from(await response.arrayBuffer());
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    fs.writeFileSync(destPath, buffer);
+    return { path: destPath, contentType, size: buffer.length };
+  }
+
+  async getMessage(messageId) {
+    if (!messageId) return null;
+    const data = await this.get(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}`);
+    const item = data?.data?.items?.[0] || data?.data?.message || data?.data?.item || data?.data;
+    return item && typeof item === "object" ? item : null;
+  }
+
+  async downloadMessageResource(messageId, resource) {
+    const type = resource.type === "image" ? "image" : "file";
+    const baseName = safeName(resource.name || resource.key);
+    const rawDest = path.join(config.grokCliCwd, "quoted", safeName(messageId), baseName);
+    const resourcePath = `/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/resources/${encodeURIComponent(resource.key)}?type=${encodeURIComponent(type)}`;
+    try {
+      const downloaded = await this.download(resourcePath, rawDest);
+      const ext = path.extname(rawDest) || extFromContentType(downloaded.contentType, type === "image" ? ".jpg" : ".bin");
+      if (!path.extname(rawDest) && ext) {
+        const renamed = `${rawDest}${ext}`;
+        fs.renameSync(rawDest, renamed);
+        downloaded.path = renamed;
+      }
+      return { type, key: resource.key, path: downloaded.path, size: downloaded.size };
+    } catch (error) {
+      if (type !== "image") throw error;
+      const fallbackDest = path.extname(rawDest) ? rawDest : `${rawDest}.jpg`;
+      const downloaded = await this.download(`/open-apis/im/v1/images/${encodeURIComponent(resource.key)}`, fallbackDest);
+      return { type, key: resource.key, path: downloaded.path, size: downloaded.size };
+    }
+  }
+
+  async quotedContextFromMessage(message) {
+    const quoteId = quotedMessageId(message);
+    if (!quoteId) return null;
+    const quoted = await this.getMessage(quoteId);
+    if (!quoted) return { messageId: quoteId, text: "", files: [], error: "Quoted Feishu message was not found." };
+    const text = extractMessageText(quoted);
+    const files = [];
+    for (const resource of messageContentKeys(quoted)) {
+      try {
+        files.push(await this.downloadMessageResource(quoteId, resource));
+      } catch (error) {
+        files.push({ type: resource.type, key: resource.key, error: error.message });
+      }
+    }
+    return { messageId: quoteId, messageType: quoted.message_type || "", text, files };
+  }
+
   async uploadImage(filePath) {
     const resolved = path.resolve(filePath);
     if (!isSafeGrokImagePath(resolved)) {
@@ -1535,24 +1650,6 @@ const app = express();
 const feishu = new FeishuClient();
 const seenMessageIds = new Map();
 const jobs = new Map();
-const recentMediaByChat = new Map();
-
-function rememberRecentMedia(chatId, mediaItems = []) {
-  if (!chatId || !mediaItems.length) return;
-  const existing = recentMediaByChat.get(chatId) || [];
-  const merged = [...mediaItems, ...existing]
-    .filter((item) => item?.path && fs.existsSync(item.path))
-    .slice(0, 8);
-  recentMediaByChat.set(chatId, merged);
-}
-
-function recentMediaForChat(chatId) {
-  if (!chatId) return [];
-  const existing = recentMediaByChat.get(chatId) || [];
-  const live = existing.filter((item) => item?.path && fs.existsSync(item.path)).slice(0, 8);
-  if (live.length !== existing.length) recentMediaByChat.set(chatId, live);
-  return live;
-}
 
 app.use(express.json({ limit: "2mb" }));
 app.set("trust proxy", true);
@@ -1752,11 +1849,10 @@ async function processFeishuMessage(payload) {
   if (senderType === "app") return;
   const message = event.message || {};
   const messageId = message.message_id || "";
-  const chatId = message.chat_id || event.message?.chat_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
   const task = classifyTask(prompt);
-  const mediaContext = task.mediaTask ? recentMediaForChat(chatId) : [];
+  const quotedContext = await feishu.quotedContextFromMessage(message);
 
   const job = {
     id: messageId,
@@ -1765,7 +1861,8 @@ async function processFeishuMessage(payload) {
     taskKind: task.kind,
     webSearch: task.webSearch,
     mediaTask: task.mediaTask,
-    mediaContextCount: mediaContext.length,
+    quotedMessageId: quotedContext?.messageId || "",
+    quotedFileCount: quotedContext?.files?.filter((item) => item.path).length || 0,
     startedAt: new Date().toISOString()
   };
   jobs.set(messageId, job);
@@ -1792,7 +1889,7 @@ async function processFeishuMessage(payload) {
     });
     const answer = await callGrokCli(prompt, {
       maxTurns: task.maxTurns,
-      mediaContext,
+      quotedContext,
       mediaTask: task.mediaTask,
       taskRules: task.rules,
       onText: (fullText) => {
@@ -1808,10 +1905,6 @@ async function processFeishuMessage(payload) {
     });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
-    rememberRecentMedia(chatId, [
-      ...imagePaths.map((imagePath) => ({ type: "image", path: imagePath })),
-      ...videoPaths.map((videoPath) => ({ type: "video", path: videoPath }))
-    ]);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
     job.status = "completed";
     job.completedAt = new Date().toISOString();
