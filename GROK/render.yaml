@@ -25,7 +25,7 @@ services:
       - key: GROK_CLI_CWD
         value: /tmp/grok-feishu-bridge-cwd
       - key: GROK_CLI_ARGS_JSON
-        value: '["--cwd","{{cwd}}","--no-memory","--no-plan","--output-format","plain","-p","{{prompt}}"]'
+        value: '["--cwd","{{cwd}}","--no-memory","--no-plan","--output-format","streaming-json","-p","{{prompt}}"]'
       - key: SEND_PROGRESS_MESSAGE
         value: "true"
       - key: MAX_REPLY_CHARS
