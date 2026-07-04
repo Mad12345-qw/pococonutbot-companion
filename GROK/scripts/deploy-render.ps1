@@ -81,11 +81,15 @@ $body = @{
   envVars = $envVars
   serviceDetails = @{
     env = "node"
+    runtime = "node"
     plan = "starter"
     region = "oregon"
-    buildCommand = 'export GROK_BIN_DIR="$PWD/.grok/bin" && curl -fsSL https://x.ai/cli/install.sh | bash && npm ci'
-    startCommand = 'node scripts/restore-grok-auth.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start'
     healthCheckPath = "/health"
+    numInstances = 1
+    envSpecificDetails = @{
+      buildCommand = 'export GROK_BIN_DIR="$PWD/.grok/bin" && curl -fsSL https://x.ai/cli/install.sh | bash && npm ci'
+      startCommand = 'node scripts/restore-grok-auth.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start'
+    }
   }
 } | ConvertTo-Json -Depth 20
 
