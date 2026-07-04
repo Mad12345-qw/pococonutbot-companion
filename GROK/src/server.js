@@ -1900,6 +1900,22 @@ app.get("/health", (_req, res) => {
   });
 });
 
+app.get("/debug/grok-config", (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  res.json({
+    ok: true,
+    mediaMaxTurns: config.mediaMaxTurns,
+    videoMaxTurns: config.videoMaxTurns,
+    videoModel: config.videoModel,
+    configuredArgs: grokCliArgs("{{prompt}}"),
+    mediaConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.mediaMaxTurns }),
+    videoConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.videoMaxTurns, model: config.videoModel })
+  });
+});
+
 app.get("/debug/jobs", (req, res) => {
   if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
     res.status(404).json({ error: "not found" });
