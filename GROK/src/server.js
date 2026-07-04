@@ -200,6 +200,11 @@ function extractLocalPaths(text = "", pattern, validator, limit = 4) {
   return paths;
 }
 
+function appendCappedText(current = "", chunk = "", max = 120000) {
+  const next = `${current}${chunk}`;
+  return next.length > max ? next.slice(-max) : next;
+}
+
 function extractLocalPathCandidates(text = "", pattern, limit = 8) {
   const paths = [];
   const seen = new Set();
@@ -1080,9 +1085,10 @@ async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEv
       if (error) reject(error);
       else resolve(sanitizeGrokOutput(output || stdout));
     };
+    const timeoutMs = Math.min(config.grokCliTimeoutMs, 300000);
     const timer = setTimeout(() => {
-      finish(new Error(`Grok Imagine video timed out after ${config.grokCliTimeoutMs}ms. Output: ${sanitizeGrokOutput(stdout).slice(-1200)}`));
-    }, config.grokCliTimeoutMs);
+      finish(new Error(`Grok Imagine video timed out after ${timeoutMs}ms. Output: ${sanitizeGrokOutput(stdout).slice(-2000)}`));
+    }, timeoutMs);
     const pathWatcher = setInterval(() => {
       const clean = sanitizeGrokOutput(stdout);
       const videos = extractLocalVideoPaths(clean, 2);
@@ -1094,10 +1100,10 @@ async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEv
       }
     }, 2000);
     child.stdout.on("data", (chunk) => {
-      stdout += chunk.toString("utf8");
+      stdout = appendCappedText(stdout, chunk.toString("utf8"));
     });
     child.stderr.on("data", (chunk) => {
-      stderr += chunk.toString("utf8");
+      stderr = appendCappedText(stderr, chunk.toString("utf8"), 20000);
     });
     child.on("error", (error) => {
       finish(new Error(`Grok TUI video runner failed: ${error.message}. Is the Linux 'script' command available?`));
@@ -1113,7 +1119,73 @@ async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEv
       finish(new Error(`Grok TUI video exited ${code}: ${sanitizeGrokOutput(stderr || stdout).slice(-1600)}`));
     });
     onEvent?.({ type: "tool", name: "imagine-video-tui" });
-    child.stdin.write(`${slashCommand}\n`);
+    setTimeout(() => {
+      if (!settled) child.stdin.write(`${slashCommand}\r`);
+    }, 1500).unref?.();
+  });
+}
+
+async function probeGrokTui(input = "/help", timeoutMs = 12000) {
+  const command = await ensureGrokCliCommand();
+  const shellCommand = [
+    shellQuote(command),
+    "--no-auto-update",
+    "--always-approve",
+    "--permission-mode",
+    "bypassPermissions",
+    "--cwd",
+    shellQuote(config.grokCliCwd),
+    "--no-memory"
+  ].join(" ");
+  return new Promise((resolve) => {
+    const child = spawn("script", ["-q", "-f", "-e", "-c", shellCommand, "/dev/null"], {
+      env: process.env,
+      windowsHide: true,
+      stdio: ["pipe", "pipe", "pipe"]
+    });
+    let stdout = "";
+    let stderr = "";
+    let finished = false;
+    const finish = (result) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timer);
+      try {
+        child.stdin?.write("/quit\r");
+      } catch {
+        // Ignore closed stdin.
+      }
+      setTimeout(() => {
+        if (!child.killed) child.kill("SIGTERM");
+      }, 1000).unref?.();
+      resolve(result);
+    };
+    const timer = setTimeout(() => {
+      finish({
+        ok: false,
+        timedOut: true,
+        stdoutTail: sanitizeGrokOutput(stdout).slice(-3000),
+        stderrTail: sanitizeGrokOutput(stderr).slice(-1000)
+      });
+    }, timeoutMs);
+    child.stdout.on("data", (chunk) => {
+      stdout = appendCappedText(stdout, chunk.toString("utf8"), 30000);
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr = appendCappedText(stderr, chunk.toString("utf8"), 10000);
+    });
+    child.on("error", (error) => {
+      finish({ ok: false, error: error.message, stdoutTail: sanitizeGrokOutput(stdout).slice(-3000), stderrTail: sanitizeGrokOutput(stderr).slice(-1000) });
+    });
+    child.on("close", (code) => {
+      finish({ ok: code === 0, exitCode: code, stdoutTail: sanitizeGrokOutput(stdout).slice(-5000), stderrTail: sanitizeGrokOutput(stderr).slice(-1000) });
+    });
+    setTimeout(() => {
+      child.stdin.write(`${input}\r`);
+    }, 1500).unref?.();
+    setTimeout(() => {
+      child.stdin.write("/quit\r");
+    }, Math.max(2500, timeoutMs - 2000)).unref?.();
   });
 }
 
@@ -1896,6 +1968,21 @@ app.get("/debug/grok-probe", async (req, res) => {
     const prompt = String(req.query.prompt || "用一句中文回答：probe").slice(0, 500);
     const timeoutMs = Math.min(envNumber("DEBUG_PROBE_TIMEOUT_MS", 60000), 90000);
     const result = await probeGrokCli(prompt, timeoutMs);
+    res.status(result.ok ? 200 : 504).json(result);
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/grok-tui-probe", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const input = String(req.query.input || "/help").slice(0, 500);
+    const timeoutMs = Math.min(Number(req.query.timeoutMs || 12000) || 12000, 30000);
+    const result = await probeGrokTui(input, timeoutMs);
     res.status(result.ok ? 200 : 504).json(result);
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
