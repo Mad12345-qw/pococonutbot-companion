@@ -1012,11 +1012,12 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
     let streamedText = "";
     let sawStreamingEvent = false;
     let stopReason = "";
+    let processClosed = false;
     const effectiveTimeoutMs = Number(timeoutMs || config.grokCliTimeoutMs);
     const timer = setTimeout(() => {
       child.kill("SIGTERM");
       setTimeout(() => {
-        if (!child.killed) child.kill("SIGKILL");
+        if (!processClosed) child.kill("SIGKILL");
       }, 3000).unref?.();
       reject(new Error(`Grok CLI timed out after ${effectiveTimeoutMs}ms. stdoutTail=${sanitizeGrokOutput(stdout).slice(-1200)} stderrTail=${sanitizeGrokOutput(stderr).slice(-1200)}`));
     }, effectiveTimeoutMs);
@@ -1048,6 +1049,7 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
       reject(error);
     });
     child.on("close", (code) => {
+      processClosed = true;
       clearTimeout(timer);
       const trailing = parseStreamingJsonLine(lineBuffer);
       if (trailing?.type === "text" && streamingEventText(trailing)) {
