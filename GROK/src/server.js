@@ -8,6 +8,7 @@ import express from "express";
 
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
+const GROK_EXECUTABLE_NAME = process.platform === "win32" ? "grok.exe" : "grok";
 const DEFAULT_SYSTEM_PROMPT = [
   "You are Grok connected to a Feishu bot.",
   "Reply in the user's language.",
@@ -38,7 +39,7 @@ const config = {
   xaiModel: process.env.XAI_MODEL || "grok-4.3",
   xaiTimeoutMs: envNumber("XAI_TIMEOUT_MS", 540000),
   grokCliEnabled: envFlag("GROK_CLI_ENABLED", true),
-  grokCliCommand: process.env.GROK_CLI_COMMAND || "grok",
+  grokCliCommand: process.env.GROK_CLI_COMMAND || path.join(process.cwd(), ".grok", "bin", GROK_EXECUTABLE_NAME),
   grokCliCwd: process.env.GROK_CLI_CWD || path.join(os.tmpdir(), "grok-feishu-bridge-cwd"),
   grokCliTimeoutMs: envNumber("GROK_CLI_TIMEOUT_MS", 300000),
   sendProgressMessage: envFlag("SEND_PROGRESS_MESSAGE", true),
@@ -56,7 +57,40 @@ function parseJson(value, fallback) {
 }
 
 function stripAnsi(text = "") {
-  return String(text || "").replace(/\u001b\[[0-?]*[ -/]*[@-~]/g, "");
+  return String(text || "")
+    .replace(/\u001b\][\s\S]*?(?:\u0007|\u001b\\)/g, "")
+    .replace(/\u001b\[[0-?]*[ -/]*[@-~]/g, "")
+    .replace(/\u001b[PX^_][\s\S]*?\u001b\\/g, "")
+    .replace(/\u001b[@-_]/g, "");
+}
+
+function isGrokDiagnosticLine(line = "") {
+  const text = String(line || "").trim();
+  return (
+    /^\d{4}-\d{2}-\d{2}T[\d:.]+Z\s+(WARN|ERROR|INFO|DEBUG)\b/i.test(text) ||
+    /\b(repo_state\.git\.collect|Codebase upload failed|Reference blob upload|batch_exists returned|dedup batch existence probe)\b/i.test(text) ||
+    /^Caused by:\s*$/i.test(text)
+  );
+}
+
+function sanitizeGrokOutput(text = "") {
+  const clean = stripAnsi(text)
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .split("\n")
+    .filter((line) => !isGrokDiagnosticLine(line))
+    .join("\n")
+    .replace(/\n{4,}/g, "\n\n\n")
+    .trim();
+  return clean;
+}
+
+function sanitizeFeishuText(text = "") {
+  const clean = sanitizeGrokOutput(text)
+    .replace(/[\u2028\u2029]/g, "\n")
+    .trim();
+  return clean || "没有生成可发送的回复。";
 }
 
 function isExecutable(filePath = "") {
@@ -69,50 +103,20 @@ function isExecutable(filePath = "") {
   }
 }
 
-function grokBinaryCandidates() {
-  const exe = process.platform === "win32" ? "grok.exe" : "grok";
-  return [
-    config.grokCliCommand,
-    path.join(process.cwd(), ".grok", "bin", exe),
-    path.join(os.homedir(), ".grok", "bin", exe),
-    process.env.GROK_BIN_DIR ? path.join(process.env.GROK_BIN_DIR, exe) : ""
-  ].filter(Boolean);
-}
-
 async function ensureGrokCliCommand() {
-  for (const candidate of grokBinaryCandidates()) {
-    if (candidate.includes(path.sep) && isExecutable(candidate)) return candidate;
-  }
   if (config.grokCliCommand && !config.grokCliCommand.includes(path.sep)) {
     try {
       await execFileAsync(config.grokCliCommand, ["--version"], { timeout: 10000, windowsHide: true });
       return config.grokCliCommand;
-    } catch {
-      // Fall through to a runtime install. Render can lose PATH/build artifacts in
-      // ways that still leave the service running, so repair here before replying.
+    } catch (error) {
+      throw new Error(`Configured Grok CLI command is not available on PATH: ${config.grokCliCommand}; ${error.message}`);
     }
   }
 
-  if (process.platform === "win32") {
-    throw new Error(`Grok CLI executable was not found. Checked: ${grokBinaryCandidates().join(", ")}`);
+  if (!isExecutable(config.grokCliCommand)) {
+    throw new Error(`Configured Grok CLI path does not exist or is not executable: ${config.grokCliCommand}`);
   }
-
-  const binDir = path.join(process.cwd(), ".grok", "bin");
-  fs.mkdirSync(binDir, { recursive: true });
-  await execFileAsync("bash", [
-    "-lc",
-    `export GROK_BIN_DIR=${JSON.stringify(binDir)} && curl -fsSL https://x.ai/cli/install.sh | bash`
-  ], {
-    timeout: 180000,
-    windowsHide: true,
-    maxBuffer: 1024 * 1024
-  });
-
-  const installed = path.join(binDir, "grok");
-  if (!isExecutable(installed)) {
-    throw new Error(`Grok CLI install completed, but ${installed} is not executable.`);
-  }
-  return installed;
+  return config.grokCliCommand;
 }
 
 function parseContent(content = "") {
@@ -272,7 +276,7 @@ async function callGrokCli(prompt) {
     });
     child.on("close", (code) => {
       clearTimeout(timer);
-      const output = stripAnsi(stdout).trim();
+      const output = sanitizeGrokOutput(stdout);
       if (code === 0 && output) {
         resolve(output);
         return;
@@ -340,7 +344,7 @@ class FeishuClient {
 
   async replyText(messageId, text) {
     if (!messageId) return;
-    for (const chunk of splitReply(text, config.maxReplyChars)) {
+    for (const chunk of splitReply(sanitizeFeishuText(text), config.maxReplyChars)) {
       await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
         msg_type: "text",
         content: JSON.stringify({ text: chunk })
@@ -350,7 +354,7 @@ class FeishuClient {
 }
 
 function splitReply(text, maxChars) {
-  const clean = String(text || "").trim() || "没有生成可发送的回复。";
+  const clean = sanitizeFeishuText(text);
   if (clean.length <= maxChars) return [clean];
   const chunks = [];
   let rest = clean;
@@ -408,14 +412,14 @@ app.get("/health", (_req, res) => {
     service: config.serviceName,
     startedAt: STARTED_AT.toISOString(),
     uptimeSeconds: Math.round(process.uptime()),
+    cwd: process.cwd(),
     feishuConfigured: feishu.enabled,
     xaiApiConfigured: Boolean(config.xaiApiKey),
     grokCliEnabled: config.grokCliEnabled,
     grokCliCwd: config.grokCliCwd,
-    grokCliCandidates: grokBinaryCandidates().map((candidate) => ({
-      path: candidate,
-      exists: candidate.includes(path.sep) ? fs.existsSync(candidate) : null
-    })),
+    grokCliCommand: config.grokCliCommand,
+    grokCliCommandExists: config.grokCliCommand.includes(path.sep) ? fs.existsSync(config.grokCliCommand) : null,
+    grokCliCommandExecutable: config.grokCliCommand.includes(path.sep) ? isExecutable(config.grokCliCommand) : null,
     model: config.xaiApiKey ? config.xaiModel : "grok-cli",
     webSearchMode: config.xaiApiKey ? "xai-responses-web_search" : "grok-cli"
   });
@@ -427,6 +431,21 @@ app.get("/debug/jobs", (req, res) => {
     return;
   }
   res.json({ jobs: [...jobs.values()].slice(-50) });
+});
+
+app.get("/debug/grok-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const prompt = String(req.query.prompt || "用一句中文回答：Render Grok CLI 已经可以运行。").slice(0, 500);
+    const command = await ensureGrokCliCommand();
+    const answer = await callGrokCli(prompt);
+    res.json({ ok: true, command, answer: answer.slice(0, 2000) });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
 });
 
 app.post("/feishu/events", async (req, res) => {

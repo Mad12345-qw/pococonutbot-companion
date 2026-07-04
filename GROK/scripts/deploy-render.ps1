@@ -89,7 +89,7 @@ $body = @{
     numInstances = 1
     envSpecificDetails = @{
       buildCommand = 'export GROK_BIN_DIR="$PWD/.grok/bin" && curl -fsSL https://x.ai/cli/install.sh | bash && npm ci'
-      startCommand = 'node scripts/restore-grok-auth.mjs && node scripts/ensure-grok-cli.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start'
+      startCommand = 'export GROK_BIN_DIR="$PWD/.grok/bin" && node scripts/restore-grok-auth.mjs && node scripts/ensure-grok-cli.mjs && export PATH="$GROK_BIN_DIR:$PATH" && npm start'
     }
   }
 } | ConvertTo-Json -Depth 20
