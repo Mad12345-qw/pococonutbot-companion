@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: feishu-grok-bridge
+    runtime: node
+    plan: starter
+    rootDir: GROK
+    buildCommand: export GROK_BIN_DIR="$PWD/.grok/bin" && curl -fsSL https://x.ai/cli/install.sh | bash && npm ci
+    startCommand: node scripts/restore-grok-auth.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SERVICE_NAME
+        value: feishu-grok-bridge
+      - key: XAI_MODEL
+        value: grok-4.3
+      - key: XAI_TIMEOUT_MS
+        value: "540000"
+      - key: GROK_CLI_ENABLED
+        value: "true"
+      - key: GROK_CLI_TIMEOUT_MS
+        value: "300000"
+      - key: GROK_CLI_COMMAND
+        value: grok
+      - key: GROK_CLI_CWD
+        value: /tmp/grok-feishu-bridge-cwd
+      - key: GROK_CLI_ARGS_JSON
+        value: '["--cwd","{{cwd}}","--no-memory","--no-plan","--max-turns","1","--output-format","plain","-p","{{prompt}}"]'
+      - key: SEND_PROGRESS_MESSAGE
+        value: "true"
+      - key: MAX_REPLY_CHARS
+        value: "3500"
+      - key: FEISHU_APP_ID
+        sync: false
+      - key: FEISHU_APP_SECRET
+        sync: false
+      - key: FEISHU_VERIFICATION_TOKEN
+        sync: false
+      - key: FEISHU_ENCRYPT_KEY
+        sync: false
+      - key: XAI_API_KEY
+        sync: false
+      - key: GROK_DEPLOYMENT_KEY
+        sync: false
+      - key: GROK_AUTH_JSON_B64
+        sync: false
+      - key: DEBUG_TOKEN
+        sync: false
