@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T06:51:42.953Z",
+  "exportedAt": "2026-07-04T07:01:40.252Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65567,6 +65567,26 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.curation_case_maotai_coffee_semantic_parasitism",
+        "value": "用户分享茅台×廉价咖啡跨界营销的概念海报案例，核心概念：'语义寄生(SEMANTIC PARASITISM)'+'语义爆炸(SEMANTIC EXPLOSION)'，框架为'高价值语义锚点(茅台:阶级|稀缺|权威|传统)×低价值/异质载体(廉价咖啡:平民|速消|低价|日常)'，触发认知失调制造信息熵实现流量掠夺。视觉为茅台酒瓶刺穿咖啡杯+破碎玻璃+暗黑金红撞色。属于用户关注的'身份反差+硬拧跨界+概念包装'类先锋内容选题，与拼好饭盲盒饭搭子案例逻辑一致但更体系化",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-04T06:51:59.232Z",
+        "updatedAt": "2026-07-04T06:51:59.232Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.curation_framework_semantic_parasitism",
+        "value": "用户关注并认可的跨界营销分析框架：语义寄生(Semantic Parasitism)=高价值锚点×低价值载体的暴力嫁接，靠认知失调产生信息熵引爆流量；语义爆炸(Semantic Explosion)=利用认知失调在小范围内制造戏剧性传播事件。核心公式：阶级反差+异质并置=流量掠夺。属于'碰瓷式选题'的进阶理论化方向",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-04T06:51:59.308Z",
+        "updatedAt": "2026-07-04T06:51:59.308Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
         "key": "content.work.curation_robotics_open_source",
         "value": "用户关注M总开源机器人项目，作为内容选题素材来源（与田楠等技术类Lead相关的开源项目可作为深度选题方向）",
         "importance": 3,
@@ -65643,6 +65663,16 @@
         "metadata": {},
         "createdAt": "2026-07-01T15:02:27.482Z",
         "updatedAt": "2026-07-01T15:02:27.482Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "key": "content.work.style_signal_semantic_concept_packaging",
+        "value": "用户偏好的内容新信号：将跨界营销/碰瓷现象包装成专业学术概念（语义寄生、语义爆炸、信息熵、文化撕裂），用硬核术语+暗黑视觉制造高级感内容。区别于纯情绪化选题，更偏向'概念化体系化'包装路径",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-04T06:51:59.379Z",
+        "updatedAt": "2026-07-04T06:51:59.379Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
