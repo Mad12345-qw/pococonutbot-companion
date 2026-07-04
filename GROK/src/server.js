@@ -50,7 +50,9 @@ const config = {
   maxReplyChars: envNumber("MAX_REPLY_CHARS", 3500),
   maxImageBytes: envNumber("MAX_IMAGE_BYTES", 10 * 1024 * 1024),
   maxVideoBytes: envNumber("MAX_VIDEO_BYTES", 30 * 1024 * 1024),
-  mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 20),
+  mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 10),
+  videoMaxTurns: envNumber("GROK_VIDEO_MAX_TURNS", 10),
+  videoModel: process.env.GROK_VIDEO_MODEL || "grok-build",
   debugToken: process.env.DEBUG_TOKEN || "",
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
 };
@@ -185,16 +187,40 @@ function isSafeGrokVideoPath(filePath = "") {
   });
 }
 
-function extractLocalPaths(text = "", pattern, validator, limit = 4) {
+function candidatePathVariants(candidate = "") {
+  const raw = String(candidate || "").replace(/[),.;:，。；：]+$/g, "");
+  const variants = [raw];
+  const jsonUnescaped = raw.replace(/\\\\/g, "\\");
+  if (jsonUnescaped !== raw) variants.push(jsonUnescaped);
+  try {
+    const decoded = decodeURIComponent(raw);
+    if (decoded !== raw) variants.push(decoded);
+  } catch {
+    // Keep raw if URI decoding is not applicable.
+  }
+  try {
+    const decodedUnescaped = decodeURIComponent(jsonUnescaped);
+    if (decodedUnescaped !== jsonUnescaped) variants.push(decodedUnescaped);
+  } catch {
+    // Keep unescaped if URI decoding is not applicable.
+  }
+  return variants;
+}
+
+function extractLocalPaths(text = "", patterns, validator, limit = 4) {
   const paths = [];
   const seen = new Set();
-  let match;
-  while ((match = pattern.exec(String(text || ""))) !== null && paths.length < limit) {
-    const candidate = match[1].replace(/[),.;:，。；：]+$/g, "");
-    const resolved = path.resolve(candidate);
-    if (!seen.has(resolved) && validator(resolved)) {
-      seen.add(resolved);
-      paths.push(resolved);
+  for (const pattern of Array.isArray(patterns) ? patterns : [patterns]) {
+    let match;
+    while ((match = pattern.exec(String(text || ""))) !== null && paths.length < limit) {
+      for (const candidate of candidatePathVariants(match[1])) {
+        const resolved = path.resolve(candidate);
+        if (!seen.has(resolved) && validator(resolved)) {
+          seen.add(resolved);
+          paths.push(resolved);
+          break;
+        }
+      }
     }
   }
   return paths;
@@ -210,15 +236,7 @@ function extractLocalPathCandidates(text = "", pattern, limit = 8) {
   const seen = new Set();
   let match;
   while ((match = pattern.exec(String(text || ""))) !== null && paths.length < limit) {
-    const candidate = match[1].replace(/[),.;:，。；：]+$/g, "");
-    const variants = [candidate];
-    try {
-      const decoded = decodeURIComponent(candidate);
-      if (decoded !== candidate) variants.push(decoded);
-    } catch {
-      // Keep the raw path if it is not valid URI encoding.
-    }
-    for (const item of variants) {
+    for (const item of candidatePathVariants(match[1])) {
       const resolved = path.resolve(item);
       if (!seen.has(resolved)) {
         seen.add(resolved);
@@ -230,18 +248,26 @@ function extractLocalPathCandidates(text = "", pattern, limit = 8) {
 }
 
 function extractLocalImagePaths(text = "", limit = 4) {
-  return extractLocalPaths(text, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi, isSafeGrokImagePath, limit);
+  return extractLocalPaths(text, [
+    /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi,
+    /(?:file:\/\/\/)?([A-Za-z]:\\[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi
+  ], isSafeGrokImagePath, limit);
 }
 
 function extractLocalVideoPaths(text = "", limit = 2) {
-  return extractLocalPaths(text, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi, isSafeGrokVideoPath, limit);
+  return extractLocalPaths(text, [
+    /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi,
+    /(?:file:\/\/\/)?([A-Za-z]:\\[^\s"'<>`]+\.(?:mp4|mov|webm))/gi
+  ], isSafeGrokVideoPath, limit);
 }
 
 function stripLocalMediaPaths(text = "") {
   let clean = String(text || "");
   const localPaths = [
     ...extractLocalPathCandidates(clean, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi),
-    ...extractLocalPathCandidates(clean, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi)
+    ...extractLocalPathCandidates(clean, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi),
+    ...extractLocalPathCandidates(clean, /(?:file:\/\/\/)?([A-Za-z]:\\[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi),
+    ...extractLocalPathCandidates(clean, /(?:file:\/\/\/)?([A-Za-z]:\\[^\s"'<>`]+\.(?:mp4|mov|webm))/gi)
   ];
   for (const filePath of localPaths) {
     clean = clean.replace(new RegExp(escapeRegExp(filePath), "g"), "");
@@ -844,19 +870,19 @@ function classifyTask(text = "") {
   if (media === "video") {
     return {
       kind: "video",
-      maxTurns: config.mediaMaxTurns,
+      maxTurns: config.videoMaxTurns,
       title: "Grok 视频生成",
       webSearch: false,
       mediaTask: true,
       rules: [
-        "This is a Grok Imagine video task. Use the built-in video generation capability, such as /imagine-video, and return the saved local MP4 path. If quoted files are provided, use them as explicit references."
+        "This is a Grok Build video task. Use the available Grok Build media tools, especially image_to_video or reference_to_video. If no reference image is provided, create a source image first, then animate it. Do not create videos with Python, FFmpeg, shell scripts, or code. Return the saved local MP4 path."
       ]
     };
   }
   if (media === "image") {
     return {
       kind: "image",
-      maxTurns: 12,
+      maxTurns: config.mediaMaxTurns,
       title: "Grok 图片生成",
       webSearch: false,
       mediaTask: true,
@@ -896,18 +922,28 @@ function classifyTask(text = "") {
   };
 }
 
-function grokCliArgs(prompt, { maxTurns } = {}) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"20\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "20", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+function grokCliArgs(prompt, { maxTurns, model } = {}) {
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"10\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "10", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   const turns = maxTurns ? String(maxTurns) : null;
+  const modelName = model ? String(model) : "";
   const resolvedArgs = (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
-    .replaceAll("{{maxTurns}}", turns || "20")
+    .replaceAll("{{maxTurns}}", turns || "10")
+    .replaceAll("{{model}}", modelName)
     .replaceAll("{{cwd}}", config.grokCliCwd));
   if (turns) {
     const turnIndex = resolvedArgs.indexOf("--max-turns");
     if (turnIndex >= 0 && turnIndex + 1 < resolvedArgs.length) {
       resolvedArgs[turnIndex + 1] = turns;
+    }
+  }
+  if (modelName) {
+    const modelIndex = resolvedArgs.findIndex((arg) => arg === "-m" || arg === "--model");
+    if (modelIndex >= 0 && modelIndex + 1 < resolvedArgs.length) {
+      resolvedArgs[modelIndex + 1] = modelName;
+    } else {
+      resolvedArgs.unshift("--model", modelName);
     }
   }
   return resolvedArgs;
@@ -961,13 +997,13 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, quotedContext = null, taskRules = [] } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [] } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
   const effectivePrompt = buildGrokPrompt(prompt, { quotedContext, taskRules });
   return new Promise((resolve, reject) => {
-    const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns }), {
+    const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns, model }), {
       env: process.env,
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
@@ -1023,8 +1059,13 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, quotedContext = 
         onEvent?.(trailing);
       }
       const output = sawStreamingEvent ? sanitizeGrokOutput(streamedText) : sanitizeGrokOutput(stdout);
-      if (code === 0 && output) {
-        resolve(output);
+      const mediaPathText = [
+        ...extractLocalImagePaths(stdout, 8),
+        ...extractLocalVideoPaths(stdout, 4)
+      ].join("\n");
+      const outputWithMediaPaths = sanitizeGrokOutput([output, mediaPathText].filter(Boolean).join("\n"));
+      if (code === 0 && outputWithMediaPaths) {
+        resolve(outputWithMediaPaths);
         return;
       }
       reject(new Error(`Grok CLI exited ${code}: ${[stopReason, stderr.trim() || "empty output"].filter(Boolean).join("; ")}`));
@@ -1032,97 +1073,18 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, quotedContext = 
   });
 }
 
-function buildImagineVideoCommand(userPrompt = "", quotedContext = null) {
-  const quotedFiles = quotedContext?.files?.filter((item) => item.path).map((item) => item.path) || [];
-  const referenceText = quotedFiles.length
-    ? ` Use these explicit reference file path(s): ${quotedFiles.join(", ")}.`
-    : "";
-  return `/imagine-video ${String(userPrompt || "").trim()}${referenceText} Save the generated video locally and print the final MP4 file path.`;
-}
-
-async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEvent } = {}) {
-  if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
-  if (process.platform === "win32") {
-    throw new Error("Grok TUI video mode requires a Unix pseudo-terminal on Render.");
-  }
-  fs.mkdirSync(config.grokCliCwd, { recursive: true });
-  const command = await ensureGrokCliCommand();
-  const slashCommand = buildImagineVideoCommand(prompt, quotedContext);
-  const shellCommand = [
-    shellQuote(command),
-    "--no-auto-update",
-    "--always-approve",
-    "--permission-mode",
-    "bypassPermissions",
-    "--cwd",
-    shellQuote(config.grokCliCwd),
-    "--no-memory"
-  ].join(" ");
-
-  return new Promise((resolve, reject) => {
-    const child = spawn("script", ["-q", "-f", "-e", "-c", shellCommand, "/dev/null"], {
-      env: process.env,
-      windowsHide: true,
-      stdio: ["pipe", "pipe", "pipe"]
-    });
-    let stdout = "";
-    let stderr = "";
-    let settled = false;
-    let lastTextAt = 0;
-    const finish = (error, output = "") => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      clearInterval(pathWatcher);
-      try {
-        child.stdin?.write("/quit\n");
-      } catch {
-        // The TUI may have already exited.
-      }
-      setTimeout(() => {
-        if (!child.killed) child.kill("SIGTERM");
-      }, 1500).unref?.();
-      if (error) reject(error);
-      else resolve(sanitizeGrokOutput(output || stdout));
-    };
-    const timeoutMs = Math.min(config.grokCliTimeoutMs, 300000);
-    const timer = setTimeout(() => {
-      finish(new Error(`Grok Imagine video timed out after ${timeoutMs}ms. Output: ${sanitizeGrokOutput(stdout).slice(-2000)}`));
-    }, timeoutMs);
-    const pathWatcher = setInterval(() => {
-      const clean = sanitizeGrokOutput(stdout);
-      const videos = extractLocalVideoPaths(clean, 2);
-      if (videos.length) {
-        finish(null, clean);
-      } else if (clean.length > lastTextAt + 120) {
-        lastTextAt = clean.length;
-        onText?.(clean.slice(-1800), "");
-      }
-    }, 2000);
-    child.stdout.on("data", (chunk) => {
-      stdout = appendCappedText(stdout, chunk.toString("utf8"));
-    });
-    child.stderr.on("data", (chunk) => {
-      stderr = appendCappedText(stderr, chunk.toString("utf8"), 20000);
-    });
-    child.on("error", (error) => {
-      finish(new Error(`Grok TUI video runner failed: ${error.message}. Is the Linux 'script' command available?`));
-    });
-    child.on("close", (code) => {
-      if (settled) return;
-      const clean = sanitizeGrokOutput(stdout);
-      const videos = extractLocalVideoPaths(clean, 2);
-      if (code === 0 && videos.length) {
-        finish(null, clean);
-        return;
-      }
-      finish(new Error(`Grok TUI video exited ${code}: ${sanitizeGrokOutput(stderr || stdout).slice(-1600)}`));
-    });
-    onEvent?.({ type: "tool", name: "imagine-video-tui" });
-    setTimeout(() => {
-      if (!settled) child.stdin.write(`${slashCommand}\r`);
-    }, 1500).unref?.();
+async function callGrokImagineVideo(prompt, options = {}) {
+  options.onEvent?.({ type: "tool", name: "grok-build-image-to-video" });
+  const answer = await callGrokCli(prompt, {
+    ...options,
+    model: config.videoModel,
+    maxTurns: options.maxTurns || config.videoMaxTurns
   });
+  const videoPaths = extractLocalVideoPaths(answer);
+  if (!videoPaths.length) {
+    throw new Error(`Grok video task finished without a safe MP4 path. Output: ${stripLocalMediaPaths(answer).slice(-1600)}`);
+  }
+  return answer;
 }
 
 async function probeGrokTui(input = "/help", timeoutMs = 12000) {
@@ -1376,6 +1338,7 @@ async function grokDiagnostics() {
     grokCliCwd: config.grokCliCwd,
     configuredArgs: grokCliArgs("{{prompt}}"),
     mediaConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.mediaMaxTurns }),
+    videoConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.videoMaxTurns, model: config.videoModel }),
     files: {
       grokHome: statIfExists(grokHome),
       authJson: statIfExists(path.join(grokHome, "auth.json")),
@@ -1932,6 +1895,8 @@ app.get("/health", (_req, res) => {
     grokCliCommandExists: config.grokCliCommand.includes(path.sep) ? fs.existsSync(config.grokCliCommand) : null,
     grokCliCommandExecutable: config.grokCliCommand.includes(path.sep) ? isExecutable(config.grokCliCommand) : null,
     model: "grok-cli",
+    videoModel: config.videoModel,
+    videoMaxTurns: config.videoMaxTurns,
     cardMode: "feishu-cardkit-streaming-json-2.0",
     webSearchMode: "grok-cli"
   });
@@ -2052,7 +2017,7 @@ app.get("/debug/grok-media-test", async (req, res) => {
     const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
     const task = classifyTask(prompt);
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(prompt)
+      ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules })
       : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
