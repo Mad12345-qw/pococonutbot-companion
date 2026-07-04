@@ -593,14 +593,14 @@ function grokHeaderTags(title = "", { webSearch = false, streaming = false, done
   const mode = grokModeLabel(title, { webSearch });
   const effectiveModeColor = CARD_TEXT_TAG_COLORS.has(modeTagColor)
     ? modeTagColor
-    : mode === "联网搜索" ? "indigo" : "grey";
+    : mode === "联网搜索" ? "indigo" : "orange";
   const tags = [
     grokTextTag("mode_tag", mode, effectiveModeColor)
   ];
-  if (streaming) tags.push(grokTextTag("stream_tag", "流式", "green"));
-  if (done) tags.push(grokTextTag("done_tag", "完成", "green"));
+  if (streaming) tags.push(grokTextTag("stream_tag", "流式", "turquoise"));
+  if (done) tags.push(grokTextTag("done_tag", "完成", "turquoise"));
   if (/视频|媒体|图片|图像|照片|video|image|photo/i.test(`${title}`)) {
-    tags.push(grokTextTag("media_tag", "媒体", "yellow"));
+    tags.push(grokTextTag("media_tag", "媒体", "red"));
   }
   return tags;
 }
