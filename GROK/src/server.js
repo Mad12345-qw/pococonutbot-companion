@@ -438,7 +438,7 @@ function sourceButtonsV2(text = "") {
       tag: "plain_text",
       content: `来源 ${index + 1}`
     },
-    type: index === 0 ? "primary_filled" : "default",
+    type: "default",
     size: "small",
     width: "default",
     behaviors: [
@@ -453,7 +453,71 @@ function sourceButtonsV2(text = "") {
   }));
 }
 
+function grokHeaderTemplate() {
+  return "grey";
+}
+
+function grokModeLabel(title = "", { webSearch = false } = {}) {
+  const text = `${title}`;
+  if (/视频|video|mp4/i.test(text)) return "视频任务";
+  if (/图片|图像|照片|image|photo|picture/i.test(text)) return "图片任务";
+  if (/媒体|media/i.test(text)) return "媒体任务";
+  if (webSearch) return "联网搜索";
+  return "对话";
+}
+
+function grokCardSubtitle({ webSearch = false, media = false, streaming = false } = {}) {
+  return [
+    "Grok CLI",
+    media ? "媒体结果卡片" : webSearch ? "联网检索" : "原生卡片",
+    streaming ? "流式更新" : "完成"
+  ].join(" · ");
+}
+
+function grokTextTag(elementId, content, color = "grey") {
+  return {
+    tag: "text_tag",
+    element_id: elementId,
+    text: {
+      tag: "plain_text",
+      content
+    },
+    color
+  };
+}
+
+function grokHeaderTags(title = "", { webSearch = false, streaming = false, done = false } = {}) {
+  const mode = grokModeLabel(title, { webSearch });
+  const tags = [
+    grokTextTag("mode_tag", mode, mode === "联网搜索" ? "indigo" : "grey")
+  ];
+  if (streaming) tags.push(grokTextTag("stream_tag", "流式", "green"));
+  if (done) tags.push(grokTextTag("done_tag", "完成", "green"));
+  if (/视频|媒体|图片|图像|照片|video|image|photo/i.test(`${title}`)) {
+    tags.push(grokTextTag("media_tag", "媒体", "yellow"));
+  }
+  return tags;
+}
+
+function grokStatusMarkdown(status = "") {
+  return `**● 状态**  ${cardMarkdown(status, 260)}`;
+}
+
+function grokFooterNote({ webSearch = false } = {}) {
+  return {
+    tag: "note",
+    element_id: "grok_footer",
+    elements: [
+      {
+        tag: "plain_text",
+        content: webSearch ? "X1 · Grok Bridge · 联网检索" : "X1 · Grok Bridge"
+      }
+    ]
+  };
+}
+
 function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务" } = {}) {
+  const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}`);
   return {
     schema: "2.0",
     config: {
@@ -471,51 +535,36 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
       }
     },
     header: {
-      template: webSearch ? "indigo" : "blue",
+      template: grokHeaderTemplate(),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
       },
       subtitle: {
         tag: "plain_text",
-        content: webSearch ? "Grok CLI · 联网检索 · 原生流式卡片" : "Grok CLI · 原生流式卡片"
+        content: grokCardSubtitle({ webSearch, media, streaming: true })
       },
-      text_tag_list: [
-        {
-          tag: "text_tag",
-          element_id: "mode_tag",
-          text: {
-            tag: "plain_text",
-            content: webSearch ? "搜索" : "对话"
-          },
-          color: webSearch ? "indigo" : "blue"
-        },
-        {
-          tag: "text_tag",
-          element_id: "stream_tag",
-          text: {
-            tag: "plain_text",
-            content: "流式"
-          },
-          color: "green"
-        }
-      ]
+      text_tag_list: grokHeaderTags(title, { webSearch, streaming: true })
     },
     body: {
       direction: "vertical",
-      padding: "12px 12px 12px 12px",
-      vertical_spacing: "8px",
+      padding: "14px 16px 16px 16px",
+      vertical_spacing: "10px",
       elements: [
         {
           tag: "markdown",
           element_id: STREAM_STATUS_ELEMENT_ID,
-          content: `**状态**：${cardMarkdown(status, 260)}`
+          content: grokStatusMarkdown(status)
+        },
+        {
+          tag: "hr"
         },
         {
           tag: "markdown",
           element_id: STREAM_ANSWER_ELEMENT_ID,
           content: ` ${cardMarkdown(text || "", config.maxCardContentChars - 1)}`
-        }
+        },
+        grokFooterNote({ webSearch })
       ]
     }
   };
@@ -523,6 +572,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
 
 function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } = {}) {
   const safe = sanitizeFeishuText(text);
+  const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}\n${safe}`);
   const elements = [
     {
       tag: "markdown",
@@ -532,6 +582,7 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
   ];
   const buttons = sourceButtonsV2(safe);
   if (buttons.length) {
+    elements.push({ tag: "hr" });
     elements.push({
       tag: "markdown",
       element_id: "source_label",
@@ -539,6 +590,8 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
     });
     elements.push(...buttons);
   }
+  elements.push({ tag: "hr" });
+  elements.push(grokFooterNote({ webSearch }));
   return {
     schema: "2.0",
     config: {
@@ -551,36 +604,21 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
       }
     },
     header: {
-      template: webSearch ? "indigo" : "blue",
+      template: grokHeaderTemplate(),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
       },
-      text_tag_list: [
-        {
-          tag: "text_tag",
-          element_id: "mode_tag",
-          text: {
-            tag: "plain_text",
-            content: webSearch ? "联网" : "对话"
-          },
-          color: webSearch ? "indigo" : "blue"
-        },
-        {
-          tag: "text_tag",
-          element_id: "done_tag",
-          text: {
-            tag: "plain_text",
-            content: "完成"
-          },
-          color: "green"
-        }
-      ]
+      subtitle: {
+        tag: "plain_text",
+        content: grokCardSubtitle({ webSearch, media, streaming: false })
+      },
+      text_tag_list: grokHeaderTags(title, { webSearch, done: true })
     },
     body: {
       direction: "vertical",
-      padding: "14px 14px 14px 14px",
-      vertical_spacing: "8px",
+      padding: "16px 18px 18px 18px",
+      vertical_spacing: "10px",
       elements
     }
   };
@@ -621,10 +659,14 @@ function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, 
       update_multi: true
     },
     header: {
-      template: webSearch ? "indigo" : "blue",
+      template: grokHeaderTemplate(),
       title: {
         tag: "plain_text",
         content: cardText(title, 40)
+      },
+      subtitle: {
+        tag: "plain_text",
+        content: grokCardSubtitle({ webSearch, streaming: false })
       }
     },
     elements
@@ -1440,7 +1482,7 @@ function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
     const now = Date.now();
     if (!force && now - lastStatusAt < 3000) return queue;
     lastStatusAt = now;
-    return enqueue(() => feishu.streamCardText(cardId, STREAM_STATUS_ELEMENT_ID, `**状态**：${latestStatus}`, nextSequence()));
+    return enqueue(() => feishu.streamCardText(cardId, STREAM_STATUS_ELEMENT_ID, grokStatusMarkdown(latestStatus), nextSequence()));
   };
   return {
     patchAnswer,
