@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T09:01:40.052Z",
+  "exportedAt": "2026-07-04T09:11:40.485Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62599,6 +62599,42 @@
           "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
         },
         "createdAt": "2026-07-04T09:01:21.748Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "我给你接入声音克隆，你换个声音",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb88bf9e4b4b29513848c0f652",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T09:03:21.028Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好呀～ 你接好之后我就能用新声音回复啦。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-07-04T09:03:24.451Z"
       }
     ],
     "memories": [
@@ -66460,7 +66496,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-07-04T09:01:16.845Z"
+        "updatedAt": "2026-07-04T09:03:20.959Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66470,7 +66506,27 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-07-04T09:01:16.781Z"
+        "updatedAt": "2026-07-04T09:03:20.891Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "key": "tech.usage.feishu_plugin",
+        "value": "用户在使用飞书相关插件（官方 im 套件 + webhook 长连接）",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-07-04T09:01:56.314Z",
+        "updatedAt": "2026-07-04T09:01:56.314Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "key": "tech.usage.hermes",
+        "value": "用户在使用 Hermes 时遇到上下文窗口爆炸的问题，关注工具返回大小、消息摘要滚动、role 标记等优化方向",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-04T09:01:56.237Z",
+        "updatedAt": "2026-07-04T09:01:56.237Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
