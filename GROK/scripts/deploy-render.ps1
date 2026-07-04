@@ -50,7 +50,7 @@ $envVars = @(
   @{ key = "GROK_CLI_TIMEOUT_MS"; value = "540000" },
   @{ key = "GROK_CLI_COMMAND"; value = "/opt/render/project/src/GROK/.grok/bin/grok" },
   @{ key = "GROK_CLI_CWD"; value = "/tmp/grok-feishu-bridge-cwd" },
-  @{ key = "GROK_CLI_ARGS_JSON"; value = '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]' },
+  @{ key = "GROK_CLI_ARGS_JSON"; value = '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--max-turns","6","--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]' },
   @{ key = "MAX_CARD_CONTENT_CHARS"; value = "90000" },
   @{ key = "MAX_REPLY_CHARS"; value = "3500" }
 )

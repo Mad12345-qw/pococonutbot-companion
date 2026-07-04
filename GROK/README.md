@@ -19,6 +19,7 @@
 - Grok CLI 默认不再带 `--max-turns 1`，也不再默认加 `--no-plan`。
 - Grok CLI 固定带 `--always-approve`，让联网搜索等工具调用在 headless 机器人环境中自动批准。
 - Grok CLI 固定带 `--permission-mode bypassPermissions`，避免 headless 工具执行停在权限交互层。
+- Grok CLI 固定带 `--max-turns 6`，给原生搜索/抓取足够轮次，但避免 agent 长时间绕圈。
 - Grok CLI 固定带 `--no-auto-update`，避免后台更新检查干扰脚本输出。
 - Grok CLI 输出固定为 `streaming-json`，服务端只把 `text` 事件作为正文增量。
 - Feishu 使用 CardKit 原生流式接口 `/cardkit/v1/cards/{card_id}/elements/{element_id}/content`，按递增 `sequence` 推送全量正文，飞书客户端负责打字机效果。
