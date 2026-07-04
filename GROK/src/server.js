@@ -139,6 +139,10 @@ function escapeRegExp(value = "") {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function shellQuote(value = "") {
+  return `'${String(value).replace(/'/g, "'\\''")}'`;
+}
+
 function imageMimeType(filePath = "") {
   const ext = path.extname(filePath).toLowerCase();
   if (ext === ".png") return "image/png";
@@ -1023,6 +1027,96 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, quotedContext = 
   });
 }
 
+function buildImagineVideoCommand(userPrompt = "", quotedContext = null) {
+  const quotedFiles = quotedContext?.files?.filter((item) => item.path).map((item) => item.path) || [];
+  const referenceText = quotedFiles.length
+    ? ` Use these explicit reference file path(s): ${quotedFiles.join(", ")}.`
+    : "";
+  return `/imagine-video ${String(userPrompt || "").trim()}${referenceText} Save the generated video locally and print the final MP4 file path.`;
+}
+
+async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEvent } = {}) {
+  if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
+  if (process.platform === "win32") {
+    throw new Error("Grok TUI video mode requires a Unix pseudo-terminal on Render.");
+  }
+  fs.mkdirSync(config.grokCliCwd, { recursive: true });
+  const command = await ensureGrokCliCommand();
+  const slashCommand = buildImagineVideoCommand(prompt, quotedContext);
+  const shellCommand = [
+    shellQuote(command),
+    "--no-auto-update",
+    "--always-approve",
+    "--permission-mode",
+    "bypassPermissions",
+    "--cwd",
+    shellQuote(config.grokCliCwd),
+    "--no-memory"
+  ].join(" ");
+
+  return new Promise((resolve, reject) => {
+    const child = spawn("script", ["-q", "-f", "-e", "-c", shellCommand, "/dev/null"], {
+      env: process.env,
+      windowsHide: true,
+      stdio: ["pipe", "pipe", "pipe"]
+    });
+    let stdout = "";
+    let stderr = "";
+    let settled = false;
+    let lastTextAt = 0;
+    const finish = (error, output = "") => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      clearInterval(pathWatcher);
+      try {
+        child.stdin?.write("/quit\n");
+      } catch {
+        // The TUI may have already exited.
+      }
+      setTimeout(() => {
+        if (!child.killed) child.kill("SIGTERM");
+      }, 1500).unref?.();
+      if (error) reject(error);
+      else resolve(sanitizeGrokOutput(output || stdout));
+    };
+    const timer = setTimeout(() => {
+      finish(new Error(`Grok Imagine video timed out after ${config.grokCliTimeoutMs}ms. Output: ${sanitizeGrokOutput(stdout).slice(-1200)}`));
+    }, config.grokCliTimeoutMs);
+    const pathWatcher = setInterval(() => {
+      const clean = sanitizeGrokOutput(stdout);
+      const videos = extractLocalVideoPaths(clean, 2);
+      if (videos.length) {
+        finish(null, clean);
+      } else if (clean.length > lastTextAt + 120) {
+        lastTextAt = clean.length;
+        onText?.(clean.slice(-1800), "");
+      }
+    }, 2000);
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk.toString("utf8");
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk.toString("utf8");
+    });
+    child.on("error", (error) => {
+      finish(new Error(`Grok TUI video runner failed: ${error.message}. Is the Linux 'script' command available?`));
+    });
+    child.on("close", (code) => {
+      if (settled) return;
+      const clean = sanitizeGrokOutput(stdout);
+      const videos = extractLocalVideoPaths(clean, 2);
+      if (code === 0 && videos.length) {
+        finish(null, clean);
+        return;
+      }
+      finish(new Error(`Grok TUI video exited ${code}: ${sanitizeGrokOutput(stderr || stdout).slice(-1600)}`));
+    });
+    onEvent?.({ type: "tool", name: "imagine-video-tui" });
+    child.stdin.write(`${slashCommand}\n`);
+  });
+}
+
 async function probeGrokCli(prompt, timeoutMs = 60000) {
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
@@ -1868,7 +1962,10 @@ app.get("/debug/grok-media-test", async (req, res) => {
   }
   try {
     const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
-    const answer = await callGrokCli(prompt, { maxTurns: config.mediaMaxTurns, mediaTask: true });
+    const task = classifyTask(prompt);
+    const answer = task.kind === "video"
+      ? await callGrokImagineVideo(prompt)
+      : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -1885,6 +1982,7 @@ app.get("/debug/grok-media-test", async (req, res) => {
       ok: true,
       sentToChat: false,
       textPreview: stripLocalMediaPaths(answer).slice(0, 300),
+      taskKind: task.kind,
       foundImages: imagePaths.length,
       foundVideos: videoPaths.length,
       uploadedImages,
@@ -1982,7 +2080,7 @@ async function processFeishuMessage(payload) {
       title,
       webSearch: job.webSearch
     });
-    const answer = await callGrokCli(prompt, {
+    const grokOptions = {
       maxTurns: task.maxTurns,
       quotedContext,
       mediaTask: task.mediaTask,
@@ -1997,7 +2095,10 @@ async function processFeishuMessage(payload) {
           updater.patchStatus(status);
         }
       }
-    });
+    };
+    const answer = task.kind === "video"
+      ? await callGrokImagineVideo(prompt, grokOptions)
+      : await callGrokCli(prompt, grokOptions);
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
