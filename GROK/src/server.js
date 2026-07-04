@@ -30,11 +30,10 @@ const CARD_HEADER_TEMPLATES = new Set([
   "grey"
 ]);
 const CARD_TEXT_TAG_COLORS = new Set([
-  "neutral",
+  "default",
   "blue",
   "wathet",
   "turquoise",
-  "lime",
   "green",
   "yellow",
   "orange",
