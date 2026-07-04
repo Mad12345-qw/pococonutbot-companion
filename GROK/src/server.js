@@ -50,7 +50,7 @@ const config = {
   maxReplyChars: envNumber("MAX_REPLY_CHARS", 3500),
   maxImageBytes: envNumber("MAX_IMAGE_BYTES", 10 * 1024 * 1024),
   maxVideoBytes: envNumber("MAX_VIDEO_BYTES", 30 * 1024 * 1024),
-  mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 24),
+  mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 20),
   debugToken: process.env.DEBUG_TOKEN || "",
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
 };
