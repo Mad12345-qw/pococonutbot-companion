@@ -55,6 +55,13 @@ function parseJson(value, fallback) {
   }
 }
 
+function redactSensitive(value = "") {
+  return String(value || "")
+    .replace(/(access_token|refresh_token|id_token|authorization|cookie|set-cookie)["':=\s]+[A-Za-z0-9._~+/=-]+/gi, "$1=<redacted>")
+    .replace(/(xai-|xox[abp]-|sk-[A-Za-z0-9_-]*|eyJ[A-Za-z0-9._-]+)/g, "<redacted>")
+    .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "<redacted-email>");
+}
+
 function stripAnsi(text = "") {
   return String(text || "")
     .replace(/\u001b\][\s\S]*?(?:\u0007|\u001b\\)/g, "")
@@ -656,6 +663,104 @@ async function probeGrokCli(prompt, timeoutMs = 60000) {
   });
 }
 
+async function runCliDiagnostic(command, args, timeout = 20000) {
+  try {
+    const result = await execFileAsync(command, args, {
+      env: process.env,
+      timeout,
+      windowsHide: true,
+      maxBuffer: 1024 * 1024
+    });
+    return {
+      ok: true,
+      stdout: redactSensitive(sanitizeGrokOutput(result.stdout)).slice(0, 6000),
+      stderr: redactSensitive(sanitizeGrokOutput(result.stderr)).slice(0, 3000)
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      message: redactSensitive(error.message),
+      stdout: redactSensitive(sanitizeGrokOutput(error.stdout || "")).slice(0, 6000),
+      stderr: redactSensitive(sanitizeGrokOutput(error.stderr || "")).slice(0, 3000)
+    };
+  }
+}
+
+function statIfExists(filePath) {
+  try {
+    const stat = fs.statSync(filePath);
+    return {
+      exists: true,
+      isFile: stat.isFile(),
+      isDirectory: stat.isDirectory(),
+      size: stat.size,
+      modifiedAt: stat.mtime.toISOString()
+    };
+  } catch {
+    return { exists: false };
+  }
+}
+
+async function grokDiagnostics() {
+  const command = await ensureGrokCliCommand();
+  const home = os.homedir();
+  const grokHome = path.join(home, ".grok");
+  const help = await runCliDiagnostic(command, ["--help"]);
+  const version = await runCliDiagnostic(command, ["--version"]);
+  const inspect = await runCliDiagnostic(command, ["inspect"], 30000);
+  const maxToolRoundsSmoke = await runCliDiagnostic(command, [
+    "--no-auto-update",
+    "--always-approve",
+    "--permission-mode",
+    "bypassPermissions",
+    "--max-tool-rounds",
+    "1",
+    "--output-format",
+    "json",
+    "-p",
+    "Do not use tools. Reply with OK."
+  ], 45000);
+  const helpText = `${help.stdout}\n${help.stderr}`;
+  let sessionCount = null;
+  try {
+    const sessionsDir = path.join(grokHome, "sessions");
+    sessionCount = fs.existsSync(sessionsDir) ? fs.readdirSync(sessionsDir).length : 0;
+  } catch {
+    sessionCount = null;
+  }
+  return {
+    command,
+    cwd: process.cwd(),
+    home,
+    grokCliCwd: config.grokCliCwd,
+    configuredArgs: grokCliArgs("{{prompt}}"),
+    files: {
+      grokHome: statIfExists(grokHome),
+      authJson: statIfExists(path.join(grokHome, "auth.json")),
+      configToml: statIfExists(path.join(grokHome, "config.toml")),
+      requirementsToml: statIfExists(path.join(grokHome, "requirements.toml")),
+      sessions: {
+        ...statIfExists(path.join(grokHome, "sessions")),
+        count: sessionCount
+      }
+    },
+    supports: {
+      alwaysApprove: /--always-approve/.test(helpText),
+      permissionMode: /--permission-mode/.test(helpText),
+      maxToolRounds: /--max-tool-rounds/.test(helpText),
+      sandbox: /--sandbox/.test(helpText),
+      deviceAuth: /device-auth/.test(helpText)
+    },
+    version,
+    help: {
+      ok: help.ok,
+      excerpt: helpText.split("\n").filter((line) => /approve|permission|tool|search|sandbox|format|auto|headless|max/i.test(line)).slice(0, 80)
+    },
+    inspect,
+    maxToolRoundsSmoke
+  };
+}
+
 async function answerWithGrok(prompt) {
   return callGrokCli(prompt);
 }
@@ -991,6 +1096,18 @@ app.get("/debug/grok-probe", async (req, res) => {
     res.status(result.ok ? 200 : 504).json(result);
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/grok-diagnostics", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    res.json({ ok: true, diagnostics: await grokDiagnostics() });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: redactSensitive(error.message) });
   }
 });
 
