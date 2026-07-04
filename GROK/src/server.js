@@ -260,6 +260,71 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
   };
 }
 
+function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } = {}) {
+  const safe = sanitizeFeishuText(text);
+  const elements = [
+    {
+      tag: "markdown",
+      element_id: STREAM_ANSWER_ELEMENT_ID,
+      content: cardMarkdown(safe)
+    }
+  ];
+  const buttons = sourceButtonsV2(safe);
+  if (buttons.length) {
+    elements.push({
+      tag: "markdown",
+      element_id: "source_label",
+      content: "**来源链接**"
+    });
+    elements.push(...buttons);
+  }
+  return {
+    schema: "2.0",
+    config: {
+      streaming_mode: false,
+      update_multi: true,
+      enable_forward: true,
+      width_mode: "fill",
+      summary: {
+        content: cardText(safe || title, 80)
+      }
+    },
+    header: {
+      template: webSearch ? "indigo" : "blue",
+      title: {
+        tag: "plain_text",
+        content: cardText(title, 40)
+      },
+      text_tag_list: [
+        {
+          tag: "text_tag",
+          element_id: "mode_tag",
+          text: {
+            tag: "plain_text",
+            content: webSearch ? "联网" : "对话"
+          },
+          color: webSearch ? "indigo" : "blue"
+        },
+        {
+          tag: "text_tag",
+          element_id: "done_tag",
+          text: {
+            tag: "plain_text",
+            content: "完成"
+          },
+          color: "green"
+        }
+      ]
+    },
+    body: {
+      direction: "vertical",
+      padding: "14px 14px 14px 14px",
+      vertical_spacing: "8px",
+      elements
+    }
+  };
+}
+
 function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, part = 1, total = 1 } = {}) {
   const safe = sanitizeFeishuText(text);
   const elements = [
@@ -480,8 +545,8 @@ function shouldUseWebSearch(text = "") {
 }
 
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"6\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "6", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"30\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "30", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
@@ -845,21 +910,8 @@ function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
     finish: async () => {
       await queue;
       await patchAnswer(latestAnswer, true);
-      await patchStatus("已完成，正在收尾卡片", true);
-      const buttons = sourceButtonsV2(latestAnswer);
-      if (buttons.length) {
-        await enqueue(() => feishu.addCardElements(cardId, buttons, {
-          type: "insert_after",
-          targetElementId: STREAM_ANSWER_ELEMENT_ID,
-          sequence: nextSequence()
-        }));
-      }
-      await enqueue(() => feishu.updateCardSettings(cardId, {
-        config: {
-          streaming_mode: false,
-          summary: { content: cardText(latestAnswer || title, 80) }
-        }
-      }, nextSequence()));
+      await queue;
+      await feishu.updateCard(cardId, buildFinalCard(latestAnswer, title, { webSearch }), nextSequence());
       await queue;
     },
     fail: async (errorText) => {
@@ -1004,6 +1056,17 @@ class FeishuClient {
       uuid: crypto.randomUUID(),
       sequence
     }, "PATCH");
+  }
+
+  async updateCard(cardId, cardJson, sequence) {
+    return this.post(`/open-apis/cardkit/v1/cards/${encodeURIComponent(cardId)}`, {
+      card: {
+        type: "card_json",
+        data: JSON.stringify(cardJson)
+      },
+      uuid: crypto.randomUUID(),
+      sequence
+    }, "PUT");
   }
 
   async addCardElements(cardId, elements, { type = "insert_after", targetElementId = STREAM_ANSWER_ELEMENT_ID, sequence } = {}) {

@@ -7,7 +7,7 @@
 - 飞书事件入口 `/feishu/events` 立即返回 200，后台继续执行 Grok CLI，避免飞书回调超时。
 - Grok CLI 使用 `--output-format streaming-json`，服务端解析 `text` 增量事件并忽略 `thought`。
 - 飞书回复使用 CardKit 卡片实体：先创建 `schema: "2.0"` 且 `streaming_mode: true` 的卡片，再发送 `card_id`，随后调用流式文本接口更新正文。
-- 最终回答完成后关闭 `streaming_mode`，更新聊天列表摘要，并把 Grok 输出里的来源链接追加成飞书按钮。
+- 最终回答完成后全量替换成干净的最终 CardKit 卡片，关闭 `streaming_mode`，更新聊天列表摘要，并把 Grok 输出里的来源链接展示成飞书按钮。
 - 不使用 xAI API；Render 上只复用 Grok CLI 授权。
 
 ## 为什么之前会卡在“正在检索”
@@ -19,7 +19,7 @@
 - Grok CLI 默认不再带 `--max-turns 1`，也不再默认加 `--no-plan`。
 - Grok CLI 固定带 `--always-approve`，让联网搜索等工具调用在 headless 机器人环境中自动批准。
 - Grok CLI 固定带 `--permission-mode bypassPermissions`，避免 headless 工具执行停在权限交互层。
-- Grok CLI 固定带 `--max-turns 6`，给原生搜索/抓取足够轮次，但避免 agent 长时间绕圈。
+- Grok CLI 固定带 `--max-turns 30`，给原生搜索、抓取、核对和整理答案足够轮次。
 - Grok CLI 固定带 `--no-auto-update`，避免后台更新检查干扰脚本输出。
 - Grok CLI 输出固定为 `streaming-json`，服务端只把 `text` 事件作为正文增量。
 - Feishu 使用 CardKit 原生流式接口 `/cardkit/v1/cards/{card_id}/elements/{element_id}/content`，按递增 `sequence` 推送全量正文，飞书客户端负责打字机效果。
