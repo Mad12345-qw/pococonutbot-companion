@@ -995,7 +995,7 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [] } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
@@ -1012,10 +1012,11 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
     let streamedText = "";
     let sawStreamingEvent = false;
     let stopReason = "";
+    const effectiveTimeoutMs = Number(timeoutMs || config.grokCliTimeoutMs);
     const timer = setTimeout(() => {
       child.kill("SIGTERM");
-      reject(new Error(`Grok CLI timed out after ${config.grokCliTimeoutMs}ms.`));
-    }, config.grokCliTimeoutMs);
+      reject(new Error(`Grok CLI timed out after ${effectiveTimeoutMs}ms.`));
+    }, effectiveTimeoutMs);
     child.stdout.on("data", (chunk) => {
       const piece = chunk.toString("utf8");
       stdout += piece;
@@ -2029,10 +2030,11 @@ app.get("/debug/grok-media-test", async (req, res) => {
   }
   try {
     const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
+    const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 60000), 240000);
     const task = classifyTask(prompt);
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules })
-      : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules });
+      ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
+      : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -2050,6 +2052,7 @@ app.get("/debug/grok-media-test", async (req, res) => {
       sentToChat: false,
       textPreview: stripLocalMediaPaths(answer).slice(0, 300),
       taskKind: task.kind,
+      timeoutMs,
       foundImages: imagePaths.length,
       foundVideos: videoPaths.length,
       uploadedImages,
