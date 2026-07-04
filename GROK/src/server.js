@@ -1126,6 +1126,7 @@ async function callGrokImagineVideo(prompt, { quotedContext = null, onText, onEv
 }
 
 async function probeGrokTui(input = "/help", timeoutMs = 12000) {
+  fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
   const shellCommand = [
     shellQuote(command),
