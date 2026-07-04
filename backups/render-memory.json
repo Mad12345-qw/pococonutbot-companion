@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T09:41:40.065Z",
+  "exportedAt": "2026-07-04T10:01:40.093Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62719,6 +62719,85 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-04T09:38:37.963Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "找到了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb933059ca0c1f02949f1a233e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T09:52:34.068Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://aistudio.baidu.com/paddleocr\nhttps://aistudio.baidu.com/paddleocr",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://aistudio.baidu.com/paddleocr"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bb933318904c217a39ee6c880a",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-04T09:52:36.818Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "text",
+        "content": "https://aistudio.baidu.com/paddleocr\n[Link content]\n[Web page] https://aistudio.baidu.com/paddleocr\nPaddleOCR - 文档解析与智能文字识别 | 支持API调用与MCP服务 - 飞桨星河社区",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb933318904c217a39ee6c880a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUserId": "ou_764dfb4dcb01728edd13c8a23e271653",
+          "rawUnionId": "on_7b4f6a88ac8cff292c6ad7dcf72503e6",
+          "linkContext": "[Web page] https://aistudio.baidu.com/paddleocr\nPaddleOCR - 文档解析与智能文字识别 | 支持API调用与MCP服务 - 飞桨星河社区",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T09:52:38.467Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n这是百度 AI Studio 提供的 PaddleOCR 在线工具页，主打文档解析与文字识别，开放 API 调用和 MCP 服务。\n\n核心要点\n• 覆盖中英文、表格、手写、公式等多场景文字识别\n• 支持图片/PDF 直接解析，能输出结构化文本\n• 接入方式走 API 或 MCP，能挂到 Hermes 这类 Agent 上做截图理解\n• 每天有一定免费额度，适合个人和小团队试\n\n亮点\n• 不只是 OCR，还能做版面分析，长截图、文档都能拆得比较干净\n• MCP 服务对 Agent 友好，接入成本低\n\n可以打磨的点\n• 大批量或高并发场景需要看官方配额，超出后成本和稳定性要自己评估\n• 复杂排版偶尔还会出错，关键字段建议二次校验\n\n一句话结论\n日常截图问答、资料入库这类需求，PaddleOCR 够用；接 Hermes 做视图能力是条靠谱的路子。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
+        },
+        "createdAt": "2026-07-04T09:52:44.065Z"
       }
     ],
     "memories": [
@@ -66580,7 +66659,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.528Z",
-        "updatedAt": "2026-07-04T09:03:20.959Z"
+        "updatedAt": "2026-07-04T09:52:38.396Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66590,7 +66669,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T04:14:20.314Z",
-        "updatedAt": "2026-07-04T09:03:20.891Z"
+        "updatedAt": "2026-07-04T09:52:38.326Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
