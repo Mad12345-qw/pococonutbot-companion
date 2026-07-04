@@ -152,11 +152,13 @@ function isSafeGrokFilePath(filePath = "", { pattern, maxBytes }) {
   const resolved = path.resolve(filePath);
   const cwdRoot = path.resolve(config.grokCliCwd);
   const sessionsRoot = path.resolve(os.homedir(), ".grok", "sessions");
+  const generatedMediaRoot = path.resolve(os.homedir(), ".grok", "generated-media");
   const underCwd = resolved === cwdRoot || resolved.startsWith(`${cwdRoot}${path.sep}`);
   const underGrokSession = resolved.startsWith(`${sessionsRoot}${path.sep}`)
     && [path.sep + "images" + path.sep, path.sep + "videos" + path.sep, path.sep + "media" + path.sep, path.sep + "artifacts" + path.sep]
       .some((segment) => resolved.includes(segment));
-  if (!underCwd && !underGrokSession) return false;
+  const underGeneratedMedia = resolved === generatedMediaRoot || resolved.startsWith(`${generatedMediaRoot}${path.sep}`);
+  if (!underCwd && !underGrokSession && !underGeneratedMedia) return false;
   try {
     const stat = fs.statSync(resolved);
     return stat.isFile() && stat.size > 0 && stat.size <= maxBytes;
@@ -300,9 +302,11 @@ function safeDeleteLocalFile(filePath = "") {
   const resolved = path.resolve(filePath);
   const cwdRoot = path.resolve(config.grokCliCwd);
   const sessionsRoot = path.resolve(os.homedir(), ".grok", "sessions");
+  const generatedMediaRoot = path.resolve(os.homedir(), ".grok", "generated-media");
   const underCwd = resolved === cwdRoot || resolved.startsWith(`${cwdRoot}${path.sep}`);
   const underGrokSession = resolved.startsWith(`${sessionsRoot}${path.sep}`);
-  if (!underCwd && !underGrokSession) return false;
+  const underGeneratedMedia = resolved === generatedMediaRoot || resolved.startsWith(`${generatedMediaRoot}${path.sep}`);
+  if (!underCwd && !underGrokSession && !underGeneratedMedia) return false;
   try {
     const stat = fs.statSync(resolved);
     if (!stat.isFile()) return false;
@@ -835,7 +839,9 @@ function classifyTask(text = "") {
       title: "Grok 视频生成",
       webSearch: false,
       mediaTask: true,
-      rules: []
+      rules: [
+        "This is a Grok Imagine video task. Use the built-in video generation capability, such as /imagine-video, and return the saved local MP4 path. If quoted files are provided, use them as explicit references."
+      ]
     };
   }
   if (media === "image") {
@@ -845,7 +851,9 @@ function classifyTask(text = "") {
       title: "Grok 图片生成",
       webSearch: false,
       mediaTask: true,
-      rules: []
+      rules: [
+        "This is a Grok Imagine image task. Use the built-in image generation capability, such as /imagine, and return the saved local image path. If quoted files are provided, use them as explicit references."
+      ]
     };
   }
   if (shouldUseWebSearch(text)) {
