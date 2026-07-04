@@ -50,6 +50,7 @@ const config = {
   maxReplyChars: envNumber("MAX_REPLY_CHARS", 3500),
   maxImageBytes: envNumber("MAX_IMAGE_BYTES", 10 * 1024 * 1024),
   maxVideoBytes: envNumber("MAX_VIDEO_BYTES", 30 * 1024 * 1024),
+  mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 24),
   debugToken: process.env.DEBUG_TOKEN || "",
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
 };
@@ -711,17 +712,44 @@ function shouldUseWebSearch(text = "") {
   return /(最新|今天|今日|现在|当前|实时|联网|搜索|查一下|股价|价格|新闻|市值|估值|财报|汇率|天气|多少|latest|today|current|real[- ]?time|search|stock|price|news|valuation)/i.test(text);
 }
 
-function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"20\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "20", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
-  return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
-    .replaceAll("{{prompt}}", prompt)
-    .replaceAll("{{cwd}}", config.grokCliCwd));
+function shouldUseMediaGeneration(text = "") {
+  return /(生成|做|制作|create|generate|make).{0,30}(图片|照片|图像|视频|动图|短片|image|photo|picture|video|mp4|gif)|(?:图片|照片|图像|视频|动图|短片).{0,30}(生成|做|制作|create|generate|make|打招呼|动起来|animate)/i.test(text);
 }
 
-function buildGrokPrompt(userPrompt = "") {
+function grokCliArgs(prompt, { maxTurns } = {}) {
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"20\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "20", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+  const turns = maxTurns ? String(maxTurns) : null;
+  const resolvedArgs = (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
+    .replaceAll("{{prompt}}", prompt)
+    .replaceAll("{{maxTurns}}", turns || "20")
+    .replaceAll("{{cwd}}", config.grokCliCwd));
+  if (turns) {
+    const turnIndex = resolvedArgs.indexOf("--max-turns");
+    if (turnIndex >= 0 && turnIndex + 1 < resolvedArgs.length) {
+      resolvedArgs[turnIndex + 1] = turns;
+    }
+  }
+  return resolvedArgs;
+}
+
+function buildGrokPrompt(userPrompt = "", { mediaContext = [], mediaTask = false } = {}) {
+  const mediaLines = mediaContext.length
+    ? ["Recent media files from this Feishu chat, use them when the user refers to this image/video:", ...mediaContext.map((item) => `- ${item.type}: ${item.path}`)]
+    : [];
+  const mediaRules = mediaTask
+    ? [
+        "Media task rules:",
+        "- Do not brainstorm or explain the plan for many turns.",
+        "- For video requests, prefer the fastest viable MP4 path. If a recent image is available, create a short 2-4 second MP4 from that image with simple zoom/pan or lightweight motion, then return the real .mp4 path.",
+        "- If true image-to-video animation is unavailable, still produce a simple MP4 from the reference image rather than looping on tool attempts.",
+        "- Stop immediately after producing the real media file path."
+      ]
+    : [];
   return [
     config.systemPrompt,
+    ...mediaLines,
+    ...mediaRules,
     "User message:",
     String(userPrompt || "").trim()
   ].filter(Boolean).join("\n\n");
@@ -756,13 +784,13 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, mediaContext = [], mediaTask = false } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
-  const effectivePrompt = buildGrokPrompt(prompt);
+  const effectivePrompt = buildGrokPrompt(prompt, { mediaContext, mediaTask });
   return new Promise((resolve, reject) => {
-    const child = spawn(command, grokCliArgs(effectivePrompt), {
+    const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns }), {
       env: process.env,
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
@@ -1012,6 +1040,7 @@ async function grokDiagnostics() {
     home,
     grokCliCwd: config.grokCliCwd,
     configuredArgs: grokCliArgs("{{prompt}}"),
+    mediaConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.mediaMaxTurns }),
     files: {
       grokHome: statIfExists(grokHome),
       authJson: statIfExists(path.join(grokHome, "auth.json")),
@@ -1416,6 +1445,24 @@ const app = express();
 const feishu = new FeishuClient();
 const seenMessageIds = new Map();
 const jobs = new Map();
+const recentMediaByChat = new Map();
+
+function rememberRecentMedia(chatId, mediaItems = []) {
+  if (!chatId || !mediaItems.length) return;
+  const existing = recentMediaByChat.get(chatId) || [];
+  const merged = [...mediaItems, ...existing]
+    .filter((item) => item?.path && fs.existsSync(item.path))
+    .slice(0, 8);
+  recentMediaByChat.set(chatId, merged);
+}
+
+function recentMediaForChat(chatId) {
+  if (!chatId) return [];
+  const existing = recentMediaByChat.get(chatId) || [];
+  const live = existing.filter((item) => item?.path && fs.existsSync(item.path)).slice(0, 8);
+  if (live.length !== existing.length) recentMediaByChat.set(chatId, live);
+  return live;
+}
 
 app.use(express.json({ limit: "2mb" }));
 app.set("trust proxy", true);
@@ -1541,7 +1588,7 @@ app.get("/debug/grok-media-test", async (req, res) => {
   }
   try {
     const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
-    const answer = await callGrokCli(prompt);
+    const answer = await callGrokCli(prompt, { maxTurns: config.mediaMaxTurns, mediaTask: true });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -1615,14 +1662,19 @@ async function processFeishuMessage(payload) {
   if (senderType === "app") return;
   const message = event.message || {};
   const messageId = message.message_id || "";
+  const chatId = message.chat_id || event.message?.chat_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
+  const mediaTask = shouldUseMediaGeneration(prompt);
+  const mediaContext = mediaTask ? recentMediaForChat(chatId) : [];
 
   const job = {
     id: messageId,
     promptPreview: prompt.slice(0, 120),
     status: "running",
     webSearch: shouldUseWebSearch(prompt),
+    mediaTask,
+    mediaContextCount: mediaContext.length,
     startedAt: new Date().toISOString()
   };
   jobs.set(messageId, job);
@@ -1648,6 +1700,9 @@ async function processFeishuMessage(payload) {
       webSearch: job.webSearch
     });
     const answer = await callGrokCli(prompt, {
+      maxTurns: mediaTask ? config.mediaMaxTurns : undefined,
+      mediaContext,
+      mediaTask,
       onText: (fullText) => {
         updater.patchAnswer(stripLocalMediaPaths(fullText) || "媒体生成中，正在等待 Grok 返回真实文件。");
       },
@@ -1661,6 +1716,10 @@ async function processFeishuMessage(payload) {
     });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
+    rememberRecentMedia(chatId, [
+      ...imagePaths.map((imagePath) => ({ type: "image", path: imagePath })),
+      ...videoPaths.map((videoPath) => ({ type: "video", path: videoPath }))
+    ]);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
     job.status = "completed";
     job.completedAt = new Date().toISOString();
