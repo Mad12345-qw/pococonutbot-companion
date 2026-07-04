@@ -457,8 +457,8 @@ async function callXaiApi({ prompt, webSearch }) {
 }
 
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--no-plan\",\"--max-turns\",\"1\",\"--output-format\",\"plain\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--no-plan", "--max-turns", "1", "--output-format", "plain", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--no-plan\",\"--output-format\",\"plain\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--no-plan", "--output-format", "plain", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
