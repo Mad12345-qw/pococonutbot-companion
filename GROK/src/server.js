@@ -149,8 +149,13 @@ function imageMimeType(filePath = "") {
 function isSafeGrokFilePath(filePath = "", { pattern, maxBytes }) {
   if (!filePath || !pattern.test(filePath)) return false;
   const resolved = path.resolve(filePath);
-  const root = path.resolve(config.grokCliCwd);
-  if (resolved !== root && !resolved.startsWith(`${root}${path.sep}`)) return false;
+  const cwdRoot = path.resolve(config.grokCliCwd);
+  const sessionsRoot = path.resolve(os.homedir(), ".grok", "sessions");
+  const underCwd = resolved === cwdRoot || resolved.startsWith(`${cwdRoot}${path.sep}`);
+  const underGrokSession = resolved.startsWith(`${sessionsRoot}${path.sep}`)
+    && [path.sep + "images" + path.sep, path.sep + "videos" + path.sep, path.sep + "media" + path.sep, path.sep + "artifacts" + path.sep]
+      .some((segment) => resolved.includes(segment));
+  if (!underCwd && !underGrokSession) return false;
   try {
     const stat = fs.statSync(resolved);
     return stat.isFile() && stat.size > 0 && stat.size <= maxBytes;
@@ -188,6 +193,30 @@ function extractLocalPaths(text = "", pattern, validator, limit = 4) {
   return paths;
 }
 
+function extractLocalPathCandidates(text = "", pattern, limit = 8) {
+  const paths = [];
+  const seen = new Set();
+  let match;
+  while ((match = pattern.exec(String(text || ""))) !== null && paths.length < limit) {
+    const candidate = match[1].replace(/[),.;:，。；：]+$/g, "");
+    const variants = [candidate];
+    try {
+      const decoded = decodeURIComponent(candidate);
+      if (decoded !== candidate) variants.push(decoded);
+    } catch {
+      // Keep the raw path if it is not valid URI encoding.
+    }
+    for (const item of variants) {
+      const resolved = path.resolve(item);
+      if (!seen.has(resolved)) {
+        seen.add(resolved);
+        paths.push(resolved);
+      }
+    }
+  }
+  return paths;
+}
+
 function extractLocalImagePaths(text = "", limit = 4) {
   return extractLocalPaths(text, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi, isSafeGrokImagePath, limit);
 }
@@ -198,7 +227,10 @@ function extractLocalVideoPaths(text = "", limit = 2) {
 
 function stripLocalMediaPaths(text = "") {
   let clean = String(text || "");
-  const localPaths = [...extractLocalImagePaths(clean), ...extractLocalVideoPaths(clean)];
+  const localPaths = [
+    ...extractLocalPathCandidates(clean, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:png|jpe?g|webp|gif))/gi),
+    ...extractLocalPathCandidates(clean, /(?:file:\/\/)?(\/[^\s"'<>`]+\.(?:mp4|mov|webm))/gi)
+  ];
   for (const filePath of localPaths) {
     clean = clean.replace(new RegExp(escapeRegExp(filePath), "g"), "");
     clean = clean.replace(new RegExp(escapeRegExp(`file://${filePath}`), "g"), "");
@@ -1496,6 +1528,40 @@ app.get("/debug/media-upload-test", async (req, res) => {
       uploaded: true,
       imageKeyPrefix: imageKey.slice(0, 8),
       sentToChat: false
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/grok-media-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
+    const answer = await callGrokCli(prompt);
+    const imagePaths = extractLocalImagePaths(answer);
+    const videoPaths = extractLocalVideoPaths(answer);
+    const uploadedImages = [];
+    const uploadedVideos = [];
+    for (const imagePath of imagePaths) {
+      const imageKey = await feishu.uploadImage(imagePath);
+      uploadedImages.push({ name: path.basename(imagePath), imageKeyPrefix: imageKey.slice(0, 8) });
+    }
+    for (const videoPath of videoPaths) {
+      const fileKey = await feishu.uploadFile(videoPath, path.extname(videoPath).toLowerCase() === ".mp4" ? "mp4" : "stream");
+      uploadedVideos.push({ name: path.basename(videoPath), fileKeyPrefix: fileKey.slice(0, 8) });
+    }
+    res.json({
+      ok: true,
+      sentToChat: false,
+      textPreview: stripLocalMediaPaths(answer).slice(0, 300),
+      foundImages: imagePaths.length,
+      foundVideos: videoPaths.length,
+      uploadedImages,
+      uploadedVideos
     });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
