@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T10:49:16.681Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-04T10:59:25.466Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -68393,8 +68393,8 @@
     "settings": [
       {
         "key": "feishu.always_reply_user_ids",
-        "value": "410351, 用户410351, feishu:ou_66756c5a4941a616606cc85cce626a0f",
-        "updatedAt": "2026-06-22T16:02:28.913Z"
+        "value": "",
+        "updatedAt": "2026-07-04T10:51:07.147Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
