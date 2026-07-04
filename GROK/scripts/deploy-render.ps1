@@ -51,7 +51,7 @@ $envVars = @(
   @{ key = "XAI_TIMEOUT_MS"; value = "540000" },
   @{ key = "GROK_CLI_ENABLED"; value = "true" },
   @{ key = "GROK_CLI_TIMEOUT_MS"; value = "300000" },
-  @{ key = "GROK_CLI_COMMAND"; value = "grok" },
+  @{ key = "GROK_CLI_COMMAND"; value = "/opt/render/project/src/GROK/.grok/bin/grok" },
   @{ key = "GROK_CLI_CWD"; value = "/tmp/grok-feishu-bridge-cwd" },
   @{ key = "GROK_CLI_ARGS_JSON"; value = '["--cwd","{{cwd}}","--no-memory","--no-plan","--max-turns","1","--output-format","plain","-p","{{prompt}}"]' },
   @{ key = "SEND_PROGRESS_MESSAGE"; value = "true" },
@@ -89,7 +89,7 @@ $body = @{
     numInstances = 1
     envSpecificDetails = @{
       buildCommand = 'export GROK_BIN_DIR="$PWD/.grok/bin" && curl -fsSL https://x.ai/cli/install.sh | bash && npm ci'
-      startCommand = 'node scripts/restore-grok-auth.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start'
+      startCommand = 'node scripts/restore-grok-auth.mjs && node scripts/ensure-grok-cli.mjs && export PATH="$PWD/.grok/bin:$PATH" && npm start'
     }
   }
 } | ConvertTo-Json -Depth 20

@@ -1,11 +1,13 @@
 import crypto from "node:crypto";
-import { spawn } from "node:child_process";
+import { spawn, execFile } from "node:child_process";
+import { promisify } from "node:util";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import express from "express";
 
 const STARTED_AT = new Date();
+const execFileAsync = promisify(execFile);
 const DEFAULT_SYSTEM_PROMPT = [
   "You are Grok connected to a Feishu bot.",
   "Reply in the user's language.",
@@ -55,6 +57,62 @@ function parseJson(value, fallback) {
 
 function stripAnsi(text = "") {
   return String(text || "").replace(/\u001b\[[0-?]*[ -/]*[@-~]/g, "");
+}
+
+function isExecutable(filePath = "") {
+  if (!filePath) return false;
+  try {
+    fs.accessSync(filePath, fs.constants.X_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function grokBinaryCandidates() {
+  const exe = process.platform === "win32" ? "grok.exe" : "grok";
+  return [
+    config.grokCliCommand,
+    path.join(process.cwd(), ".grok", "bin", exe),
+    path.join(os.homedir(), ".grok", "bin", exe),
+    process.env.GROK_BIN_DIR ? path.join(process.env.GROK_BIN_DIR, exe) : ""
+  ].filter(Boolean);
+}
+
+async function ensureGrokCliCommand() {
+  for (const candidate of grokBinaryCandidates()) {
+    if (candidate.includes(path.sep) && isExecutable(candidate)) return candidate;
+  }
+  if (config.grokCliCommand && !config.grokCliCommand.includes(path.sep)) {
+    try {
+      await execFileAsync(config.grokCliCommand, ["--version"], { timeout: 10000, windowsHide: true });
+      return config.grokCliCommand;
+    } catch {
+      // Fall through to a runtime install. Render can lose PATH/build artifacts in
+      // ways that still leave the service running, so repair here before replying.
+    }
+  }
+
+  if (process.platform === "win32") {
+    throw new Error(`Grok CLI executable was not found. Checked: ${grokBinaryCandidates().join(", ")}`);
+  }
+
+  const binDir = path.join(process.cwd(), ".grok", "bin");
+  fs.mkdirSync(binDir, { recursive: true });
+  await execFileAsync("bash", [
+    "-lc",
+    `export GROK_BIN_DIR=${JSON.stringify(binDir)} && curl -fsSL https://x.ai/cli/install.sh | bash`
+  ], {
+    timeout: 180000,
+    windowsHide: true,
+    maxBuffer: 1024 * 1024
+  });
+
+  const installed = path.join(binDir, "grok");
+  if (!isExecutable(installed)) {
+    throw new Error(`Grok CLI install completed, but ${installed} is not executable.`);
+  }
+  return installed;
 }
 
 function parseContent(content = "") {
@@ -193,8 +251,9 @@ function grokCliArgs(prompt) {
 async function callGrokCli(prompt) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI fallback is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
+  const command = await ensureGrokCliCommand();
   return new Promise((resolve, reject) => {
-    const child = spawn(config.grokCliCommand, grokCliArgs(prompt), {
+    const child = spawn(command, grokCliArgs(prompt), {
       env: process.env,
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
@@ -353,6 +412,10 @@ app.get("/health", (_req, res) => {
     xaiApiConfigured: Boolean(config.xaiApiKey),
     grokCliEnabled: config.grokCliEnabled,
     grokCliCwd: config.grokCliCwd,
+    grokCliCandidates: grokBinaryCandidates().map((candidate) => ({
+      path: candidate,
+      exists: candidate.includes(path.sep) ? fs.existsSync(candidate) : null
+    })),
     model: config.xaiApiKey ? config.xaiModel : "grok-cli",
     webSearchMode: config.xaiApiKey ? "xai-responses-web_search" : "grok-cli"
   });
