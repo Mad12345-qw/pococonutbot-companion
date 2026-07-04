@@ -1015,7 +1015,10 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
     const effectiveTimeoutMs = Number(timeoutMs || config.grokCliTimeoutMs);
     const timer = setTimeout(() => {
       child.kill("SIGTERM");
-      reject(new Error(`Grok CLI timed out after ${effectiveTimeoutMs}ms.`));
+      setTimeout(() => {
+        if (!child.killed) child.kill("SIGKILL");
+      }, 3000).unref?.();
+      reject(new Error(`Grok CLI timed out after ${effectiveTimeoutMs}ms. stdoutTail=${sanitizeGrokOutput(stdout).slice(-1200)} stderrTail=${sanitizeGrokOutput(stderr).slice(-1200)}`));
     }, effectiveTimeoutMs);
     child.stdout.on("data", (chunk) => {
       const piece = chunk.toString("utf8");
@@ -1966,7 +1969,7 @@ app.get("/debug/grok-tui-probe", async (req, res) => {
     const result = await probeGrokTui(input, timeoutMs);
     res.status(result.ok ? 200 : 504).json(result);
   } catch (error) {
-    res.status(500).json({ ok: false, error: error.message });
+    res.status(/timed out/i.test(error.message) ? 504 : 500).json({ ok: false, error: error.message });
   }
 });
 
@@ -2019,7 +2022,7 @@ app.get("/debug/media-upload-test", async (req, res) => {
       sentToChat: false
     });
   } catch (error) {
-    res.status(500).json({ ok: false, error: error.message });
+    res.status(/timed out/i.test(error.message) ? 504 : 500).json({ ok: false, error: error.message });
   }
 });
 
@@ -2059,7 +2062,7 @@ app.get("/debug/grok-media-test", async (req, res) => {
       uploadedVideos
     });
   } catch (error) {
-    res.status(500).json({ ok: false, error: error.message });
+    res.status(/timed out/i.test(error.message) ? 504 : 500).json({ ok: false, error: error.message });
   }
 });
 
