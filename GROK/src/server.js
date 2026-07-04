@@ -728,9 +728,17 @@ function flattenPostContent(content = {}) {
     .trim();
 }
 
+function messageType(message = {}) {
+  return message.message_type || message.msg_type || message.body?.message_type || "";
+}
+
+function messageContent(message = {}) {
+  return parseContent(message.content ?? message.body?.content ?? {});
+}
+
 function extractMessageText(message = {}) {
-  const content = parseContent(message.content);
-  if (message.message_type === "post") return stripAtTags(flattenPostContent(content));
+  const content = messageContent(message);
+  if (messageType(message) === "post") return stripAtTags(flattenPostContent(content));
   return stripAtTags(content.text || content.title || content.description || "");
 }
 
@@ -761,7 +769,8 @@ function extFromContentType(contentType = "", fallback = ".bin") {
 }
 
 function messageContentKeys(message = {}) {
-  const content = parseContent(message.content);
+  const content = messageContent(message);
+  const type = messageType(message);
   const keys = [];
   const seen = new Set();
   const add = (type, key, fallbackName = "") => {
@@ -770,14 +779,14 @@ function messageContentKeys(message = {}) {
       keys.push({ type, key, name: fallbackName || key });
     }
   };
-  if (message.message_type === "image") {
+  if (type === "image") {
     add("image", content.image_key, "quoted-image.jpg");
-  } else if (message.message_type === "media") {
+  } else if (type === "media") {
     add("file", content.file_key, content.file_name || "quoted-video.mp4");
     add("image", content.image_key, "quoted-video-thumbnail.jpg");
-  } else if (message.message_type === "file") {
+  } else if (type === "file") {
     add("file", content.file_key, content.file_name || content.name || "quoted-file.bin");
-  } else if (message.message_type === "audio") {
+  } else if (type === "audio") {
     add("file", content.file_key, content.file_name || "quoted-audio.bin");
   }
   const walk = (value) => {
@@ -1349,9 +1358,9 @@ class FeishuClient {
     return data;
   }
 
-  async download(path, destPath) {
+  async download(requestPath, destPath) {
     const token = await this.tenantAccessToken();
-    const response = await fetch(`https://open.feishu.cn${path}`, {
+    const response = await fetch(`https://open.feishu.cn${requestPath}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
@@ -1398,20 +1407,67 @@ class FeishuClient {
   }
 
   async quotedContextFromMessage(message) {
-    const quoteId = quotedMessageId(message);
-    if (!quoteId) return null;
-    const quoted = await this.getMessage(quoteId);
-    if (!quoted) return { messageId: quoteId, text: "", files: [], error: "Quoted Feishu message was not found." };
-    const text = extractMessageText(quoted);
+    const firstQuoteId = quotedMessageId(message);
+    if (!firstQuoteId) return null;
+
+    const seen = new Set([message.message_id].filter(Boolean));
+    const chain = [];
+    const textParts = [];
     const files = [];
-    for (const resource of messageContentKeys(quoted)) {
-      try {
-        files.push(await this.downloadMessageResource(quoteId, resource));
-      } catch (error) {
-        files.push({ type: resource.type, key: resource.key, error: error.message });
+    let currentId = firstQuoteId;
+
+    for (let depth = 0; currentId && depth < 3 && !seen.has(currentId); depth += 1) {
+      seen.add(currentId);
+      const entry = {
+        messageId: currentId,
+        messageType: "",
+        textPreview: "",
+        resourceCount: 0,
+        fileCount: 0
+      };
+      chain.push(entry);
+
+      const quoted = await this.getMessage(currentId);
+      if (!quoted) {
+        entry.error = "Quoted Feishu message was not found.";
+        break;
       }
+
+      const type = messageType(quoted);
+      const text = extractMessageText(quoted);
+      const resources = messageContentKeys(quoted);
+      const filesBefore = files.filter((item) => item.path).length;
+      entry.messageType = type;
+      entry.textPreview = text.slice(0, 160);
+      entry.resourceCount = resources.length;
+
+      if (text) {
+        textParts.push(`Quoted message ${depth + 1}${type ? ` (${type})` : ""}:\n${text}`);
+      }
+
+      for (const resource of resources) {
+        try {
+          const downloaded = await this.downloadMessageResource(currentId, resource);
+          files.push({ ...downloaded, sourceMessageId: currentId });
+        } catch (error) {
+          files.push({ type: resource.type, key: resource.key, sourceMessageId: currentId, error: error.message });
+        }
+      }
+
+      entry.fileCount = files.filter((item) => item.path).length - filesBefore;
+      if (entry.fileCount > 0) break;
+
+      const nextId = quotedMessageId(quoted);
+      currentId = nextId && !seen.has(nextId) ? nextId : "";
     }
-    return { messageId: quoteId, messageType: quoted.message_type || "", text, files };
+
+    return {
+      messageId: firstQuoteId,
+      messageType: chain[0]?.messageType || "",
+      text: textParts.join("\n\n"),
+      files,
+      chain
+    };
   }
 
   async uploadImage(filePath) {
@@ -1893,6 +1949,7 @@ async function processFeishuMessage(payload) {
     mediaTask: task.mediaTask,
     quotedMessageId: quotedContext?.messageId || "",
     quotedFileCount: quotedContext?.files?.filter((item) => item.path).length || 0,
+    quotedChain: quotedContext?.chain || [],
     startedAt: new Date().toISOString()
   };
   jobs.set(messageId, job);
