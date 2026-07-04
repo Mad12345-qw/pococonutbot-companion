@@ -2,7 +2,7 @@ param(
   [string]$ServiceName = "feishu-grok-bridge",
   [string]$OwnerId = "",
   [string]$Repo = "https://github.com/Mad12345-qw/pococonutbot-companion",
-  [string]$Branch = "codex/research-knowledge-base",
+  [string]$Branch = "codex/grok-feishu-bridge",
   [string]$Plan = "starter"
 )
 
@@ -21,13 +21,12 @@ function Require-Env([string]$Name) {
 $renderApiKey = Require-Env "RENDER_API_KEY"
 $feishuAppId = Require-Env "FEISHU_APP_ID"
 $feishuAppSecret = Require-Env "FEISHU_APP_SECRET"
-$xaiApiKey = [Environment]::GetEnvironmentVariable("XAI_API_KEY", "Process")
 $grokDeploymentKey = [Environment]::GetEnvironmentVariable("GROK_DEPLOYMENT_KEY", "Process")
 $grokAuthJsonB64 = [Environment]::GetEnvironmentVariable("GROK_AUTH_JSON_B64", "Process")
 $debugToken = [Environment]::GetEnvironmentVariable("DEBUG_TOKEN", "Process")
 
-if ([string]::IsNullOrWhiteSpace($xaiApiKey) -and [string]::IsNullOrWhiteSpace($grokDeploymentKey) -and [string]::IsNullOrWhiteSpace($grokAuthJsonB64)) {
-  throw "Set one Grok credential: XAI_API_KEY, GROK_DEPLOYMENT_KEY, or GROK_AUTH_JSON_B64"
+if ([string]::IsNullOrWhiteSpace($grokDeploymentKey) -and [string]::IsNullOrWhiteSpace($grokAuthJsonB64)) {
+  throw "Set one Grok CLI credential: GROK_DEPLOYMENT_KEY or GROK_AUTH_JSON_B64"
 }
 
 $headers = @{
@@ -47,20 +46,15 @@ $envVars = @(
   @{ key = "SERVICE_NAME"; value = $ServiceName },
   @{ key = "FEISHU_APP_ID"; value = $feishuAppId },
   @{ key = "FEISHU_APP_SECRET"; value = $feishuAppSecret },
-  @{ key = "XAI_MODEL"; value = "grok-4.3" },
-  @{ key = "XAI_TIMEOUT_MS"; value = "540000" },
   @{ key = "GROK_CLI_ENABLED"; value = "true" },
-  @{ key = "GROK_CLI_TIMEOUT_MS"; value = "300000" },
+  @{ key = "GROK_CLI_TIMEOUT_MS"; value = "540000" },
   @{ key = "GROK_CLI_COMMAND"; value = "/opt/render/project/src/GROK/.grok/bin/grok" },
   @{ key = "GROK_CLI_CWD"; value = "/tmp/grok-feishu-bridge-cwd" },
-  @{ key = "GROK_CLI_ARGS_JSON"; value = '["--cwd","{{cwd}}","--no-memory","--no-plan","--output-format","streaming-json","-p","{{prompt}}"]' },
-  @{ key = "SEND_PROGRESS_MESSAGE"; value = "true" },
+  @{ key = "GROK_CLI_ARGS_JSON"; value = '["--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]' },
+  @{ key = "MAX_CARD_CONTENT_CHARS"; value = "90000" },
   @{ key = "MAX_REPLY_CHARS"; value = "3500" }
 )
 
-if (-not [string]::IsNullOrWhiteSpace($xaiApiKey)) {
-  $envVars += @{ key = "XAI_API_KEY"; value = $xaiApiKey }
-}
 if (-not [string]::IsNullOrWhiteSpace($grokDeploymentKey)) {
   $envVars += @{ key = "GROK_DEPLOYMENT_KEY"; value = $grokDeploymentKey }
 }

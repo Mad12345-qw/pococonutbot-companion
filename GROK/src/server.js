@@ -9,6 +9,8 @@ import express from "express";
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
 const GROK_EXECUTABLE_NAME = process.platform === "win32" ? "grok.exe" : "grok";
+const STREAM_ANSWER_ELEMENT_ID = "answer_md";
+const STREAM_STATUS_ELEMENT_ID = "status_md";
 const DEFAULT_SYSTEM_PROMPT = [
   "You are Grok connected to a Feishu bot.",
   "Reply in the user's language.",
@@ -35,14 +37,11 @@ const config = {
   feishuAppSecret: process.env.FEISHU_APP_SECRET || "",
   feishuVerificationToken: process.env.FEISHU_VERIFICATION_TOKEN || "",
   feishuEncryptKey: process.env.FEISHU_ENCRYPT_KEY || "",
-  xaiApiKey: process.env.XAI_API_KEY || "",
-  xaiModel: process.env.XAI_MODEL || "grok-4.3",
-  xaiTimeoutMs: envNumber("XAI_TIMEOUT_MS", 540000),
   grokCliEnabled: envFlag("GROK_CLI_ENABLED", true),
   grokCliCommand: process.env.GROK_CLI_COMMAND || path.join(process.cwd(), ".grok", "bin", GROK_EXECUTABLE_NAME),
   grokCliCwd: process.env.GROK_CLI_CWD || path.join(os.tmpdir(), "grok-feishu-bridge-cwd"),
-  grokCliTimeoutMs: envNumber("GROK_CLI_TIMEOUT_MS", 300000),
-  sendProgressMessage: envFlag("SEND_PROGRESS_MESSAGE", true),
+  grokCliTimeoutMs: envNumber("GROK_CLI_TIMEOUT_MS", 540000),
+  maxCardContentChars: envNumber("MAX_CARD_CONTENT_CHARS", 90000),
   maxReplyChars: envNumber("MAX_REPLY_CHARS", 3500),
   debugToken: process.env.DEBUG_TOKEN || "",
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
@@ -101,7 +100,7 @@ function cardText(value = "", max = 80) {
   return clean.length > max ? `${clean.slice(0, Math.max(0, max - 1))}…` : clean;
 }
 
-function cardMarkdown(value = "", max = 4200) {
+function cardMarkdown(value = "", max = config.maxCardContentChars) {
   const clean = sanitizeFeishuText(value)
     .replace(/[<>{}]/g, "")
     .replace(/[ \t]+/g, " ")
@@ -150,6 +149,97 @@ function sourceButtons(text = "") {
     type: index === 0 ? "primary" : "default",
     url
   }));
+}
+
+function sourceButtonsV2(text = "") {
+  return extractUrlsFromText(text, 4).map((url, index) => ({
+    tag: "button",
+    element_id: `source_btn_${index + 1}`,
+    text: {
+      tag: "plain_text",
+      content: `来源 ${index + 1}`
+    },
+    type: index === 0 ? "primary_filled" : "default",
+    size: "small",
+    width: "default",
+    behaviors: [
+      {
+        type: "open_url",
+        default_url: url,
+        pc_url: url,
+        ios_url: url,
+        android_url: url
+      }
+    ]
+  }));
+}
+
+function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务" } = {}) {
+  return {
+    schema: "2.0",
+    config: {
+      streaming_mode: true,
+      update_multi: true,
+      enable_forward: false,
+      width_mode: "fill",
+      summary: {
+        content: "[生成中...] Grok CLI"
+      },
+      streaming_config: {
+        print_frequency_ms: { default: 45, android: 45, ios: 45, pc: 45 },
+        print_step: { default: 2, android: 2, ios: 2, pc: 2 },
+        print_strategy: "delay"
+      }
+    },
+    header: {
+      template: webSearch ? "indigo" : "blue",
+      title: {
+        tag: "plain_text",
+        content: cardText(title, 40)
+      },
+      subtitle: {
+        tag: "plain_text",
+        content: webSearch ? "Grok CLI · 联网检索 · 原生流式卡片" : "Grok CLI · 原生流式卡片"
+      },
+      text_tag_list: [
+        {
+          tag: "text_tag",
+          element_id: "mode_tag",
+          text: {
+            tag: "plain_text",
+            content: webSearch ? "搜索" : "对话"
+          },
+          color: webSearch ? "indigo" : "blue"
+        },
+        {
+          tag: "text_tag",
+          element_id: "stream_tag",
+          text: {
+            tag: "plain_text",
+            content: "流式"
+          },
+          color: "green"
+        }
+      ]
+    },
+    body: {
+      direction: "vertical",
+      padding: "12px 12px 12px 12px",
+      vertical_spacing: "8px",
+      elements: [
+        {
+          tag: "markdown",
+          element_id: STREAM_STATUS_ELEMENT_ID,
+          content: `**状态**：${cardMarkdown(status, 260)}`
+        },
+        {
+          tag: "markdown",
+          element_id: STREAM_ANSWER_ELEMENT_ID,
+          content: ` ${cardMarkdown(text || "", config.maxCardContentChars - 1)}`
+        }
+      ]
+    }
+  };
 }
 
 function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, part = 1, total = 1 } = {}) {
@@ -371,95 +461,9 @@ function shouldUseWebSearch(text = "") {
   return /(最新|今天|今日|现在|当前|实时|联网|搜索|查一下|股价|价格|新闻|市值|估值|财报|汇率|天气|多少|latest|today|current|real[- ]?time|search|stock|price|news|valuation)/i.test(text);
 }
 
-function withTimeout(ms) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), ms);
-  return { controller, clear: () => clearTimeout(timer) };
-}
-
-function extractResponseText(data = {}) {
-  if (typeof data.output_text === "string" && data.output_text.trim()) return data.output_text.trim();
-  const parts = [];
-  const visit = (value) => {
-    if (value == null) return;
-    if (typeof value === "string") return;
-    if (Array.isArray(value)) {
-      for (const item of value) visit(item);
-      return;
-    }
-    if (typeof value !== "object") return;
-    if ((value.type === "output_text" || value.type === "text") && typeof value.text === "string") {
-      parts.push(value.text);
-    }
-    if (typeof value.content === "string") parts.push(value.content);
-    if (Array.isArray(value.content)) visit(value.content);
-    if (Array.isArray(value.output)) visit(value.output);
-  };
-  visit(data.output);
-  if (parts.join("").trim()) return parts.join("").trim();
-  const choice = data.choices?.[0]?.message?.content;
-  return typeof choice === "string" ? choice.trim() : "";
-}
-
-function extractCitations(data = {}) {
-  const urls = new Set();
-  const visit = (value) => {
-    if (!value || typeof value !== "object") return;
-    if (Array.isArray(value)) {
-      for (const item of value) visit(item);
-      return;
-    }
-    if (typeof value.url === "string" && /^https?:\/\//i.test(value.url)) urls.add(value.url);
-    if (Array.isArray(value.citations)) visit(value.citations);
-    if (Array.isArray(value.sources)) visit(value.sources);
-    if (Array.isArray(value.output)) visit(value.output);
-    if (Array.isArray(value.content)) visit(value.content);
-  };
-  visit(data);
-  return [...urls].slice(0, 6);
-}
-
-async function callXaiApi({ prompt, webSearch }) {
-  if (!config.xaiApiKey) throw new Error("XAI_API_KEY is not configured.");
-  const timeout = withTimeout(config.xaiTimeoutMs);
-  try {
-    const payload = {
-      model: config.xaiModel,
-      input: [
-        { role: "system", content: config.systemPrompt },
-        { role: "user", content: prompt }
-      ],
-      store: false
-    };
-    if (webSearch) payload.tools = [{ type: "web_search" }];
-
-    const response = await fetch("https://api.x.ai/v1/responses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${config.xaiApiKey}`
-      },
-      body: JSON.stringify(payload),
-      signal: timeout.controller.signal
-    });
-    const text = await response.text();
-    const data = parseJson(text, null);
-    if (!response.ok) {
-      const message = data?.error?.message || data?.message || text.slice(0, 500);
-      throw new Error(`xAI API failed ${response.status}: ${message}`);
-    }
-    const answer = extractResponseText(data);
-    if (!answer) throw new Error("xAI API returned no final text.");
-    const citations = extractCitations(data);
-    return citations.length ? `${answer}\n\n来源：\n${citations.map((url) => `- ${url}`).join("\n")}` : answer;
-  } finally {
-    timeout.clear();
-  }
-}
-
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--no-plan\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--no-plan", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
@@ -475,8 +479,27 @@ function parseStreamingJsonLine(line = "") {
   }
 }
 
+function streamingEventText(event = {}) {
+  for (const key of ["data", "text", "content", "delta", "message"]) {
+    if (typeof event[key] === "string" && event[key]) return event[key];
+  }
+  return "";
+}
+
+function describeGrokEvent(event = {}) {
+  const text = `${event.type || ""} ${event.name || ""} ${event.tool || ""}`.toLowerCase();
+  if (!text.trim()) return "";
+  if (text.includes("web") || text.includes("search") || text.includes("browser")) {
+    return "正在联网搜索并核对来源";
+  }
+  if (text.includes("tool")) return "正在调用工具获取信息";
+  if (text.includes("end")) return "正在整理最终回答";
+  if (text.includes("error")) return "Grok CLI 返回运行事件，正在等待最终结果";
+  return "";
+}
+
 async function callGrokCli(prompt, { onText, onEvent } = {}) {
-  if (!config.grokCliEnabled) throw new Error("Grok CLI fallback is disabled.");
+  if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
   return new Promise((resolve, reject) => {
@@ -505,11 +528,13 @@ async function callGrokCli(prompt, { onText, onEvent } = {}) {
         const event = parseStreamingJsonLine(line);
         if (!event) continue;
         sawStreamingEvent = true;
-        if (event.type === "text" && event.data) {
-          streamedText += String(event.data);
-          onText?.(streamedText, String(event.data));
+        if (event.type === "text" && streamingEventText(event)) {
+          const delta = streamingEventText(event);
+          streamedText += delta;
+          onText?.(streamedText, delta);
         } else if (event.type === "end") {
           stopReason = event.stopReason || "";
+          onEvent?.(event);
         } else if (event.type !== "thought") {
           onEvent?.(event);
         }
@@ -523,12 +548,16 @@ async function callGrokCli(prompt, { onText, onEvent } = {}) {
     child.on("close", (code) => {
       clearTimeout(timer);
       const trailing = parseStreamingJsonLine(lineBuffer);
-      if (trailing?.type === "text" && trailing.data) {
+      if (trailing?.type === "text" && streamingEventText(trailing)) {
         sawStreamingEvent = true;
-        streamedText += String(trailing.data);
-        onText?.(streamedText, String(trailing.data));
+        const delta = streamingEventText(trailing);
+        streamedText += delta;
+        onText?.(streamedText, delta);
       }
-      if (trailing?.type === "end") stopReason = trailing.stopReason || "";
+      if (trailing?.type === "end") {
+        stopReason = trailing.stopReason || "";
+        onEvent?.(trailing);
+      }
       const output = sawStreamingEvent ? sanitizeGrokOutput(streamedText) : sanitizeGrokOutput(stdout);
       if (code === 0 && output) {
         resolve(output);
@@ -543,26 +572,77 @@ async function answerWithGrok(prompt) {
   return callGrokCli(prompt);
 }
 
-function createStreamingCardUpdater({ feishu, cardMessageId, title, webSearch }) {
-  let lastPatchAt = 0;
-  let latestText = "";
+function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
+  let sequence = 0;
+  let lastAnswerAt = 0;
+  let lastStatusAt = 0;
+  let latestAnswer = "";
+  let latestStatus = webSearch ? "正在联网搜索并核对来源" : "正在生成回答";
   let queue = Promise.resolve();
-  const patch = (text, force = false) => {
-    latestText = sanitizeFeishuText(text);
-    if (!cardMessageId || !latestText) return queue;
-    const now = Date.now();
-    if (!force && now - lastPatchAt < 1600) return queue;
-    lastPatchAt = now;
+  const nextSequence = () => {
+    sequence += 1;
+    return sequence;
+  };
+  const enqueue = (task) => {
     queue = queue
-      .then(() => feishu.patchCard(cardMessageId, latestText, title, { webSearch }))
+      .then(task)
       .catch((error) => {
-        console.error("Feishu streaming card patch failed:", error.message);
+        console.error("Feishu CardKit streaming update failed:", error.message);
       });
     return queue;
   };
+  const patchAnswer = (text, force = false) => {
+    latestAnswer = sanitizeFeishuText(text);
+    if (!cardId || !latestAnswer) return queue;
+    const now = Date.now();
+    if (!force && now - lastAnswerAt < 900) return queue;
+    lastAnswerAt = now;
+    return enqueue(() => feishu.streamCardText(cardId, STREAM_ANSWER_ELEMENT_ID, ` ${cardMarkdown(latestAnswer, config.maxCardContentChars - 1)}`, nextSequence()));
+  };
+  const patchStatus = (status, force = false) => {
+    latestStatus = sanitizeFeishuText(status).slice(0, 260);
+    if (!cardId || !latestStatus) return queue;
+    const now = Date.now();
+    if (!force && now - lastStatusAt < 3000) return queue;
+    lastStatusAt = now;
+    return enqueue(() => feishu.streamCardText(cardId, STREAM_STATUS_ELEMENT_ID, `**状态**：${latestStatus}`, nextSequence()));
+  };
   return {
-    patch,
-    flush: () => queue.then(() => patch(latestText, true))
+    patchAnswer,
+    patchStatus,
+    finish: async () => {
+      await queue;
+      await patchAnswer(latestAnswer, true);
+      await patchStatus("已完成，正在收尾卡片", true);
+      const buttons = sourceButtonsV2(latestAnswer);
+      if (buttons.length) {
+        await enqueue(() => feishu.addCardElements(cardId, buttons, {
+          type: "insert_after",
+          targetElementId: STREAM_ANSWER_ELEMENT_ID,
+          sequence: nextSequence()
+        }));
+      }
+      await enqueue(() => feishu.updateCardSettings(cardId, {
+        config: {
+          streaming_mode: false,
+          summary: { content: cardText(latestAnswer || title, 80) }
+        }
+      }, nextSequence()));
+      await queue;
+    },
+    fail: async (errorText) => {
+      latestAnswer = sanitizeFeishuText(errorText);
+      await queue;
+      await patchAnswer(latestAnswer, true);
+      await patchStatus("运行失败，已把根因暴露在卡片里", true);
+      await enqueue(() => feishu.updateCardSettings(cardId, {
+        config: {
+          streaming_mode: false,
+          summary: { content: "Grok CLI 运行失败" }
+        }
+      }, nextSequence()));
+      await queue;
+    }
   };
 }
 
@@ -651,6 +731,59 @@ class FeishuClient {
     return lastResponse;
   }
 
+  async createCardEntity(cardJson) {
+    const data = await this.post("/open-apis/cardkit/v1/cards", {
+      type: "card_json",
+      data: JSON.stringify(cardJson)
+    });
+    const cardId = data?.data?.card_id || data?.card_id || "";
+    if (!cardId) throw new Error(`Feishu CardKit did not return card_id: ${JSON.stringify(data).slice(0, 500)}`);
+    return cardId;
+  }
+
+  async replyCardEntity(messageId, cardId) {
+    if (!messageId || !cardId) return null;
+    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      msg_type: "interactive",
+      content: JSON.stringify({
+        type: "card",
+        data: { card_id: cardId }
+      })
+    });
+  }
+
+  async replyStreamingCard(messageId, initialText, title = "Grok 回复", options = {}) {
+    const cardId = await this.createCardEntity(buildStreamingCard(initialText, title, options));
+    const response = await this.replyCardEntity(messageId, cardId);
+    return { cardId, response };
+  }
+
+  async streamCardText(cardId, elementId, content, sequence) {
+    return this.post(`/open-apis/cardkit/v1/cards/${encodeURIComponent(cardId)}/elements/${encodeURIComponent(elementId)}/content`, {
+      uuid: crypto.randomUUID(),
+      content,
+      sequence
+    }, "PUT");
+  }
+
+  async updateCardSettings(cardId, settings, sequence) {
+    return this.post(`/open-apis/cardkit/v1/cards/${encodeURIComponent(cardId)}/settings`, {
+      settings: JSON.stringify(settings),
+      uuid: crypto.randomUUID(),
+      sequence
+    }, "PATCH");
+  }
+
+  async addCardElements(cardId, elements, { type = "insert_after", targetElementId = STREAM_ANSWER_ELEMENT_ID, sequence } = {}) {
+    return this.post(`/open-apis/cardkit/v1/cards/${encodeURIComponent(cardId)}/elements`, {
+      type,
+      target_element_id: targetElementId,
+      uuid: crypto.randomUUID(),
+      sequence,
+      elements: JSON.stringify(elements)
+    });
+  }
+
   async patchCard(messageId, text, title = "Grok 回复", options = {}) {
     if (!messageId) return;
     return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}`, {
@@ -724,14 +857,14 @@ app.get("/health", (_req, res) => {
     uptimeSeconds: Math.round(process.uptime()),
     cwd: process.cwd(),
     feishuConfigured: feishu.enabled,
-    xaiApiConfigured: Boolean(config.xaiApiKey),
     grokCliEnabled: config.grokCliEnabled,
     grokCliCwd: config.grokCliCwd,
     grokCliCommand: config.grokCliCommand,
     grokCliCommandExists: config.grokCliCommand.includes(path.sep) ? fs.existsSync(config.grokCliCommand) : null,
     grokCliCommandExecutable: config.grokCliCommand.includes(path.sep) ? isExecutable(config.grokCliCommand) : null,
-    model: config.xaiApiKey ? config.xaiModel : "grok-cli",
-    webSearchMode: config.xaiApiKey ? "xai-responses-web_search" : "grok-cli"
+    model: "grok-cli",
+    cardMode: "feishu-cardkit-streaming-json-2.0",
+    webSearchMode: "grok-cli"
   });
 });
 
@@ -753,6 +886,29 @@ app.get("/debug/grok-test", async (req, res) => {
     const command = await ensureGrokCliCommand();
     const answer = await callGrokCli(prompt);
     res.json({ ok: true, command, answer: answer.slice(0, 2000) });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/cardkit-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const cardId = await feishu.createCardEntity(buildStreamingCard("", "CardKit 流式协议自检", {
+      webSearch: true,
+      status: "服务端自检：创建卡片实体"
+    }));
+    await feishu.streamCardText(cardId, STREAM_ANSWER_ELEMENT_ID, " CardKit 流式文本接口自检通过。", 1);
+    await feishu.updateCardSettings(cardId, {
+      config: {
+        streaming_mode: false,
+        summary: { content: "CardKit 自检通过" }
+      }
+    }, 2);
+    res.json({ ok: true, cardId, cardMode: "cardkit-json-2.0-streaming" });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
   }
@@ -818,45 +974,56 @@ async function processFeishuMessage(payload) {
   jobs.set(messageId, job);
 
   const title = job.webSearch ? "Grok 联网检索" : "Grok 回复";
-  const progressResponse = await feishu.replyRich(
-    messageId,
-    job.webSearch
-      ? "Grok CLI 已接管任务，正在联网检索。输出会在这张卡片里持续更新。"
-      : "Grok CLI 已接管任务，输出会在这张卡片里持续更新。",
-    title
-  );
-  const progressMessageId = feishuMessageId(progressResponse);
-  const updater = createStreamingCardUpdater({
-    feishu,
-    cardMessageId: progressMessageId,
-    title,
-    webSearch: job.webSearch
-  });
+  let updater = null;
   try {
+    const streamingCard = await feishu.replyStreamingCard(
+      messageId,
+      "",
+      title,
+      {
+        webSearch: job.webSearch,
+        status: job.webSearch ? "正在联网搜索并等待 Grok CLI 返回正文" : "正在等待 Grok CLI 返回正文"
+      }
+    );
+    job.cardId = streamingCard.cardId;
+    job.replyMessageId = feishuMessageId(streamingCard.response);
+    updater = createCardKitStreamingUpdater({
+      feishu,
+      cardId: streamingCard.cardId,
+      title,
+      webSearch: job.webSearch
+    });
     const answer = await callGrokCli(prompt, {
       onText: (fullText) => {
-        updater.patch(fullText);
+        updater.patchAnswer(fullText);
+      },
+      onEvent: (event) => {
+        const status = describeGrokEvent(event);
+        if (status) {
+          job.lastEvent = event.type || "";
+          updater.patchStatus(status);
+        }
       }
     });
     job.status = "completed";
     job.completedAt = new Date().toISOString();
-    await updater.patch(answer, true);
-    await updater.flush();
+    await updater.patchAnswer(answer, true);
+    await updater.finish();
   } catch (error) {
     job.status = "failed";
     job.error = error.message;
     job.completedAt = new Date().toISOString();
-    const fallback = [
+    const failure = [
       "这次没有拿到 Grok 的最终回答，但我不会停在“正在检索”。",
       "",
       `原因：${error.message}`,
       "",
       "这不是正常答案，我会把它作为需要修复的运行错误暴露出来，而不是降级成普通文本。"
     ].join("\n");
-    if (progressMessageId) {
-      await feishu.patchCard(progressMessageId, fallback, "Grok 运行错误", { webSearch: false });
+    if (updater) {
+      await updater.fail(failure);
     } else {
-      await feishu.replyRich(messageId, fallback, "Grok 运行错误");
+      await feishu.replyRich(messageId, failure, "Grok 运行错误");
     }
   }
 }

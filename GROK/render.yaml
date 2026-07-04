@@ -12,22 +12,18 @@ services:
         value: 20
       - key: SERVICE_NAME
         value: feishu-grok-bridge
-      - key: XAI_MODEL
-        value: grok-4.3
-      - key: XAI_TIMEOUT_MS
-        value: "540000"
       - key: GROK_CLI_ENABLED
         value: "true"
       - key: GROK_CLI_TIMEOUT_MS
-        value: "300000"
+        value: "540000"
       - key: GROK_CLI_COMMAND
         value: /opt/render/project/src/GROK/.grok/bin/grok
       - key: GROK_CLI_CWD
         value: /tmp/grok-feishu-bridge-cwd
       - key: GROK_CLI_ARGS_JSON
-        value: '["--cwd","{{cwd}}","--no-memory","--no-plan","--output-format","streaming-json","-p","{{prompt}}"]'
-      - key: SEND_PROGRESS_MESSAGE
-        value: "true"
+        value: '["--cwd","{{cwd}}","--no-memory","--output-format","streaming-json","-p","{{prompt}}"]'
+      - key: MAX_CARD_CONTENT_CHARS
+        value: "90000"
       - key: MAX_REPLY_CHARS
         value: "3500"
       - key: FEISHU_APP_ID
@@ -37,8 +33,6 @@ services:
       - key: FEISHU_VERIFICATION_TOKEN
         sync: false
       - key: FEISHU_ENCRYPT_KEY
-        sync: false
-      - key: XAI_API_KEY
         sync: false
       - key: GROK_DEPLOYMENT_KEY
         sync: false
