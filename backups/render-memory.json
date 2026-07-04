@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T10:59:25.466Z",
+  "exportedAt": "2026-07-04T11:09:25.451Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62834,6 +62834,30 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-04T10:30:23.419Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "paddlepaddle（105MB）清华源读超时，开源 OCR 引擎——Tesseract，轻量可靠：\n\n- 纯本地、不联网、不限次数\n- 体积小得多（~80MB 全套）\n- 中文准确率 90%+，支持竖排/繁体\n\n---\n\n## PaddleOCR 审计结论\n\n| 风险 | 状态 |\n|------|:--:|\n| 隐私 | ✅ 纯本地，不上传 |\n| 安全 | ✅ Apache 2.0 开源 |\n| 网络 | 🔴 105MB wheel 多次超时/哈希损坏，当前网络不可靠 |\n| 替代方案 | ✅ EasyOCR（仍需 PyTorch ~800MB）/ Tesseract（~80MB） |",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bbada333cacc4a82ee82a28e61",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T11:07:01.942Z"
       }
     ],
     "memories": [
@@ -67445,7 +67469,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-04T09:38:37.893Z"
+        "updatedAt": "2026-07-04T11:07:01.873Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -67455,7 +67479,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-04T09:38:37.802Z"
+        "updatedAt": "2026-07-04T11:07:01.771Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
