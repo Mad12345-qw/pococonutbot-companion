@@ -925,18 +925,16 @@ function classifyTask(text = "") {
 function grokCliArgs(prompt, { maxTurns, model } = {}) {
   const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"10\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
   const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "10", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
-  const turns = maxTurns ? String(maxTurns) : null;
+  const turns = String(maxTurns || config.mediaMaxTurns);
   const modelName = model ? String(model) : "";
   const resolvedArgs = (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
-    .replaceAll("{{maxTurns}}", turns || "10")
+    .replaceAll("{{maxTurns}}", turns)
     .replaceAll("{{model}}", modelName)
     .replaceAll("{{cwd}}", config.grokCliCwd));
-  if (turns) {
-    const turnIndex = resolvedArgs.indexOf("--max-turns");
-    if (turnIndex >= 0 && turnIndex + 1 < resolvedArgs.length) {
-      resolvedArgs[turnIndex + 1] = turns;
-    }
+  const turnIndex = resolvedArgs.indexOf("--max-turns");
+  if (turnIndex >= 0 && turnIndex + 1 < resolvedArgs.length) {
+    resolvedArgs[turnIndex + 1] = turns;
   }
   if (modelName) {
     const modelIndex = resolvedArgs.findIndex((arg) => arg === "-m" || arg === "--model");
