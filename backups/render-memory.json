@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T14:19:24.956Z",
+  "exportedAt": "2026-07-04T14:29:25.409Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62918,6 +62918,18 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-04T14:18:48.232Z"
+      },
+      {
+        "chatId": "feishu:oc_9f61031767f94d46117a615895dde8c7",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 400: {\"error\":{\"code\":\"content_policy_violation\",\"message\":\"上游返回了 非常抱歉，生成的图片可能违反了我们的内容政策。如果你认为此判断有误，请重试或修改提示语。 文本说明，未生成图片。请调整提示词或重试。\",\"type\":\"invalid_request_error\"}}",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-04T14:19:34.929Z"
       }
     ],
     "memories": [
