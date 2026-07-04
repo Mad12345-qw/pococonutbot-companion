@@ -16,7 +16,9 @@ const DEFAULT_SYSTEM_PROMPT = [
   "Reply in the user's language.",
   "When the user asks for latest, current, prices, news, or web facts, use web search if available.",
   "Be direct, include dates for time-sensitive facts, and do not invent sources.",
-  "If a searched company is private and has no public stock ticker, say that clearly before giving valuation or secondary-market context."
+  "If a searched company is private and has no public stock ticker, say that clearly before giving valuation or secondary-market context.",
+  "In headless CLI mode, stop searching once you have enough reliable evidence to answer.",
+  "Treat --max-turns as an upper bound, not a target; prefer a concise final answer over continuing optional searches."
 ].join("\n");
 
 function envFlag(name, fallback = false) {
@@ -545,11 +547,19 @@ function shouldUseWebSearch(text = "") {
 }
 
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"30\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "30", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"20\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "20", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
+}
+
+function buildGrokPrompt(userPrompt = "") {
+  return [
+    config.systemPrompt,
+    "User message:",
+    String(userPrompt || "").trim()
+  ].filter(Boolean).join("\n\n");
 }
 
 function parseStreamingJsonLine(line = "") {
@@ -585,8 +595,9 @@ async function callGrokCli(prompt, { onText, onEvent } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
+  const effectivePrompt = buildGrokPrompt(prompt);
   return new Promise((resolve, reject) => {
-    const child = spawn(command, grokCliArgs(prompt), {
+    const child = spawn(command, grokCliArgs(effectivePrompt), {
       env: process.env,
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
