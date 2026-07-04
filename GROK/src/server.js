@@ -93,6 +93,115 @@ function sanitizeFeishuText(text = "") {
   return clean || "没有生成可发送的回复。";
 }
 
+function plainMarkdownLine(line = "") {
+  return String(line || "")
+    .replace(/^#{1,6}\s+/, "")
+    .replace(/^>\s?/, "")
+    .replace(/^(\s*)[-*+]\s+/, "$1• ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/__([^_]+)__/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1");
+}
+
+function appendTextNode(nodes, text, style = undefined) {
+  if (!text) return;
+  const node = { tag: "text", text };
+  if (style?.length) node.style = style;
+  const previous = nodes[nodes.length - 1];
+  if (previous?.tag === "text" && JSON.stringify(previous.style || []) === JSON.stringify(node.style || [])) {
+    previous.text += text;
+    return;
+  }
+  nodes.push(node);
+}
+
+function appendInlineRichNodes(nodes, line = "", style = undefined) {
+  const markdownLink = /\[([^\]]{1,120})\]\((https?:\/\/[^)\s]+)\)/g;
+  let cursor = 0;
+  let match;
+  while ((match = markdownLink.exec(line)) !== null) {
+    appendBareUrls(nodes, line.slice(cursor, match.index), style);
+    nodes.push({ tag: "a", text: plainMarkdownLine(match[1]) || match[2], href: match[2] });
+    cursor = match.index + match[0].length;
+  }
+  appendBareUrls(nodes, line.slice(cursor), style);
+}
+
+function appendBareUrls(nodes, text = "", style = undefined) {
+  const urlPattern = /(https?:\/\/[^\s<>"')\]]+)/g;
+  let cursor = 0;
+  let match;
+  while ((match = urlPattern.exec(text)) !== null) {
+    appendTextNode(nodes, plainMarkdownLine(text.slice(cursor, match.index)), style);
+    const url = match[1].replace(/[.,!?;:，。！？；：]+$/g, "");
+    nodes.push({ tag: "a", text: url, href: url });
+    cursor = match.index + match[1].length;
+  }
+  appendTextNode(nodes, plainMarkdownLine(text.slice(cursor)), style);
+}
+
+function markdownLineToPostNodes(line = "", inCodeBlock = false) {
+  const nodes = [];
+  const raw = String(line || "");
+  if (!raw.trim()) return [{ tag: "text", text: " " }];
+  if (inCodeBlock) {
+    appendTextNode(nodes, raw);
+    return nodes;
+  }
+
+  const heading = raw.match(/^(#{1,6})\s+(.+)$/);
+  if (heading) {
+    appendInlineRichNodes(nodes, heading[2], ["bold"]);
+    return nodes;
+  }
+
+  const quote = raw.match(/^>\s?(.+)$/);
+  if (quote) {
+    appendTextNode(nodes, "引用：", ["bold"]);
+    appendInlineRichNodes(nodes, quote[1]);
+    return nodes;
+  }
+
+  const bullet = raw.match(/^(\s*)[-*+]\s+(.+)$/);
+  if (bullet) {
+    appendTextNode(nodes, "• ");
+    appendInlineRichNodes(nodes, bullet[2]);
+    return nodes;
+  }
+
+  const numbered = raw.match(/^\s*(\d+)[.)、]\s+(.+)$/);
+  if (numbered) {
+    appendTextNode(nodes, `${numbered[1]}. `);
+    appendInlineRichNodes(nodes, numbered[2]);
+    return nodes;
+  }
+
+  appendInlineRichNodes(nodes, raw);
+  return nodes.length ? nodes : [{ tag: "text", text: plainMarkdownLine(raw) || " " }];
+}
+
+function buildFeishuPostContent(text = "", title = "Grok 回复") {
+  const safe = sanitizeFeishuText(text);
+  const lines = safe.split("\n");
+  const content = [];
+  let inCodeBlock = false;
+  for (const line of lines) {
+    if (/^\s*```/.test(line)) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    content.push(markdownLineToPostNodes(line, inCodeBlock));
+  }
+  return {
+    zh_cn: {
+      title,
+      content: content.length ? content : [[{ tag: "text", text: safe }]]
+    }
+  };
+}
+
 function isExecutable(filePath = "") {
   if (!filePath) return false;
   try {
@@ -351,6 +460,25 @@ class FeishuClient {
       });
     }
   }
+
+  async replyPost(messageId, text, title = "Grok 回复") {
+    if (!messageId) return;
+    for (const chunk of splitReply(sanitizeFeishuText(text), config.maxReplyChars)) {
+      await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+        msg_type: "post",
+        content: JSON.stringify(buildFeishuPostContent(chunk, title))
+      });
+    }
+  }
+
+  async replyRich(messageId, text, title = "Grok 回复") {
+    try {
+      await this.replyPost(messageId, text, title);
+    } catch (error) {
+      console.error("Feishu post reply failed, falling back to text:", error.message);
+      await this.replyText(messageId, text);
+    }
+  }
 }
 
 function splitReply(text, maxChars) {
@@ -515,7 +643,7 @@ async function processFeishuMessage(payload) {
     const answer = await answerWithGrok(prompt);
     job.status = "completed";
     job.completedAt = new Date().toISOString();
-    await feishu.replyText(messageId, answer);
+    await feishu.replyRich(messageId, answer, job.webSearch ? "Grok 联网检索" : "Grok 回复");
   } catch (error) {
     job.status = "failed";
     job.error = error.message;
