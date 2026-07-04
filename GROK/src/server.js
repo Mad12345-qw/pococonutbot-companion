@@ -79,6 +79,17 @@ function isGrokDiagnosticLine(line = "") {
   );
 }
 
+function stripProgressOnlyLead(text = "") {
+  const lines = String(text || "").split("\n");
+  while (
+    lines.filter((line) => line.trim()).length > 1 &&
+    /^\s*正在(?:搜索|联网|查找|检索|查詢|查询)\b[\s\S]{0,120}[。.!！]?\s*$/i.test(lines[0] || "")
+  ) {
+    lines.shift();
+  }
+  return lines.join("\n");
+}
+
 function sanitizeGrokOutput(text = "") {
   const clean = stripAnsi(text)
     .replace(/\r\n/g, "\n")
@@ -89,7 +100,7 @@ function sanitizeGrokOutput(text = "") {
     .join("\n")
     .replace(/\n{4,}/g, "\n\n\n")
     .trim();
-  return clean;
+  return stripProgressOnlyLead(clean).trim();
 }
 
 function sanitizeFeishuText(text = "") {
