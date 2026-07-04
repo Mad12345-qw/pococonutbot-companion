@@ -56,6 +56,22 @@ https://<render-service>.onrender.com/feishu/events
 im.message.receive_v1
 ```
 
+## Cron Job 保温
+
+如果使用 Render Free Web Service，不需要 paid 常驻，但建议用 `cron-job.org` 每 5 分钟请求一次：
+
+```text
+https://feishu-grok-bridge.onrender.com/health
+```
+
+飞书事件 URL 仍然必须配置为：
+
+```text
+https://feishu-grok-bridge.onrender.com/feishu/events
+```
+
+Cron Job 只能保温或做定时任务，不能替代飞书事件回调入口。
+
 ## 本地检查
 
 ```powershell

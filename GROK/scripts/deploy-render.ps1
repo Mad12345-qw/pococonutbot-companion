@@ -2,7 +2,8 @@ param(
   [string]$ServiceName = "feishu-grok-bridge",
   [string]$OwnerId = "",
   [string]$Repo = "https://github.com/Mad12345-qw/pococonutbot-companion",
-  [string]$Branch = "codex/research-knowledge-base"
+  [string]$Branch = "codex/research-knowledge-base",
+  [string]$Plan = "starter"
 )
 
 $ErrorActionPreference = "Stop"
@@ -82,7 +83,7 @@ $body = @{
   serviceDetails = @{
     env = "node"
     runtime = "node"
-    plan = "starter"
+    plan = $Plan
     region = "oregon"
     healthCheckPath = "/health"
     numInstances = 1
