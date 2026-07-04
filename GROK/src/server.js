@@ -183,7 +183,8 @@ function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, 
   return {
     config: {
       wide_screen_mode: true,
-      enable_forward: true
+      enable_forward: true,
+      update_multi: true
     },
     header: {
       template: webSearch ? "indigo" : "blue",
@@ -457,14 +458,24 @@ async function callXaiApi({ prompt, webSearch }) {
 }
 
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--no-plan\",\"--output-format\",\"plain\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--no-plan", "--output-format", "plain", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--no-plan\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--no-plan", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
 }
 
-async function callGrokCli(prompt) {
+function parseStreamingJsonLine(line = "") {
+  const clean = stripAnsi(line).trim();
+  if (!clean || !clean.startsWith("{")) return null;
+  try {
+    return JSON.parse(clean);
+  } catch {
+    return null;
+  }
+}
+
+async function callGrokCli(prompt, { onText, onEvent } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI fallback is disabled.");
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
@@ -476,11 +487,34 @@ async function callGrokCli(prompt) {
     });
     let stdout = "";
     let stderr = "";
+    let lineBuffer = "";
+    let streamedText = "";
+    let sawStreamingEvent = false;
+    let stopReason = "";
     const timer = setTimeout(() => {
       child.kill("SIGTERM");
       reject(new Error(`Grok CLI timed out after ${config.grokCliTimeoutMs}ms.`));
     }, config.grokCliTimeoutMs);
-    child.stdout.on("data", (chunk) => { stdout += chunk.toString("utf8"); });
+    child.stdout.on("data", (chunk) => {
+      const piece = chunk.toString("utf8");
+      stdout += piece;
+      lineBuffer += piece;
+      const lines = lineBuffer.split(/\r?\n/);
+      lineBuffer = lines.pop() || "";
+      for (const line of lines) {
+        const event = parseStreamingJsonLine(line);
+        if (!event) continue;
+        sawStreamingEvent = true;
+        if (event.type === "text" && event.data) {
+          streamedText += String(event.data);
+          onText?.(streamedText, String(event.data));
+        } else if (event.type === "end") {
+          stopReason = event.stopReason || "";
+        } else if (event.type !== "thought") {
+          onEvent?.(event);
+        }
+      }
+    });
     child.stderr.on("data", (chunk) => { stderr += chunk.toString("utf8"); });
     child.on("error", (error) => {
       clearTimeout(timer);
@@ -488,22 +522,48 @@ async function callGrokCli(prompt) {
     });
     child.on("close", (code) => {
       clearTimeout(timer);
-      const output = sanitizeGrokOutput(stdout);
+      const trailing = parseStreamingJsonLine(lineBuffer);
+      if (trailing?.type === "text" && trailing.data) {
+        sawStreamingEvent = true;
+        streamedText += String(trailing.data);
+        onText?.(streamedText, String(trailing.data));
+      }
+      if (trailing?.type === "end") stopReason = trailing.stopReason || "";
+      const output = sawStreamingEvent ? sanitizeGrokOutput(streamedText) : sanitizeGrokOutput(stdout);
       if (code === 0 && output) {
         resolve(output);
         return;
       }
-      reject(new Error(`Grok CLI exited ${code}: ${stderr.trim() || "empty output"}`));
+      reject(new Error(`Grok CLI exited ${code}: ${[stopReason, stderr.trim() || "empty output"].filter(Boolean).join("; ")}`));
     });
   });
 }
 
 async function answerWithGrok(prompt) {
-  const webSearch = shouldUseWebSearch(prompt);
-  if (config.xaiApiKey) {
-    return callXaiApi({ prompt, webSearch });
-  }
   return callGrokCli(prompt);
+}
+
+function createStreamingCardUpdater({ feishu, cardMessageId, title, webSearch }) {
+  let lastPatchAt = 0;
+  let latestText = "";
+  let queue = Promise.resolve();
+  const patch = (text, force = false) => {
+    latestText = sanitizeFeishuText(text);
+    if (!cardMessageId || !latestText) return queue;
+    const now = Date.now();
+    if (!force && now - lastPatchAt < 1600) return queue;
+    lastPatchAt = now;
+    queue = queue
+      .then(() => feishu.patchCard(cardMessageId, latestText, title, { webSearch }))
+      .catch((error) => {
+        console.error("Feishu streaming card patch failed:", error.message);
+      });
+    return queue;
+  };
+  return {
+    patch,
+    flush: () => queue.then(() => patch(latestText, true))
+  };
 }
 
 class FeishuClient {
@@ -537,10 +597,10 @@ class FeishuClient {
     return this.token;
   }
 
-  async post(path, body) {
+  async post(path, body, method = "POST") {
     const token = await this.tenantAccessToken();
     const response = await fetch(`https://open.feishu.cn${path}`, {
-      method: "POST",
+      method,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
@@ -577,8 +637,9 @@ class FeishuClient {
   async replyRich(messageId, text, title = "Grok 回复") {
     if (!messageId) return;
     const chunks = splitForCard(text);
+    let lastResponse = null;
     for (let index = 0; index < chunks.length; index += 1) {
-      await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      lastResponse = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
         msg_type: "interactive",
         content: JSON.stringify(buildFeishuCard(chunks[index], title, {
           webSearch: /联网|检索|搜索/i.test(title),
@@ -587,7 +648,19 @@ class FeishuClient {
         }))
       });
     }
+    return lastResponse;
   }
+
+  async patchCard(messageId, text, title = "Grok 回复", options = {}) {
+    if (!messageId) return;
+    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}`, {
+      content: JSON.stringify(buildFeishuCard(text, title, options))
+    }, "PATCH");
+  }
+}
+
+function feishuMessageId(response = {}) {
+  return response?.data?.message_id || response?.message_id || response?.data?.message?.message_id || "";
 }
 
 function splitReply(text, maxChars) {
@@ -744,15 +817,31 @@ async function processFeishuMessage(payload) {
   };
   jobs.set(messageId, job);
 
-  if (config.sendProgressMessage && job.webSearch) {
-    await feishu.replyRich(messageId, "我开始联网检索，完成后会直接把结论发在下面。", "Grok 联网检索");
-  }
-
+  const title = job.webSearch ? "Grok 联网检索" : "Grok 回复";
+  const progressResponse = await feishu.replyRich(
+    messageId,
+    job.webSearch
+      ? "Grok CLI 已接管任务，正在联网检索。输出会在这张卡片里持续更新。"
+      : "Grok CLI 已接管任务，输出会在这张卡片里持续更新。",
+    title
+  );
+  const progressMessageId = feishuMessageId(progressResponse);
+  const updater = createStreamingCardUpdater({
+    feishu,
+    cardMessageId: progressMessageId,
+    title,
+    webSearch: job.webSearch
+  });
   try {
-    const answer = await answerWithGrok(prompt);
+    const answer = await callGrokCli(prompt, {
+      onText: (fullText) => {
+        updater.patch(fullText);
+      }
+    });
     job.status = "completed";
     job.completedAt = new Date().toISOString();
-    await feishu.replyRich(messageId, answer, job.webSearch ? "Grok 联网检索" : "Grok 回复");
+    await updater.patch(answer, true);
+    await updater.flush();
   } catch (error) {
     job.status = "failed";
     job.error = error.message;
@@ -764,7 +853,11 @@ async function processFeishuMessage(payload) {
       "",
       "这不是正常答案，我会把它作为需要修复的运行错误暴露出来，而不是降级成普通文本。"
     ].join("\n");
-    await feishu.replyPost(messageId, fallback, "Grok 运行错误");
+    if (progressMessageId) {
+      await feishu.patchCard(progressMessageId, fallback, "Grok 运行错误", { webSearch: false });
+    } else {
+      await feishu.replyRich(messageId, fallback, "Grok 运行错误");
+    }
   }
 }
 
