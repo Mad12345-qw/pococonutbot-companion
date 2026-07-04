@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T11:09:25.451Z",
+  "exportedAt": "2026-07-04T13:19:25.178Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62858,6 +62858,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-04T11:07:01.942Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n用户：跳出了更新\n\n# 图片上下文（Feishu 平台顶部导航栏截图）\n\n**平台**：Feishu（飞书）\n\n**顶部导航栏元素（从左到右）**：\n1. 通知图标（铃铛）\n2. 「文档」按钮\n3. 语言切换：「CN ZH ▾」（中英切换，当前显示 CN）\n4. 账户/余额显示：「$192.33」（绿色，附带一个图标按钮）\n5. 用户头像 + 姓名：**陈宇锋**\n6. 用户角色标签：User\n7. 下拉箭头（用于账户菜单）\n\n**附带用户文字**：\n- 用户：跳出了更新\n\n**其他说明**：\n- 页面整体为深色背景（深蓝/黑）\n- 截图仅展示了 Feishu 顶部导航栏区域，未包含页面主体内容\n- 除上述信息外，图片中无其他可见文字、链接、数字或项目内容",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ba431191930c491e6029842da7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "用户：跳出了更新\n\n# 图片上下文（Feishu 平台顶部导航栏截图）\n\n**平台**：Feishu（飞书）\n\n**顶部导航栏元素（从左到右）**：\n1. 通知图标（铃铛）\n2. 「文档」按钮\n3. 语言切换：「CN ZH ▾」（中英切换，当前显示 CN）\n4. 账户/余额显示：「$192.33」（绿色，附带一个图标按钮）\n5. 用户头像 + 姓名：**陈宇锋**\n6. 用户角色标签：User\n7. 下拉箭头（用于账户菜单）\n\n**附带用户文字**：\n- 用户：跳出了更新\n\n**其他说明**：\n- 页面整体为深色背景（深蓝/黑）\n- 截图仅展示了 Feishu 顶部导航栏区域，未包含页面主体内容\n- 除上述信息外，图片中无其他可见文字、链接、数字或项目内容",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T13:18:12.254Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "图里能看到：导航栏有“文档”，语言切换 CN/ZH，旁边显示余额 \\$192.33，账号叫“陈宇锋 · User”。没看到更多文字信息。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-07-04T13:18:21.479Z"
       }
     ],
     "memories": [
@@ -66839,7 +66875,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-04T04:40:59.767Z"
+        "updatedAt": "2026-07-04T13:18:12.184Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66849,7 +66885,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-04T04:40:59.670Z"
+        "updatedAt": "2026-07-04T13:18:12.083Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
