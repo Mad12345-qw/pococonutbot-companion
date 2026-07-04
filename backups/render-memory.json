@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T10:01:40.093Z",
+  "exportedAt": "2026-07-04T10:31:39.373Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62798,6 +62798,42 @@
           "replyToUserId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653"
         },
         "createdAt": "2026-07-04T09:52:44.065Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "帮我全网搜下目前最新最权威的ai产业报告",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bba45db48a8b1634e1acc0ae71",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": true,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T10:30:12.432Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好～我帮你整理几份目前业内最权威、最新的 AI 产业报告，覆盖行业、技术、产业落地几个维度：\n\n1. Stanford HAI - AI Index Report 2024\n全球最权威的 AI 产业综合报告，2025 版预计会在今年 4-5 月发布。\n🔗 https://aiindex.stanford.edu/report/\n\n2. McKinsey - The State of AI (2024 / 2025 各季度更新)\n企业级 AI 应用最前沿的调研，覆盖各行业落地情况。\n🔗 https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai\n\n3. Gartner - Hype Cycle for AI / Generative AI\n对生成式 AI 技术成熟度的判断，企业决策参考价值高。\n🔗 https://www.gartner.com/en/articles/hype-cycle-for-generative-ai\n\n4. IDC Worldwide AI Spending Guide\n全球 AI 市场规模、增速、应用结构（硬件 / 软件 / 服务）。\n🔗 https://www.idc.com/getdoc.jsp?containerId=IDC_P33198\n\n5. 中国信通院 - 人工智能发展报告（2024 年）\n国内最权威的 AI 产业白皮书，国内政策、产业、算力、应用都覆盖。\n🔗 http://www.caict.ac.cn/kxyj/qwfb/bps/202408/t20240802_654128.htm\n\n6. PwC AI Jobs Barometer（2024 / 2025）\nAI 对就业和产业实际产出的量化分析。\n🔗 https://www.pwc.com/gx/en/issues/artificial-intelligence/ai-jobs-barometer.html\n\n如果你想聚焦某个具体方向（比如大模型、具身智能、AI for Science、Agent），可以告诉我，我再帮你做更针对性的细分报告推荐～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-04T10:30:23.419Z"
       }
     ],
     "memories": [
@@ -65164,6 +65200,26 @@
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interest.ai.reports_focus",
+        "value": "用户关注最新最权威的AI产业报告，希望全网搜集综合性行业、技术、产业落地类权威报告",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-04T10:31:18.940Z",
+        "updatedAt": "2026-07-04T10:31:18.940Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "interest.ai.subtopics",
+        "value": "用户可能感兴趣的方向：大模型、具身智能、AI for Science、Agent",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-04T10:31:19.014Z",
+        "updatedAt": "2026-07-04T10:31:19.014Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "interest.domains",
         "value": "SpaceX,AI,Robot",
         "importance": 5,
@@ -65199,7 +65255,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-03T11:33:19.923Z"
+        "updatedAt": "2026-07-04T10:30:12.373Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -65209,7 +65265,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-03T11:33:19.854Z"
+        "updatedAt": "2026-07-04T10:30:12.289Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
