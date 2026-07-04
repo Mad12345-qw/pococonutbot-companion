@@ -93,6 +93,109 @@ function sanitizeFeishuText(text = "") {
   return clean || "没有生成可发送的回复。";
 }
 
+function cardText(value = "", max = 80) {
+  const clean = sanitizeFeishuText(value)
+    .replace(/[<>{}]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return clean.length > max ? `${clean.slice(0, Math.max(0, max - 1))}…` : clean;
+}
+
+function cardMarkdown(value = "", max = 4200) {
+  const clean = sanitizeFeishuText(value)
+    .replace(/[<>{}]/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{4,}/g, "\n\n\n")
+    .trim();
+  return clean.length > max ? `${clean.slice(0, Math.max(0, max - 20))}\n\n…内容过长，已分段继续。` : clean;
+}
+
+function extractUrlsFromText(text = "", limit = 3) {
+  const urls = [];
+  const seen = new Set();
+  const add = (url) => {
+    const clean = String(url || "").replace(/[.,!?;:，。！？；：]+$/g, "");
+    if (!/^https?:\/\//i.test(clean) || seen.has(clean)) return;
+    seen.add(clean);
+    urls.push(clean);
+  };
+  for (const match of String(text || "").matchAll(/\[[^\]]{1,160}\]\((https?:\/\/[^)\s]+)\)/g)) add(match[1]);
+  for (const match of String(text || "").matchAll(/https?:\/\/[^\s<>"')\]]+/g)) add(match[0]);
+  return urls.slice(0, limit);
+}
+
+function splitForCard(text = "", maxChars = 4200) {
+  const clean = sanitizeFeishuText(text);
+  if (clean.length <= maxChars) return [clean];
+  const chunks = [];
+  let rest = clean;
+  while (rest.length > maxChars) {
+    let index = rest.lastIndexOf("\n\n", maxChars);
+    if (index < Math.floor(maxChars * 0.45)) index = rest.lastIndexOf("\n", maxChars);
+    if (index < Math.floor(maxChars * 0.45)) index = maxChars;
+    chunks.push(rest.slice(0, index).trim());
+    rest = rest.slice(index).trim();
+  }
+  if (rest) chunks.push(rest);
+  return chunks;
+}
+
+function sourceButtons(text = "") {
+  return extractUrlsFromText(text, 3).map((url, index) => ({
+    tag: "button",
+    text: {
+      tag: "plain_text",
+      content: `打开来源 ${index + 1}`
+    },
+    type: index === 0 ? "primary" : "default",
+    url
+  }));
+}
+
+function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, part = 1, total = 1 } = {}) {
+  const safe = sanitizeFeishuText(text);
+  const elements = [
+    {
+      tag: "div",
+      text: {
+        tag: "lark_md",
+        content: cardMarkdown(safe)
+      }
+    }
+  ];
+  const actions = sourceButtons(safe);
+  if (actions.length) {
+    elements.push({ tag: "hr" });
+    elements.push({ tag: "action", actions });
+  }
+  elements.push({
+    tag: "note",
+    elements: [
+      {
+        tag: "plain_text",
+        content: [
+          webSearch ? "Grok CLI · 联网检索" : "Grok CLI",
+          total > 1 ? `第 ${part}/${total} 段` : "飞书卡片富文本"
+        ].join(" · ")
+      }
+    ]
+  });
+  return {
+    config: {
+      wide_screen_mode: true,
+      enable_forward: true
+    },
+    header: {
+      template: webSearch ? "indigo" : "blue",
+      title: {
+        tag: "plain_text",
+        content: cardText(title, 40)
+      }
+    },
+    elements
+  };
+}
+
 function plainMarkdownLine(line = "") {
   return String(line || "")
     .replace(/^#{1,6}\s+/, "")
@@ -472,7 +575,18 @@ class FeishuClient {
   }
 
   async replyRich(messageId, text, title = "Grok 回复") {
-    await this.replyPost(messageId, text, title);
+    if (!messageId) return;
+    const chunks = splitForCard(text);
+    for (let index = 0; index < chunks.length; index += 1) {
+      await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+        msg_type: "interactive",
+        content: JSON.stringify(buildFeishuCard(chunks[index], title, {
+          webSearch: /联网|检索|搜索/i.test(title),
+          part: index + 1,
+          total: chunks.length
+        }))
+      });
+    }
   }
 }
 
