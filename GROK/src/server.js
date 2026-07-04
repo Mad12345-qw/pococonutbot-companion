@@ -720,6 +720,32 @@ async function grokDiagnostics() {
     "-p",
     "Do not use tools. Reply with OK."
   ], 45000);
+  const maxTurnsSmoke = await runCliDiagnostic(command, [
+    "--no-auto-update",
+    "--always-approve",
+    "--permission-mode",
+    "bypassPermissions",
+    "--max-turns",
+    "4",
+    "--output-format",
+    "json",
+    "-p",
+    "Do not use tools. Reply with OK."
+  ], 45000);
+  const webToolsSmoke = await runCliDiagnostic(command, [
+    "--no-auto-update",
+    "--always-approve",
+    "--permission-mode",
+    "bypassPermissions",
+    "--tools",
+    "web_search,web_fetch",
+    "--max-turns",
+    "6",
+    "--output-format",
+    "streaming-json",
+    "-p",
+    "Use web_search to find the xAI CLI headless scripting docs URL, then answer with only that URL."
+  ], 90000);
   const helpText = `${help.stdout}\n${help.stderr}`;
   let sessionCount = null;
   try {
@@ -757,7 +783,9 @@ async function grokDiagnostics() {
       excerpt: helpText.split("\n").filter((line) => /approve|permission|tool|search|sandbox|format|auto|headless|max/i.test(line)).slice(0, 80)
     },
     inspect,
-    maxToolRoundsSmoke
+    maxToolRoundsSmoke,
+    maxTurnsSmoke,
+    webToolsSmoke
   };
 }
 
