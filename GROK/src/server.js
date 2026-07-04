@@ -584,6 +584,83 @@ function grokFooterNote({ webSearch = false } = {}) {
   };
 }
 
+function grokCardStyle() {
+  return {
+    color: {
+      "cus-0": {
+        light_mode: "#aeb4bd",
+        dark_mode: "#5c636d"
+      },
+      "cus-1": {
+        light_mode: "#f7f8fa",
+        dark_mode: "#202124"
+      }
+    }
+  };
+}
+
+function grokHeroLine(title = "", { webSearch = false, streaming = false, done = false, media = false } = {}) {
+  const parts = [grokModeLabel(title, { webSearch })];
+  if (streaming) parts.push("流式");
+  if (done) parts.push("完成");
+  if (media) parts.push("媒体");
+  return `**${cardMarkdown(cardText(title, 36))}**  ${parts.map((item) => `\`${item}\``).join(" ")}`;
+}
+
+function grokHeroElement(title = "", { webSearch = false, streaming = false, done = false, media = false } = {}) {
+  return {
+    tag: "column_set",
+    background_style: "cus-0",
+    flex_mode: "none",
+    columns: [
+      {
+        tag: "column",
+        width: "weighted",
+        weight: 1,
+        padding: "11px 13px 12px 13px",
+        elements: [
+          {
+            tag: "div",
+            text: {
+              tag: "lark_md",
+              content: grokHeroLine(title, { webSearch, streaming, done, media })
+            },
+            text_size: "heading",
+            text_color: "white"
+          },
+          {
+            tag: "div",
+            margin: "4px 0px 0px 0px",
+            text: {
+              tag: "plain_text",
+              content: grokCardSubtitle({ webSearch, media, streaming })
+            },
+            text_size: "notation",
+            text_color: "white"
+          }
+        ]
+      }
+    ]
+  };
+}
+
+function grokPanel(elements = [], padding = "16px 18px 18px 18px") {
+  return {
+    tag: "column_set",
+    background_style: "default",
+    flex_mode: "none",
+    columns: [
+      {
+        tag: "column",
+        width: "weighted",
+        weight: 1,
+        padding,
+        elements
+      }
+    ]
+  };
+}
+
 function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务" } = {}) {
   const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}`);
   return {
@@ -593,6 +670,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
       update_multi: true,
       enable_forward: false,
       width_mode: "fill",
+      style: grokCardStyle(),
       summary: {
         content: "[生成中...] Grok CLI"
       },
@@ -602,37 +680,28 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
         print_strategy: "delay"
       }
     },
-    header: {
-      template: grokHeaderTemplate(),
-      title: {
-        tag: "plain_text",
-        content: cardText(title, 40)
-      },
-      subtitle: {
-        tag: "plain_text",
-        content: grokCardSubtitle({ webSearch, media, streaming: true })
-      },
-      text_tag_list: grokHeaderTags(title, { webSearch, streaming: true })
-    },
     body: {
       direction: "vertical",
-      padding: "14px 16px 16px 16px",
-      vertical_spacing: "10px",
+      padding: "0px",
+      vertical_spacing: "0px",
       elements: [
-        {
-          tag: "markdown",
-          element_id: STREAM_STATUS_ELEMENT_ID,
-          content: grokStatusMarkdown(status)
-        },
-        {
-          tag: "hr"
-        },
-        {
-          tag: "markdown",
-          element_id: STREAM_ANSWER_ELEMENT_ID,
-          content: ` ${cardMarkdown(text || "", config.maxCardContentChars - 1)}`
-        },
-        grokFooterNote({ webSearch })
+        grokHeroElement(title, { webSearch, streaming: true, media }),
+        grokPanel([
+          {
+            tag: "markdown",
+            element_id: STREAM_STATUS_ELEMENT_ID,
+            content: grokStatusMarkdown(status)
+          },
+          {
+            tag: "hr"
+          },
+          {
+            tag: "markdown",
+            element_id: STREAM_ANSWER_ELEMENT_ID,
+            content: ` ${cardMarkdown(text || "", config.maxCardContentChars - 1)}`
+          },
+          grokFooterNote({ webSearch })
+        ], "14px 16px 16px 16px")
       ]
     }
   };
@@ -667,27 +736,19 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false } 
       update_multi: true,
       enable_forward: true,
       width_mode: "fill",
+      style: grokCardStyle(),
       summary: {
         content: cardText(safe || title, 80)
       }
     },
-    header: {
-      template: grokHeaderTemplate(),
-      title: {
-        tag: "plain_text",
-        content: cardText(title, 40)
-      },
-      subtitle: {
-        tag: "plain_text",
-        content: grokCardSubtitle({ webSearch, media, streaming: false })
-      },
-      text_tag_list: grokHeaderTags(title, { webSearch, done: true })
-    },
     body: {
       direction: "vertical",
-      padding: "16px 18px 18px 18px",
-      vertical_spacing: "10px",
-      elements
+      padding: "0px",
+      vertical_spacing: "0px",
+      elements: [
+        grokHeroElement(title, { webSearch, done: true, media }),
+        grokPanel(elements)
+      ]
     }
   };
 }
