@@ -462,8 +462,8 @@ function shouldUseWebSearch(text = "") {
 }
 
 function grokCliArgs(prompt) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   return (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{cwd}}", config.grokCliCwd));
