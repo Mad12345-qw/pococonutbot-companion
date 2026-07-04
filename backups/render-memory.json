@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-04T09:31:39.232Z",
+  "exportedAt": "2026-07-04T09:41:40.065Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -62695,6 +62695,30 @@
           "replyToUserId": "feishu:ou_2872bb9d605a54974a771256d5910782"
         },
         "createdAt": "2026-07-04T09:27:33.499Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "PaddleOCR能解决Hermes无法识别截图内容的痛点。\n识别范围广：覆盖80多种语言，支持证件、文档、场景文字，能识别多栏排版、竖排文字、繁体内容，还可识别手写体、公式符号、复杂嵌套表格。\n识别精度高：PP-OCRv4中文识别准确率超90%，公式识别在CMMD排名第一，多语言榜单常年领先。\n使用门槛低：每天可免费使用20000次，能配合Hermes实现截图对话、资料转知识库的功能。\n该工具可直接为Hermes补充图形识别与文字提取能力。\n我刚刚给我的爱马仕安装这个视图能力",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bb9074d50a0c07c3146996b876",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-04T09:38:37.963Z"
       }
     ],
     "memories": [
@@ -67286,7 +67310,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-03T11:01:57.405Z"
+        "updatedAt": "2026-07-04T09:38:37.893Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -67296,7 +67320,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-03T11:01:57.337Z"
+        "updatedAt": "2026-07-04T09:38:37.802Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
