@@ -295,6 +295,32 @@ function ensureVideoThumbnail() {
   return thumbnailPath;
 }
 
+function safeDeleteLocalFile(filePath = "") {
+  if (!filePath) return false;
+  const resolved = path.resolve(filePath);
+  const cwdRoot = path.resolve(config.grokCliCwd);
+  const sessionsRoot = path.resolve(os.homedir(), ".grok", "sessions");
+  const underCwd = resolved === cwdRoot || resolved.startsWith(`${cwdRoot}${path.sep}`);
+  const underGrokSession = resolved.startsWith(`${sessionsRoot}${path.sep}`);
+  if (!underCwd && !underGrokSession) return false;
+  try {
+    const stat = fs.statSync(resolved);
+    if (!stat.isFile()) return false;
+    fs.rmSync(resolved, { force: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function safeDeleteLocalFiles(filePaths = []) {
+  let deleted = 0;
+  for (const filePath of filePaths) {
+    if (safeDeleteLocalFile(filePath)) deleted += 1;
+  }
+  return deleted;
+}
+
 function extractUrlsFromText(text = "", limit = 3) {
   const urls = [];
   const seen = new Set();
@@ -1470,6 +1496,7 @@ class FeishuClient {
     for (const imagePath of imagePaths) {
       const imageKey = await this.uploadImage(imagePath);
       await this.replyImage(messageId, imageKey);
+      safeDeleteLocalFile(imagePath);
       sent.push({ imagePath, imageKey });
     }
     return sent;
@@ -1483,9 +1510,11 @@ class FeishuClient {
       if (ext === ".mp4") {
         const thumbnailKey = await this.uploadImage(ensureVideoThumbnail());
         await this.replyMedia(messageId, fileKey, thumbnailKey);
+        safeDeleteLocalFile(videoPath);
         sent.push({ videoPath, fileKey, type: "media" });
       } else {
         await this.replyFile(messageId, fileKey);
+        safeDeleteLocalFile(videoPath);
         sent.push({ videoPath, fileKey, type: "file" });
       }
     }
@@ -1853,6 +1882,7 @@ async function processFeishuMessage(payload) {
   if (!prompt) return;
   const task = classifyTask(prompt);
   const quotedContext = await feishu.quotedContextFromMessage(message);
+  const quotedTempFiles = quotedContext?.files?.map((item) => item.path).filter(Boolean) || [];
 
   const job = {
     id: messageId,
@@ -1942,6 +1972,8 @@ async function processFeishuMessage(payload) {
     } else {
       await feishu.replyRich(messageId, failure, "Grok 运行错误");
     }
+  } finally {
+    safeDeleteLocalFiles(quotedTempFiles);
   }
 }
 
