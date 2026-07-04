@@ -472,12 +472,7 @@ class FeishuClient {
   }
 
   async replyRich(messageId, text, title = "Grok 回复") {
-    try {
-      await this.replyPost(messageId, text, title);
-    } catch (error) {
-      console.error("Feishu post reply failed, falling back to text:", error.message);
-      await this.replyText(messageId, text);
-    }
+    await this.replyPost(messageId, text, title);
   }
 }
 
@@ -636,7 +631,7 @@ async function processFeishuMessage(payload) {
   jobs.set(messageId, job);
 
   if (config.sendProgressMessage && job.webSearch) {
-    await feishu.replyText(messageId, "我开始联网检索，完成后会直接把结论发在下面。");
+    await feishu.replyRich(messageId, "我开始联网检索，完成后会直接把结论发在下面。", "Grok 联网检索");
   }
 
   try {
@@ -653,9 +648,9 @@ async function processFeishuMessage(payload) {
       "",
       `原因：${error.message}`,
       "",
-      "如果这是联网问题，请在 Render 环境变量里配置 XAI_API_KEY；Grok CLI 的本地登录态不会自动带到 Render。"
+      "这不是正常答案，我会把它作为需要修复的运行错误暴露出来，而不是降级成普通文本。"
     ].join("\n");
-    await feishu.replyText(messageId, fallback);
+    await feishu.replyPost(messageId, fallback, "Grok 运行错误");
   }
 }
 
