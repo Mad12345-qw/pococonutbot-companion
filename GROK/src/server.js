@@ -29,6 +29,22 @@ const CARD_HEADER_TEMPLATES = new Set([
   "indigo",
   "grey"
 ]);
+const CARD_TEXT_TAG_COLORS = new Set([
+  "neutral",
+  "blue",
+  "wathet",
+  "turquoise",
+  "lime",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "carmine",
+  "violet",
+  "purple",
+  "indigo",
+  "grey"
+]);
 const DEFAULT_SYSTEM_PROMPT = [
   "You are Grok connected to a Feishu bot.",
   "Reply in the user's language.",
@@ -574,10 +590,13 @@ function grokTextTag(elementId, content, color = "grey") {
   };
 }
 
-function grokHeaderTags(title = "", { webSearch = false, streaming = false, done = false } = {}) {
+function grokHeaderTags(title = "", { webSearch = false, streaming = false, done = false, modeTagColor = "" } = {}) {
   const mode = grokModeLabel(title, { webSearch });
+  const effectiveModeColor = CARD_TEXT_TAG_COLORS.has(modeTagColor)
+    ? modeTagColor
+    : mode === "联网搜索" ? "indigo" : "grey";
   const tags = [
-    grokTextTag("mode_tag", mode, mode === "联网搜索" ? "indigo" : "grey")
+    grokTextTag("mode_tag", mode, effectiveModeColor)
   ];
   if (streaming) tags.push(grokTextTag("stream_tag", "流式", "green"));
   if (done) tags.push(grokTextTag("done_tag", "完成", "green"));
@@ -599,7 +618,7 @@ function grokFooterNote({ webSearch = false } = {}) {
   };
 }
 
-function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务", headerTemplate = "" } = {}) {
+function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = false, status = "Grok CLI 已接管任务", headerTemplate = "", modeTagColor = "" } = {}) {
   const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}`);
   return {
     schema: "2.0",
@@ -627,7 +646,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
         tag: "plain_text",
         content: grokCardSubtitle({ webSearch, media, streaming: true })
       },
-      text_tag_list: grokHeaderTags(title, { webSearch, streaming: true })
+      text_tag_list: grokHeaderTags(title, { webSearch, streaming: true, modeTagColor })
     },
     body: {
       direction: "vertical",
@@ -653,7 +672,7 @@ function buildStreamingCard(text = "", title = "Grok 回复", { webSearch = fals
   };
 }
 
-function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false, headerTemplate = "" } = {}) {
+function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false, headerTemplate = "", modeTagColor = "" } = {}) {
   const safe = sanitizeFeishuText(text);
   const media = /视频|媒体|图片|图像|照片|video|image|photo|picture/i.test(`${title}\n${safe}`);
   const elements = [
@@ -696,7 +715,7 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false, h
         tag: "plain_text",
         content: grokCardSubtitle({ webSearch, media, streaming: false })
       },
-      text_tag_list: grokHeaderTags(title, { webSearch, done: true })
+      text_tag_list: grokHeaderTags(title, { webSearch, done: true, modeTagColor })
     },
     body: {
       direction: "vertical",
@@ -2239,6 +2258,70 @@ app.get("/debug/card-style-test", async (req, res) => {
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
   }
+});
+
+app.get("/debug/card-tag-style-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  if (!latestPrivateMessage?.messageId) {
+    res.status(409).json({
+      ok: false,
+      error: "No recent private Feishu message target. Send the bot a private message first, then retry this endpoint."
+    });
+    return;
+  }
+
+  const requested = String(req.query.colors || req.query.color || "grey")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const colors = (requested.includes("all") ? [...CARD_TEXT_TAG_COLORS] : requested)
+    .filter((item, index, list) => CARD_TEXT_TAG_COLORS.has(item) && list.indexOf(item) === index)
+    .slice(0, CARD_TEXT_TAG_COLORS.size);
+  if (!colors.length) {
+    res.status(400).json({ ok: false, error: `Unsupported color. Allowed: ${[...CARD_TEXT_TAG_COLORS].join(", ")}` });
+    return;
+  }
+
+  const sent = [];
+  const failed = [];
+  for (const color of colors) {
+    try {
+      const cardId = await feishu.createCardEntity(buildFinalCard(
+        [
+          `Mode tag color: ${color}`,
+          "",
+          "Header template is fixed to grey. Only the mode tag color changes.",
+          "",
+          "Compare the small mode tag next to the title on iPhone and desktop."
+        ].join("\n"),
+        `Grok tag ${color}`,
+        { headerTemplate: "grey", modeTagColor: color }
+      ));
+      const response = await feishu.replyCardEntity(latestPrivateMessage.messageId, cardId);
+      sent.push({
+        color,
+        cardId,
+        replyMessageId: feishuMessageId(response)
+      });
+      await new Promise((resolve) => setTimeout(resolve, 250));
+    } catch (error) {
+      failed.push({ color, error: error.message });
+    }
+  }
+
+  res.json({
+    ok: failed.length === 0,
+    sentTo: {
+      messageId: latestPrivateMessage.messageId,
+      chatType: latestPrivateMessage.chatType,
+      receivedAt: latestPrivateMessage.receivedAt
+    },
+    sent,
+    failed
+  });
 });
 
 app.get("/debug/media-upload-test", async (req, res) => {
