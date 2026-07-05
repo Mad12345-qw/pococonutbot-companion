@@ -1085,6 +1085,7 @@ function shouldUseMediaGeneration(text = "") {
 }
 
 function mediaKind(text = "") {
+  if (!shouldUseMediaGeneration(text)) return "";
   if (/(视频|短片|mp4|video|动起来|打招呼|animate)/i.test(text)) return "video";
   if (/(图片|照片|图像|image|photo|picture|gif)/i.test(text)) return "image";
   return "";
