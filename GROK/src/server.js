@@ -3094,8 +3094,15 @@ async function processFeishuMessage(payload) {
       pushRouteDecision({ ...baseRouteLog, ignored: true, routeReason: "empty_prompt_quote_error", error: quotedResult.error.message });
       return;
     }
-    prompt = String(quotedResult.context?.text || "").trim();
-    promptFromQuotedMessage = Boolean(prompt);
+    const quotedText = String(quotedResult.context?.text || "").trim();
+    const quotedFileCount = quotedResult.context?.files?.filter((item) => item.path).length || 0;
+    if (quotedText) {
+      prompt = quotedText;
+      promptFromQuotedMessage = true;
+    } else if (quotedFileCount > 0) {
+      prompt = "The user mentioned Grok while replying to the quoted message. Use the quoted files and metadata as the user's input, then decide the task from that context.";
+      promptFromQuotedMessage = true;
+    }
   }
   if (!prompt) {
     pushRouteDecision({ ...baseRouteLog, ignored: true, routeReason: "empty_prompt" });
