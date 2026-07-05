@@ -16,6 +16,7 @@ const GROK_EXECUTABLE_NAME = process.platform === "win32" ? "grok.exe" : "grok";
 const STREAM_ANSWER_ELEMENT_ID = "answer_md";
 const STREAM_STATUS_ELEMENT_ID = "status_md";
 const botReplyMessageIds = new Map();
+const routeDecisions = [];
 const CARD_HEADER_TEMPLATES = new Set([
   "default",
   "blue",
@@ -1048,6 +1049,21 @@ function rememberBotReplyMessageId(messageId = "") {
   }
 }
 
+function idPrefix(value = "") {
+  const text = String(value || "");
+  return text ? text.slice(0, 10) : "";
+}
+
+function pushRouteDecision(entry = {}) {
+  const safe = {
+    at: new Date().toISOString(),
+    ...entry
+  };
+  routeDecisions.push(safe);
+  while (routeDecisions.length > 80) routeDecisions.shift();
+  console.log(`Feishu route decision: ${JSON.stringify(safe)}`);
+}
+
 function responseMessageId(response = {}) {
   return response?.data?.message_id || response?.message_id || response?.data?.message?.message_id || "";
 }
@@ -1154,23 +1170,25 @@ function messageSenderMatchesBot(message = {}, bot = {}) {
 }
 
 async function shouldHandleFeishuMessage(message = {}) {
-  if (message.chat_type === "p2p") return true;
-  if (messageRepliesToKnownBotMessage(message)) return true;
+  if (message.chat_type === "p2p") return { handle: true, reason: "p2p" };
+  if (messageRepliesToKnownBotMessage(message)) return { handle: true, reason: "known_bot_reply" };
   const mentions = messageMentions(message);
   try {
     const bot = await feishu.botInfo();
-    if (mentions.some((mention) => mentionMatchesBot(mention, bot))) return true;
+    if (mentions.some((mention) => mentionMatchesBot(mention, bot))) {
+      return { handle: true, reason: "mentioned_grok", mentionCount: mentions.length, botName: bot.app_name || "" };
+    }
     const quotedId = quotedMessageId(message);
-    if (!quotedId) return false;
+    if (!quotedId) return { handle: false, reason: "group_not_mentioned", mentionCount: mentions.length, botName: bot.app_name || "" };
     const quoted = await feishu.getMessage(quotedId);
     if (messageSenderMatchesBot(quoted, bot)) {
       rememberBotReplyMessageId(quotedId);
-      return true;
+      return { handle: true, reason: "quoted_grok_message", mentionCount: mentions.length, botName: bot.app_name || "" };
     }
-    return false;
+    return { handle: false, reason: "quoted_non_grok_message", mentionCount: mentions.length, botName: bot.app_name || "" };
   } catch (error) {
     console.warn(`Failed to resolve Feishu bot info for mention routing: ${error.message}`);
-    return false;
+    return { handle: false, reason: "routing_error", error: error.message, mentionCount: mentions.length };
   }
 }
 
@@ -2581,6 +2599,14 @@ app.get("/debug/jobs", (req, res) => {
   res.json({ jobs: [...jobs.values()].slice(-50) });
 });
 
+app.get("/debug/route-decisions", (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  res.json({ ok: true, decisions: routeDecisions.slice(-80) });
+});
+
 app.get("/debug/grok-test", async (req, res) => {
   if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
     res.status(404).json({ error: "not found" });
@@ -3033,8 +3059,24 @@ async function processFeishuMessage(payload) {
   const messageId = message.message_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
-  const shouldHandle = await shouldHandleFeishuMessage(message);
-  if (!shouldHandle) return;
+  const mentions = messageMentions(message);
+  const control = parseControlCommand(prompt);
+  const route = await shouldHandleFeishuMessage(message);
+  const baseRouteLog = {
+    messageId: idPrefix(messageId),
+    chatType: message.chat_type || "",
+    senderType: event.sender?.sender_type || "",
+    mentionCount: mentions.length,
+    mentionNames: mentions.map((item) => String(item.name || "").slice(0, 30)).filter(Boolean).slice(0, 6),
+    quotedMessageId: idPrefix(quotedMessageId(message)),
+    controlCommand: control?.name || "",
+    routeReason: route.reason || "",
+    routeHandle: Boolean(route.handle)
+  };
+  if (!route.handle) {
+    pushRouteDecision({ ...baseRouteLog, ignored: true });
+    return;
+  }
   if (message.chat_type === "p2p") {
     latestPrivateMessage = {
       messageId,
@@ -3044,9 +3086,11 @@ async function processFeishuMessage(payload) {
       promptPreview: prompt.slice(0, 80)
     };
   }
-  const control = parseControlCommand(prompt);
   if (control) {
-    if (message.chat_type !== "p2p") return;
+    if (message.chat_type !== "p2p") {
+      pushRouteDecision({ ...baseRouteLog, ignored: true, routeReason: "group_control_command_blocked" });
+      return;
+    }
     const startedAtMs = Date.now();
     const job = {
       id: messageId,
@@ -3072,11 +3116,14 @@ async function processFeishuMessage(payload) {
         console.warn(`Grok state Redis sync failed after control command: ${error.message}`);
       });
       await feishu.replyText(messageId, "New Grok CLI session created for this Feishu chat. Long-term memory is preserved.");
+      pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_new" });
       return;
     }
     await feishu.replyText(messageId, "Bridge control command received, but this command is not enabled. No Grok request was sent.");
+    pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_unsupported" });
     return;
   }
+  pushRouteDecision({ ...baseRouteLog, ignored: false });
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
   const session = chatSessionScope(message);
