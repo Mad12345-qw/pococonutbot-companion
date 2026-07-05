@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-05T11:31:33.297Z",
+  "exportedAt": "2026-07-05T14:21:33.751Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -63633,6 +63633,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-05T11:31:19.272Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "role": "user",
+        "modality": "text",
+        "content": "先在platform上面选择自己的音色，然后点击运行看一下是不是自己想要的效果\n[Link content]\n[Web page] https://platform.mosi.cn/#quickstart\nMosi Platform Playground\n\n[Web page] https://studio-next.mosi.cn/voice/library?tab=my\n音色库 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 首页 资产 音色库 工具 \n \n 创作 图视频生成 语音合成 音色设计 音频转写 音色转换 音频降噪 \n 工作流 \n API 平台 \n \n \n 音色库\n\n 中文 \n \n \n \n \n\n \n \n\n \n \n 还没有创建音色，去创建一个吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b922e0070a4b4b2b2a44602972",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUserId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUnionId": "on_4444fa3a7676744134c6a638de51aabf",
+          "linkContext": "[Web page] https://platform.mosi.cn/#quickstart\nMosi Platform Playground\n\n[Web page] https://studio-next.mosi.cn/voice/library?tab=my\n音色库 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 首页 资产 音色库 工具 \n \n 创作 图视频生成 语音合成 音色设计 音频转写 音色转换 音频降噪 \n 工作流 \n API 平台 \n \n \n 音色库\n\n 中文 \n \n \n \n \n\n \n \n\n \n \n 还没有创建音色，去创建一个吧",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T14:11:32.084Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "role": "user",
+        "modality": "text",
+        "content": "然后copy对应的curl，就可以在terminal上点击并且运行看看调用情况\n[Link content]\n[Web page] https://platform.mosi.cn/#quickstart\nMosi Platform Playground\n\n[Web page] https://studio-next.mosi.cn/voice/library?tab=my\n音色库 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 首页 资产 音色库 工具 \n \n 创作 图视频生成 语音合成 音色设计 音频转写 音色转换 音频降噪 \n 工作流 \n API 平台 \n \n \n 音色库\n\n 中文 \n \n \n \n \n\n \n \n\n \n \n 还没有创建音色，去创建一个吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b922c767cacb3ffa3ba2a39061",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUserId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUnionId": "on_4444fa3a7676744134c6a638de51aabf",
+          "linkContext": "[Web page] https://platform.mosi.cn/#quickstart\nMosi Platform Playground\n\n[Web page] https://studio-next.mosi.cn/voice/library?tab=my\n音色库 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 首页 资产 音色库 工具 \n \n 创作 图视频生成 语音合成 音色设计 音频转写 音色转换 音频降噪 \n 工作流 \n API 平台 \n \n \n 音色库\n\n 中文 \n \n \n \n \n\n \n \n\n \n \n 还没有创建音色，去创建一个吧",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T14:12:01.391Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "role": "user",
+        "modality": "text",
+        "content": "可以把这个curl example复制好啦之后给work buddy",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b922d1380a8b2ebac8b1bb414b",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUserId": "ou_d537a071d6401e4ece1281d6b6161a63",
+          "rawUnionId": "on_4444fa3a7676744134c6a638de51aabf",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T14:12:16.533Z"
       }
     ],
     "memories": [
@@ -65135,6 +65207,26 @@
         "metadata": {},
         "createdAt": "2026-07-03T12:37:58.535Z",
         "updatedAt": "2026-07-03T12:50:19.580Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-05T14:11:32.021Z",
+        "updatedAt": "2026-07-05T14:12:16.469Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d537a071d6401e4ece1281d6b6161a63",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-05T14:11:31.816Z",
+        "updatedAt": "2026-07-05T14:12:16.405Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
