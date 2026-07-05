@@ -1080,15 +1080,13 @@ function shouldUseWebSearch(text = "") {
   return /(最新|今天|今日|现在|当前|实时|联网|搜索|查一下|股价|价格|新闻|市值|估值|财报|汇率|天气|多少|latest|today|current|real[- ]?time|search|stock|price|news|valuation)/i.test(text);
 }
 
-function shouldUseMediaGeneration(text = "") {
-  return /(生成|做|制作|create|generate|make).{0,30}(图片|照片|图像|视频|动图|短片|image|photo|picture|video|mp4|gif)|(?:图片|照片|图像|视频|动图|短片).{0,30}(生成|做|制作|create|generate|make|打招呼|动起来|animate)/i.test(text);
-}
-
-function mediaKind(text = "") {
-  if (!shouldUseMediaGeneration(text)) return "";
-  if (/(视频|短片|mp4|video|动起来|打招呼|animate)/i.test(text)) return "video";
-  if (/(图片|照片|图像|image|photo|picture|gif)/i.test(text)) return "image";
-  return "";
+function parseMediaCommand(text = "") {
+  const match = String(text || "").match(/生成(图片|视频)\s*[:：]\s*([\s\S]*)/i);
+  if (!match) return null;
+  const kind = match[1] === "视频" ? "video" : "image";
+  const prompt = String(match[2] || "").trim();
+  if (!prompt) return null;
+  return { kind, prompt };
 }
 
 function isDeepResearch(text = "") {
@@ -1101,26 +1099,28 @@ function isQuickFact(text = "") {
 }
 
 function classifyTask(text = "") {
-  const media = mediaKind(text);
-  if (media === "video") {
+  const media = parseMediaCommand(text);
+  if (media?.kind === "video") {
     return {
       kind: "video",
       maxTurns: config.videoMaxTurns,
       title: "Grok 视频生成",
       webSearch: false,
       mediaTask: true,
+      prompt: media.prompt,
       rules: [
         "This is a Grok Build video task. Use the available Grok Build media tools, especially image_to_video or reference_to_video. If no reference image is provided, create a source image first, then animate it. Do not create videos with Python, FFmpeg, shell scripts, or code. Return the saved local MP4 path."
       ]
     };
   }
-  if (media === "image") {
+  if (media?.kind === "image") {
     return {
       kind: "image",
       maxTurns: config.mediaMaxTurns,
       title: "Grok 图片生成",
       webSearch: false,
       mediaTask: true,
+      prompt: media.prompt,
       rules: [
         "This is a Grok Imagine image task. Use the built-in image generation capability, such as /imagine, and return the saved local image path. If quoted files are provided, use them as explicit references."
       ]
@@ -2447,12 +2447,13 @@ app.get("/debug/grok-media-test", async (req, res) => {
     return;
   }
   try {
-    const prompt = String(req.query.prompt || "生成一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
+    const prompt = String(req.query.prompt || "生成图片：一张简单的蓝色圆形测试图。必须返回真实图片文件路径，不要只描述。").slice(0, 500);
     const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 60000), 240000);
     const task = classifyTask(prompt);
+    const grokPrompt = task.prompt || prompt;
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
-      : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
+      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
+      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -2502,7 +2503,7 @@ app.get("/debug/grok-media-job", (req, res) => {
     res.status(404).json({ error: "not found" });
     return;
   }
-  const prompt = String(req.query.prompt || "Generate a 2-second minimal MP4 test video: blue sky with one slow white cloud. Use Grok Build official video generation and return the saved local MP4 path.").slice(0, 500);
+  const prompt = String(req.query.prompt || "生成视频：2-second minimal MP4 test video: blue sky with one slow white cloud. Use Grok Build official video generation and return the saved local MP4 path.").slice(0, 500);
   const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 30000), 300000);
   const jobId = `debug-media-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
   const task = classifyTask(prompt);
@@ -2521,9 +2522,10 @@ app.get("/debug/grok-media-job", (req, res) => {
 
   (async () => {
     try {
+      const grokPrompt = task.prompt || prompt;
       const answer = task.kind === "video"
-        ? await callGrokImagineVideo(prompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
-        : await callGrokCli(prompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
+        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
+        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
       const imagePaths = extractLocalImagePaths(answer);
       const videoPaths = extractLocalVideoPaths(answer);
       const uploadedImages = [];
@@ -2643,6 +2645,7 @@ async function processFeishuMessage(payload) {
     };
   }
   const task = classifyTask(prompt);
+  const grokPrompt = task.prompt || prompt;
   const quotedContext = await feishu.quotedContextFromMessage(message);
   const quotedTempFiles = quotedContext?.files?.map((item) => item.path).filter(Boolean) || [];
 
@@ -2697,8 +2700,8 @@ async function processFeishuMessage(payload) {
       }
     };
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(prompt, grokOptions)
-      : await callGrokCli(prompt, grokOptions);
+      ? await callGrokImagineVideo(grokPrompt, grokOptions)
+      : await callGrokCli(grokPrompt, grokOptions);
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
