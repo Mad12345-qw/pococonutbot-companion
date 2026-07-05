@@ -15,6 +15,7 @@ const execFileAsync = promisify(execFile);
 const GROK_EXECUTABLE_NAME = process.platform === "win32" ? "grok.exe" : "grok";
 const STREAM_ANSWER_ELEMENT_ID = "answer_md";
 const STREAM_STATUS_ELEMENT_ID = "status_md";
+const botReplyMessageIds = new Map();
 const CARD_HEADER_TEMPLATES = new Set([
   "default",
   "blue",
@@ -1039,6 +1040,107 @@ function quotedMessageId(message = {}) {
   return "";
 }
 
+function rememberBotReplyMessageId(messageId = "") {
+  if (!messageId) return;
+  botReplyMessageIds.set(messageId, Date.now());
+  for (const [id, ts] of botReplyMessageIds) {
+    if (Date.now() - ts > 7 * 24 * 60 * 60 * 1000) botReplyMessageIds.delete(id);
+  }
+}
+
+function responseMessageId(response = {}) {
+  return response?.data?.message_id || response?.message_id || response?.data?.message?.message_id || "";
+}
+
+function rememberBotResponse(response = {}) {
+  const messageId = responseMessageId(response);
+  rememberBotReplyMessageId(messageId);
+  return messageId;
+}
+
+function messageRepliesToKnownBotMessage(message = {}) {
+  const own = message.message_id || "";
+  for (const key of ["parent_id", "parent_message_id", "root_id", "root_message_id"]) {
+    const value = message[key];
+    if (typeof value === "string" && value && value !== own && botReplyMessageIds.has(value)) return true;
+  }
+  return false;
+}
+
+function messageMentions(message = {}) {
+  const mentions = [];
+  const add = (value) => {
+    if (Array.isArray(value)) mentions.push(...value.filter((item) => item && typeof item === "object"));
+  };
+  add(message.mentions);
+  add(message.body?.mentions);
+  add(messageContent(message).mentions);
+  return mentions;
+}
+
+function mentionMatchesBot(mention = {}, bot = {}) {
+  const ids = mention.id && typeof mention.id === "object" ? mention.id : {};
+  const candidates = new Set([
+    mention.open_id,
+    mention.user_id,
+    mention.union_id,
+    mention.app_id,
+    ids.open_id,
+    ids.user_id,
+    ids.union_id,
+    ids.app_id
+  ].filter(Boolean).map(String));
+  if (bot.open_id && candidates.has(String(bot.open_id))) return true;
+  if (config.feishuAppId && candidates.has(String(config.feishuAppId))) return true;
+  const mentionName = String(mention.name || "").trim().toLowerCase();
+  const botName = String(bot.app_name || "").trim().toLowerCase();
+  return Boolean(mentionName && botName && mentionName === botName);
+}
+
+function messageSenderMatchesBot(message = {}, bot = {}) {
+  const sender = message.sender || {};
+  const senderId = sender.sender_id && typeof sender.sender_id === "object" ? sender.sender_id : {};
+  const messageSenderId = message.sender_id && typeof message.sender_id === "object" ? message.sender_id : {};
+  const candidates = new Set([
+    sender.open_id,
+    sender.user_id,
+    sender.union_id,
+    sender.app_id,
+    senderId.open_id,
+    senderId.user_id,
+    senderId.union_id,
+    senderId.app_id,
+    messageSenderId.open_id,
+    messageSenderId.user_id,
+    messageSenderId.union_id,
+    messageSenderId.app_id
+  ].filter(Boolean).map(String));
+  if (bot.open_id && candidates.has(String(bot.open_id))) return true;
+  if (config.feishuAppId && candidates.has(String(config.feishuAppId))) return true;
+  return false;
+}
+
+async function shouldHandleFeishuMessage(message = {}) {
+  if (message.chat_type === "p2p") return true;
+  if (messageRepliesToKnownBotMessage(message)) return true;
+  const mentions = messageMentions(message);
+  try {
+    const bot = await feishu.botInfo();
+    if (mentions.some((mention) => mentionMatchesBot(mention, bot))) return true;
+    const quotedId = quotedMessageId(message);
+    if (!quotedId) return false;
+    const quoted = await feishu.getMessage(quotedId);
+    if (messageSenderMatchesBot(quoted, bot)) {
+      rememberBotReplyMessageId(quotedId);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.warn(`Failed to resolve Feishu bot info for mention routing: ${error.message}`);
+    return false;
+  }
+}
+
 function safeName(value = "") {
   return String(value || "file").replace(/[^A-Za-z0-9._-]+/g, "_").slice(0, 120) || "file";
 }
@@ -1839,6 +1941,8 @@ class FeishuClient {
   constructor() {
     this.token = "";
     this.tokenExpiresAt = 0;
+    this.cachedBotInfo = null;
+    this.botInfoExpiresAt = 0;
   }
 
   get enabled() {
@@ -1864,6 +1968,17 @@ class FeishuClient {
     this.token = data.tenant_access_token;
     this.tokenExpiresAt = now + Number(data.expire || 3600) * 1000;
     return this.token;
+  }
+
+  async botInfo() {
+    const now = Date.now();
+    if (this.cachedBotInfo && now < this.botInfoExpiresAt) return this.cachedBotInfo;
+    const data = await this.get("/open-apis/bot/v3/info");
+    const bot = data?.bot || data?.data?.bot || {};
+    if (!bot.open_id && !bot.app_name) throw new Error(`Feishu bot info did not return bot identity: ${JSON.stringify(data).slice(0, 500)}`);
+    this.cachedBotInfo = bot;
+    this.botInfoExpiresAt = now + 6 * 60 * 60 * 1000;
+    return bot;
   }
 
   async post(path, body, method = "POST") {
@@ -2065,26 +2180,32 @@ class FeishuClient {
 
   async replyImage(messageId, imageKey) {
     if (!messageId || !imageKey) return null;
-    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "image",
       content: JSON.stringify({ image_key: imageKey })
     });
+    rememberBotResponse(response);
+    return response;
   }
 
   async replyMedia(messageId, fileKey, imageKey) {
     if (!messageId || !fileKey || !imageKey) return null;
-    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "media",
       content: JSON.stringify({ file_key: fileKey, image_key: imageKey })
     });
+    rememberBotResponse(response);
+    return response;
   }
 
   async replyFile(messageId, fileKey) {
     if (!messageId || !fileKey) return null;
-    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "file",
       content: JSON.stringify({ file_key: fileKey })
     });
+    rememberBotResponse(response);
+    return response;
   }
 
   async replyLocalImages(messageId, imagePaths = []) {
@@ -2121,22 +2242,28 @@ class FeishuClient {
 
   async replyText(messageId, text) {
     if (!messageId) return;
+    let lastResponse = null;
     for (const chunk of splitReply(sanitizeFeishuText(text), config.maxReplyChars)) {
-      await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      lastResponse = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
         msg_type: "text",
         content: JSON.stringify({ text: chunk })
       });
+      rememberBotResponse(lastResponse);
     }
+    return lastResponse;
   }
 
   async replyPost(messageId, text, title = "Grok 回复") {
     if (!messageId) return;
+    let lastResponse = null;
     for (const chunk of splitReply(sanitizeFeishuText(text), config.maxReplyChars)) {
-      await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+      lastResponse = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
         msg_type: "post",
         content: JSON.stringify(buildFeishuPostContent(chunk, title))
       });
+      rememberBotResponse(lastResponse);
     }
+    return lastResponse;
   }
 
   async replyRich(messageId, text, title = "Grok 回复") {
@@ -2152,6 +2279,7 @@ class FeishuClient {
           total: chunks.length
         }))
       });
+      rememberBotResponse(lastResponse);
     }
     return lastResponse;
   }
@@ -2168,13 +2296,15 @@ class FeishuClient {
 
   async replyCardEntity(messageId, cardId) {
     if (!messageId || !cardId) return null;
-    return this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
+    const response = await this.post(`/open-apis/im/v1/messages/${encodeURIComponent(messageId)}/reply`, {
       msg_type: "interactive",
       content: JSON.stringify({
         type: "card",
         data: { card_id: cardId }
       })
     });
+    rememberBotResponse(response);
+    return response;
   }
 
   async replyStreamingCard(messageId, initialText, title = "Grok 回复", options = {}) {
@@ -2229,7 +2359,7 @@ class FeishuClient {
 }
 
 function feishuMessageId(response = {}) {
-  return response?.data?.message_id || response?.message_id || response?.data?.message?.message_id || "";
+  return responseMessageId(response);
 }
 
 function splitReply(text, maxChars) {
@@ -2870,6 +3000,8 @@ async function processFeishuMessage(payload) {
   const messageId = message.message_id || "";
   const prompt = extractMessageText(message);
   if (!prompt) return;
+  const shouldHandle = await shouldHandleFeishuMessage(message);
+  if (!shouldHandle) return;
   if (message.chat_type === "p2p") {
     latestPrivateMessage = {
       messageId,
@@ -2881,6 +3013,7 @@ async function processFeishuMessage(payload) {
   }
   const control = parseControlCommand(prompt);
   if (control) {
+    if (message.chat_type !== "p2p") return;
     const startedAtMs = Date.now();
     const job = {
       id: messageId,
