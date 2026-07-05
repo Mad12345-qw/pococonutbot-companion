@@ -1074,7 +1074,40 @@ function messageMentions(message = {}) {
   };
   add(message.mentions);
   add(message.body?.mentions);
-  add(messageContent(message).mentions);
+  const content = messageContent(message);
+  add(content.mentions);
+  const text = String(content.text || content.title || content.description || "");
+  for (const match of text.matchAll(/<at\b([^>]*)>([\s\S]*?)<\/at>/gi)) {
+    const attrs = match[1] || "";
+    const name = String(match[2] || "").trim();
+    const id = {};
+    for (const attr of attrs.matchAll(/\b([A-Za-z_:-]+)=["']([^"']+)["']/g)) {
+      const key = attr[1];
+      const value = attr[2];
+      if (/open_id|user_id|union_id|app_id/i.test(key)) id[key.toLowerCase()] = value;
+    }
+    mentions.push({ name, id });
+  }
+  const walk = (value) => {
+    if (!value || typeof value !== "object") return;
+    if (Array.isArray(value)) {
+      for (const item of value) walk(item);
+      return;
+    }
+    if (value.tag === "at") {
+      mentions.push({
+        name: value.name || value.text || "",
+        id: {
+          open_id: value.open_id || value.user_id || "",
+          user_id: value.user_id || "",
+          union_id: value.union_id || "",
+          app_id: value.app_id || ""
+        }
+      });
+    }
+    for (const item of Object.values(value)) walk(item);
+  };
+  walk(content);
   return mentions;
 }
 
