@@ -3057,10 +3057,9 @@ async function processFeishuMessage(payload) {
   if (senderType === "app") return;
   const message = event.message || {};
   const messageId = message.message_id || "";
-  const prompt = extractMessageText(message);
-  if (!prompt) return;
+  const directPrompt = extractMessageText(message);
   const mentions = messageMentions(message);
-  const control = parseControlCommand(prompt);
+  const control = parseControlCommand(directPrompt);
   const route = await shouldHandleFeishuMessage(message);
   const baseRouteLog = {
     messageId: idPrefix(messageId),
@@ -3071,10 +3070,35 @@ async function processFeishuMessage(payload) {
     quotedMessageId: idPrefix(quotedMessageId(message)),
     controlCommand: control?.name || "",
     routeReason: route.reason || "",
-    routeHandle: Boolean(route.handle)
+    routeHandle: Boolean(route.handle),
+    directPromptEmpty: !directPrompt
   };
   if (!route.handle) {
     pushRouteDecision({ ...baseRouteLog, ignored: true });
+    return;
+  }
+  let quotedContextPromise = null;
+  const loadQuotedContext = () => {
+    if (!quotedContextPromise) {
+      quotedContextPromise = feishu.quotedContextFromMessage(message)
+        .then((context) => ({ context }))
+        .catch((error) => ({ error }));
+    }
+    return quotedContextPromise;
+  };
+  let prompt = directPrompt;
+  let promptFromQuotedMessage = false;
+  if (!prompt) {
+    const quotedResult = await loadQuotedContext();
+    if (quotedResult.error) {
+      pushRouteDecision({ ...baseRouteLog, ignored: true, routeReason: "empty_prompt_quote_error", error: quotedResult.error.message });
+      return;
+    }
+    prompt = String(quotedResult.context?.text || "").trim();
+    promptFromQuotedMessage = Boolean(prompt);
+  }
+  if (!prompt) {
+    pushRouteDecision({ ...baseRouteLog, ignored: true, routeReason: "empty_prompt" });
     return;
   }
   if (message.chat_type === "p2p") {
@@ -3116,21 +3140,19 @@ async function processFeishuMessage(payload) {
         console.warn(`Grok state Redis sync failed after control command: ${error.message}`);
       });
       await feishu.replyText(messageId, "New Grok CLI session created for this Feishu chat. Long-term memory is preserved.");
-      pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_new" });
+      pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_new", promptFromQuotedMessage });
       return;
     }
     await feishu.replyText(messageId, "Bridge control command received, but this command is not enabled. No Grok request was sent.");
-    pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_unsupported" });
+    pushRouteDecision({ ...baseRouteLog, ignored: false, routeReason: "p2p_control_unsupported", promptFromQuotedMessage });
     return;
   }
-  pushRouteDecision({ ...baseRouteLog, ignored: false });
+  pushRouteDecision({ ...baseRouteLog, ignored: false, promptFromQuotedMessage });
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
   const session = chatSessionScope(message);
   const startedAtMs = Date.now();
-  const quotedContextPromise = feishu.quotedContextFromMessage(message)
-    .then((context) => ({ context }))
-    .catch((error) => ({ error }));
+  loadQuotedContext();
 
   const job = {
     id: messageId,
@@ -3139,6 +3161,7 @@ async function processFeishuMessage(payload) {
     taskKind: task.kind,
     webSearch: task.webSearch,
     mediaTask: task.mediaTask,
+    promptFromQuotedMessage,
     sessionId: session?.sessionId || "",
     sessionScope: session?.scopeKey || "",
     quotedMessageId: "",
