@@ -55,6 +55,11 @@ const DEFAULT_SYSTEM_PROMPT = [
   "For image generation requests, only claim success when you create or return an actual image file path or downloadable image URL.",
   "For video generation requests, only claim success when you create or return an actual MP4 file path or downloadable video URL."
 ].join("\n");
+const WEB_SOURCE_LINK_RULE = [
+  "For any answer that uses web search or web sources, include a final section named `来源链接`.",
+  "In that section, provide 1-4 Markdown links in the form `[short source name](https://...)`.",
+  "Use only real source URLs that you actually used. Do not provide source names without URLs."
+].join(" ");
 
 function envFlag(name, fallback = false) {
   const value = process.env[name];
@@ -1143,7 +1148,7 @@ function classifyTask(text = "") {
       title: "Grok 联网检索",
       webSearch: true,
       mediaTask: false,
-      rules: []
+      rules: [WEB_SOURCE_LINK_RULE]
     };
   }
   if (isQuickFact(text)) {
