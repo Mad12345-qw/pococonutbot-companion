@@ -4410,6 +4410,14 @@ export class FeishuBot {
     const mentionInfo = this.getMentionInfo(message, rawMessageText || content.text || rawText);
     const replyToBot = this.isReplyToBotMessage(message);
     const text = this.stripBotName(rawText);
+    if (this.shouldSkipGroupMessageAddressedToOtherMention({ chatType, mentionInfo })) {
+      logEvent("info", "Feishu group message addressed another mention target; skipped all bot routes", {
+        messageId: message.message_id || "",
+        mentions: mentionInfo.mentionNames.slice(0, 5),
+        replyToBot
+      });
+      return;
+    }
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
     const videoRequest = await this.extractVideoRequest(text, chatId);
@@ -4443,13 +4451,6 @@ export class FeishuBot {
         message
       });
       if (handledByCommunityOps) return;
-    }
-    if (!explicitReply && chatType !== "p2p" && mentionInfo.mentionedOtherOnly) {
-      logEvent("info", "Feishu group message mentioned another user; skipped smart reply", {
-        messageId: message.message_id || "",
-        mentions: mentionInfo.mentionNames.slice(0, 5)
-      });
-      return;
     }
     const smartCandidate = !explicitReply && chatType !== "p2p" && this.config.triggerMode === "smart";
     if (!explicitReply && !smartCandidate) return;
@@ -7927,15 +7928,19 @@ export class FeishuBot {
     const mentions = Array.isArray(message.mentions) ? message.mentions : [];
     const botNames = this.getBotMentionNames();
     const isBotName = (name) => botNames.some((botName) => name === botName);
-    const mentionNames = mentions
+    const fieldMentionNames = mentions
       .map((item) => String(item.name || item.text || "").replace(/^@/, "").trim())
       .filter(Boolean);
+    const textValue = String(text || "");
+    const plainMentionNames = [...textValue.matchAll(/(?:^|\s)@([^\s@<>:/?#]+)/g)]
+      .map((match) => String(match[1] || "").replace(/[，。！？；,;:：）)】\]]+$/g, "").trim())
+      .filter(Boolean);
+    const mentionNames = uniqueStrings([...fieldMentionNames, ...plainMentionNames]);
     const mentionTargets = mentions
       .map((item) => this.mentionTargetFromIncomingMention(item))
       .filter((item) => item && !isBotName(item.name));
-    const textValue = String(text || "");
     const hasMentionTag = /<at\b/i.test(textValue);
-    const hasMentions = mentions.length > 0 || hasMentionTag;
+    const hasMentions = mentions.length > 0 || hasMentionTag || plainMentionNames.length > 0;
     const botMentionedByField = mentionNames.some((name) => isBotName(name));
     const botMentionedByText = botNames.some((botName) => botName && textValue.includes(botName));
     const botMentioned = botMentionedByField || botMentionedByText;
@@ -7946,6 +7951,10 @@ export class FeishuBot {
       botMentioned,
       mentionedOtherOnly: hasMentions && !botMentioned
     };
+  }
+
+  shouldSkipGroupMessageAddressedToOtherMention({ chatType = "", mentionInfo = {} } = {}) {
+    return chatType !== "p2p" && Boolean(mentionInfo.mentionedOtherOnly) && !mentionInfo.botMentioned;
   }
 
   mentionTargetFromIncomingMention(item = {}) {

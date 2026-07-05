@@ -450,6 +450,49 @@ for (const item of routeCases) {
   assertEqual(item.name, classify(item.text, item.options), item.route);
 }
 
+const grokYoutubeMentionInfo = bot.getMentionInfo(
+  { mentions: [{ name: "Grok", id: { open_id: "ou_grok" } }] },
+  "@Grok help me find the best YouTube video about SpaceX"
+);
+assertEqual(
+  "group message addressed only to another mention target skips youtube route before skill detection",
+  String(
+    bot.shouldSkipGroupMessageAddressedToOtherMention({
+      chatType: "group",
+      mentionInfo: grokYoutubeMentionInfo
+    }) && bot.extractYoutubeResearchRequest("@Grok https://youtu.be/aFqjoCbZ4ik").requested
+  ),
+  "true"
+);
+
+const grokPlainMentionInfo = bot.getMentionInfo({}, "replying to bot, but @Grok what do you think?");
+assertEqual(
+  "reply-to-bot context still skips when the new message only mentions another target",
+  String(bot.shouldSkipGroupMessageAddressedToOtherMention({ chatType: "group", mentionInfo: grokPlainMentionInfo })),
+  "true"
+);
+
+bot.config.feishuBotAliases = ["\u5c0f\u6930"];
+const botMentionInfo = bot.getMentionInfo(
+  { mentions: [{ name: "\u5c0f\u6930", id: { open_id: "ou_xiaoye" } }] },
+  "@\u5c0f\u6930 youtube https://youtu.be/aFqjoCbZ4ik"
+);
+assertEqual(
+  "group message mentioning the bot still allows youtube route",
+  String(
+    !bot.shouldSkipGroupMessageAddressedToOtherMention({ chatType: "group", mentionInfo: botMentionInfo }) &&
+    bot.extractYoutubeResearchRequest("@\u5c0f\u6930 youtube https://youtu.be/aFqjoCbZ4ik").requested
+  ),
+  "true"
+);
+
+const youtubeChannelMentionInfo = bot.getMentionInfo({}, "https://www.youtube.com/@SpaceX");
+assertEqual(
+  "youtube channel handles do not count as user mentions",
+  String(youtubeChannelMentionInfo.mentionedOtherOnly),
+  "false"
+);
+
 assertEqual(
   "youtube search defaults to one video",
   String(bot.extractYoutubeResearchRequest("youtube SpaceX Starship 技术细节").maxVideos),
