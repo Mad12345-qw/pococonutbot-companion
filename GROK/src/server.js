@@ -1620,6 +1620,8 @@ function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
   let lastStatusAt = 0;
   let latestAnswer = "";
   let latestStatus = webSearch ? "正在联网搜索并核对来源" : "正在生成回答";
+  let sentAnswer = "";
+  let sentStatus = "";
   let queue = Promise.resolve();
   const nextSequence = () => {
     sequence += 1;
@@ -1639,7 +1641,12 @@ function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
     const now = Date.now();
     if (!force && now - lastAnswerAt < 900) return queue;
     lastAnswerAt = now;
-    return enqueue(() => feishu.streamCardText(cardId, STREAM_ANSWER_ELEMENT_ID, ` ${cardMarkdown(latestAnswer, config.maxCardContentChars - 1)}`, nextSequence()));
+    return enqueue(async () => {
+      const textToSend = latestAnswer;
+      if (!textToSend || textToSend === sentAnswer) return;
+      await feishu.streamCardText(cardId, STREAM_ANSWER_ELEMENT_ID, ` ${cardMarkdown(textToSend, config.maxCardContentChars - 1)}`, nextSequence());
+      sentAnswer = textToSend;
+    });
   };
   const patchStatus = (status, force = false) => {
     latestStatus = sanitizeFeishuText(status).slice(0, 260);
@@ -1647,7 +1654,12 @@ function createCardKitStreamingUpdater({ feishu, cardId, title, webSearch }) {
     const now = Date.now();
     if (!force && now - lastStatusAt < 3000) return queue;
     lastStatusAt = now;
-    return enqueue(() => feishu.streamCardText(cardId, STREAM_STATUS_ELEMENT_ID, grokStatusMarkdown(latestStatus), nextSequence()));
+    return enqueue(async () => {
+      const statusToSend = latestStatus;
+      if (!statusToSend || statusToSend === sentStatus) return;
+      await feishu.streamCardText(cardId, STREAM_STATUS_ELEMENT_ID, grokStatusMarkdown(statusToSend), nextSequence());
+      sentStatus = statusToSend;
+    });
   };
   return {
     patchAnswer,
@@ -2665,8 +2677,10 @@ async function processFeishuMessage(payload) {
   }
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
-  const quotedContext = await feishu.quotedContextFromMessage(message);
-  const quotedTempFiles = quotedContext?.files?.map((item) => item.path).filter(Boolean) || [];
+  const startedAtMs = Date.now();
+  const quotedContextPromise = feishu.quotedContextFromMessage(message)
+    .then((context) => ({ context }))
+    .catch((error) => ({ error }));
 
   const job = {
     id: messageId,
@@ -2675,15 +2689,22 @@ async function processFeishuMessage(payload) {
     taskKind: task.kind,
     webSearch: task.webSearch,
     mediaTask: task.mediaTask,
-    quotedMessageId: quotedContext?.messageId || "",
-    quotedFileCount: quotedContext?.files?.filter((item) => item.path).length || 0,
-    quotedChain: quotedContext?.chain || [],
-    startedAt: new Date().toISOString()
+    quotedMessageId: "",
+    quotedFileCount: 0,
+    quotedChain: [],
+    startedAt: new Date(startedAtMs).toISOString(),
+    timings: {
+      classifiedMs: 0
+    }
+  };
+  const markTiming = (name) => {
+    job.timings[name] = Date.now() - startedAtMs;
   };
   jobs.set(messageId, job);
 
   const title = task.title;
   let updater = null;
+  let quotedTempFiles = [];
   try {
     const streamingCard = await feishu.replyStreamingCard(
       messageId,
@@ -2694,6 +2715,7 @@ async function processFeishuMessage(payload) {
         status: job.webSearch ? "正在联网搜索并等待 Grok CLI 返回正文" : "正在等待 Grok CLI 返回正文"
       }
     );
+    markTiming("streamingCardReadyMs");
     job.cardId = streamingCard.cardId;
     job.replyMessageId = feishuMessageId(streamingCard.response);
     updater = createCardKitStreamingUpdater({
@@ -2702,15 +2724,25 @@ async function processFeishuMessage(payload) {
       title,
       webSearch: job.webSearch
     });
+    const quotedResult = await quotedContextPromise;
+    if (quotedResult.error) throw quotedResult.error;
+    const quotedContext = quotedResult.context;
+    quotedTempFiles = quotedContext?.files?.map((item) => item.path).filter(Boolean) || [];
+    job.quotedMessageId = quotedContext?.messageId || "";
+    job.quotedFileCount = quotedContext?.files?.filter((item) => item.path).length || 0;
+    job.quotedChain = quotedContext?.chain || [];
+    markTiming("quotedContextReadyMs");
     const grokOptions = {
       maxTurns: task.maxTurns,
       quotedContext,
       mediaTask: task.mediaTask,
       taskRules: task.rules,
       onText: (fullText) => {
+        if (job.timings.firstTextMs == null) markTiming("firstTextMs");
         updater.patchAnswer(stripLocalMediaPaths(fullText) || "媒体生成中，正在等待 Grok 返回真实文件。");
       },
       onEvent: (event) => {
+        if (job.timings.firstEventMs == null) markTiming("firstEventMs");
         const status = describeGrokEvent(event);
         if (status) {
           job.lastEvent = event.type || "";
@@ -2718,9 +2750,11 @@ async function processFeishuMessage(payload) {
         }
       }
     };
+    markTiming("grokStartMs");
     const answer = task.kind === "video"
       ? await callGrokImagineVideo(grokPrompt, grokOptions)
       : await callGrokCli(grokPrompt, grokOptions);
+    markTiming("grokDoneMs");
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
@@ -2736,6 +2770,7 @@ async function processFeishuMessage(payload) {
         sentImages.length ? `${sentImages.length} 张图片` : "",
         sentVideos.length ? `${sentVideos.length} 个视频` : ""
       ].filter(Boolean).join("、");
+      markTiming("mediaUploadDoneMs");
       const finalText = answerWithoutMediaPaths
         ? `${answerWithoutMediaPaths}\n\n已发送 ${sentSummary}。`
         : `媒体已生成，已发送 ${sentSummary}。`;
@@ -2744,10 +2779,12 @@ async function processFeishuMessage(payload) {
       await updater.patchAnswer(answer, true);
     }
     await updater.finish();
+    markTiming("finalCardDoneMs");
   } catch (error) {
     job.status = "failed";
     job.error = error.message;
     job.completedAt = new Date().toISOString();
+    markTiming("failedMs");
     const failure = [
       "这次没有拿到 Grok 的最终回答，但我不会停在“正在检索”。",
       "",
@@ -2767,4 +2804,9 @@ async function processFeishuMessage(payload) {
 
 app.listen(config.port, "0.0.0.0", () => {
   console.log(`${config.serviceName} listening on 0.0.0.0:${config.port}`);
+  if (feishu.enabled) {
+    feishu.tenantAccessToken()
+      .then(() => console.log("Feishu tenant token prewarmed."))
+      .catch((error) => console.warn(`Feishu tenant token prewarm failed: ${error.message}`));
+  }
 });
