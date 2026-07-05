@@ -8,6 +8,7 @@ import zlib from "node:zlib";
 import express from "express";
 import ffmpegPath from "ffmpeg-static";
 import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
+import { currentGrokStateHash, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
 
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
@@ -90,6 +91,8 @@ const config = {
   mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 10),
   videoMaxTurns: envNumber("GROK_VIDEO_MAX_TURNS", 10),
   videoModel: process.env.GROK_VIDEO_MODEL || "grok-build",
+  grokMemoryEnabled: envFlag("GROK_MEMORY_ENABLED", true),
+  grokStateSyncEnabled: envFlag("GROK_STATE_SYNC_ENABLED", true),
   debugToken: process.env.DEBUG_TOKEN || "",
   grokAuthSyncEnabled: envFlag("GROK_AUTH_SYNC_ENABLED", false),
   systemPrompt: process.env.SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT
@@ -104,6 +107,7 @@ function parseJson(value, fallback) {
 }
 
 let lastObservedGrokAuthHash = "";
+let lastObservedGrokStateHash = "";
 
 function currentGrokAuthHash() {
   try {
@@ -508,6 +512,17 @@ function normalizeSourceLabel(label = "") {
     .replace(/[<>{}]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+async function syncGrokStateIfChanged(reason = "unknown") {
+  if (!config.grokStateSyncEnabled) return;
+  const hash = currentGrokStateHash();
+  if (!hash || hash === lastObservedGrokStateHash) return;
+  const result = await saveGrokStateToStore();
+  if (result.saved) {
+    lastObservedGrokStateHash = hash;
+    console.log(`Grok state synced to Redis after ${reason}: ${result.fileCount} files, ${result.skippedCount} skipped.`);
+  }
 }
 
 function isGenericSourceLabel(label = "") {
@@ -1157,16 +1172,46 @@ function classifyTask(text = "") {
   };
 }
 
-function grokCliArgs(prompt, { maxTurns, model } = {}) {
-  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"10\",\"--cwd\",\"{{cwd}}\",\"--no-memory\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
-  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "10", "--cwd", "{{cwd}}", "--no-memory", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
+function deterministicUuid(value = "") {
+  const bytes = crypto.createHash("sha256").update(String(value)).digest();
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = bytes.toString("hex").slice(0, 32);
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
+}
+
+function chatSessionScope(message = {}) {
+  const chatId = message.chat_id || "";
+  const chatType = message.chat_type || "unknown";
+  if (!chatId) return null;
+  const sessionId = deterministicUuid(`feishu-grok:${chatType}:${chatId}`);
+  const cwd = path.join(config.grokCliCwd, "chats", sessionId);
+  return { sessionId, cwd, scopeKey: `${chatType}:${chatId}` };
+}
+
+function encodedSessionCwd(cwd = config.grokCliCwd) {
+  return encodeURIComponent(path.resolve(cwd));
+}
+
+function sessionDirectory(sessionId = "", cwd = config.grokCliCwd) {
+  return path.join(os.homedir(), ".grok", "sessions", encodedSessionCwd(cwd), sessionId);
+}
+
+function sessionExists(sessionId = "", cwd = config.grokCliCwd) {
+  return Boolean(sessionId && fs.existsSync(sessionDirectory(sessionId, cwd)));
+}
+
+function grokCliArgs(prompt, { maxTurns, model, cwd = config.grokCliCwd, sessionId = "", memoryEnabled = config.grokMemoryEnabled } = {}) {
+  const raw = process.env.GROK_CLI_ARGS_JSON || "[\"--no-auto-update\",\"--always-approve\",\"--permission-mode\",\"bypassPermissions\",\"--max-turns\",\"10\",\"--cwd\",\"{{cwd}}\",\"--output-format\",\"streaming-json\",\"-p\",\"{{prompt}}\"]";
+  const args = parseJson(raw, ["--no-auto-update", "--always-approve", "--permission-mode", "bypassPermissions", "--max-turns", "10", "--cwd", "{{cwd}}", "--output-format", "streaming-json", "-p", "{{prompt}}"]);
   const turns = String(maxTurns || config.mediaMaxTurns);
   const modelName = model ? String(model) : "";
+  const resolvedCwd = cwd || config.grokCliCwd;
   const resolvedArgs = (Array.isArray(args) ? args : ["-p", "{{prompt}}"]).map((arg) => String(arg)
     .replaceAll("{{prompt}}", prompt)
     .replaceAll("{{maxTurns}}", turns)
     .replaceAll("{{model}}", modelName)
-    .replaceAll("{{cwd}}", config.grokCliCwd));
+    .replaceAll("{{cwd}}", resolvedCwd));
   const turnIndex = resolvedArgs.indexOf("--max-turns");
   if (turnIndex >= 0 && turnIndex + 1 < resolvedArgs.length) {
     resolvedArgs[turnIndex + 1] = turns;
@@ -1178,6 +1223,18 @@ function grokCliArgs(prompt, { maxTurns, model } = {}) {
     } else {
       resolvedArgs.unshift("--model", modelName);
     }
+  }
+  if (memoryEnabled) {
+    for (let index = resolvedArgs.length - 1; index >= 0; index -= 1) {
+      if (resolvedArgs[index] === "--no-memory") resolvedArgs.splice(index, 1);
+    }
+    if (!resolvedArgs.includes("--experimental-memory")) {
+      resolvedArgs.unshift("--experimental-memory");
+    }
+  }
+  if (sessionId) {
+    const resume = sessionExists(sessionId, resolvedCwd);
+    resolvedArgs.unshift(resume ? "--resume" : "--session-id", sessionId);
   }
   return resolvedArgs;
 }
@@ -1230,14 +1287,24 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, memoryEnabled = config.grokMemoryEnabled } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
-  fs.mkdirSync(config.grokCliCwd, { recursive: true });
+  const cwd = session?.cwd || config.grokCliCwd;
+  fs.mkdirSync(cwd, { recursive: true });
   const command = await ensureGrokCliCommand();
   const effectivePrompt = buildGrokPrompt(prompt, { quotedContext, taskRules });
   return new Promise((resolve, reject) => {
-    const child = spawn(command, grokCliArgs(effectivePrompt, { maxTurns, model }), {
-      env: process.env,
+    const child = spawn(command, grokCliArgs(effectivePrompt, {
+      maxTurns,
+      model,
+      cwd,
+      sessionId: session?.sessionId || "",
+      memoryEnabled
+    }), {
+      env: {
+        ...process.env,
+        GROK_MEMORY: memoryEnabled ? "1" : (process.env.GROK_MEMORY || "0")
+      },
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
     });
@@ -1288,6 +1355,9 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
       clearTimeout(timer);
       syncGrokAuthIfChanged("grok-cli").catch((error) => {
         console.warn(`Grok auth Redis sync failed: ${error.message}`);
+      });
+      syncGrokStateIfChanged("grok-cli").catch((error) => {
+        console.warn(`Grok state Redis sync failed: ${error.message}`);
       });
       const trailing = parseStreamingJsonLine(lineBuffer);
       if (trailing?.type === "text" && streamingEventText(trailing)) {
@@ -2131,6 +2201,20 @@ const seenMessageIds = new Map();
 const jobs = new Map();
 let latestPrivateMessage = null;
 
+if (config.grokStateSyncEnabled) {
+  try {
+    const restored = await restoreGrokStateFromStore();
+    if (restored.restored) {
+      lastObservedGrokStateHash = currentGrokStateHash();
+      console.log(`Grok state restored from Redis: ${restored.restoredFiles} files.`);
+    } else {
+      console.log(`Grok state restore skipped: ${restored.reason}.`);
+    }
+  } catch (error) {
+    console.warn(`Grok state Redis restore failed: ${error.message}`);
+  }
+}
+
 app.use(express.json({ limit: "2mb" }));
 app.set("trust proxy", true);
 
@@ -2154,6 +2238,8 @@ app.get("/health", (_req, res) => {
     model: "grok-cli",
     videoModel: config.videoModel,
     videoMaxTurns: config.videoMaxTurns,
+    grokMemoryEnabled: config.grokMemoryEnabled,
+    grokStateSyncEnabled: config.grokStateSyncEnabled,
     cardMode: "feishu-cardkit-streaming-json-2.0",
     webSearchMode: "grok-cli"
   });
@@ -2169,10 +2255,24 @@ app.get("/debug/grok-config", (req, res) => {
     mediaMaxTurns: config.mediaMaxTurns,
     videoMaxTurns: config.videoMaxTurns,
     videoModel: config.videoModel,
+    grokMemoryEnabled: config.grokMemoryEnabled,
+    grokStateSyncEnabled: config.grokStateSyncEnabled,
     configuredArgs: grokCliArgs("{{prompt}}"),
     mediaConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.mediaMaxTurns }),
     videoConfiguredArgs: grokCliArgs("{{prompt}}", { maxTurns: config.videoMaxTurns, model: config.videoModel })
   });
+});
+
+app.get("/debug/grok-state-status", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    res.json({ ok: true, state: await grokStateStoreStatus() });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
 });
 
 app.get("/debug/classify", (req, res) => {
@@ -2677,6 +2777,7 @@ async function processFeishuMessage(payload) {
   }
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
+  const session = chatSessionScope(message);
   const startedAtMs = Date.now();
   const quotedContextPromise = feishu.quotedContextFromMessage(message)
     .then((context) => ({ context }))
@@ -2689,6 +2790,8 @@ async function processFeishuMessage(payload) {
     taskKind: task.kind,
     webSearch: task.webSearch,
     mediaTask: task.mediaTask,
+    sessionId: session?.sessionId || "",
+    sessionScope: session?.scopeKey || "",
     quotedMessageId: "",
     quotedFileCount: 0,
     quotedChain: [],
@@ -2735,6 +2838,7 @@ async function processFeishuMessage(payload) {
     const grokOptions = {
       maxTurns: task.maxTurns,
       quotedContext,
+      session,
       mediaTask: task.mediaTask,
       taskRules: task.rules,
       onText: (fullText) => {
