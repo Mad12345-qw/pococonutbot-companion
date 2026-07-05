@@ -759,16 +759,6 @@ function buildFinalCard(text = "", title = "Grok 回复", { webSearch = false, h
       content: cardMarkdown(safe)
     }
   ];
-  const buttons = sourceButtonsV2(safe);
-  if (buttons.length) {
-    elements.push({ tag: "hr" });
-    elements.push({
-      tag: "markdown",
-      element_id: "source_label",
-      content: "**来源链接**"
-    });
-    elements.push(...buttons);
-  }
   elements.push({ tag: "hr" });
   elements.push(grokFooterNote({ webSearch }));
   return {
@@ -814,11 +804,6 @@ function buildFeishuCard(text = "", title = "Grok 回复", { webSearch = false, 
       }
     }
   ];
-  const actions = sourceButtons(safe);
-  if (actions.length) {
-    elements.push({ tag: "hr" });
-    elements.push({ tag: "action", actions });
-  }
   elements.push({
     tag: "note",
     elements: [
