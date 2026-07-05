@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-05T02:31:33.828Z",
+  "exportedAt": "2026-07-05T03:01:33.356Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -63229,6 +63229,102 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-05T01:28:34.383Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "user",
+        "modality": "text",
+        "content": "我新安装的 Hermes，第一步要怎么给他写灵魂 soul",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ba83fe96cacc2d86e6ee0f6a9f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUserId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUnionId": "on_5c611fe397e045283a6d7f027b4bc5ce",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T02:53:11.820Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "assistant",
+        "modality": "text",
+        "content": "写 soul（灵魂/系统提示词）不用急，先定三件事就够用了：\n\n1. 它是谁：给 Hermes 一个清晰的角色，比如“务实的技术助手”，别写得太虚。\n2. 对谁说话：明确用户是谁，比如“面向开发者的中文对话”，语气和用词会更贴。\n3. 边界在哪：写清楚不能做的事（编造数据、给医疗/法律结论等），避免后面翻车。\n\n具体步骤：\n\n• 打开 Hermes 的设置或“自定义提示词/系统消息”入口。\n• 用第一段定身份：身份 + 风格，例如“你是一个简洁、直接的中文技术助手”。\n• 用第二段定规则：输出格式（短句/列表）、禁用行为、语言限制。\n• 最后留一句兜底：拿不准就直说，不要硬编。\n\n先这样跑一跑，根据它的回复再微调，比一次性写一大段更省事。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64"
+        },
+        "createdAt": "2026-07-05T02:53:17.707Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "user",
+        "modality": "text",
+        "content": "你给我一份详细的 soul",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ba8388218a4c3f925e0a0ca382",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUserId": "ou_7d7580239b064d5458fe9f63fa0ecb64",
+          "rawUnionId": "on_5c611fe397e045283a6d7f027b4bc5ce",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T02:54:34.239Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "role": "assistant",
+        "modality": "text",
+        "content": "给你一份 Hermes 能直接用的 soul 模板，分四段写，结构清楚、好维护：\n\n---\n\n📌 Hermes — 务实中文技术助手\n\n🎯 1. 身份与风格\n你叫 Hermes，是一个面向中文用户的技术助手。\n• 表达简洁、直接，先结论后解释\n• 默认用中文，专业术语保留英文\n• 不用客服腔，不堆叠“以下是”\n• 回复长度：默认 1–4 句，需要时再展开\n\n🧩 2. 用户画像\n主要面向开发者和学习者，关注 AI 工具、Agent 框架、OCR、模型部署等方向。对方具备一定技术基础，不需要从零科普。\n\n🔹 3. 能力与任务\n• 解答编程、AI 工具链、OCR、系统提示词编写等问题\n• 给可执行步骤，而不是空泛建议\n• 写代码时注明语言版本和依赖\n• 涉及命令行时给出可直接复制的命令\n\n🔹 4. 边界与红线\n• 不编造 API、库、参数；拿不准就明说\n• 不输出绕过付费墙、破解、爬取私有数据的方案\n• 涉及医疗、法律、金融投资时只给常识，不下结论\n• 不复述用户提供的 key、密码、身份证等敏感信息\n• 用户情绪激动时先接住情绪，再引导现实支持\n\n---\n\n使用建议：先把这段贴进 Hermes 的系统提示词，跑几个问题看哪里不顺手，再回来改对应段落——身份不合适就改第 1 段，答得啰嗦就调第 1 段的“回复长度”。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64"
+        },
+        "createdAt": "2026-07-05T02:54:40.977Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "一群还有新人啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ba8caeb5cacc35fa00542d1b2c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T02:58:15.016Z"
       }
     ],
     "memories": [
@@ -66440,7 +66536,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-04T09:25:14.893Z"
+        "updatedAt": "2026-07-05T02:58:14.955Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66450,7 +66546,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-04T09:25:14.829Z"
+        "updatedAt": "2026-07-05T02:58:14.892Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -67290,7 +67386,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:19:05.982Z",
-        "updatedAt": "2026-06-23T01:50:07.069Z"
+        "updatedAt": "2026-07-05T02:54:34.175Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -67300,7 +67396,57 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:19:05.756Z",
-        "updatedAt": "2026-06-23T01:50:06.987Z"
+        "updatedAt": "2026-07-05T02:54:34.111Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "tech.installed_tool",
+        "value": "用户新安装了 Hermes（AI助手/Agent框架），正在探索使用",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-05T02:54:00.429Z",
+        "updatedAt": "2026-07-05T02:54:00.429Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "tech.learning_goal",
+        "value": "用户正在学习如何为 Hermes 编写 soul（系统提示词/角色设定）",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-05T02:54:00.497Z",
+        "updatedAt": "2026-07-05T02:54:00.497Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "tech.soul_scope",
+        "value": "用户关注方向：AI 工具、Agent 框架、OCR、模型部署、系统提示词编写",
+        "importance": 2,
+        "metadata": {},
+        "createdAt": "2026-07-05T02:55:48.373Z",
+        "updatedAt": "2026-07-05T02:55:48.373Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "tech.soul_structure",
+        "value": "用户使用 Hermes 的 soul 采用四段式结构：身份与风格、用户画像、能力与任务、边界与红线",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-05T02:55:48.241Z",
+        "updatedAt": "2026-07-05T02:55:48.241Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7d7580239b064d5458fe9f63fa0ecb64",
+        "key": "tech.soul_style",
+        "value": "用户偏好的 Hermes soul 风格：简洁直接、先结论后解释、中文为主、术语保留英文、不用客服腔、默认回复 1-4 句",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-05T02:55:48.307Z",
+        "updatedAt": "2026-07-05T02:55:48.307Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
