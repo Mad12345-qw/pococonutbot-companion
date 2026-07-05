@@ -202,6 +202,14 @@ export async function restoreGrokStateFromStore() {
     if (target !== rootResolved && !target.startsWith(`${rootResolved}${path.sep}`)) continue;
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(target, Buffer.from(item.content, "base64"), { mode: item.mode || 0o600 });
+    if (item.modifiedAt) {
+      try {
+        const modifiedAt = new Date(item.modifiedAt);
+        if (!Number.isNaN(modifiedAt.getTime())) fs.utimesSync(target, modifiedAt, modifiedAt);
+      } catch {
+        // Restored content is more important than preserving timestamps.
+      }
+    }
     restoredFiles += 1;
   }
   return {
