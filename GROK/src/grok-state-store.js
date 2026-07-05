@@ -250,3 +250,116 @@ export async function grokStateStoreStatus() {
     storeError
   };
 }
+
+function countLines(filePath) {
+  try {
+    const text = fs.readFileSync(filePath, "utf8");
+    if (!text) return 0;
+    return text.split(/\r?\n/).filter(Boolean).length;
+  } catch {
+    return null;
+  }
+}
+
+export function grokStateInventory() {
+  const roots = grokStateRoots();
+  const totals = {
+    fileCount: 0,
+    totalBytes: 0,
+    skippedByPolicy: 0,
+    maxFile: null
+  };
+  const sessions = new Map();
+  const memory = {
+    exists: false,
+    fileCount: 0,
+    totalBytes: 0,
+    latestModifiedAt: "",
+    maxFile: null,
+    byTopLevel: {}
+  };
+
+  const touchMaxFile = (target, file) => {
+    if (!target.maxFile || file.bytes > target.maxFile.bytes) target.maxFile = file;
+  };
+
+  const visit = (rootName, root, current) => {
+    if (!fs.existsSync(current)) return;
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        visit(rootName, root, fullPath);
+        continue;
+      }
+      if (!entry.isFile()) continue;
+      const stat = fs.statSync(fullPath);
+      const rel = path.relative(root, fullPath).split(path.sep).join("/");
+      const modifiedAt = stat.mtime.toISOString();
+      const fileMeta = { root: rootName, path: rel, bytes: stat.size, modifiedAt };
+      totals.fileCount += 1;
+      totals.totalBytes += stat.size;
+      if (shouldSkipFile(fullPath, stat.size)) totals.skippedByPolicy += 1;
+      touchMaxFile(totals, fileMeta);
+
+      if (rootName === "sessions") {
+        const parts = rel.split("/");
+        if (parts.length < 3) continue;
+        const encodedCwd = parts[0] || "";
+        const sessionId = parts[1] || "";
+        const key = `${encodedCwd}/${sessionId}`;
+        if (!sessionId) continue;
+        const item = sessions.get(key) || {
+          encodedCwd,
+          sessionId,
+          fileCount: 0,
+          totalBytes: 0,
+          latestModifiedAt: "",
+          turnCount: null,
+          chatHistoryLines: null,
+          updateLines: null,
+          maxFile: null
+        };
+        item.fileCount += 1;
+        item.totalBytes += stat.size;
+        if (!item.latestModifiedAt || modifiedAt > item.latestModifiedAt) item.latestModifiedAt = modifiedAt;
+        if (path.basename(fullPath) === "chat_history.jsonl") {
+          item.chatHistoryLines = countLines(fullPath);
+          item.turnCount = item.chatHistoryLines;
+        }
+        if (path.basename(fullPath) === "updates.jsonl") item.updateLines = countLines(fullPath);
+        touchMaxFile(item, fileMeta);
+        sessions.set(key, item);
+      } else if (rootName === "memory") {
+        memory.exists = true;
+        memory.fileCount += 1;
+        memory.totalBytes += stat.size;
+        if (!memory.latestModifiedAt || modifiedAt > memory.latestModifiedAt) memory.latestModifiedAt = modifiedAt;
+        touchMaxFile(memory, fileMeta);
+        const top = rel.split("/")[0] || "(root)";
+        memory.byTopLevel[top] ||= { fileCount: 0, totalBytes: 0, latestModifiedAt: "" };
+        memory.byTopLevel[top].fileCount += 1;
+        memory.byTopLevel[top].totalBytes += stat.size;
+        if (!memory.byTopLevel[top].latestModifiedAt || modifiedAt > memory.byTopLevel[top].latestModifiedAt) {
+          memory.byTopLevel[top].latestModifiedAt = modifiedAt;
+        }
+      }
+    }
+  };
+
+  for (const item of roots) {
+    visit(item.name, item.root, item.root);
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    policy: {
+      maxFileBytes: MAX_FILE_BYTES,
+      maxTotalBytes: MAX_TOTAL_BYTES,
+      mediaExtensions: [...MEDIA_EXTENSIONS]
+    },
+    totals,
+    sessions: [...sessions.values()].sort((a, b) => String(b.latestModifiedAt).localeCompare(String(a.latestModifiedAt))),
+    memory
+  };
+}

@@ -8,7 +8,7 @@ import zlib from "node:zlib";
 import express from "express";
 import ffmpegPath from "ffmpeg-static";
 import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
-import { currentGrokStateHash, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
+import { currentGrokStateHash, grokStateInventory, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
 
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
@@ -1104,6 +1104,15 @@ function parseMediaCommand(text = "") {
   return { kind, prompt };
 }
 
+function parseControlCommand(text = "") {
+  const clean = String(text || "").trim();
+  const match = clean.match(/^\/(new|reset|always)\s*$/i);
+  if (!match) return null;
+  const name = match[1].toLowerCase();
+  if (name === "new" || name === "reset") return { name: "new" };
+  return { name };
+}
+
 function isDeepResearch(text = "") {
   return /(深度|详细|全面|对比|分析|报告|调研|研究|多来源|多个来源|引用来源|长文|方案|strategy|research|compare|analysis|report)/i.test(text);
 }
@@ -1180,13 +1189,61 @@ function deterministicUuid(value = "") {
   return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
 }
 
+function feishuSessionStatePath() {
+  return path.join(os.homedir(), ".grok", "memory", "feishu-chat-sessions.json");
+}
+
+function readFeishuSessionState() {
+  try {
+    const filePath = feishuSessionStatePath();
+    if (!fs.existsSync(filePath)) return { v: 1, sessions: {} };
+    const parsed = parseJson(fs.readFileSync(filePath, "utf8"), {});
+    return {
+      v: 1,
+      sessions: parsed && typeof parsed.sessions === "object" && parsed.sessions ? parsed.sessions : {}
+    };
+  } catch {
+    return { v: 1, sessions: {} };
+  }
+}
+
+function writeFeishuSessionState(state) {
+  const filePath = feishuSessionStatePath();
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify({
+    v: 1,
+    updatedAt: new Date().toISOString(),
+    sessions: state.sessions || {}
+  }, null, 2));
+}
+
 function chatSessionScope(message = {}) {
   const chatId = message.chat_id || "";
   const chatType = message.chat_type || "unknown";
   if (!chatId) return null;
-  const sessionId = deterministicUuid(`feishu-grok:${chatType}:${chatId}`);
+  const scopeKey = `${chatType}:${chatId}`;
+  const state = readFeishuSessionState();
+  const sessionId = state.sessions?.[scopeKey]?.sessionId || deterministicUuid(`feishu-grok:${scopeKey}`);
   const cwd = path.join(config.grokCliCwd, "chats", sessionId);
-  return { sessionId, cwd, scopeKey: `${chatType}:${chatId}` };
+  return { sessionId, cwd, scopeKey };
+}
+
+function resetChatSessionScope(message = {}) {
+  const chatId = message.chat_id || "";
+  const chatType = message.chat_type || "unknown";
+  if (!chatId) return null;
+  const scopeKey = `${chatType}:${chatId}`;
+  const previous = chatSessionScope(message);
+  const state = readFeishuSessionState();
+  const sessionId = crypto.randomUUID();
+  state.sessions[scopeKey] = {
+    sessionId,
+    scopeHash: sha256Hex(scopeKey).slice(0, 16),
+    resetAt: new Date().toISOString()
+  };
+  writeFeishuSessionState(state);
+  const cwd = path.join(config.grokCliCwd, "chats", sessionId);
+  return { sessionId, cwd, scopeKey, previousSessionId: previous?.sessionId || "" };
 }
 
 function encodedSessionCwd(cwd = config.grokCliCwd) {
@@ -1230,6 +1287,13 @@ function grokCliArgs(prompt, { maxTurns, model, cwd = config.grokCliCwd, session
     }
     if (!resolvedArgs.includes("--experimental-memory")) {
       resolvedArgs.unshift("--experimental-memory");
+    }
+  } else {
+    for (let index = resolvedArgs.length - 1; index >= 0; index -= 1) {
+      if (resolvedArgs[index] === "--experimental-memory") resolvedArgs.splice(index, 1);
+    }
+    if (!resolvedArgs.includes("--no-memory")) {
+      resolvedArgs.unshift("--no-memory");
     }
   }
   if (sessionId) {
@@ -1356,9 +1420,11 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
       syncGrokAuthIfChanged("grok-cli").catch((error) => {
         console.warn(`Grok auth Redis sync failed: ${error.message}`);
       });
-      syncGrokStateIfChanged("grok-cli").catch((error) => {
-        console.warn(`Grok state Redis sync failed: ${error.message}`);
-      });
+      if (memoryEnabled) {
+        syncGrokStateIfChanged("grok-cli").catch((error) => {
+          console.warn(`Grok state Redis sync failed: ${error.message}`);
+        });
+      }
       const trailing = parseStreamingJsonLine(lineBuffer);
       if (trailing?.type === "text" && streamingEventText(trailing)) {
         sawStreamingEvent = true;
@@ -1405,16 +1471,19 @@ async function probeGrokTui(input = "/help", timeoutMs = 12000) {
   const shellCommand = [
     shellQuote(command),
     "--no-auto-update",
+    "--no-memory",
     "--always-approve",
     "--permission-mode",
     "bypassPermissions",
     "--cwd",
-    shellQuote(config.grokCliCwd),
-    "--no-memory"
+    shellQuote(config.grokCliCwd)
   ].join(" ");
   return new Promise((resolve) => {
     const child = spawn("script", ["-q", "-f", "-e", "-c", shellCommand, "/dev/null"], {
-      env: process.env,
+      env: {
+        ...process.env,
+        GROK_MEMORY: "0"
+      },
       windowsHide: true,
       stdio: ["pipe", "pipe", "pipe"]
     });
@@ -1467,10 +1536,13 @@ async function probeGrokTui(input = "/help", timeoutMs = 12000) {
 async function probeGrokCli(prompt, timeoutMs = 60000) {
   fs.mkdirSync(config.grokCliCwd, { recursive: true });
   const command = await ensureGrokCliCommand();
-  const args = grokCliArgs(prompt);
+  const args = grokCliArgs(prompt, { memoryEnabled: false });
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
-      env: process.env,
+      env: {
+        ...process.env,
+        GROK_MEMORY: "0"
+      },
       windowsHide: true,
       stdio: ["ignore", "pipe", "pipe"]
     });
@@ -1555,7 +1627,10 @@ async function probeGrokCli(prompt, timeoutMs = 60000) {
 async function runCliDiagnostic(command, args, timeout = 20000) {
   try {
     const result = await execFileAsync(command, args, {
-      env: process.env,
+      env: {
+        ...process.env,
+        GROK_MEMORY: "0"
+      },
       timeout,
       windowsHide: true,
       maxBuffer: 1024 * 1024
@@ -1599,6 +1674,7 @@ async function grokDiagnostics() {
   const inspect = await runCliDiagnostic(command, ["inspect"], 30000);
   const maxToolRoundsSmoke = await runCliDiagnostic(command, [
     "--no-auto-update",
+    "--no-memory",
     "--always-approve",
     "--permission-mode",
     "bypassPermissions",
@@ -1611,6 +1687,7 @@ async function grokDiagnostics() {
   ], 45000);
   const maxTurnsSmoke = await runCliDiagnostic(command, [
     "--no-auto-update",
+    "--no-memory",
     "--always-approve",
     "--permission-mode",
     "bypassPermissions",
@@ -1623,6 +1700,7 @@ async function grokDiagnostics() {
   ], 45000);
   const webToolsSmoke = await runCliDiagnostic(command, [
     "--no-auto-update",
+    "--no-memory",
     "--always-approve",
     "--permission-mode",
     "bypassPermissions",
@@ -2275,12 +2353,38 @@ app.get("/debug/grok-state-status", async (req, res) => {
   }
 });
 
+app.get("/debug/grok-state-inventory", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    res.json({
+      ok: true,
+      state: await grokStateStoreStatus(),
+      inventory: grokStateInventory()
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
 app.get("/debug/classify", (req, res) => {
   if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
     res.status(404).json({ error: "not found" });
     return;
   }
   const prompt = String(req.query.prompt || "").slice(0, 1000);
+  const control = parseControlCommand(prompt);
+  if (control) {
+    res.json({
+      ok: true,
+      input: prompt,
+      controlCommand: control.name,
+      interceptedBeforeGrok: true
+    });
+    return;
+  }
   const task = classifyTask(prompt);
   res.json({
     ok: true,
@@ -2322,7 +2426,7 @@ app.get("/debug/grok-test", async (req, res) => {
   try {
     const prompt = String(req.query.prompt || "用一句中文回答：Render Grok CLI 已经可以运行。").slice(0, 500);
     const command = await ensureGrokCliCommand();
-    const answer = await callGrokCli(prompt);
+    const answer = await callGrokCli(prompt, { memoryEnabled: false });
     res.json({ ok: true, command, answer: answer.slice(0, 2000) });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
@@ -2583,8 +2687,8 @@ app.get("/debug/grok-media-test", async (req, res) => {
     const task = classifyTask(prompt);
     const grokPrompt = task.prompt || prompt;
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
-      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
+      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false })
+      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -2655,8 +2759,8 @@ app.get("/debug/grok-media-job", (req, res) => {
     try {
       const grokPrompt = task.prompt || prompt;
       const answer = task.kind === "video"
-        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs })
-        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs });
+        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false })
+        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false });
       const imagePaths = extractLocalImagePaths(answer);
       const videoPaths = extractLocalVideoPaths(answer);
       const uploadedImages = [];
@@ -2774,6 +2878,38 @@ async function processFeishuMessage(payload) {
       receivedAt: new Date().toISOString(),
       promptPreview: prompt.slice(0, 80)
     };
+  }
+  const control = parseControlCommand(prompt);
+  if (control) {
+    const startedAtMs = Date.now();
+    const job = {
+      id: messageId,
+      promptPreview: prompt.slice(0, 120),
+      status: "completed",
+      taskKind: "control",
+      controlCommand: control.name,
+      webSearch: false,
+      mediaTask: false,
+      startedAt: new Date(startedAtMs).toISOString(),
+      completedAt: new Date().toISOString(),
+      timings: {
+        handledMs: Date.now() - startedAtMs
+      }
+    };
+    jobs.set(messageId, job);
+    if (control.name === "new") {
+      const session = resetChatSessionScope(message);
+      job.sessionId = session?.sessionId || "";
+      job.previousSessionId = session?.previousSessionId || "";
+      job.sessionScope = session?.scopeKey || "";
+      await syncGrokStateIfChanged("control-new-session").catch((error) => {
+        console.warn(`Grok state Redis sync failed after control command: ${error.message}`);
+      });
+      await feishu.replyText(messageId, "New Grok CLI session created for this Feishu chat. Long-term memory is preserved.");
+      return;
+    }
+    await feishu.replyText(messageId, "Bridge control command received, but this command is not enabled. No Grok request was sent.");
+    return;
   }
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
