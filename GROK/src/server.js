@@ -2163,6 +2163,25 @@ app.get("/debug/grok-config", (req, res) => {
   });
 });
 
+app.get("/debug/classify", (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  const prompt = String(req.query.prompt || "").slice(0, 1000);
+  const task = classifyTask(prompt);
+  res.json({
+    ok: true,
+    input: prompt,
+    routedPrompt: task.prompt || prompt,
+    kind: task.kind,
+    title: task.title,
+    webSearch: task.webSearch,
+    mediaTask: task.mediaTask,
+    maxTurns: task.maxTurns
+  });
+});
+
 app.get("/debug/grok-auth-status", async (req, res) => {
   if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
     res.status(404).json({ error: "not found" });
