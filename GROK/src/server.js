@@ -491,18 +491,91 @@ function safeDeleteLocalFiles(filePaths = []) {
   return deleted;
 }
 
-function extractUrlsFromText(text = "", limit = 3) {
-  const urls = [];
+function normalizeSourceLabel(label = "") {
+  return String(label || "")
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/__([^_]+)__/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/_([^_]+)_/g, "$1")
+    .replace(/[<>{}]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isGenericSourceLabel(label = "") {
+  const clean = normalizeSourceLabel(label).toLowerCase();
+  return !clean
+    || /^(?:source|reference|link|here|this|read more|more|来源|链接|参考|点击|查看|原文|详情)\s*\d*$/i.test(clean)
+    || /^[\[\(]?\d{1,3}[\]\)]?$/.test(clean);
+}
+
+function sourceLabelFromUrl(url = "") {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase().replace(/^(?:www|m)\./, "");
+    const known = [
+      [/aiindex\.stanford\.edu$/, "Stanford AI Index"],
+      [/stanford\.edu$/, "Stanford"],
+      [/stateof\.ai$/, "State of AI"],
+      [/mckinsey\.com$/, "McKinsey"],
+      [/deloitte\.com$/, "Deloitte"],
+      [/idc\.com$/, "IDC"],
+      [/gartner\.com$/, "Gartner"],
+      [/cbinsights\.com$/, "CB Insights"],
+      [/technologyreview\.com$/, "MIT Tech Review"],
+      [/openai\.com$/, "OpenAI"],
+      [/anthropic\.com$/, "Anthropic"],
+      [/x\.ai$/, "xAI"],
+      [/arxiv\.org$/, "arXiv"],
+      [/nature\.com$/, "Nature"],
+      [/science\.org$/, "Science"],
+      [/reuters\.com$/, "Reuters"],
+      [/bloomberg\.com$/, "Bloomberg"],
+      [/sec\.gov$/, "SEC"],
+      [/whitehouse\.gov$/, "White House"],
+      [/europa\.eu$/, "EU"],
+      [/weforum\.org$/, "WEF"]
+    ];
+    for (const [pattern, label] of known) {
+      if (pattern.test(host)) return label;
+    }
+    const parts = host.split(".").filter(Boolean);
+    const base = parts.length >= 2 ? parts[parts.length - 2] : parts[0] || host;
+    return base
+      .split(/[-_]/g)
+      .filter(Boolean)
+      .map((part) => part.length <= 3 ? part.toUpperCase() : part[0].toUpperCase() + part.slice(1))
+      .join(" ") || host;
+  } catch {
+    return "";
+  }
+}
+
+function sourceButtonLabel({ label = "", url = "" } = {}, index = 0) {
+  const preferred = isGenericSourceLabel(label) ? "" : normalizeSourceLabel(label);
+  const clean = preferred || sourceLabelFromUrl(url) || `来源 ${index + 1}`;
+  return clean.length > 22 ? `${clean.slice(0, 21)}…` : clean;
+}
+
+function extractSourceLinksFromText(text = "", limit = 3) {
+  const links = [];
   const seen = new Set();
-  const add = (url) => {
+  const add = (url, label = "") => {
     const clean = String(url || "").replace(/[.,!?;:，。！？；：]+$/g, "");
     if (!/^https?:\/\//i.test(clean) || seen.has(clean)) return;
     seen.add(clean);
-    urls.push(clean);
+    links.push({ url: clean, label: normalizeSourceLabel(label) });
   };
-  for (const match of String(text || "").matchAll(/\[[^\]]{1,160}\]\((https?:\/\/[^)\s]+)\)/g)) add(match[1]);
+  for (const match of String(text || "").matchAll(/\[([^\]]{1,160})\]\((https?:\/\/[^)\s]+)\)/g)) add(match[2], match[1]);
   for (const match of String(text || "").matchAll(/https?:\/\/[^\s<>"')\]]+/g)) add(match[0]);
-  return urls.slice(0, limit);
+  return links.slice(0, limit);
+}
+
+function extractUrlsFromText(text = "", limit = 3) {
+  return extractSourceLinksFromText(text, limit).map((item) => item.url);
 }
 
 function splitForCard(text = "", maxChars = 4200) {
@@ -522,24 +595,24 @@ function splitForCard(text = "", maxChars = 4200) {
 }
 
 function sourceButtons(text = "") {
-  return extractUrlsFromText(text, 3).map((url, index) => ({
+  return extractSourceLinksFromText(text, 3).map((source, index) => ({
     tag: "button",
     text: {
       tag: "plain_text",
-      content: `打开来源 ${index + 1}`
+      content: sourceButtonLabel(source, index)
     },
     type: index === 0 ? "primary" : "default",
-    url
+    url: source.url
   }));
 }
 
 function sourceButtonsV2(text = "") {
-  return extractUrlsFromText(text, 4).map((url, index) => ({
+  return extractSourceLinksFromText(text, 4).map((source, index) => ({
     tag: "button",
     element_id: `source_btn_${index + 1}`,
     text: {
       tag: "plain_text",
-      content: `来源 ${index + 1}`
+      content: sourceButtonLabel(source, index)
     },
     type: "default",
     size: "small",
@@ -547,10 +620,10 @@ function sourceButtonsV2(text = "") {
     behaviors: [
       {
         type: "open_url",
-        default_url: url,
-        pc_url: url,
-        ios_url: url,
-        android_url: url
+        default_url: source.url,
+        pc_url: source.url,
+        ios_url: source.url,
+        android_url: source.url
       }
     ]
   }));
@@ -2321,6 +2394,42 @@ app.get("/debug/card-tag-style-test", async (req, res) => {
     sent,
     failed
   });
+});
+
+app.get("/debug/source-button-test", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  if (!latestPrivateMessage?.messageId) {
+    res.status(409).json({
+      ok: false,
+      error: "No recent private Feishu message target. Send the bot a private message first, then retry this endpoint."
+    });
+    return;
+  }
+
+  const sample = [
+    "示例来源按钮：",
+    "",
+    "[Stanford AI Index 2026](https://aiindex.stanford.edu/report/)",
+    "[McKinsey 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights)",
+    "[Deloitte 2026](https://www.deloitte.com/us/en/insights.html)",
+    "https://www.idc.com/getdoc.jsp?containerId=prUS00000000"
+  ].join("\n");
+
+  try {
+    const cardId = await feishu.createCardEntity(buildFinalCard(sample, "Grok 来源按钮测试", { webSearch: true }));
+    const response = await feishu.replyCardEntity(latestPrivateMessage.messageId, cardId);
+    res.json({
+      ok: true,
+      cardId,
+      replyMessageId: feishuMessageId(response),
+      labels: sourceButtonsV2(sample).map((button) => button.text?.content || "")
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
 });
 
 app.get("/debug/media-upload-test", async (req, res) => {
