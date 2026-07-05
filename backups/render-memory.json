@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-05T03:41:33.129Z",
+  "exportedAt": "2026-07-05T04:21:33.727Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -63445,6 +63445,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-05T03:38:14.375Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_00b386c42735d4f8dba79c3d53d01612",
+        "role": "user",
+        "modality": "text",
+        "content": "我草 我的马今天怎么回事 一直在线回复 差点把我key发出来 [捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ba9ea092ca4b3697c94ce2a8c4",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUserId": "ou_00b386c42735d4f8dba79c3d53d01612",
+          "rawUnionId": "on_562d585169c5ef2fc7b44b8601fcc5d7",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-05T04:15:13.087Z"
       }
     ],
     "memories": [
@@ -66096,7 +66120,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:24.091Z",
-        "updatedAt": "2026-06-27T04:48:02.186Z"
+        "updatedAt": "2026-07-05T04:15:13.019Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -66106,7 +66130,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-27T04:33:23.992Z",
-        "updatedAt": "2026-06-27T04:48:02.117Z"
+        "updatedAt": "2026-07-05T04:15:12.874Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
