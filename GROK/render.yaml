@@ -36,6 +36,12 @@ services:
         value: feishu-grok-bridge:grok-auth
       - key: GROK_STATE_REDIS_KEY
         value: feishu-grok-bridge:grok-state
+      - key: GROK_REMOTE_STATE_SSH_PORT
+        value: "22"
+      - key: GROK_REMOTE_STATE_SSH_USER
+        value: root
+      - key: GROK_REMOTE_STATE_DIR
+        value: /opt/grok-state-backups/feishu-grok-bridge
       - key: GROK_CLI_ARGS_JSON
         value: '["--no-auto-update","--always-approve","--permission-mode","bypassPermissions","--max-turns","10","--cwd","{{cwd}}","--output-format","streaming-json","-p","{{prompt}}"]'
       - key: MAX_CARD_CONTENT_CHARS
@@ -63,6 +69,10 @@ services:
       - key: UPSTASH_REDIS_REST_TOKEN
         sync: false
       - key: AUTH_ENCRYPTION_KEY
+        sync: false
+      - key: GROK_REMOTE_STATE_SSH_HOST
+        sync: false
+      - key: GROK_REMOTE_STATE_SSH_PASSWORD
         sync: false
       - key: DEBUG_TOKEN
         sync: false

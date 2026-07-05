@@ -3,11 +3,15 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import zlib from "node:zlib";
+import { Client as SshClient } from "ssh2";
 import { sha256Hex } from "./grok-auth-store.js";
 
 const DEFAULT_STATE_REDIS_KEY = "feishu-grok-bridge:grok-state";
 const MAX_FILE_BYTES = 512 * 1024;
 const MAX_TOTAL_BYTES = 4 * 1024 * 1024;
+const REMOTE_MAX_FILE_BYTES = 32 * 1024 * 1024;
+const REMOTE_MAX_TOTAL_BYTES = 128 * 1024 * 1024;
+const DEFAULT_REMOTE_STATE_DIR = "/opt/grok-state-backups/feishu-grok-bridge";
 const MEDIA_EXTENSIONS = new Set([".mp4", ".mov", ".webm", ".mkv", ".avi", ".png", ".jpg", ".jpeg", ".gif", ".webp"]);
 
 function encryptionKey() {
@@ -37,6 +41,106 @@ function redisConfig() {
     key,
     enabled: Boolean(url && token && process.env.AUTH_ENCRYPTION_KEY)
   };
+}
+
+function remoteStateConfig() {
+  const host = process.env.GROK_REMOTE_STATE_SSH_HOST || "";
+  const username = process.env.GROK_REMOTE_STATE_SSH_USER || "root";
+  const password = process.env.GROK_REMOTE_STATE_SSH_PASSWORD || "";
+  const port = Number(process.env.GROK_REMOTE_STATE_SSH_PORT || 22) || 22;
+  const dir = (process.env.GROK_REMOTE_STATE_DIR || DEFAULT_REMOTE_STATE_DIR).replace(/\/+$/, "");
+  return {
+    host,
+    username,
+    password,
+    port,
+    dir,
+    file: `${dir}/latest.json.enc`,
+    enabled: Boolean(host && username && password && process.env.AUTH_ENCRYPTION_KEY)
+  };
+}
+
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, "'\\''")}'`;
+}
+
+function sshConnect(cfg) {
+  return new Promise((resolve, reject) => {
+    const client = new SshClient();
+    client.once("ready", () => resolve(client));
+    client.once("error", reject);
+    client.connect({
+      host: cfg.host,
+      port: cfg.port,
+      username: cfg.username,
+      password: cfg.password,
+      readyTimeout: 15000,
+      tryKeyboard: false
+    });
+  });
+}
+
+function sshExec(client, command) {
+  return new Promise((resolve, reject) => {
+    client.exec(command, (error, stream) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      let stdout = "";
+      let stderr = "";
+      stream.on("data", (chunk) => {
+        stdout += chunk.toString();
+      });
+      stream.stderr.on("data", (chunk) => {
+        stderr += chunk.toString();
+      });
+      stream.on("close", (code) => {
+        if (code === 0) resolve({ stdout, stderr });
+        else reject(new Error(`ssh command failed with code ${code}: ${stderr || stdout}`));
+      });
+    });
+  });
+}
+
+function sftpWriteFile(client, remotePath, content) {
+  return new Promise((resolve, reject) => {
+    client.sftp((error, sftp) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      sftp.writeFile(remotePath, content, (writeError) => {
+        try {
+          sftp.end();
+        } catch {
+          // Best effort cleanup.
+        }
+        if (writeError) reject(writeError);
+        else resolve();
+      });
+    });
+  });
+}
+
+function sftpReadFile(client, remotePath) {
+  return new Promise((resolve, reject) => {
+    client.sftp((error, sftp) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      sftp.readFile(remotePath, (readError, data) => {
+        try {
+          sftp.end();
+        } catch {
+          // Best effort cleanup.
+        }
+        if (readError) reject(readError);
+        else resolve(data);
+      });
+    });
+  });
 }
 
 async function redisCommand(command) {
@@ -113,13 +217,16 @@ export function grokStateRoots() {
   ];
 }
 
-function shouldSkipFile(filePath, size) {
-  if (size > MAX_FILE_BYTES) return `too_large:${size}`;
+function shouldSkipFile(filePath, size, options = {}) {
+  const maxFileBytes = options.maxFileBytes || MAX_FILE_BYTES;
+  if (size > maxFileBytes) return `too_large:${size}`;
   if (MEDIA_EXTENSIONS.has(path.extname(filePath).toLowerCase())) return "media";
   return "";
 }
 
-function collectFiles() {
+function collectFiles(options = {}) {
+  const maxFileBytes = options.maxFileBytes || MAX_FILE_BYTES;
+  const maxTotalBytes = options.maxTotalBytes || MAX_TOTAL_BYTES;
   const files = [];
   const skipped = [];
   let totalBytes = 0;
@@ -135,12 +242,12 @@ function collectFiles() {
       if (!entry.isFile()) continue;
       const stat = fs.statSync(fullPath);
       const rel = path.relative(root, fullPath).split(path.sep).join("/");
-      const reason = shouldSkipFile(fullPath, stat.size);
+      const reason = shouldSkipFile(fullPath, stat.size, { maxFileBytes });
       if (reason) {
         skipped.push({ root: rootName, path: rel, reason });
         continue;
       }
-      if (totalBytes + stat.size > MAX_TOTAL_BYTES) {
+      if (totalBytes + stat.size > maxTotalBytes) {
         skipped.push({ root: rootName, path: rel, reason: "total_cap" });
         continue;
       }
@@ -168,19 +275,32 @@ function collectFiles() {
 }
 
 export function currentGrokStateHash() {
-  const payload = collectFiles();
+  const payload = remoteStateConfig().enabled
+    ? collectFiles({ maxFileBytes: REMOTE_MAX_FILE_BYTES, maxTotalBytes: REMOTE_MAX_TOTAL_BYTES })
+    : collectFiles();
   return sha256Hex(Buffer.from(JSON.stringify(payload.files.map((item) => [item.root, item.path, item.content])), "utf8"));
 }
 
 export async function saveGrokStateToStore() {
-  if (!grokStateStoreConfigured()) return { saved: false, reason: "not_configured" };
+  if (!grokStateStoreConfigured() && !remoteStateConfig().enabled) return { saved: false, reason: "not_configured" };
   const payload = collectFiles();
-  const envelope = encryptPayload(payload);
-  await redisCommand(["SET", redisConfig().key, envelope]);
+  let redisSaved = false;
+  let redisEnvelope = null;
+  if (grokStateStoreConfigured()) {
+    redisEnvelope = encryptPayload(payload);
+    await redisCommand(["SET", redisConfig().key, redisEnvelope]);
+    redisSaved = true;
+  }
+  let remote = { saved: false, reason: "not_configured" };
+  if (remoteStateConfig().enabled) {
+    remote = await saveGrokStateToRemote();
+  }
   return {
     saved: true,
     key: redisConfig().key,
-    hashPrefix: JSON.parse(envelope).stateHash.slice(0, 12),
+    redisSaved,
+    remote,
+    hashPrefix: redisEnvelope ? JSON.parse(redisEnvelope).stateHash.slice(0, 12) : remote.hashPrefix,
     fileCount: payload.files.length,
     skippedCount: payload.skipped.length,
     totalBytes: payload.totalBytes
@@ -188,10 +308,30 @@ export async function saveGrokStateToStore() {
 }
 
 export async function restoreGrokStateFromStore() {
+  if (remoteStateConfig().enabled) {
+    try {
+      const remote = await restoreGrokStateFromRemote();
+      if (remote.restored) return remote;
+    } catch (error) {
+      if (!grokStateStoreConfigured()) throw error;
+    }
+  }
   if (!grokStateStoreConfigured()) return { restored: false, reason: "not_configured" };
   const value = await redisCommand(["GET", redisConfig().key]);
   if (!value) return { restored: false, reason: "empty_store" };
   const payload = decryptPayload(String(value));
+  const result = restorePayloadFiles(payload);
+  return {
+    restored: true,
+    source: "redis",
+    key: redisConfig().key,
+    restoredFiles: result.restoredFiles,
+    savedAt: payload.savedAt || "",
+    skippedCount: payload.skipped?.length || 0
+  };
+}
+
+function restorePayloadFiles(payload) {
   const roots = new Map(grokStateRoots().map((item) => [item.name, item.root]));
   let restoredFiles = 0;
   for (const item of payload.files || []) {
@@ -212,17 +352,62 @@ export async function restoreGrokStateFromStore() {
     }
     restoredFiles += 1;
   }
+  return { restoredFiles };
+}
+
+export async function saveGrokStateToRemote() {
+  const cfg = remoteStateConfig();
+  if (!cfg.enabled) return { saved: false, reason: "not_configured" };
+  const payload = collectFiles({
+    maxFileBytes: REMOTE_MAX_FILE_BYTES,
+    maxTotalBytes: REMOTE_MAX_TOTAL_BYTES
+  });
+  const envelope = encryptPayload(payload);
+  const client = await sshConnect(cfg);
+  try {
+    await sshExec(client, `mkdir -p ${shellQuote(cfg.dir)} && chmod 700 ${shellQuote(cfg.dir)}`);
+    await sftpWriteFile(client, cfg.file, Buffer.from(envelope, "utf8"));
+    await sshExec(client, `chmod 600 ${shellQuote(cfg.file)} && ls -lh ${shellQuote(cfg.file)} && df -h /`);
+  } finally {
+    client.end();
+  }
   return {
-    restored: true,
-    key: redisConfig().key,
-    restoredFiles,
-    savedAt: payload.savedAt || "",
-    skippedCount: payload.skipped?.length || 0
+    saved: true,
+    source: "remote_ssh",
+    host: cfg.host,
+    file: cfg.file,
+    hashPrefix: JSON.parse(envelope).stateHash.slice(0, 12),
+    fileCount: payload.files.length,
+    skippedCount: payload.skipped.length,
+    totalBytes: payload.totalBytes
+  };
+}
+
+export async function restoreGrokStateFromRemote() {
+  const cfg = remoteStateConfig();
+  if (!cfg.enabled) return { restored: false, reason: "not_configured" };
+  const client = await sshConnect(cfg);
+  try {
+    const value = await sftpReadFile(client, cfg.file);
+    const payload = decryptPayload(value.toString("utf8"));
+    const result = restorePayloadFiles(payload);
+    return {
+      restored: true,
+      source: "remote_ssh",
+      host: cfg.host,
+      file: cfg.file,
+      restoredFiles: result.restoredFiles,
+      savedAt: payload.savedAt || "",
+      skippedCount: payload.skipped?.length || 0
+    };
+  } finally {
+    client.end();
   };
 }
 
 export async function grokStateStoreStatus() {
   const cfg = redisConfig();
+  const remoteCfg = remoteStateConfig();
   const roots = grokStateRoots().map((item) => ({
     name: item.name,
     root: item.root,
@@ -252,6 +437,14 @@ export async function grokStateStoreStatus() {
   return {
     configured: cfg.enabled,
     key: cfg.key,
+    remote: {
+      configured: remoteCfg.enabled,
+      host: remoteCfg.host || "",
+      port: remoteCfg.port,
+      username: remoteCfg.username || "",
+      dir: remoteCfg.dir,
+      file: remoteCfg.file
+    },
     roots,
     storePresent,
     storeSummary,

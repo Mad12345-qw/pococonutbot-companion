@@ -523,7 +523,7 @@ async function syncGrokStateIfChanged(reason = "unknown") {
   const result = await saveGrokStateToStore();
   if (result.saved) {
     lastObservedGrokStateHash = hash;
-    console.log(`Grok state synced to Redis after ${reason}: ${result.fileCount} files, ${result.skippedCount} skipped.`);
+    console.log(`Grok state synced after ${reason}: ${result.fileCount} Redis-scope files, ${result.skippedCount} skipped, remote=${result.remote?.saved ? "yes" : "no"}.`);
   }
 }
 
@@ -2465,12 +2465,12 @@ if (config.grokStateSyncEnabled) {
     const restored = await restoreGrokStateFromStore();
     if (restored.restored) {
       lastObservedGrokStateHash = currentGrokStateHash();
-      console.log(`Grok state restored from Redis: ${restored.restoredFiles} files.`);
+      console.log(`Grok state restored from ${restored.source || "state store"}: ${restored.restoredFiles} files.`);
     } else {
       console.log(`Grok state restore skipped: ${restored.reason}.`);
     }
   } catch (error) {
-    console.warn(`Grok state Redis restore failed: ${error.message}`);
+    console.warn(`Grok state restore failed: ${error.message}`);
   }
 }
 
@@ -2545,6 +2545,20 @@ app.get("/debug/grok-state-inventory", async (req, res) => {
       state: await grokStateStoreStatus(),
       inventory: grokStateInventory()
     });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.post("/debug/grok-state-sync", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const result = await saveGrokStateToStore();
+    if (result.saved) lastObservedGrokStateHash = currentGrokStateHash();
+    res.json({ ok: true, result });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
   }
