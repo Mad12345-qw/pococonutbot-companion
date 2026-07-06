@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T09:35:16.226Z",
+  "exportedAt": "2026-07-06T10:35:16.161Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65324,6 +65324,102 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T09:27:31.827Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7ac739308ef1f697c59b6b5fc32789a6",
+        "role": "user",
+        "modality": "text",
+        "content": "冒个泡",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c660618a4c2deef01f9d85d5",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7ac739308ef1f697c59b6b5fc32789a6",
+          "rawUserId": "ou_7ac739308ef1f697c59b6b5fc32789a6",
+          "rawUnionId": "on_792916a5c4df184a3366bfbd2a584c75",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T10:25:21.761Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "失踪人口回归？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c637bc510c23ffc5a397948d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T10:26:40.172Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7ac739308ef1f697c59b6b5fc32789a6",
+        "role": "user",
+        "modality": "text",
+        "content": "[坏笑]然后继续潜水~",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c60787cacc4c3ab6b8058047",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_7ac739308ef1f697c59b6b5fc32789a6",
+          "rawUserId": "ou_7ac739308ef1f697c59b6b5fc32789a6",
+          "rawUnionId": "on_792916a5c4df184a3366bfbd2a584c75",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T10:26:56.464Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "交出你的焚决[坏笑]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c7d38b488b14dba9d06b6dc6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T10:28:21.291Z"
       }
     ],
     "memories": [
@@ -68625,7 +68721,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-05T16:11:04.755Z"
+        "updatedAt": "2026-07-06T10:28:21.232Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -68635,7 +68731,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-05T16:11:04.686Z"
+        "updatedAt": "2026-07-06T10:28:21.172Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69425,7 +69521,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-04T15:10:08.297Z"
+        "updatedAt": "2026-07-06T10:26:40.108Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69435,7 +69531,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-04T15:10:08.227Z"
+        "updatedAt": "2026-07-06T10:26:40.042Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69476,6 +69572,26 @@
         "metadata": {},
         "createdAt": "2026-06-24T11:57:28.820Z",
         "updatedAt": "2026-06-29T12:24:18.982Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7ac739308ef1f697c59b6b5fc32789a6",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7ac739308ef1f697c59b6b5fc32789a6",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T10:25:21.698Z",
+        "updatedAt": "2026-07-06T10:26:56.393Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_7ac739308ef1f697c59b6b5fc32789a6",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T10:25:21.619Z",
+        "updatedAt": "2026-07-06T10:26:56.326Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
