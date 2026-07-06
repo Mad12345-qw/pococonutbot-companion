@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T08:55:16.030Z",
+  "exportedAt": "2026-07-06T09:05:15.634Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65252,6 +65252,30 @@
           "replyToUserId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68"
         },
         "createdAt": "2026-07-06T08:51:27.909Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "text",
+        "content": "[抱拳][抱拳]好的谢谢，我搞错了发错群，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b82a29c7d70c3745695ef28410",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T09:00:55.931Z"
       }
     ],
     "memories": [
@@ -66093,7 +66117,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:17:14.373Z",
-        "updatedAt": "2026-07-06T06:17:14.373Z"
+        "updatedAt": "2026-07-06T09:00:55.856Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -66103,7 +66127,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:17:14.302Z",
-        "updatedAt": "2026-07-06T06:17:14.302Z"
+        "updatedAt": "2026-07-06T09:00:55.744Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
