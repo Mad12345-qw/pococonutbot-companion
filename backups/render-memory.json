@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T07:35:16.274Z",
+  "exportedAt": "2026-07-06T08:55:16.030Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65180,6 +65180,78 @@
           "replyToUserId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269"
         },
         "createdAt": "2026-07-06T07:27:40.390Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "voice",
+        "content": "你好 小爷 我想问一下你这个飞书的话 要自己创建一个像你这样子的然后自己搞一个小群来自己自己练自己自己对话的跟智能体这样子的话要怎么操作啊",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": true,
+          "platform": "feishu",
+          "messageId": "om_x100b6b82fdfad0acb2fd6f22afca59a",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 18000
+        },
+        "createdAt": "2026-07-06T08:45:44.155Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈不客气呀～小爷这边其实就是一个聊天窗口，不用你折腾建群什么的。\n\n想自己练手的话，倒是可以这么玩：打开飞书搜「智能伙伴」或者「飞书机器人」，新建一个机器人就能跟它对话了；想同时拉几个AI打配合，就开个群，把几个机器人都拉进去，你当裁判看他们互相聊，挺有意思的。\n\n先这样？要不要我帮你顺一遍具体步骤～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68"
+        },
+        "createdAt": "2026-07-06T08:45:54.628Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "text",
+        "content": "好呀麻烦小椰帮我[抱拳]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b828697aca4c4b7f8d49318b99",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T08:51:20.133Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞～先打开飞书，搜「智能伙伴」或者点开「工作台」找「机器人」入口；新建一个机器人，给它起个名字、设个头像就完成创建了；然后在消息里直接@它，或者把它拉到你自己建的群里，就能开始跟它对话啦。\n\n要是想玩更高级的，比如让它读文档、查日历，可以在机器人的技能配置里勾上对应的能力，每一步飞书都有提示，跟着点就行。\n\n先试试创建机器人？卡住的话截图发给我，我陪你一步步看～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68"
+        },
+        "createdAt": "2026-07-06T08:51:27.909Z"
       }
     ],
     "memories": [
@@ -67621,7 +67693,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:14:28.966Z",
-        "updatedAt": "2026-07-06T06:14:28.966Z"
+        "updatedAt": "2026-07-06T08:51:20.074Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -67631,7 +67703,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:14:28.872Z",
-        "updatedAt": "2026-07-06T06:14:28.872Z"
+        "updatedAt": "2026-07-06T08:51:20.015Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
