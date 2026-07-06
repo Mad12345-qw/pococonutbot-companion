@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T04:35:06.444Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-06T06:15:15.548Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -65060,6 +65060,30 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-06T03:59:15.527Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "text",
+        "content": "[抱拳][抱拳]进群啦，感谢Mad",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8032e1e4a4b4a4095ea22fb1c",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T06:14:29.038Z"
       }
     ],
     "memories": [
@@ -67462,6 +67486,26 @@
         "metadata": {},
         "createdAt": "2026-06-16T15:44:56.603Z",
         "updatedAt": "2026-06-16T16:04:56.838Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T06:14:28.966Z",
+        "updatedAt": "2026-07-06T06:14:28.966Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T06:14:28.872Z",
+        "updatedAt": "2026-07-06T06:14:28.872Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -70799,8 +70843,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-06",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-06T02:51:31.253Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：\\n\\n如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？\\n\\n我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。\",\"lastActivityAt\":\"2026-07-06T03:39:58.954Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-06T03:39:58.990Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-06T06:05:16.054Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-06T06:13:59.547Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-06T06:13:59.579Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
