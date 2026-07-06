@@ -2788,18 +2788,9 @@ const originalFetchForImage = globalThis.fetch;
 const imageFetchCalls = [];
 globalThis.fetch = async (url, options = {}) => {
   imageFetchCalls.push({ url: String(url), method: options.method || "GET" });
-  if (String(url).endsWith("/v1/images/generations/async")) {
-    return new Response(JSON.stringify({ task_id: "task_test_1", status: "queued", poll_url: "/v1/images/tasks/task_test_1" }), {
-      status: 200,
-      headers: { "content-type": "application/json" }
-    });
-  }
-  if (String(url).endsWith("/v1/images/tasks/task_test_1")) {
+  if (String(url).endsWith("/v1/images/generations") && (options.method || "GET") === "POST") {
     return new Response(JSON.stringify({
-      status: "success",
-      result: {
-        data: [{ b64_json: Buffer.from("fake-image").toString("base64") }]
-      }
+      data: [{ b64_json: Buffer.from("fake-image").toString("base64") }]
     }), {
       status: 200,
       headers: { "content-type": "application/json" }
@@ -2815,20 +2806,20 @@ try {
     imageModel: "gpt-image-2",
     imageSize: "1024x1024",
     imageTimeoutMs: 20000,
-    imageAsyncEnabled: true,
+    imageAsyncEnabled: false,
     imageAsyncPollIntervalMs: 3000
   });
   const image = await imageClient.generate("article-specific cover");
-  assertEqual("image async client returns generated buffer", String(image.buffer.length > 0), "true");
+  assertEqual("image sync client returns generated buffer", String(image.buffer.length > 0), "true");
   assertEqual(
-    "image async client creates async task",
-    String(imageFetchCalls.some((call) => call.method === "POST" && call.url.endsWith("/v1/images/generations/async"))),
+    "image sync client posts to the configured generation endpoint",
+    String(imageFetchCalls.some((call) => call.method === "POST" && call.url.endsWith("/v1/images/generations"))),
     "true"
   );
   assertEqual(
-    "image async client polls task endpoint",
-    String(imageFetchCalls.some((call) => call.method === "GET" && call.url.endsWith("/v1/images/tasks/task_test_1"))),
-    "true"
+    "image sync client does not use async polling",
+    String(imageFetchCalls.some((call) => call.url.includes("/async") || call.url.includes("/tasks/"))),
+    "false"
   );
 } finally {
   globalThis.fetch = originalFetchForImage;
