@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T06:25:16.164Z",
+  "exportedAt": "2026-07-06T07:35:16.274Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65144,6 +65144,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T06:17:14.443Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "user",
+        "modality": "text",
+        "content": "去旅行需要带哪些个人物品",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b81c3f664acb129b3690443b46",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUserId": "ou_418d3bcc89635d723e6f3955a0bc0269",
+          "rawUnionId": "on_09dfaa88fef3f5eb968394ee5f01db9a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T07:27:23.378Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269",
+        "role": "assistant",
+        "modality": "text",
+        "content": "旅行个人物品清单来咯～\n\n证件类：身份证、护照（出境的话）、驾照（自驾需要）\n电子类：手机、充电器、充电宝、耳机\n衣物类：换洗衣物、内衣袜子、外套（看目的地天气）、舒适鞋子\n洗漱类：牙刷、牙膏、洗面奶、护肤品、毛巾\n药品类：感冒药、肠胃药、创可贴、个人常用药\n其他：雨伞、水杯、少量现金、银行卡\n\n还需要我帮你列更详细的清单吗？或者你有具体去哪儿旅行，我帮你看看还要加什么～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_418d3bcc89635d723e6f3955a0bc0269"
+        },
+        "createdAt": "2026-07-06T07:27:40.390Z"
       }
     ],
     "memories": [
@@ -68765,7 +68801,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:33:22.785Z",
-        "updatedAt": "2026-07-03T17:21:31.560Z"
+        "updatedAt": "2026-07-06T07:27:23.309Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -68775,7 +68811,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T03:33:22.550Z",
-        "updatedAt": "2026-07-03T17:21:31.496Z"
+        "updatedAt": "2026-07-06T07:27:23.224Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
