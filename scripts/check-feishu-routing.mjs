@@ -166,6 +166,7 @@ assertEqual(
 );
 const communityOpsSettings = new Map();
 const communityOpsSent = [];
+const communityOpsSpeech = [];
 bot.config.feishuCommunityOpsChatIds = [DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID];
 bot.config.feishuCommunityOpsDailyPromptLimit = 3;
 bot.config.feishuWebSearchCardsEnabled = false;
@@ -180,6 +181,17 @@ bot.sendTextToChat = async (chatId, text) => {
   communityOpsSent.push({ chatId, text });
   return { message_id: `om_${communityOpsSent.length}` };
 };
+bot.sendSpeechToChat = async (chatId, text) => {
+  communityOpsSpeech.push({ chatId, text });
+  return true;
+};
+bot.workspace = {
+  enabled: true,
+  getUserInfo: async (userId) => userId === "ou_new"
+    ? { userId, name: "王焕焕", organization: "华源证券股份有限公司", title: "" }
+    : {},
+  listChatMembers: async () => []
+};
 await bot.handleCommunityMemberAdded({
   header: { event_type: "im.chat.member.user.added_v1" },
   event: {
@@ -192,8 +204,13 @@ assertEqual(
   String(
     communityOpsSent.length === 1 &&
     communityOpsSent[0].chatId === DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID &&
-    communityOpsSent[0].text.includes("SpaceX、AI、Robot") &&
-    communityOpsSent[0].text.includes("共同研究的小组") &&
+    communityOpsSent[0].text.includes("SpaceX") &&
+    communityOpsSent[0].text.includes("AI") &&
+    communityOpsSent[0].text.includes("Robot") &&
+    communityOpsSent[0].text.includes("王焕焕") &&
+    communityOpsSent[0].text.includes("华源证券股份有限公司") &&
+    communityOpsSpeech.length === 1 &&
+    communityOpsSpeech[0].text === communityOpsSent[0].text &&
     !communityOpsSent[0].text.includes("小椰产业观察群")
   ),
   "true"

@@ -731,11 +731,18 @@ export class FeishuWorkspaceClient {
     const data = await this.request(`/open-apis/contact/v3/users/${encodeURIComponent(userId)}?user_id_type=open_id`);
     const user = data.user || data;
     const name = user.name || user.nickname || user.en_name || user.enterprise_email || user.email || "";
+    const departmentNames = [
+      ...(Array.isArray(user.department_path) ? user.department_path.map((item) => item?.department_name || item?.name) : []),
+      ...(Array.isArray(user.departments) ? user.departments.map((item) => item?.name || item?.department_name) : [])
+    ].filter(Boolean);
     return {
       userId,
       name,
       enName: user.en_name || "",
       email: user.enterprise_email || user.email || "",
+      organization: user.organization || user.company || user.tenant_name || departmentNames[0] || "",
+      title: user.job_title || user.position || user.employee_type || "",
+      departmentNames,
       avatar: user.avatar?.avatar_72 || user.avatar?.avatar_origin || "",
       raw: user
     };

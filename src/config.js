@@ -47,10 +47,19 @@ function resolveAiEndpoint(rawUrl) {
   return `${clean}/v1/chat/completions`;
 }
 
-function resolveImageEndpoint(rawUrl) {
+export function resolveImageEndpoint(rawUrl) {
   const input = String(rawUrl || "").trim();
   if (!input) return "";
   const clean = input.replace(/\/+$/, "");
+
+  try {
+    const url = new URL(clean);
+    if (/api\.mikoto\.vip$/i.test(url.hostname) && (/\/custom\//i.test(url.pathname) || /image-api-guide/i.test(url.pathname))) {
+      return `${url.origin}/v1/images/generations`;
+    }
+  } catch {
+    // Keep the simple path-based resolver below for non-URL values.
+  }
 
   if (clean.endsWith("/images/generations")) {
     return clean;

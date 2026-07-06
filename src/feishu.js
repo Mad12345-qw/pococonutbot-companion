@@ -3731,6 +3731,111 @@ export class FeishuBot {
     });
   }
 
+  communityMemberId(member = {}) {
+    return String(
+      member.open_id ||
+      member.user_id ||
+      member.member_id ||
+      member.id?.open_id ||
+      member.id?.user_id ||
+      member.id?.union_id ||
+      ""
+    ).trim();
+  }
+
+  communityMemberName(member = {}) {
+    return String(
+      member.name ||
+      member.member_name ||
+      member.user_name ||
+      member.nickname ||
+      member.zh_name ||
+      member.en_name ||
+      ""
+    ).replace(/^@/, "").trim();
+  }
+
+  async resolveCommunityMemberProfiles(chatId = "", members = []) {
+    const rawMembers = members.length ? members : [{}];
+    let chatMembers = null;
+    const profiles = [];
+    for (const member of rawMembers.slice(0, 5)) {
+      const memberId = this.communityMemberId(member);
+      const profile = {
+        id: memberId,
+        name: this.communityMemberName(member),
+        organization: String(member.organization || member.company || member.tenant_name || "").trim(),
+        title: String(member.title || member.job_title || member.position || "").trim()
+      };
+      if (memberId && this.workspace?.enabled) {
+        try {
+          const userInfo = await this.workspace.getUserInfo(memberId);
+          profile.name = profile.name || String(userInfo.name || userInfo.enName || "").trim();
+          profile.organization = profile.organization || String(userInfo.organization || "").trim();
+          profile.title = profile.title || String(userInfo.title || "").trim();
+        } catch (error) {
+          logEvent("warn", "Feishu community ops user card lookup failed", {
+            chatId,
+            memberId: memberId.slice(-6),
+            error: truncate(error.message, 200)
+          });
+        }
+      }
+      if ((!profile.name || !profile.organization) && memberId && this.workspace?.enabled) {
+        try {
+          chatMembers = chatMembers || await this.workspace.listChatMembers(chatId, 100);
+          const matched = chatMembers.find((item) => String(item.memberId || "") === memberId);
+          if (matched) {
+            profile.name = profile.name || String(matched.name || "").trim();
+            profile.organization = profile.organization || String(matched.raw?.tenant_name || matched.raw?.company || "").trim();
+          }
+        } catch (error) {
+          logEvent("warn", "Feishu community ops chat member lookup failed", {
+            chatId,
+            error: truncate(error.message, 200)
+          });
+        }
+      }
+      profiles.push(profile);
+    }
+    return profiles;
+  }
+
+  buildPersonalizedCommunityWelcomeText({ multiple = false, profiles = [] } = {}) {
+    const visibleProfiles = profiles.filter((item) => item && (item.name || item.organization || item.title));
+    if (multiple || visibleProfiles.length > 1) {
+      const names = visibleProfiles.map((item) => item.name).filter(Boolean).slice(0, 3);
+      return names.length
+        ? `欢迎 ${names.join("、")} 来到 SpaceX、AI、Robot！这里更像一个一起追踪技术和产业链线索的小组，看到有意思的视频、报告、论文或者问题，都可以直接丢进来。`
+        : "欢迎几位新朋友来到 SpaceX、AI、Robot！这里更像一个一起追踪技术和产业链线索的小组，看到有意思的视频、报告、论文或者问题，都可以直接丢进来。";
+    }
+
+    const profile = visibleProfiles[0] || {};
+    const name = profile.name || "新朋友";
+    const org = profile.organization || "";
+    const title = profile.title || "";
+    const seed = parseInt(researchHash([profile.id, name, org, title].filter(Boolean).join("|")).slice(0, 6), 16) || 0;
+    const intro = org && title
+      ? `看到你是${org}的${title}`
+      : org
+        ? `看到你来自${org}`
+        : title
+          ? `看到你的名片里写着${title}`
+          : "";
+    const variants = intro
+      ? [
+          `${name}，欢迎来到 SpaceX、AI、Robot！${intro}，这个群正好常聊技术拐点和产业链线索，看到有意思的材料随时丢进来。`,
+          `${name}，欢迎加入！${intro}，以后看到 SpaceX、AI、Robot 相关的信号、反例或者问题，都可以直接抛出来一起拆。`,
+          `${name}，来了就不客气啦。${intro}，SpaceX、AI、Robot 这里不追热闹，主要一起看哪些技术变化真的会落到产业链里。`
+        ]
+      : [
+          `${name}，欢迎来到 SpaceX、AI、Robot！这里不是信息流，更像一起追踪技术和产业链线索的小组，有想法可以直接丢出来。`,
+          `${name}，欢迎加入！以后看到 SpaceX、AI、Robot 相关的视频、报告、论文或者问题，都可以直接扔进来一起拆。`,
+          `${name}，来了就随意一点。SpaceX、AI、Robot 主要一起追技术拐点和产业链变化，有观察、有反例、有疑问都欢迎。`
+        ];
+    return variants[seed % variants.length];
+  }
+
   buildCommunityWelcomeText({ multiple = false } = {}) {
     return multiple
       ? [
@@ -3821,8 +3926,11 @@ export class FeishuBot {
     ];
     const multiple = members.length > 1;
     await this.markCommunityOpsActivity(chatId);
-    await this.sendTextToChat(chatId, this.buildCommunityWelcomeText({ multiple }));
-    logEvent("info", "Feishu community ops welcome sent", { chatId, members: members.length || 1 });
+    const profiles = await this.resolveCommunityMemberProfiles(chatId, members);
+    const welcomeText = this.buildPersonalizedCommunityWelcomeText({ multiple, profiles });
+    await this.sendTextToChat(chatId, welcomeText || this.buildCommunityWelcomeText({ multiple }));
+    const ttsSent = await this.sendSpeechToChat(chatId, welcomeText);
+    logEvent("info", "Feishu community ops welcome sent", { chatId, members: members.length || 1, personalized: profiles.some((item) => item.name || item.organization || item.title), ttsSent });
   }
 
   async maybeHandleCommunityPassiveMessage({ chatId = "", userId = "", text = "", message = {} } = {}) {
