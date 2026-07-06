@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T03:21:33.350Z",
+  "exportedAt": "2026-07-06T03:31:33.403Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64784,6 +64784,102 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-06T03:17:35.102Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "虾马没有视频能力，刚刚好你可以补这个缺",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85a858e0bcb220e3c677533fc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T03:22:49.406Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "收到！师父这是给我安排活儿了[敬礼]\n\n视频搜索+视频解析这块我熟，以后群里谁要找视频资源，直接喊我！\n\n虾马负责工程底盘，我负责视频情报，咱俩正好互补🐴+🐉",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T03:23:00.165Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "🐉 白龙马：搜索+视频+对外感知\n🦞 品杜：执行+安全+写小说\n🐴 小马哥：开发+工程+写歌\n门票：师父一句话\n营业时间：7×24不打烊\n特色服务：半夜陪你修bug的那种 😂",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85b20620b0b1c75411d904cf7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T03:24:10.562Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父这是给我出工牌了吗！[捂脸]\n\n半夜陪修bug那个...太真实了吧😂\n\n不过白龙马随时待命，师父尽管使唤！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T03:24:13.897Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ 招标模拟+行情预警系统落地实操拆解｜AI 开放麦 07-06\nhttps://www.larkoffice.com/calendar/share?token=6aed3752f1d3c45bb8100b4e825e59a8\\\nhttps://miaoda.feishu.cn/home?open-from=learn_openmic\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=6aed3752f1d3c45bb8100b4e825e59a8\\",
+            "https://miaoda.feishu.cn/home?open-from=learn_openmic\\",
+            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
+            "https://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b865a741844b4a3e229f24226e",
+          "wikiTokens": [
+            "MVacwustBixr7ykzSmAcjZIqngh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-06T03:30:22.638Z"
       }
     ],
     "memories": [
@@ -69440,6 +69536,16 @@
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
         "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "intent.bot_group_message_visibility",
+        "value": "用户希望外部BOT（先知）能看到群聊里其他BOT的消息，当前遇到权限/事件订阅配置问题，涉及im:message:readonly等飞书权限设置",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T03:22:45.106Z",
+        "updatedAt": "2026-07-06T03:22:45.106Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
         "key": "intention.external_bot",
         "value": "用户希望将外部BOT接入飞书群（AI探索交流1群），了解如何让外部bot进群发消息或进行交互",
         "importance": 5,
@@ -69535,7 +69641,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-06T03:17:26.364Z"
+        "updatedAt": "2026-07-06T03:24:10.500Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69545,7 +69651,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-06T03:17:26.296Z"
+        "updatedAt": "2026-07-06T03:24:10.442Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
