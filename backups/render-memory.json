@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T06:15:15.548Z",
+  "exportedAt": "2026-07-06T06:25:16.164Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65084,6 +65084,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T06:14:29.038Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "这是小椰单独的测试群",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b80ce08f420c2e496b8d571fdb",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T06:15:41.975Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这是一段语音识别转写出来的内容，不是小椰说的，也不是群里其他人打的字。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-06T06:15:55.029Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "text",
+        "content": "[抱拳][抱拳]感谢感谢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b80c84ce4b8b3be539a739c0d2",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T06:17:14.443Z"
       }
     ],
     "memories": [
@@ -65919,6 +65979,26 @@
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T06:17:14.373Z",
+        "updatedAt": "2026-07-06T06:17:14.373Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T06:17:14.302Z",
+        "updatedAt": "2026-07-06T06:17:14.302Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "context.ai_pk_group",
         "value": "用户提到当前在AI助手PK群中，希望展示机器人实力",
@@ -65926,6 +66006,16 @@
         "metadata": {},
         "createdAt": "2026-06-10T06:17:12.366Z",
         "updatedAt": "2026-06-10T06:17:12.366Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "key": "context.test_group",
+        "value": "用户在小椰单独的测试群中进行测试",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-06T06:16:14.083Z",
+        "updatedAt": "2026-07-06T06:16:14.083Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -65945,7 +66035,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.443Z",
-        "updatedAt": "2026-07-03T10:28:03.604Z"
+        "updatedAt": "2026-07-06T06:15:41.912Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -65955,7 +66045,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.199Z",
-        "updatedAt": "2026-07-03T10:28:03.545Z"
+        "updatedAt": "2026-07-06T06:15:41.842Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
