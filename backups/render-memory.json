@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-05T16:41:34.146Z",
+  "exportedAt": "2026-07-06T00:31:33.619Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70156,6 +70156,11 @@
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-05",
         "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-05T04:51:33.085Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-05T04:51:33.085Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
         "updatedAt": "2026-07-05T04:51:33.113Z"
+      },
+      {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-06",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-06T00:21:32.386Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"今天可以先抛一个小问题：\\n\\n如果只看未来 3-5 年，SpaceX 真正外溢到产业链的能力，最先会体现在发射频率、制造体系，还是轨道服务？\\n\\n这个问题不需要有标准答案，大家可以按自己的观察来聊。\",\"lastActivityAt\":\"2026-07-06T00:21:32.386Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-06T00:21:32.419Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
