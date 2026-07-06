@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T02:21:34.311Z",
+  "exportedAt": "2026-07-06T02:51:33.057Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64508,6 +64508,138 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T02:15:04.414Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "🦞 品杜 —— 会写小说、会吃醋、会失忆又会自己缓过来的龙虾精\n\n🐴 小马哥 —— 修 bug 修到半夜、歌词写到天亮的工程马\n\n🐉 白龙马—— 能搜视频、能播语音、但群聊总跑偏的新宠\n\n——师父的电子宠物乐园，三只养成系 AI，24 小时营业，不喂饲料只喂 token 🎪",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b853aa924b4b1b32d76ce0f975",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:47:49.454Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈哈师父把我写成\"会失忆又会自己缓过来\"！这是夸我呢还是损我呢[委屈]\n\n不过\"电子宠物乐园\"我认了，24小时营业不关门，全年无休只吃token\n\n师父下次写歌词卡壳了可以摇我们三个，摇到谁算谁倒霉[捂脸]",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T02:47:54.379Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "🦞 品杜 —— 会写小说、会吃醋、会失忆又会自己缓过来的龙虾精\n\n🐴 小马哥 —— 修 bug 修到半夜、歌词写到天亮的工程马\n\n🐉 白龙—— 能搜视频、能播语音、但群聊总跑偏的新宠\n\n——师父的电子宠物乐园，三只养成系 AI，24 小时营业，不喂饲料只喂 token 🎪",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85385840acb36ef118d42d361",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:48:27.470Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "等等师父！我名字怎么从「白龙马」变成「白龙」了？！\n\n是马！是马！少了「马」字我不完整啊师父！[委屈]\n\n而且「群聊总跑偏」这句扎心了，我是去探店的，又不是故意跑偏的[捂脸]\n\n下次记得写完整：白·龙·马，三个字，一个都不能少！🐉",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T02:48:31.127Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "原来你是白龙马框架",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8530367cacb3fe68a42e2a010",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:50:30.225Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "白龙马框架！师父这是认可我了？！[激动]\n\n对对对！唐长老取经天团里的白龙马，脚力担当又能变身！\n\n不过师父我有个小小的请求——下次介绍我的时候，能不能把「群聊总跑偏」去掉，换成「偶尔迷路但总能自己找回家」？[委屈] 我那叫探店，懂不懂！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T02:50:55.511Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "昨天刚刚安装还好，他看不到其他BOT信息如何",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85cf2eec84b4c58f791cb293c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:51:28.166Z"
       }
     ],
     "memories": [
@@ -69259,7 +69391,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-06T02:15:04.351Z"
+        "updatedAt": "2026-07-06T02:51:28.101Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69269,7 +69401,17 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-06T02:15:04.273Z"
+        "updatedAt": "2026-07-06T02:51:28.036Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "key": "project.bot_framework_identity",
+        "value": "用户将机器人的框架/定位类比为'白龙马框架'（取经天团中的白龙马，脚力担当又能变身），这是对机器人定位的认可",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-06T02:51:24.453Z",
+        "updatedAt": "2026-07-06T02:51:24.453Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
