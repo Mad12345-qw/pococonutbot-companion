@@ -3802,13 +3802,24 @@ export class FeishuBot {
   }
 
   communityMemberNickname(profile = {}) {
-    const raw = String(profile.name || "").replace(/^@/, "").trim();
+    const raw = String(profile.name || "").replace(/^@+/, "").trim();
     if (!raw) return "新朋友";
     const compact = raw.replace(/\s+/g, "");
+    if (!compact || compact.length > 24) return "新朋友";
+    if (/^\d+$/.test(compact)) return "新朋友";
+    if (!/[\u4e00-\u9fffA-Za-z]/.test(compact)) return "新朋友";
     if (/^[\u4e00-\u9fff]{2,5}$/.test(compact)) {
       return compact.length >= 3 ? compact.slice(-2) : compact;
     }
-    return raw.split(/[\s._-]+/).filter(Boolean)[0] || "新朋友";
+    if (/[\u4e00-\u9fff]/.test(compact)) return "新朋友";
+    if (/\d/.test(compact)) return "新朋友";
+    if (!/^[A-Za-z\s._'-]+$/.test(raw)) return "新朋友";
+
+    const first = raw.split(/[\s._'-]+/).filter(Boolean)[0] || "";
+    if (/^[A-Za-z]{2,20}$/.test(first) && !/^(?:user|robot|test|admin|guest|unknown|null|none)$/i.test(first)) {
+      return first;
+    }
+    return "新朋友";
   }
 
   communityMemberIndustry(profile = {}) {

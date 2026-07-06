@@ -216,6 +216,13 @@ assertEqual(
   ),
   "true"
 );
+assertEqual("community nickname keeps two-char Chinese name", bot.communityMemberNickname({ name: "张三" }), "张三");
+assertEqual("community nickname shortens three-char Chinese name", bot.communityMemberNickname({ name: "王焕焕" }), "焕焕");
+assertEqual("community nickname uses first English name", bot.communityMemberNickname({ name: "Hannah Wang" }), "Hannah");
+assertEqual("community nickname uses first English token", bot.communityMemberNickname({ name: "Elon_Musk" }), "Elon");
+assertEqual("community nickname rejects numeric names", bot.communityMemberNickname({ name: "123456" }), "新朋友");
+assertEqual("community nickname rejects account-like names", bot.communityMemberNickname({ name: "robot_9527" }), "新朋友");
+assertEqual("community nickname rejects emoji and weird mixed names", bot.communityMemberNickname({ name: "🚀AI暴富🚀" }), "新朋友");
 await bot.handleCommunityMemberAdded({
   header: { event_type: "im.chat.member.user.added_v1" },
   event: {
