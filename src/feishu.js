@@ -3801,39 +3801,54 @@ export class FeishuBot {
     return profiles;
   }
 
+  communityMemberNickname(profile = {}) {
+    const raw = String(profile.name || "").replace(/^@/, "").trim();
+    if (!raw) return "新朋友";
+    const compact = raw.replace(/\s+/g, "");
+    if (/^[\u4e00-\u9fff]{2,5}$/.test(compact)) {
+      return compact.length >= 3 ? compact.slice(-2) : compact;
+    }
+    return raw.split(/[\s._-]+/).filter(Boolean)[0] || "新朋友";
+  }
+
+  communityMemberIndustry(profile = {}) {
+    const text = [profile.organization, profile.title].filter(Boolean).join(" ");
+    if (/证券|券商|投行|经纪|资本市场|研究所/i.test(text)) return "券商";
+    if (/基金|资管|资产管理|私募|公募|投资/i.test(text)) return "资管";
+    if (/银行|信托|保险|期货|金融/i.test(text)) return "金融";
+    if (/机器人|自动化|制造|工业|硬件|半导体|芯片|电子/i.test(text)) return "产业";
+    if (/航天|航空|火箭|卫星|商业航天/i.test(text)) return "航天";
+    if (/AI|人工智能|算法|大模型|数据|云|软件|科技|互联网/i.test(text)) return "科技";
+    return "";
+  }
+
   buildPersonalizedCommunityWelcomeText({ multiple = false, profiles = [] } = {}) {
     const visibleProfiles = profiles.filter((item) => item && (item.name || item.organization || item.title));
     if (multiple || visibleProfiles.length > 1) {
-      const names = visibleProfiles.map((item) => item.name).filter(Boolean).slice(0, 3);
+      const names = visibleProfiles.map((item) => this.communityMemberNickname(item)).filter(Boolean).slice(0, 3);
       return names.length
         ? `欢迎 ${names.join("、")} 来到 SpaceX、AI、Robot！这里更像一个一起追踪技术和产业链线索的小组，看到有意思的视频、报告、论文或者问题，都可以直接丢进来。`
         : "欢迎几位新朋友来到 SpaceX、AI、Robot！这里更像一个一起追踪技术和产业链线索的小组，看到有意思的视频、报告、论文或者问题，都可以直接丢进来。";
     }
 
     const profile = visibleProfiles[0] || {};
-    const name = profile.name || "新朋友";
-    const org = profile.organization || "";
-    const title = profile.title || "";
-    const seed = parseInt(researchHash([profile.id, name, org, title].filter(Boolean).join("|")).slice(0, 6), 16) || 0;
-    const intro = org && title
-      ? `看到你是${org}的${title}`
-      : org
-        ? `看到你来自${org}`
-        : title
-          ? `看到你的名片里写着${title}`
-          : "";
-    const variants = intro
+    const name = this.communityMemberNickname(profile);
+    const industry = this.communityMemberIndustry(profile);
+    const industryCue = industry ? `${industry}视角` : "";
+    const variants = industryCue
       ? [
-          `${name}，欢迎来到 SpaceX、AI、Robot！${intro}，这个群正好常聊技术拐点和产业链线索，看到有意思的材料随时丢进来。`,
-          `${name}，欢迎加入！${intro}，以后看到 SpaceX、AI、Robot 相关的信号、反例或者问题，都可以直接抛出来一起拆。`,
-          `${name}，来了就不客气啦。${intro}，SpaceX、AI、Robot 这里不追热闹，主要一起看哪些技术变化真的会落到产业链里。`
+          `哈喽${name}，欢迎加入我们。看到你是${industry}背景，这个群刚好经常聊 SpaceX、AI、Robot 这些方向里的技术变化和产业链线索，之后也很想听听你从${industryCue}怎么看。`,
+          `哈喽${name}，欢迎进群。你这个${industryCue}挺适合这里的，我们平时会一起拆 SpaceX、AI、Robot 这些方向到底哪些是叙事，哪些真的可能落到产业链和投资线索里。之后有想法直接丢出来就行。`,
+          `${name}欢迎欢迎。看你是${industry}相关背景，正好可以多一个${industryCue}。这个群主要一起追 SpaceX、AI、Robot 的技术拐点和产业链变化，后面看到有意思的线索，随时一起拆。`,
+          `哈喽${name}，欢迎加入。你从${industry}行业进来还挺有意思的，这里很多问题其实都需要技术、产业链和资本市场一起看。之后聊 SpaceX、AI、Robot 的时候，也欢迎你多从${industryCue}补刀。`
         ]
       : [
-          `${name}，欢迎来到 SpaceX、AI、Robot！这里不是信息流，更像一起追踪技术和产业链线索的小组，有想法可以直接丢出来。`,
-          `${name}，欢迎加入！以后看到 SpaceX、AI、Robot 相关的视频、报告、论文或者问题，都可以直接扔进来一起拆。`,
-          `${name}，来了就随意一点。SpaceX、AI、Robot 主要一起追技术拐点和产业链变化，有观察、有反例、有疑问都欢迎。`
+          `哈喽${name}，欢迎加入我们。这个群主要一起看 SpaceX、AI、Robot 这些方向里的技术变化和产业链线索，之后有观察或者反例，直接抛出来就行。`,
+          `哈喽${name}，欢迎进群。这里平时会一起拆 SpaceX、AI、Robot 到底哪些是叙事，哪些真的可能落到产业链里。看到有意思的东西直接丢出来。`,
+          `${name}欢迎欢迎。这个群主要一起追 SpaceX、AI、Robot 的技术拐点和产业链变化，后面看到有意思的线索，随时一起拆。`,
+          `哈喽${name}，欢迎加入。这里很多问题都需要技术、产业链和资本市场一起看，之后聊 SpaceX、AI、Robot 的时候，也欢迎你直接补刀。`
         ];
-    return variants[seed % variants.length];
+    return variants[Math.floor(Math.random() * variants.length)];
   }
 
   buildCommunityWelcomeText({ multiple = false } = {}) {
@@ -3928,7 +3943,6 @@ export class FeishuBot {
     await this.markCommunityOpsActivity(chatId);
     const profiles = await this.resolveCommunityMemberProfiles(chatId, members);
     const welcomeText = this.buildPersonalizedCommunityWelcomeText({ multiple, profiles });
-    await this.sendTextToChat(chatId, welcomeText || this.buildCommunityWelcomeText({ multiple }));
     const ttsSent = await this.sendSpeechToChat(chatId, welcomeText);
     logEvent("info", "Feishu community ops welcome sent", { chatId, members: members.length || 1, personalized: profiles.some((item) => item.name || item.organization || item.title), ttsSent });
   }

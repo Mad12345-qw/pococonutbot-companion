@@ -202,16 +202,17 @@ await bot.handleCommunityMemberAdded({
 assertEqual(
   "community ops welcomes only the configured research group with decentralized wording",
   String(
-    communityOpsSent.length === 1 &&
-    communityOpsSent[0].chatId === DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID &&
-    communityOpsSent[0].text.includes("SpaceX") &&
-    communityOpsSent[0].text.includes("AI") &&
-    communityOpsSent[0].text.includes("Robot") &&
-    communityOpsSent[0].text.includes("王焕焕") &&
-    communityOpsSent[0].text.includes("华源证券股份有限公司") &&
+    communityOpsSent.length === 0 &&
     communityOpsSpeech.length === 1 &&
-    communityOpsSpeech[0].text === communityOpsSent[0].text &&
-    !communityOpsSent[0].text.includes("小椰产业观察群")
+    communityOpsSpeech[0].chatId === DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID &&
+    communityOpsSpeech[0].text.includes("SpaceX") &&
+    communityOpsSpeech[0].text.includes("AI") &&
+    communityOpsSpeech[0].text.includes("Robot") &&
+    communityOpsSpeech[0].text.includes("焕焕") &&
+    communityOpsSpeech[0].text.includes("券商") &&
+    !communityOpsSpeech[0].text.includes("王焕焕") &&
+    !communityOpsSpeech[0].text.includes("华源证券股份有限公司") &&
+    !communityOpsSpeech[0].text.includes("小椰产业观察群")
   ),
   "true"
 );
@@ -225,13 +226,13 @@ await bot.handleCommunityMemberAdded({
 assertEqual(
   "community ops ignores non-whitelisted Feishu groups",
   String(communityOpsSent.length),
-  "1"
+  "0"
 );
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops welcome suppresses immediate idle prompt",
   String(communityOpsSent.length),
-  "1"
+  "0"
 );
 await bot.maybeHandleCommunityPassiveMessage({
   chatId: `feishu:${DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID}`,
@@ -242,9 +243,9 @@ await bot.maybeHandleCommunityPassiveMessage({
 assertEqual(
   "community ops lightly nudges shared links into research clues",
   String(
-    communityOpsSent.length === 2 &&
-    communityOpsSent[1].text.includes("研究线索") &&
-    communityOpsSent[1].text.includes("产业链环节")
+    communityOpsSent.length === 1 &&
+    communityOpsSent[0].text.includes("研究线索") &&
+    communityOpsSent[0].text.includes("产业链环节")
   ),
   "true"
 );
@@ -259,9 +260,9 @@ await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops rotates idle prompts instead of repeating the same question",
   String(
-    communityOpsSent.length === 3 &&
-    communityOpsSent[2].text.includes("换个角度看") &&
-    !communityOpsSent[2].text.includes("今天可以先抛一个小问题")
+    communityOpsSent.length === 2 &&
+    communityOpsSent[1].text.includes("换个角度看") &&
+    !communityOpsSent[1].text.includes("今天可以先抛一个小问题")
   ),
   "true"
 );
@@ -269,7 +270,7 @@ await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops reserved prompt state prevents immediate duplicate idle prompts",
   String(communityOpsSent.length),
-  "3"
+  "2"
 );
 let webSearchReplyText = "";
 let webSearchCardCount = 0;
