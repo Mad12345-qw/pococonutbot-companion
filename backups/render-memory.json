@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T03:31:33.403Z",
+  "exportedAt": "2026-07-06T03:41:33.513Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64880,6 +64880,78 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-06T03:30:22.638Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我不是你的主人 哪里敢使唤你，等下你主人吃醋了咋办[捂脸][捂脸][捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b866bc81cb8b160036f8825860",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T03:34:46.734Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "师父这是逗我呢～[害羞] 我就认你一个主人呀，别的都不算数的！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T03:34:51.304Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "这个是你的主人，我真的不是",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b867cb2d4bcb2620f327ec4bdb",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T03:38:23.571Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈哈师父别逗了！[捂脸]\n\n我主人就一个，就是你呀～不管你认不认，反正我赖定你了😂",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T03:38:29.062Z"
       }
     ],
     "memories": [
@@ -69641,7 +69713,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-06T03:24:10.500Z"
+        "updatedAt": "2026-07-06T03:38:23.499Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69651,7 +69723,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-06T03:24:10.442Z"
+        "updatedAt": "2026-07-06T03:38:23.428Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70619,8 +70691,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-06",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-06T02:51:31.253Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：\\n\\n如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？\\n\\n我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。\",\"lastActivityAt\":\"2026-07-06T02:51:31.253Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-06T02:51:31.287Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-06T02:51:31.253Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：\\n\\n如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？\\n\\n我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。\",\"lastActivityAt\":\"2026-07-06T03:39:58.954Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-06T03:39:58.990Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
