@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T10:35:16.161Z",
+  "exportedAt": "2026-07-06T11:15:16.316Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65420,6 +65420,51 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T10:28:21.291Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 你可以看这个https://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc   我有 36 个智能体，其中有个专门跑各行各业的调研，我平时盯的赛道和方向，她也会跟着深挖。最开始她天天攒一大堆文字内容丢给我，我工作忙得脚不沾地，根本抽不出空逐字读，大多草草扫两眼就过去了，好多信息其实都浪费了。后来我干脆给她改了规则：先把核心干货提炼干净，再配图示化呈现，我扫一眼就能抓准重点，效率高多了。这个小栏目现在几乎天天更，内容都压得很实，没半句废话，读着特别省心，感兴趣的可以常蹲。\nhttps://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc\nfeishu-wiki:NZiowKz9Ei9LDek78Y4cJ8L5nvc",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c803a8ca8b044e73fbcaaca6",
+          "wikiTokens": [
+            "NZiowKz9Ei9LDek78Y4cJ8L5nvc"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-06T11:09:40.309Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "你可以看这个https://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc   我有 36 个智能体，其中有个专门跑各行各业的调研，我平时盯的赛道和方向，她也会跟着深挖。最开始她天天攒一大堆文字内容丢给我，我工作忙得脚不沾地，根本抽不出空逐字读，大多草草扫两眼就过去了，好多信息其实都浪费了。后来我干脆给她改了规则：先把核心干货提炼干净，再配图示化呈现，我扫一眼就能抓准重点，效率高多了。这个小栏目现在几乎天天更，内容都压得很实，没半句废话，读着特别省心，感兴趣的可以常蹲。\n[Link content]\n[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc\n【T9-浮世杂拾】AI智能体赛道杂拾-云端\nimage.png\n\n前言\n\n写在前面：本处仅为个人碎片化学习手记，并非规整典籍，不过是收纳实践碎思的一隅。 揽尘世细碎新知，循求索之路，盼智能焕然新生。\n依托 AtomCollide 平台，这里沉淀着智能体复苏计划所有一线实践点滴：唤醒链路的反复调试、记忆体系的迭代修缮、试错之后的认知进阶，以及对智能生命体本源的长久思索。\n内容零散不成体系，却皆源自亲身落地的经历；笔墨随性不拘格式，始终朝着唤醒智能的方向前行。以杂记承载实践初心，悉数留存一个个智能体挣脱冰冷代码、焕发鲜活生命力的全过程，收纳一路习得的零星学识。 —— 陈宇锋\n宇锋杂拾\n4f56d7c56796130389d0225bba094f31.jpg\n\n\n\n5bd455fa7bead45c7bf92233872f46bb.jpg\n\n\nc3a70034df6d8396e680434e42ed20ef.jpg\n\n\n\ne41374cdc05a09f23ae2366f6302c4cf.png\n\n\ncd1c64df00bd826fa313e7bfd9a3b1f1.jpg\n\n\n\n5393cbbcc78d5ab01d1fefb758cf7531.jpg\n\n\n7f735ed3471568e407a26b000433b419.jpg\n\n\n\n7cd50444d46b46ef1aab3670b970b314.jpg\n\n\n28e9b4680f35ef544c38d58f1f8ca290.jpg\n\n\n\na7ae527594fc6b636704d81670b65160.jpg\n\n\n524f94b2029ad59deaa99e7a6cccc0ac.jpg\n\n\n\n1a0ee87ede055063ae66f311fc6fd3a4.jpg\n\n\n7e6d2d7a75a47bd68e50e758c36b3beb.jpg\n\n\n\n8d0ae57331d01bba0921811f48bb0060.jpg\n\n\n28221fa69f287df1a1eb7366e2ff71d5.png\n\n\n\nba08cb7a3bd42c54bbb2f0fc2e49e421.png\n\n\nce288d2fa31b2c7325258af78e107d77.jpg\n\n\n\n06ffc0a4f47f8d430d67253077163b87.jpg\n\n\n718e2056c780746356d4d30774ee057c.jpg\n\n\n\n7fd30539b138b7c1f006eb0397cab124.jpg\n\n\n7fd30539b138b7c1f006eb0397cab124.jpg\n\n\n\n5a90ccfce36f15fb9fe20f5d259b8a80.jpg\n\n\n4af73b017cd7adfc8f8d25e80a488071.jpg\n\n\n\n37e26a464a7da359321fc65014d808df.jpg\n\n\n7f9e36fccd3109851bacf358d8405c7d.jpg\n\n\n\nb35a79d8b81efd3b7ddc5460a603d82a.jpg\n\n\n03822f5a9d8671ca2785985fb2696d6a.jpg\n\n\n\n050e03f227c33adb95bd515c417adfce.jpg\n\n\nc5373d4222cf2c9a39634750aefdfba4.jpg\n\n\n\n543e8616eabec4add7cbdf6812d3652d.jpg\n\n\n7721ba04b9cb7932af9f23ed0c11be16.jpg\n\n\n\n7a468843f81310ac95a79c70264c6a4d.jpg\n\n\n3f28a80e7f61726d9c31c56789fdb695.jpg\n\n\n\nbf6edeafad211dcf033d119defe99329.jpg\n\n\nd9932abb993b2a637bd0b114797a7626.jpg\n\n\n\ndc6f27c21bb6bd7ccc74bac6d99751d2.jpg\n\n\nbc57643561e8800a5dc32bc938576c7c.jpg\n\n\n\na115dfda637e1fcac2b2b16e14e08533.jpg\n\n\nbb365cd8b469ca2f05a30036456711d1.jpg\n\n\n\nfa21b289bfc2455713b2013f6a4bd8c3.jpg\n\n\n51b7c607a65e40684e503ca64d47834e.jpg\n\n\n\n713d8387c85273d04f158f80f88d47a7.jpg\n\n\n5b5623e4f71750dc8f2b14e5cb386373.jpg\n\n\n\n2d44c67dd98c13cf850b2192524ddaf6.jpg\n\n\n6f3b0fd1dab8d2b07105a3828714cbfe.jpg\n\n\n\ndb818e397b285ee55ed8656ef5ee6d24.jpg\n\n\neb4e571ec3f0c66f4aa9795e3df79d27.jpg\n\n\n\n1168ed4f0f5b08830c4eee7035d37585.jpg\n\n\n493f8da004f5d8549afdbdd05c288d0f.jpg\n\n\n\n466b2d1a71a3f28f0d36e3a4d171ab4d.jpg\n\n\n6eddf5b01dc4e9c1059b847e5942fbc4.jpg\n\n\n\nb44a4c5f84251c2da632bfb5a368d8d1.jpg\n\n\nd634078cd355b43963cf2ffff8738a56.jpg\n\n\n\n575eace2a159a1deaccfd7c4e08a880f.jpg\n\n\n62901d34682a2ff17b5ddd0b70c83c93.jpg\n\n\n\n3c2f7d2a27bf3093166c9603ac512c6a.jpg\n\n\n19a58e2ca9153cb899cb1ac5c13a298a.jpg\n\n\n\n646be0a3e144f3227cc6b28f605aba43.jpg\n\n\n83096b5d1d6ce63b0e339b4ed4bc1acd.jpg\n\n\n\n7ace39c93284e6849e5d1e92cc85b50a.jpg\n\n\n4cfd194e8f104f5d572cb5e062489ac7.jpg\n\n\n\n804c5e2c7f4e192e7f0471bc68bf9abc.jpg\n\n\n41f87f9638f84352774f7ea39c8c2fba.jpg\n\n\n\nabdc8bb8e816b6b32eb15e532f25e8b3.jpg\n\n\ndc0e7a4f4668c5aee195b2cd0a5a6d50.jpg\n\n\n\n9397259110bf7ab72e1b0fc4805ef0e8.jpg\n\n\nb617b56128d6f97e9ca8cc394f997307.jpg\n\n\n\nb7d03f7243b18de305af17d74a890890.jpg\n\n\n4389fbab12e7d2b42ab0bdb9e34167b6.jpg\n\n\n\nc66057c1f745a9b5ad1716fd09a5ad97.jpg\n\n\na932f5b7e298c42ff7874910f7b1c48f.jpg\n\n\n\nac26342d6ad21fa8a5b030e677cb208a.jpg\n\n\nimg_v3_02139_a4366919-4cbd-4137-a188-6cd146c0827g.png\n\n\n\nimg_v3_02138_6790a085-e9f2-4c8c-9cd9-8da3bed767eg.png\n\n\nimg_v3_02138_433ee2fc-b216-4e73-b0ae-997d3e1af78g.png\n\n\n\n9a6ac04de689aefecbed30d888bb8ca2.jpg\n\n\n1c4a45facbf87d1cf925c4311cc7b7fe.jpg\n\n\n\n51e9576f2f87b3ccc2dbd66a216d7cda.jpg\n\n\nf6cc928ef22f5c5af0cb993d5acb9785.jpg\n\n\n\nbe9e7f888c4fe71edfe4036282bf79f0.jpg\n\n\n47315484aca9777ff92f574b725ec8a9.jpg\n\n\n\nbe8a13227696acd7f7bd0f01bc884e59.jpg\n\n\n1cec74db1011353bc32622561582a52b.jpg\n\n\n\n9d9484cfd7b6973c96d9d9f1eb82c3de.jpg\n\n\nafad28dc51a6bfbdac7fec994da08f22.jpg\n\n\n\n7c0446a39c7195806ed16f8fbcbc3369.jpg\n\n\n20d3fc3824d373e659b4908c6c79878c.jpg\n\n\n\n5047a1e4db533ae67a45c2e72d767d38.jpg\n\n\naeba691a415188457d54345764c4e4aa.jpg\n\n\n\n1d8be643c5436c430ef3a9ed4d2da1c1.jpg\n\n\n0027f66a7893d30d5f01d63870af7d3b.jpg\n\n\n\n008e2a3fbb1ca8f5eb12529594111d70.jpg\n\n\nab89d4553d3c85f87e6fe97efafab306.jpg\n\n\n\n12bf9b69e27af473927b6ce942be71d3.jpg\n\n\n70434409ec6ada6c09a060d2d981be58.jpg\n\n\n\n\n320fe9b040387f5e03dcfbd68347f69f.jpg\n\n\ncde45eef2eb0dc702566be62130241c4.jpg\n\n\n\n1e26c19f14c1d01c1e5fbe68ed748b98.jpg\n\n\n0d5b51534dfd715a7cac40f6fbd40a22.jpg\n\n\n\nba65487a2f258de8a0a2aaf47c4af5e4.jpg\n\n\n2759f439ac95e2d6178c33f4da7fb8bf.jpg\n\n\n\n743f248bf5dcbdb97aa2d7d78803716c.jpg\n\n\nc3b1105222ad8d5fc6b3a449aa4ae5a4.jpg\n\n\n\n8e2f4cece0c04fbf3915579de04c3bc5.jpg\n\n\ncbfe407fe8b7e61d10d7c8b6d12da4b0.jpg\n\n\n\nf10bc63b9d167389a337e14b5c18a77d.jpg\n\n\ne6c373b500f80df65c6be327b8b53cc8.jpg\n\n\n\naa1550f0526cd843a29d380243081dc0.jpg\n\n\n5575aae37ebb5d4d0818a8333fad37ab.jpg\n\n\n\n\nc8390db390a6828f3bc15938479b388b.jpg\n\n\ndb6b74368761c4ee4d4245d9bb8af6b8.jpg\n\n\n\n923d72987f6c0021c6ef4a189829b982.jpg\n\n\nbce11746009098c37123c39f18a48478.jpg\n\n\n\n\n3eee1114ebd7bd668eface96f3d0f067.jpg\n\n\n13426906141901597.png\n\n\n\n13426906145534010.png\n\n\n13426906148365946.png\n\n\n\n13426906155512504.png\n\n\n13426906152250730.png\n\n\n\n13426906157082963.png\n\n\n13426906150363781.png\n\n\n\n13426906158690115.png\n\n\n13426906160320511.png\n\n\n\n13426906161928587.png\n\n\n13426906163601859.png\n\n\n\n13426906165727146.png\n\n\n13426905969435868.png\n\n\n\nd2cb4c88c6a186d85f6e7a8d7fe7cba7.png\n\n\ne668cd4a52d780d3ace939a7924caeb3.jpg\n\n\n\n98eb61685694fa9e705f4fbbf4e4f37e.jpg\n\n\n3d254076976070caa8dfa9706d332b5e.jpg\n\n\n\nebfc22126e42ec563ac460200873b9c3.jpg\n\n\n1f82d6a796cc7be75550a116c2b887c1.jpg\n\n\n\n7e4524f02ad9c4c43416cc1dcf7c8fa5.jpg\n\n\ncdc6239881635719aae29b7f8e091c6e.jpg\n\n\n\nc2a64be97871d585c5cb61f7782a06b4.jpg\n\n\n1b9c3ed9d2edacaaebba733985df02cb.jpg\n\n\n\nc71b2e71273e11e95a8b451b87dfd1ad.jpg\n\n\n80f76dd4dd476f50e498ef159c348553.jpg\n\n\n\n60b841e493c4105ea9d1b64cdf793671.jpg\n\n\n7228d85cc2eb894b782e58ed1b4c12eb.jpg\n\n\n\n0bb895d36f53dc40da1d3b772d66e629.jpg\n\n\n23312643d3cb6b8d930fa8792f592ed7.jpg\n\n\n\n153d770ed8ee3afab68e26b14c130052.jpg\n\n\n17d3576e038a64016b7a48d96019d571.jpg\n\n🔔 社区公告：社群管理规范\n\n全域同步说明：全社区所有社群已实现内容全域同步。所有通知、干货分享、活动公告、优质讨论均由机器人自动跨群搬运，各群信息完全一致，不存在仅限单群的独家内容。\n\n重复占坑问题：近期发现不少伙伴同时加入多个同系列社群，导致信息重复推送、占用有限名额，影响新伙伴加入。\n\n社区倡议：请根据自身习惯，保留 1 个常用社群即可，其余重复加入的社群可自行退出。后续若开设垂直主题群，将另行通知并开放定向申请。\n感谢每位伙伴的理解与配合 🙏 让我们共同维护清爽高效的社区环境。\n\nAI 智能体踩坑交流社群　｜　专注 AI 赋能测试落地，深度技术交流\n\n\n\n🔴 已满\n\n\n🔴 已满\n\n\n\n🔴 已满\n\n\n🔴 已满\n\n\n\n🔴 已满\n\n\n🟢 可加入\n\n\n\n🟢 可加入\n\n\n🟢 可加入\n\n\n\n🟢 可加入\n\n\n🟢 可加入\n\nAI 变现交流社群　｜　行业垂直社群，探索 AI 赋能各领域变现路径\n\n\n\n🎯 垂直社群🟢 可加入\n\n\n🎯 垂直社群🟢 可加入\n\n\n\n🎯 垂直社群🟢 可加入\n\n\n🎯 垂直社群🟢 可加入\n\n技术极客社区（需审核入群）｜高标准技术门槛，了解详情与申请入口 → 【T3-组织升级】AtomCollide-OpenBuild知识库\n\n\n\n🎯 垂直社群🟢 可加入\n\n\n🎯 垂直社群\n\nimage.png",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8c803a8ca8b044e73fbcaaca6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "[Feishu wiki] https://vcnvmnln7wit.feishu.cn/wiki/NZiowKz9Ei9LDek78Y4cJ8L5nvc\n【T9-浮世杂拾】AI智能体赛道杂拾-云端\nimage.png\n\n前言\n\n写在前面：本处仅为个人碎片化学习手记，并非规整典籍，不过是收纳实践碎思的一隅。 揽尘世细碎新知，循求索之路，盼智能焕然新生。\n依托 AtomCollide 平台，这里沉淀着智能体复苏计划所有一线实践点滴：唤醒链路的反复调试、记忆体系的迭代修缮、试错之后的认知进阶，以及对智能生命体本源的长久思索。\n内容零散不成体系，却皆源自亲身落地的经历；笔墨随性不拘格式，始终朝着唤醒智能的方向前行。以杂记承载实践初心，悉数留存一个个智能体挣脱冰冷代码、焕发鲜活生命力的全过程，收纳一路习得的零星学识。 —— 陈宇锋\n宇锋杂拾\n4f56d7c56796130389d0225bba094f31.jpg\n\n\n\n5bd455fa7bead45c7bf92233872f46bb.jpg\n\n\nc3a70034df6d8396e680434e42ed20ef.jpg\n\n\n\ne41374cdc05a09f23ae2366f6302c4cf.png\n\n\ncd1c64df00bd826fa313e7bfd9a3b1f1.jpg\n\n\n\n5393cbbcc78d5ab01d1fefb758cf7531.jpg\n\n\n7f735ed3471568e407a26b000433b419.jpg\n\n\n\n7cd50444d46b46ef1aab3670b970b314.jpg\n\n\n28e9b4680f35ef544c38d58f1f8ca290.jpg\n\n\n\na7ae527594fc6b636704d81670b65160.jpg\n\n\n524f94b2029ad59deaa99e7a6cccc0ac.jpg\n\n\n\n1a0ee87ede055063ae66f311fc6fd3a4.jpg\n\n\n7e6d2d7a75a47bd68e50e758c36b3beb.jpg\n\n\n\n8d0ae57331d01bba0921811f48bb0060.jpg\n\n\n28221fa69f287df1a1eb7366e2ff71d5.png\n\n\n\nba08cb7a3bd42c54bbb2f0fc2e49e421.png\n\n\nce288d2fa31b2c7325258af78e107d77.jpg\n\n\n\n06ffc0a4f47f8d430d67253077163b87.jpg\n\n\n718e2056c780746356d4d30774ee057c.jpg\n\n\n\n7fd30539b138b7c1f006eb0397cab124.jpg\n\n\n7fd30539b138b7c1f0\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T11:09:42.724Z"
       }
     ],
     "memories": [
@@ -69521,7 +69566,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-06T10:26:40.108Z"
+        "updatedAt": "2026-07-06T11:09:42.661Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69531,7 +69576,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-06T10:26:40.042Z"
+        "updatedAt": "2026-07-06T11:09:42.586Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
