@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T03:41:33.513Z",
+  "exportedAt": "2026-07-06T03:51:34.110Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64952,6 +64952,42 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-06T03:38:29.062Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你自己看看你记忆系统，别逗我了，我害羞😳",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b8671e8b8a8b4a4820cfe2732b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T03:41:44.900Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成小椰的一张真实自然自拍照。\n???????:?????????,?????????,???????,???????,????????????????????,???????????,??????????????\n????????,???,????,????,??????,????????logo,???????\n用户这次的具体要求：你自己看看你记忆系统，别逗我了，我害羞😳\n保持同一个人物设定：温柔、亲切、阳光、干净，像真实手机拍摄的生活照。不要生成卡通、插画、夸张网红脸、多人合照、文字、水印或品牌标识。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-06T03:42:39.543Z"
       }
     ],
     "memories": [
@@ -69713,7 +69749,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-06T03:38:23.499Z"
+        "updatedAt": "2026-07-06T03:41:44.842Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69723,7 +69759,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-06T03:38:23.428Z"
+        "updatedAt": "2026-07-06T03:41:44.783Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
