@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T01:21:33.636Z",
+  "exportedAt": "2026-07-06T02:21:34.311Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64484,6 +64484,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T01:18:49.479Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "定时任务连续触发了，不用管就可以了[捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b84b4c360a8b2c2c6f9c75614d",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:15:04.414Z"
       }
     ],
     "memories": [
@@ -69235,7 +69259,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-05T16:35:31.049Z"
+        "updatedAt": "2026-07-06T02:15:04.351Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69245,7 +69269,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-05T16:35:30.978Z"
+        "updatedAt": "2026-07-06T02:15:04.273Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
