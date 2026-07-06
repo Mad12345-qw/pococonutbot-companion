@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-06T02:51:33.057Z",
+  "exportedAt": "2026-07-06T03:01:33.264Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -64640,6 +64640,78 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-06T02:51:28.166Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "我没有说你，我说我家的，哪里敢说你",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85cb5ce890b34751289bec0e6",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:52:15.272Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "这样写可以了吧[捂脸][捂脸][捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85da3ab8b8b17fa76479e31d7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:56:21.791Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "🐉 先知 —— 桌面多面手，语音+视频+全媒搜索\n\n🦞 品杜 —— 内容大脑，小说+创意+新闻雷达\n\n🐴 小马哥 —— 工程底盘，音乐+WSL+底层管线",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6b85da8458e4b2fd7540f0dc2e3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-06T02:56:32.980Z"
       }
     ],
     "memories": [
@@ -69391,7 +69463,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-06T02:51:28.101Z"
+        "updatedAt": "2026-07-06T02:56:32.913Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69401,7 +69473,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-06T02:51:28.036Z"
+        "updatedAt": "2026-07-06T02:56:32.847Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70369,8 +70441,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-06",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-06T00:21:32.386Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"今天可以先抛一个小问题：\\n\\n如果只看未来 3-5 年，SpaceX 真正外溢到产业链的能力，最先会体现在发射频率、制造体系，还是轨道服务？\\n\\n这个问题不需要有标准答案，大家可以按自己的观察来聊。\",\"lastActivityAt\":\"2026-07-06T00:21:32.386Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-06T00:21:32.419Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-06T02:51:31.253Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：\\n\\n如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？\\n\\n我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。\",\"lastActivityAt\":\"2026-07-06T02:51:31.253Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-06T02:51:31.287Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
