@@ -787,7 +787,7 @@ function adminPage(config) {
                 <strong>GPT</strong>
                 <span id="gptSwitchMeta">主回复接口</span>
               </div>
-              <label class="switch" title="关闭后主聊天直接使用备用 MiniMax">
+              <label class="switch" title="关闭后主聊天直接使用备用模型">
                 <input id="gptSwitch" type="checkbox" />
                 <span class="slider"></span>
               </label>
@@ -1073,7 +1073,7 @@ function adminPage(config) {
       document.getElementById("gptSwitch").checked = gptEnabled;
       document.getElementById("gptSwitchMeta").textContent = gptEnabled
         ? "开启：使用 GPT 主回复接口"
-        : "关闭：直接使用备用 MiniMax";
+        : "关闭：直接使用备用模型";
       const smartRepliesEnabled = state.settings?.smartRepliesEnabled !== false;
       document.getElementById("smartRepliesSwitch").checked = smartRepliesEnabled;
       document.getElementById("smartRepliesSwitchMeta").textContent = smartRepliesEnabled
@@ -1275,7 +1275,7 @@ function adminPage(config) {
         method: "POST",
         body: JSON.stringify({ gptEnabled: enabled })
       });
-      setStatus(enabled ? "GPT 已开启，主聊天使用 GPT 接口。" : "GPT 已关闭，主聊天直接使用备用 MiniMax。");
+      setStatus(enabled ? "GPT 已开启，主聊天使用 GPT 接口。" : "GPT 已关闭，主聊天直接使用备用模型。");
       await load();
     });
     document.getElementById("smartRepliesSwitch").addEventListener("change", async (event) => {

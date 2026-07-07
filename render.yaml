@@ -22,11 +22,11 @@ services:
       - key: AI_RETRY_DELAY_MS
         value: "800"
       - key: FALLBACK_AI_URL
-        value: https://api.minimaxi.com/v1/chat/completions
+        value: https://api.evomap.ai/v1/chat/completions
       - key: FALLBACK_AI_MODEL
-        value: MiniMax-M3
+        value: evomap-deepseek-v4-flash
       - key: FALLBACK_AI_COMPATIBILITY
-        value: minimax
+        value: openai
       - key: FALLBACK_AI_API_KEY
         sync: false
       - key: IMAGE_GENERATION_ENABLED

@@ -33,7 +33,7 @@ function asCleanText(value, fallback) {
 }
 
 function resolveAiEndpoint(rawUrl) {
-  const input = (rawUrl || "https://api.minimaxi.com/v1/chat/completions").trim();
+  const input = (rawUrl || "https://api.evomap.ai/v1/chat/completions").trim();
   const clean = input.replace(/\/+$/, "");
 
   if (clean.endsWith("/chat/completions") || clean.includes("/chatcompletion_v2")) {
@@ -152,8 +152,8 @@ export const config = {
   wechatMpOnlyFansCanComment: asBoolean(process.env.WECHAT_MP_ONLY_FANS_CAN_COMMENT, false),
   aiApiKey: process.env.AI_API_KEY || process.env.MINIMAX_API_KEY,
   aiUrl: resolveAiEndpoint(process.env.AI_URL || process.env.AI_BASE_URL || process.env.MINIMAX_URL),
-  aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
-  aiCompatibility: process.env.AI_COMPATIBILITY || process.env.MODEL_COMPATIBILITY || "minimax",
+  aiModel: process.env.AI_MODEL || process.env.MINIMAX_MODEL || "evomap-deepseek-v4-flash",
+  aiCompatibility: process.env.AI_COMPATIBILITY || process.env.MODEL_COMPATIBILITY || "openai",
   aiMaxTokensField: process.env.AI_MAX_TOKENS_FIELD || "",
   aiExtraBody: asJsonObject(process.env.AI_EXTRA_BODY_JSON, {}),
   aiReplyMaxTokens: asNumber(process.env.AI_REPLY_MAX_TOKENS, 900),
@@ -162,8 +162,8 @@ export const config = {
   aiRetryDelayMs: asNumber(process.env.AI_RETRY_DELAY_MS, 800),
   fallbackAiApiKey: process.env.FALLBACK_AI_API_KEY || process.env.MINIMAX_API_KEY || "",
   fallbackAiUrl: resolveAiEndpoint(process.env.FALLBACK_AI_URL || process.env.FALLBACK_AI_BASE_URL || process.env.MINIMAX_URL || ""),
-  fallbackAiModel: process.env.FALLBACK_AI_MODEL || process.env.MINIMAX_MODEL || "MiniMax-M3",
-  fallbackAiCompatibility: process.env.FALLBACK_AI_COMPATIBILITY || "minimax",
+  fallbackAiModel: process.env.FALLBACK_AI_MODEL || process.env.MINIMAX_MODEL || "evomap-deepseek-v4-flash",
+  fallbackAiCompatibility: process.env.FALLBACK_AI_COMPATIBILITY || "openai",
   fallbackAiMaxTokensField: process.env.FALLBACK_AI_MAX_TOKENS_FIELD || "",
   fallbackAiExtraBody: asJsonObject(process.env.FALLBACK_AI_EXTRA_BODY_JSON, {}),
   exposeModelInfo: asBoolean(process.env.EXPOSE_MODEL_INFO, false),
