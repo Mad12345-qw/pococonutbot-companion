@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T13:52:51.610Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-07T13:56:56.677Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -65810,6 +65810,73 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-07T13:51:52.581Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://meoo.com/\nhttps://meoo.com/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://meoo.com/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb1ae4e4acc1f419c16e24bb2",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-07T13:52:28.103Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "https://meoo.com/\n[Link content]\n[Web page] https://meoo.com/\n秒悟 Meoo｜AI 建站、网页生成与小程序搭建工具 \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n 秒悟 Meoo - AI 建站、网页生成与小程序搭建工具\n\n 秒悟 Meoo 支持通过自然语言快速创建网页应用、落地页、小程序、营销 H5、PPT 和数据可视化，适合官网搭建、活动页制作、产品原型和业务工具生成。\n\n \n 首页 \n 技能市场 \n 创意社区 \n 秒悟文档",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb1ae4e4acc1f419c16e24bb2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "[Web page] https://meoo.com/\n秒悟 Meoo｜AI 建站、网页生成与小程序搭建工具 \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n 秒悟 Meoo - AI 建站、网页生成与小程序搭建工具\n\n 秒悟 Meoo 支持通过自然语言快速创建网页应用、落地页、小程序、营销 H5、PPT 和数据可视化，适合官网搭建、活动页制作、产品原型和业务工具生成。\n\n \n 首页 \n 技能市场 \n 创意社区 \n 秒悟文档",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T13:52:31.607Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "免费的打吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb1a051ca8c16f6fa4085a7cf",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T13:52:39.890Z"
       }
     ],
     "memories": [
@@ -69111,7 +69178,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-06T10:28:21.232Z"
+        "updatedAt": "2026-07-07T13:52:39.710Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69121,7 +69188,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-06T10:28:21.172Z"
+        "updatedAt": "2026-07-07T13:52:39.531Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
