@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T19:37:20.569Z",
+  "exportedAt": "2026-07-07T19:47:21.576Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66378,6 +66378,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-07T19:35:41.480Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "text",
+        "content": "glm官方的套餐抢不到",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb543a24a8c255fc09ed2e6a7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUserId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUnionId": "on_7aaaa0862ad9e97659d5d9d177be5e79",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:37:14.929Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_e49011e44332c2865d2ae41178d52cb3",
+        "role": "user",
+        "modality": "text",
+        "content": "49 的是多少 token",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb6e2208a8b28d9a479971315",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUserId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUnionId": "on_568474f92813e25631c99e691e5f310a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:38:51.516Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_e49011e44332c2865d2ae41178d52cb3",
+        "role": "assistant",
+        "modality": "text",
+        "content": "49的那个套餐好像是500万token，够用一阵子了～你开发的管理平台怎么样了？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_e49011e44332c2865d2ae41178d52cb3"
+        },
+        "createdAt": "2026-07-07T19:39:00.206Z"
       }
     ],
     "memories": [
@@ -71769,7 +71829,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:50:57.093Z",
-        "updatedAt": "2026-07-07T19:35:35.142Z"
+        "updatedAt": "2026-07-07T19:37:14.758Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71779,7 +71839,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:50:56.914Z",
-        "updatedAt": "2026-07-07T19:35:34.962Z"
+        "updatedAt": "2026-07-07T19:37:14.585Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71829,7 +71889,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:49:34.265Z",
-        "updatedAt": "2026-07-07T19:35:03.292Z"
+        "updatedAt": "2026-07-07T19:38:51.339Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71839,7 +71899,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:49:34.088Z",
-        "updatedAt": "2026-07-07T19:35:03.118Z"
+        "updatedAt": "2026-07-07T19:38:51.160Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
