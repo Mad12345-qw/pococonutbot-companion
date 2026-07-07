@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T01:55:16.482Z",
+  "exportedAt": "2026-07-07T02:05:15.582Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -65561,6 +65561,51 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-07T01:47:52.189Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4b01c8536de9ae43bb013937a87dee0d",
+        "role": "user",
+        "modality": "text",
+        "content": "妙搭 OpenClaw 智能体，我只想让几个特定的同事能够通过对话添加知识库和技能，其他同事只能和智能体对话聊天，不能修改智能体的应答策略、工具调用、知识库。\n场景举例：比如销售负责人和销售管理团队才能修改“销售智能体”的知识库、应答策略、工具调用逻辑。但是一线 BD 只能和智能体聊天问答，不能修改智能体能力。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bf198c66c90b26d2ae8a2598c5",
+          "rawChatId": "oc_4f5f294f132c713ba1f0b25639f6359a",
+          "rawOpenId": "ou_4b01c8536de9ae43bb013937a87dee0d",
+          "rawUserId": "ou_4b01c8536de9ae43bb013937a87dee0d",
+          "rawUnionId": "on_7a5af9463709088bbc4963355120ce00",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T01:58:59.550Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 关于搜集整理知识入知识库，几个关键步骤供参考：\nhttps://vcnvmnln7wit.feishu.cn/wiki/WpK2wAcV8i6P8tke8X9cLcmDnSh@_user_1\nfeishu-wiki:WpK2wAcV8i6P8tke8X9cLcmDnSh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/WpK2wAcV8i6P8tke8X9cLcmDnSh@_user_1"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bf193457cb0c1f692aea59f4cf",
+          "wikiTokens": [
+            "WpK2wAcV8i6P8tke8X9cLcmDnSh"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-07T02:01:15.915Z"
       }
     ],
     "memories": [
@@ -66722,7 +66767,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:40:57.807Z",
-        "updatedAt": "2026-06-23T09:40:57.807Z"
+        "updatedAt": "2026-07-07T01:58:59.487Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
@@ -66732,7 +66777,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-23T09:40:57.736Z",
-        "updatedAt": "2026-06-23T09:40:57.736Z"
+        "updatedAt": "2026-07-07T01:58:59.342Z"
       },
       {
         "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
