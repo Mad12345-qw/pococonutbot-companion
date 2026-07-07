@@ -18,6 +18,15 @@ function fromBase64Utf8(text) {
   return Buffer.from(text || "", "base64").toString("utf8");
 }
 
+function countStateRecords(state) {
+  if (!state || typeof state !== "object") return 0;
+  return Object.values(state).reduce((count, value) => {
+    if (Array.isArray(value)) return count + value.length;
+    if (value && typeof value === "object") return count + Object.keys(value).length;
+    return count;
+  }, 0);
+}
+
 export class GitHubMemoryBackup {
   constructor({ config, storage }) {
     this.config = config;
@@ -78,6 +87,26 @@ export class GitHubMemoryBackup {
     return text ? JSON.parse(text) : null;
   }
 
+  async requestText(url, options = {}) {
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        Authorization: `Bearer ${this.config.githubBackupToken}`,
+        Accept: "application/vnd.github.raw",
+        "User-Agent": "pococonutbot-memory-backup",
+        ...(options.headers || {})
+      }
+    });
+
+    const text = await response.text();
+    if (!response.ok) {
+      const error = new Error(`GitHub raw API ${response.status}: ${truncate(text, 500)}`);
+      error.status = response.status;
+      throw error;
+    }
+    return text;
+  }
+
   async ensureBranch() {
     const [owner, repo] = this.config.githubBackupRepo.split("/");
     const branch = encodeURIComponent(this.config.githubBackupBranch);
@@ -109,7 +138,17 @@ export class GitHubMemoryBackup {
 
     try {
       const file = await this.request(`/repos/${owner}/${repo}/contents/${path}?ref=${branch}`);
-      const decoded = fromBase64Utf8(file.content).trim();
+      let decoded = fromBase64Utf8(String(file.content || "").replace(/\s/g, "")).trim();
+      if (!decoded && file.git_url) {
+        const blobPath = new URL(file.git_url).pathname;
+        const blob = await this.request(blobPath);
+        if (blob?.encoding === "base64" && blob.content) {
+          decoded = fromBase64Utf8(String(blob.content || "").replace(/\s/g, "")).trim();
+        }
+      }
+      if (!decoded && file.download_url) {
+        decoded = (await this.requestText(file.download_url)).trim();
+      }
       if (!decoded) {
         return { sha: file.sha, snapshot: null };
       }
@@ -145,6 +184,11 @@ export class GitHubMemoryBackup {
     }
 
     const remote = await this.getRemoteBackup();
+    if (countStateRecords(state) === 0 && countStateRecords(remote.snapshot?.data) > 0) {
+      console.warn("Refusing to overwrite non-empty GitHub memory backup with empty local state.");
+      return;
+    }
+
     if (remote.snapshot?.data && stableStringify(deepSort(remote.snapshot.data)) === stableState) {
       this.lastStableState = stableState;
       return;
