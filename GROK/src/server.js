@@ -8,7 +8,7 @@ import zlib from "node:zlib";
 import express from "express";
 import ffmpegPath from "ffmpeg-static";
 import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
-import { currentGrokStateHash, grokStateInventory, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
+import { bootstrapRemotePostgres, currentGrokStateHash, grokStateInventory, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
 
 const STARTED_AT = new Date();
 const execFileAsync = promisify(execFile);
@@ -2531,6 +2531,35 @@ app.get("/debug/grok-state-status", async (req, res) => {
     res.json({ ok: true, state: await grokStateStoreStatus() });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.post("/debug/bootstrap-remote-postgres", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  if (req.body?.confirm !== "bootstrap-postgres-on-configured-remote-host") {
+    res.status(400).json({ ok: false, error: "missing confirmation" });
+    return;
+  }
+  try {
+    const result = await bootstrapRemotePostgres({
+      database: req.body?.database,
+      username: req.body?.username,
+      password: req.body?.password
+    });
+    res.json({
+      ok: true,
+      host: result.host,
+      port: result.port,
+      database: result.database,
+      username: result.username,
+      stdout: redactSensitive(result.stdout).slice(-4000),
+      stderr: redactSensitive(result.stderr).slice(-2000)
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: redactSensitive(error.message) });
   }
 });
 

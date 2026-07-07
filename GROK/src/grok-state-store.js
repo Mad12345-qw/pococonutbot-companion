@@ -452,6 +452,114 @@ export async function grokStateStoreStatus() {
   };
 }
 
+function sqlLiteral(value) {
+  return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function assertPgName(value, field) {
+  const text = String(value || "").trim();
+  if (!/^[a-zA-Z][a-zA-Z0-9_]{2,62}$/.test(text)) {
+    throw new Error(`${field} must start with a letter and contain only letters, numbers, and underscore.`);
+  }
+  return text;
+}
+
+export async function bootstrapRemotePostgres({ database = "pococonutbot", username = "pococonutbot_app", password = "" } = {}) {
+  const cfg = remoteStateConfig();
+  if (!cfg.enabled) {
+    throw new Error("Remote Tencent host is not configured.");
+  }
+
+  const dbName = assertPgName(database, "database");
+  const dbUser = assertPgName(username, "username");
+  const dbPassword = String(password || "");
+  if (dbPassword.length < 24) {
+    throw new Error("password must be at least 24 characters.");
+  }
+
+  const setupScript = `#!/usr/bin/env bash
+set -euo pipefail
+
+export DEBIAN_FRONTEND=noninteractive
+
+if ! command -v psql >/dev/null 2>&1; then
+  apt-get update
+  apt-get install -y postgresql postgresql-contrib
+fi
+
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl enable --now postgresql
+else
+  service postgresql start
+fi
+
+PG_VERSION="$(ls /etc/postgresql 2>/dev/null | sort -V | tail -1)"
+if [ -z "$PG_VERSION" ]; then
+  echo "PostgreSQL config directory not found" >&2
+  exit 1
+fi
+
+PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
+PG_HBA="/etc/postgresql/$PG_VERSION/main/pg_hba.conf"
+
+if grep -qE "^#?listen_addresses\\s*=" "$PG_CONF"; then
+  sed -i "s/^#\\?listen_addresses\\s*=.*/listen_addresses = '*'/" "$PG_CONF"
+else
+  printf "\\nlisten_addresses = '*'\\n" >> "$PG_CONF"
+fi
+
+grep -q "host all all 0.0.0.0/0 scram-sha-256" "$PG_HBA" || printf "\\nhost all all 0.0.0.0/0 scram-sha-256\\n" >> "$PG_HBA"
+grep -q "host all all ::/0 scram-sha-256" "$PG_HBA" || printf "host all all ::/0 scram-sha-256\\n" >> "$PG_HBA"
+
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl restart postgresql
+else
+  service postgresql restart
+fi
+
+su - postgres -c "psql -v ON_ERROR_STOP=1" <<'SQL'
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT FROM pg_catalog.pg_roles WHERE rolname = ${sqlLiteral(dbUser)}) THEN
+    EXECUTE 'CREATE ROLE ${dbUser} LOGIN PASSWORD ' || ${sqlLiteral(sqlLiteral(dbPassword))};
+  ELSE
+    EXECUTE 'ALTER ROLE ${dbUser} WITH LOGIN PASSWORD ' || ${sqlLiteral(sqlLiteral(dbPassword))};
+  END IF;
+END
+$$;
+SQL
+
+if ! su - postgres -c "psql -tAc \\"SELECT 1 FROM pg_database WHERE datname='${dbName}'\\"" | grep -q 1; then
+  su - postgres -c "createdb -O ${dbUser} ${dbName}"
+fi
+
+su - postgres -c "psql -v ON_ERROR_STOP=1 -d ${dbName}" <<'SQL'
+GRANT ALL PRIVILEGES ON DATABASE ${dbName} TO ${dbUser};
+GRANT ALL ON SCHEMA public TO ${dbUser};
+ALTER SCHEMA public OWNER TO ${dbUser};
+SQL
+
+ss -ltnp | grep ':5432' || true
+pg_isready -h 127.0.0.1 -p 5432
+`;
+
+  const encoded = Buffer.from(setupScript, "utf8").toString("base64");
+  const client = await sshConnect(cfg);
+  try {
+    const result = await sshExec(client, `printf %s ${shellQuote(encoded)} | base64 -d > /tmp/codex-bootstrap-postgres.sh && bash /tmp/codex-bootstrap-postgres.sh; rc=$?; rm -f /tmp/codex-bootstrap-postgres.sh; exit $rc`);
+    return {
+      host: cfg.host,
+      port: 5432,
+      database: dbName,
+      username: dbUser,
+      stdout: result.stdout,
+      stderr: result.stderr
+    };
+  } finally {
+    client.end();
+  }
+}
+
 function countLines(filePath) {
   try {
     const text = fs.readFileSync(filePath, "utf8");
