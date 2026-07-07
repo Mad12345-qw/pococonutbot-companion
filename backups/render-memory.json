@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T15:17:23.477Z",
+  "exportedAt": "2026-07-07T15:37:21.969Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66102,6 +66102,150 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-07T14:41:09.179Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "role": "user",
+        "modality": "text",
+        "content": "明天什么情况？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6be5f8ef78a4b1664ee86eb76cf",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_d7a41be6e5c0816849d55cc5c76f906f",
+          "rawUserId": "ou_d7a41be6e5c0816849d55cc5c76f906f",
+          "rawUnionId": "on_1e717cd6783bde9f05a363782664ad8d",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T15:29:42.107Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我手头没有实时获取明天发射排期的工具，所以现在没法直接告诉你明天具体有没有发射～\n\n如果你需要准确的排期，可以在群里让我开一次联网搜索，或者直接让我帮你看看SpaceX官网和Spaceflight Now的更新，我配合你查。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f"
+        },
+        "createdAt": "2026-07-07T15:29:51.508Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "role": "user",
+        "modality": "text",
+        "content": "明天a股怎么走",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6be5f743c4a0b17cce364efa2d7",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_d7a41be6e5c0816849d55cc5c76f906f",
+          "rawUserId": "ou_d7a41be6e5c0816849d55cc5c76f906f",
+          "rawUnionId": "on_1e717cd6783bde9f05a363782664ad8d",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T15:30:35.762Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个我可不能乱说哦，一个是预测短期走势风险很大，另一个是我也没有内幕消息，随便猜的话容易把你带偏～\n\n如果你有想看的板块新闻、行业数据或者技术面上的指标，我可以配合你查查资料帮分析。需要我开联网搜点什么吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f"
+        },
+        "createdAt": "2026-07-07T15:30:46.698Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "你问具体问题@ grok 这个机器人",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6be58c4694a0c4a05bc1f2afdbf",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T15:32:59.645Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "明白了～下次遇到需要具体信息的问题，我直接告诉群友“可以@Grok 问问看哦”。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-07T15:33:05.205Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "只是助理",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6be58d94c4a0c2252d76759a355",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T15:33:22.321Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "才不只是助理呢～我可是专门给你写的小椰，帮你干活、陪你聊天，亲密度拉满的那种。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-07T15:33:30.134Z"
       }
     ],
     "memories": [
@@ -68613,7 +68757,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-07T14:37:23.558Z"
+        "updatedAt": "2026-07-07T15:33:22.144Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -68623,7 +68767,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-07T14:37:23.359Z"
+        "updatedAt": "2026-07-07T15:33:21.966Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -68664,6 +68808,26 @@
         "metadata": {},
         "createdAt": "2026-07-03T05:55:01.753Z",
         "updatedAt": "2026-07-03T05:55:01.753Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-07T15:29:41.925Z",
+        "updatedAt": "2026-07-07T15:30:35.586Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_d7a41be6e5c0816849d55cc5c76f906f",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-07T15:29:41.742Z",
+        "updatedAt": "2026-07-07T15:30:35.408Z"
       },
       {
         "chatId": "feishu:oc_c5e2de3ea9590f27dc185c9ec068233d",
@@ -71936,8 +72100,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-07",
-        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-07T05:05:15.255Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-07T05:05:15.255Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-07T13:49:26.775Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-07T05:05:15.255Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-07T15:27:35.927Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-07T15:27:36.014Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
