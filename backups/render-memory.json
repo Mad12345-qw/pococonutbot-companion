@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T15:37:21.969Z",
+  "exportedAt": "2026-07-07T19:37:20.569Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66246,6 +66246,138 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-07T15:33:30.134Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "text",
+        "content": "国内的glm套餐抢不到",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb5e056cb8c455fb0362028b0",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUserId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUnionId": "on_7aaaa0862ad9e97659d5d9d177be5e79",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:34:34.388Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小小，国内的GLM套餐确实竞争大。没关系，慢慢来就好，总会有的~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f"
+        },
+        "createdAt": "2026-07-07T19:34:41.737Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_e49011e44332c2865d2ae41178d52cb3",
+        "role": "user",
+        "modality": "text",
+        "content": "啊？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb5c9cfca8b15d9c058fccc09",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUserId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUnionId": "on_568474f92813e25631c99e691e5f310a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:34:55.947Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_e49011e44332c2865d2ae41178d52cb3",
+        "role": "user",
+        "modality": "text",
+        "content": "玩饥饿营销是吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb5c6fcca4b2c4cfb15ad10e1",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUserId": "ou_e49011e44332c2865d2ae41178d52cb3",
+          "rawUnionId": "on_568474f92813e25631c99e691e5f310a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:35:03.466Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "text",
+        "content": "说是算力紧张，早上到点抢套餐都抢不到，",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb5a7feca8c4e2293237ed9fa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUserId": "ou_d9b65537a036ffe6b9957f3f48fc329f",
+          "rawUnionId": "on_7aaaa0862ad9e97659d5d9d177be5e79",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:35:35.318Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2872bb9d605a54974a771256d5910782",
+        "role": "user",
+        "modality": "text",
+        "content": "不知道啥价，我都不怎么用",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bfb5b8150b0c10a43b061169a3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUserId": "ou_2872bb9d605a54974a771256d5910782",
+          "rawUnionId": "on_44cda41a6269daf52fc59719353b313c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-07T19:35:41.480Z"
       }
     ],
     "memories": [
@@ -69567,7 +69699,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.636Z",
-        "updatedAt": "2026-07-07T13:52:39.710Z"
+        "updatedAt": "2026-07-07T19:35:41.304Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69577,7 +69709,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T15:40:24.419Z",
-        "updatedAt": "2026-07-07T13:52:39.531Z"
+        "updatedAt": "2026-07-07T19:35:41.127Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71637,7 +71769,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:50:57.093Z",
-        "updatedAt": "2026-06-23T14:14:42.848Z"
+        "updatedAt": "2026-07-07T19:35:35.142Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71647,7 +71779,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:50:56.914Z",
-        "updatedAt": "2026-06-23T14:14:42.752Z"
+        "updatedAt": "2026-07-07T19:35:34.962Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71697,7 +71829,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:49:34.265Z",
-        "updatedAt": "2026-07-07T13:51:52.406Z"
+        "updatedAt": "2026-07-07T19:35:03.292Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71707,7 +71839,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-07T13:49:34.088Z",
-        "updatedAt": "2026-07-07T13:51:52.227Z"
+        "updatedAt": "2026-07-07T19:35:03.118Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
