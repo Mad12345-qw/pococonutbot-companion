@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-07T02:45:16.349Z",
+  "exportedAt": "2026-07-07T05:15:16.161Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71492,8 +71492,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-07",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-07T02:35:13.956Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"换个角度看，今天这个问题可能比“星舰什么时候成功”更重要：\\n\\n如果高频发射真的跑通，最先被重估的是火箭制造，还是地面发射系统、推进剂、测控和轨道服务？\\n\\n我倾向于先看后面这些没那么性感、但更容易形成产业链外溢的环节。\",\"lastActivityAt\":\"2026-07-07T02:35:13.956Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-07T02:35:13.990Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-07T05:05:15.255Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-07T05:05:15.255Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-07T05:05:15.382Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
