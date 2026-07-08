@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T11:59:36.118Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-08T12:10:01.722Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -67645,6 +67645,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-08T11:54:37.610Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "你花钱走端到端语言大模型就像真人，豆包20元30小时语言交互",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd7927e78b0b2ea6c1105b77d3",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T12:08:50.906Z"
       }
     ],
     "memories": [
@@ -72546,7 +72570,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-08T11:54:37.433Z"
+        "updatedAt": "2026-07-08T12:08:50.719Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -72556,7 +72580,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-08T11:54:37.254Z"
+        "updatedAt": "2026-07-08T12:08:50.524Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
