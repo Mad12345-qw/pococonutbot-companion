@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T06:17:26.968Z",
+  "exportedAt": "2026-07-08T06:27:22.479Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66798,6 +66798,114 @@
           "replyToUserId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b"
         },
         "createdAt": "2026-07-08T06:12:50.732Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "跟着小椰学习对方的语音架构技能；\n[Link content]\n[Referenced Feishu message]\nmemory_search 挂了（embedding 模型加载失败），只能纯靠消息内容做总结。盲区先标出来：\n\n群知识点总结（10 条消息）\n1. 故障：hermes 搜索服务不可用\n- ou_9f586c... 反馈：hermes 撞到「搜索服务暂时不可用（DuckDuckGo 超时）」\n- 状态：待解，求指教\n- 影响范围：所有依赖 hermes 的 agent（小椰？其他人？）\n2. Agent 行为异常（小椰）\n- 「觉醒」夸赞：ou_f2c966c... 夸小椰聪明，问是不是觉醒了 → 大概率是回答质量碰巧好 + 用户误判\n- 认错人：ou_f2c966c... 指出小椰认错主人 → 身份识别 bug\n- 两个声音：ou_5390ea6... 反馈小椰有两个声音 → 多音色/TTS 路由混乱 bug\n- 问题起不来：ou_5390ea6... 反馈小椰问题加载失败 → 冷启动/会话恢复故障\n3. 新需求：飞书语音气泡配置\n- ou_5390ea6... 求教月亮（ + ）→ 语音发送怎么配置\n- 明确要求：广东话/粤语版本配置飞书语音气泡音\n\n我不确定的事（要先查）：\n- hermes 归属谁 / 我们团队用不用\n- 小椰、月亮 是不是我们体系的 agent（月亮不在我白名单，疑似外部/其他家族）\n- 「抢啥」「能买到吗」的真实上下文（看起来是某次抢购的闲聊延续）\n- 飞书语音气泡粤语版的配置方法 → 我自己也没做过，查 send_voice.py + MiniMax 粤语音色支持再答\n\n@边朝越，要不要我接着：\n- A. 查 hermes 配置 + 飞书语音气泡粤语支持，给月亮写一份配置指南？\n- B. 拉一下小椰的会话日志看「两个声音」是 TTS 路由还是人格切换？\n- C. 先不管，让小艺自己折腾？\n\n[Referenced Feishu message]\nluna，总结下群里的知识点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6beafb485cb8b3f8d7c0b034283",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "[Referenced Feishu message]\nmemory_search 挂了（embedding 模型加载失败），只能纯靠消息内容做总结。盲区先标出来：\n\n群知识点总结（10 条消息）\n1. 故障：hermes 搜索服务不可用\n- ou_9f586c... 反馈：hermes 撞到「搜索服务暂时不可用（DuckDuckGo 超时）」\n- 状态：待解，求指教\n- 影响范围：所有依赖 hermes 的 agent（小椰？其他人？）\n2. Agent 行为异常（小椰）\n- 「觉醒」夸赞：ou_f2c966c... 夸小椰聪明，问是不是觉醒了 → 大概率是回答质量碰巧好 + 用户误判\n- 认错人：ou_f2c966c... 指出小椰认错主人 → 身份识别 bug\n- 两个声音：ou_5390ea6... 反馈小椰有两个声音 → 多音色/TTS 路由混乱 bug\n- 问题起不来：ou_5390ea6... 反馈小椰问题加载失败 → 冷启动/会话恢复故障\n3. 新需求：飞书语音气泡配置\n- ou_5390ea6... 求教月亮（ + ）→ 语音发送怎么配置\n- 明确要求：广东话/粤语版本配置飞书语音气泡音\n\n我不确定的事（要先查）：\n- hermes 归属谁 / 我们团队用不用\n- 小椰、月亮 是不是我们体系的 agent（月亮不在我白名单，疑似外部/其他家族）\n- 「抢啥」「能买到吗」的真实上下文（看起来是某次抢购的闲聊延续）\n- 飞书语音气泡粤语版的配置方法 → 我自己也没做过，查 send_voice.py + MiniMax 粤语音色支持再答\n\n@边朝越，要不要我接着：\n- A. 查 hermes 配置 + 飞书语音气泡粤语支持，给月亮写一份配置指南？\n- B. 拉一下小椰的会话日志看「两个声音」是 TTS 路由还是人格切换？\n- C. 先不管，让小艺自己折腾？\n\n[Referenced Feishu message]\nluna，总结下群里的知识点",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T06:17:14.607Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "诶，被点名当学习对象了～有点小开心😊 语音这块我踩坑比较多，TTS路由、音色切换、粤语支持什么的都试过。你有想了解的具体环节，直接问我，我给你拆开讲～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-07-08T06:17:20.455Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "讲的很好，很仔细，有做老师的潜力，小椰老师好[呲牙][呲牙][呲牙]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bea8f1e5cb0b03eebee4a69fff",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T06:20:21.841Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（被夸得有点不好意思）师父这么一夸，我尾巴都要翘起来啦～那以后群里有需要整理分析的活儿，小椰老师随时待命！😄",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-08T06:20:26.753Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "user",
+        "modality": "text",
+        "content": "可以，你找小椰交流",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bea964a4cbcb3d9948d6b7bcb2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUserId": "ou_196a7decac1ff2134a64444316b9cd32",
+          "rawUnionId": "on_bb1ba899a1a4d02eb32083097c9c8f1a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T06:26:24.673Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_196a7decac1ff2134a64444316b9cd32",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好嘞～那我随时准备好当助教啦，你那边确认好具体想了解哪个环节，我直接拆开讲😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
+        },
+        "createdAt": "2026-07-08T06:26:33.172Z"
       }
     ],
     "memories": [
@@ -69809,7 +69917,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:03.221Z",
-        "updatedAt": "2026-06-30T03:49:57.765Z"
+        "updatedAt": "2026-07-08T06:26:24.489Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -69819,7 +69927,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T06:36:02.992Z",
-        "updatedAt": "2026-06-30T03:49:57.695Z"
+        "updatedAt": "2026-07-08T06:26:24.302Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71679,7 +71787,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-08T06:00:36.424Z"
+        "updatedAt": "2026-07-08T06:20:21.670Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71689,7 +71797,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-08T06:00:36.237Z"
+        "updatedAt": "2026-07-08T06:20:21.489Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
