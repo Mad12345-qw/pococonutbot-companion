@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T07:53:29.571Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-08T08:03:53.669Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -66906,6 +66906,42 @@
           "replyToUserId": "feishu:ou_196a7decac1ff2134a64444316b9cd32"
         },
         "createdAt": "2026-07-08T06:26:33.172Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e",
+        "role": "user",
+        "modality": "text",
+        "content": "有个配置问题解答一下。你被群里的人@ ，但需要审批之后你才能解答，审批卡如何设置为，仅通过dm发送主人。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd47dc198a8b16e9e56d3e07e2",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUserId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUnionId": "on_f162e2690e928dc50e96862b0ac7651a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T07:59:00.094Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个可以在飞书审批单的「处理人设置」里配置。具体做法是：创建审批表单时，把「审批人」设为「指定成员」并选你自己（主人），然后在「审批流程」里勾选「仅通过私信通知审批人」选项。这样被 @ 触发的审批请求只会通过 Bot DM 发给你，不会出现在群聊里。\n\n如果是通过机器人自动触发审批，你可以在代码里调用 send_message 时指定接收人的 open_id，并且 receive_id_type 填 open_id，这样审批卡也只会 DM 给那个人。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e"
+        },
+        "createdAt": "2026-07-08T07:59:07.181Z"
       }
     ],
     "memories": [
@@ -70007,7 +70043,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-08T05:51:00.064Z",
-        "updatedAt": "2026-07-08T05:51:26.815Z"
+        "updatedAt": "2026-07-08T07:58:59.919Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70017,7 +70053,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-08T05:50:59.890Z",
-        "updatedAt": "2026-07-08T05:51:26.630Z"
+        "updatedAt": "2026-07-08T07:58:59.742Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
