@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T12:50:01.511Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-08T12:53:59.602Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -73656,8 +73656,8 @@
       },
       {
         "key": "gpt.enabled",
-        "value": "true",
-        "updatedAt": "2026-07-08T12:45:29.966Z"
+        "value": "false",
+        "updatedAt": "2026-07-08T12:51:28.017Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
