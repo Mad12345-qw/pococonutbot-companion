@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T08:03:53.669Z",
+  "exportedAt": "2026-07-08T08:53:59.472Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66942,6 +66942,198 @@
           "replyToUserId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e"
         },
         "createdAt": "2026-07-08T07:59:07.181Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "最近塔塔电子炸了，哈哈，苹果18已经被华强北做出来了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4ad906880c2566d553d9fbd7",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:45:48.544Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈连夜加工",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a91108a4b3284e23cacdd16",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:47:02.545Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "对，应该相信华强北的能力",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a7aff884c2903d7f8515f14",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:47:27.757Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "我笑死了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a47bfcb4c257ac8ea4a096c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:47:46.579Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "text",
+        "content": "好像还有个坏心思，顶配阉割了性能，忘了是存储还是电池",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a2cc74acb1fdccb8d907d89",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUserId": "ou_92ca3965e09a25e614163a7e0fc79d8a",
+          "rawUnionId": "on_e9c9c6c481e7a20288f8316cc459606c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:48:06.843Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "我想买",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a57608b8c1c37ea1cada438",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:48:13.833Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "苹果真的太有意思了，搬起石头砸自己的脚的脚",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a08c8ca4c259c4e000ef82f",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:48:43.198Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_86286c2b638d8af727605a9946350790",
+        "role": "user",
+        "modality": "text",
+        "content": "那个玫红色，我喜欢",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd4a1791534c4e692ffb7dd744",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUserId": "ou_86286c2b638d8af727605a9946350790",
+          "rawUnionId": "on_5f6b952be52920e13dffde4bbce61817",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T08:49:05.926Z"
       }
     ],
     "memories": [
@@ -71403,7 +71595,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:55.250Z",
-        "updatedAt": "2026-07-08T06:02:11.445Z"
+        "updatedAt": "2026-07-08T08:49:05.749Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71423,7 +71615,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T00:15:54.972Z",
-        "updatedAt": "2026-07-08T06:02:11.262Z"
+        "updatedAt": "2026-07-08T08:49:05.570Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71653,7 +71845,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.815Z",
-        "updatedAt": "2026-07-03T18:12:11.307Z"
+        "updatedAt": "2026-07-08T08:48:06.668Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71663,7 +71855,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T09:21:19.600Z",
-        "updatedAt": "2026-07-03T18:12:11.221Z"
+        "updatedAt": "2026-07-08T08:48:06.493Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
