@@ -170,6 +170,7 @@ const communityOpsSpeech = [];
 bot.config.feishuCommunityOpsChatIds = [DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID];
 bot.config.feishuCommunityOpsDailyPromptLimit = 3;
 bot.config.feishuWebSearchCardsEnabled = false;
+bot.config.feishuCommunityOpsForceSlot = "noon";
 bot.storage = {
   getSetting: async (key, fallback) => communityOpsSettings.get(key) ?? fallback,
   setSetting: async (key, value) => {
@@ -256,26 +257,78 @@ assertEqual(
   ),
   "true"
 );
+bot.webSearch = {
+  enabled: true,
+  search: async (query) => ({
+    results: [
+      {
+        title: query.includes("humanoid") ? "Figure ships new humanoid robot system" : query.includes("commercial space") ? "SpaceX launch cadence update" : "NVIDIA data center AI capex update",
+        url: query.includes("humanoid") ? "https://example.com/robot" : query.includes("commercial space") ? "https://example.com/space" : "https://example.com/ai",
+        summary: query.includes("humanoid") ? "Robotics delivery and actuator supply chain signal." : query.includes("commercial space") ? "Launch cadence and ground infrastructure signal." : "AI data center capex and optical module demand signal.",
+        siteName: "Example Authority",
+        publishedAt: "2026-07-08",
+        index: 1
+      }
+    ]
+  })
+};
+bot.ai = {
+  chat: async (_messages, options = {}) => {
+    if (!options.requirePrimary) throw new Error("community pulse must use primary model");
+    return JSON.stringify({
+      text: [
+        "小椰产业雷达｜午间线索更新",
+        "",
+        "延续上次群里关于产业链订单的讨论，今天三条动态更适合放进研究池。",
+        "",
+        "1. AI：NVIDIA data center AI capex update",
+        "   重点不是发布本身，而是它是否继续推高光模块、CPO、液冷和电力链条。",
+        "2. 机器人：Figure ships new humanoid robot system",
+        "   继续看量产交付和执行器供应链是不是出现更硬的证据。",
+        "3. 商业航天：SpaceX launch cadence update",
+        "   发射频率如果上去，可能先外溢到地面系统、推进剂、测控和卫星应用。",
+        "",
+        "今天可以继续拆：这三条线里，哪一条最先能从技术叙事变成订单和利润表？"
+      ].join("\n"),
+      digest: "AI capex | robot delivery | launch cadence",
+      question: "这三条线里，哪一条最先能从技术叙事变成订单和利润表？",
+      sources: ["https://example.com/ai", "https://example.com/robot", "https://example.com/space"]
+    });
+  }
+};
+bot.storage.listResearchEvidenceForReport = async () => ({
+  evidenceCards: [
+    { claim: "知识库已有线索：AI 算力扩张可能先落到光模块和数据中心电力链。", whyItMatters: "可验证订单弹性" }
+  ],
+  questions: [
+    { question: "AI 算力扩张最终是估值叙事，还是订单确定性？" }
+  ]
+});
 await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   prompts: 1,
   lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
   lastActivityAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
   lastPromptIndex: 0,
-  lastPromptText: "今天可以先抛一个小问题："
+  lastPromptText: "今天可以先抛一个小问题：",
+  lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
 });
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
-  "community ops rotates idle prompts instead of repeating the same question",
+  "community ops sends market pulse from authoritative news and prior research context",
   String(
     communityOpsSent.length === 2 &&
-    communityOpsSent[1].text.includes("换个角度看") &&
+    communityOpsSent[1].text.includes("小椰产业雷达｜午间线索更新") &&
+    communityOpsSent[1].text.includes("NVIDIA data center AI capex update") &&
+    communityOpsSent[1].text.includes("Figure ships new humanoid robot system") &&
+    communityOpsSent[1].text.includes("SpaceX launch cadence update") &&
+    communityOpsSent[1].text.includes("订单和利润表") &&
     !communityOpsSent[1].text.includes("今天可以先抛一个小问题")
   ),
   "true"
 );
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
-  "community ops reserved prompt state prevents immediate duplicate idle prompts",
+  "community ops market pulse records slot and prevents duplicate slot posts",
   String(communityOpsSent.length),
   "2"
 );

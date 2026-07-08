@@ -13,7 +13,7 @@ import {
 import { isProjectCreateRequest, ProjectEngine } from "./project-engine.js";
 import { logEvent } from "./runtime-log.js";
 import { convertAudioToOpus, convertWavToOpus } from "./tts-client.js";
-import { detectImageMimeType, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
+import { detectImageMimeType, getReplyDeliveryPreference, parseJsonObject, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 import { WeChatPublisher } from "./wechat-publisher.js";
 
 const execFileAsync = promisify(execFile);
@@ -3673,8 +3673,41 @@ export class FeishuBot {
     return (await this.communityOpsChatIds()).includes(raw);
   }
 
+  communityOpsLocalParts(date = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Shanghai",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      hour12: false
+    }).formatToParts(date).reduce((acc, part) => {
+      if (part.type !== "literal") acc[part.type] = part.value;
+      return acc;
+    }, {});
+    return {
+      dateKey: `${parts.year}-${parts.month}-${parts.day}`,
+      hour: Number(parts.hour || 0)
+    };
+  }
+
   communityOpsDateKey(date = new Date()) {
-    return date.toISOString().slice(0, 10);
+    return this.communityOpsLocalParts(date).dateKey;
+  }
+
+  communityOpsPulseSlot(date = new Date()) {
+    const forced = String(this.config.feishuCommunityOpsForceSlot || process.env.FEISHU_COMMUNITY_OPS_FORCE_SLOT || "").trim().toLowerCase();
+    const forcedSlots = {
+      morning: { key: "morning", label: "早间产业雷达", focus: "用三条权威动态打开今天的研究线索" },
+      noon: { key: "noon", label: "午间线索更新", focus: "挑出最值得继续验证的一条产业链变化" },
+      evening: { key: "evening", label: "晚间研究追问", focus: "把今天新增信息沉淀成明天要追的问题" }
+    };
+    if (forcedSlots[forced]) return forcedSlots[forced];
+    const { hour } = this.communityOpsLocalParts(date);
+    if (hour >= 8 && hour < 11) return { key: "morning", label: "早间产业雷达", focus: "用三条权威动态打开今天的研究线索" };
+    if (hour >= 12 && hour < 15) return { key: "noon", label: "午间线索更新", focus: "挑出最值得继续验证的一条产业链变化" };
+    if (hour >= 18 && hour < 22) return { key: "evening", label: "晚间研究追问", focus: "把今天新增信息沉淀成明天要追的问题" };
+    return null;
   }
 
   communityOpsDailyKey(chatId = "", date = new Date()) {
@@ -3695,17 +3728,23 @@ export class FeishuBot {
       lastPromptAt: state.lastPromptAt || "",
       lastPromptIndex: Number.isFinite(Number(state.lastPromptIndex)) ? Number(state.lastPromptIndex) : -1,
       lastPromptText: state.lastPromptText || "",
+      lastPulseSlot: state.lastPulseSlot || "",
+      sentPulseSlots: Array.isArray(state.sentPulseSlots) ? state.sentPulseSlots : [],
+      lastPulseDigest: state.lastPulseDigest || "",
+      lastPulseQuestion: state.lastPulseQuestion || "",
+      lastPulseSources: Array.isArray(state.lastPulseSources) ? state.lastPulseSources : [],
       lastActivityAt: state.lastActivityAt || "",
       linkHints: Number(state.linkHints || 0),
       lastLinkHintAt: state.lastLinkHintAt || ""
     }));
   }
 
-  async canSendCommunityOpsPrompt(chatId = "") {
+  async canSendCommunityOpsPrompt(chatId = "", { slotKey = "" } = {}) {
     if (!(await this.isCommunityOpsChat(chatId))) return false;
     const state = await this.communityOpsDailyState(chatId);
     const limit = Math.max(0, Number(this.config.feishuCommunityOpsDailyPromptLimit || process.env.FEISHU_COMMUNITY_OPS_DAILY_PROMPT_LIMIT || 3));
     if (Number(state.prompts || 0) >= limit) return false;
+    if (slotKey && Array.isArray(state.sentPulseSlots) && state.sentPulseSlots.includes(slotKey)) return false;
     if (state.lastPromptAt && Date.now() - Date.parse(state.lastPromptAt) < 2 * 60 * 60 * 1000) return false;
     return true;
   }
@@ -3721,13 +3760,20 @@ export class FeishuBot {
 
   async markCommunityOpsPromptReserved(chatId = "", prompt = {}) {
     const state = await this.communityOpsDailyState(chatId);
+    const slotKey = prompt.slotKey || "";
+    const sentPulseSlots = Array.isArray(state.sentPulseSlots) ? state.sentPulseSlots : [];
     await this.saveCommunityOpsDailyState(chatId, {
       ...state,
       prompts: Number(state.prompts || 0) + 1,
       lastPromptAt: new Date().toISOString(),
       lastActivityAt: new Date().toISOString(),
       lastPromptIndex: Number.isFinite(Number(prompt.index)) ? Number(prompt.index) : -1,
-      lastPromptText: prompt.text || ""
+      lastPromptText: prompt.text || "",
+      lastPulseSlot: slotKey || state.lastPulseSlot || "",
+      sentPulseSlots: slotKey ? [...new Set([...sentPulseSlots, slotKey])] : sentPulseSlots,
+      lastPulseDigest: prompt.digest || state.lastPulseDigest || "",
+      lastPulseQuestion: prompt.question || state.lastPulseQuestion || "",
+      lastPulseSources: Array.isArray(prompt.sources) ? prompt.sources : state.lastPulseSources || []
     });
   }
 
@@ -3911,26 +3957,233 @@ export class FeishuBot {
     return { text: prompts[index], index };
   }
 
+  communityPulseQueries() {
+    return [
+      {
+        key: "ai",
+        label: "AI",
+        query: "latest authoritative AI news OpenAI Anthropic Google DeepMind NVIDIA data center capex Reuters Bloomberg official blog",
+        thesis: "算力、模型能力、数据中心资本开支、云厂商投入是否继续强化"
+      },
+      {
+        key: "robotics",
+        label: "机器人",
+        query: "latest authoritative humanoid robotics news Tesla Optimus Figure Unitree Boston Dynamics IEEE Spectrum Reuters official",
+        thesis: "量产交付、核心零部件、成本下降、真实应用场景是否出现新证据"
+      },
+      {
+        key: "space",
+        label: "商业航天",
+        query: "latest authoritative commercial space news SpaceX Starship launch satellite FAA NASA SpaceNews Payload Reuters",
+        thesis: "发射频率、监管节点、卫星应用、地面系统和供应链外溢是否出现新证据"
+      }
+    ];
+  }
+
+  normalizeCommunityPulseResult(topic = {}, result = {}, index = 0) {
+    const title = String(result.title || result.name || "").replace(/\s+/g, " ").trim();
+    const url = String(result.url || result.link || "").trim();
+    const summary = String(result.summary || result.snippet || result.description || "").replace(/\s+/g, " ").trim();
+    const siteName = String(result.siteName || result.site_name || result.displayUrl || "").replace(/\s+/g, " ").trim();
+    const publishedAt = String(result.publishedAt || result.datePublished || result.date || "").replace(/\s+/g, " ").trim();
+    if (!title && !summary) return null;
+    return {
+      topicKey: topic.key,
+      topic: topic.label,
+      index: index + 1,
+      title: truncate(title, 160),
+      url,
+      siteName: truncate(siteName, 80),
+      publishedAt: truncate(publishedAt, 60),
+      summary: truncate(summary, 420)
+    };
+  }
+
+  async collectCommunityPulseNews() {
+    if (!this.webSearch?.enabled) return { enabled: false, items: [], errors: ["web_search_not_configured"] };
+    const errors = [];
+    const groups = await Promise.all(this.communityPulseQueries().map(async (topic) => {
+      try {
+        const result = await this.webSearch.search(topic.query, {
+          freshness: process.env.FEISHU_COMMUNITY_PULSE_FRESHNESS || "oneWeek",
+          count: Number(process.env.FEISHU_COMMUNITY_PULSE_SEARCH_COUNT || 5),
+          summary: true
+        });
+        return {
+          ...topic,
+          results: (result.results || [])
+            .map((item, index) => this.normalizeCommunityPulseResult(topic, item, index))
+            .filter(Boolean)
+            .slice(0, 4)
+        };
+      } catch (error) {
+        errors.push(`${topic.label}: ${error.message}`);
+        return { ...topic, results: [] };
+      }
+    }));
+    return {
+      enabled: true,
+      items: groups.flatMap((group) => group.results.map((item) => ({
+        ...item,
+        thesis: group.thesis
+      }))),
+      groups,
+      errors
+    };
+  }
+
+  async collectCommunityResearchContext(chatId = "") {
+    const recent = await this.storage.getRecentMessages(platformId(chatId), 20).catch(() => []);
+    const recentMessages = recent
+      .slice(-10)
+      .map((message) => ({
+        role: message.role || "",
+        content: truncate(String(message.content || "").replace(/\s+/g, " ").trim(), 180),
+        createdAt: message.created_at || message.createdAt || ""
+      }))
+      .filter((item) => item.content);
+    const queries = ["AI 算力 数据中心 光模块 CPO 液冷", "人形机器人 执行器 减速器 灵巧手 量产", "商业航天 SpaceX Starship 发射频率 供应链"];
+    const corpora = typeof this.storage.listResearchEvidenceForReport === "function"
+      ? await Promise.all(queries.map((query) =>
+          this.storage.listResearchEvidenceForReport({ query, limit: 3, evidenceLimit: 10 }).catch(() => null)
+        ))
+      : [];
+    const evidence = corpora
+      .filter(Boolean)
+      .flatMap((corpus, corpusIndex) => (corpus.evidenceCards || []).slice(0, 5).map((card) => ({
+        theme: queries[corpusIndex],
+        claim: truncate(card.claim || card.quoteZh || card.quoteOriginal || "", 180),
+        why: truncate(card.whyItMatters || "", 160),
+        sourceId: card.sourceId || ""
+      })))
+      .filter((item) => item.claim);
+    const questions = corpora
+      .filter(Boolean)
+      .flatMap((corpus) => (corpus.questions || []).slice(0, 4).map((question) => truncate(question.question || "", 160)))
+      .filter(Boolean);
+    return { recentMessages, evidence: evidence.slice(0, 12), questions: [...new Set(questions)].slice(0, 8) };
+  }
+
+  async buildCommunityMarketPulse({ chatId = "", slot = null, state = {} } = {}) {
+    const activeSlot = slot || this.communityOpsPulseSlot();
+    if (!activeSlot) return null;
+    const [news, context] = await Promise.all([
+      this.collectCommunityPulseNews(),
+      this.collectCommunityResearchContext(chatId)
+    ]);
+    if (!news.items?.length) {
+      logEvent("warn", "Feishu community market pulse skipped: no authoritative news candidates", {
+        chatId,
+        slot: activeSlot.key,
+        errors: news.errors || []
+      });
+      return null;
+    }
+
+    const messages = [
+      {
+        role: "system",
+        content: [
+          "你是小椰在 SpaceX、AI、Robot 群里的产业研究助理。",
+          "任务不是写新闻稿，而是把最新权威动态转成能激起群友投研讨论的线索。",
+          "必须先根据给定新闻候选和群聊/知识库上下文组织内容，不得编造候选外的事实、数字、公司动作或新闻来源。",
+          "旧报告、上次判断、群聊内容只能作为判断基线和待验证假设，不能当作新增证据。",
+          "输出必须是 JSON 对象，不要 Markdown 代码块，不要过程话。"
+        ].join("\n")
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          slot: activeSlot,
+          requirements: {
+            language: "中文",
+            tone: "像懂产业的人在群里递线索，短、具体、有投研味，不要正式公文腔",
+            maxLength: 900,
+            structure: [
+              "标题：小椰产业雷达｜时段名",
+              "一句话说明今天沿着群里/知识库哪条旧问题继续追",
+              "三条以内动态，每条说明：发生了什么、为什么值得追、可能影响哪条产业链",
+              "最后给一个能延续上次讨论的具体问题"
+            ],
+            forbidden: [
+              "不要说我是AI",
+              "不要说根据搜索结果",
+              "不要堆砌链接",
+              "不要把旧判断写成新证据",
+              "不要泛泛问AI机器人商业航天哪个更有机会",
+              "不要使用表格"
+            ],
+            jsonSchema: {
+              text: "可直接发到群里的完整文本",
+              digest: "本次播报的极短摘要",
+              question: "最后抛给群里的具体讨论问题",
+              sources: ["使用到的候选 URL，最多 5 个"]
+            }
+          },
+          previousState: {
+            lastPulseDigest: state.lastPulseDigest || "",
+            lastPulseQuestion: state.lastPulseQuestion || "",
+            lastPromptText: state.lastPromptText || ""
+          },
+          newsCandidates: news.items.slice(0, 12),
+          groupMemory: context
+        })
+      }
+    ];
+
+    let parsed = null;
+    try {
+      const raw = await this.ai.chat(messages, {
+        temperature: 0.35,
+        maxTokens: 1200,
+        timeoutMs: Number(process.env.FEISHU_COMMUNITY_PULSE_AI_TIMEOUT_MS || 60000),
+        responseFormat: { type: "json_object" },
+        requirePrimary: true
+      });
+      parsed = parseJsonObject(raw);
+    } catch (error) {
+      logEvent("warn", "Feishu community market pulse AI failed", {
+        chatId,
+        slot: activeSlot.key,
+        error: truncate(error.message, 300)
+      });
+    }
+
+    const text = String(parsed?.text || "").trim();
+    if (text && /小椰产业雷达/.test(text) && !/根据搜索结果|我是AI|作为AI/i.test(text)) {
+      return {
+        text: truncate(text, 1200),
+        digest: truncate(parsed.digest || "", 300),
+        question: truncate(parsed.question || "", 240),
+        sources: Array.isArray(parsed.sources) ? parsed.sources.slice(0, 5).map(String).filter(Boolean) : []
+      };
+    }
+
+    logEvent("warn", "Feishu community market pulse skipped: model output failed reader contract", {
+      chatId,
+      slot: activeSlot.key,
+      hasParsedText: Boolean(text)
+    });
+    return null;
+  }
+
   async runCommunityOpsIdleCheck() {
     const chatIds = await this.communityOpsChatIds();
+    const slot = this.communityOpsPulseSlot();
+    if (!slot) return;
     for (const chatId of chatIds) {
-      if (!(await this.canSendCommunityOpsPrompt(chatId))) continue;
-      const recent = await this.storage.getRecentMessages(platformId(chatId), 12);
-      const latest = recent[0];
-      const idleMs = latest?.created_at || latest?.createdAt
-        ? Date.now() - new Date(latest.created_at || latest.createdAt).getTime()
-        : Number.POSITIVE_INFINITY;
-      const idleMinutes = Math.max(30, Number(this.config.feishuCommunityOpsIdleMinutes || process.env.FEISHU_COMMUNITY_OPS_IDLE_MINUTES || 120));
       const state = await this.communityOpsDailyState(chatId);
-      const stateIdleMs = state.lastActivityAt
-        ? Date.now() - Date.parse(state.lastActivityAt)
-        : Number.POSITIVE_INFINITY;
-      if (idleMs < idleMinutes * 60 * 1000) continue;
-      if (stateIdleMs < idleMinutes * 60 * 1000) continue;
-      const prompt = this.buildCommunityIdlePrompt(state);
+      if (!(await this.canSendCommunityOpsPrompt(chatId, { slotKey: slot.key }))) continue;
+      const pulse = await this.buildCommunityMarketPulse({ chatId, slot, state });
+      if (!pulse?.text) continue;
+      const prompt = {
+        ...pulse,
+        slotKey: slot.key,
+        index: ["morning", "noon", "evening"].indexOf(slot.key)
+      };
       await this.markCommunityOpsPromptReserved(chatId, prompt);
       await this.sendTextToChat(chatId, prompt.text);
-      logEvent("info", "Feishu community ops idle prompt sent", { chatId, idleMinutes, promptIndex: prompt.index });
+      logEvent("info", "Feishu community market pulse sent", { chatId, slot: slot.key, promptIndex: prompt.index });
     }
   }
 
