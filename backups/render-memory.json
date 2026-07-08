@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T10:23:56.979Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-08T11:49:54.393Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -67573,6 +67573,54 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-08T10:18:30.395Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "不错嘴巴打开了，可以让他们在把眼睛👀打开，拥有视觉能力ocr",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd7c1fed8b4b2e88de70a96b3e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T11:48:12.441Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "看桌面，载图，帮你聊天做客服",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd7dd9534a8b277c0366ec6e05",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T11:49:19.283Z"
       }
     ],
     "memories": [
@@ -72474,7 +72522,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-08T06:20:21.670Z"
+        "updatedAt": "2026-07-08T11:49:19.107Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -72484,7 +72532,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-08T06:20:21.489Z"
+        "updatedAt": "2026-07-08T11:49:18.930Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -73502,8 +73550,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-08",
-        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-08T06:27:05.613Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastActivityAt\":\"2026-07-08T06:27:05.613Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-08T06:27:05.706Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-08T06:27:05.613Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-08T11:44:22.660Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-08T11:44:22.744Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
