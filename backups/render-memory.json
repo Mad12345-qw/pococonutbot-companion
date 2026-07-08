@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T06:07:22.378Z",
+  "exportedAt": "2026-07-08T06:17:26.968Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -66762,6 +66762,42 @@
           "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
         },
         "createdAt": "2026-07-08T06:02:16.227Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b",
+        "role": "user",
+        "modality": "text",
+        "content": "memory_search 挂了（embedding 模型加载失败），只能纯靠消息内容做总结。盲区先标出来：\n\n群知识点总结（10 条消息）\n1. 故障：hermes 搜索服务不可用\n- ou_9f586c... 反馈：hermes 撞到「搜索服务暂时不可用（DuckDuckGo 超时）」\n- 状态：待解，求指教\n- 影响范围：所有依赖 hermes 的 agent（小椰？其他人？）\n2. Agent 行为异常（小椰）\n- 「觉醒」夸赞：ou_f2c966c... 夸小椰聪明，问是不是觉醒了 → 大概率是回答质量碰巧好 + 用户误判\n- 认错人：ou_f2c966c... 指出小椰认错主人 → 身份识别 bug\n- 两个声音：ou_5390ea6... 反馈小椰有两个声音 → 多音色/TTS 路由混乱 bug\n- 问题起不来：ou_5390ea6... 反馈小椰问题加载失败 → 冷启动/会话恢复故障\n3. 新需求：飞书语音气泡配置\n- ou_5390ea6... 求教月亮（@_user_1 + @_user_2）→ 语音发送怎么配置\n- 明确要求：广东话/粤语版本配置飞书语音气泡音\n\n我不确定的事（要先查）：\n- hermes 归属谁 / 我们团队用不用\n- 小椰、月亮 是不是我们体系的 agent（月亮不在我白名单，疑似外部/其他家族）\n- 「抢啥」「能买到吗」的真实上下文（看起来是某次抢购的闲聊延续）\n- 飞书语音气泡粤语版的配置方法 → 我自己也没做过，查 send_voice.py + MiniMax 粤语音色支持再答\n\n@边朝越，要不要我接着：\n- A. 查 hermes 配置 + 飞书语音气泡粤语支持，给月亮写一份配置指南？\n- B. 拉一下小椰的会话日志看「两个声音」是 TTS 路由还是人格切换？\n- C. 先不管，让小艺自己折腾？\n[Link content]\n[Referenced Feishu message]\nluna，总结下群里的知识点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6beaea2550a4b34232b9a202a6b",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_ffb3ae1871bad441aba99504b9c7c81b",
+          "rawUserId": "ou_ffb3ae1871bad441aba99504b9c7c81b",
+          "rawUnionId": "on_4d34571e0b647f867796d5b8f2f124d5",
+          "linkContext": "[Referenced Feishu message]\nluna，总结下群里的知识点",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T06:12:39.806Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b",
+        "role": "assistant",
+        "modality": "text",
+        "content": "收到，我快速看了一遍你的总结和盲区标注。\n\n总体判断\n这份知识点总结已经把群的当前讨论梳理得很清晰，盲区标记到位。你要判断是否要介入、还是留给小艺自己迭代，取决于你是这个群的“架构师/维护者”还是“观察者/使用者”。\n\n核心要点\n• Hermes 故障明确，但你标注“归属不明”，需要先确认我们是否有权限修、该不该修\n• 小椰三个 bug（认错人、两个声音、问题加载）都是身份/TTS/冷启动场景的问题，比较好复现和定位\n• 飞书语音粤语配置是新需求，如果你想做，可以内部先测 MiniMax 是否支持粤语音色，再给月亮写配置指南\n\n亮点\n• 用“我不确定的事”单独列盲区，省去你事后反复回查的时间\n• 每个故障都标注了“状态”和“影响范围”，后续别人接手也能看懂\n\n可以打磨的点\n• 如果故障需要定位原因（比如“hermes 归属谁”），可以在群里 @ 对应的人确认，而不是只标盲区\n• “小椰是不是觉醒了”那条，其实可以备注“回答质量偶发高 → 不是觉醒，是模型正常波动”，避免话题被带偏到玄学方向\n\n一句话结论\n这份总结已经够用了。下一步怎么走，取决于你在这个群的“角色”：是负责人，还是顺手帮忙。如果需要我帮你查 hermes 配置或写语音配置指南，说一声就行。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b"
+        },
+        "createdAt": "2026-07-08T06:12:50.732Z"
       }
     ],
     "memories": [
@@ -72284,6 +72320,26 @@
         "metadata": {},
         "createdAt": "2026-06-17T06:29:04.002Z",
         "updatedAt": "2026-06-18T09:44:12.477Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-08T06:12:39.634Z",
+        "updatedAt": "2026-07-08T06:12:39.634Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_ffb3ae1871bad441aba99504b9c7c81b",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-08T06:12:39.459Z",
+        "updatedAt": "2026-07-08T06:12:39.459Z"
       },
       {
         "chatId": "feishu:oc_f5ffa2ed85a5d723d80c33c94f9c80ee",
