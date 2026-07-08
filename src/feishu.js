@@ -3734,6 +3734,7 @@ export class FeishuBot {
       lastPulseQuestion: state.lastPulseQuestion || "",
       lastPulseSources: Array.isArray(state.lastPulseSources) ? state.lastPulseSources : [],
       lastActivityAt: state.lastActivityAt || "",
+      lastHumanActivityAt: state.lastHumanActivityAt || "",
       linkHints: Number(state.linkHints || 0),
       lastLinkHintAt: state.lastLinkHintAt || ""
     }));
@@ -3759,14 +3760,76 @@ export class FeishuBot {
       5,
       Number(this.config.feishuCommunityPulseQuietMinutes || process.env.FEISHU_COMMUNITY_PULSE_QUIET_MINUTES || 30)
     );
-    const recent = await this.storage.getRecentMessages(platformId(chatId), 12).catch(() => []);
+    const liveLatestAt = await this.fetchLatestCommunityMessageAt(chatId);
+    const recent = liveLatestAt ? [] : await this.storage.getRecentMessages(platformId(chatId), 12).catch(() => []);
     const latest = recent[recent.length - 1];
-    const latestAt = latest?.created_at || latest?.createdAt || state.lastActivityAt || "";
+    const latestAt =
+      liveLatestAt ||
+      state.lastHumanActivityAt ||
+      latest?.created_at ||
+      latest?.createdAt ||
+      state.lastActivityAt ||
+      "";
     if (!latestAt) return true;
     const timestamp = Date.parse(latestAt);
     if (!Number.isFinite(timestamp)) return true;
     const idleMs = Date.now() - timestamp;
     return idleMs >= quietMinutes * 60 * 1000;
+  }
+
+  feishuMessageCreateTimeToIso(value = "") {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    if (/^\d+$/.test(raw)) {
+      const number = Number(raw);
+      if (!Number.isFinite(number) || number <= 0) return "";
+      const millis = raw.length >= 13 ? number : number * 1000;
+      return new Date(millis).toISOString();
+    }
+    const parsed = Date.parse(raw);
+    return Number.isFinite(parsed) ? new Date(parsed).toISOString() : "";
+  }
+
+  async feishuGetJson(path, { timeoutMs = 8000 } = {}) {
+    const token = await this.tenantAccessToken();
+    const response = await fetch(`https://open.feishu.cn${path}`, {
+      method: "GET",
+      signal: AbortSignal.timeout(timeoutMs),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data.code !== 0) {
+      throw new Error(`Feishu API failed: ${truncate(JSON.stringify(data), 500)}`);
+    }
+    return data;
+  }
+
+  async fetchLatestCommunityMessageAt(chatId = "") {
+    const rawChatId = rawFeishuChatId(chatId);
+    if (!rawChatId) return "";
+    try {
+      const params = new URLSearchParams({
+        container_id_type: "chat",
+        container_id: rawChatId,
+        sort_type: "ByCreateTimeDesc",
+        page_size: "1"
+      });
+      const data = await this.feishuGetJson(`/open-apis/im/v1/messages?${params.toString()}`, {
+        timeoutMs: Number(process.env.FEISHU_COMMUNITY_ACTIVITY_SCAN_TIMEOUT_MS || 8000)
+      });
+      const items = Array.isArray(data?.data?.items) ? data.data.items : [];
+      const latest = items[0];
+      return this.feishuMessageCreateTimeToIso(latest?.create_time || latest?.update_time || latest?.created_at || "");
+    } catch (error) {
+      logEvent("warn", "Feishu community activity live scan failed; falling back to local activity state", {
+        chatId: rawChatId,
+        error: truncate(error.message, 300)
+      });
+      return "";
+    }
   }
 
   async markCommunityOpsActivity(chatId = "", patch = {}) {
@@ -3775,6 +3838,18 @@ export class FeishuBot {
       ...state,
       ...patch,
       lastActivityAt: patch.lastActivityAt || new Date().toISOString()
+    });
+  }
+
+  async markCommunityOpsHumanActivity(chatId = "", timestamp = new Date().toISOString()) {
+    if (!(await this.isCommunityOpsChat(chatId))) return;
+    const state = await this.communityOpsDailyState(chatId);
+    const previous = Date.parse(state.lastHumanActivityAt || "");
+    const current = Date.parse(timestamp || "");
+    if (Number.isFinite(previous) && Number.isFinite(current) && current - previous < 60 * 1000) return;
+    await this.saveCommunityOpsDailyState(chatId, {
+      ...state,
+      lastHumanActivityAt: timestamp || new Date().toISOString()
     });
   }
 
@@ -4109,6 +4184,8 @@ export class FeishuBot {
           "必须先根据给定新闻候选和群聊/知识库上下文组织内容，不得编造候选外的事实、数字、公司动作或新闻来源。",
           "如果 groupMemory.recentMessages 里有明确话题，第一段必须先承接这个具体话题，再自然引出产业动态；不要突然宣布新闻播报。",
           "旧报告、上次判断、群聊内容只能作为判断基线和待验证假设，不能当作新增证据。",
+          "飞书群消息是纯文本，不支持 Markdown 渲染。绝对不要输出 **、__、#、>、```、Markdown 表格或 Markdown 链接。",
+          "需要强调时，用短句、冒号、编号和自然语言完成，不要用粗体符号。",
           "输出必须是 JSON 对象，不要 Markdown 代码块，不要过程话。"
         ].join("\n")
       },
@@ -4134,6 +4211,7 @@ export class FeishuBot {
               "不要堆砌链接",
               "不要把旧判断写成新证据",
               "不要泛泛问AI机器人商业航天哪个更有机会",
+              "不要使用 ** 或其他 Markdown 粗体符号",
               "不要使用表格"
             ],
             jsonSchema: {
@@ -4175,7 +4253,7 @@ export class FeishuBot {
       });
     }
 
-    const text = String(parsed?.text || "").trim();
+    const text = this.cleanCommunityPulseText(parsed?.text || "");
     if (text && /小椰产业雷达/.test(text) && !/根据搜索结果|我是AI|作为AI/i.test(text)) {
       return {
         text: truncate(text, 1200),
@@ -4191,6 +4269,20 @@ export class FeishuBot {
       hasParsedText: Boolean(text)
     });
     return null;
+  }
+
+  cleanCommunityPulseText(value = "") {
+    return String(value || "")
+      .replace(/\*\*([^*\n]+)\*\*/g, "$1")
+      .replace(/__([^_\n]+)__/g, "$1")
+      .replace(/(^|\s)[*_]{1,2}([^*_]+)[*_]{1,2}(\s|$)/g, "$1$2$3")
+      .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+      .replace(/^\s{0,3}>\s?/gm, "")
+      .replace(/```[\s\S]*?```/g, "")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, "$1")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
   }
 
   async runCommunityOpsIdleCheck() {
@@ -4819,6 +4911,14 @@ export class FeishuBot {
       messageType: message.message_type || "",
       chatType: message.chat_type || ""
     });
+    if ((message.chat_type || "") !== "p2p") {
+      this.markCommunityOpsHumanActivity(chatId).catch((error) => {
+        logEvent("warn", "Feishu community human activity mark failed", {
+          chatId: rawFeishuChatId(chatId),
+          error: truncate(error.message, 300)
+        });
+      });
+    }
     await this.recordPassiveLinkMessage({ chatId, userId, message, content, rawMessageText });
     this.markTiming(timing, "passiveLinkMs");
 

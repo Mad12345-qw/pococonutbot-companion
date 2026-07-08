@@ -292,8 +292,8 @@ bot.ai = {
         "",
         "延续上次群里关于产业链订单的讨论，今天三条动态更适合放进研究池。",
         "",
-        "1. AI：NVIDIA data center AI capex update",
-        "   重点不是发布本身，而是它是否继续推高光模块、CPO、液冷和电力链条。",
+        "1. **AI：NVIDIA data center AI capex update**",
+        "   **重点**不是发布本身，而是它是否继续推高光模块、CPO、液冷和电力链条。",
         "2. 机器人：Figure ships new humanoid robot system",
         "   继续看量产交付和执行器供应链是不是出现更硬的证据。",
         "3. 商业航天：SpaceX launch cadence update",
@@ -326,12 +326,14 @@ await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   lastPromptText: "今天可以先抛一个小问题：",
   lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
 });
+bot.fetchLatestCommunityMessageAt = async () => new Date().toISOString();
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
-  "community ops market pulse defers during active group conversation",
+  "community ops market pulse defers when latest live group message is recent, even if it is from the bot",
   String(communityOpsSent.length),
   "1"
 );
+bot.fetchLatestCommunityMessageAt = async () => "";
 bot.storage.getRecentMessages = async () => [
   {
     role: "user",
@@ -349,6 +351,7 @@ assertEqual(
     communityOpsSent[1].text.includes("Figure ships new humanoid robot system") &&
     communityOpsSent[1].text.includes("SpaceX launch cadence update") &&
     communityOpsSent[1].text.includes("订单和利润表") &&
+    !communityOpsSent[1].text.includes("**") &&
     !communityOpsSent[1].text.includes("今天可以先抛一个小问题")
   ),
   "true"
