@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T10:03:57.372Z",
+  "exportedAt": "2026-07-08T10:13:56.671Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67313,6 +67313,175 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-08T09:56:13.676Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_2a363f3260ac7778d04cc52d63f3162a",
+        "role": "user",
+        "modality": "text",
+        "content": "[财迷]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd65fcb0d3cb4ba410e9c50f32",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUserId": "ou_2a363f3260ac7778d04cc52d63f3162a",
+          "rawUnionId": "on_9909da25f04965b4e9de36beeba13d9b",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T10:06:14.767Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "user",
+        "modality": "text",
+        "content": "听命 学[奋斗]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd65434d084c4cc916f6b1ba0e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUserId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUnionId": "on_10c99f034e8818c655d8dc80c58e0c35",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T10:08:54.978Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这首歌暂时没发出来，我这边点歌接口刚刚没拿稳。你稍后再试一下，或者换个更明确的歌名。",
+        "metadata": {
+          "platform": "feishu",
+          "songQuery": "命 学[奋斗]",
+          "replyToUserId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5"
+        },
+        "createdAt": "2026-07-08T10:10:38.732Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "user",
+        "modality": "text",
+        "content": "图片里面讲的链接发下\n[Link content]\n[Referenced Feishu message]\n别人199割韭菜 我开源你们还不学 也不让智能体学",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd66d6e4cb4c245828cf50d0e9",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUserId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUnionId": "on_10c99f034e8818c655d8dc80c58e0c35",
+          "linkContext": "[Referenced Feishu message]\n别人199割韭菜 我开源你们还不学 也不让智能体学",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T10:11:13.431Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我看不到你发的图片内容，也找不到那条消息里带的链接。能不能直接把链接文字发出来，或者告诉我图片里讲了什么？我帮你找～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5"
+        },
+        "createdAt": "2026-07-08T10:11:19.322Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "user",
+        "modality": "text",
+        "content": "图片里面讲的链接发下\n[Link content]\n[Referenced Feishu message]\n别人199割韭菜 我开源你们还不学 也不让智能体学",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd66bd05880c10ec6b71ec867c",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUserId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUnionId": "on_10c99f034e8818c655d8dc80c58e0c35",
+          "linkContext": "[Referenced Feishu message]\n别人199割韭菜 我开源你们还不学 也不让智能体学",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T10:11:37.508Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我看不到你发的图片里的内容，没办法直接拿到链接。能麻烦你把链接文字直接打出来或者描述一下图片里写了什么吗？我帮你看看。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5"
+        },
+        "createdAt": "2026-07-08T10:11:42.981Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "user",
+        "modality": "text",
+        "content": "【T2|学习文档·问答科普】飞书多维表格从入门 讨论区(4), 【T2|学习文档·问答科普】飞书多... 到精通:40张图+6大实战场景，小白也能搭出 万笙 开篇:为什么你应该学飞书多维表格? 飞书大学的连接和入口能不能发一下 第一章:什么是多维表格?--先搞懂底层逻辑 35分钟前 专业系统",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd66955ec80c3bcc8b517b92d8",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUserId": "ou_3fce16cf92773f7c61d4b41f760e5ad5",
+          "rawUnionId": "on_10c99f034e8818c655d8dc80c58e0c35",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T10:12:19.142Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5",
+        "role": "assistant",
+        "modality": "text",
+        "content": "飞书大学入口在这里：\nhttps://www.feishu.cn/learning\n\n你也可以在飞书客户端里，点左下角「更多」→「帮助与反馈」→「飞书大学」直接进入。需要找某个具体课程的话，跟我说课程名字，我帮你搜~",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3fce16cf92773f7c61d4b41f760e5ad5"
+        },
+        "createdAt": "2026-07-08T10:12:24.788Z"
       }
     ],
     "memories": [
@@ -70844,7 +71013,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.590Z",
-        "updatedAt": "2026-07-07T02:29:57.383Z"
+        "updatedAt": "2026-07-08T10:06:14.586Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70854,7 +71023,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T14:46:58.367Z",
-        "updatedAt": "2026-07-07T02:29:57.312Z"
+        "updatedAt": "2026-07-08T10:06:14.409Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70964,7 +71133,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T11:39:29.507Z",
-        "updatedAt": "2026-06-19T02:23:41.342Z"
+        "updatedAt": "2026-07-08T10:12:18.967Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70974,7 +71143,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-18T11:39:29.281Z",
-        "updatedAt": "2026-06-19T02:23:41.118Z"
+        "updatedAt": "2026-07-08T10:12:18.790Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
