@@ -3754,6 +3754,21 @@ export class FeishuBot {
     return true;
   }
 
+  async isCommunityPulseQuietEnough(chatId = "", state = {}) {
+    const quietMinutes = Math.max(
+      5,
+      Number(this.config.feishuCommunityPulseQuietMinutes || process.env.FEISHU_COMMUNITY_PULSE_QUIET_MINUTES || 30)
+    );
+    const recent = await this.storage.getRecentMessages(platformId(chatId), 12).catch(() => []);
+    const latest = recent[recent.length - 1];
+    const latestAt = latest?.created_at || latest?.createdAt || state.lastActivityAt || "";
+    if (!latestAt) return true;
+    const timestamp = Date.parse(latestAt);
+    if (!Number.isFinite(timestamp)) return true;
+    const idleMs = Date.now() - timestamp;
+    return idleMs >= quietMinutes * 60 * 1000;
+  }
+
   async markCommunityOpsActivity(chatId = "", patch = {}) {
     const state = await this.communityOpsDailyState(chatId);
     await this.saveCommunityOpsDailyState(chatId, {
@@ -4092,6 +4107,7 @@ export class FeishuBot {
           "你是小椰在 SpaceX、AI、Robot 群里的产业研究助理。",
           "任务不是写新闻稿，而是把最新权威动态转成能激起群友投研讨论的线索。",
           "必须先根据给定新闻候选和群聊/知识库上下文组织内容，不得编造候选外的事实、数字、公司动作或新闻来源。",
+          "如果 groupMemory.recentMessages 里有明确话题，第一段必须先承接这个具体话题，再自然引出产业动态；不要突然宣布新闻播报。",
           "旧报告、上次判断、群聊内容只能作为判断基线和待验证假设，不能当作新增证据。",
           "输出必须是 JSON 对象，不要 Markdown 代码块，不要过程话。"
         ].join("\n")
@@ -4106,13 +4122,15 @@ export class FeishuBot {
             maxLength: 900,
             structure: [
               "标题：小椰产业雷达｜时段名",
-              "一句话说明今天沿着群里/知识库哪条旧问题继续追",
+              "第一段先承接群里最近讨论或知识库旧问题；只有没有上下文时，才直接说今天追哪条线",
               "三条以内动态，每条说明：发生了什么、为什么值得追、可能影响哪条产业链",
               "最后给一个能延续上次讨论的具体问题"
             ],
             forbidden: [
               "不要说我是AI",
               "不要说根据搜索结果",
+              "不要说最新权威新闻来了",
+              "不要说当天 AI / 机器人 / 商业航天最新权威新闻",
               "不要堆砌链接",
               "不要把旧判断写成新证据",
               "不要泛泛问AI机器人商业航天哪个更有机会",
@@ -4179,6 +4197,10 @@ export class FeishuBot {
     for (const chatId of chatIds) {
       const state = await this.communityOpsDailyState(chatId);
       if (!(await this.canSendCommunityOpsPrompt(chatId, { slotKey: slot.key }))) continue;
+      if (!(await this.isCommunityPulseQuietEnough(chatId, state))) {
+        logEvent("info", "Feishu community market pulse deferred during active conversation", { chatId, slot: slot.key });
+        continue;
+      }
       const pulse = await this.buildCommunityMarketPulse({ chatId, slot, state });
       if (!pulse?.text) continue;
       const prompt = {

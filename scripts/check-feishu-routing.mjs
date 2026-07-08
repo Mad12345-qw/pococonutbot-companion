@@ -304,6 +304,9 @@ bot.storage.listResearchEvidenceForReport = async () => ({
     { question: "AI 算力扩张最终是估值叙事，还是订单确定性？" }
   ]
 });
+bot.storage.getRecentMessages = async () => [
+  { role: "user", content: "我们刚才还在聊 SpaceX 发射频率会不会外溢到推进剂和测控", createdAt: new Date().toISOString() }
+];
 await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   prompts: 3,
   lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
@@ -312,6 +315,19 @@ await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   lastPromptText: "今天可以先抛一个小问题：",
   lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
 });
+await bot.runCommunityOpsIdleCheck();
+assertEqual(
+  "community ops market pulse defers during active group conversation",
+  String(communityOpsSent.length),
+  "1"
+);
+bot.storage.getRecentMessages = async () => [
+  {
+    role: "user",
+    content: "我们刚才还在聊 SpaceX 发射频率会不会外溢到推进剂和测控",
+    createdAt: new Date(Date.now() - 45 * 60 * 1000).toISOString()
+  }
+];
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops sends market pulse even when legacy idle prompt quota is already full",
