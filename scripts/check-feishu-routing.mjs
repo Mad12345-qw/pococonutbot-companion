@@ -305,7 +305,7 @@ bot.storage.listResearchEvidenceForReport = async () => ({
   ]
 });
 await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
-  prompts: 1,
+  prompts: 3,
   lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
   lastActivityAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
   lastPromptIndex: 0,
@@ -314,7 +314,7 @@ await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
 });
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
-  "community ops sends market pulse from authoritative news and prior research context",
+  "community ops sends market pulse even when legacy idle prompt quota is already full",
   String(
     communityOpsSent.length === 2 &&
     communityOpsSent[1].text.includes("小椰产业雷达｜午间线索更新") &&

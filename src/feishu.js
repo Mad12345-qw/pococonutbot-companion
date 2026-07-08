@@ -3743,8 +3743,13 @@ export class FeishuBot {
     if (!(await this.isCommunityOpsChat(chatId))) return false;
     const state = await this.communityOpsDailyState(chatId);
     const limit = Math.max(0, Number(this.config.feishuCommunityOpsDailyPromptLimit || process.env.FEISHU_COMMUNITY_OPS_DAILY_PROMPT_LIMIT || 3));
-    if (Number(state.prompts || 0) >= limit) return false;
-    if (slotKey && Array.isArray(state.sentPulseSlots) && state.sentPulseSlots.includes(slotKey)) return false;
+    const sentPulseSlots = Array.isArray(state.sentPulseSlots) ? state.sentPulseSlots : [];
+    if (slotKey) {
+      if (sentPulseSlots.includes(slotKey)) return false;
+      if (sentPulseSlots.length >= limit) return false;
+    } else if (Number(state.prompts || 0) >= limit) {
+      return false;
+    }
     if (state.lastPromptAt && Date.now() - Date.parse(state.lastPromptAt) < 2 * 60 * 60 * 1000) return false;
     return true;
   }
