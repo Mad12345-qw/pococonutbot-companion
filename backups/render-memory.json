@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T12:20:00.822Z",
+  "exportedAt": "2026-07-08T12:50:01.511Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73646,8 +73646,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-08",
-        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-08T06:27:05.613Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-08T11:44:22.660Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-08T11:44:22.744Z"
+        "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-08T06:27:05.613Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"今天留一个适合一起拆的问题：\\n\\nAI、Robot、商业航天这三条线，哪些变化是真正能进入供应链订单和利润表的，哪些还停留在叙事层？\\n\\n如果看到新的资料，大家可以直接丢进群里，我们一起往证据链上补。\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-08T12:42:09.545Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-08T12:42:09.640Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
@@ -73656,8 +73656,8 @@
       },
       {
         "key": "gpt.enabled",
-        "value": "false",
-        "updatedAt": "2026-07-07T13:49:26.775Z"
+        "value": "true",
+        "updatedAt": "2026-07-08T12:45:29.966Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
