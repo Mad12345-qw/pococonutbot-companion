@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T09:33:54.674Z",
+  "exportedAt": "2026-07-08T09:43:54.467Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67229,6 +67229,66 @@
           "replyToUserId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e"
         },
         "createdAt": "2026-07-08T09:30:35.567Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e",
+        "role": "user",
+        "modality": "text",
+        "content": "针对特定skill，只允许机器人所有者使用。这个如何设置呢？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd5d4f9a8a0b364393f99fdfbd",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUserId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUnionId": "on_f162e2690e928dc50e96862b0ac7651a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T09:34:33.677Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e",
+        "role": "user",
+        "modality": "text",
+        "content": "针对特定skill，只允许机器人所有者使用。这个如何设置呢？\n绑定的飞书",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd5d2a7e8b0b3f56c5bba78caa",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUserId": "ou_21a371a88099a7e2ad1d69da4d22c80e",
+          "rawUnionId": "on_f162e2690e928dc50e96862b0ac7651a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T09:35:08.686Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个要看你的机器人是用什么开发的。如果是 对话式机器人（比如 Coze/Dify 的 bot），一般在 skill 的高级设置里可以勾选“仅 Bot Owner 可触发”或者在权限里限制 user_id。如果是 平台 skill 商店 那种，通常后台有“权限组”或“白名单”设置，你把 skill 设为 private 然后只添你自己的账号就行。你用的是哪种平台？我帮你想想具体的配置入口～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e"
+        },
+        "createdAt": "2026-07-08T09:35:13.824Z"
       }
     ],
     "memories": [
@@ -70350,7 +70410,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-08T05:51:00.064Z",
-        "updatedAt": "2026-07-08T09:30:24.766Z"
+        "updatedAt": "2026-07-08T09:35:08.512Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -70360,7 +70420,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-08T05:50:59.890Z",
-        "updatedAt": "2026-07-08T09:30:24.587Z"
+        "updatedAt": "2026-07-08T09:35:08.337Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
