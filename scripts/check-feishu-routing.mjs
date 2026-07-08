@@ -273,8 +273,19 @@ bot.webSearch = {
   })
 };
 bot.ai = {
-  chat: async (_messages, options = {}) => {
-    if (!options.requirePrimary) throw new Error("community pulse must use primary model");
+  fallbackProvider: {
+    name: "fallback",
+    apiKey: "fallback-key",
+    url: "https://fallback.example/v1/chat/completions",
+    model: "evomap-deepseek-v4-flash",
+    compatibility: "openai"
+  },
+  chat: async () => {
+    throw new Error("community pulse must not use primary chat");
+  },
+  requestChat: async (provider, _messages, options = {}) => {
+    if (provider?.model !== "evomap-deepseek-v4-flash") throw new Error("community pulse must use fallback model");
+    if (options.requirePrimary) throw new Error("community pulse must not require primary model");
     return JSON.stringify({
       text: [
         "小椰产业雷达｜午间线索更新",

@@ -4156,12 +4156,15 @@ export class FeishuBot {
 
     let parsed = null;
     try {
-      const raw = await this.ai.chat(messages, {
+      const fallback = this.ai?.fallbackProvider;
+      if (!fallback?.apiKey || !fallback?.url || !fallback?.model) {
+        throw new Error("Community market pulse fallback AI is not configured.");
+      }
+      const raw = await this.ai.requestChat(fallback, messages, {
         temperature: 0.35,
         maxTokens: 1200,
         timeoutMs: Number(process.env.FEISHU_COMMUNITY_PULSE_AI_TIMEOUT_MS || 60000),
-        responseFormat: { type: "json_object" },
-        requirePrimary: true
+        responseFormat: { type: "json_object" }
       });
       parsed = parseJsonObject(raw);
     } catch (error) {
