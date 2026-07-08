@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-08T09:43:54.467Z",
+  "exportedAt": "2026-07-08T10:03:57.372Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67289,6 +67289,30 @@
           "replyToUserId": "feishu:ou_21a371a88099a7e2ad1d69da4d22c80e"
         },
         "createdAt": "2026-07-08T09:35:13.824Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "别人199割韭菜 我开源你们还不学 也不让智能体学",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bd5a5a728a4c1099a33fd837bc",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-08T09:56:13.676Z"
       }
     ],
     "memories": [
@@ -71450,7 +71474,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.874Z",
-        "updatedAt": "2026-07-06T12:49:27.544Z"
+        "updatedAt": "2026-07-08T09:56:13.081Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -71460,7 +71484,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T11:31:12.611Z",
-        "updatedAt": "2026-07-06T12:49:27.403Z"
+        "updatedAt": "2026-07-08T09:56:12.898Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
