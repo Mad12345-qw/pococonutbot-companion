@@ -42,6 +42,10 @@ function configBoolean(value, fallback = false) {
   return ["1", "true", "yes", "y", "on"].includes(String(value).toLowerCase());
 }
 
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function normalizeReplyIdentity(value = "") {
   return String(value || "")
     .trim()
@@ -3760,7 +3764,21 @@ export class FeishuBot {
       5,
       Number(this.config.feishuCommunityPulseQuietMinutes || process.env.FEISHU_COMMUNITY_PULSE_QUIET_MINUTES || 30)
     );
-    const liveLatestAt = await this.fetchLatestCommunityMessageAt(chatId);
+    const liveActivity = await this.fetchLatestCommunityMessageActivity(chatId);
+    const liveLatestAt = liveActivity.latestAt || "";
+    if (!liveActivity.ok) {
+      const fallbackAt = state.lastHumanActivityAt || state.lastActivityAt || "";
+      if (!fallbackAt) {
+        logEvent("warn", "Feishu community market pulse skipped because live activity scan failed without a reliable fallback", {
+          chatId: rawFeishuChatId(chatId),
+          reason: liveActivity.error || "unknown"
+        });
+        return false;
+      }
+      const fallbackTimestamp = Date.parse(fallbackAt);
+      if (!Number.isFinite(fallbackTimestamp)) return false;
+      return Date.now() - fallbackTimestamp >= quietMinutes * 60 * 1000;
+    }
     const recent = liveLatestAt ? [] : await this.storage.getRecentMessages(platformId(chatId), 12).catch(() => []);
     const latest = recent[recent.length - 1];
     const latestAt =
@@ -3807,29 +3825,39 @@ export class FeishuBot {
     return data;
   }
 
-  async fetchLatestCommunityMessageAt(chatId = "") {
+  async fetchLatestCommunityMessageActivity(chatId = "") {
     const rawChatId = rawFeishuChatId(chatId);
-    if (!rawChatId) return "";
-    try {
-      const params = new URLSearchParams({
-        container_id_type: "chat",
-        container_id: rawChatId,
-        sort_type: "ByCreateTimeDesc",
-        page_size: "1"
-      });
-      const data = await this.feishuGetJson(`/open-apis/im/v1/messages?${params.toString()}`, {
-        timeoutMs: Number(process.env.FEISHU_COMMUNITY_ACTIVITY_SCAN_TIMEOUT_MS || 8000)
-      });
-      const items = Array.isArray(data?.data?.items) ? data.data.items : [];
-      const latest = items[0];
-      return this.feishuMessageCreateTimeToIso(latest?.create_time || latest?.update_time || latest?.created_at || "");
-    } catch (error) {
-      logEvent("warn", "Feishu community activity live scan failed; falling back to local activity state", {
-        chatId: rawChatId,
-        error: truncate(error.message, 300)
-      });
-      return "";
+    if (!rawChatId) return { ok: false, latestAt: "", error: "missing_chat_id" };
+    const attempts = Math.max(1, Math.min(3, Number(process.env.FEISHU_COMMUNITY_ACTIVITY_SCAN_RETRIES || 3)));
+    let lastError = null;
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      try {
+        const params = new URLSearchParams({
+          container_id_type: "chat",
+          container_id: rawChatId,
+          sort_type: "ByCreateTimeDesc",
+          page_size: "1"
+        });
+        const data = await this.feishuGetJson(`/open-apis/im/v1/messages?${params.toString()}`, {
+          timeoutMs: Number(process.env.FEISHU_COMMUNITY_ACTIVITY_SCAN_TIMEOUT_MS || 8000)
+        });
+        const items = Array.isArray(data?.data?.items) ? data.data.items : [];
+        const latest = items[0];
+        return {
+          ok: true,
+          latestAt: this.feishuMessageCreateTimeToIso(latest?.create_time || latest?.update_time || latest?.created_at || "")
+        };
+      } catch (error) {
+        lastError = error;
+        if (attempt < attempts) await wait(300 * attempt);
+      }
     }
+    logEvent("warn", "Feishu community activity live scan failed after retries", {
+      chatId: rawChatId,
+      attempts,
+      error: truncate(lastError?.message || "", 300)
+    });
+    return { ok: false, latestAt: "", error: lastError?.message || "unknown" };
   }
 
   async markCommunityOpsActivity(chatId = "", patch = {}) {

@@ -326,14 +326,36 @@ await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   lastPromptText: "今天可以先抛一个小问题：",
   lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
 });
-bot.fetchLatestCommunityMessageAt = async () => new Date().toISOString();
+bot.fetchLatestCommunityMessageActivity = async () => ({ ok: true, latestAt: new Date().toISOString() });
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops market pulse defers when latest live group message is recent, even if it is from the bot",
   String(communityOpsSent.length),
   "1"
 );
-bot.fetchLatestCommunityMessageAt = async () => "";
+await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
+  prompts: 3,
+  lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  lastPromptIndex: 0,
+  lastPromptText: "今天可以先抛一个小问题：",
+  lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
+});
+bot.fetchLatestCommunityMessageActivity = async () => ({ ok: false, latestAt: "", error: "mock_scan_failed" });
+await bot.runCommunityOpsIdleCheck();
+assertEqual(
+  "community ops skips pulse when live activity scan fails without reliable fallback",
+  String(communityOpsSent.length),
+  "1"
+);
+await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
+  prompts: 3,
+  lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  lastActivityAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
+  lastPromptIndex: 0,
+  lastPromptText: "今天可以先抛一个小问题：",
+  lastPulseQuestion: "AI 算力扩张最终是估值叙事，还是订单确定性？"
+});
+bot.fetchLatestCommunityMessageActivity = async () => ({ ok: true, latestAt: "" });
 bot.storage.getRecentMessages = async () => [
   {
     role: "user",
