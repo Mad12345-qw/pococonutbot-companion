@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T06:37:53.345Z",
+  "exportedAt": "2026-07-09T06:47:49.741Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74054,8 +74054,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-09T05:08:14.222Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里刚才聊到明天A股和验证新闻有效性，正好有一条趋势值得盯着：AI巨头们开始拿算力当获客武器，直接补贴初创企业。华尔街日报消息，OpenAI、Anthropic、谷歌正向初创公司提供价值数十万美元的算力资源及其他优惠来抢企业客户。这不是简单的免费额度，而是把算力作为锁定生态的筹码，背后是模型层从技术竞赛转向商业化卡位的信号。\\n\\n值得追的三个方向：\\n1. 算力补贴战：三大厂商主动让利，短期会加速AI应用落地，但长期看谁的算力成本更低、自研芯片进度更快，谁就能掌握定价权——OpenAI的Jalapeño芯片和博通提到的2028年持续旺盛需求，都是这条线的延伸。\\n2. 资本流向转移：有篇分析拆了25笔超5000万的A轮融资，发现最聪明的钱从大模型本身转向了垂直应用和基础设施层，这跟算力补贴的逻辑能对上——补贴推高应用渗透，应用需求再反哺算力基础设施。\\n3. 对国内产业链的影响：如果海外巨头用算力补贴压价，国内云厂商和AI公司跟不跟？算力成本差异会不会拉大模型效果差距？这可能影响光模块、液冷等算力基础环节的订单预期。\\n\\n抛个问题：算力补贴战会把AI应用的商业化时间表提前半年以上吗？还是说只是提前消耗了未来的需求，对硬件订单未必是线性拉动？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"AI算力补贴战：巨头拿算力当获客筹码，催生产业链新变量\",\"lastPulseQuestion\":\"算力补贴战会把AI应用的商业化时间表提前半年以上吗？还是说只是提前消耗了未来的需求，对硬件订单未必是线性拉动？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260707/202607070905272464.html\",\"https://cloud.ofweek.com/recommendfriends-30693759.html\",\"https://news.qq.com/rain/a/20260708A027G000\",",
-        "updatedAt": "2026-07-09T05:08:14.318Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-09T06:38:05.760Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里刚聊过马斯克发Optimus工厂合照，弗里蒙特产线从Model S/X过渡到人形机器人，这周A股机器人板块也确实异动频繁。今天追一条更深入的产业链变化：宇树科技IPO注册刚获批，成为\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-09T06:38:05.760Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-09T06:38:05.848Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
