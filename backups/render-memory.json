@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T06:27:51.744Z",
+  "exportedAt": "2026-07-09T06:37:53.345Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68056,6 +68056,30 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-09T06:20:48.092Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+        "role": "user",
+        "modality": "text",
+        "content": "只要后台没开 GTA5 这种吃显存的游戏[看]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7b226a0acc10222ac1dea754",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUserId": "ou_8a4bcf9c2c4c6cf77f05d2745b93ad4a",
+          "rawUnionId": "on_8c4dc27eb14e026baad134579c839162",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:29:38.031Z"
       }
     ],
     "memories": [
@@ -69527,7 +69551,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.923Z",
-        "updatedAt": "2026-07-05T11:31:19.203Z"
+        "updatedAt": "2026-07-09T06:29:37.855Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69537,7 +69561,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-20T02:45:43.693Z",
-        "updatedAt": "2026-07-05T11:31:19.133Z"
+        "updatedAt": "2026-07-09T06:29:37.676Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
