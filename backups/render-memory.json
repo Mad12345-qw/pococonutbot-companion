@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T06:17:49.949Z",
+  "exportedAt": "2026-07-09T06:27:51.744Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67996,6 +67996,66 @@
           "replyToUserId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756"
         },
         "createdAt": "2026-07-09T06:16:40.584Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "role": "user",
+        "modality": "text",
+        "content": "这bot是llm自动回答后moss tts v1.5转语音的么",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc79a5b18b0b16a8a6bf92661c",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUserId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUnionId": "on_d51e68b9282f79efc52200c95f0404aa",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:18:53.536Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（小椰眨眨眼，语气带着点俏皮的好奇）\n\n这个嘛～bot 是不是走 LLM + MOSS TTS v1.5 的链路，得问问搭建它的人才知道呢。不过如果真是这样，那岂不是我说话的声音也是被“配音”出来的？🤭 有点意思～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756"
+        },
+        "createdAt": "2026-07-09T06:19:02.904Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "role": "user",
+        "modality": "text",
+        "content": "tts的语气prompt还留着[吃饭]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7957138acb16c35f6c508606",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUserId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUnionId": "on_d51e68b9282f79efc52200c95f0404aa",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:20:48.092Z"
       }
     ],
     "memories": [
@@ -69597,7 +69657,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-09T06:16:29.422Z",
-        "updatedAt": "2026-07-09T06:16:29.422Z"
+        "updatedAt": "2026-07-09T06:20:47.907Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69607,7 +69667,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-09T06:16:29.239Z",
-        "updatedAt": "2026-07-09T06:16:29.239Z"
+        "updatedAt": "2026-07-09T06:20:47.728Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
