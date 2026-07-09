@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T12:02:12.817Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-09T12:12:43.321Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -74174,8 +74174,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-09T10:13:32.048Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n群里之前聊过马斯克发Optimus工厂合照和宇树IPO获批，今天机器人板块继续异动。结合今天新增信息，有三条线值得明天继续追：\\n\\n1. 特斯拉Optimus量产节奏加速：马斯克发弗里蒙特工厂合照，Model S/X产线已向Optimus过渡，德州超级工厂也已动工，长期年产能目标千万台。这意味着龙头玩家正式迈入1-10量产阶段，对执行器、减速器、灵巧手等核心零部件的需求拉动将进入可量化阶段。值得追问：国内哪些供应商已进入特斯拉验证周期？\\n\\n2. 宇树科技IPO注册获批：证监会同意宇树在科创板上市，成为A股人形机器人第一股。这为板块提供了新的估值锚，同时宇树自身的供应链和产品路线（如通用人形机器人）也会影响市场对国内产业链的定价。值得追问：宇树上市后，其估值对标特斯拉Optimus还是更接近工业机器人？\\n\\n3. 英伟达加码机器人岗位招聘：6月29日英伟达宣布围绕具身智能、仿真、部署及解决方案架构四大方向开放招聘，覆盖北京、上海、深圳。这说明算力巨头正从底层平台切入机器人生态，可能加速仿真和训练工具的成熟。值得追问：英伟达的机器人平台对国内本体厂商是赋能还是竞争？\\n\\n明天可以讨论的具体问题：宇树IPO后，国内人形机器人产业链的估值锚会怎么变？特斯拉Optimus量产节奏对国内供应链的拉动时点判断？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"noon\",\"evening\"],\"lastPulseDigest\":\"机器人板块三条线索：特斯拉Optimus量产加速、宇树IPO获批、英伟达加码招聘，追问产业链影响。\",\"lastPulseQuestion\":\"宇树IPO后，国内人形机器人产业链的估值锚会怎么变？特斯拉Optimus量产节奏对国内供应链的拉动时点判断？\",\"lastPulseSources\":[\"https://field.10jqka.com.cn/20260706/c677965006.shtml\",\"https://news.qq.com/rain/a/20260703A04TZ",
-        "updatedAt": "2026-07-09T10:13:32.137Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-09T12:02:35.317Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-09T12:02:36.578Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
