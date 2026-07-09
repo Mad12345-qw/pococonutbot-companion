@@ -1955,6 +1955,26 @@ class PostgresStorage {
     );
   }
 
+  async tryCreateSetting(key, value) {
+    const result = await this.pool.query(
+      `INSERT INTO system_settings (key, value)
+       VALUES ($1, $2)
+       ON CONFLICT (key) DO NOTHING
+       RETURNING key`,
+      [String(key).slice(0, 120), String(value ?? "").slice(0, 1000)]
+    );
+    return result.rowCount > 0;
+  }
+
+  async deleteSettingIfValue(key, value) {
+    const result = await this.pool.query(
+      `DELETE FROM system_settings
+       WHERE key = $1 AND value = $2`,
+      [String(key).slice(0, 120), String(value ?? "").slice(0, 1000)]
+    );
+    return result.rowCount > 0;
+  }
+
   async upsertResearchJob(job = {}) {
     const result = await this.pool.query(
       `INSERT INTO research_jobs (id, source_type, source_url, status, stage, attempts, input, output, error)
@@ -3364,6 +3384,24 @@ class JsonFileStorage {
     this.state.settings = this.state.settings || {};
     this.state.settings[String(key)] = String(value ?? "").slice(0, 1000);
     await this.flush();
+  }
+
+  async tryCreateSetting(key, value) {
+    this.state.settings = this.state.settings || {};
+    const normalizedKey = String(key);
+    if (Object.prototype.hasOwnProperty.call(this.state.settings, normalizedKey)) return false;
+    this.state.settings[normalizedKey] = String(value ?? "").slice(0, 1000);
+    await this.flush();
+    return true;
+  }
+
+  async deleteSettingIfValue(key, value) {
+    this.state.settings = this.state.settings || {};
+    const normalizedKey = String(key);
+    if (this.state.settings[normalizedKey] !== String(value ?? "").slice(0, 1000)) return false;
+    delete this.state.settings[normalizedKey];
+    await this.flush();
+    return true;
   }
 
   async upsertResearchJob(job = {}) {

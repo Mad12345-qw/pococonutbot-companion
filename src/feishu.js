@@ -3718,6 +3718,30 @@ export class FeishuBot {
     return `feishu.community_ops.daily.${rawFeishuChatId(chatId)}.${this.communityOpsDateKey(date)}`;
   }
 
+  communityOpsPulseLockKey(chatId = "", slotKey = "", date = new Date()) {
+    return `feishu.community_ops.pulse_lock.${rawFeishuChatId(chatId)}.${this.communityOpsDateKey(date)}.${slotKey}`;
+  }
+
+  async reserveCommunityOpsPulseSlot(chatId = "", slotKey = "") {
+    if (!slotKey || typeof this.storage?.tryCreateSetting !== "function") {
+      return { ok: true, key: "", token: "" };
+    }
+    const key = this.communityOpsPulseLockKey(chatId, slotKey);
+    const token = `reserved:${Date.now()}:${Math.random().toString(36).slice(2, 10)}`;
+    const ok = await this.storage.tryCreateSetting(key, token);
+    return { ok, key, token };
+  }
+
+  async releaseCommunityOpsPulseSlot(reservation = {}) {
+    if (!reservation.key || !reservation.token || typeof this.storage?.deleteSettingIfValue !== "function") return;
+    await this.storage.deleteSettingIfValue(reservation.key, reservation.token);
+  }
+
+  async markCommunityOpsPulseSlotSent(reservation = {}) {
+    if (!reservation.key || typeof this.storage?.setSetting !== "function") return;
+    await this.storage.setSetting(reservation.key, `sent:${new Date().toISOString()}`);
+  }
+
   async communityOpsDailyState(chatId = "") {
     try {
       return JSON.parse(await this.storage.getSetting(this.communityOpsDailyKey(chatId), "{}")) || {};
@@ -4324,16 +4348,34 @@ export class FeishuBot {
         logEvent("info", "Feishu community market pulse deferred during active conversation", { chatId, slot: slot.key });
         continue;
       }
-      const pulse = await this.buildCommunityMarketPulse({ chatId, slot, state });
-      if (!pulse?.text) continue;
-      const prompt = {
-        ...pulse,
-        slotKey: slot.key,
-        index: ["morning", "noon", "evening"].indexOf(slot.key)
-      };
-      await this.markCommunityOpsPromptReserved(chatId, prompt);
-      await this.sendTextToChat(chatId, prompt.text);
-      logEvent("info", "Feishu community market pulse sent", { chatId, slot: slot.key, promptIndex: prompt.index });
+      const reservation = await this.reserveCommunityOpsPulseSlot(chatId, slot.key);
+      if (!reservation.ok) {
+        logEvent("info", "Feishu community market pulse skipped because slot is already reserved", { chatId, slot: slot.key });
+        continue;
+      }
+      let releaseReservation = true;
+      try {
+        const pulse = await this.buildCommunityMarketPulse({ chatId, slot, state });
+        if (!pulse?.text) continue;
+        const prompt = {
+          ...pulse,
+          slotKey: slot.key,
+          index: ["morning", "noon", "evening"].indexOf(slot.key)
+        };
+        releaseReservation = false;
+        await this.sendTextToChat(chatId, prompt.text);
+        await this.markCommunityOpsPromptReserved(chatId, prompt);
+        await this.markCommunityOpsPulseSlotSent(reservation);
+        logEvent("info", "Feishu community market pulse sent", { chatId, slot: slot.key, promptIndex: prompt.index });
+      } catch (error) {
+        logEvent("warn", "Feishu community market pulse failed after slot reservation", {
+          chatId,
+          slot: slot.key,
+          error: truncate(error.message, 300)
+        });
+      } finally {
+        if (releaseReservation) await this.releaseCommunityOpsPulseSlot(reservation);
+      }
     }
   }
 
