@@ -272,6 +272,7 @@ bot.webSearch = {
     ]
   })
 };
+let capturedCommunityPulsePayload = null;
 bot.ai = {
   fallbackProvider: {
     name: "fallback",
@@ -283,9 +284,10 @@ bot.ai = {
   chat: async () => {
     throw new Error("community pulse must not use primary chat");
   },
-  requestChat: async (provider, _messages, options = {}) => {
+  requestChat: async (provider, messages, options = {}) => {
     if (provider?.model !== "evomap-deepseek-v4-flash") throw new Error("community pulse must use fallback model");
     if (options.requirePrimary) throw new Error("community pulse must not require primary model");
+    capturedCommunityPulsePayload = JSON.parse(messages[1].content);
     return JSON.stringify({
       text: [
         "小椰产业雷达｜午间线索更新",
@@ -318,6 +320,18 @@ bot.storage.listResearchEvidenceForReport = async () => ({
 bot.storage.getRecentMessages = async () => [
   { role: "user", content: "我们刚才还在聊 SpaceX 发射频率会不会外溢到推进剂和测控", createdAt: new Date().toISOString() }
 ];
+bot.fetchRecentCommunityMessages = async () => ({
+  ok: true,
+  messages: [
+    {
+      role: "group_message",
+      senderType: "app",
+      messageType: "post",
+      content: "Grok Bridge just discussed AI optical module capex and SIVE AAOI AXTI context.",
+      createdAt: new Date(Date.now() - 45 * 60 * 1000).toISOString()
+    }
+  ]
+});
 await bot.saveCommunityOpsDailyState(DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID, {
   prompts: 3,
   lastPromptAt: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
@@ -376,6 +390,11 @@ assertEqual(
     !communityOpsSent[1].text.includes("**") &&
     !communityOpsSent[1].text.includes("今天可以先抛一个小问题")
   ),
+  "true"
+);
+assertEqual(
+  "community ops market pulse passes live group context from other bots into generation",
+  String(capturedCommunityPulsePayload?.groupMemory?.recentMessages?.[0]?.content?.includes("Grok Bridge")),
   "true"
 );
 await bot.runCommunityOpsIdleCheck();

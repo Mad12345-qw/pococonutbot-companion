@@ -3884,6 +3884,58 @@ export class FeishuBot {
     return { ok: false, latestAt: "", error: lastError?.message || "unknown" };
   }
 
+  communityLiveMessageText(message = {}) {
+    const content = feishuMessageContent(message);
+    const type = feishuMessageType(message);
+    const text = type === "post"
+      ? flattenPostContent(content)
+      : stripAtTags(content.text || flattenGenericContent(content));
+    return truncate(String(text || "").replace(/\s+/g, " ").trim(), 260);
+  }
+
+  async fetchRecentCommunityMessages(chatId = "", { limit = 8 } = {}) {
+    const rawChatId = rawFeishuChatId(chatId);
+    if (!rawChatId) return { ok: false, messages: [], error: "missing_chat_id" };
+    const attempts = Math.max(1, Math.min(3, Number(process.env.FEISHU_COMMUNITY_CONTEXT_SCAN_RETRIES || 3)));
+    const pageSize = Math.max(1, Math.min(20, Number(limit || 8)));
+    let lastError = null;
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      try {
+        const params = new URLSearchParams({
+          container_id_type: "chat",
+          container_id: rawChatId,
+          sort_type: "ByCreateTimeDesc",
+          page_size: String(pageSize)
+        });
+        const data = await this.feishuGetJson(`/open-apis/im/v1/messages?${params.toString()}`, {
+          timeoutMs: Number(process.env.FEISHU_COMMUNITY_CONTEXT_SCAN_TIMEOUT_MS || 10000)
+        });
+        const items = Array.isArray(data?.data?.items) ? data.data.items : [];
+        return {
+          ok: true,
+          messages: items
+            .map((item) => ({
+              role: "group_message",
+              senderType: item?.sender?.sender_type || item?.sender_type || item?.sender?.id_type || "",
+              messageType: feishuMessageType(item),
+              content: this.communityLiveMessageText(item),
+              createdAt: this.feishuMessageCreateTimeToIso(item?.create_time || item?.update_time || item?.created_at || "")
+            }))
+            .filter((item) => item.content)
+        };
+      } catch (error) {
+        lastError = error;
+        if (attempt < attempts) await wait(300 * attempt);
+      }
+    }
+    logEvent("warn", "Feishu community context live scan failed after retries", {
+      chatId: rawChatId,
+      attempts,
+      error: truncate(lastError?.message || "", 300)
+    });
+    return { ok: false, messages: [], error: lastError?.message || "unknown" };
+  }
+
   async markCommunityOpsActivity(chatId = "", patch = {}) {
     const state = await this.communityOpsDailyState(chatId);
     await this.saveCommunityOpsDailyState(chatId, {
@@ -4180,8 +4232,11 @@ export class FeishuBot {
   }
 
   async collectCommunityResearchContext(chatId = "") {
-    const recent = await this.storage.getRecentMessages(platformId(chatId), 20).catch(() => []);
-    const recentMessages = recent
+    const [liveMessages, recent] = await Promise.all([
+      this.fetchRecentCommunityMessages(chatId, { limit: 8 }),
+      this.storage.getRecentMessages(platformId(chatId), 20).catch(() => [])
+    ]);
+    const storedRecentMessages = recent
       .slice(-10)
       .map((message) => ({
         role: message.role || "",
@@ -4189,6 +4244,9 @@ export class FeishuBot {
         createdAt: message.created_at || message.createdAt || ""
       }))
       .filter((item) => item.content);
+    const recentMessages = liveMessages.ok && liveMessages.messages.length
+      ? liveMessages.messages.slice(0, 8)
+      : storedRecentMessages;
     const queries = ["AI 算力 数据中心 光模块 CPO 液冷", "人形机器人 执行器 减速器 灵巧手 量产", "商业航天 SpaceX Starship 发射频率 供应链"];
     const corpora = typeof this.storage.listResearchEvidenceForReport === "function"
       ? await Promise.all(queries.map((query) =>
@@ -4208,7 +4266,12 @@ export class FeishuBot {
       .filter(Boolean)
       .flatMap((corpus) => (corpus.questions || []).slice(0, 4).map((question) => truncate(question.question || "", 160)))
       .filter(Boolean);
-    return { recentMessages, evidence: evidence.slice(0, 12), questions: [...new Set(questions)].slice(0, 8) };
+    return {
+      liveRecentMessagesOk: liveMessages.ok,
+      recentMessages,
+      evidence: evidence.slice(0, 12),
+      questions: [...new Set(questions)].slice(0, 8)
+    };
   }
 
   async buildCommunityMarketPulse({ chatId = "", slot = null, state = {} } = {}) {
@@ -4218,6 +4281,13 @@ export class FeishuBot {
       this.collectCommunityPulseNews(),
       this.collectCommunityResearchContext(chatId)
     ]);
+    if (!context.liveRecentMessagesOk) {
+      logEvent("warn", "Feishu community market pulse skipped: live group context scan failed", {
+        chatId,
+        slot: activeSlot.key
+      });
+      return null;
+    }
     if (!news.items?.length) {
       logEvent("warn", "Feishu community market pulse skipped: no authoritative news candidates", {
         chatId,
