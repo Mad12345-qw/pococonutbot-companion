@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T05:17:50.145Z",
+  "exportedAt": "2026-07-09T06:07:54.448Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67753,6 +67753,93 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-09T01:10:01.659Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw 模思公众号、视频号同步发布MTD开源！欢迎大家来点赞互动！！[举手]\nhttps://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7ed7964a4c45205d016b465f",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-09T06:05:50.794Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "text",
+        "content": "https://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw 模思公众号、视频号同步发布MTD开源！欢迎大家来点赞互动！！[举手]\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw\n最强多说话人 ASR 模型开源，0.9B 支持超长语音转写 \n\n \n 原创 \n \n 模思智能 \n 模思智能 \n \n \n \n \n 模思智能 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n 在语音识别领域，多说话人转录一直是最难解决的问题之一。 \n \n 真实世界里的音频，从来不是实验室里的“标准样本”。会议可能有超多人轮流发言、打断，客服录音里则充满环境噪声、回声和重叠语音......模型不仅要听清“说了什么”，还要持 续判断“是谁说的 ”。 \n \n 当音频长度扩展到几十分钟甚至数小时后，这个问题会变得 更加 复杂 ： \n \n 说话人身份需要被长期追踪，多人交替和重叠发言需要被准确区分，任何环节出现偏差都可能加重说话人归属错误、时间戳漂移等准确性问题。 \n \n 过去大多数方案例如 WhisperX 等 Pipeline 系统，依赖 ASR、说话人分离和时间对齐等多个模块级联完成。这样的架构虽然工程上可行， 但也带来了 误差传播 ，在复杂长音频场景下容易影响准确性。 \n \n 今天，我们希望用一种更简单的方式重新解决这个问题。 \n \n MOSS-Transcribe-Diarize-0.9B ， 以轻量 开源 模型的 端到端转录 体 验 重新定义 多说话人长音频转写 。 \n \n \n \n 性能数据及测试 benchmark \n \n MOSS-Transcribe-Diarize-0.9B 面向真实复杂语音场景打造，能够处理多人会议、混乱插话、长时间对话和重叠语音等 复杂场景 ，并且能够在统一生成框架中 一次性 完成 语音转录、说话人归属和时间戳预测 。 \n \n 基于百万小时训练数据和 128K 长上下文能力 ，模型支持最长约 90 分钟 音频的一次性输入，无需切片、拼接或复杂后处理，即可直接生成带有时间戳和说话人标签的结构化转写结果。 \n \n 更重要的是，这种能力并不依赖超大参数规模。 \n \n 本次开源的模型参数量仅为 0.9B 。在 NVIDIA 4090 单并发环境下，模型生成速度可达约 100 token/s ，实时率（RTF）约为 0.017 ， 5–10 分钟 的音频可在 30 秒内完成转录 ，兼顾精度、速度与部署成本。 \n \n 此外，模型现已支持 热词增强 能力。用户可以根据具体业务场景预先配置人名、公司名、产品型号、项目代号、专业术语等关键词，从而将专有名词识别能力全面提升 。 \n \n 这使得 MOSS-Transcribe-Diarize-0.9B 不仅适用于通用会议转写，也能够广泛应用于企业会议纪要、客户沟通记录、客服质检、访谈整理以及行业内容生产等专业场景。 \n \n \n 图 1 AISHELL-4 多说话人会议转写任务各模型性能对比图 \n \n 在 AISHELL-4 多说话人会议转录基准上，MOSS-Transcribe-Diarize-0.9B 在字符错误率（CER）、多说话人综合字符错误率（cpCER）以及说话人归属稳定性（Δcp）三项核心指标上均取得最佳成绩。 \n \n 其中， cpCER 降至 14.98% ，较现有主流模型最高降低超过 40% ； Δcp 仅为 0.79 ，表明模型在长时间、多说话人交互场景下，依然能够保持稳定且准确的说话人归属能力。 \n \n 这意味着，MOSS-Transcribe-Diarize-0.9B 不仅 听得更准 ，也更能够 记住整场会议中\"是谁在说话\" 。 \n \n \n 端到端，重新定义多说话人转录 \n \n 与 WhisperX 等基于 ASR + Diarization + Alignment 的级联方案相比，MOSS-Transcribe-Diarize-0.9B 的核心思路，是将 语音转录、说话人归属和时间戳预测 统一建模为一个自回归生成任务。 \n \n 换句话说，模型不再分别解决“说了什么”“谁在说”“什么时候说”三个问题，而是在同一个生成过程中，同时完成这三项任务。 \n \n 在模型架构上，MOSS-Transcribe-Diarize-0.9B 采用 Whisper-Medium 音频编码器 + Qwen3-0.6B 风格 Causal Decoder 的多模态架构。音频编码器负责提取长时、多说话人语音中的声学信息；语言模型则直接生成带有时间戳和说话人标签的结构化转录结果。 \n \n [0.11] [S01] Good morning! [1.03] \n [1.11] [S02] Morning, guys! [1.34] \n \n 这种设计带来了三个关键优势 ： \n \n 1. 真正的端到端体验 ： 无需独立的 ASR、说话人分离和时间对齐模块； \n 2. 文本级时间建模 ： 将时间信息离散为可生成的 token，与文本共同建模，用于提升长上下文下的时间定位稳定性； \n 3. 全局一致性建模 ： 说话人身份、文本内容和时间信息在统一上下文中联合优化，实现更加 稳 定的长程建模能力。 \n \n \n 图 2 MOSS 转录对话模型的总体架构 图 \n \n \n 超长上下文，轻松保持一致性 \n \n 长音频转录的挑战，从来不只是“听得更久”，而是“记得更久”。 \n \n MOSS-Transcribe-Diarize-0.9B 配备 128k token 上下文窗口，能够直接处理最长约 90 分钟 的连续音频输入， 无需复杂切块和后续拼接修复 。这一能力显著提升了模型在长音频场景下的表现，包括： \n \n 跨几十轮发言的说话人一致性保持； \n\n 对远距离指代和话题回溯的建模能力； \n\n 长音频场景下稳定的时间戳预测； \n\n 对会议、播客、访谈等连续语音结构的整体理解。 \n\n 相比需要分段拼接的流式级联系统，MOSS-Transcribe-Diarize-0.9B 在结构上更加简洁，也更适合会议级长音频转写任务。 \n \n \n 热词增强 ，让 AI 听懂你的专业语言 \n \n 传统 ASR 系统在处理人名、机构名、产品型号、行业术语时，经常出现同音误识别、英文缩写丢失以及专有名词泛化等问题，最终影响会议纪要、知识检索和后续分析的可用性。 \n \n 为此，MOSS-Transcribe-Diarize-0.9B 支持热词增强能力。这一功能尤其适用于： \n \n 企业会议中的项目名、客户名、产品型号； \n\n 医疗、金融、法律、教育等垂直行业术语； \n\n 播客、访谈中的嘉宾姓名、机构名称、品牌词； \n\n 多语言或中英混合语音中的英文缩写和专有表达； \n\n 客服质检中的业务关键词、风险词和流程节点词等。 \n\n 与简单的后处理替换不同，热词增强是在 识别阶段直接提升模型对关键词的感知能力 ，从源头减少专有名词识别错误。因此用户还可以进一步定位： \n \n 哪个说话人，在什么时间，说出了哪些关键内容。 \n \n \n \n \n DEMO 演示 \n \n \n 多说话人识别 👆 \n \n 多语言识别👆 \n \n 热词增强👆 \n \n \n Pro 版本同步上线模思开放平台 \n \n MOSS 旗舰多说话人语音转录模型 MOSS-Transcribe-Diarize Pro 本次也全面更新，基于更大规模模型能力，提供更强的说话人区分、上下文理解与转写一致性。新版本在 说话人识别稳定性、转写准确率以及多语言能力 等方面进一步提升，并提供面向商业场景的 API 服务 。 \n \n \n 个人开发者和企业用户可以登录 模思开放平台 ， platform.mosi.cn ，获取API Key并进行调用。模思开放平台为开发者提供强大的多模态大模型能力，让开发者可以轻松地将包括 MOSS-TTS、MOSS-Transcribe-Diarize 在内的多模态能力集成到应用中。本次 Pro 版本上线开放平台，为企业级会议转录、客服质检和内容生产等场景带来更稳定、更高效的调用体验。 \n \n \n 图3 开源vs闭源性能对比提升图 \n \n 此外，我们还同步发布了面向复杂英语场景的语音识别模型 MOSS-Transcribe 。该模型针对标准英语、多样口音、低声耳语等真实场景进行了专项优化，在复杂英语语音识别任务中表现更加稳定和精准。 \n \n 在全球英文 ASR 领域最权威的评估系统 OPENASR Leaderboard 中，MOSS-Transcribe 取得全球开源模型第一的表现， 并在三个真实播客、会议场景测试集中表现领先。 \n \n \n 图4 OPENASR Leaderboard 评估榜单 \n\n \n 图5 真实场景WER对比图 \n \n \n 开源与体验 \n \n 我们的模型已上线，欢迎点击体验或者下载 \n 项 目 主 页 ： https://github.com/OpenMOSS/MOSS-Transcribe-Diarize \n 在线 demo ： https://moss-transcribe-diarize-demo.mosi.cn/ \n 技术报告 ： http://arxiv.org/abs/2601.01554 \n API 平台 ： https: //platform.mosi.cn \n \n 社区开源生态 \n Hugging Face： https://huggingface.co/spaces/OpenMOSS-Team/MOSS-transcribe-diarize \n\n AtomGit ： h ttps://ai.atomgit.com/ OpenMOSS/MOSS-Transcribe-Diarize \n\n SGLang-Omni Day0 支持 ： https://github.com/sgl-project/sglang-omni \n\n vLLM Day0 支持 ： https://github.com/vllm-project/vllm \n\n MLX-audio Day0 支持 ： https://github.com/Blaizzy/mlx-audio \n\n \n 加入我们的社区讨论： \n \n \n\n \n \n\n \n\n 预览时标签不可点\n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n 微信扫一扫 关注该公众号\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n 知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7ed7964a4c45205d016b465f",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUnionId": "on_1eb41d45695053ccdf8818a3971a7efb",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/EGLtIthM19PU8h8t31O5Qw\n最强多说话人 ASR 模型开源，0.9B 支持超长语音转写 \n\n \n 原创 \n \n 模思智能 \n 模思智能 \n \n \n \n \n 模思智能 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n 在语音识别领域，多说话人转录一直是最难解决的问题之一。 \n \n 真实世界里的音频，从来不是实验室里的“标准样本”。会议可能有超多人轮流发言、打断，客服录音里则充满环境噪声、回声和重叠语音......模型不仅要听清“说了什么”，还要持 续判断“是谁说的 ”。 \n \n 当音频长度扩展到几十分钟甚至数小时后，这个问题会变得 更加 复杂 ： \n \n 说话人身份需要被长期追踪，多人交替和重叠发言需要被准确区分，任何环节出现偏差都可能加重说话人归属错误、时间戳漂移等准确性问题。 \n \n 过去大多数方案例如 WhisperX 等 Pipeline 系统，依赖 ASR、说话人分离和时间对齐等多个模块级联完成。这样的架构虽然工程上可行， 但也带来了 误差传播 ，在复杂长音频场景下容易影响准确性。 \n \n 今天，我们希望用一种更简单的方式重新解决这个问题。 \n \n MOSS-Transcribe-Diarize-0.9B ， 以轻量 开源 模型的 端到端转录 体 验 重新定义 多说话人长音频转写 。 \n \n \n \n 性能数据及测试 benchmark \n \n MOSS-Transcribe-Diarize-0.9B 面向真实复杂语音场景打造，能够处理多人会议、混乱插话、长时间对话和重叠语音等 复杂场景 ，并且能够在统一生成框架中 一次性 完成 语音转录、说话人归属和时间戳预测 。 \n \n 基于百万小时训练数据和 128K 长上下文能力 ，模型支持最长约 90 分钟 音频的一次性输入，无需切片、拼接或复杂后处理，即可直接生成带有时间戳和说话人标签的结构化转写结果。 \n \n 更重要的是，这种能力并不依赖超大参数规模。 \n \n 本次开源的模型参数量仅为 0.9B 。在 NVIDIA 4090 单并发环境下，模型生成速度可达约 100 token/s ，实时率（RTF）约为 0.017 ， 5–10 分钟 的音频可在 30 秒内完成转录 ，兼顾精度、速度与部署成本。 \n \n 此外，模型现已支持 热词增强 能力。用户可以根据具体业务场景预\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:06:02.497Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "role": "user",
+        "modality": "text",
+        "content": "太强啦！！！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7ea9a6cb0b12017dca2afa63",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_76edba3043c0dcf56518f50ca8a91621",
+          "rawUserId": "ou_76edba3043c0dcf56518f50ca8a91621",
+          "rawUnionId": "on_4fcfc56ada48788c9fc28c7e9427b971",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:06:09.722Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] MOSS-Transcribe-Diarize-0.9B，基于百万小时训练数据和 128K 长上下文能力，模型支持最长约 90 分钟音频的一次性输入，无需切片、拼接或复杂后处理，即可直接生成带有时间戳和说话人标签的结构化转写结果。\nhttps://github.com/OpenMOSS/MOSS-Transcribe-Diarize\nhttps://github.com/OpenMOSS/MOSS-Transcribe-Diarize\\n\\n旗舰多说话人语音转录模型",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/OpenMOSS/MOSS-Transcribe-Diarize",
+            "https://github.com/OpenMOSS/MOSS-Transcribe-Diarize\\n\\n旗舰多说话人语音转录模型"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7e7d050b4c4e4caab9f4a99b",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-09T06:07:19.159Z"
       }
     ],
     "memories": [
@@ -69178,13 +69265,33 @@
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-09T06:06:09.547Z",
+        "updatedAt": "2026-07-09T06:06:09.547Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-09T06:06:09.371Z",
+        "updatedAt": "2026-07-09T06:06:09.371Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
         "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.610Z",
-        "updatedAt": "2026-06-22T12:11:11.602Z"
+        "updatedAt": "2026-07-09T06:06:02.315Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69194,7 +69301,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.380Z",
-        "updatedAt": "2026-06-22T12:11:11.378Z"
+        "updatedAt": "2026-07-09T06:06:02.130Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
