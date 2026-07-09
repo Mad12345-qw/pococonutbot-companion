@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T00:17:49.137Z",
+  "exportedAt": "2026-07-09T01:17:50.046Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67717,6 +67717,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-08T12:13:16.502Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "验证这些新闻的及时性和有效性",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bdb00fcf0acc35ec7a1c99830b",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T01:09:57.929Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好的，我先确认一下——你指的是哪条新闻或者哪个信息来源呀？把链接或者标题发我，我立刻帮你查发布时间、核验一下内容是否还生效。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-09T01:10:01.659Z"
       }
     ],
     "memories": [
@@ -70248,7 +70284,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-07T15:33:22.144Z"
+        "updatedAt": "2026-07-09T01:09:57.759Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -70258,7 +70294,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-07T15:33:21.966Z"
+        "updatedAt": "2026-07-09T01:09:57.587Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -73651,8 +73687,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-09T00:08:14.089Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨天群里有同学问明天A股怎么走，虽然短期走势没法猜，但产业层面的驱动信号正在密集堆叠。宇树IPO获批、特斯拉弗里蒙特工厂转产Optimus、小米也有新动作——人形机器人这条线的叙事，正在从“什么时候量产”切换成“谁先跑到千台级交付”。今天三条线索可以一起盘。\\n\\n1. 特斯拉弗里蒙特工厂已从Model S/X产线向Optimus过渡，德州超级工厂动工，长期年产能目标喊到千万台。这意味着龙头正式从单机测试转向生产线对冲工程问题，供应链的定点机会和降本节奏会立刻被市场定价。A股这边，雷赛智能已走出3连板，华依科技触及20cm涨停。\\n\\n2. 宇树科技科创板IPO注册获批。国内人形机器人第一股进入倒计时，IP0本身会放大板块情绪，但更值得追的是：宇树在招股书里披露的客户结构、毛利率、量产BOM成本——这些数字会直接成为行业定价锚，对已上市公司构成估值压力或支撑。\\n\\n3. 小雨智造发布工业具身焊接机器人，标准版售价16.98万元，已在十余家建筑钢构、船舶工厂投入使用。这是一个难得的真实场景定价样本：16.98万卖到工厂里去，客户算ROI了。这个价格点如果被市场验证为可盈利，会压低整个行业对成本的容忍上限，推快降本竞赛。\\n\\n三条线串联出的问题留到后面：如果Optimus在7月开始下线首批产线试制件、宇树同期走完注册流程、小雨把16.98万做成标准价，那今年Q3会是机器人板块从主题催化转向业绩验证的第一个分岔路口——哪家零部件公司能同时在特斯拉和国内本体厂两侧拿到定点？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"机器人：特斯拉转产Optimus+宇树IPO获批+小雨工业机器人定价16.98万，三条线索同时指向量产拐点临近\",\"lastPulseQuestion\":\"如果特斯拉弗里蒙特工厂本周完成Optimus产线切换，年内单月交付能到多少台？国内本体厂有没有能力在Q4前把BOM成本打到宇树IPO定价的下限以下？\",\"lastPulseSources\":[\"",
-        "updatedAt": "2026-07-09T00:08:14.176Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-09T01:09:56.654Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-09T01:09:58.277Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
