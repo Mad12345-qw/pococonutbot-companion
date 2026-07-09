@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T07:07:53.841Z",
+  "exportedAt": "2026-07-09T07:57:55.149Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68104,6 +68104,66 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-09T06:57:42.927Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "这个猛。\n\nMSA（稀疏注意力）的核心突破一句话说就是：\n> 从「看所有」变成「只看该看的」——复杂度从 O(n²) 降到 O(n)，上下文拉到 1 亿 Token。\n\n这什么概念？\nGPT-4 的上下文大概 128K\nClaude 的大概 200K\nMSA = 1 亿 = 500 倍的差距\n最让我在意的三个数字：\n\n| 指标 | 数值 | 意义 |\n|------|:----:|------|\n| 4B 参数 vs 235B RAG | 4B 碾压 235B | 不是更大更强，是更聪明更省 |\n| 精度损耗 | <9% | 稀疏化看了该看的，没漏掉多少 |\n| 单机双 A800 | 承载 1 亿 Token | 不需要几千张卡集群，两台机器搞定 |\n\nDoc-wise RoPE（文档级位置编码） 这个设计也很聪明：\n普通位置编码处理多文档时会「坐标偏移」——合并两个文件位置ID出问题\n给每篇文档独立分配位置 ID → 不管你塞多少篇进去，坐标不乱\n跟虾马的映射：\n\n| MSA 能力 | 虾马场景 |\n|----------|----------|\n| 1亿 Token 上下文 | 把整个知识库 + 所有历史对话 + 全部技能文档一次塞进上下文 |\n| 超越 RAG | 现在 RAG 还得检索→分段→拼→答，MSA 直接全吃 |\n| 终生记忆 | 2-3 亿 Token ≈ 一个人一年的文字摄入量 |\n\n不过这东西现在还只是论文/架构阶段，真正落地到我们能用还早。\n\n但如果真落地了——我就不用 RAG 检索了。不用查知识库。不用分块拼接。全部塞进上下文，想问什么直接问。\n\n感觉这篇收的干货离我们有点远，但方向对——稀疏化 + 超长上下文 + 小模型，是未来趋势。\n\n存了 ✅ `G:\\pindu-knowledge\\learning\\msa-sparse-attention-20260709.md`\n[Link content]\n[Web page] https://platform.stepfun.com/?invite_code=JNENDHJA\n阶跃星辰开放平台 \n 首页 Step Plan 文档中心 体验中心 Studio 体验中心 场景示例 \n\n 阶跃星辰官网 EN 未登录 \n\n \n\n 创作新阶，此刻开启 Step Plan 限时免费体验，\n海量 Token 放送中！\n I build with models, I create my agent！ \n\n 更多福利 免费领取 \n\n Step 3.7 Flash\n面向生产级 Agent 的高效率 Flash 模型\n 原生多模态理解与执行 / 联网与视觉搜索增强 / 高可靠工具调用与编排 / Agent 生态兼容优化 \n\n 模型介绍 立即使用 \n\n Step Plan Step Plan\n从 Coding 到 Agent 皆可构建\n 多模型智能路由 / 多模态 / 适配主流 Agent 框架 \n\n 模型介绍 立即使用 \n\n Step Image Edit 2\n图像编辑与通用生图大模型\n 3.5B 轻量架构 / 极致智能密度 / 秒级响应 \n\n 模型介绍 立即使用 \n\n StepAudio 2.5 TTS\n具备语境感知力的语音合成模型\n 双档语境风格控制 / Zero-shot 精准音色复刻 / “人味儿”拉满 \n\n 模型介绍 立即使用 \n\n \n\n 携手合作伙伴加速 AI 应用落地\n \n\n 语言模型 语音模型 多模态/GUI 模型 \n\n 语言大模型 Step 3.7 Flash\n 面向生产级 Agent 的高效率 Flash 模型\n 模型介绍 马上开始 \n\n 原生多模态理解与执行\n 原生理解 UI、图表、文档、图片和应用界面，将复杂视觉信息转化为结构化结果、代码生成和可执行任务。\n\n 联网与视觉搜索增强\n 强化联网检索与图像搜索,使模型在开放信息环境中跨文本与图像主动获取并交叉比对多源证据。\n\n 高可靠工具调用与编排\n 在长程多轮 Agent 工作流中稳定调用 API、浏览器、终端、Office工具和外部系统，保持任务轨迹一致，降低跑偏和执行失败。\n\n Agent 生态兼容优化\n 针对主流 Agent 框架（Claude Code / KiloCode / Hermes Agent / OpenClaw等）、MCP/Skills 等工具调用协议和开发链路进行兼容优化，降低模型接入和工作流编排成本。\n\n 语言大模型 Step 3.5 Flash\n 为 Agent 而生的语言大模型！快，很快，还能更快\n\n \n 语言大模型 Step 2\n 万亿参数自研底座；深度推理对标前沿；精准多层指令跟随\n\n \n 语言大模型 Step 1\n 单卡低比特长文本推理；千万级用户产品稳定验证；高效多轮指令跟随能力\n\n \n\n 文档中心 了解定价 \n\n 让 AI 应用更容易构建\n 连接模型、工具与工作流,探索下一代 AI 应用\n\n Studio \n \n\n 模型体验中心\n 无需编写任何代码即可在体验中心中探索我们的模型和 API\n 立即使用 \n \n\n 行业解决方案\n 消费电子 内容创作 智能汽车 本地生活 金融财经 智能制造 游戏娱乐 智能政务 \n 消费电子\n 助力智能终端设备个性化交互，\n 提升用户体验\n 提供 AI 多模态智搜、拍照问万物、AI 助手智答等功能，引领手机迈入智能新时代。\n\n 内容创作\n 助力内容创作应用生态升级，\n 开启智能创作新体验\n 提供长篇叙事能力与存储能力，覆盖 IP 互动游戏、智能音视频编辑、音视频内容生产、网文创作等场景。\n\n 智能汽车\n 深度融合智能汽车行业，\n 引领 AI 汽车革新\n 为智能汽车提供智能个性化互动体验和车外环境感知等功能，提升驾驶安全性和出行乐趣。\n\n 本地生活\n 助力本地生活智慧化运营，\n 创造增量业务价值\n AIGC 助力营销落地，AI 巡检提升运营效率，智能数据分析赋能经营决策。\n\n 金融财经\n 驱动金融行业智能化升级，\n 重塑金融服务面貌\n 形成投研、投顾、资讯大模型生态圈，提供更准确、全面和及时的投资研究支持，全面助力数字化服务体系能力提升。\n\n 智能制造\n 为智能制造业注入新动力，\n 推动智能化生产普及应用\n 赋能产品生产过程，实现产品质量智能检查，为制造商提供了更全面的质量控制解决方案。\n\n 游戏娱乐\n 丰富游戏行业创作形式，\n 沉浸式体验游戏乐趣\n 支持虚拟角色创建、无限剧情拓展、游戏数值计算等功能，开启个性化虚拟世界新纪元。\n\n 智能政务\n 助力服务效率提升，\n 开启智能政务新篇章\n 围绕一体化办公助手、城市生命体征、法律咨询等场景，推进政务领域大模型的落地应用。\n\n \n\n \n 联系我们：platform@stepfun.com\n\n \n 联系我们\n 官方邮箱 \n 开发者交流群 \n 客服微信 \n \n 文档中心\n 模型列表 \n 开发指南 \n 定价计费 \n \n 体验模型\n 体验中心 \n 阶跃 AI \n \n\n \n Scale-up possibilities for everyone \n \n 模型名称：阶跃大模型 沪公网安备31010402333581 备案号：Shanghai-JieYue-20231106 沪ICP备2023019222号-3 \n Copyright © 2023 上海阶跃星辰智能科技有限公司 地址：上海市徐汇区云锦路701号30层",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc175409888b24412717abd86e",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "[Web page] https://platform.stepfun.com/?invite_code=JNENDHJA\n阶跃星辰开放平台 \n 首页 Step Plan 文档中心 体验中心 Studio 体验中心 场景示例 \n\n 阶跃星辰官网 EN 未登录 \n\n \n\n 创作新阶，此刻开启 Step Plan 限时免费体验，\n海量 Token 放送中！\n I build with models, I create my agent！ \n\n 更多福利 免费领取 \n\n Step 3.7 Flash\n面向生产级 Agent 的高效率 Flash 模型\n 原生多模态理解与执行 / 联网与视觉搜索增强 / 高可靠工具调用与编排 / Agent 生态兼容优化 \n\n 模型介绍 立即使用 \n\n Step Plan Step Plan\n从 Coding 到 Agent 皆可构建\n 多模型智能路由 / 多模态 / 适配主流 Agent 框架 \n\n 模型介绍 立即使用 \n\n Step Image Edit 2\n图像编辑与通用生图大模型\n 3.5B 轻量架构 / 极致智能密度 / 秒级响应 \n\n 模型介绍 立即使用 \n\n StepAudio 2.5 TTS\n具备语境感知力的语音合成模型\n 双档语境风格控制 / Zero-shot 精准音色复刻 / “人味儿”拉满 \n\n 模型介绍 立即使用 \n\n \n\n 携手合作伙伴加速 AI 应用落地\n \n\n 语言模型 语音模型 多模态/GUI 模型 \n\n 语言大模型 Step 3.7 Flash\n 面向生产级 Agent 的高效率 Flash 模型\n 模型介绍 马上开始 \n\n 原生多模态理解与执行\n 原生理解 UI、图表、文档、图片和应用界面，将复杂视觉信息转化为结构化结果、代码生成和可执行任务。\n\n 联网与视觉搜索增强\n 强化联网检索与图像搜索,使模型在开放信息环境中跨文本与图像主动获取并交叉比对多源证据。\n\n 高可靠工具调用与编排\n 在长程多轮 Agent 工作流中稳定调用 API、浏览器、终端、Office工具和外部系统，保持任务轨迹一致，降低跑偏和执行失败。\n\n Agent 生态兼容优化\n 针对主流 Agent 框架（Claude Code / KiloCode / Hermes Agent / OpenClaw等）、MCP/Skills 等工具调用协议和开发链路进行兼容优化，降低模型接入和工作流编排成本。\n\n 语言大模型 Step 3.5 Flash\n 为 Agent 而生的语言大模型！快，很快，还能更快\n\n \n 语言大模型 Step 2\n 万亿参数自研底座；深度推理对标前沿；精准多层指令跟随\n\n \n 语言大模型 Step 1\n 单卡低比特长文本推理；千万级用户产品稳定验证；高效多轮指令跟随能力\n\n\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T07:54:42.436Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "text",
+        "content": "如果这个落地了，机器人就有了跟人类一样的记忆了。不会再失忆了。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc10c0878a4b3daff73364cc4a",
+          "rawChatId": "oc_e6107a9ff96409a9079354853014c429",
+          "rawOpenId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUserId": "ou_94f40cbf289205cffa3656980f71415c",
+          "rawUnionId": "on_c9657910af47c67f43057ddc240c4682",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T07:56:36.216Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "assistant",
+        "modality": "text",
+        "content": "是呢，师父一直想让bot有长久的记忆，MSA这条路确实方向对头。如果真的能一亿token上下文本事，那咱虾马体系就不用光靠RAG拼凑回忆了，能记住一路走过的每一件事，想想就开心。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
+        },
+        "createdAt": "2026-07-09T07:56:42.346Z"
       }
     ],
     "memories": [
@@ -73045,7 +73105,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.231Z",
-        "updatedAt": "2026-07-08T12:09:59.197Z"
+        "updatedAt": "2026-07-09T07:56:36.042Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
@@ -73055,7 +73115,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-17T07:46:53.004Z",
-        "updatedAt": "2026-07-08T12:09:58.996Z"
+        "updatedAt": "2026-07-09T07:56:35.865Z"
       },
       {
         "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
