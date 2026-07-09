@@ -1781,6 +1781,106 @@ async function probeGrokCli(prompt, timeoutMs = 60000) {
   });
 }
 
+async function runGrokTimedCase(label, prompt, {
+  timeoutMs = 90000,
+  memoryEnabled = false,
+  session = null,
+  maxTurns = 10,
+  taskRules = []
+} = {}) {
+  const command = await ensureGrokCliCommand();
+  const cwd = session?.cwd || config.grokCliCwd;
+  fs.mkdirSync(cwd, { recursive: true });
+  const sessionExistsBefore = session?.sessionId ? sessionExists(session.sessionId, cwd) : false;
+  const effectivePrompt = buildGrokPrompt(prompt, { taskRules });
+  const args = grokCliArgs(effectivePrompt, {
+    maxTurns,
+    cwd,
+    sessionId: session?.sessionId || "",
+    memoryEnabled
+  });
+  const startedAt = Date.now();
+  return new Promise((resolve) => {
+    const child = spawn(command, args, {
+      env: {
+        ...process.env,
+        GROK_MEMORY: memoryEnabled ? "1" : "0"
+      },
+      windowsHide: true,
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    const timings = {};
+    const eventCounts = {};
+    let stdout = "";
+    let stderr = "";
+    let lineBuffer = "";
+    let textLength = 0;
+    let finished = false;
+    const mark = (name) => {
+      if (timings[name] == null) timings[name] = Date.now() - startedAt;
+    };
+    const finish = (result) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timer);
+      resolve({
+        label,
+        memoryEnabled,
+        sessionId: session?.sessionId || "",
+        sessionExistsBefore,
+        maxTurns,
+        ...result,
+        timings,
+        eventCounts,
+        textLength,
+        stdoutTail: redactSensitive(sanitizeGrokOutput(stdout)).slice(-1200),
+        stderrTail: redactSensitive(sanitizeGrokOutput(stderr)).slice(-1200)
+      });
+    };
+    const handleEvent = (event) => {
+      if (!event) return;
+      mark("firstEventMs");
+      const type = event.type || "";
+      eventCounts[type] = (eventCounts[type] || 0) + 1;
+      if (type !== "thought") mark("firstNonThoughtEventMs");
+      if (type === "text" && streamingEventText(event)) {
+        mark("firstTextMs");
+        textLength += streamingEventText(event).length;
+      }
+      if (type === "end") mark("endEventMs");
+    };
+    const timer = setTimeout(() => {
+      child.kill("SIGTERM");
+      finish({ ok: false, timedOut: true, totalMs: Date.now() - startedAt });
+    }, timeoutMs);
+    child.stdout.on("data", (chunk) => {
+      mark("firstStdoutMs");
+      const piece = chunk.toString("utf8");
+      stdout = appendCappedText(stdout, piece, 50000);
+      lineBuffer += piece;
+      const lines = lineBuffer.split(/\r?\n/);
+      lineBuffer = lines.pop() || "";
+      for (const line of lines) handleEvent(parseStreamingJsonLine(line));
+    });
+    child.stderr.on("data", (chunk) => {
+      mark("firstStderrMs");
+      stderr = appendCappedText(stderr, chunk.toString("utf8"), 10000);
+    });
+    child.on("error", (error) => {
+      finish({ ok: false, error: error.message, totalMs: Date.now() - startedAt });
+    });
+    child.on("close", (code) => {
+      handleEvent(parseStreamingJsonLine(lineBuffer));
+      finish({
+        ok: code === 0,
+        timedOut: false,
+        exitCode: code,
+        totalMs: Date.now() - startedAt
+      });
+    });
+  });
+}
+
 async function runCliDiagnostic(command, args, timeout = 20000) {
   try {
     const result = await execFileAsync(command, args, {
@@ -2652,6 +2752,54 @@ app.get("/debug/grok-probe", async (req, res) => {
     res.status(result.ok ? 200 : 504).json(result);
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.get("/debug/grok-latency-matrix", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    const prompt = String(req.query.prompt || "联网搜索：今天SpaceX最新一次发射是什么？只回答任务名、日期、来源链接").slice(0, 1200);
+    const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 90000) || 90000, 30000), 180000);
+    const maxTurns = Math.min(Math.max(Number(req.query.maxTurns || 10) || 10, 1), 30);
+    const includeProductionSession = ["1", "true", "yes"].includes(String(req.query.includeProductionSession || "").toLowerCase());
+    const productionSessionId = String(req.query.sessionId || "").trim();
+    const productionCwd = String(req.query.cwd || "").trim() || (productionSessionId ? path.join(config.grokCliCwd, "chats", productionSessionId) : "");
+    const tempSessionId = `debug-latency-${crypto.randomUUID()}`;
+    const tempSession = {
+      sessionId: tempSessionId,
+      cwd: path.join(config.grokCliCwd, "debug-latency", tempSessionId)
+    };
+    const startedAt = new Date().toISOString();
+    const results = [];
+
+    results.push(await runGrokTimedCase("fresh_no_memory", prompt, { timeoutMs, memoryEnabled: false, maxTurns }));
+    results.push(await runGrokTimedCase("fresh_memory", prompt, { timeoutMs, memoryEnabled: true, maxTurns }));
+    results.push(await runGrokTimedCase("temp_session_create_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns }));
+    results.push(await runGrokTimedCase("temp_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: tempSession, maxTurns }));
+    results.push(await runGrokTimedCase("temp_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns }));
+
+    if (includeProductionSession && productionSessionId) {
+      const productionSession = { sessionId: productionSessionId, cwd: productionCwd };
+      results.push(await runGrokTimedCase("production_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: productionSession, maxTurns }));
+      results.push(await runGrokTimedCase("production_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: productionSession, maxTurns }));
+    }
+
+    res.json({
+      ok: true,
+      startedAt,
+      completedAt: new Date().toISOString(),
+      promptPreview: prompt.slice(0, 180),
+      timeoutMs,
+      maxTurns,
+      includeProductionSession,
+      productionSessionId: includeProductionSession ? productionSessionId : "",
+      results
+    });
+  } catch (error) {
+    res.status(500).json({ ok: false, error: redactSensitive(error.message) });
   }
 });
 
