@@ -2767,7 +2767,7 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
     const includeProductionSession = ["1", "true", "yes"].includes(String(req.query.includeProductionSession || "").toLowerCase());
     const productionSessionId = String(req.query.sessionId || "").trim();
     const productionCwd = String(req.query.cwd || "").trim() || (productionSessionId ? path.join(config.grokCliCwd, "chats", productionSessionId) : "");
-    const tempSessionId = `debug-latency-${crypto.randomUUID()}`;
+    const tempSessionId = crypto.randomUUID();
     const tempSession = {
       sessionId: tempSessionId,
       cwd: path.join(config.grokCliCwd, "debug-latency", tempSessionId)
