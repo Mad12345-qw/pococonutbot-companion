@@ -2764,6 +2764,8 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
     const prompt = String(req.query.prompt || "联网搜索：今天SpaceX最新一次发射是什么？只回答任务名、日期、来源链接").slice(0, 1200);
     const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 90000) || 90000, 30000), 180000);
     const maxTurns = Math.min(Math.max(Number(req.query.maxTurns || 10) || 10, 1), 30);
+    const cases = String(req.query.cases || "base").toLowerCase();
+    const taskRules = String(req.query.rules || "").toLowerCase() === "web" ? [WEB_SOURCE_LINK_RULE] : [];
     const includeProductionSession = ["1", "true", "yes"].includes(String(req.query.includeProductionSession || "").toLowerCase());
     const productionSessionId = String(req.query.sessionId || "").trim();
     const productionCwd = String(req.query.cwd || "").trim() || (productionSessionId ? path.join(config.grokCliCwd, "chats", productionSessionId) : "");
@@ -2775,16 +2777,20 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
     const startedAt = new Date().toISOString();
     const results = [];
 
-    results.push(await runGrokTimedCase("fresh_no_memory", prompt, { timeoutMs, memoryEnabled: false, maxTurns }));
-    results.push(await runGrokTimedCase("fresh_memory", prompt, { timeoutMs, memoryEnabled: true, maxTurns }));
-    results.push(await runGrokTimedCase("temp_session_create_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns }));
-    results.push(await runGrokTimedCase("temp_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: tempSession, maxTurns }));
-    results.push(await runGrokTimedCase("temp_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns }));
+    if (cases === "fresh" || cases === "base" || cases === "all") {
+      results.push(await runGrokTimedCase("fresh_no_memory", prompt, { timeoutMs, memoryEnabled: false, maxTurns, taskRules }));
+      results.push(await runGrokTimedCase("fresh_memory", prompt, { timeoutMs, memoryEnabled: true, maxTurns, taskRules }));
+    }
+    if (cases === "base" || cases === "all") {
+      results.push(await runGrokTimedCase("temp_session_create_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns, taskRules }));
+      results.push(await runGrokTimedCase("temp_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: tempSession, maxTurns, taskRules }));
+      results.push(await runGrokTimedCase("temp_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns, taskRules }));
+    }
 
-    if (includeProductionSession && productionSessionId) {
+    if ((includeProductionSession || cases === "production" || cases === "all") && productionSessionId) {
       const productionSession = { sessionId: productionSessionId, cwd: productionCwd };
-      results.push(await runGrokTimedCase("production_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: productionSession, maxTurns }));
-      results.push(await runGrokTimedCase("production_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: productionSession, maxTurns }));
+      results.push(await runGrokTimedCase("production_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: productionSession, maxTurns, taskRules }));
+      results.push(await runGrokTimedCase("production_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: productionSession, maxTurns, taskRules }));
     }
 
     res.json({
@@ -2794,6 +2800,8 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
       promptPreview: prompt.slice(0, 180),
       timeoutMs,
       maxTurns,
+      cases,
+      rules: taskRules.length ? "web" : "",
       includeProductionSession,
       productionSessionId: includeProductionSession ? productionSessionId : "",
       results
