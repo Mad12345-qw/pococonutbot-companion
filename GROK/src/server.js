@@ -2777,6 +2777,12 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
     const startedAt = new Date().toISOString();
     const results = [];
 
+    if (cases === "fresh_no_memory") {
+      results.push(await runGrokTimedCase("fresh_no_memory", prompt, { timeoutMs, memoryEnabled: false, maxTurns, taskRules }));
+    }
+    if (cases === "fresh_memory") {
+      results.push(await runGrokTimedCase("fresh_memory", prompt, { timeoutMs, memoryEnabled: true, maxTurns, taskRules }));
+    }
     if (cases === "fresh" || cases === "base" || cases === "all") {
       results.push(await runGrokTimedCase("fresh_no_memory", prompt, { timeoutMs, memoryEnabled: false, maxTurns, taskRules }));
       results.push(await runGrokTimedCase("fresh_memory", prompt, { timeoutMs, memoryEnabled: true, maxTurns, taskRules }));
@@ -2787,10 +2793,14 @@ app.get("/debug/grok-latency-matrix", async (req, res) => {
       results.push(await runGrokTimedCase("temp_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: tempSession, maxTurns, taskRules }));
     }
 
-    if ((includeProductionSession || cases === "production" || cases === "all") && productionSessionId) {
+    if ((includeProductionSession || cases === "production" || cases === "production_no_memory" || cases === "production_memory" || cases === "all") && productionSessionId) {
       const productionSession = { sessionId: productionSessionId, cwd: productionCwd };
-      results.push(await runGrokTimedCase("production_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: productionSession, maxTurns, taskRules }));
-      results.push(await runGrokTimedCase("production_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: productionSession, maxTurns, taskRules }));
+      if (cases !== "production_memory") {
+        results.push(await runGrokTimedCase("production_session_resume_no_memory", prompt, { timeoutMs, memoryEnabled: false, session: productionSession, maxTurns, taskRules }));
+      }
+      if (cases !== "production_no_memory") {
+        results.push(await runGrokTimedCase("production_session_resume_memory", prompt, { timeoutMs, memoryEnabled: true, session: productionSession, maxTurns, taskRules }));
+      }
     }
 
     res.json({
