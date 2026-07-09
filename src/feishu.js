@@ -5074,6 +5074,16 @@ export class FeishuBot {
       });
       return;
     }
+    const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
+    if (this.shouldIgnoreGroupMessageWithoutBotTrigger({ chatType, mentionInfo, alwaysReplyUser })) {
+      logEvent("info", "Feishu group message ignored because it did not mention Xiaoye and sender is not whitelisted", {
+        messageId: message.message_id || "",
+        chatId,
+        userId
+      });
+      this.finishTiming(timing, { route: "ignored:no_bot_trigger" });
+      return;
+    }
     const projectRequest = isProjectCreateRequest(text);
     const songRequest = this.extractSongRequest(text);
     const videoRequest = await this.extractVideoRequest(text, chatId);
@@ -5082,7 +5092,6 @@ export class FeishuBot {
     const youtubeRequest = this.extractYoutubeResearchRequest(text);
     const webSearchRequest = this.extractWebSearchRequest(text);
     const selfieRequest = this.extractSelfieGenerationPrompt(text);
-    const alwaysReplyUser = await this.isAlwaysReplyUser(senderIdentityCandidates);
     this.markTiming(timing, "routeDetectMs");
     const explicitReply =
       chatType === "p2p" ||
@@ -8611,6 +8620,10 @@ export class FeishuBot {
 
   shouldSkipGroupMessageAddressedToOtherMention({ chatType = "", mentionInfo = {} } = {}) {
     return chatType !== "p2p" && Boolean(mentionInfo.mentionedOtherOnly) && !mentionInfo.botMentioned;
+  }
+
+  shouldIgnoreGroupMessageWithoutBotTrigger({ chatType = "", mentionInfo = {}, alwaysReplyUser = false } = {}) {
+    return chatType !== "p2p" && !alwaysReplyUser && !mentionInfo.botMentioned;
   }
 
   mentionTargetFromIncomingMention(item = {}) {

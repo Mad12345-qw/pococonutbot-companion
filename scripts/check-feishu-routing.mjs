@@ -621,6 +621,26 @@ assertEqual(
   "true"
 );
 
+const noBotTriggerInfo = bot.getMentionInfo({}, "https://youtu.be/aFqjoCbZ4ik");
+assertEqual(
+  "non-whitelisted group message without Xiaoye mention is ignored before every route",
+  String(bot.shouldIgnoreGroupMessageWithoutBotTrigger({
+    chatType: "group",
+    mentionInfo: noBotTriggerInfo,
+    alwaysReplyUser: false
+  })),
+  "true"
+);
+assertEqual(
+  "whitelisted group user can still trigger routes without Xiaoye mention",
+  String(bot.shouldIgnoreGroupMessageWithoutBotTrigger({
+    chatType: "group",
+    mentionInfo: noBotTriggerInfo,
+    alwaysReplyUser: true
+  })),
+  "false"
+);
+
 bot.config.feishuBotAliases = ["\u5c0f\u6930"];
 const botMentionInfo = bot.getMentionInfo(
   { mentions: [{ name: "\u5c0f\u6930", id: { open_id: "ou_xiaoye" } }] },
@@ -632,6 +652,17 @@ assertEqual(
     !bot.shouldSkipGroupMessageAddressedToOtherMention({ chatType: "group", mentionInfo: botMentionInfo }) &&
     bot.extractYoutubeResearchRequest("@\u5c0f\u6930 youtube https://youtu.be/aFqjoCbZ4ik").requested
   ),
+  "true"
+);
+
+const textBotNameInfo = bot.getMentionInfo({}, "\u5c0f\u6930 帮我看看这个链接 https://youtu.be/aFqjoCbZ4ik");
+assertEqual(
+  "group message containing Xiaoye text still allows routes",
+  String(!bot.shouldIgnoreGroupMessageWithoutBotTrigger({
+    chatType: "group",
+    mentionInfo: textBotNameInfo,
+    alwaysReplyUser: false
+  })),
   "true"
 );
 
