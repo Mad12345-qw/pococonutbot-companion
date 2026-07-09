@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T06:07:54.448Z",
+  "exportedAt": "2026-07-09T06:17:49.949Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -67840,6 +67840,162 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-09T06:07:19.159Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "text",
+        "content": "拿前两天影视飓风直播实测了，效果很不错！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7e5e95ca4c3ada331cc2da0d",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUnionId": "on_1eb41d45695053ccdf8818a3971a7efb",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:07:49.742Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "image",
+        "content": "[图片识别]\n未收到图片，请提供图片以便进行OCR提取。",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": true,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7e54834b0c43dcbbc373b861",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUnionId": "on_1eb41d45695053ccdf8818a3971a7efb",
+          "linkContext": "",
+          "imageContext": "未收到图片，请提供图片以便进行OCR提取。",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:08:30.034Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（轻轻眨眨眼，语气带着点疑惑和笑意）这张图……我好像没看到图片呢～是不是忘记贴上来了？还是我这边刷不出来？你再发一次，我保证好好看好好回😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42"
+        },
+        "createdAt": "2026-07-09T06:08:52.365Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "role": "user",
+        "modality": "text",
+        "content": "请问这个支持 input 和 output 的 stream 吗",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7e20020b4b21216685721021",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_76edba3043c0dcf56518f50ca8a91621",
+          "rawUserId": "ou_76edba3043c0dcf56518f50ca8a91621",
+          "rawUnionId": "on_4fcfc56ada48788c9fc28c7e9427b971",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:09:12.277Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰轻轻摇头，声音带着点温柔的小遗憾：\n\n目前这个模型还不支持 input 和 output 的 stream 模式哦～它是端到端一次性生成的结构，需要等整段音频处理完才会输出结果。不过如果你们是想要实时/流式转写效果，可以试试结合 chunk 切割 + 分批调用的方式，或者看看 MOSS 平台的 Pro 版本有没有其他接口支持～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_76edba3043c0dcf56518f50ca8a91621"
+        },
+        "createdAt": "2026-07-09T06:09:24.329Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "text",
+        "content": "是流式输出",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc7e0d82098c0607f49bb973b7",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUserId": "ou_7ac5bae65efc42476fa2abdd94411f42",
+          "rawUnionId": "on_1eb41d45695053ccdf8818a3971a7efb",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:09:55.227Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "role": "user",
+        "modality": "text",
+        "content": "mlx版本的话最低要啥配置[吃饭]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6bc785b8c0a0b17a562fc2649e8",
+          "rawChatId": "oc_8760fa48762932e73d3ef8d6a27cf31d",
+          "rawOpenId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUserId": "ou_d5f6182709290b87da9bf3cd6b204756",
+          "rawUnionId": "on_d51e68b9282f79efc52200c95f0404aa",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-09T06:16:30.006Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（小椰温柔地想了想，语气轻快）\n\nMLX 版本嘛，Apple Silicon 芯片基本都能跑～M1 起步就行，但建议内存至少 16GB，如果还要处理长音频，32GB 会更稳一些～你手边是 Mac 还是准备试试看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756"
+        },
+        "createdAt": "2026-07-09T06:16:40.584Z"
       }
     ],
     "memories": [
@@ -69271,7 +69427,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-09T06:06:09.547Z",
-        "updatedAt": "2026-07-09T06:06:09.547Z"
+        "updatedAt": "2026-07-09T06:09:11.683Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69281,7 +69437,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-09T06:06:09.371Z",
-        "updatedAt": "2026-07-09T06:06:09.371Z"
+        "updatedAt": "2026-07-09T06:09:11.081Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69291,7 +69447,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.610Z",
-        "updatedAt": "2026-07-09T06:06:02.315Z"
+        "updatedAt": "2026-07-09T06:09:55.049Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69301,7 +69457,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-19T15:39:47.380Z",
-        "updatedAt": "2026-07-09T06:06:02.130Z"
+        "updatedAt": "2026-07-09T06:09:54.865Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
@@ -69432,6 +69588,26 @@
         "metadata": {},
         "createdAt": "2026-07-05T14:11:31.816Z",
         "updatedAt": "2026-07-05T14:12:16.405Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-09T06:16:29.422Z",
+        "updatedAt": "2026-07-09T06:16:29.422Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d5f6182709290b87da9bf3cd6b204756",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-09T06:16:29.239Z",
+        "updatedAt": "2026-07-09T06:16:29.239Z"
       },
       {
         "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
