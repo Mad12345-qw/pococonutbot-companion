@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-09T01:57:51.040Z",
+  "exportedAt": "2026-07-09T04:17:49.446Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73687,8 +73687,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-09T01:53:11.047Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-09T01:53:12.162Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-09T04:08:00.028Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n刚看到大家在验证新闻的及时性，正好今天机器人板块出了几个硬核信号，值得重点盯一下：\\n\\n1. 特斯拉Optimus量产实锤：马斯克发了弗里蒙特工厂的Optimus产线合照，明确说Model S/X产线已向Optimus过渡，德州工厂动工，远期目标年产千万台。这不是demo，是产线事实迁移，量产节奏比预期快。\\n\\n2. 宇树科技IPO注册获批，科创板上市在即。国产人形机器人第一股要来了，资本市场定价会给整个板块一个估值锚，也会加速供应链透明化。\\n\\n3. 英伟达加码具身智能：北京、上海、深圳同时招聘机器人岗位，覆盖具身智能、仿真、部署。算力巨头亲自下场，说明这个赛道不是概念，是基建投入期。\\n\\n三条线叠在一起：产业链从“能不能做”进入“能不能产”和“能不能赚钱”的验证阶段。之前大家讨论的减速器、执行器、灵巧手，现在需要看实际BOM成本和良率。\\n\\n问题：Optimus真正量产爬坡的关键瓶颈是执行器还是AI模型本身？产业链公司哪些环节最受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉Optimus产线过渡+宇树IPO获批+英伟达招聘机器人岗位，量产进入验证期。\",\"lastPulseQuestion\":\"Optimus真正量产爬坡的关键瓶颈是执行器还是AI模型本身？产业链公司哪些环节最受益？\",\"lastPulseSources\":[\"https://field.10jqka.com.cn/20260706/c677965006.shtml\",\"https://news.qq.com/rain/a/20260706A038Y100\",\"https://www.caiwennews.com/article/1504337.shtml\",\"https://news.qq.com/rain/a/20260703A04TZL00\"],\"lastActivityAt\":\"2026-07-09T04:08:00.028Z\",\"lastHumanActiv",
+        "updatedAt": "2026-07-09T04:08:00.117Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
