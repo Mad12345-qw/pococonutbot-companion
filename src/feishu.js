@@ -3657,6 +3657,8 @@ export class FeishuBot {
     };
     const initialTimer = setTimeout(runCheck, 15 * 1000);
     initialTimer.unref?.();
+    const startupWindowTimer = setTimeout(runCheck, 10 * 60 * 1000);
+    startupWindowTimer.unref?.();
     this.communityOpsScheduler = setInterval(runCheck, intervalMs);
     this.communityOpsScheduler.unref?.();
   }
