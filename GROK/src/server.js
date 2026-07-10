@@ -1359,7 +1359,7 @@ function classifyTask(text = "") {
       prompt: media.prompt,
       expectedMediaCount,
       rules: [
-        `This is a video task. Use your own agent judgment to choose the best tools and production method. The user requested ${expectedMediaCount} final video deliverable(s). Create no extra video variants unless they are explicitly requested. Treat drafts and intermediate artifacts as internal. In the final answer, return only the exact saved local path(s) of the selected final video deliverable(s), ending in .mp4, and do not return only a directory.`
+        `This is a video task. Use your own agent judgment for research, factual content, composition, and source assets. The user requested ${expectedMediaCount} final video deliverable(s). Choose one final video production route before generating media. In this headless Render environment, code may create a static source asset, but must not render or encode video frames with Python, Matplotlib, FFmpeg, shell scripts, or similar code. Use the available Grok Build video generation capability exactly once per requested final deliverable. Do not create draft video variants. Treat intermediate source assets as internal. In the final answer, return only the exact saved local path(s) of the selected final video deliverable(s), ending in .mp4, and do not return only a directory.`
       ]
     };
   }
