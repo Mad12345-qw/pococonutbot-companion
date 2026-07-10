@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T05:54:29.666Z",
+  "exportedAt": "2026-07-10T06:04:27.273Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68255,6 +68255,26 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-10T05:47:08.790Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4cc2a2dc82241d2f5a9230e640c426ac",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 飞书造浪者共创计划\nhttps://larkgrowth.com/creators/\nhttps://larkgrowth.com/creators/\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://larkgrowth.com/creators/",
+            "https://larkgrowth.com/creators/\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a3cd1c1c0acc455ab978c9918d",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-10T05:58:11.620Z"
       }
     ],
     "memories": [
