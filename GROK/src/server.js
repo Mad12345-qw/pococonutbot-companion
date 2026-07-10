@@ -1312,6 +1312,22 @@ function parseMediaCommand(text = "") {
   return null;
 }
 
+function requestedMediaCount(text = "", kind = "video") {
+  const pattern = kind === "image"
+    ? /([1-4]|\u4e00|\u4e8c|\u4e24|\u4e09|\u56db)\s*(?:\u5f20|\u5e45|\u4e2a)\s*(?:[^\n\u3002\uff0c\uff1b]{0,16})?(?:\u56fe\u7247|\u56fe\u50cf|\u7167\u7247)/i
+    : /([1-4]|\u4e00|\u4e8c|\u4e24|\u4e09|\u56db)\s*(?:\u6bb5|\u4e2a|\u6761|\u652f)\s*(?:[^\n\u3002\uff0c\uff1b]{0,16})?\u89c6\u9891/i;
+  const match = String(text || "").match(pattern);
+  if (!match) return 1;
+  const values = {
+    "\u4e00": 1,
+    "\u4e8c": 2,
+    "\u4e24": 2,
+    "\u4e09": 3,
+    "\u56db": 4
+  };
+  return Math.max(1, Math.min(Number(match[1]) || values[match[1]] || 1, 4));
+}
+
 function parseControlCommand(text = "") {
   const clean = String(text || "").trim();
   const match = clean.match(/^\/(new|reset|always)\s*$/i);
@@ -1333,6 +1349,7 @@ function isQuickFact(text = "") {
 function classifyTask(text = "") {
   const media = parseMediaCommand(text);
   if (media?.kind === "video") {
+    const expectedMediaCount = requestedMediaCount(text, "video");
     return {
       kind: "video",
       maxTurns: config.videoMaxTurns,
@@ -1340,12 +1357,14 @@ function classifyTask(text = "") {
       webSearch: false,
       mediaTask: true,
       prompt: media.prompt,
+      expectedMediaCount,
       rules: [
-        "This is a Grok Build video task. Use the available Grok Build media tools, especially image_to_video or reference_to_video. If no reference image is provided, create a source image first, then animate it. Do not create videos with Python, FFmpeg, shell scripts, or code. After the video is generated, return the exact saved local video file path ending in .mp4, such as /path/to/videos/1.mp4. Do not return only the videos directory."
+        `This is a video task. Use your own agent judgment to choose the best tools and production method. The user requested ${expectedMediaCount} final video deliverable(s). Create no extra video variants unless they are explicitly requested. Treat drafts and intermediate artifacts as internal. In the final answer, return only the exact saved local path(s) of the selected final video deliverable(s), ending in .mp4, and do not return only a directory.`
       ]
     };
   }
   if (media?.kind === "image") {
+    const expectedMediaCount = requestedMediaCount(text, "image");
     return {
       kind: "image",
       maxTurns: config.mediaMaxTurns,
@@ -1353,8 +1372,9 @@ function classifyTask(text = "") {
       webSearch: false,
       mediaTask: true,
       prompt: media.prompt,
+      expectedMediaCount,
       rules: [
-        "This is a Grok Imagine image task. Use the built-in image generation capability, such as /imagine, and return the saved local image path. If quoted files are provided, use them as explicit references."
+        `This is an image task. Use your own agent judgment to choose the best tools. The user requested ${expectedMediaCount} final image deliverable(s). Treat drafts and intermediate artifacts as internal. In the final answer, return only the exact saved local path(s) of the selected final image deliverable(s). If quoted files are provided, use them as explicit references.`
       ]
     };
   }
@@ -1559,7 +1579,12 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCliOnce(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, mediaTask = false, memoryEnabled = config.grokMemoryEnabled } = {}) {
+function takeFinalExplicitPaths(paths = [], count = 1) {
+  const unique = [...new Set(paths.map((item) => path.resolve(item)))];
+  return unique.slice(-Math.max(1, count));
+}
+
+async function callGrokCliOnce(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, mediaTask = false, mediaKind = "", expectedMediaCount = 1, memoryEnabled = config.grokMemoryEnabled } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   const cwd = session?.cwd || config.grokCliCwd;
   fs.mkdirSync(cwd, { recursive: true });
@@ -1646,16 +1671,31 @@ async function callGrokCliOnce(prompt, { onText, onEvent, maxTurns, model = "", 
         onEvent?.(trailing);
       }
       const output = sawStreamingEvent ? sanitizeGrokOutput(streamedText) : sanitizeGrokOutput(stdout);
-      const mediaPathText = [
-        ...extractLocalImagePaths(stdout, 8),
-        ...extractLocalVideoPaths(stdout, 4),
-        ...(mediaTask ? findRecentSafeVideoPaths({
+      const explicitImagePaths = mediaKind === "image" ? extractLocalImagePaths(output, 8) : [];
+      const explicitVideoPaths = mediaKind === "video" ? extractLocalVideoPaths(output, 8) : [];
+      const recoveredImagePaths = mediaKind === "image" ? extractLocalImagePaths(stdout, 8) : [];
+      const recoveredVideoPaths = mediaKind === "video" ? findRecentSafeVideoPaths({
           cwd,
           sessionId: session?.sessionId || "",
           sinceMs: startedAtMs,
-          limit: 4
-        }) : [])
-      ].join("\n");
+          limit: 8
+        }) : [];
+      const selectedImagePaths = explicitImagePaths.length
+        ? takeFinalExplicitPaths(explicitImagePaths, expectedMediaCount)
+        : takeFinalExplicitPaths(recoveredImagePaths, expectedMediaCount);
+      const selectedVideoPaths = explicitVideoPaths.length
+        ? takeFinalExplicitPaths(explicitVideoPaths, expectedMediaCount)
+        : recoveredVideoPaths.slice(0, Math.max(1, expectedMediaCount));
+      if (mediaTask) {
+        onEvent?.({
+          type: "media_artifacts",
+          mediaKind,
+          explicitCount: mediaKind === "video" ? explicitVideoPaths.length : explicitImagePaths.length,
+          recoveredCount: mediaKind === "video" ? recoveredVideoPaths.length : recoveredImagePaths.length,
+          selectedCount: mediaKind === "video" ? selectedVideoPaths.length : selectedImagePaths.length
+        });
+      }
+      const mediaPathText = [...selectedImagePaths, ...selectedVideoPaths].join("\n");
       const outputWithMediaPaths = sanitizeGrokOutput([output, mediaPathText].filter(Boolean).join("\n"));
       if (code === 0 && outputWithMediaPaths) {
         resolve(outputWithMediaPaths);
@@ -1732,8 +1772,9 @@ async function callGrokCli(prompt, options = {}) {
       currentPrompt = [
         "Continue the same user task from the exact point where the previous turn window ended.",
         "Use the existing session state, completed tool results, and files. Do not repeat completed work.",
+        "Before generating media again, inspect the existing session files. If the requested final media already exists, do not create another variant.",
         "Finish the task and return the final answer.",
-        "If media was requested, complete the media tool call and return the exact saved local media file path."
+        "If media was requested, return only the exact saved local path of the selected final deliverable."
       ].join(" ");
     }
   }
@@ -1748,7 +1789,7 @@ async function callGrokImagineVideo(prompt, options = {}) {
     model: config.videoModel,
     maxTurns: options.maxTurns || config.videoMaxTurns
   });
-  const videoPaths = extractLocalVideoPaths(answer);
+  const videoPaths = extractLocalVideoPaths(answer, options.expectedMediaCount || 1);
   if (!videoPaths.length) {
     throw new Error(`Grok video task finished without a safe MP4 path. Output: ${stripLocalMediaPaths(answer).slice(-1600)}`);
   }
@@ -3198,10 +3239,10 @@ app.get("/debug/grok-media-test", async (req, res) => {
       cwd: path.join(config.grokCliCwd, "debug-media", debugSessionId)
     };
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession })
-      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession });
-    const imagePaths = extractLocalImagePaths(answer);
-    const videoPaths = extractLocalVideoPaths(answer);
+      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, mediaKind: task.kind, expectedMediaCount: task.expectedMediaCount, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession })
+      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, mediaKind: task.kind, expectedMediaCount: task.expectedMediaCount, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession });
+    const imagePaths = extractLocalImagePaths(answer, task.expectedMediaCount || 1);
+    const videoPaths = extractLocalVideoPaths(answer, task.expectedMediaCount || 1);
     const uploadedImages = [];
     const uploadedVideos = [];
     for (const imagePath of imagePaths) {
@@ -3275,10 +3316,10 @@ app.get("/debug/grok-media-job", (req, res) => {
     try {
       const grokPrompt = task.prompt || prompt;
       const answer = task.kind === "video"
-        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession })
-        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession });
-      const imagePaths = extractLocalImagePaths(answer);
-      const videoPaths = extractLocalVideoPaths(answer);
+        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, mediaKind: task.kind, expectedMediaCount: task.expectedMediaCount, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession, onEvent: (event) => { if (event.type === "media_artifacts") job.mediaArtifacts = event; } })
+        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, mediaKind: task.kind, expectedMediaCount: task.expectedMediaCount, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession, onEvent: (event) => { if (event.type === "media_artifacts") job.mediaArtifacts = event; } });
+      const imagePaths = extractLocalImagePaths(answer, task.expectedMediaCount || 1);
+      const videoPaths = extractLocalVideoPaths(answer, task.expectedMediaCount || 1);
       const uploadedImages = [];
       const uploadedVideos = [];
       for (const imagePath of imagePaths) {
@@ -3504,6 +3545,7 @@ async function processFeishuMessage(payload) {
     taskKind: task.kind,
     webSearch: task.webSearch,
     mediaTask: task.mediaTask,
+    expectedMediaCount: task.expectedMediaCount || 0,
     promptFromQuotedMessage,
     sessionId: session?.sessionId || "",
     sessionScope: session?.scopeKey || "",
@@ -3558,6 +3600,8 @@ async function processFeishuMessage(payload) {
       session,
       memoryEnabled: !task.mediaTask,
       mediaTask: task.mediaTask,
+      mediaKind: task.mediaTask ? task.kind : "",
+      expectedMediaCount: task.expectedMediaCount || 1,
       taskRules: task.rules,
       onText: (fullText) => {
         if (job.timings.firstTextMs == null) markTiming("firstTextMs");
@@ -3567,6 +3611,14 @@ async function processFeishuMessage(payload) {
         if (job.timings.firstEventMs == null) markTiming("firstEventMs");
         if (event.type === "continuation") {
           job.turnContinuations = event.attempt || 1;
+        }
+        if (event.type === "media_artifacts") {
+          job.mediaArtifacts = {
+            mediaKind: event.mediaKind || "",
+            explicitCount: event.explicitCount || 0,
+            recoveredCount: event.recoveredCount || 0,
+            selectedCount: event.selectedCount || 0
+          };
         }
         const status = describeGrokEvent(event);
         if (status) {
@@ -3580,8 +3632,8 @@ async function processFeishuMessage(payload) {
       ? await callGrokImagineVideo(grokPrompt, grokOptions)
       : await callGrokCli(grokPrompt, grokOptions);
     markTiming("grokDoneMs");
-    const imagePaths = extractLocalImagePaths(answer);
-    const videoPaths = extractLocalVideoPaths(answer);
+    const imagePaths = extractLocalImagePaths(answer, task.expectedMediaCount || 1);
+    const videoPaths = extractLocalVideoPaths(answer, task.expectedMediaCount || 1);
     const answerWithoutMediaPaths = stripLocalMediaPaths(answer);
     job.status = "completed";
     job.completedAt = new Date().toISOString();
