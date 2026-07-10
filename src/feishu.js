@@ -6705,19 +6705,43 @@ export class FeishuBot {
       });
       await this.runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing, researchJobId });
     } catch (error) {
+      const failure = this.describeYoutubeResearchFailure(error);
       await this.storage.updateResearchJob?.(researchJobId, {
         status: "failed",
-        stage: "failed",
+        stage: failure.stage,
         error: error.message
       });
       this.finishTiming(timing, { ok: false, error: error.message });
       logEvent("error", "Feishu YouTube research failed", {
         chatId,
         query: request.query || "",
+        failureKind: failure.kind,
         error: error.message
       });
-      await this.replyText(messageId, "YouTube 字幕整理这次没有生成可发布文档，我已经记录了内部错误。请稍后直接重试同一个链接；如果连续失败，我会优先检查字幕提取和文章生成链路。");
+      await this.replyText(messageId, failure.reply);
     }
+  }
+
+  describeYoutubeResearchFailure(error) {
+    const status = Number(error?.status || 0);
+    const message = String(error?.message || "");
+    const transcriptUnavailable =
+      (status === 404 && /no transcript available/i.test(message)) ||
+      /no usable youtube transcripts were found/i.test(message);
+
+    if (transcriptUnavailable) {
+      return {
+        kind: "transcript_unavailable",
+        stage: "transcript_unavailable",
+        reply: "\u8fd9\u4e2a YouTube \u89c6\u9891\u672c\u8eab\u6ca1\u6709\u53ef\u7528\u5b57\u5e55\uff0c\u6587\u7ae0\u751f\u6210\u5c1a\u672a\u5f00\u59cb\u3002\u91cd\u590d\u53d1\u9001\u540c\u4e00\u94fe\u63a5\u4e0d\u4f1a\u89e3\u51b3\uff1b\u672c\u6b21\u6ca1\u6709\u751f\u6210\u6587\u6863\uff0c\u4e5f\u6ca1\u6709\u5199\u5165\u77e5\u8bc6\u5e93\u3002\u5982\u9700\u5904\u7406\u8fd9\u7c7b\u89c6\u9891\uff0c\u9700\u8981\u5355\u72ec\u542f\u7528\u97f3\u9891\u8f6c\u5199\u94fe\u8def\u3002"
+      };
+    }
+
+    return {
+      kind: "internal_error",
+      stage: "failed",
+      reply: "YouTube \u5b57\u5e55\u6574\u7406\u8fd9\u6b21\u6ca1\u6709\u751f\u6210\u53ef\u53d1\u5e03\u6587\u6863\uff0c\u6211\u5df2\u7ecf\u8bb0\u5f55\u4e86\u5185\u90e8\u9519\u8bef\u3002\u8bf7\u7a0d\u540e\u76f4\u63a5\u91cd\u8bd5\u540c\u4e00\u4e2a\u94fe\u63a5\uff1b\u5982\u679c\u8fde\u7eed\u5931\u8d25\uff0c\u6211\u4f1a\u4f18\u5148\u68c0\u67e5\u5b57\u5e55\u63d0\u53d6\u548c\u6587\u7ae0\u751f\u6210\u94fe\u8def\u3002"
+    };
   }
 
   async runYoutubeBackgroundSync({ messageId, chatId, userId, report, doc, timing, researchJobId = "" }) {

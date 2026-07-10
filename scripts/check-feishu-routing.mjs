@@ -75,6 +75,15 @@ function countOccurrences(text = "", needle = "") {
   return String(text || "").split(needle).length - 1;
 }
 
+const noTranscriptFailure = bot.describeYoutubeResearchFailure(Object.assign(
+  new Error('Transcript API 404: {"detail":"No transcript available for video w0zgNkTdpkE"}'),
+  { status: 404 }
+));
+assertEqual("youtube missing transcript has explicit failure kind", noTranscriptFailure.kind, "transcript_unavailable");
+assertEqual("youtube missing transcript has explicit job stage", noTranscriptFailure.stage, "transcript_unavailable");
+assertEqual("youtube missing transcript does not advise blind retry", noTranscriptFailure.reply.includes("\u91cd\u590d\u53d1\u9001\u540c\u4e00\u94fe\u63a5\u4e0d\u4f1a\u89e3\u51b3"), true);
+assertEqual("youtube missing transcript confirms no knowledge write", noTranscriptFailure.reply.includes("\u6ca1\u6709\u5199\u5165\u77e5\u8bc6\u5e93"), true);
+
 function sectionBetween(markdown = "", startHeading = "", endHeading = "") {
   const text = String(markdown || "");
   const start = text.indexOf(startHeading);
