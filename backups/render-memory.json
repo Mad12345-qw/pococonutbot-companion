@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T04:14:26.878Z",
+  "exportedAt": "2026-07-10T05:04:30.269Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74179,8 +74179,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-10T04:04:34.068Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n刚看到群里讨论AI算力标的涨幅是否已充分定价，今天正好有个新动态值得顺着验证：WSJ报道，OpenAI、Anthropic和谷歌正给初创公司送数十万美元算力资源，外加其他优惠去抢企业客户。这跟之前大家担心的“算力过剩”叙事有点冲突——如果算力真的过剩，云厂商没必要这么下血本送资源；反而说明他们在加速锁定未来推理需求，尤其是大模型应用从训练转向推理的节点。\\n\\n对产业链的影响：算力需求没有缓解，反而通过“补贴”方式在扩张客户基数，那光模块、液冷、PCB这些配套环节的订单持续性可能比市场预期的要长。但关键是，这些免费算力是否真的能转化为长期付费客户，还是只是一阵补贴战。\\n\\n问题：这种送算力抢客户的行为，是算力供过于求的信号，还是云厂商在为推理规模爆发提前占据生态位？对算力相关标的，你认为是预期已经打满，还是还有未被定价的催化？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"OpenAI/Anthropic/Google送算力抢客户，算力需求是否被低估？\",\"lastPulseQuestion\":\"这种送算力抢客户的行为，是算力供过于求的信号，还是云厂商在为推理规模爆发提前占据生态位？对算力相关标的，你认为是预期已经打满，还是还有未被定价的催化？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260707/202607070905272464.html\",\"https://k.sina.com.cn/article_7857201856_1d45362c001907stwu.html\",\"https://news.qq.com/rain/a/20260708A027G000\"],\"lastActivityAt\":\"2026-07-10T04:04:34.068Z\",\"lastHumanActivityAt\":\"2026-07-10T01:44:05.952Z\",\"linkHints\":0,\"lastLinkHi",
-        "updatedAt": "2026-07-10T04:04:34.164Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-10T04:58:29.288Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-10T04:58:30.435Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
