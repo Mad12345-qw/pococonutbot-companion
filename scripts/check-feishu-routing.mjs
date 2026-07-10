@@ -397,6 +397,79 @@ assertEqual(
   String(capturedCommunityPulsePayload?.groupMemory?.recentMessages?.[0]?.content?.includes("Grok Bridge")),
   "true"
 );
+assertEqual(
+  "community ops accepts reader-grade plain text pulse when json parsing is unavailable",
+  String(bot.communityPulseTextFromModel({
+    raw: [
+      "小椰产业雷达｜早间产业雷达",
+      "",
+      "延续群里关于 SpaceX 发射节奏的讨论，今天先看三条线。",
+      "",
+      "1. AI：数据中心资本开支继续影响光模块和电力链。",
+      "2. 机器人：量产节点还是要看订单和良率。",
+      "3. 商业航天：发射频率如果继续上升，地面系统和卫星应用会先受益。",
+      "",
+      "今天可以拆一个问题：哪条线最先能从技术叙事变成利润表？"
+    ].join("\n"),
+    parsed: null
+  }).startsWith("小椰产业雷达｜早间产业雷达")),
+  "true"
+);
+assertEqual(
+  "community ops refuses malformed json-looking pulse instead of publishing leaked structure",
+  String(bot.communityPulseTextFromModel({
+    raw: "{\"text\":\"小椰产业雷达｜早间产业雷达\"",
+    parsed: null
+  })),
+  ""
+);
+const originalCommunityPulseRequestChat = bot.ai.requestChat;
+let communityPulseRetryCalls = 0;
+bot.ai.requestChat = async () => {
+  communityPulseRetryCalls += 1;
+  if (communityPulseRetryCalls === 1) {
+    return JSON.stringify({
+      text: "您好，看起来您提供了一段 JSON，请问需要我如何处理？",
+      digest: "错误解释",
+      question: "请问需要我做什么？",
+      sources: []
+    });
+  }
+  return JSON.stringify({
+    text: [
+      "小椰产业雷达｜早间产业雷达",
+      "",
+      "延续群里关于 SpaceX 发射节奏的讨论，今天更适合把三条线放进研究池。",
+      "",
+      "1. AI：NVIDIA data center AI capex update",
+      "   继续看光模块、CPO、液冷和电力链条有没有订单侧验证。",
+      "2. 机器人：Figure ships new humanoid robot system",
+      "   重点不是概念催化，而是量产交付和执行器供应链是否出现硬证据。",
+      "3. 商业航天：SpaceX launch cadence update",
+      "   发射频率如果继续上去，可能先外溢到地面系统、推进剂和卫星应用。",
+      "",
+      "今天可以拆一个问题：哪条线最先能从技术叙事变成订单和利润表？"
+    ].join("\n"),
+    digest: "同模型纠偏后生成产业雷达",
+    question: "哪条线最先能从技术叙事变成订单和利润表？",
+    sources: ["https://example.com/ai"]
+  });
+};
+const repairedPulse = await bot.buildCommunityMarketPulse({
+  chatId: DEFAULT_FEISHU_ARTICLE_GROUP_CHAT_ID,
+  slot: { key: "morning", label: "早间产业雷达", focus: "用三条权威动态打开今天的研究线索" },
+  state: {}
+});
+bot.ai.requestChat = originalCommunityPulseRequestChat;
+assertEqual(
+  "community ops retries same fallback model when first pulse output explains json instead of writing",
+  String(
+    communityPulseRetryCalls === 2 &&
+    repairedPulse?.text?.includes("小椰产业雷达｜早间产业雷达") &&
+    repairedPulse.text.includes("订单和利润表")
+  ),
+  "true"
+);
 await bot.runCommunityOpsIdleCheck();
 assertEqual(
   "community ops market pulse records slot and prevents duplicate slot posts",

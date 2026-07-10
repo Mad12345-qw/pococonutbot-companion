@@ -4354,19 +4354,54 @@ export class FeishuBot {
       }
     ];
 
+    const validPulseText = (value = "") => {
+      const text = this.cleanCommunityPulseText(value);
+      return text && /小椰产业雷达/.test(text) && !/根据搜索结果|我是AI|作为AI/i.test(text) ? text : "";
+    };
+    const parsePulseModelOutput = (modelText = "") => {
+      const parsed = parseJsonObject(modelText);
+      const text = validPulseText(this.communityPulseTextFromModel({ raw: modelText, parsed }));
+      return { parsed, text };
+    };
+
+    let raw = "";
     let parsed = null;
+    let text = "";
     try {
       const fallback = this.ai?.fallbackProvider;
       if (!fallback?.apiKey || !fallback?.url || !fallback?.model) {
         throw new Error("Community market pulse fallback AI is not configured.");
       }
-      const raw = await this.ai.requestChat(fallback, messages, {
+      raw = await this.ai.requestChat(fallback, messages, {
         temperature: 0.35,
         maxTokens: 1200,
         timeoutMs: Number(process.env.FEISHU_COMMUNITY_PULSE_AI_TIMEOUT_MS || 60000),
         responseFormat: { type: "json_object" }
       });
-      parsed = parseJsonObject(raw);
+      ({ parsed, text } = parsePulseModelOutput(raw));
+
+      if (!text) {
+        logEvent("warn", "Feishu community market pulse retrying with stricter generation contract", {
+          chatId,
+          slot: activeSlot.key,
+          rawTextChars: String(raw || "").length,
+          parsedKeys: parsed && typeof parsed === "object" ? Object.keys(parsed).slice(0, 8) : []
+        });
+        const retryMessages = this.communityPulseRepairMessages({
+          slot: activeSlot,
+          newsItems: news.items,
+          context,
+          previousState: state
+        });
+        raw = await this.ai.requestChat(fallback, retryMessages, {
+          temperature: 0.2,
+          maxTokens: 1200,
+          timeoutMs: Number(process.env.FEISHU_COMMUNITY_PULSE_AI_TIMEOUT_MS || 60000),
+          responseFormat: { type: "json_object" },
+          retryAttempts: 1
+        });
+        ({ parsed, text } = parsePulseModelOutput(raw));
+      }
     } catch (error) {
       logEvent("warn", "Feishu community market pulse AI failed", {
         chatId,
@@ -4375,22 +4410,104 @@ export class FeishuBot {
       });
     }
 
-    const text = this.cleanCommunityPulseText(parsed?.text || "");
-    if (text && /小椰产业雷达/.test(text) && !/根据搜索结果|我是AI|作为AI/i.test(text)) {
+    if (text) {
       return {
         text: truncate(text, 1200),
-        digest: truncate(parsed.digest || "", 300),
-        question: truncate(parsed.question || "", 240),
-        sources: Array.isArray(parsed.sources) ? parsed.sources.slice(0, 5).map(String).filter(Boolean) : []
+        digest: truncate(parsed?.digest || "", 300),
+        question: truncate(parsed?.question || "", 240),
+        sources: Array.isArray(parsed?.sources) ? parsed.sources.slice(0, 5).map(String).filter(Boolean) : []
       };
     }
 
     logEvent("warn", "Feishu community market pulse skipped: model output failed reader contract", {
       chatId,
       slot: activeSlot.key,
+      rawTextChars: String(raw || "").length,
+      parsedKeys: parsed && typeof parsed === "object" ? Object.keys(parsed).slice(0, 8) : [],
       hasParsedText: Boolean(text)
     });
     return null;
+  }
+
+  communityPulseRepairMessages({ slot = {}, newsItems = [], context = {}, previousState = {} } = {}) {
+    const compactNews = (newsItems || []).slice(0, 6).map((item) => ({
+      topic: item.topic,
+      title: item.title,
+      summary: item.summary,
+      url: item.url,
+      siteName: item.siteName,
+      publishedAt: item.publishedAt
+    }));
+    return [
+      {
+        role: "system",
+        content: [
+          "你是小椰在 SpaceX、AI、Robot 群里的产业研究助理。",
+          "现在只做一件事：生成一条可以直接发到飞书群里的产业雷达消息。",
+          `text 字段必须以“小椰产业雷达｜${slot.label || "产业雷达"}”开头。`,
+          "必须基于给定 newsCandidates 和 groupMemory，不得解释输入格式，不得询问用户想做什么。",
+          "禁止 Markdown 粗体、标题符号、表格、链接堆砌、AI 自称、过程话。",
+          "只返回 JSON 对象：{\"text\":\"...\",\"digest\":\"...\",\"question\":\"...\",\"sources\":[\"...\"]}"
+        ].join("\n")
+      },
+      {
+        role: "user",
+        content: JSON.stringify({
+          slot,
+          newsCandidates: compactNews,
+          groupMemory: {
+            recentMessages: (context.recentMessages || []).slice(0, 4),
+            evidence: (context.evidence || []).slice(0, 4),
+            questions: (context.questions || []).slice(0, 4)
+          },
+          previousState: {
+            lastPulseDigest: previousState.lastPulseDigest || "",
+            lastPulseQuestion: previousState.lastPulseQuestion || ""
+          },
+          requiredTextShape: [
+            `小椰产业雷达｜${slot.label || "产业雷达"}`,
+            "承接群里最近讨论的一小段",
+            "1. 第一条动态：发生了什么、为什么值得追、影响哪条产业链",
+            "2. 第二条动态：发生了什么、为什么值得追、影响哪条产业链",
+            "3. 第三条动态：发生了什么、为什么值得追、影响哪条产业链",
+            "最后一个具体投研追问"
+          ]
+        })
+      }
+    ];
+  }
+
+  communityPulseTextFromModel({ raw = "", parsed = null } = {}) {
+    const candidates = [
+      parsed?.text,
+      parsed?.content,
+      parsed?.message,
+      parsed?.answer,
+      parsed?.body,
+      parsed?.data?.text,
+      parsed?.result?.text,
+      parsed?.正文
+    ];
+    for (const candidate of candidates) {
+      const text = String(candidate || "").trim();
+      if (text) return text;
+    }
+
+    const stripped = String(raw || "")
+      .trim()
+      .replace(/^```(?:json|text)?\s*/i, "")
+      .replace(/```\s*$/i, "")
+      .trim();
+    if (!stripped) return "";
+    const titleIndex = stripped.indexOf("小椰产业雷达");
+    if (titleIndex < 0) return "";
+    const looksLikeJson = /^[{\[]/.test(stripped) || /"text"\s*:/.test(stripped);
+    if (looksLikeJson && titleIndex > 3) return "";
+    return stripped
+      .slice(titleIndex)
+      .replace(/^[`"'“”]+/, "")
+      .replace(/[`"'“”}]+$/g, "")
+      .trim();
   }
 
   cleanCommunityPulseText(value = "") {
