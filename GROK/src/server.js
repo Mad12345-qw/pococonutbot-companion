@@ -331,6 +331,54 @@ function extractLocalVideoPaths(text = "", limit = 2) {
   ], isSafeGrokVideoPath, limit);
 }
 
+function findRecentSafeVideoPaths({ cwd = config.grokCliCwd, sessionId = "", sinceMs = 0, limit = 4 } = {}) {
+  const roots = [
+    cwd,
+    path.join(os.homedir(), ".grok", "generated-media"),
+    path.join(os.homedir(), ".grok", "sessions", encodedSessionCwd(cwd)),
+    sessionId ? sessionDirectory(sessionId, cwd) : ""
+  ].filter(Boolean);
+  const seenDirs = new Set();
+  const found = [];
+  const exts = new Set([".mp4", ".mov", ".webm"]);
+  const scan = (dir, depth = 0) => {
+    if (!dir || depth > 6 || found.length >= limit * 4) return;
+    let resolvedDir;
+    try {
+      resolvedDir = path.resolve(dir);
+      if (seenDirs.has(resolvedDir)) return;
+      seenDirs.add(resolvedDir);
+      if (!fs.existsSync(resolvedDir)) return;
+      const stat = fs.statSync(resolvedDir);
+      if (!stat.isDirectory()) return;
+      for (const entry of fs.readdirSync(resolvedDir, { withFileTypes: true })) {
+        const fullPath = path.join(resolvedDir, entry.name);
+        if (entry.isDirectory()) {
+          scan(fullPath, depth + 1);
+        } else if (entry.isFile() && exts.has(path.extname(entry.name).toLowerCase())) {
+          const fileStat = fs.statSync(fullPath);
+          if (fileStat.mtimeMs >= sinceMs && isSafeGrokVideoPath(fullPath)) {
+            found.push({ path: path.resolve(fullPath), mtimeMs: fileStat.mtimeMs });
+          }
+        }
+      }
+    } catch {
+      // Ignore transient files created while Grok is still writing media.
+    }
+  };
+  for (const root of roots) scan(root);
+  const seenFiles = new Set();
+  return found
+    .sort((a, b) => b.mtimeMs - a.mtimeMs)
+    .map((item) => item.path)
+    .filter((item) => {
+      if (seenFiles.has(item)) return false;
+      seenFiles.add(item);
+      return true;
+    })
+    .slice(0, limit);
+}
+
 function stripLocalMediaPaths(text = "") {
   let clean = String(text || "");
   const localPaths = [
@@ -1293,7 +1341,7 @@ function classifyTask(text = "") {
       mediaTask: true,
       prompt: media.prompt,
       rules: [
-        "This is a Grok Build video task. Use the available Grok Build media tools, especially image_to_video or reference_to_video. If no reference image is provided, create a source image first, then animate it. Do not create videos with Python, FFmpeg, shell scripts, or code. Return the saved local MP4 path."
+        "This is a Grok Build video task. Use the available Grok Build media tools, especially image_to_video or reference_to_video. If no reference image is provided, create a source image first, then animate it. Do not create videos with Python, FFmpeg, shell scripts, or code. After the video is generated, return the exact saved local video file path ending in .mp4, such as /path/to/videos/1.mp4. Do not return only the videos directory."
       ]
     };
   }
@@ -1511,12 +1559,13 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, memoryEnabled = config.grokMemoryEnabled } = {}) {
+async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, mediaTask = false, memoryEnabled = config.grokMemoryEnabled } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   const cwd = session?.cwd || config.grokCliCwd;
   fs.mkdirSync(cwd, { recursive: true });
   const command = await ensureGrokCliCommand();
   const effectivePrompt = buildGrokPrompt(prompt, { quotedContext, taskRules });
+  const startedAtMs = Date.now() - 3000;
   return new Promise((resolve, reject) => {
     const child = spawn(command, grokCliArgs(effectivePrompt, {
       maxTurns,
@@ -1599,11 +1648,21 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
       const output = sawStreamingEvent ? sanitizeGrokOutput(streamedText) : sanitizeGrokOutput(stdout);
       const mediaPathText = [
         ...extractLocalImagePaths(stdout, 8),
-        ...extractLocalVideoPaths(stdout, 4)
+        ...extractLocalVideoPaths(stdout, 4),
+        ...(mediaTask ? findRecentSafeVideoPaths({
+          cwd,
+          sessionId: session?.sessionId || "",
+          sinceMs: startedAtMs,
+          limit: 4
+        }) : [])
       ].join("\n");
       const outputWithMediaPaths = sanitizeGrokOutput([output, mediaPathText].filter(Boolean).join("\n"));
       if (code === 0 && outputWithMediaPaths) {
         resolve(outputWithMediaPaths);
+        return;
+      }
+      if (mediaTask && mediaPathText) {
+        resolve(outputWithMediaPaths || mediaPathText);
         return;
       }
       reject(new Error(`Grok CLI exited ${code}: ${[stopReason, stderr.trim() || "empty output"].filter(Boolean).join("; ")}`));
