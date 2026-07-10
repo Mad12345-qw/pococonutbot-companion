@@ -92,7 +92,7 @@ const config = {
   maxVideoBytes: envNumber("MAX_VIDEO_BYTES", 30 * 1024 * 1024),
   mediaMaxTurns: envNumber("GROK_MEDIA_MAX_TURNS", 10),
   videoMaxTurns: envNumber("GROK_VIDEO_MAX_TURNS", 10),
-  videoModel: process.env.GROK_VIDEO_MODEL || "grok-build",
+  videoModel: process.env.GROK_VIDEO_MODEL || "",
   grokMemoryEnabled: envFlag("GROK_MEMORY_ENABLED", true),
   grokStateSyncEnabled: envFlag("GROK_STATE_SYNC_ENABLED", true),
   debugToken: process.env.DEBUG_TOKEN || "",
@@ -1253,12 +1253,15 @@ function shouldUseWebSearch(text = "") {
 }
 
 function parseMediaCommand(text = "") {
-  const match = String(text || "").match(/生成(图片|视频)\s*[:：]\s*([\s\S]*)/i);
-  if (!match) return null;
-  const kind = match[1] === "视频" ? "video" : "image";
-  const prompt = String(match[2] || "").trim();
-  if (!prompt) return null;
-  return { kind, prompt };
+  const clean = String(text || "").trim();
+  const explicit = clean.match(/生成(图片|视频)\s*[:：]?\s*([\s\S]*)/i);
+  if (explicit) {
+    const kind = explicit[1] === "视频" ? "video" : "image";
+    const prompt = String(explicit[2] || "").trim();
+    if (!prompt) return null;
+    return { kind, prompt };
+  }
+  return null;
 }
 
 function parseControlCommand(text = "") {

@@ -55,7 +55,7 @@ $envVars = @(
   @{ key = "GROK_CLI_CWD"; value = "/tmp/grok-feishu-bridge-cwd" },
   @{ key = "GROK_MEDIA_MAX_TURNS"; value = "10" },
   @{ key = "GROK_VIDEO_MAX_TURNS"; value = "10" },
-  @{ key = "GROK_VIDEO_MODEL"; value = "grok-build" },
+  @{ key = "GROK_VIDEO_MODEL"; value = "" },
   @{ key = "GROK_MEMORY_ENABLED"; value = "true" },
   @{ key = "GROK_STATE_SYNC_ENABLED"; value = "true" },
   @{ key = "GROK_AUTH_SYNC_ENABLED"; value = "true" },

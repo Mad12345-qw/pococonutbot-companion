@@ -25,7 +25,7 @@ services:
       - key: GROK_VIDEO_MAX_TURNS
         value: "10"
       - key: GROK_VIDEO_MODEL
-        value: grok-build
+        value: ""
       - key: GROK_MEMORY_ENABLED
         value: "true"
       - key: GROK_STATE_SYNC_ENABLED
