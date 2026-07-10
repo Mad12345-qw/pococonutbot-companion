@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T11:29:49.860Z",
+  "exportedAt": "2026-07-10T12:29:39.665Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74297,13 +74297,18 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-10T11:22:06.467Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-10T11:22:07.630Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-10T12:19:56.138Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n下午群里在讨论火箭回收技术的工程取舍，特别是SpaceX为什么从早期网捕方案最终选定着陆腿，以及不同回收平台的技术难度对比。这个方向其实和今天刚出的两条新动态高度相关。\\n\\n先说SpaceX的Starlink发射节奏：上半年部署了1589颗卫星，比去年破纪录的同期还多6.7%，全年有望冲击3200+颗。发射频次提升直接压低了单星成本，每发猎鹰9号复用带来的发射费节省，按研报估算去年为星链省了约77.6亿美元。这组数据说明：着陆腿方案已经验证了高频率、低成本、可复用的商业闭环。\\n\\n第二条是SpaceX低成本战略的延伸：星舰目标是把发射成本再砍一个数量级，为大规模部署星链V3和轨道算力卫星铺路。如果星舰的回收方式（筷子夹）也跑通，那对比着陆腿方案，工程取舍的讨论就有了新变量。\\n\\n第三条是机器人这边：特斯拉Optimus量产加速，弗里蒙特工厂已从Model S/X产线向Optimus过渡，德州超级工厂动工，长期目标千万台。人形机器人供应链的验证节奏在加快，但和回收技术话题相对独立，可以当另一条线关注。\\n\\n回到今天的核心线索：群友之前问的SpaceX回收方案工程取舍，现在有了新证据可以追问。如果星舰的筷子回收方案成熟，是否意味着着陆腿只是过渡方案？还是两者会长期并行用于不同任务场景？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"SpaceX Starlink发射破纪录，星舰回收技术对比着陆腿方案，特斯拉Optimus量产加速\",\"lastPulseQuestion\":\"SpaceX早期从网捕转为着陆腿是工程取舍，现在星舰换用筷子夹回收，这种切换意味着什么？着陆腿方案在星舰时代会被完全淘汰，还是两种回收方式会适应不同任务形态？\",\"lastPulseSources\":[\"https://www.theverge.com/news/963196/spacex-is-on-track-for-record-setting-starlink-dep",
+        "updatedAt": "2026-07-10T12:19:56.234Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10.evening",
+        "value": "sent:2026-07-10T12:19:56.986Z",
+        "updatedAt": "2026-07-10T12:19:57.081Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10.noon",
