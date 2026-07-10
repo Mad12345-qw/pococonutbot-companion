@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T05:34:26.271Z",
+  "exportedAt": "2026-07-10T05:54:29.666Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68236,6 +68236,25 @@
           "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
         },
         "createdAt": "2026-07-10T05:25:56.371Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_4cc2a2dc82241d2f5a9230e640c426ac",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🌊  我们在找一批真实用 AI 干活的人——不要求大 V，不要求粉丝量\nhttps://larkgrowth.com/creators/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://larkgrowth.com/creators/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a3c3b51a080c2ec4f6054f8040",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-10T05:47:08.790Z"
       }
     ],
     "memories": [
