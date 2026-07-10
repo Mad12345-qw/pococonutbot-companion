@@ -3403,7 +3403,16 @@ async function processFeishuMessage(payload) {
   pushRouteDecision({ ...baseRouteLog, ignored: false, promptFromQuotedMessage });
   const task = classifyTask(prompt);
   const grokPrompt = task.prompt || prompt;
-  const session = chatSessionScope(message);
+  const chatSession = chatSessionScope(message);
+  const mediaSession = task.mediaTask
+    ? {
+        sessionId: crypto.randomUUID(),
+        cwd: path.join(config.grokCliCwd, "media-jobs", `${Date.now()}-${crypto.randomUUID().slice(0, 8)}`),
+        scopeKey: `media:${idPrefix(messageId)}`,
+        chatSessionId: chatSession?.sessionId || ""
+      }
+    : null;
+  const session = mediaSession || chatSession;
   const startedAtMs = Date.now();
   loadQuotedContext();
 
@@ -3417,6 +3426,8 @@ async function processFeishuMessage(payload) {
     promptFromQuotedMessage,
     sessionId: session?.sessionId || "",
     sessionScope: session?.scopeKey || "",
+    chatSessionId: mediaSession?.chatSessionId || "",
+    memoryEnabled: !task.mediaTask,
     quotedMessageId: "",
     quotedFileCount: 0,
     quotedChain: [],
@@ -3464,6 +3475,7 @@ async function processFeishuMessage(payload) {
       maxTurns: task.maxTurns,
       quotedContext,
       session,
+      memoryEnabled: !task.mediaTask,
       mediaTask: task.mediaTask,
       taskRules: task.rules,
       onText: (fullText) => {
