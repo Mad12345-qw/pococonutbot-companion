@@ -1559,7 +1559,7 @@ function describeGrokEvent(event = {}) {
   return "";
 }
 
-async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, mediaTask = false, memoryEnabled = config.grokMemoryEnabled } = {}) {
+async function callGrokCliOnce(prompt, { onText, onEvent, maxTurns, model = "", quotedContext = null, taskRules = [], timeoutMs, session = null, mediaTask = false, memoryEnabled = config.grokMemoryEnabled } = {}) {
   if (!config.grokCliEnabled) throw new Error("Grok CLI is disabled.");
   const cwd = session?.cwd || config.grokCliCwd;
   fs.mkdirSync(cwd, { recursive: true });
@@ -1665,9 +1665,80 @@ async function callGrokCli(prompt, { onText, onEvent, maxTurns, model = "", quot
         resolve(outputWithMediaPaths || mediaPathText);
         return;
       }
-      reject(new Error(`Grok CLI exited ${code}: ${[stopReason, stderr.trim() || "empty output"].filter(Boolean).join("; ")}`));
+      const error = new Error(`Grok CLI exited ${code}: ${[stopReason, stderr.trim() || "empty output"].filter(Boolean).join("; ")}`);
+      error.exitCode = code;
+      error.stopReason = stopReason;
+      error.partialOutput = outputWithMediaPaths;
+      reject(error);
     });
   });
+}
+
+function isMaxTurnsError(error) {
+  return /max\s+turns?\s+reached/i.test([
+    error?.message,
+    error?.stopReason
+  ].filter(Boolean).join(" "));
+}
+
+function joinGrokAttemptOutput(previous = "", current = "") {
+  const parts = [previous, current]
+    .map((item) => sanitizeGrokOutput(item).trim())
+    .filter(Boolean);
+  return parts.join("\n\n");
+}
+
+async function callGrokCli(prompt, options = {}) {
+  const maxTurnContinuations = Math.max(0, Math.min(
+    Number(options.maxTurnContinuations ?? (options.session?.sessionId ? 1 : 0)) || 0,
+    2
+  ));
+  const totalTimeoutMs = Number(options.timeoutMs || config.grokCliTimeoutMs);
+  const deadlineMs = Date.now() + totalTimeoutMs;
+  let completedOutput = "";
+  let currentPrompt = prompt;
+
+  for (let attempt = 0; attempt <= maxTurnContinuations; attempt += 1) {
+    const remainingTimeoutMs = deadlineMs - Date.now();
+    if (remainingTimeoutMs < 15000) {
+      throw new Error(`Grok CLI total task timeout reached after ${totalTimeoutMs}ms.`);
+    }
+
+    let attemptOutput = "";
+    try {
+      const result = await callGrokCliOnce(currentPrompt, {
+        ...options,
+        timeoutMs: remainingTimeoutMs,
+        onText: (fullText, delta) => {
+          attemptOutput = fullText;
+          options.onText?.(joinGrokAttemptOutput(completedOutput, fullText), delta);
+        }
+      });
+      return joinGrokAttemptOutput(completedOutput, result);
+    } catch (error) {
+      attemptOutput = error.partialOutput || attemptOutput;
+      const canContinue = isMaxTurnsError(error)
+        && Boolean(options.session?.sessionId)
+        && attempt < maxTurnContinuations;
+      if (!canContinue) throw error;
+
+      completedOutput = joinGrokAttemptOutput(completedOutput, attemptOutput);
+      options.onEvent?.({
+        type: "continuation",
+        reason: "max_turns",
+        attempt: attempt + 1,
+        maxContinuations: maxTurnContinuations
+      });
+      currentPrompt = [
+        "Continue the same user task from the exact point where the previous turn window ended.",
+        "Use the existing session state, completed tool results, and files. Do not repeat completed work.",
+        "Finish the task and return the final answer.",
+        "If media was requested, complete the media tool call and return the exact saved local media file path."
+      ].join(" ");
+    }
+  }
+
+  throw new Error("Grok CLI continuation loop ended unexpectedly.");
 }
 
 async function callGrokImagineVideo(prompt, options = {}) {
@@ -3121,9 +3192,14 @@ app.get("/debug/grok-media-test", async (req, res) => {
     const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 60000), 240000);
     const task = classifyTask(prompt);
     const grokPrompt = task.prompt || prompt;
+    const debugSessionId = crypto.randomUUID();
+    const debugSession = {
+      sessionId: debugSessionId,
+      cwd: path.join(config.grokCliCwd, "debug-media", debugSessionId)
+    };
     const answer = task.kind === "video"
-      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false })
-      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false });
+      ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession })
+      : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession });
     const imagePaths = extractLocalImagePaths(answer);
     const videoPaths = extractLocalVideoPaths(answer);
     const uploadedImages = [];
@@ -3177,6 +3253,11 @@ app.get("/debug/grok-media-job", (req, res) => {
   const timeoutMs = Math.min(Math.max(Number(req.query.timeoutMs || 180000) || 180000, 30000), 300000);
   const jobId = `debug-media-${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
   const task = classifyTask(prompt);
+  const debugSessionId = crypto.randomUUID();
+  const debugSession = {
+    sessionId: debugSessionId,
+    cwd: path.join(config.grokCliCwd, "debug-media", debugSessionId)
+  };
   const job = {
     id: jobId,
     debug: true,
@@ -3194,8 +3275,8 @@ app.get("/debug/grok-media-job", (req, res) => {
     try {
       const grokPrompt = task.prompt || prompt;
       const answer = task.kind === "video"
-        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false })
-        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false });
+        ? await callGrokImagineVideo(grokPrompt, { maxTurns: task.maxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession })
+        : await callGrokCli(grokPrompt, { maxTurns: task.maxTurns || config.mediaMaxTurns, mediaTask: true, taskRules: task.rules, timeoutMs, memoryEnabled: false, session: debugSession });
       const imagePaths = extractLocalImagePaths(answer);
       const videoPaths = extractLocalVideoPaths(answer);
       const uploadedImages = [];
@@ -3484,6 +3565,9 @@ async function processFeishuMessage(payload) {
       },
       onEvent: (event) => {
         if (job.timings.firstEventMs == null) markTiming("firstEventMs");
+        if (event.type === "continuation") {
+          job.turnContinuations = event.attempt || 1;
+        }
         const status = describeGrokEvent(event);
         if (status) {
           job.lastEvent = event.type || "";
