@@ -3650,11 +3650,14 @@ export class FeishuBot {
       Number(this.config.feishuCommunityOpsCheckIntervalMs || process.env.FEISHU_COMMUNITY_OPS_CHECK_INTERVAL_MS || 30 * 60 * 1000)
     );
     if (!this.storage || !intervalMs) return;
-    this.communityOpsScheduler = setInterval(() => {
+    const runCheck = () => {
       this.runCommunityOpsIdleCheck().catch((error) => {
         logEvent("warn", "Feishu community ops idle check failed", { error: error.message });
       });
-    }, intervalMs);
+    };
+    const initialTimer = setTimeout(runCheck, 15 * 1000);
+    initialTimer.unref?.();
+    this.communityOpsScheduler = setInterval(runCheck, intervalMs);
     this.communityOpsScheduler.unref?.();
   }
 
