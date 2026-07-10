@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T10:24:24.267Z",
+  "exportedAt": "2026-07-10T10:44:34.971Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68275,6 +68275,49 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-10T05:58:11.620Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1  https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW\nhttps://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a38f57e74b4c1fbb2fa41d9a80",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-10T10:38:53.969Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a38f57e74b4c1fbb2fa41d9a80",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-10T10:38:55.189Z"
       }
     ],
     "memories": [
@@ -70846,7 +70889,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-09T01:09:57.759Z"
+        "updatedAt": "2026-07-10T10:38:55.015Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -70856,7 +70899,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-09T01:09:57.587Z"
+        "updatedAt": "2026-07-10T10:38:54.840Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -74254,8 +74297,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-10T10:23:38.755Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-10T10:23:39.866Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-10T10:38:53.173Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-10T10:38:53.614Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -77192,6 +77235,39 @@
         "error": "",
         "createdAt": "2026-07-07T14:37:30.112Z",
         "updatedAt": "2026-07-07T14:41:09.002Z"
+      },
+      {
+        "id": "job:5633f72d57f297de",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW",
+        "status": "failed",
+        "stage": "failed",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW",
+            "query": "",
+            "videoUrl": "https://youtu.be/w0zgNkTdpkE?si=X1pt424-nQiyjNjW",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "w0zgNkTdpkE",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {},
+        "error": "Transcript API 404: {\"detail\":\"No transcript available for video w0zgNkTdpkE\"}",
+        "createdAt": "2026-07-10T10:38:57.983Z",
+        "updatedAt": "2026-07-10T10:39:01.161Z"
       }
     ],
     "researchReferenceSources": [],
