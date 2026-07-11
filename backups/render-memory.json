@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T00:29:43.963Z",
+  "exportedAt": "2026-07-11T01:59:42.463Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68318,6 +68318,42 @@
           "voiceDurationMs": 0
         },
         "createdAt": "2026-07-10T10:38:55.189Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "总结一下这个群的全部历史消息 提炼重点",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a2e7caccca4c4394d85dc384ff",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUnionId": "on_cd388a3a566217ab11ae57569de8d140",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-11T01:58:01.253Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "总体判断\n\n这个群是小椰的独立测试群，目前消息量不大，主要用于功能验证和语音识别测试。\n\n核心要点\n\n1. 群内出现过多位用户，部分用户曾误入此群或发错消息\n2. 测试内容包括：点歌功能（莫文蔚、Backstreet Boys）、语音转文字识别\n3. 群聊氛围轻松，主要是打招呼和确认群用途\n\n一句话结论\n\n当前群聊处于测试阶段，历史消息以功能验证和用户误入为主，尚未形成持续的主题对话。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-07-11T01:58:13.064Z"
       }
     ],
     "memories": [
@@ -69239,7 +69275,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:15.188Z",
-        "updatedAt": "2026-06-18T09:25:17.673Z"
+        "updatedAt": "2026-07-11T01:58:01.085Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -69249,7 +69285,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:23:14.968Z",
-        "updatedAt": "2026-06-18T09:25:17.451Z"
+        "updatedAt": "2026-07-11T01:58:00.916Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -74302,8 +74338,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-11T00:19:54.558Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里对SpaceX年度进展的讨论，今天我们把视线转向AI和机器人领域的三条关键动态。\\n\\n1. OpenAI发布GPT-5.2：最新升级版在推理、代码、长上下文等任务上超越谷歌Gemini 3和Anthropic Claude Opus 4.5。值得追：大模型竞争进入新阶段，GPT-5.2 Thinking在博士级科学知识测试中领先，可能加速企业级AI应用落地。影响产业链：AI大模型、算力芯片、云服务。\\n\\n2. OpenAI、Anthropic、谷歌向初创企业提供价值数十万美元的算力资源及其他优惠以争取企业客户。值得追：算力补贴战打响，头部厂商通过资源捆绑锁定客户，可能重塑AI SaaS市场格局。影响产业链：AI算力租赁、企业级AI应用、数据中心。\\n\\n3. 特斯拉Optimus工厂量产推进，弗里蒙特工厂已从Model S/X产线过渡，德州超级工厂动工；英伟达招聘机器人岗位聚焦具身智能。值得追：人形机器人从1到10量产拐点确认，供应链机会明确。影响产业链：人形机器人零部件（电机、传感器）、工业自动化、AI仿真。\\n\\n投研追问：GPT-5.2的推理优势是否会倒逼国内大模型厂商加速追赶？Optimus量产节奏对国内机器人供应链的拉动时点如何判断？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI发布GPT-5.2领先竞品；头部AI公司以算力补贴争夺企业客户；特斯拉Optimus量产推进、英伟达加码机器人。\",\"lastPulseQuestion\":\"GPT-5.2的推理优势是否会倒逼国内大模型厂商加速追赶？Optimus量产节奏对国内机器人供应链的拉动时点如何判断？\",\"lastPulseSources\":[\"https://k.sina.com.cn/article_7857201856_1d45362c001907stwu.html\",\"https://www.fx678.com/C/20260707/2026070709052",
-        "updatedAt": "2026-07-11T00:19:54.646Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-11T01:50:30.107Z\",\"lastHumanActivityAt\":\"2026-07-11T01:55:11.213Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-11T01:55:12.343Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
