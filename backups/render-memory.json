@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T08:19:42.358Z",
+  "exportedAt": "2026-07-11T10:29:39.367Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74429,8 +74429,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-11T04:19:56.385Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接群里之前对AI算力的关注，今天机器人产业链出现更明确的量产信号，值得重点验证。\\n\\n1. 特斯拉Optimus工厂过渡：马斯克发布弗里蒙特工厂合照，Model S/X产线已向Optimus过渡，德州超级工厂动工，长期年产能目标千万台。这意味着人形机器人从0到1进入量产阶段，直接影响机器人产业链的供应链、电机、传感器等环节。\\n\\n2. 英伟达招聘机器人岗位：英伟达围绕具身智能、仿真、部署及解决方案四大方向开放招聘，覆盖北京、上海、深圳。这显示巨头加速布局机器人软件和仿真平台，可能推动机器人智能化成本下降，利好机器人产业链中的AI芯片和仿真软件。\\n\\n3. OpenAI发布GPT-5.2：新模型在推理、编程、长上下文等方面优于前代，并略胜谷歌Gemini 3和Anthropic Claude Opus 4.5。这加剧了AI大模型竞争，但算力瓶颈仍是关键，可能推动算力基础设施（如光模块、液冷）需求持续增长。\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"机器人产业链出现量产信号：特斯拉Optimus产线过渡、英伟达招聘具身智能岗位；AI大模型竞争升级，GPT-5.2发布。\",\"lastPulseQuestion\":\"特斯拉Optimus量产启动后，国内人形机器人供应链（如电机、减速器、传感器）中，哪些环节最可能率先受益且存在产能瓶颈？\",\"lastPulseSources\":[\"https://field.10jqka.com.cn/20260706/c677965006.shtml\",\"https://news.qq.com/rain/a/20260706A038Y100\",\"https://k.sina.com.cn/article_7857201856_1d45362c001907stwu.html\"],\"lastActivityAt\":\"2026-07-11T04:19:56.385Z\",\"lastHumanActivityAt\":\"2026-07",
-        "updatedAt": "2026-07-11T04:19:56.480Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-11T10:20:28.050Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-11T10:20:29.220Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74446,6 +74446,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10.noon",
         "value": "sent:2026-07-10T04:04:34.250Z",
         "updatedAt": "2026-07-10T04:04:34.342Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11.evening",
+        "value": "sent:2026-07-11T10:19:41.117Z",
+        "updatedAt": "2026-07-11T10:19:41.200Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11.morning",
