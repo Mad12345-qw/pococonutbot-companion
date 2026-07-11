@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-10T13:09:40.660Z",
+  "exportedAt": "2026-07-11T00:29:43.963Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74301,6 +74301,11 @@
         "updatedAt": "2026-07-10T13:06:53.020Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-11T00:19:54.558Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里对SpaceX年度进展的讨论，今天我们把视线转向AI和机器人领域的三条关键动态。\\n\\n1. OpenAI发布GPT-5.2：最新升级版在推理、代码、长上下文等任务上超越谷歌Gemini 3和Anthropic Claude Opus 4.5。值得追：大模型竞争进入新阶段，GPT-5.2 Thinking在博士级科学知识测试中领先，可能加速企业级AI应用落地。影响产业链：AI大模型、算力芯片、云服务。\\n\\n2. OpenAI、Anthropic、谷歌向初创企业提供价值数十万美元的算力资源及其他优惠以争取企业客户。值得追：算力补贴战打响，头部厂商通过资源捆绑锁定客户，可能重塑AI SaaS市场格局。影响产业链：AI算力租赁、企业级AI应用、数据中心。\\n\\n3. 特斯拉Optimus工厂量产推进，弗里蒙特工厂已从Model S/X产线过渡，德州超级工厂动工；英伟达招聘机器人岗位聚焦具身智能。值得追：人形机器人从1到10量产拐点确认，供应链机会明确。影响产业链：人形机器人零部件（电机、传感器）、工业自动化、AI仿真。\\n\\n投研追问：GPT-5.2的推理优势是否会倒逼国内大模型厂商加速追赶？Optimus量产节奏对国内机器人供应链的拉动时点如何判断？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI发布GPT-5.2领先竞品；头部AI公司以算力补贴争夺企业客户；特斯拉Optimus量产推进、英伟达加码机器人。\",\"lastPulseQuestion\":\"GPT-5.2的推理优势是否会倒逼国内大模型厂商加速追赶？Optimus量产节奏对国内机器人供应链的拉动时点如何判断？\",\"lastPulseSources\":[\"https://k.sina.com.cn/article_7857201856_1d45362c001907stwu.html\",\"https://www.fx678.com/C/20260707/2026070709052",
+        "updatedAt": "2026-07-11T00:19:54.646Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74314,6 +74319,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-10.noon",
         "value": "sent:2026-07-10T04:04:34.250Z",
         "updatedAt": "2026-07-10T04:04:34.342Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11.morning",
+        "value": "sent:2026-07-11T00:19:54.736Z",
+        "updatedAt": "2026-07-11T00:19:54.823Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
