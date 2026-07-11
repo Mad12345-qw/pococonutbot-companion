@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T10:29:39.367Z",
+  "exportedAt": "2026-07-11T12:09:47.960Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68445,6 +68445,123 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-11T08:12:39.564Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8\nhttps://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a175b172ca0b2494740f5c37bc",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-11T12:04:48.479Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a175b172ca0b2494740f5c37bc",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-11T12:04:49.787Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策\n主题：and\n视频：1 条\n- 1. SpaceX \"Critical Path\" Documentary 4K（Launch Heaven / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9\n耗时诊断：字幕 869ms / AI 1m21s / 飞书 25s / 总计 1m46s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "and",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "wechatCandidateId": "wechat_candidate:83a8802a6e882aff",
+          "youtubeDiagnostics": {
+            "aiMs": 81103,
+            "totalMs": 81976,
+            "failures": 0,
+            "deliveryMs": 895,
+            "documentMs": 24503,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 869,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-11T12:06:42.496Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策\n主题：and\n视频：1 条\n- 1. SpaceX \"Critical Path\" Documentary 4K（Launch Heaven / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9\n耗时诊断：字幕 869ms / AI 1m21s / 飞书 25s / 发卡 895ms / 总计 1m47s\nObsidian：已同步到 youtube/and-SpaceX-Critical-Path-Documentary-4K.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "and",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+          "obsidianPath": "youtube/and-SpaceX-Critical-Path-Documentary-4K.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 81103,
+            "totalMs": 81976,
+            "failures": 0,
+            "deliveryMs": 895,
+            "documentMs": 24503,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 869,
+            "feishuIndexMs": 1243,
+            "obsidianSyncMs": 1091,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1,
+            "researchKnowledgeBase": {
+              "synced": true,
+              "entities": 23,
+              "sourceId": "source:05a81a9728cb6505",
+              "questions": 5,
+              "coverageGaps": 3,
+              "evidenceCards": 19
+            },
+            "researchKnowledgeBaseMs": 31696
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-11T12:07:17.064Z"
       }
     ],
     "memories": [
@@ -71016,7 +71133,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-10T10:38:55.015Z"
+        "updatedAt": "2026-07-11T12:04:49.614Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -71026,7 +71143,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-10T10:38:54.840Z"
+        "updatedAt": "2026-07-11T12:04:49.440Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -74429,8 +74546,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-11T10:20:28.050Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-11T10:20:29.220Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-11T12:04:47.679Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-11T12:04:48.803Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -77420,6 +77537,88 @@
         "error": "Transcript API 404: {\"detail\":\"No transcript available for video w0zgNkTdpkE\"}",
         "createdAt": "2026-07-10T10:38:57.983Z",
         "updatedAt": "2026-07-10T10:39:01.161Z"
+      },
+      {
+        "id": "job:059439e35c09d7b2",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "status": "done",
+        "stage": "done",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+            "query": "",
+            "videoUrl": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "i_cznxEM1m8",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {
+          "title": "为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+          "topic": "and",
+          "videos": 1,
+          "diagnostics": {
+            "aiMs": 81103,
+            "totalMs": 81976,
+            "failures": 0,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 869,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+          "obsidianPath": "youtube/and-SpaceX-Critical-Path-Documentary-4K.md",
+          "knowledgeBase": {
+            "synced": true,
+            "entities": 23,
+            "sourceId": "source:05a81a9728cb6505",
+            "questions": 5,
+            "coverageGaps": 3,
+            "evidenceCards": 19
+          },
+          "youtubeArticleParts": {
+            "title": "为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+            "summary": {
+              "done": 8,
+              "total": 8,
+              "failed": 0,
+              "succeeded": 8,
+              "updatedAt": "2026-07-11T12:06:11.712Z",
+              "failedParts": [],
+              "cachedPartNames": [
+                "core",
+                "tech",
+                "glossary",
+                "timeline",
+                "titleContext",
+                "evidenceBrief",
+                "evidenceBriefThesis",
+                "evidenceBriefTermsEvidence"
+              ]
+            },
+            "clearedAt": "2026-07-11T12:06:40.615Z",
+            "clearReason": "published",
+            "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+            "clearedIntermediateParts": true
+          }
+        },
+        "error": "",
+        "createdAt": "2026-07-11T12:04:51.877Z",
+        "updatedAt": "2026-07-11T12:07:16.885Z"
       }
     ],
     "researchReferenceSources": [],
@@ -78181,9 +78380,401 @@
         },
         "createdAt": "2026-07-07T14:40:29.027Z",
         "updatedAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "sourceType": "video",
+        "platform": "youtube",
+        "url": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "title": "为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+        "author": "Launch Heaven",
+        "organization": "Launch Heaven",
+        "publishedAt": "",
+        "recordedAt": "",
+        "eventPeriod": "",
+        "fetchedAt": "2026-07-11T12:06:44.922Z",
+        "analyzedAt": "2026-07-11T12:06:44.922Z",
+        "language": "en",
+        "durationText": "",
+        "rawText": "Video 1: SpaceX \"Critical Path\" Documentary 4K\nURL: https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8\nChannel: Launch Heaven\n[0:03] When you're dealing [music] with\n[0:04] something as complex as building a\n[0:06] rocket or as building a launchpad, being\n[0:08] extremely mindful of the critical path\n[0:10] is important.\n[0:12] And what the critical path is is the\n[0:15] longest set of sequential events that\n[0:18] are gated by each other that must be\n[0:20] completed in order for a task to happen.\n[0:24] >> Test flight affairs on LP-0. We're\n[0:25] getting ready for our pre-op brief for\n[0:28] flight 12 here. We're going to start off\n[0:29] with some calm protocol.\n[0:34] T-minus 1 minute.\n[0:37] >> When we see an unexpected response, how\n[0:39] confident are we in being able to\n[0:41] explain that such that we're not\n[0:43] unknowingly walking into an actual\n[0:44] bigger problem that this was just a\n[0:45] small symptom of?\n[0:51] >> Holding at T-minus 40 seconds.\n[0:53] >> Yes, sir. Got you.\n[0:55] This looks like a blip on blind pressure\n[0:57] when we unpinned. Pressures and preloads\n[0:59] are healthy.\n[1:00] >> Copy that.\n[1:01] And what is the time we would unpin it?\n[1:03] Okay. Copy. Agree we should attempt\n[1:05] again.\n[1:07] >> On LP-0, ship QD Z actuator blind\n[1:09] outside QD that pressure range.\n[1:11] >> On anomaly zero, tower curry, I think\n[1:13] I'm going to recommend actually stand\n[1:15] by. It's drifting back into range.\n[1:18] >> Is it going to fire again, tower mech?\n[1:21] >> Uh possibly. It seems like it's part of\n[1:23] the dynamics when we do it.\n[1:25] >> It's a problem.\n[1:26] There's the pin there that keeps QD line\n[1:29] from the hold. QD line instrument's\n[1:30] back. Well, the pin that locks in the\n[1:32] place and the hydraulic actuator is not\n[1:34] blowing up. It seems to be a problem.\n[1:36] >> And New Line is actually really, really\n[1:37] good at quickly absorbing information,\n[1:39] understanding mistakes, understanding\n[1:40] the consequences, understanding if\n[1:42] today's our day or not.\n[1:43] >> Yeah, it's it's it's hard to tell if\n[1:45] this this is all fogged up from cryo,\n[1:46] but it's essentially right there.\n[1:51] Tower Styro, you're on anomaly zero.\n[1:53] >> Yes, sir. Got you. I don't have an\n[1:55] explanation for why it did not unpin the\n[1:57] second time.\n[1:58] >> The actual\n[1:59] uh if we're\n[2:02] >> I personally have never felt any\n[2:04] pressure from Elon of like it doesn't\n[2:05] matter hell or high water we're flying\n[2:06] this rocket. Like absolutely not. That's\n[2:07] not his style and like like I said\n[2:09] critical path to Mars is not blowing up\n[2:10] rockets.\n[2:12] >> Guys, I recommend we release holding\n[2:14] give it one more chance to unlatch with\n[2:15] where we're at.\n[2:16] >> Should be x y's are not conclusive and\n[2:18] damped but I believe that's okay.\n[2:20] >> Okay, we have just enough time on the\n[2:22] vehicle to attempt one more time. So I\n[2:23] recommend we clear the\n[2:25] >> We'll let it try to unlatch it at the\n[2:26] 100 bar we're at.\n[2:27] >> We're still stuck in damped dampening\n[2:29] though.\n[2:32] >> Understood we'd be reattempting with the\n[2:33] same hydraulic pressure.\n[2:37] Cool, this will be our last attempt and\n[2:38] then we're done on the rockets.\n[2:58] >> [music]\n[3:06] >> When we're only a week out from flight,\n[3:08] my main focus is getting into flight.\n[3:11] >> [music]\n[3:12] >> The thing that separates us from a lot\n[3:14] of other companies is that we we test\n[3:16] fast and we test often and that includes\n[3:19] launches. We want to make sure the\n[3:20] vehicles are ready to go. We want to\n[3:22] make sure the ground's all ready to go\n[3:23] but we also don't want to be caught in\n[3:25] analysis paralysis.\n[3:28] >> The main objective today is a 10 engine\n[3:29] static fire.\n[3:35] >> Abort.\n[3:36] >> On engine one looks like we kicked out\n[3:37] engine two combustion from the apex bank\n[3:39] being faulted.\n[3:40] >> There was a tad side abort called.\n[3:44] >> These things were holding like 5 6,000\n[3:47] tons of propellant plus the rocket\n[3:49] weight and it's like, \"Okay, well why\n[3:52] didn't you guys simulate that?\" It's\n[3:53] like, \"Well, cuz we didn't have anything\n[3:54] that weighed that much.\" Like, this is\n[3:56] the first time we put anything on it\n[3:57] that weighed that much. So, there's just\n[3:58] so much that you have to think about and\n[4:00] then be very paranoid on.\n[4:07] >> We kicked out early. All teams triage\n[4:09] alerts prepare for offload.\n[4:11] >> We actually had another paddle board on\n[4:12] the diverter.\n[4:13] >> Basically, right during engine firing,\n[4:15] it was so much noise and vibration that\n[4:18] it actually shook the sensors that are\n[4:19] located out in this area enough that\n[4:22] they were aborted us out of the test.\n[4:28] We went back, obviously, afterwards and\n[4:30] looked at all the data and tried to come\n[4:32] up with smarter ways to basically still\n[4:34] protect the integrity of the diverter\n[4:36] throughout the operation while changing\n[4:38] our parameters so that we were making\n[4:40] sure that we would not abort again.\n[4:43] A flame diverter is like a super simple\n[4:46] concept that is like not at all\n[4:47] complicated in operation and it's just\n[4:49] absolutely murderous in the details.\n[4:51] These are extremely sophisticated\n[4:54] thermal load sensing devices. If they\n[4:57] turn into melted metal slag, then you\n[4:59] know that you got too much heat. If you\n[5:01] melt this, you're hotter than aluminum\n[5:03] melts. If you melt this, you're hotter\n[5:04] than zinc melts. If you melt this,\n[5:06] you're hotter than copper melts.\n[5:08] If you melt this, you're hotter than\n[5:09] Sharpie melts.\n[5:10] So, we're sub-Sharpie.\n[5:15] We have all of this mass flow, all of\n[5:17] this energy that is just absolutely\n[5:18] trying to obliterate our path. We want\n[5:20] to give it a thing to obliterate to keep\n[5:23] from obliterating the things that we\n[5:25] care about. And the thing we give it is\n[5:27] water.\n[5:33] The amount of energy that water can\n[5:34] absorb is is like miraculous. And so, if\n[5:37] you can get high enough pressure water\n[5:39] in the right places and just allow it to\n[5:41] to flash boil that water, then it solves\n[5:44] a lot of the problems for you. Like, the\n[5:45] The is that the steam never gets that\n[5:46] hot. The structures never get that hot\n[5:48] cuz the water absorbs all that energy,\n[5:49] turns to steam, and and everything's\n[5:50] okay.\n[5:53] So, for this flame deflector on pad two,\n[5:55] we're sitting somewhere in the\n[5:56] neighborhood of about 650,000 gallons\n[5:58] per minute.\n[6:02] That's approximately in the range of\n[6:03] about like one entire Olympic swimming\n[6:06] pool being drained in the course of a\n[6:08] minute.\n[6:13] You're trying to look into this thing\n[6:15] and you see how like glowing hot it is.\n[6:17] It's It's just uh\n[6:18] yeah, a pretty impossible environment to\n[6:20] keep something happy in. But, and you\n[6:22] zoom in and the flame deflector still\n[6:24] there. So, that's the reason we we build\n[6:26] those things.\n[6:33] Putting the rocket into human terms is\n[6:35] something really tough. 65,000 lb per\n[6:38] second of propellant that is coming out\n[6:39] of the engines. And again, just like 18\n[6:41] million pounds of thrust, like what does\n[6:42] that number mean? I think of like 11\n[6:44] Ford F-150 trucks per second just\n[6:46] zipping out of the bottom of the rocket.\n[6:48] It's like imagine if you had the world's\n[6:49] biggest machine gun, except for instead\n[6:50] of shooting bullets, it was shooting\n[6:51] pickup trucks. And it's just firing 11\n[6:53] pickup trucks per second out of the\n[6:54] bottom of the rocket. It's like, do you\n[6:56] think your stuff could survive that?\n[7:03] >> [music]\n[7:06] >> For the last, you know, [music] week or\n[7:08] two, uh it's mostly just been running on\n[7:11] stress and caffeine uh\n[7:13] because uh we had so many things that we\n[7:15] were trying to incorporate and there's\n[7:16] just a lot riding on this test. The\n[7:18] previous test that we did did not\n[7:20] achieve enough duration such that we had\n[7:22] the engineering data that we needed to\n[7:23] be confident moving into flight. If not\n[7:26] able to get this test off successfully\n[7:27] today, then you know, we're pushing\n[7:28] launch day for day, which is an\n[7:30] extremely big drag on the entire program\n[7:32] and and all the engineering teams\n[7:33] involved. So, there's always pressure\n[7:35] going into an op, but this one is\n[7:37] particularly high.\n[8:26] feeding the spark plugs.\n[8:29] >> That was a big day. Uh the fourth\n[8:31] attempt that we've had for a static fire\n[8:33] and we finally went full duration on all\n[8:35] engines. So, feels really good. I'm\n[8:38] super relieved. Again, it was like\n[8:39] pretty dynamic and having done this four\n[8:42] times now, it's like, man, what else can\n[8:45] go wrong here? Because we just haven't\n[8:47] seen the vibration and the temperatures\n[8:49] that we're about to be subjected to.\n[8:52] >> We've never connected the QD to a\n[8:54] vehicle and we've never flowed\n[8:55] propellant into a Starship on pad two.\n[8:58] So, although this was a really big\n[8:59] milestone, the next step is to prove\n[9:01] that those systems work in the way that\n[9:03] we designed them to.\n[9:23] >> We designed this pad to be able to\n[9:25] support a launch every 60 minutes\n[9:27] indefinitely.\n[9:31] The thing about pad one is it was\n[9:32] designed to be very quick to build. It\n[9:35] It designed to be very cheap and it was\n[9:36] designed to give good access to the\n[9:37] after [music] end of the booster.\n[9:44] The reason all of those things were a\n[9:45] design goal is because we sucked at\n[9:47] building Starship pads and we sucked at\n[9:48] building Starships. It's like we didn't\n[9:50] we didn't know what we were doing\n[9:51] because it was impossible to know what\n[9:53] you were doing because no one had ever\n[9:54] done something like this before.\n[9:56] The brief on that one was, \"Hey, get\n[9:57] something up very quick and very scrappy\n[9:59] and very inexpensively, but that's okay.\n[10:01] It actually needs it to just be good\n[10:03] enough for us to learn and then we can\n[10:05] learn from it, we'll go build the actual\n[10:06] good thing.\"\n[10:10] I mean, the integration mechanism is the\n[10:12] pad. The catch mechanism is the pad. All\n[10:15] of this stuff is like integral to how\n[10:16] the pad operates. And so, the reason we\n[10:18] call it stage zero is is literally it is\n[10:20] the first stage of the launch process.\n[10:22] And if it is not working, we cannot go\n[10:23] [music] launch. And so, that certainly\n[10:25] like raises the stakes and raises the\n[10:26] priority and like drama whenever things\n[10:29] go wrong on the pad.\n[10:33] Post static fire, as we were transiting\n[10:35] the chopstick arms\n[10:37] uh back to a lower position, we heard a\n[10:40] loud noise out at the pad.\n[10:52] It's vibrating the entire tower.\n[10:54] Something got jammed up in the chain and\n[10:56] maybe caused it to snap. We don't really\n[10:58] know if it's broken completely or if\n[11:00] it's just cockeyed or buckled in some\n[11:02] way.\n[11:03] God, it sounds terrible.\n[11:07] So, we are in a mad dash to get that\n[11:09] roller diagnosed and replaced as soon as\n[11:11] possible.\n[11:20] The chop carriage has many rollers\n[11:21] positioned at different parts around the\n[11:22] tower. And when I say roller, it's\n[11:24] literally like imagine the world's\n[11:25] largest bicycle chain. It's built almost\n[11:27] exactly like a bike chain except for\n[11:28] it's 380 lb and the chop carriage weighs\n[11:30] a lot. And so, it basically broke one of\n[11:31] those links. The chain got bound up, and\n[11:34] the day after a static fire, we called\n[11:36] our buddies at the Cape. We had some\n[11:37] spare units over there for building the\n[11:39] Cape towers. We're able to hot shot to\n[11:41] overnight the the chain to us. Got the\n[11:43] old chain torn apart, got the new one\n[11:44] put together, flew it up, and the\n[11:46] morning after that we're ready to rock.\n[11:52] >> Hey, with with these ones, make sure\n[11:55] we're going up.\n[11:58] >> It was on the order of like 30 hours, 36\n[12:01] hours from we found the problem to to\n[12:03] have it fully back in service.\n[12:05] On like an item that was not really\n[12:08] designed to be very serviceable.\n[12:14] To be able to come up with a scrappy\n[12:15] plan, you know, attempt to support it\n[12:17] with cranes, get in there and and boogie\n[12:19] is like that's like just classic SpaceX\n[12:21] nonsense.\n[12:47] >> Chopsticks carrier, you go.\n[12:49] >> We are still go for tomorrow, but it's\n[12:51] like a very very tight schedule.\n[12:57] >> We're basically a race with a ship right\n[12:59] now.\n[13:11] >> Latching in 3 2 1.\n[13:19] >> All right, chopsticks are moving.\n[13:21] >> Come on, baby.\n[13:28] >> That's crazy.\n[13:30] What a day.\n[14:04] The purpose of this mission is to\n[14:05] collect some really high profile imagery\n[14:08] of the Starship, specifically its heat\n[14:11] shield after re-entry.\n[14:14] This is the most in-depth operation that\n[14:16] we've ever conducted. We'll be having\n[14:17] the most buoys with the most equipment\n[14:19] and way more drones than we have ever\n[14:21] had to have offshore.\n[14:27] This buoy right here has been used since\n[14:28] flight five. We deployed these buoys\n[14:30] kind of like as a Hail Mary attempt.\n[14:32] They were very scrappily, but you know,\n[14:34] as well as they could be put together.\n[14:43] It was almost miraculous even in the\n[14:45] middle of the night to see all of these\n[14:46] buoys pointed directly at Starship as it\n[14:48] was landing.\n[14:55] And gradually from flight five, six,\n[14:57] seven and onwards, these have always\n[14:59] been deployed.\n[15:37] >> While it does get punctures, we can\n[15:39] patch them as needed and and kind of\n[15:40] give them the band-aids that they need\n[15:42] in order to keep kicking.\n[15:48] >> We just departed the port here at\n[15:51] Exmouth. Think we've got about a two,\n[15:53] two and a half day transit,\n[15:57] 500 nautical miles.\n[15:59] >> Up to a 21-day voyage out to the Indian\n[16:02] Ocean.\n[16:04] We will be getting a full almost 3D\n[16:06] model of the vehicle at different points\n[16:08] of re-entry and landing that will allow\n[16:10] us to not only assess the performance of\n[16:12] the vehicle for flight 12, but build a\n[16:14] new and better Starship.\n[16:27] >> It's weird the things you find yourself\n[16:29] getting good at in your quests [music]\n[16:31] to go to Mars or the moon or fly a bunch\n[16:33] of satellites. And something we are\n[16:34] really good at as a company is just\n[16:36] moving big things.\n[16:38] >> There you go. Looking good just like\n[16:39] that.\n[16:42] Yeah, you hug this left side, you'll be\n[16:44] good on your right side off of the\n[16:45] building.\n[16:46] >> So, we have a whole team of people the\n[16:47] CLT, the critical lift team.\n[16:49] >> Good. Roll forward.\n[16:51] >> And their job is just to move, to\n[16:53] maintain, to operate equipment and\n[16:55] infrastructure to move heavy things all\n[16:57] around.\n[16:57] >> B19 is now entering highway four.\n[17:02] All of the great people of Starbase\n[17:04] watching B19 roll out to the pad.\n[17:08] >> We wanted to make sure we made it down\n[17:09] here for the first version three.\n[17:11] >> I was here for flight nine and 11. I got\n[17:14] to see the catch. You don't get to say\n[17:16] that every day.\n[17:18] >> Honestly, just seeing V3 take flight,\n[17:20] it's been a long wait. Also, the flame\n[17:22] trench is going to look pretty awesome.\n[17:26] >> Looking good on your left side. Keep on\n[17:28] rolling.\n[17:30] Rolling, rolling, rolling.\n[17:31] >> Just out here to watch the V19 roll out\n[17:33] with my family visiting Starbase. It's\n[17:35] just cool to see everyone working as\n[17:37] they work together to push forward\n[17:39] humanity's future.\n[17:40] >> You got a beautiful line like that,\n[17:41] we'll keep walking in just like that for\n[17:43] a little bit.\n[17:48] All clear to front.\n[17:51] >> And so they move our rockets, they are\n[17:53] like, I mean, absolute pros at just give\n[17:55] them a random ginormous shape and say\n[17:57] this needs to get from here to there and\n[17:58] they'll go do it.\n[18:10] >> Going to keep it nice and slow.\n[18:24] >> So right now we're in Star Factory and\n[18:25] we're doing the final preparations to\n[18:27] load the imaging satellites into our\n[18:29] satellite speed loader. This is the last\n[18:31] step that's going to happen before we\n[18:32] send the satellites over to Mega Bay 2\n[18:34] where they're going to be loaded into\n[18:35] ship and prepared for flight.\n[18:41] So these two satellites will be just two\n[18:43] of 22 total deployed objects. The other\n[18:46] 20 are what we call satellite\n[18:47] simulators. They don't have computers on\n[18:49] board or anything like that. They're\n[18:50] really just hunks of steel that mimic\n[18:51] [music] the shape and weight of\n[18:54] satellites approximately. It helps us\n[18:55] test the pest deploy system.\n[18:57] We're also going to be inspecting the\n[18:59] more sensitive components of the\n[19:01] satellite, the laser optics that send\n[19:03] data to other satellites, the thruster\n[19:05] on board for on orbit maneuvering. All\n[19:07] of those systems are more sensitive to\n[19:08] things like fog or dust, so we want to\n[19:11] give them one last inspection before\n[19:12] they go in to make sure they're ready to\n[19:13] go to space.\n[19:16] Hey, Ben. Can you just confirm for us\n[19:17] that you are ready for us to lift the\n[19:18] next satellite?\n[19:20] >> We finished the profile. Everything\n[19:22] looks good. I'm going to disable now, so\n[19:24] they'll be good to remove rigging.\n[19:26] >> Copy. Standing by.\n[19:32] All 22 of those objects going to mass up\n[19:33] to about 37 and 1/2 metric tons. That is\n[19:36] heavier than any payload Falcon has ever\n[19:38] launched. I believe this is the heaviest\n[19:40] payload SpaceX will have launched ever.\n[19:41] So, we want to learn as much as possible\n[19:43] about the test system and how the\n[19:44] satellites interact with it.\n[19:46] We're on that suborbital trajectory, but\n[19:47] it shows the capability that Starship\n[19:49] has for future orbital missions coming\n[19:51] up.\n[20:14] >> It's It's amazing. Like, I mean, even\n[20:16] just standing next to it, you're already\n[20:18] in awe\n[20:19] because it's something that is such a\n[20:21] magnificent sight to see.\n[20:36] >> People have worked very hard for very\n[20:37] many years on this. It's the third\n[20:39] evolution of the fully and rapidly\n[20:41] reusable launch vehicle that SpaceX aims\n[20:43] to develop.\n[20:52] >> I started with the tents we're here.\n[20:54] It's just tents and dirt. And we've come\n[20:56] a long way since I started here as an\n[20:58] intern a couple years ago.\n[21:00] >> I mean, it's the biggest thing ever\n[21:01] launched, so there's nothing I can match\n[21:03] it.\n[21:05] >> I expect it to be loud and fast.\n[21:07] >> It's going to rock the the city of\n[21:08] Starbase.\n[21:35] >> Yeah, I I was thinking like why why the\n[21:38] tower team has these big\n[21:40] crises always like right before we have\n[21:44] like a big operation. I think it has to\n[21:46] just do with the scale of everything.\n[21:47] Like we have these big complicated\n[21:49] mechanisms that like need to work right\n[21:51] every time we use them. And just\n[21:54] replacing a roller turned into this\n[21:55] several-day ordeal with flying in\n[21:57] from\n[21:58] the the Cape. Three cranes to get it in\n[22:01] and out where like if this was a broken\n[22:03] bearing on some little dingy\n[22:06] electrical motor, it would have been\n[22:08] much easier\n[22:09] to make that swap in an hour instead of\n[22:11] 24.\n[22:12] >> I I feel like it also set us set us up\n[22:14] for success in terms of like the getting\n[22:17] mentally ready to act on immediate. So,\n[22:20] super exciting time tomorrow. Hopefully\n[22:22] we see the fruits of our labor sort of\n[22:24] culminate in a in a great successful\n[22:26] flight.\n[22:32] >> Two weeks.\n[22:34] >> Yeah, everything looks fine to me.\n[22:36] >> No, looks good. Uh let's get into safety\n[22:38] so we can extend the platforms please.\n[22:40] >> Um after this we'll\n[22:43] transition to pre-load propellant.\n[22:45] Take the HP to integrate it up.\n[22:47] Take the flight and then we'll do a\n[22:48] quick go or no-go poll. I'll give you a\n[22:50] countdown and we're releasing.\n[23:07] >> Holding at 2 minutes 40 seconds.\n[23:10] >> This looks like a blip uh on blind\n[23:12] pressure when we unpin. Pressures and\n[23:14] preloads are healthy.\n[23:16] >> Yeah, it's it's it's hard to tell if\n[23:18] this this is all fogged up from cryo,\n[23:19] but it's essentially right there.\n[23:22] >> Guys, I recommend we release holding\n[23:24] give it one more chance to unlatch with\n[23:26] where we're at.\n[23:27] >> Should be XY's are not going to close\n[23:28] out and damped, but I believe that's\n[23:30] okay.\n[23:31] >> Okay, we have just enough time on the\n[23:32] vehicle to attempt one more time. So, I\n[23:34] recommend we clear the hold, let it try\n[23:36] to unlatch it at the 100 bar we're at.\n[23:38] >> We're still stuck in damped damping\n[23:40] though.\n[23:42] >> Understood we'd be reattempting with the\n[23:44] same head valve pressure.\n[23:47] >> Cool, this will be our last attempt and\n[23:48] then we're done on the rockets.\n[23:53] >> Unexpected drop in Z cylinder blind\n[23:56] pressure when we unpinned.\n[23:58] That was different from the first few\n[23:59] tries.\n[24:00] >> That's correct, different problem.\n[24:01] >> Copy.\n[24:03] >> Yeah,\n[24:03] this might be due to QD aerodynamics\n[24:05] when we unpin, so I\n[24:07] Yeah, don't know I don't think trying\n[24:08] again is going to solve the problem, to\n[24:09] be honest.\n[24:15] >> We're done for flight for the day. Uh\n[24:17] flight\n[24:19] Thank you.\n[24:46] >> Mechanical systems really come alive in\n[24:48] that last 40 seconds. As a part of that\n[24:49] sequence,\n[24:51] one of the things that we do is we unpin\n[24:53] that arm so that the QD can swing away\n[24:56] and not blow itself up as the rocket\n[24:57] flies away.\n[25:02] And that part of the arm is pushing hard\n[25:04] against the tower\n[25:05] while we unlatch to make sure that that\n[25:08] even if there's excess pressure or\n[25:09] anything like that that the QD stays\n[25:10] really tight up against the ship.\n[25:12] And the first time that we had unpinned\n[25:15] that arm in flight-like conditions was\n[25:17] that attempt.\n[25:19] So, as we retracted that pin, the arm\n[25:21] wanted to shove closer into the tower.\n[25:23] It caused the end effector to kind of\n[25:25] jiggle back and forth very slightly.\n[25:27] That jiggle set off some really tight\n[25:29] sensitive bounds that we had on the\n[25:30] hydraulic system out there. And\n[25:33] you need it to work or else or else\n[25:35] rocket doesn't fly, so.\n[25:52] >> Always be paranoid.\n[25:54] Going into the flight attempt, we were\n[25:56] worried about\n[25:57] a completely different thing, which was\n[26:00] the hold for the actual vents on the\n[26:02] fuel drain.\n[26:03] And then those passed, and then we got\n[26:05] bit by something completely different.\n[26:07] So,\n[26:09] you got to be paranoid about everything.\n[26:31] >> Last night overnight we did a sweep of\n[26:33] our 30-nautical-mile hazardous no-go\n[26:35] zone to make sure there's no vessels.\n[26:38] Range is currently clear. Everything's\n[26:39] looking good.\n[26:41] It's a little rough out. It's 1:00 in\n[26:43] the morning. Doing final preps in all\n[26:45] the buoys, getting [music] all cameras\n[26:47] online. This is when it all happens,\n[26:49] 1:00 in the morning.\n[26:51] This is the most important mission we've\n[26:53] done out here. We're putting in the most\n[26:54] buoys and the most drones. So, if we\n[26:57] don't have this data, the people back\n[26:59] home have no idea how the heat shield\n[27:00] really performed.\n[27:03] Sriram, do you want to give it a final\n[27:04] kiss goodbye for good luck?\n[27:10] >> That was a wet kiss.\n[27:11] >> Sweet.\n[27:12] >> Perfect. Beautiful.\n[27:14] >> Beautiful.\n[27:21] Bye-bye, buoy.\n[27:41] >> Good afternoon. Welcome to the Starship\n[27:43] flight 12 attempt to weather briefing.\n[27:45] Uh, Starship range is currently green.\n[27:47] >> Tower, [snorts] Kenny, are you up on\n[27:48] countdown one? Can you give a brief on\n[27:50] what we did last night for the QD arm\n[27:52] situation?\n[27:53] >> So, the cause of yesterday's abort was\n[27:57] that the ship QD arm had dynamics when\n[28:00] we tried to unpin it due to the preload\n[28:02] that the ship QD mech was put pushing\n[28:04] into the vehicle with. The mitigations\n[28:06] that we have in place today are that we\n[28:07] welded a hard stop bumper uh to the ship\n[28:10] QD arm to limit the amount of\n[28:11] displacement that can occur when the\n[28:12] unpinner unpins.\n[28:17] >> Attention all flight crew members on\n[28:18] countdown one is the final go for the\n[28:20] go/no-go poll for today's operations.\n[28:22] RC?\n[28:23] >> Go.\n[28:24] >> Ground stations?\n[28:24] >> Go.\n[28:25] >> Flight software one?\n[28:26] >> Go.\n[28:27] >> Raptor one?\n[28:27] >> Go.\n[28:28] >> Raptor two?\n[28:29] >> Go.\n[28:29] >> Stage one?\n[28:30] >> Go.\n[28:31] >> Flight director's go as well. T-minus\n[28:33] one minute.\n[28:40] Holding at T-minus 40 seconds.\n[28:45] >> SpaceXers really are at their best in\n[28:47] ASAP mode. We do a good job of not being\n[28:51] afraid of putting ourselves in a really\n[28:52] tight spot.\n[28:53] >> So drink circle.\n[28:55] >> Copy.\n[28:56] >> SC1 reset the operator hold.\n[28:57] >> Reset.\n[28:58] >> Fighters rolling.\n[28:59] >> People hate pain and that ability to\n[29:02] absorb pain for change here at Starbase\n[29:05] is like unparalleled. And if you just\n[29:07] are willing to take a little bit of it,\n[29:09] you can do the most amazing things.\n[29:11] >> Flight director go for launch.\n[29:15] >> T-minus 10.\n[29:17] 9.\n[29:19] 8.\n[29:21] 7.\n[29:22] 6.\n[29:23] >> Copy.\n[29:24] >> Go.\n[29:25] >> 5.\n[29:27] 4.\n[29:30] 3.\n[29:31] >> 2.\n[29:32] 1.\n[29:38] >> Ignition.\n[29:57] >> We have lift off.\n[30:09] >> Pitching down range.\n[30:26] >> Max Q.\n[30:29] Stage separation.\n[30:37] >> Dodging many many booster alerts.\n[30:40] >> Five engines on booster max up.\n[30:43] >> Flight software acknowledging mission\n[30:45] abort early booster shut down.\n[30:47] Expected.\n[30:48] >> Yes, sir. Can confirm executive team is\n[30:50] aware that a booster did not make it to\n[30:52] the final landing location.\n[30:56] >> Ship avionics power and telemetry\n[30:57] nominal.\n[31:00] >> We have healthy chamber pressures on\n[31:01] five out of six sheet metal engines.\n[31:11] >> We're deploying sensors.\n[31:25] >> That was the closest thing I've ever\n[31:26] seen.\n[31:27] >> Wow.\n[31:29] >> We should have a video of a satellite\n[31:30] looking at our ship.\n[31:32] >> This all looks good.\n[31:35] >> [cheering]\n[31:49] >> Starship is turning for final approach\n[31:51] to landing site.\n[32:44] >> Starship is landed.\n[33:15] >> [cheering]\n[33:19] [applause]\n[33:29] >> It's one of the hardest things humans\n[33:30] have ever done, honestly.\n[33:31] >> It feels like it.\n[33:32] >> Yeah.\n[33:33] >> This might be our crowning achievement\n[33:34] after this.\n[33:35] >> Just the robots will have to take over.\n[33:36] >> Exactly.\n[33:39] >> Anytime [music] we have these kind of\n[33:40] big evolutionary leaps in the program,\n[33:42] whether it was the very first flight\n[33:43] one, whether it was first catch of\n[33:44] flight five, obviously new major block\n[33:47] change with the pad and the ship and the\n[33:48] booster all at same time for V3, there's\n[33:50] somewhat of an expectation of like what\n[33:52] what might we have missed, but at some\n[33:54] point you just got to say, \"Hey, the\n[33:55] most learnings are to go fly.\"",
+        "rawTextHash": "ab16a3ae9b96ffd6",
+        "docUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+        "obsidianPath": "youtube/and-SpaceX-Critical-Path-Documentary-4K.md",
+        "reliabilityLevel": "source_transcript",
+        "sourcePerspective": "primary_or_expert_video",
+        "institutionType": "primary_video",
+        "institutionRole": "source_material",
+        "analysisLenses": [
+          "technology",
+          "industry_chain",
+          "commercialization",
+          "risk",
+          "time_context"
+        ],
+        "evidenceStrength": "primary_transcript",
+        "accessLevel": "public",
+        "conflictProfile": "platform_or_speaker_bias_possible",
+        "metadata": {
+          "adapter": "youtube",
+          "docCreated": true,
+          "principles": [
+            "evidence_before_opinion",
+            "time_context_first_class",
+            "coverage_gaps_reduce_confidence",
+            "do_not_generate_garbage_then_reject"
+          ],
+          "videoCount": 1,
+          "reportTopic": "and",
+          "obsidianSynced": true,
+          "transcriptSegments": 705
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       }
     ],
     "researchEvidenceCards": [
+      {
+        "id": "297",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "market_financial",
+        "claim": "纪录片开头把火箭和发射台建设描述为高复杂度工程，因此强调必须关注关键路径。",
+        "quoteOriginal": "When you're dealing with something as complex as building a rocket or as building a launchpad, being extremely mindful of the critical path is important.",
+        "quoteZh": "",
+        "location": "0:03",
+        "whyItMatters": "这为文章建立主题边界：重点不是泛谈火箭，而是解释复杂工程中如何通过顺序、依赖和瓶颈来管理风险。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "market_financial",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "298",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "commercialization",
+        "claim": "片中明确给出关键路径的定义：最长的一组相互依赖、必须完成后任务才能发生的连续事件。",
+        "quoteOriginal": "the longest set of sequential events that are gated by each other that must be completed in order for a task to happen",
+        "quoteZh": "",
+        "location": "0:12",
+        "whyItMatters": "这是后文解释工程管理概念的核心证据，可用于把抽象管理词汇转化为初学者能理解的流程逻辑。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "commercialization",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "299",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "market_financial",
+        "claim": "Flight 12 前，团队在 LP-0 进入操作前简报，并从通信协议开始。",
+        "quoteOriginal": "Test flight affairs on LP-0. We're getting ready for our pre-op brief for flight 12 here. We're going to start off with some calm protocol.",
+        "quoteZh": "",
+        "location": "0:24",
+        "whyItMatters": "这说明关键测试不是临场即兴，而是先通过简报和通信规则建立协作秩序。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "market_financial",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "300",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "倒计时过程中出现意外响应时，团队关注的不是表面小故障，而是它是否暗示更大的真实问题。",
+        "quoteOriginal": "When we see an unexpected response, how confident are we in being able to explain that such that we're not unknowingly walking into an actual bigger problem that this was just a small symptom of?",
+        "quoteZh": "",
+        "location": "0:37",
+        "whyItMatters": "这揭示 SpaceX 式风险判断的关键：异常需要被解释清楚，不能只因为它看起来小就继续推进。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "301",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "regulatory",
+        "claim": "团队在 T-minus 40 秒暂停倒计时，说明关键节点会为异常判断让出时间。",
+        "quoteOriginal": "Holding at T-minus 40 seconds.",
+        "quoteZh": "",
+        "location": "0:51",
+        "whyItMatters": "暂停倒计时是具体场景证据，可支撑文章讨论关键路径并不等于盲目追赶时间，而是要在必要时停下来确认。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "regulatory",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "302",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "压力和预载被报告为健康，团队据此把异常描述为一次压力读数上的短暂波动。",
+        "quoteOriginal": "This looks like a blip on blind pressure when we unpinned. Pressures and preloads are healthy.",
+        "quoteZh": "",
+        "location": "0:55",
+        "whyItMatters": "这提供了工程判断的细节：继续或重试并非凭感觉，而是基于压力、预载等具体状态信号。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "303",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "在确认相关信息后，团队同意再次尝试，而不是直接放弃流程。",
+        "quoteOriginal": "And what is the time we would unpin it? Okay. Copy. Agree we should attempt again.",
+        "quoteZh": "",
+        "location": "1:01",
+        "whyItMatters": "这说明异常处理包含提问、确认时间点、复核状态和做出下一步决策，适合用于说明关键路径中的决策门。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "304",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "异常被定位到船体快速断开接口相关的 Z 执行机构压力范围问题。",
+        "quoteOriginal": "On LP-0, ship QD Z actuator blind outside QD that pressure range.",
+        "quoteZh": "",
+        "location": "1:07",
+        "whyItMatters": "这个细节把风险从笼统的“出问题”落到具体硬件和参数，有助于文章保持证据感。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "305",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "团队需要解释为什么部件没有按预期解除锁定。",
+        "quoteOriginal": "explanation for why it did not unpin",
+        "quoteZh": "",
+        "location": "1:55",
+        "whyItMatters": "这可用于说明复杂工程中的故障复盘目标：不是只记录失败，而是找到动作没有发生的原因。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "306",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "后续流程中团队再次提到重新尝试，表明关键路径中的单点异常会触发受控重试。",
+        "quoteOriginal": "Understood we'd be reattempting",
+        "quoteZh": "",
+        "location": "2:32",
+        "whyItMatters": "这为文章提供一个可解释的操作模式：暂停、诊断、确认、重试，而不是简单地前进或终止。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "307",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：When you're dealing [music] with",
+        "quoteOriginal": "When you're dealing [music] with",
+        "quoteZh": "",
+        "location": "0:03",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "308",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：vehicles are ready to go. We want to",
+        "quoteOriginal": "vehicles are ready to go. We want to",
+        "quoteZh": "",
+        "location": "3:20",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "309",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "regulatory",
+        "claim": "视频在这里展开了一个关键论据：second of propellant that is coming out",
+        "quoteOriginal": "second of propellant that is coming out",
+        "quoteZh": "",
+        "location": "6:38",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "regulatory",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "310",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：It's vibrating the entire tower.",
+        "quoteOriginal": "It's vibrating the entire tower.",
+        "quoteZh": "",
+        "location": "10:52",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "311",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：to go to Mars or the moon or fly a bunch",
+        "quoteOriginal": "to go to Mars or the moon or fly a bunch",
+        "quoteZh": "",
+        "location": "16:31",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "312",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：it shows the capability that Starship",
+        "quoteOriginal": "it shows the capability that Starship",
+        "quoteZh": "",
+        "location": "19:47",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "313",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：this might be due to QD aerodynamics",
+        "quoteOriginal": "this might be due to QD aerodynamics",
+        "quoteZh": "",
+        "location": "24:03",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "314",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：>> Ground stations?",
+        "quoteOriginal": ">> Ground stations?",
+        "quoteZh": "",
+        "location": "28:24",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "315",
+        "sourceId": "source:05a81a9728cb6505",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：most learnings are to go fly.\"",
+        "quoteOriginal": "most learnings are to go fly.\"",
+        "quoteZh": "",
+        "location": "33:55",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
       {
         "id": "1",
         "sourceId": "source:26ee776b1247370b",
@@ -84339,6 +84930,14 @@
         "updatedAt": "2026-07-02T07:22:37.099Z"
       },
       {
+        "entityId": "entity:topic:8b7127491fccc36a",
+        "name": "LP-0发射场与“flight 12”预操作简报场景",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:topic:b2f61b435e8d8e3f",
         "name": "Lambert刚从中国行回来，访问了多家实验室和公司",
         "entityType": "topic",
@@ -84377,6 +84976,14 @@
         "metadata": {},
         "createdAt": "2026-07-03T12:21:14.326Z",
         "updatedAt": "2026-07-03T12:21:14.326Z"
+      },
+      {
+        "entityId": "entity:organization:0b99d594370b2102",
+        "name": "Launch Heaven",
+        "entityType": "organization",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:organization:61fe8eff2298e315",
@@ -84459,17 +85066,17 @@
         "updatedAt": "2026-07-03T12:53:49.036Z"
       },
       {
-        "entityId": "entity:technology_or_concept:65707da7134ac952",
+        "entityId": "entity:technology_or_product:65707da7134ac952",
         "name": "Momenta",
-        "entityType": "technology_or_concept",
+        "entityType": "technology_or_product",
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
       },
       {
-        "entityId": "entity:technology_or_product:65707da7134ac952",
+        "entityId": "entity:technology_or_concept:65707da7134ac952",
         "name": "Momenta",
-        "entityType": "technology_or_product",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
@@ -84651,6 +85258,14 @@
         "updatedAt": "2026-07-03T15:17:46.991Z"
       },
       {
+        "entityId": "entity:technology_or_concept:55b9dd51b510dea8",
+        "name": "QD",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:3f635b337c889b11",
         "name": "QD arm",
         "entityType": "technology_or_concept",
@@ -84795,19 +85410,19 @@
         "updatedAt": "2026-07-02T07:22:25.257Z"
       },
       {
-        "entityId": "entity:topic:07db55ed85fa513f",
-        "name": "SpaceX",
-        "entityType": "technology_or_product",
-        "metadata": {},
-        "createdAt": "2026-07-02T07:22:17.989Z",
-        "updatedAt": "2026-07-03T04:22:01.510Z"
-      },
-      {
         "entityId": "entity:technology_or_concept:07db55ed85fa513f",
         "name": "SpaceX",
         "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-02T19:48:32.368Z",
+        "updatedAt": "2026-07-03T04:22:01.510Z"
+      },
+      {
+        "entityId": "entity:topic:07db55ed85fa513f",
+        "name": "SpaceX",
+        "entityType": "technology_or_product",
+        "metadata": {},
+        "createdAt": "2026-07-02T07:22:17.989Z",
         "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
@@ -84859,20 +85474,20 @@
         "updatedAt": "2026-07-02T07:22:50.002Z"
       },
       {
-        "entityId": "entity:technology_or_concept:bb3242017cd8906b",
-        "name": "Starbase",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-03T01:47:19.448Z",
-        "updatedAt": "2026-07-03T04:22:01.510Z"
-      },
-      {
         "entityId": "entity:topic:bb3242017cd8906b",
         "name": "Starbase",
         "entityType": "technology_or_product",
         "metadata": {},
         "createdAt": "2026-07-02T07:22:42.679Z",
         "updatedAt": "2026-07-02T07:22:50.002Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:bb3242017cd8906b",
+        "name": "Starbase",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T01:47:19.448Z",
+        "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
         "entityId": "entity:technology_or_concept:301bdf095cdd5186",
@@ -84971,6 +85586,22 @@
         "updatedAt": "2026-07-02T07:23:12.389Z"
       },
       {
+        "entityId": "entity:technology_or_concept:f39057d94511c5a4",
+        "name": "T-minus",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "entityId": "entity:topic:bfc9cf6c25fae456",
+        "name": "T-minus 1 minute到T-minus 40 seconds之间的倒计时暂停",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:topic:c41625d430e12d5f",
         "name": "Teru-san，42岁，和五口之家住在3LK住宅",
         "entityType": "topic",
@@ -85035,19 +85666,19 @@
         "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
-        "entityId": "entity:topic:5f9e5802bbabc71f",
-        "name": "are",
-        "entityType": "topic",
-        "metadata": {},
-        "createdAt": "2026-07-04T02:02:31.861Z",
-        "updatedAt": "2026-07-04T02:02:31.861Z"
-      },
-      {
         "entityId": "entity:technology_or_concept:5f9e5802bbabc71f",
         "name": "are",
         "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
+        "updatedAt": "2026-07-04T02:02:31.861Z"
+      },
+      {
+        "entityId": "entity:topic:5f9e5802bbabc71f",
+        "name": "are",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-04T02:02:31.861Z",
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
@@ -85089,6 +85720,14 @@
         "metadata": {},
         "createdAt": "2026-07-04T02:02:31.861Z",
         "updatedAt": "2026-07-04T02:02:31.861Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:0e684e45dbe81cb9",
+        "name": "critical path",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:12e8e4397c711845",
@@ -85163,17 +85802,17 @@
         "updatedAt": "2026-07-02T07:22:25.257Z"
       },
       {
-        "entityId": "entity:technology_or_concept:43eef9a62abb8b1e",
+        "entityId": "entity:topic:43eef9a62abb8b1e",
         "name": "for",
-        "entityType": "technology_or_concept",
+        "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
-        "entityId": "entity:topic:43eef9a62abb8b1e",
+        "entityId": "entity:technology_or_concept:43eef9a62abb8b1e",
         "name": "for",
-        "entityType": "topic",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
@@ -85201,6 +85840,14 @@
         "metadata": {},
         "createdAt": "2026-07-02T07:22:30.752Z",
         "updatedAt": "2026-07-02T07:22:37.099Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:43c88f6f2c6e76a1",
+        "name": "hold",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:716e2bebd9ca90a6",
@@ -85251,12 +85898,12 @@
         "updatedAt": "2026-07-03T12:53:49.036Z"
       },
       {
-        "entityId": "entity:topic:c4eb7d7fea3c62a8",
-        "name": "like",
-        "entityType": "topic",
+        "entityId": "entity:technology_or_concept:baecc8dee16925ea",
+        "name": "launchpad",
+        "entityType": "technology_or_concept",
         "metadata": {},
-        "createdAt": "2026-07-03T05:39:39.871Z",
-        "updatedAt": "2026-07-04T02:02:31.861Z"
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:c4eb7d7fea3c62a8",
@@ -85265,6 +85912,14 @@
         "metadata": {},
         "createdAt": "2026-07-03T05:39:39.871Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
+      },
+      {
+        "entityId": "entity:topic:c4eb7d7fea3c62a8",
+        "name": "like",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-03T05:39:39.871Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:3dda402d72dc030f",
@@ -85291,17 +85946,17 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
-        "entityId": "entity:topic:e7c95b4c28243c79",
+        "entityId": "entity:technology_or_concept:e7c95b4c28243c79",
         "name": "more",
-        "entityType": "topic",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-05T01:28:23.212Z",
         "updatedAt": "2026-07-05T01:28:23.212Z"
       },
       {
-        "entityId": "entity:technology_or_concept:e7c95b4c28243c79",
+        "entityId": "entity:topic:e7c95b4c28243c79",
         "name": "more",
-        "entityType": "technology_or_concept",
+        "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-05T01:28:23.212Z",
         "updatedAt": "2026-07-05T01:28:23.212Z"
@@ -85315,12 +85970,20 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
+        "entityId": "entity:topic:557f255516719ea1",
+        "name": "not",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:557f255516719ea1",
         "name": "not",
         "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
-        "updatedAt": "2026-07-03T15:39:58.192Z"
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:fe05bcdcdc492801",
@@ -85371,6 +86034,22 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
+        "entityId": "entity:technology_or_concept:39ab48f1842c932e",
+        "name": "pre-op brief",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:83b752dbfd0945ef",
+        "name": "pressure range",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:eed4aa1de7e71654",
         "name": "real world AI",
         "entityType": "technology_or_concept",
@@ -85393,6 +86072,14 @@
         "metadata": {},
         "createdAt": "2026-07-02T07:23:18.614Z",
         "updatedAt": "2026-07-02T07:23:25.169Z"
+      },
+      {
+        "entityId": "entity:topic:72911f7cff922bd9",
+        "name": "ship QD Z actuator blind outside QD pressure range这一具体异常",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:technology_or_concept:c981d125d1a564c9",
@@ -85419,6 +86106,14 @@
         "updatedAt": "2026-07-07T14:40:29.027Z"
       },
       {
+        "entityId": "entity:technology_or_concept:bbb58a08e6dc78ae",
+        "name": "static fire",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:22fa6121da96f43a",
         "name": "sun",
         "entityType": "technology_or_concept",
@@ -85435,20 +86130,20 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
-        "entityId": "entity:topic:490528f36debf7c1",
-        "name": "there",
-        "entityType": "topic",
-        "metadata": {},
-        "createdAt": "2026-07-02T07:23:18.614Z",
-        "updatedAt": "2026-07-02T07:23:25.169Z"
-      },
-      {
         "entityId": "entity:technology_or_concept:490528f36debf7c1",
         "name": "there",
         "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T12:53:49.036Z",
         "updatedAt": "2026-07-03T12:53:49.036Z"
+      },
+      {
+        "entityId": "entity:topic:490528f36debf7c1",
+        "name": "there",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-02T07:23:18.614Z",
+        "updatedAt": "2026-07-02T07:23:25.169Z"
       },
       {
         "entityId": "entity:technology_or_concept:b4df6f281c5173a0",
@@ -85507,6 +86202,14 @@
         "updatedAt": "2026-07-02T07:23:25.169Z"
       },
       {
+        "entityId": "entity:technology_or_concept:bc88e2f7c294bf57",
+        "name": "unpin",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:3de521d3619155e9",
         "name": "was",
         "entityType": "technology_or_concept",
@@ -85547,12 +86250,28 @@
         "updatedAt": "2026-07-03T12:21:14.326Z"
       },
       {
+        "entityId": "entity:topic:313ab8995c4b7be6",
+        "name": "“5 6,000”级别压力负载带来的机械系统约束",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:topic:01888a2ca3aa401a",
         "name": "“Not even a micro sun”用于强调当前人类利用太阳能的比例极小",
         "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
+      },
+      {
+        "entityId": "entity:topic:ce4ee28e0da0b601",
+        "name": "“blip on blind pressure”以及“pressures and preloads are healthy”的判断",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:topic:95557ece6d8f8b0c",
@@ -85859,6 +86578,14 @@
         "updatedAt": "2026-07-02T07:23:12.389Z"
       },
       {
+        "entityId": "entity:topic:4d594a2ecd084519",
+        "name": "团队讨论“unexpected response”时提出的问题：是否能解释异常，避免走进更大的真实问题",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:topic:bca0514d996d757f",
         "name": "大中华区收入、真实商业合同、应收账款质量和15.2亿美元现金审计，是判断商业化是否扎实的财务锚点",
         "entityType": "topic",
@@ -85913,6 +86640,14 @@
         "metadata": {},
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
+      },
+      {
+        "entityId": "entity:topic:c6f0b6ea39c323d1",
+        "name": "开场对“critical path”的定义：完成任务所必需、彼此依赖的最长连续事件链",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:topic:ac87b1ac1b9a4465",
@@ -86051,6 +86786,14 @@
         "updatedAt": "2026-07-05T01:28:23.212Z"
       },
       {
+        "entityId": "entity:topic:29f53b4f49caaa5f",
+        "name": "最终准备、最后检查、安全讨论与清除hold的连续发射前流程",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:1dff0470203d63ac",
         "name": "毛利率",
         "entityType": "technology_or_concept",
@@ -86179,20 +86922,20 @@
         "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
-        "entityId": "entity:technology_or_concept:4e08ce7c94670a9b",
-        "name": "猎鹰1号",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-03T02:07:36.667Z",
-        "updatedAt": "2026-07-03T04:22:01.510Z"
-      },
-      {
         "entityId": "entity:topic:4e08ce7c94670a9b",
         "name": "猎鹰1号",
         "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T02:07:36.667Z",
         "updatedAt": "2026-07-03T02:07:36.667Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:4e08ce7c94670a9b",
+        "name": "猎鹰1号",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T02:07:36.667Z",
+        "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
         "entityId": "entity:topic:30d92a67dde9bc01",
@@ -86507,6 +87250,14 @@
         "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
+        "entityId": "entity:topic:4e2c24549a1c221a",
+        "name": "重新尝试解除固定或继续流程前的口头确认：“Agree we should attempt again”",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "entityId": "entity:topic:9f89052073d38bf4",
         "name": "金句",
         "entityType": "topic",
@@ -86537,6 +87288,14 @@
         "metadata": {},
         "createdAt": "2026-07-07T14:40:29.027Z",
         "updatedAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "entityId": "entity:topic:23eeec9ec5955edb",
+        "name": "静态点火后的转运与次日复查场景",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "entityId": "entity:topic:235cb6b7dd986913",
@@ -86596,6 +87355,167 @@
       }
     ],
     "researchSourceEntities": [
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:organization:0b99d594370b2102",
+        "role": "publisher",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:0e684e45dbe81cb9",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:39ab48f1842c932e",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:43c88f6f2c6e76a1",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:557f255516719ea1",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:55b9dd51b510dea8",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:83b752dbfd0945ef",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:baecc8dee16925ea",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:bbb58a08e6dc78ae",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:bc88e2f7c294bf57",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:technology_or_concept:f39057d94511c5a4",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:23eeec9ec5955edb",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:29f53b4f49caaa5f",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:313ab8995c4b7be6",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:4d594a2ecd084519",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:4e2c24549a1c221a",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:557f255516719ea1",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:72911f7cff922bd9",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:8b7127491fccc36a",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:bfc9cf6c25fae456",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:c4eb7d7fea3c62a8",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:c6f0b6ea39c323d1",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:05a81a9728cb6505",
+        "entityId": "entity:topic:ce4ee28e0da0b601",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
       {
         "sourceId": "source:26ee776b1247370b",
         "entityId": "entity:organization:93eb1e142b698819",
@@ -88713,6 +89633,30 @@
     ],
     "researchTimeContexts": [
       {
+        "sourceId": "source:05a81a9728cb6505",
+        "videoPublishedAt": "",
+        "likelyRecordedAt": "",
+        "eventPeriod": "",
+        "industryStageAtThatTime": "",
+        "currentRelevance": "发射团队必须在倒计时压力下继续推进，但任何看似很小的压力读数或执行器异常，都可能是更大系统问题的症状；真正的冲突不是“能不能按时发射”，而是团队能否在最短时间内证明异常可解释、风险可接受，并让关键路径继续向前。",
+        "timeSensitivity": "medium",
+        "staleIf": "Company progress, prices, capacity, regulation, product roadmap, or customer adoption changes materially.",
+        "requiresRecheck": [
+          "price",
+          "capacity",
+          "funding",
+          "policy",
+          "product_progress",
+          "customer_orders",
+          "technical_metrics"
+        ],
+        "metadata": {
+          "recordedAtKnown": false,
+          "publicationDateNeedsNormalization": true
+        },
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "sourceId": "source:26ee776b1247370b",
         "videoPublishedAt": "",
         "likelyRecordedAt": "",
@@ -89086,6 +90030,136 @@
       }
     ],
     "researchQuestions": [
+      {
+        "id": "57",
+        "sourceId": "source:05a81a9728cb6505",
+        "question": "《SpaceX \"Critical Path\" Documentary 4K》里围绕 **not、you、for** 的核心判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？",
+        "relatedEntities": [],
+        "priority": 1,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "58",
+        "sourceId": "source:05a81a9728cb6505",
+        "question": "如果 **not、you、for** 要从演示、访谈或局部案例走向规模化落地，最可能先卡在成本、可靠性、供应链、法规还是组织执行？",
+        "relatedEntities": [],
+        "priority": 2,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "59",
+        "sourceId": "source:05a81a9728cb6505",
+        "question": "视频里没有充分展开的边界条件是什么：适用场景、失败模式、维护成本、数据假设，还是用户采用门槛？",
+        "relatedEntities": [],
+        "priority": 3,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "60",
+        "sourceId": "source:05a81a9728cb6505",
+        "question": "未来应该追踪哪些信号来验证这篇文章的判断：**understanding、pressure、problem**，还是更直接的商业化/量产/复用结果？",
+        "relatedEntities": [],
+        "priority": 4,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "61",
+        "sourceId": "source:05a81a9728cb6505",
+        "question": "如果把视频里的方法迁移到另一个项目，哪些前提一变，结论就会完全失效？",
+        "relatedEntities": [],
+        "priority": 5,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
       {
         "id": "1",
         "sourceId": "source:26ee776b1247370b",
@@ -90515,6 +91589,59 @@
     ],
     "researchCoverageGaps": [
       {
+        "id": "39",
+        "sourceId": "source:05a81a9728cb6505",
+        "gap": "single_source_material",
+        "impact": "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
+        "fallbackSignals": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "dataset"
+        ],
+        "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "38",
+        "sourceId": "source:05a81a9728cb6505",
+        "gap": "recorded_at_usually_unknown_for_video",
+        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+        "fallbackSignals": [
+          "spoken_date_references",
+          "event_mentions",
+          "channel_description",
+          "related_news_dates"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "37",
+        "sourceId": "source:05a81a9728cb6505",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "36",
         "sourceId": "source:65aa2313c1a5492c",
         "gap": "single_source_material",
@@ -90939,6 +92066,23 @@
         "updatedAt": "2026-07-03T12:21:14.326Z"
       },
       {
+        "id": "24",
+        "sourceId": "source:abf2f7d70e6bd031",
+        "gap": "recorded_at_usually_unknown_for_video",
+        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+        "fallbackSignals": [
+          "spoken_date_references",
+          "event_mentions",
+          "channel_description",
+          "related_news_dates"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-03T05:39:39.871Z",
+        "updatedAt": "2026-07-03T05:39:39.871Z"
+      },
+      {
         "id": "22",
         "sourceId": "source:abf2f7d70e6bd031",
         "gap": "source_published_at_not_normalized",
@@ -90975,32 +92119,14 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
-        "id": "24",
-        "sourceId": "source:abf2f7d70e6bd031",
-        "gap": "recorded_at_usually_unknown_for_video",
-        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
-        "fallbackSignals": [
-          "spoken_date_references",
-          "event_mentions",
-          "channel_description",
-          "related_news_dates"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-03T05:39:39.871Z",
-        "updatedAt": "2026-07-03T05:39:39.871Z"
-      },
-      {
-        "id": "25",
+        "id": "27",
         "sourceId": "source:26ee776b1247370b",
-        "gap": "recorded_at_usually_unknown_for_video",
-        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
         "fallbackSignals": [
-          "spoken_date_references",
-          "event_mentions",
-          "channel_description",
-          "related_news_dates"
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
         ],
         "confidenceImpact": "medium",
         "status": "open",
@@ -91029,14 +92155,15 @@
         "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
-        "id": "27",
+        "id": "25",
         "sourceId": "source:26ee776b1247370b",
-        "gap": "source_published_at_not_normalized",
-        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "gap": "recorded_at_usually_unknown_for_video",
+        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
         "fallbackSignals": [
-          "platform_metadata",
-          "channel_page",
-          "web_search_timestamp"
+          "spoken_date_references",
+          "event_mentions",
+          "channel_description",
+          "related_news_dates"
         ],
         "confidenceImpact": "medium",
         "status": "open",
@@ -91653,6 +92780,20 @@
         "updatedAt": "2026-07-03T14:55:50.766Z"
       },
       {
+        "id": "297",
+        "topicKey": "launch-heaven",
+        "canonicalName": "Launch Heaven",
+        "topicType": "organization",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "publisher"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "33",
         "topicKey": "lex-fridman",
         "canonicalName": "Lex Fridman",
@@ -91721,6 +92862,20 @@
         },
         "createdAt": "2026-07-07T14:40:29.027Z",
         "updatedAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "id": "280",
+        "topicKey": "lp-0发射场与flight-12预操作简报场景",
+        "canonicalName": "LP-0发射场与“flight 12”预操作简报场景",
+        "topicType": "supply_chain_node",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "36",
@@ -91889,6 +93044,20 @@
         },
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
+      },
+      {
+        "id": "299",
+        "topicKey": "最终准备-最后检查-安全讨论与清除hold的连续发射前流程",
+        "canonicalName": "最终准备、最后检查、安全讨论与清除hold的连续发射前流程",
+        "topicType": "supply_chain_node",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "44",
@@ -92269,6 +93438,20 @@
         "updatedAt": "2026-07-03T12:53:49.036Z"
       },
       {
+        "id": "295",
+        "topicKey": "qd",
+        "canonicalName": "QD",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "70",
         "topicKey": "qd-arm",
         "canonicalName": "QD arm",
@@ -92379,6 +93562,20 @@
         },
         "createdAt": "2026-07-03T15:17:46.991Z",
         "updatedAt": "2026-07-03T15:17:46.991Z"
+      },
+      {
+        "id": "290",
+        "topicKey": "t-minus",
+        "canonicalName": "T-minus",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "77",
@@ -92493,6 +93690,20 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
+        "id": "287",
+        "topicKey": "critical-path",
+        "canonicalName": "critical path",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "84",
         "topicKey": "cryogenic-methylox-propellant",
         "canonicalName": "cryogenic methylox propellant",
@@ -92605,6 +93816,20 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "id": "291",
+        "topicKey": "hold",
+        "canonicalName": "hold",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "92",
         "topicKey": "hypergolic-propellants",
         "canonicalName": "hypergolic propellants",
@@ -92647,6 +93872,20 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
+        "id": "288",
+        "topicKey": "launchpad",
+        "canonicalName": "launchpad",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "95",
         "topicKey": "like",
         "canonicalName": "like",
@@ -92655,10 +93894,10 @@
         "description": "",
         "metadata": {
           "source": "research_ingestion",
-          "lastRole": "glossary_term"
+          "lastRole": "background_anchor"
         },
         "createdAt": "2026-07-03T05:39:39.871Z",
-        "updatedAt": "2026-07-05T00:29:50.765Z"
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "96",
@@ -92728,7 +93967,7 @@
           "lastRole": "glossary_term"
         },
         "createdAt": "2026-07-03T15:39:58.192Z",
-        "updatedAt": "2026-07-03T15:39:58.192Z"
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "101",
@@ -92773,6 +94012,34 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
+        "id": "289",
+        "topicKey": "pre-op-brief",
+        "canonicalName": "pre-op brief",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "292",
+        "topicKey": "pressure-range",
+        "canonicalName": "pressure range",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "104",
         "topicKey": "software",
         "canonicalName": "software",
@@ -92799,6 +94066,20 @@
         },
         "createdAt": "2026-07-07T14:40:29.027Z",
         "updatedAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "id": "294",
+        "topicKey": "static-fire",
+        "canonicalName": "static fire",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "105",
@@ -92869,6 +94150,20 @@
         },
         "createdAt": "2026-07-03T12:21:14.326Z",
         "updatedAt": "2026-07-03T12:21:14.326Z"
+      },
+      {
+        "id": "293",
+        "topicKey": "unpin",
+        "canonicalName": "unpin",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "271",
@@ -93809,6 +95104,20 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
+        "id": "285",
+        "topicKey": "重新尝试解除固定或继续流程前的口头确认agree-we-should-attempt-again",
+        "canonicalName": "重新尝试解除固定或继续流程前的口头确认：“Agree we should attempt again”",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "172",
         "topicKey": "100-times-heavier",
         "canonicalName": "100 times heavier",
@@ -94134,6 +95443,20 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "id": "281",
+        "topicKey": "t-minus-1-minute到t-minus-40-seconds之间的倒计时暂停",
+        "canonicalName": "T-minus 1 minute到T-minus 40 seconds之间的倒计时暂停",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "192",
         "topicKey": "teru-san-42岁-和五口之家住在3lk住宅",
         "canonicalName": "Teru-san，42岁，和五口之家住在3LK住宅",
@@ -94165,6 +95488,23 @@
         "updatedAt": "2026-07-03T12:53:49.036Z"
       },
       {
+        "id": "278",
+        "topicKey": "and",
+        "canonicalName": "and",
+        "topicType": "theme",
+        "aliases": [
+          "为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+          "SpaceX \"Critical Path\" Documentary 4K"
+        ],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "report_topic"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "194",
         "topicKey": "bump-squeak-and-rattle-track用于发现异响和装配问题",
         "canonicalName": "bump, squeak, and rattle track用于发现异响和装配问题",
@@ -94194,6 +95534,20 @@
         },
         "createdAt": "2026-07-04T02:02:31.861Z",
         "updatedAt": "2026-07-04T02:02:31.861Z"
+      },
+      {
+        "id": "284",
+        "topicKey": "ship-qd-z-actuator-blind-outside-qd-pressure-range这一具体异常",
+        "canonicalName": "ship QD Z actuator blind outside QD pressure range这一具体异常",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "196",
@@ -94289,6 +95643,20 @@
         },
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
+      },
+      {
+        "id": "283",
+        "topicKey": "blip-on-blind-pressure以及pressures-and-preloads-are-healthy的判断",
+        "canonicalName": "“blip on blind pressure”以及“pressures and preloads are healthy”的判断",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "201",
@@ -94487,6 +95855,20 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
+        "id": "282",
+        "topicKey": "团队讨论unexpected-response时提出的问题是否能解释异常-避免走进更大的真实问题",
+        "canonicalName": "团队讨论“unexpected response”时提出的问题：是否能解释异常，避免走进更大的真实问题",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "215",
         "topicKey": "大量旧iphone-被指出如果早点卖掉可换回数万日元",
         "canonicalName": "大量旧iPhone，被指出如果早点卖掉可换回数万日元",
@@ -94527,6 +95909,20 @@
         },
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
+      },
+      {
+        "id": "279",
+        "topicKey": "开场对critical-path的定义完成任务所必需-彼此依赖的最长连续事件链",
+        "canonicalName": "开场对“critical path”的定义：完成任务所必需、彼此依赖的最长连续事件链",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "218",
@@ -94709,6 +96105,20 @@
         },
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
+      },
+      {
+        "id": "286",
+        "topicKey": "静态点火后的转运与次日复查场景",
+        "canonicalName": "静态点火后的转运与次日复查场景",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "id": "231",
@@ -94935,6 +96345,20 @@
         "updatedAt": "2026-07-03T12:21:14.326Z"
       },
       {
+        "id": "298",
+        "topicKey": "5-6-000级别压力负载带来的机械系统约束",
+        "canonicalName": "“5 6,000”级别压力负载带来的机械系统约束",
+        "topicType": "topic",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "247",
         "topicKey": "两个imac-旧椅子-可拆卸书桌和被归类为junk的物品",
         "canonicalName": "两个iMac、旧椅子、可拆卸书桌和被归类为junk的物品",
@@ -95062,6 +96486,314 @@
       }
     ],
     "researchTopicEdges": [
+      {
+        "id": "264",
+        "fromTopicKey": "and",
+        "toTopicKey": "开场对critical-path的定义完成任务所必需-彼此依赖的最长连续事件链",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> 开场对“critical path”的定义：完成任务所必需、彼此依赖的最长连续事件链",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "265",
+        "fromTopicKey": "and",
+        "toTopicKey": "lp-0发射场与flight-12预操作简报场景",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> LP-0发射场与“flight 12”预操作简报场景",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "266",
+        "fromTopicKey": "and",
+        "toTopicKey": "t-minus-1-minute到t-minus-40-seconds之间的倒计时暂停",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> T-minus 1 minute到T-minus 40 seconds之间的倒计时暂停",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "267",
+        "fromTopicKey": "and",
+        "toTopicKey": "团队讨论unexpected-response时提出的问题是否能解释异常-避免走进更大的真实问题",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> 团队讨论“unexpected response”时提出的问题：是否能解释异常，避免走进更大的真实问题",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "268",
+        "fromTopicKey": "and",
+        "toTopicKey": "blip-on-blind-pressure以及pressures-and-preloads-are-healthy的判断",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> “blip on blind pressure”以及“pressures and preloads are healthy”的判断",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "269",
+        "fromTopicKey": "and",
+        "toTopicKey": "ship-qd-z-actuator-blind-outside-qd-pressure-range这一具体异常",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> ship QD Z actuator blind outside QD pressure range这一具体异常",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "270",
+        "fromTopicKey": "and",
+        "toTopicKey": "重新尝试解除固定或继续流程前的口头确认agree-we-should-attempt-again",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> 重新尝试解除固定或继续流程前的口头确认：“Agree we should attempt again”",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "271",
+        "fromTopicKey": "and",
+        "toTopicKey": "静态点火后的转运与次日复查场景",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> 静态点火后的转运与次日复查场景",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "272",
+        "fromTopicKey": "and",
+        "toTopicKey": "critical-path",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> critical path",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "273",
+        "fromTopicKey": "and",
+        "toTopicKey": "launchpad",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> launchpad",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "274",
+        "fromTopicKey": "and",
+        "toTopicKey": "pre-op-brief",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> pre-op brief",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "275",
+        "fromTopicKey": "and",
+        "toTopicKey": "t-minus",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> T-minus",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "276",
+        "fromTopicKey": "and",
+        "toTopicKey": "hold",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> hold",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "277",
+        "fromTopicKey": "and",
+        "toTopicKey": "pressure-range",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> pressure range",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "278",
+        "fromTopicKey": "and",
+        "toTopicKey": "unpin",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> unpin",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "279",
+        "fromTopicKey": "and",
+        "toTopicKey": "static-fire",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> static fire",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "280",
+        "fromTopicKey": "and",
+        "toTopicKey": "qd",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> QD",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "281",
+        "fromTopicKey": "and",
+        "toTopicKey": "not",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> not",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "282",
+        "fromTopicKey": "and",
+        "toTopicKey": "launch-heaven",
+        "edgeType": "source_published_by",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> Launch Heaven",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "283",
+        "fromTopicKey": "and",
+        "toTopicKey": "5-6-000级别压力负载带来的机械系统约束",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> “5 6,000”级别压力负载带来的机械系统约束",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "284",
+        "fromTopicKey": "and",
+        "toTopicKey": "最终准备-最后检查-安全讨论与清除hold的连续发射前流程",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> 最终准备、最后检查、安全讨论与清除hold的连续发射前流程",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "285",
+        "fromTopicKey": "and",
+        "toTopicKey": "like",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "and -> like",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
       {
         "id": "243",
         "fromTopicKey": "the-launch-pad-that-obviously-needs-to",
@@ -98754,6 +100486,209 @@
         "createdAt": "2026-07-07T14:40:29.027Z"
       },
       {
+        "evidenceCardId": "297",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "298",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "299",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "300",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "301",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "302",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "303",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "304",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "305",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "306",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "307",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "308",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "309",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "310",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "311",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "312",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "313",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "314",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "315",
+        "topicKey": "and",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "297",
+        "topicKey": "critical-path",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "301",
+        "topicKey": "hold",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "297",
+        "topicKey": "launchpad",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "302",
+        "topicKey": "like",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "300",
+        "topicKey": "not",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "305",
+        "topicKey": "not",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "299",
+        "topicKey": "pre-op-brief",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "304",
+        "topicKey": "pressure-range",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "304",
+        "topicKey": "qd",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "313",
+        "topicKey": "qd",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "evidenceCardId": "277",
         "topicKey": "ship",
         "relevance": "0.72",
@@ -98850,6 +100785,13 @@
         "relevance": "0.72",
         "matchType": "text_match",
         "createdAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "evidenceCardId": "301",
+        "topicKey": "t-minus",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "evidenceCardId": "277",
@@ -98990,6 +100932,27 @@
         "relevance": "0.95",
         "matchType": "primary_topic",
         "createdAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "evidenceCardId": "302",
+        "topicKey": "unpin",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "303",
+        "topicKey": "unpin",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "305",
+        "topicKey": "unpin",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-11T12:06:45.017Z"
       },
       {
         "evidenceCardId": "279",
@@ -99655,6 +101618,46 @@
         },
         "createdAt": "2026-07-07T14:40:24.651Z",
         "updatedAt": "2026-07-07T15:08:35.326Z"
+      },
+      {
+        "id": "wechat_candidate:83a8802a6e882aff",
+        "sourceType": "youtube_research",
+        "title": "为什么T-minus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+        "markdown": "## 一、关键术语解释\n- **critical path：** critical path 指“关键路径”，也就是一串必须按顺序完成、彼此依赖的步骤。视频开头用它解释星舰第12次飞行前的发射准备：不是每件事都同等重要，真正卡住全局的是那些前一步不确认、后一步就不能安全推进的节点。理解这个词可以避免把关键路径误解成普通进度表；它更像一套决定何时继续、何时暂停、何时复核风险的工程判断链。\n- **T-minus：** T-minus 是倒计时标记，表示距离计划中的发射、测试或关键动作还剩多少时间。视频里从 T-minus 1 minute 推进到 T-minus 40 seconds 后暂停，说明倒计时不是机械地一路归零，而是在关键节点接受工程状态的约束。理解这个词可以避免把倒计时看成单纯的时间压力；在发射场，它同时也是风险决策的节奏。\n- **hold：** hold 指暂停倒计时或暂停流程。视频中团队在 T-minus 40 seconds 进入 hold，后来又讨论是否 clear the hold，说明暂停是为了给异常解释、状态复核和安全确认让出时间。理解这个词可以避免把暂停误解成失败或混乱；在关键路径上，hold 往往是防止带着不确定性继续推进的正式机制。\n- **QD：** QD 是 quick disconnect，即快速断开接口，常用于火箭和地面系统之间的流体、气体或电气连接。视频里的异常被定位到 ship QD 相关的 Z 执行机构和压力范围问题，说明这不是抽象的“系统故障”，而是发射台与星舰连接/分离环节中的具体硬件状态。理解 QD 可以避免把发射前风险只想成发动机问题；地面接口同样可能决定关键路径能否继续。\n- **pressure range：** pressure range 指设备或系统允许工作的压力区间。视频提到 ship QD Z actuator blind outside QD pressure range，又说 pressures and preloads are healthy，说明团队是在比较压力读数、预载状态和允许范围后判断异常性质。理解这个词可以避免把一次压力波动简单看成小故障；它可能是传感器短暂读数，也可能是阀门、执行机构或连接状态异常的线索。\n- **unpin：** unpin 指解除锁定或释放固定点，让某个机械部件从固定状态进入可动作状态。视频中团队讨论 when we unpinned 和 why it did not unpin，说明异常发生在一个本该释放的动作没有按预期完成时。理解这个词可以避免只关注“有没有发射”；在发射前流程里，一个小的机械释放动作如果解释不清，也可能阻断后续关键步骤。\n- **pre-op brief：** pre-op brief 是操作前简报，团队在关键测试或发射流程前确认任务、步骤、风险和沟通规则。视频在 Flight 12 前把场景放在 LP-0 的 pre-op brief，说明正式操作开始前，团队已经先建立共同语言和决策秩序。理解这个词可以避免把发射场工作想成临场反应；很多快速判断之所以能发生，是因为简报阶段已经明确了流程和沟通方式。\n- **static fire：** static fire 指静态点火，也就是火箭固定在地面时点燃发动机，用来验证发动机、推进剂和地面系统表现。视频在后续提到 post static fire 和静态点火后的次日复查，说明关键路径并不只覆盖倒计时当天，还包括测试后的转运、检查和再次确认。理解这个词可以避免把静态点火误解成正式发射；它是发射前用来暴露问题、积累证据和降低不确定性的测试环节。\n## 二、背景导读\n这段视频把镜头放在SpaceX星舰第12次飞行前的LP-0发射场：团队先进入pre-op brief，确认通信和操作节奏，随后在倒计时从T-minus 1 minute推进到T-minus 40 seconds时选择hold。真正值得非专业读者关注的，不是火箭有没有按秒表继续往前走，而是一个“unexpected response”如何迫使团队追问：这只是一次可解释的压力读数波动，还是更大真实问题露出的早期症状？\n视频开头把火箭和launchpad都放进同一个复杂工程框架里，并用critical path解释任务为什么会被一串彼此依赖的步骤卡住。到具体现场，这个抽象词落在了“blip on blind pressure”“pressures and preloads are healthy”和“ship QD Z actuator blind outside QD pressure range”这些判断上：发射团队必须在极短时间内确认压力、预载、QD接口和Z执行机构的状态，才能决定是否同意再次尝试解除固定。\n这个背景重要，是因为星舰不是一枚只在纸面上证明概念的火箭。片中后续还出现静态点火后的转运、次日复查、整座塔架被振动牵动、以及面向月球、火星和大规模飞行能力的讨论。也就是说，Flight 12前的这次暂停不是孤立插曲，而是在可复用重型运载系统走向高频测试时，地面系统、机械负载、传感器解释和组织沟通一起接受检验。\n读这段视频，可以把它当作一条工程判断链：先定义关键路径，再在操作前简报里建立协作秩序；倒计时中遇到压力范围异常时暂停；用压力和预载数据判断异常是否可解释；确认“why it did not unpin”后再决定是否reattempt。它揭示的核心不是SpaceX有多快，而是快的前提必须是每一个小异常都能被迅速定位、复核并转化为可承担的风险。\n## 三、导读与核心结论\n### 一句话结论\n星舰第12次飞行前的关键路径真正改变的不是倒计时速度，而是把每个压力异常都变成必须被解释、复核并证明风险可接受的发射决策门。\n### 核心观点\n#### 1. critical path把发射前流程定义成相互卡住的最长事件链\n> [0:12] \"the longest set of sequential events that are gated by each other that must be completed in order for a task to happen\"\n  - **为什么重要：** 这句话把“关键路径”从普通进度表中剥离出来：它不是列出还有多少工作，而是识别哪些步骤互相依赖、哪一步一停就会拖住整个任务。对星舰这种火箭和发射台同时高度复杂的系统来说，关键路径管理首先是依赖关系管理。\n  - **读者该抓住什么：** 读者应记住，关键路径的核心不是快，而是知道哪一个未完成或未解释的节点会让后续动作失去依据。\n#### 2. LP-0的flight 12 pre-op brief先建立通信秩序再推进操作\n> [0:24] \"Test flight affairs on LP-0. We're getting ready for our pre-op brief for flight 12 here. We're going to start off with some calm protocol.\"\n  - **为什么重要：** 发射前的工程判断不是临场靠个人经验拍板，而是先通过操作前简报和通信协议把团队协作固定下来。越接近发射，越需要统一谁报告、谁确认、谁给出下一步判断，否则异常出现时会把技术问题放大成组织问题。\n  - **读者该抓住什么：** 关键路径上的第一层控制不是硬件动作，而是让团队在同一套沟通规则下处理硬件动作。\n#### 3. T-minus 40秒的hold说明倒计时会为异常解释让路\n> [0:51] \"Holding at T-minus 40 seconds.\"\n  - **为什么重要：** 这个暂停证明关键路径不是盲目推进倒计时。真正的工程取舍是：如果一个读数或执行动作无法解释，继续推进可能节省几十秒，却把团队带进一个没有被理解的系统状态。暂停本身就是风险控制动作。\n  - **读者该抓住什么：** 越接近关键节点，暂停不一定代表失败；它可能是让后续决策重新获得证据基础。\n#### 4. unexpected response被当成更大问题的症状来审查\n> [0:37] \"When we see an unexpected response, how confident are we in being able to explain that such that we're not unknowingly walking into an actual bigger problem that this was just a small symptom of?\"\n  - **为什么重要：** 这句话揭示了发射决策的真正冲突：问题不在于异常看起来大不大，而在于团队能否解释它。如果一个小异常可能只是更大故障的早期症状，那么“继续”就必须建立在解释能力上，而不是建立在异常暂时没有扩大上。\n  - **读者该抓住什么：** 小异常的风险不由表面大小决定，而由团队能否证明它不是系统性问题决定。\n#### 5. blind pressure的blip只有在pressures and preloads healthy时才可被降级处理\n> [0:55] \"This looks like a blip on blind pressure when we unpinned. Pressures and preloads are healthy.\"\n  - **为什么重要：** 团队没有简单说“只是一个波动”，而是把判断绑定到压力和预载状态。也就是说，异常可以被解释为短暂读数波动，前提是其他关键状态信号没有显示结构或载荷问题。这是工程上从现象到风险等级的转换。\n  - **读者该抓住什么：** 把异常降级为可接受风险，必须有旁证信号支撑，不能只靠主观感觉。\n#### 6. ship QD Z actuator blind outside QD pressure range把风险落到具体接口和参数\n> [1:07] \"On LP-0, ship QD Z actuator blind outside QD that pressure range.\"\n  - **为什么重要：** 这一细节把问题从“发射场有异常”具体化为船体快速断开接口相关的Z执行机构压力范围问题。具体对象和参数越清楚，团队越能判断是传感、阀门、执行机构、接口载荷还是流程时序问题，而不是在模糊风险里决策。\n  - **读者该抓住什么：** 复杂系统的异常处理必须尽快从笼统报警收敛到具体硬件、具体参数和具体动作。\n#### 7. Agree we should attempt again体现关键路径中的受控重试\n> [1:01] \"And what is the time we would unpin it? Okay. Copy. Agree we should attempt again.\"\n  - **为什么重要：** 重新尝试不是冲动恢复流程，而是在确认解除锁定时间点、复核状态并形成口头一致后才发生。这里的关键路径包含一个决策门：只有当异常被解释到足够程度，团队才允许流程继续向前。\n  - **读者该抓住什么：** 关键路径上的重试不是简单再来一次，而是带着新确认条件进入同一个动作。\n### 标志性金句\n#### 1. 关键路径的定义\n> the longest set of sequential events that are gated by each other that must be completed in order for a task to happen\n  - **含义：** 关键路径是一串最长的顺序事件，彼此互相卡住，必须全部完成，任务才能发生。\n  - **可迁移启发：** 在复杂工程里，管理进度的重点不是平均推进所有事项，而是盯住那些会阻断后续动作的依赖链。\n#### 2. 小异常可能是大问题的症状\n> When we see an unexpected response, how confident are we in being able to explain that such that we're not unknowingly walking into an actual bigger problem that this was just a small symptom of?\n  - **含义：** 团队关心的不是异常表面是否很小，而是能否解释它，避免把一个小症状误判为无害并走进更大的真实问题。\n  - **可迁移启发：** 高风险系统的决策标准不是“还没坏”，而是“我们是否知道为什么它这样表现”。\n#### 3. 倒计时暂停\n> Holding at T-minus 40 seconds.\n  - **含义：** 团队在距离关键动作只剩40秒时暂停流程，为异常判断争取时间。\n  - **可迁移启发：** 真正成熟的关键路径管理允许在最紧张的时间点停下来，因为未经解释的继续推进比延误更危险。\n#### 4. 压力信号复核\n> This looks like a blip on blind pressure when we unpinned. Pressures and preloads are healthy.\n  - **含义：** 异常被解释为解除锁定时的压力读数短暂波动，同时其他压力和预载状态保持健康。\n  - **可迁移启发：** 工程团队把继续推进建立在交叉验证上：一个异常信号能否被接受，取决于相关状态是否支持这个解释。\n### 最反共识的判断\n- 聪明读者可能以为关键路径就是压缩时间表，但视频显示它更像风险解释流程：只有异常被解释清楚，时间表才有资格继续。\n- 看似很小的压力读数波动不一定可以忽略；在星舰发射场语境里，它可能被当作更大系统问题的症状，直到压力、预载和具体接口状态共同支持降级判断。\n- T-minus 40秒暂停并不说明团队偏保守或流程失败；它说明在高复杂度系统中，短暂停住倒计时有时是保护关键路径继续向前的必要动作。\n## 四、关键技术点速览\n#### 1. critical path作为发射前决策链\n  - **视频里怎么说：** 视频在0:12把critical path定义为“一组最长的、相互卡住的连续事件”，并在0:03把它放在火箭和launchpad这类高复杂度工程里解释。\n  - **为什么重要：** 这让第12次飞行前的工作不只是推进倒计时，而是识别哪些步骤会卡住后续任务；一旦某个确认、释放或压力判断没有完成，后面的动作就不能被当作独立步骤继续执行。\n  - **风险或不确定性：** 证据只说明关键路径的定义和重要性，没有给出完整的Flight 12关键路径清单，因此不能断言每个发射场动作的优先级。\n#### 2. T-minus 40 seconds的hold\n  - **视频里怎么说：** 视频在0:51出现“Holding at T-minus 40 seconds”，说明倒计时在最后一分钟内为异常判断暂停。\n  - **为什么重要：** 这表明关键路径不是单纯追时间；当压力读数或执行器响应无法立即解释时，暂停本身就是保护任务连续性的工程动作。\n  - **风险或不确定性：** 片段没有说明hold持续多久，也没有完整披露清除hold前所有检查项，因此只能说明暂停发生，不能推断完整决策门槛。\n#### 3. blind pressure上的blip与健康预载判断\n  - **视频里怎么说：** 0:55的表述是“This looks like a blip on blind pressure when we unpinned. Pressures and preloads are healthy.”\n  - **为什么重要：** 团队不是把异常简化成“小问题”，而是用pressure和preload两个状态信号判断它是否可能只是短暂波动；这给后续是否重试提供了可复核依据。\n  - **风险或不确定性：** “looks like”保留了判断不确定性；如果压力传感、预载读数或解除锁定时序存在未发现偏差，短暂波动可能仍是更大问题的症状。\n#### 4. ship QD Z actuator blind outside QD pressure range\n  - **视频里怎么说：** 1:07把异常定位为“ship QD Z actuator blind outside QD that pressure range”，对象是船体QD相关的Z执行机构和压力范围。\n  - **为什么重要：** 这个细节把风险从笼统的发射异常落到具体接口、执行机构和pressure range；工程团队才能围绕硬件边界、压力窗口和动作结果做判断。\n  - **风险或不确定性：** 证据没有解释该pressure range的正常数值、传感器位置或容差，因此不能进一步判断异常幅度和机械风险等级。\n#### 5. unpin失败原因解释\n  - **视频里怎么说：** 1:55提到需要给出“why it did not unpin”的解释，2:32又出现“we'd be reattempting”。\n  - **为什么重要：** 关键路径中的重试不是简单重复按钮动作，而是先解释为什么没有解除锁定，再决定是否受控重试；这会降低把真实系统问题带入后续流程的概率。\n  - **风险或不确定性：** 视频片段没有提供最终根因，只能确认团队追问了解释和重新尝试，不能证明问题已被彻底消除。\n#### 6. pre-op brief和通信规则\n  - **视频里怎么说：** 0:24显示团队在LP-0为Flight 12准备pre-op brief，并从通信协议开始。\n  - **为什么重要：** 发射场的商业价值不只来自硬件性能，也来自组织能在高压节点快速达成一致；简报和通信规则让压力异常、hold、重试这些动作有共同语言。\n  - **风险或不确定性：** 证据没有展开简报内容和角色分工，无法评估这套沟通机制在更大规模或不同团队中的可复制性。\n## 五、详细技术拆解\n### 1. 关键路径把倒计时改造成风险解释流程\n- 0:03和0:12把critical path定义在火箭和launchpad这类复杂工程中，说明发射前真正要管理的是相互依赖的事件链，而不是孤立任务清单。\n- T-minus 1 minute到T-minus 40 seconds之间出现hold，说明倒计时可以被异常判断打断；这不是进度失败，而是关键路径在不确定状态下的正常保护动作。\n- 0:37的问题是“能否解释unexpected response，避免把小症状误当成可忽略问题”，这把决策标准从“看起来能不能继续”改成“异常是否可解释、风险是否可接受”。\n### 2. 压力读数如何进入工程判断\n- 0:55的“blip on blind pressure”和“Pressures and preloads are healthy”显示，团队用压力和预载状态判断异常是否仍在可接受解释范围内。\n- 1:07的“ship QD Z actuator blind outside QD pressure range”把异常限定到船体QD、Z执行机构、blind和pressure range，避免把问题泛化成模糊的发射失败。\n- 如果pressure range、preload或unpin时序没有被准确复核，团队可能把一个真实机械约束误判为短暂读数波动；这是该判断链的边界条件。\n### 3. 受控重试的逻辑\n- 1:01的“Agree we should attempt again”发生在提问和确认之后，说明重试是决策门之后的动作，而不是对异常的直接忽视。\n- 1:55要求解释“why it did not unpin”，使重试前的目标从恢复进度变成解释失效动作；这对快速断开接口和执行机构尤其重要。\n- 2:32再次提到reattempting，说明关键路径中的单点异常可以触发暂停、诊断、确认、重试的循环；但视频没有给出最终根因，因此不能把重试解读为问题已经完全解决。\n### 4. 发射场系统的商业含义\n- Flight 12前的LP-0 pre-op brief和通信协议说明，星舰发射能力不只取决于飞行器，还取决于地面团队能否在压力读数、执行器状态和倒计时之间快速形成一致判断。\n- 如果每次小异常都需要长时间人工解释，发射节奏会被关键路径上的复核能力限制；如果跳过解释，又可能把更大真实问题带入发射流程。\n- 静态点火后的转运和次日复查场景说明，发射场工作跨越测试、复查和最终准备；商业化或高频飞行要验证的不只是一次点火，而是这套异常处理流程能否重复运行。\n### 5. 证据边界和后续应追踪信号\n- 现有证据能支撑的判断是：团队在T-minus 40 seconds hold、检查blind pressure和preload、定位ship QD Z actuator pressure range、并讨论是否再次尝试。\n- 现有证据不足以支撑的判断包括：异常的最终根因、pressure range的具体阈值、hold清除前的完整安全清单，以及该流程对Flight 12最终结果的量化影响。\n- 后续更应追踪understanding、pressure和problem这些信号如何转化为清除hold、重试成功、静态点火后复查和最终发射准备，而不是只看倒计时是否继续。\n## 六、时间线摘要\n- [0:03] 视频先把火箭和发射台放在同一个复杂工程框架下，说明团队为什么必须盯住关键路径。；这把文章的讨论边界限定在工程流程和风险管理，而不是单纯讨论星舰硬件本身。\n> When you're dealing with something as complex as building a rocket or as building a launchpad, being extremely mindful of the critical path is important.\n- [0:12] 片中解释 critical path 是一组最长、连续、彼此依赖且必须完成的事件链。；这个定义说明关键路径不是普通进度表，而是决定任务能否继续的依赖链；其中任何一步卡住，后续动作都不能被可靠推进。\n> the longest set of sequential events that are gated by each other that must be completed in order for a task to happen\n- [0:24] Flight 12 前，团队在 LP-0 进入操作前简报，并从通信协议开始。；这说明发射前流程不是临场反应，而是先用简报和沟通规则建立共同判断基础，降低关键节点上的误解风险。\n> We're getting ready for our pre-op brief for flight 12 here. We're going to start off with some calm protocol.\n- [0:34] 倒计时进入 T-minus 1 minute，发射前流程逼近最后关键窗口。；这个时间点让压力异常的意义变得更大：越接近关键动作，团队越需要快速判断异常是否可解释。\n> T-minus 1 minute\n- [0:37] 团队讨论 unexpected response 时，把问题定义为：能否解释异常，避免把小症状误判成无害信号。；这揭示真正的冲突不是能不能按时发射，而是能否在倒计时压力下证明异常不是更大系统问题的早期表现。\n> When we see an unexpected response, how confident are we in being able to explain that such that we're not unknowingly walking into an actual bigger problem that this was just a small symptom of?\n- [0:51] 团队在 T-minus 40 seconds 暂停倒计时。；暂停说明关键路径并不等于盲目追赶时间；当风险解释不足时，流程必须为复核让出时间。\n> Holding at T-minus 40 seconds.\n- [0:55] 团队把异常初步描述为 unpin 时 blind pressure 上的一次短暂波动，并报告压力和预载健康。；这把继续判断建立在压力和预载等具体信号上，而不是只凭经验判断异常很小。\n> This looks like a blip on blind pressure when we unpinned. Pressures and preloads are healthy.\n- [1:01] 在确认解除固定的时间点后，团队口头同意再次尝试。；这展示了关键路径中的决策门：提问、确认状态、解释异常，然后才允许受控重试。\n> And what is the time we would unpin it? Okay. Copy. Agree we should attempt again.\n- [1:07] 异常被具体定位到 LP-0 上 ship QD Z actuator blind outside QD pressure range。；风险从笼统的“出问题”落到特定接口、执行机构和压力范围，读者能看到工程复核如何依靠可核对的硬件对象和参数。\n> On LP-0, ship QD Z actuator blind outside QD that pressure range.\n- [1:55] 团队继续寻找部件没有按预期 unpin 的解释。；这说明复盘目标不是只记录异常，而是要回答动作为什么没有发生；没有解释，关键路径就缺少继续推进的依据。\n> explanation for why it did not unpin\n- [2:32] 后续沟通再次提到 reattempting，表明团队准备在受控条件下重试。；这把异常处理模式串起来：暂停、诊断、确认、重试，而不是简单地继续或终止。\n> Understood we'd be reattempting\n- [10:33] 视频进入静态点火后的阶段。；静态点火把火箭和地面系统放在高负载验证环境中，后续检查不只是收尾，而是验证关键路径上是否留下新的风险。\n> Post static fire\n- [10:52] 视频提到点火产生的振动影响整座塔架。；这说明发射场系统本身也承受强机械环境，压力异常和执行机构问题不能被孤立看待。\n> It's vibrating the entire tower.\n- [11:34] 团队在静态点火后的次日继续复查。；这说明关键路径延伸到测试之后：团队需要确认硬件在高负载事件后仍然处于可接受状态。\n> the day after a static fire\n- [23:34] 后段流程中出现建议清除 hold 的判断。；清除暂停意味着团队认为必要复核已经完成，异常解释和风险接受达到了继续推进的门槛。\n> recommend we clear the hold\n- [24:03] 视频提到某个现象可能与 QD aerodynamics 有关。；这提示 QD 相关问题可能不只来自执行机构或压力读数，也可能涉及发射时的气动环境，需要进一步验证而不能过度下结论。\n> this might be due to QD aerodynamics\n### 原文摘录\n### 1. SpaceX \"Critical Path\" Documentary 4K｜原文索引\n> 下方保留完整时间戳原文索引，用来按时间点核对正文判断。\n```text\n[0:03] When you're dealing [music] with\n[0:04] something as complex as building a\n[0:06] rocket or as building a launchpad, being\n[0:08] extremely mindful of the critical path\n[0:10] is important.\n[0:12] And what the critical path is is the\n[0:15] longest set of sequential events that\n[0:18] are gated by each other that must be\n[0:20] completed in order for a task to happen.\n[0:24] >> Test flight affairs on LP-0. We're\n[0:25] getting ready for our pre-op brief for\n[0:28] flight 12 here. We're going to start off\n[0:29] with some calm protocol.\n[0:34] T-minus 1 minute.\n[0:37] >> When we see an unexpected response, how\n[0:39] confident are we in being able to\n[0:41] explain that such that we're not\n[0:43] unknowingly walking into an actual\n[0:44] bigger problem that this was just a\n[0:45] small symptom of?\n[0:51] >> Holding at T-minus 40 seconds.\n[0:53] >> Yes, sir. Got you.\n[0:55] This looks like a blip on blind pressure\n[0:57] when we unpinned. Pressures and preloads\n[0:59] are healthy.\n[1:00] >> Copy that.\n[1:01] And what is the time we would unpin it?\n[1:03] Okay. Copy. Agree we should attempt\n[1:05] again.\n[1:07] >> On LP-0, ship QD Z actuator blind\n[1:09] outside QD that pressure range.\n[1:11] >> On anomaly zero, tower curry, I think\n[1:13] I'm going to recommend actually stand\n[1:15] by. It's drifting back into range.\n[1:18] >> Is it going to fire again, tower mech?\n[1:21] >> Uh possibly. It seems like it's part of\n[1:23] the dynamics when we do it.\n[1:25] >> It's a problem.\n[1:26] There's the pin there that keeps QD line\n[1:29] from the hold. QD line instrument's\n[1:30] back. Well, the pin that locks in the\n[1:32] place and the hydraulic actuator is not\n[1:34] blowing up. It seems to be a problem.\n[1:36] >> And New Line is actually really, really\n[1:37] good at quickly absorbing information,\n[1:39] understanding mistakes, understanding\n[1:40] the consequences, understanding if\n[1:42] today's our day or not.\n[1:43] >> Yeah, it's it's it's hard to tell if\n[1:45] this this is all fogged up from cryo,\n[1:46] but it's essentially right there.\n[1:51] Tower Styro, you're on anomaly zero.\n[1:53] >> Yes, sir. Got you. I don't have an\n[1:55] explanation for why it did not unpin the\n[1:57] second time.\n[1:58] >> The actual\n[1:59] uh if we're\n[2:02] >> I personally have never felt any\n[2:04] pressure from Elon of like it doesn't\n[2:05] matter hell or high water we're flying\n[2:06] this rocket. Like absolutely not. That's\n[2:07] not his style and like like I said\n[2:09] critical path to Mars is not blowing up\n[2:10] rockets.\n[2:12] >> Guys, I recommend we release holding\n[2:14] give it one more chance to unlatch with\n[2:15] where we're at.\n[2:16] >> Should be x y's are not conclusive and\n[2:18] damped but I believe that's okay.\n[2:20] >> Okay, we have just enough time on the\n[2:22] vehicle to attempt one more time. So I\n[2:23] recommend we clear the\n[2:25] >> We'll let it try to unlatch it at the\n[2:26] 100 bar we're at.\n[2:27] >> We're still stuck in damped dampening\n[2:29] though.\n[2:32] >> Understood we'd be reattempting with the\n[2:33] same hydraulic pressure.\n[2:37] Cool, this will be our last attempt and\n[2:38] then we're done on the rockets.\n[2:58] >> [music]\n[3:06] >> When we're only a week out from flight,\n[3:08] my main focus is getting into flight.\n[3:11] >> [music]\n[3:12] >> The thing that separates us from a lot\n[3:14] of other companies is that we we test\n[3:16] fast and we test often and that includes\n[3:19] launches. We want to make sure the\n[3:20] vehicles are ready to go. We want to\n[3:22] make sure the ground's all ready to go\n[3:23] but we also don't want to be caught in\n[3:25] analysis paralysis.\n[3:28] >> The main objective today is a 10 engine\n[3:29] static fire.\n[3:35] >> Abort.\n[3:36] >> On engine one looks like we kicked out\n[3:37] engine two combustion from the apex bank\n[3:39] being faulted.\n[3:40] >> There was a tad side abort called.\n[3:44] >> These things were holding like 5 6,000\n[3:47] tons of propellant plus the rocket\n[3:49] weight and it's like, \"Okay, well why\n[3:52] didn't you guys simulate that?\" It's\n[3:53] like, \"Well, cuz we didn't have anything\n[3:54] that weighed that much.\" Like, this is\n[3:56] the first time we put anything on it\n[3:57] that weighed that much. So, there's just\n[3:58] so much that you have to think about and\n[4:00] then be very paranoid on.\n[4:07] >> We kicked out early. All teams triage\n[4:09] alerts prepare for offload.\n[4:11] >> We actually had another paddle board on\n[4:12] the diverter.\n[4:13] >> Basically, right during engine firing,\n[4:15] it was so much noise and vibration that\n[4:18] it actually shook the sensors that are\n[4:19] located out in this area enough that\n[4:22] they were aborted us out of the test.\n[4:28] We went back, obviously, afterwards and\n[4:30] looked at all the data and tried to come\n[4:32] up with smarter ways to basically still\n[4:34] protect the integrity of the diverter\n[4:36] throughout the operation while changing\n[4:38] our parameters so that we were making\n[4:40] sure that we would not abort again.\n[4:43] A flame diverter is like a super simple\n[4:46] concept that is like not at all\n[4:47] complicated in operation and it's just\n[4:49] absolutely murderous in the details.\n[4:51] These are extremely sophisticated\n[4:54] thermal load sensing devices. If they\n[4:57] turn into melted metal slag, then you\n[4:59] know that you got too much heat. If you\n[5:01] melt this, you're hotter than aluminum\n[5:03] melts. If you melt this, you're hotter\n[5:04] than zinc melts. If you melt this,\n[5:06] you're hotter than copper melts.\n[5:08] If you melt this, you're hotter than\n[5:09] Sharpie melts.\n[5:10] So, we're sub-Sharpie.\n[5:15] We have all of this mass flow, all of\n[5:17] this energy that is just absolutely\n[5:18] trying to obliterate our path. We want\n[5:20] to give it a thing to obliterate to keep\n[5:23] from obliterating the things that we\n[5:25] care about. And the thing we give it is\n[5:27] water.\n[5:33] The amount of energy that water can\n[5:34] absorb is is like miraculous. And so, if\n[5:37] you can get high enough pressure water\n[5:39] in the right places and just allow it to\n[5:41] to flash boil that water, then it solves\n[5:44] a lot of the problems for you. Like, the\n[5:45] The is that the steam never gets that\n[5:46] hot. The structures never get that hot\n[5:48] cuz the water absorbs all that energy,\n[5:49] turns to steam, and and everything's\n[5:50] okay.\n[5:53] So, for this flame deflector on pad two,\n[5:55] we're sitting somewhere in the\n[5:56] neighborhood of about 650,000 gallons\n[5:58] per minute.\n[6:02] That's approximately in the range of\n[6:03] about like one entire Olympic swimming\n[6:06] pool being drained in the course of a\n[6:08] minute.\n[6:13] You're trying to look into this thing\n[6:15] and you see how like glowing hot it is.\n[6:17] It's It's just uh\n[6:18] yeah, a pretty impossible environment to\n[6:20] keep something happy in. But, and you\n[6:22] zoom in and the flame deflector still\n[6:24] there. So, that's the reason we we build\n[6:26] those things.\n[6:33] Putting the rocket into human terms is\n[6:35] something really tough. 65,000 lb per\n[6:38] second of propellant that is coming out\n[6:39] of the engines. And again, just like 18\n[6:41] million pounds of thrust, like what does\n[6:42] that number mean? I think of like 11\n[6:44] Ford F-150 trucks per second just\n[6:46] zipping out of the bottom of the rocket.\n[6:48] It's like imagine if you had the world's\n[6:49] biggest machine gun, except for instead\n[6:50] of shooting bullets, it was shooting\n[6:51] pickup trucks. And it's just firing 11\n[6:53] pickup trucks per second out of the\n[6:54] bottom of the rocket. It's like, do you\n[6:56] think your stuff could survive that?\n[7:03] >> [music]\n[7:06] >> For the last, you know, [music] week or\n[7:08] two, uh it's mostly just been running on\n[7:11] stress and caffeine uh\n[7:13] because uh we had so many things that we\n[7:15] were trying to incorporate and there's\n[7:16] just a lot riding on this test. The\n[7:18] previous test that we did did not\n[7:20] achieve enough duration such that we had\n[7:22] the engineering data that we needed to\n[7:23] be confident moving into flight. If not\n[7:26] able to get this test off successfully\n[7:27] today, then you know, we're pushing\n[7:28] launch day for day, which is an\n[7:30] extremely big drag on the entire program\n[7:32] and and all the engineering teams\n[7:33] involved. So, there's always pressure\n[7:35] going into an op, but this one is\n[7:37] particularly high.\n[8:26] feeding the spark plugs.\n[8:29] >> That was a big day. Uh the fourth\n[8:31] attempt that we've had for a static fire\n[8:33] and we finally went full duration on all\n[8:35] engines. So, feels really good. I'm\n[8:38] super relieved. Again, it was like\n[8:39] pretty dynamic and having done this four\n[8:42] times now, it's like, man, what else can\n[8:45] go wrong here? Because we just haven't\n[8:47] seen the vibration and the temperatures\n[8:49] that we're about to be subjected to.\n[8:52] >> We've never connected the QD to a\n[8:54] vehicle and we've never flowed\n[8:55] propellant into a Starship on pad two.\n[8:58] So, although this was a really big\n[8:59] milestone, the next step is to prove\n[9:01] that those systems work in the way that\n[9:03] we designed them to.\n[9:23] >> We designed this pad to be able to\n[9:25] support a launch every 60 minutes\n[9:27] indefinitely.\n[9:31] The thing about pad one is it was\n[9:32] designed to be very quick to build. It\n[9:35] It designed to be very cheap and it was\n[9:36] designed to give good access to the\n[9:37] after [music] end of the booster.\n[9:44] The reason all of those things were a\n[9:45] design goal is because we sucked at\n[9:47] building Starship pads and we sucked at\n[9:48] building Starships. It's like we didn't\n[9:50] we didn't know what we were doing\n[9:51] because it was impossible to know what\n[9:53] you were doing because no one had ever\n[9:54] done something like this before.\n[9:56] The brief on that one was, \"Hey, get\n[9:57] something up very quick and very scrappy\n[9:59] and very inexpensively, but that's okay.\n[10:01] It actually needs it to just be good\n[10:03] enough for us to learn and then we can\n[10:05] learn from it, we'll go build the actual\n[10:06] good thing.\"\n[10:10] I mean, the integration mechanism is the\n[10:12] pad. The catch mechanism is the pad. All\n[10:15] of this stuff is like integral to how\n[10:16] the pad operates. And so, the reason we\n[10:18] call it stage zero is is literally it is\n[10:20] the first stage of the launch process.\n[10:22] And if it is not working, we cannot go\n[10:23] [music] launch. And so, that certainly\n[10:25] like raises the stakes and raises the\n[10:26] priority and like drama whenever things\n[10:29] go wrong on the pad.\n[10:33] Post static fire, as we were transiting\n[10:35] the chopstick arms\n[10:37] uh back to a lower position, we heard a\n[10:40] loud noise out at the pad.\n[10:52] It's vibrating the entire tower.\n[10:54] Something got jammed up in the chain and\n[10:56] maybe caused it to snap. We don't really\n[10:58] know if it's broken completely or if\n[11:00] it's just cockeyed or buckled in some\n[11:02] way.\n[11:03] God, it sounds terrible.\n[11:07] So, we are in a mad dash to get that\n[11:09] roller diagnosed and replaced as soon as\n[11:11] possible.\n[11:20] The chop carriage has many rollers\n[11:21] positioned at different parts around the\n[11:22] tower. And when I say roller, it's\n[11:24] literally like imagine the world's\n[11:25] largest bicycle chain. It's built almost\n[11:27] exactly like a bike chain except for\n[11:28] it's 380 lb and the chop carriage weighs\n[11:30] a lot. And so, it basically broke one of\n[11:31] those links. The chain got bound up, and\n[11:34] the day after a static fire, we called\n[11:36] our buddies at the Cape. We had some\n[11:37] spare units over there for building the\n[11:39] Cape towers. We're able to hot shot to\n[11:41] overnight the the chain to us. Got the\n[11:43] old chain torn apart, got the new one\n[11:44] put together, flew it up, and the\n[11:46] morning after that we're ready to rock.\n[11:52] >> Hey, with with these ones, make sure\n[11:55] we're going up.\n[11:58] >> It was on the order of like 30 hours, 36\n[12:01] hours from we found the problem to to\n[12:03] have it fully back in service.\n[12:05] On like an item that was not really\n[12:08] designed to be very serviceable.\n[12:14] To be able to come up with a scrappy\n[12:15] plan, you know, attempt to support it\n[12:17] with cranes, get in there and and boogie\n[12:19] is like that's like just classic SpaceX\n[12:21] nonsense.\n[12:47] >> Chopsticks carrier, you go.\n[12:49] >> We are still go for tomorrow, but it's\n[12:51] like a very very tight schedule.\n[12:57] >> We're basically a race with a ship right\n[12:59] now.\n[13:11] >> Latching in 3 2 1.\n[13:19] >> All right, chopsticks are moving.\n[13:21] >> Come on, baby.\n[13:28] >> That's crazy.\n[13:30] What a day.\n[14:04] The purpose of this mission is to\n[14:05] collect some really high profile imagery\n[14:08] of the Starship, specifically its heat\n[14:11] shield after re-entry.\n[14:14] This is the most in-depth operation that\n[14:16] we've ever conducted. We'll be having\n[14:17] the most buoys with the most equipment\n[14:19] and way more drones than we have ever\n[14:21] had to have offshore.\n[14:27] This buoy right here has been used since\n[14:28] flight five. We deployed these buoys\n[14:30] kind of like as a Hail Mary attempt.\n[14:32] They were very scrappily, but you know,\n[14:34] as well as they could be put together.\n[14:43] It was almost miraculous even in the\n[14:45] middle of the night to see all of these\n[14:46] buoys pointed directly at Starship as it\n[14:48] was landing.\n[14:55] And gradually from flight five, six,\n[14:57] seven and onwards, these have always\n[14:59] been deployed.\n[15:37] >> While it does get punctures, we can\n[15:39] patch them as needed and and kind of\n[15:40] give them the band-aids that they need\n[15:42] in order to keep kicking.\n[15:48] >> We just departed the port here at\n[15:51] Exmouth. Think we've got about a two,\n[15:53] two and a half day transit,\n[15:57] 500 nautical miles.\n[15:59] >> Up to a 21-day voyage out to the Indian\n[16:02] Ocean.\n[16:04] We will be getting a full almost 3D\n[16:06] model of the vehicle at different points\n[16:08] of re-entry and landing that will allow\n[16:10] us to not only assess the performance of\n[16:12] the vehicle for flight 12, but build a\n[16:14] new and better Starship.\n[16:27] >> It's weird the things you find yourself\n[16:29] getting good at in your quests [music]\n[16:31] to go to Mars or the moon or fly a bunch\n[16:33] of satellites. And something we are\n[16:34] really good at as a company is just\n[16:36] moving big things.\n[16:38] >> There you go. Looking good just like\n[16:39] that.\n[16:42] Yeah, you hug this left side, you'll be\n[16:44] good on your right side off of the\n[16:45] building.\n[16:46] >> So, we have a whole team of people the\n[16:47] CLT, the critical lift team.\n[16:49] >> Good. Roll forward.\n[16:51] >> And their job is just to move, to\n[16:53] maintain, to operate equipment and\n[16:55] infrastructure to move heavy things all\n[16:57] around.\n[16:57] >> B19 is now entering highway four.\n[17:02] All of the great people of Starbase\n[17:04] watching B19 roll out to the pad.\n[17:08] >> We wanted to make sure we made it down\n[17:09] here for the first version three.\n[17:11] >> I was here for flight nine and 11. I got\n[17:14] to see the catch. You don't get to say\n[17:16] that every day.\n[17:18] >> Honestly, just seeing V3 take flight,\n[17:20] it's been a long wait. Also, the flame\n[17:22] trench is going to look pretty awesome.\n[17:26] >> Looking good on your left side. Keep on\n[17:28] rolling.\n[17:30] Rolling, rolling, rolling.\n[17:31] >> Just out here to watch the V19 roll out\n[17:33] with my family visiting Starbase. It's\n[17:35] just cool to see everyone working as\n[17:37] they work together to push forward\n[17:39] humanity's future.\n[17:40] >> You got a beautiful line like that,\n[17:41] we'll keep walking in just like that for\n[17:43] a little bit.\n[17:48] All clear to front.\n[17:51] >> And so they move our rockets, they are\n[17:53] like, I mean, absolute pros at just give\n[17:55] them a random ginormous shape and say\n[17:57] this needs to get from here to there and\n[17:58] they'll go do it.\n[18:10] >> Going to keep it nice and slow.\n[18:24] >> So right now we're in Star Factory and\n[18:25] we're doing the final preparations to\n[18:27] load the imaging satellites into our\n[18:29] satellite speed loader. This is the last\n[18:31] step that's going to happen before we\n[18:32] send the satellites over to Mega Bay 2\n[18:34] where they're going to be loaded into\n[18:35] ship and prepared for flight.\n[18:41] So these two satellites will be just two\n[18:43] of 22 total deployed objects. The other\n[18:46] 20 are what we call satellite\n[18:47] simulators. They don't have computers on\n[18:49] board or anything like that. They're\n[18:50] really just hunks of steel that mimic\n[18:51] [music] the shape and weight of\n[18:54] satellites approximately. It helps us\n[18:55] test the pest deploy system.\n[18:57] We're also going to be inspecting the\n[18:59] more sensitive components of the\n[19:01] satellite, the laser optics that send\n[19:03] data to other satellites, the thruster\n[19:05] on board for on orbit maneuvering. All\n[19:07] of those systems are more sensitive to\n[19:08] things like fog or dust, so we want to\n[19:11] give them one last inspection before\n[19:12] they go in to make sure they're ready to\n[19:13] go to space.\n[19:16] Hey, Ben. Can you just confirm for us\n[19:17] that you are ready for us to lift the\n[19:18] next satellite?\n[19:20] >> We finished the profile. Everything\n[19:22] looks good. I'm going to disable now, so\n[19:24] they'll be good to remove rigging.\n[19:26] >> Copy. Standing by.\n[19:32] All 22 of those objects going to mass up\n[19:33] to about 37 and 1/2 metric tons. That is\n[19:36] heavier than any payload Falcon has ever\n[19:38] launched. I believe this is the heaviest\n[19:40] payload SpaceX will have launched ever.\n[19:41] So, we want to learn as much as possible\n[19:43] about the test system and how the\n[19:44] satellites interact with it.\n[19:46] We're on that suborbital trajectory, but\n[19:47] it shows the capability that Starship\n[19:49] has for future orbital missions coming\n[19:51] up.\n[20:14] >> It's It's amazing. Like, I mean, even\n[20:16] just standing next to it, you're already\n[20:18] in awe\n[20:19] because it's something that is such a\n[20:21] magnificent sight to see.\n[20:36] >> People have worked very hard for very\n[20:37] many years on this. It's the third\n[20:39] evolution of the fully and rapidly\n[20:41] reusable launch vehicle that SpaceX aims\n[20:43] to develop.\n[20:52] >> I started with the tents we're here.\n[20:54] It's just tents and dirt. And we've come\n[20:56] a long way since I started here as an\n[20:58] intern a couple years ago.\n[21:00] >> I mean, it's the biggest thing ever\n[21:01] launched, so there's nothing I can match\n[21:03] it.\n[21:05] >> I expect it to be loud and fast.\n[21:07] >> It's going to rock the the city of\n[21:08] Starbase.\n[21:35] >> Yeah, I I was thinking like why why the\n[21:38] tower team has these big\n[21:40] crises always like right before we have\n[21:44] like a big operation. I think it has to\n[21:46] just do with the scale of everything.\n[21:47] Like we have these big complicated\n[21:49] mechanisms that like need to work right\n[21:51] every time we use them. And just\n[21:54] replacing a roller turned into this\n[21:55] several-day ordeal with flying in\n[21:57] from\n[21:58] the the Cape. Three cranes to get it in\n[22:01] and out where like if this was a broken\n[22:03] bearing on some little dingy\n[22:06] electrical motor, it would have been\n[22:08] much easier\n[22:09] to make that swap in an hour instead of\n[22:11] 24.\n[22:12] >> I I feel like it also set us set us up\n[22:14] for success in terms of like the getting\n[22:17] mentally ready to act on immediate. So,\n[22:20] super exciting time tomorrow. Hopefully\n[22:22] we see the fruits of our labor sort of\n[22:24] culminate in a in a great successful\n[22:26] flight.\n[22:32] >> Two weeks.\n[22:34] >> Yeah, everything looks fine to me.\n[22:36] >> No, looks good. Uh let's get into safety\n[22:38] so we can extend the platforms please.\n[22:40] >> Um after this we'll\n[22:43] transition to pre-load propellant.\n[22:45] Take the HP to integrate it up.\n[22:47] Take the flight and then we'll do a\n[22:48] quick go or no-go poll. I'll give you a\n[22:50] countdown and we're releasing.\n[23:07] >> Holding at 2 minutes 40 seconds.\n[23:10] >> This looks like a blip uh on blind\n[23:12] pressure when we unpin. Pressures and\n[23:14] preloads are healthy.\n[23:16] >> Yeah, it's it's it's hard to tell if\n[23:18] this this is all fogged up from cryo,\n[23:19] but it's essentially right there.\n[23:22] >> Guys, I recommend we release holding\n[23:24] give it one more chance to unlatch with\n[23:26] where we're at.\n[23:27] >> Should be XY's are not going to close\n[23:28] out and damped, but I believe that's\n[23:30] okay.\n[23:31] >> Okay, we have just enough time on the\n[23:32] vehicle to attempt one more time. So, I\n[23:34] recommend we clear the hold, let it try\n[23:36] to unlatch it at the 100 bar we're at.\n[23:38] >> We're still stuck in damped damping\n[23:40] though.\n[23:42] >> Understood we'd be reattempting with the\n[23:44] same head valve pressure.\n[23:47] >> Cool, this will be our last attempt and\n[23:48] then we're done on the rockets.\n[23:53] >> Unexpected drop in Z cylinder blind\n[23:56] pressure when we unpinned.\n[23:58] That was different from the first few\n[23:59] tries.\n[24:00] >> That's correct, different problem.\n[24:01] >> Copy.\n[24:03] >> Yeah,\n[24:03] this might be due to QD aerodynamics\n[24:05] when we unpin, so I\n[24:07] Yeah, don't know I don't think trying\n[24:08] again is going to solve the problem, to\n[24:09] be honest.\n[24:15] >> We're done for flight for the day. Uh\n[24:17] flight\n[24:19] Thank you.\n[24:46] >> Mechanical systems really come alive in\n[24:48] that last 40 seconds. As a part of that\n[24:49] sequence,\n[24:51] one of the things that we do is we unpin\n[24:53] that arm so that the QD can swing away\n[24:56] and not blow itself up as the rocket\n[24:57] flies away.\n[25:02] And that part of the arm is pushing hard\n[25:04] against the tower\n[25:05] while we unlatch to make sure that that\n[25:08] even if there's excess pressure or\n[25:09] anything like that that the QD stays\n[25:10] really tight up against the ship.\n[25:12] And the first time that we had unpinned\n[25:15] that arm in flight-like conditions was\n[25:17] that attempt.\n[25:19] So, as we retracted that pin, the arm\n[25:21] wanted to shove closer into the tower.\n[25:23] It caused the end effector to kind of\n[25:25] jiggle back and forth very slightly.\n[25:27] That jiggle set off some really tight\n[25:29] sensitive bounds that we had on the\n[25:30] hydraulic system out there. And\n[25:33] you need it to work or else or else\n[25:35] rocket doesn't fly, so.\n[25:52] >> Always be paranoid.\n[25:54] Going into the flight attempt, we were\n[25:56] worried about\n[25:57] a completely different thing, which was\n[26:00] the hold for the actual vents on the\n[26:02] fuel drain.\n[26:03] And then those passed, and then we got\n[26:05] bit by something completely different.\n[26:07] So,\n[26:09] you got to be paranoid about everything.\n[26:31] >> Last night overnight we did a sweep of\n[26:33] our 30-nautical-mile hazardous no-go\n[26:35] zone to make sure there's no vessels.\n[26:38] Range is currently clear. Everything's\n[26:39] looking good.\n[26:41] It's a little rough out. It's 1:00 in\n[26:43] the morning. Doing final preps in all\n[26:45] the buoys, getting [music] all cameras\n[26:47] online. This is when it all happens,\n[26:49] 1:00 in the morning.\n[26:51] This is the most important mission we've\n[26:53] done out here. We're putting in the most\n[26:54] buoys and the most drones. So, if we\n[26:57] don't have this data, the people back\n[26:59] home have no idea how the heat shield\n[27:00] really performed.\n[27:03] Sriram, do you want to give it a final\n[27:04] kiss goodbye for good luck?\n[27:10] >> That was a wet kiss.\n[27:11] >> Sweet.\n[27:12] >> Perfect. Beautiful.\n[27:14] >> Beautiful.\n[27:21] Bye-bye, buoy.\n[27:41] >> Good afternoon. Welcome to the Starship\n[27:43] flight 12 attempt to weather briefing.\n[27:45] Uh, Starship range is currently green.\n[27:47] >> Tower, [snorts] Kenny, are you up on\n[27:48] countdown one? Can you give a brief on\n[27:50] what we did last night for the QD arm\n[27:52] situation?\n[27:53] >> So, the cause of yesterday's abort was\n[27:57] that the ship QD arm had dynamics when\n[28:00] we tried to unpin it due to the preload\n[28:02] that the ship QD mech was put pushing\n[28:04] into the vehicle with. The mitigations\n[28:06] that we have in place today are that we\n[28:07] welded a hard stop bumper uh to the ship\n[28:10] QD arm to limit the amount of\n[28:11] displacement that can occur when the\n[28:12] unpinner unpins.\n[28:17] >> Attention all flight crew members on\n[28:18] countdown one is the final go for the\n[28:20] go/no-go poll for today's operations.\n[28:22] RC?\n[28:23] >> Go.\n[28:24] >> Ground stations?\n[28:24] >> Go.\n[28:25] >> Flight software one?\n[28:26] >> Go.\n[28:27] >> Raptor one?\n[28:27] >> Go.\n[28:28] >> Raptor two?\n[28:29] >> Go.\n[28:29] >> Stage one?\n[28:30] >> Go.\n[28:31] >> Flight director's go as well. T-minus\n[28:33] one minute.\n[28:40] Holding at T-minus 40 seconds.\n[28:45] >> SpaceXers really are at their best in\n[28:47] ASAP mode. We do a good job of not being\n[28:51] afraid of putting ourselves in a really\n[28:52] tight spot.\n[28:53] >> So drink circle.\n[28:55] >> Copy.\n[28:56] >> SC1 reset the operator hold.\n[28:57] >> Reset.\n[28:58] >> Fighters rolling.\n[28:59] >> People hate pain and that ability to\n[29:02] absorb pain for change here at Starbase\n[29:05] is like unparalleled. And if you just\n[29:07] are willing to take a little bit of it,\n[29:09] you can do the most amazing things.\n[29:11] >> Flight director go for launch.\n[29:15] >> T-minus 10.\n[29:17] 9.\n[29:19] 8.\n[29:21] 7.\n[29:22] 6.\n[29:23] >> Copy.\n[29:24] >> Go.\n[29:25] >> 5.\n[29:27] 4.\n[29:30] 3.\n[29:31] >> 2.\n[29:32] 1.\n[29:38] >> Ignition.\n[29:57] >> We have lift off.\n[30:09] >> Pitching down range.\n[30:26] >> Max Q.\n[30:29] Stage separation.\n[30:37] >> Dodging many many booster alerts.\n[30:40] >> Five engines on booster max up.\n[30:43] >> Flight software acknowledging mission\n[30:45] abort early booster shut down.\n[30:47] Expected.\n[30:48] >> Yes, sir. Can confirm executive team is\n[30:50] aware that a booster did not make it to\n[30:52] the final landing location.\n[30:56] >> Ship avionics power and telemetry\n[30:57] nominal.\n[31:00] >> We have healthy chamber pressures on\n[31:01] five out of six sheet metal engines.\n[31:11] >> We're deploying sensors.\n[31:25] >> That was the closest thing I've ever\n[31:26] seen.\n[31:27] >> Wow.\n[31:29] >> We should have a video of a satellite\n[31:30] looking at our ship.\n[31:32] >> This all looks good.\n[31:35] >> [cheering]\n[31:49] >> Starship is turning for final approach\n[31:51] to landing site.\n[32:44] >> Starship is landed.\n[33:15] >> [cheering]\n[33:19] [applause]\n[33:29] >> It's one of the hardest things humans\n[33:30] have ever done, honestly.\n[33:31] >> It feels like it.\n[33:32] >> Yeah.\n[33:33] >> This might be our crowning achievement\n[33:34] after this.\n[33:35] >> Just the robots will have to take over.\n[33:36] >> Exactly.\n[33:39] >> Anytime [music] we have these kind of\n[33:40] big evolutionary leaps in the program,\n[33:42] whether it was the very first flight\n[33:43] one, whether it was first catch of\n[33:44] flight five, obviously new major block\n[33:47] change with the pad and the ship and the\n[33:48] booster all at same time for V3, there's\n[33:50] somewhat of an expectation of like what\n[33:52] what might we have missed, but at some\n[33:54] point you just got to say, \"Hey, the\n[33:55] most learnings are to go fly.\"\n```\n## 七、值得继续追问的问题\n- LP-0 上的 ship QD Z actuator blind outside QD pressure range，实际超出了哪个压力范围，持续了多久，是否有传感器误差或阀门响应延迟的记录？\n- 团队判断 pressures and preloads are healthy 时，使用了哪些具体阈值和冗余信号，是否有独立仪表交叉验证 blind pressure 的短暂波动？\n- T-minus 40 seconds 的 hold 触发条件是什么：单一压力异常即可触发，还是需要同时满足执行机构状态、预载和通信确认等条件？\n- unpin 没有按预期发生的原因最终被归因于机械卡滞、压力瞬变、控制时序、传感器读数，还是 QD 接口本身的设计边界？\n- Agree we should attempt again 之前，团队需要哪些岗位或控制台给出口头确认，谁拥有最终清除 hold 或继续重试的权限？\n- 静态点火后整座塔架振动对 QD、Z actuator 和压力管路有什么可测影响，次日复查是否发现了结构、连接或校准变化？\n- 如果 5,000 到 6,000 级别压力负载是机械系统约束的一部分，团队如何把这类高负载工况转化为发射前可执行的检查项？\n- 视频中提到 QD aerodynamics 的可能性后，SpaceX 还需要通过哪些飞行数据、地面测试或回收检查来验证这一解释？\n## 八、出处与链接\n### 1. SpaceX \"Critical Path\" Documentary 4K\n频道：Launch Heaven；字幕：en\nhttps://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/TKr5wkre3iLqFLkxWq5cRvNjns9",
+        "sourceUrl": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+        "status": "draft_created",
+        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfBr_QOxfendwnsj017KZtACC1305qwhHN6reF8UMc56k",
+        "error": "",
+        "metadata": {
+          "topic": "and",
+          "videos": [
+            {
+              "url": "https://youtu.be/i_cznxEM1m8?si=RccrXMi9jBSNVBU8",
+              "title": "SpaceX \"Critical Path\" Documentary 4K",
+              "channel": "Launch Heaven"
+            }
+          ],
+          "wechat": {
+            "ok": true,
+            "title": "为什么Tminus 40秒的压力异常改变了星舰第12次飞行前的发射决策",
+            "digest": "一句话结论 星舰第12次飞行前的关键路径真正改变的不是倒计时速度，而是把每个压力异常都变成必须被解释、复核并证明风险可接受的发射决策门。 核心观点 1. critical path把发射前流程定义成相互卡住的最长事件链 [0:12] \"th",
+            "coverUrl": "http://mmbiz.qpic.cn/mmbiz_png/QmOcp1chR8sarbHBnllxR7rsnqVMiacDCIt2mWm6P2JzBmph6CeK4l1XmuibqB9Ay3I4ZC2u7yS1HpQZeCmxNo3mWsBPMkMjL0SPeP0Ro8yYQ/0?wx_fmt=png",
+            "elapsedMs": 61515,
+            "imageMode": "generated_cover",
+            "coverMediaId": "1WkcDlza9yat8Rn1yBoHfAVo49YmdpYogZDvtMKyfn4GquRXQp25QwC-0FOnTgZB",
+            "draftMediaId": "1WkcDlza9yat8Rn1yBoHfBr_QOxfendwnsj017KZtACC1305qwhHN6reF8UMc56k",
+            "leadImageUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/QmOcp1chR8tAYX7I47ah0CXQ56F19fwvuTa4Qy57ibetdYGhJicu7XqUWEMUKaT9TkrMdiboLlKE1fXaFK7F15kvrCJys1mEOkfmkuXq16b9QE/0?from=appmsg"
+          },
+          "createdBy": "xiaoye",
+          "generateImages": true,
+          "wechatDraftOnly": true,
+          "lastPublishOperator": "ou_66756c5a4941a616606cc85cce626a0f",
+          "lastPublishStartedAt": "2026-07-11T12:08:40.018Z",
+          "lastPublishFinishedAt": "2026-07-11T12:08:40.018Z"
+        },
+        "createdAt": "2026-07-11T12:06:40.888Z",
+        "updatedAt": "2026-07-11T12:08:40.801Z"
       }
     ]
   }
