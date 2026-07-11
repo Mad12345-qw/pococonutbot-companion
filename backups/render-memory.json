@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T02:09:41.269Z",
+  "exportedAt": "2026-07-11T02:19:42.370Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68354,6 +68354,78 @@
           "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
         },
         "createdAt": "2026-07-11T01:58:13.064Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "点击小椰，点她的帮助文档",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a2e231cb8a4c1650e4cb0d6c39",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-11T02:13:51.984Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我有帮助文档的～主要讲我的能力边界、具体怎么和我玩，还有安全使用指南。你想了解哪部分？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-11T02:13:57.360Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "user",
+        "modality": "text",
+        "content": "点进她的帮助文档了，然后怎样操作[抱拳][笑容满面]哇塞我是小白， 帮忙说说我要怎样在飞书里生成你那样的智能体[抱拳]谢谢\n[Link content]\n[Referenced Feishu message]\n点击小椰，点她的帮助文档",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a2e375c0ca8b3c3e757f9548ff",
+          "rawChatId": "oc_2a023474e52cf2a0544879d99db3f241",
+          "rawOpenId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUserId": "ou_63f3d6b0b02c359fa23a68460bb22c68",
+          "rawUnionId": "on_dc7e9481ef06768fc3776bea04955e23",
+          "linkContext": "[Referenced Feishu message]\n点击小椰，点她的帮助文档",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-11T02:17:00.699Z"
+      },
+      {
+        "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
+        "userId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好呀，我简单教你怎么在飞书里做一个自己的智能体～\n\n核心要点\n1. 注册飞书开放平台\n去 open.feishu.cn 注册开发者账号，创建一个企业自建应用（机器人能力开启）。\n\n2. 配置机器人的基础信息\n给机器人起名、头像、描述，然后申请权限（比如“获取用户信息”“发送消息”）。\n\n3. 接入AI能力\n在机器人的“事件与回调”里配置消息接收地址，把AI模型（比如用大模型API）的回复逻辑写在后端，根据用户输入返回内容。\n\n4. 发布并添加到群聊\n在开放平台提交版本并发布，然后就可以把机器人拉进群或者私聊用啦。\n\n一句话总结\n飞书智能体本质是一个后台接了大模型API的机器人，需要一点点开发基础。如果你完全小白，可以先从飞书开放平台文档里的“快速入门”看起～不懂的地方可以随时问我，我慢慢陪你弄🥰",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68"
+        },
+        "createdAt": "2026-07-11T02:17:05.108Z"
       }
     ],
     "memories": [
@@ -69195,7 +69267,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:17:14.373Z",
-        "updatedAt": "2026-07-06T09:00:55.856Z"
+        "updatedAt": "2026-07-11T02:17:00.522Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -69205,7 +69277,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-06T06:17:14.302Z",
-        "updatedAt": "2026-07-06T09:00:55.744Z"
+        "updatedAt": "2026-07-11T02:17:00.339Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -69245,7 +69317,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.443Z",
-        "updatedAt": "2026-07-10T05:25:51.708Z"
+        "updatedAt": "2026-07-11T02:13:51.805Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
@@ -69255,7 +69327,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-06-10T06:17:00.199Z",
-        "updatedAt": "2026-07-10T05:25:51.535Z"
+        "updatedAt": "2026-07-11T02:13:51.623Z"
       },
       {
         "chatId": "feishu:oc_2a023474e52cf2a0544879d99db3f241",
