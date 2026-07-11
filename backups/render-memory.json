@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T04:29:43.558Z",
+  "exportedAt": "2026-07-11T08:19:42.358Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68426,6 +68426,25 @@
           "replyToUserId": "feishu:ou_63f3d6b0b02c359fa23a68460bb22c68"
         },
         "createdAt": "2026-07-11T02:17:05.108Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://catfk.com/item/g84e67\nhttps://catfk.com/item/g84e67",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://catfk.com/item/g84e67"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a2be1d0fcb8c17585563239e75",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-11T08:12:39.564Z"
       }
     ],
     "memories": [
