@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-11T12:09:47.960Z",
+  "exportedAt": "2026-07-12T00:29:41.063Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74550,6 +74550,11 @@
         "updatedAt": "2026-07-11T12:04:48.803Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-12T00:19:58.071Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里刚讨论完星舰发射决策，AI和机器人领域也有密集动态值得追踪。\\n\\n1. OpenAI、Anthropic、谷歌向初创企业提供数十万美元算力资源争取客户。\\n发生了什么：据华尔街日报，三大AI巨头正通过赠送算力、折扣等方式争夺企业客户，尤其瞄准初创公司。\\n为什么值得追：算力成为AI竞争的核心杠杆，巨头通过资源绑定客户，可能重塑AI服务市场格局。\\n影响产业链：AI算力服务、云基础设施、GPU租赁市场。\\n\\n2. 拆解25笔超5000万A轮融资，AI最聪明的钱押注三个方向。\\n发生了什么：OFweek分析显示，过去两年AI领域大额A轮融资集中在三个方向（具体方向未在摘要中明确，但暗示非大模型）。\\n为什么值得追：资本流向揭示下一波AI落地机会，避开大模型红海，关注垂直应用和基础设施。\\n影响产业链：AI应用层、行业解决方案、算力优化。\\n\\n3. 特斯拉、英伟达、宇树机器人利好密集释放。\\n发生了什么：特斯拉Optimus工厂从Model S/X产线过渡，英伟达招聘机器人岗位，宇树等国内厂商跟涨。\\n为什么值得追：人形机器人量产信号明确，产业链从0到1进入1到10阶段，供应链机会显现。\\n影响产业链：人形机器人零部件（电机、传感器）、AI芯片、工业自动化。\\n\\n投研追问：AI算力军备竞赛下，OpenAI自研芯片Jalapeño对英伟达GPU生态的替代节奏和关键瓶颈是什么？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI巨头算力争夺战、资本押注方向、人形机器人量产信号\",\"lastPulseQuestion\":\"AI算力军备竞赛下，OpenAI自研芯片Jalapeño对英伟达GPU生态的替代节奏和关键瓶颈是什么？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260707/202607070905272464.html\",\"https://cloud.ofweek.com/recommen",
+        "updatedAt": "2026-07-12T00:19:58.157Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74578,6 +74583,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11.noon",
         "value": "sent:2026-07-11T04:19:56.573Z",
         "updatedAt": "2026-07-11T04:19:56.661Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12.morning",
+        "value": "sent:2026-07-12T00:19:58.244Z",
+        "updatedAt": "2026-07-12T00:19:58.328Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
