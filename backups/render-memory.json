@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-12T04:29:40.670Z",
+  "exportedAt": "2026-07-12T10:29:40.461Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74551,8 +74551,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-12T04:19:41.407Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里刚聊完星舰第12次飞行前T-minus 40秒的压力异常，这个事件背后其实牵出一条更大的产业链变化：商业航天正在从“发射验证”转向“规模化运营”阶段。今天重点追这条线。\\n\\n1. Starlink部署创纪录，上半年发射1589颗卫星\\n据The Verge报道，SpaceX在2026年上半年部署了1589颗Starlink卫星，比去年同期多100颗，创历史新高。在轨卫星约9600颗，宽带订阅用户已超千万。这验证了Starlink作为核心现金流的造血能力，也意味着卫星制造、地面终端、激光链路等供应链必须跟上节奏。值得验证：卫星产能瓶颈是否已经出现？\\n\\n2. 国内商业航天IPO排队，10家企业冲刺上市\\n蓝箭航天、中科宇航等10家民营航天企业正在排队IPO，多瞄准科创板。SpaceX上市后估值超1.7万亿美元，给国内对标公司提供了估值锚。但国内可复用火箭技术预计年内才首次突破，与SpaceX的差距仍在。这条线需要持续跟踪：国内火箭复用进度是否如期？\\n\\n3. 特斯拉Optimus工厂过渡，龙头量产信号\\n马斯克发布Optimus工厂合照，弗里蒙特工厂已从Model S/X产线向Optimus过渡，德州超级工厂动工。这标志着人形机器人从原型走向量产。英伟达也在北京、上海、深圳招聘机器人岗位。产业链上，执行器、减速器、灵巧手等核心零部件供应商可能最先受益。\\n\\n最后抛一个问题：星舰第12次飞行前压力异常导致发射决策调整，这个事件会不会影响SpaceX下半年Starlink部署节奏？如果发射窗口被压缩，卫星组网进度是否会低于预期？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"商业航天从验证转向规模化：Starlink部署创纪录、国内IPO排队、Optimus量产信号\",\"lastPulseQuestion\":\"星舰第12次飞行前压力异常导致发射决策调整，这个事件会不会影响SpaceX下半年Starlink部署节奏？如果发射窗口被压缩，卫星组网进度是否会低",
-        "updatedAt": "2026-07-12T04:19:41.506Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-12T10:20:03.182Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里最近关于AI算力竞争和机器人量产进度的讨论，今天新增三条值得追踪的产业动态：\\n\\n1. OpenAI、Anthropic、谷歌向初创企业提供价值数十万美元的算力资源及其他优惠，以争取新企业客户。\\n发生了什么：三大AI巨头通过赠送算力、折扣等方式抢夺企业客户，尤其瞄准初创公司。\\n为什么值得追：算力正成为AI服务的核心杠杆，巨头通过资源绑定客户，可能重塑AI服务市场格局，加剧小公司的依赖性。\\n影响产业链：AI算力服务、云基础设施、GPU租赁市场。\\n\\n2. 拆解25笔超5000万A轮融资，AI最聪明的钱正在押注三个方向。\\n发生了什么：过去两年AI行业大模型吸走大部分注意力，但资本正悄然流向三个特定方向（原文未指明，需进一步挖掘）。\\n为什么值得追：这揭示了资本从“堆参数”转向“落地场景”的偏好变化，可能预示下一轮创业热点。\\n影响产业链：AI应用层、垂直行业解决方案、AI基础设施。\\n\\n3. 特斯拉、英伟达、宇树机器人利好：特斯拉Optimus工厂过渡、英伟达招聘机器人岗位、宇树相关消息。\\n发生了什么：特斯拉弗里蒙特工厂从Model S/X产线向Optimus过渡，德州超级工厂动工，年产能目标千万台；英伟达围绕具身智能招聘。\\n为什么值得追：人形机器人从“演示”进入“量产”阶段，产业链零组件供应商将受益。\\n影响产业链：人形机器人整机、电机、传感器、仿真平台。\\n\\n具体投研追问：在AI算力争夺战中，OpenAI自研芯片Jalapeño（与Broadcom合作）能否在2028年前形成对英伟达GPU的实质性替代？其量产节奏和成本对比如何？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"三大AI巨头算力抢客、资本流向三个AI方向、人形机器人量产加速\",\"lastPulseQuestion\":\"在AI算力争夺战中，OpenAI自研芯片Jalapeño（与Broadcom合作）能否在2028年前形成对英伟达GPU的实质性替代？其量产节奏和成",
+        "updatedAt": "2026-07-12T10:20:03.273Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74583,6 +74583,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-11.noon",
         "value": "sent:2026-07-11T04:19:56.573Z",
         "updatedAt": "2026-07-11T04:19:56.661Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12.evening",
+        "value": "sent:2026-07-12T10:20:03.460Z",
+        "updatedAt": "2026-07-12T10:20:03.549Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12.morning",
