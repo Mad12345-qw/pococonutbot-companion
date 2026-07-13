@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-13T05:39:45.366Z",
+  "exportedAt": "2026-07-13T10:29:53.461Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74703,8 +74703,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-13T04:19:45.522Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n刚才早间聊到机器人量产进度，现在有一条新线索值得深挖：特斯拉向Optimus供应链下发更具体的零件采购与产能指引，要求供应商9月将周产能提到1000台，年底进一步到2000-2500台。按这个推算，年底零部件年化供应能力约10万台，比此前乐观预期更扎实。这条线索直接回答了“量产时间表是否可信”的问题，也牵出供应链产能爬坡的瓶颈点——电机、减速器、传感器这些环节谁最先卡脖子？另外，特斯拉弗里蒙特工厂从Model S/X产线转产Optimus，说明内部资源倾斜力度在加大。建议跟踪一下国内零部件供应商的产能公告和订单指引，看是否有验证信号。\\n\\n问题：如果特斯拉年底达到10万台年化零部件供应能力，那么明年实际整机产量可能落在哪个区间？有没有哪些关键零部件环节可能成为产能瓶颈？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉Optimus产能指引：9月周产能1000台，年底2000-2500台，零部件年化供应能力约10万台，量产时间表进一步清晰。\",\"lastPulseQuestion\":\"如果特斯拉年底达到10万台年化零部件供应能力，那么明年实际整机产量可能落在哪个区间？有没有哪些关键零部件环节可能成为产能瓶颈？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.topnews.cn/news/145FDFE143BF4D77\"],\"lastActivityAt\":\"2026-07-13T04:51:57.723Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-13T04:51:57.815Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-13T10:19:51.729Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚才午间聊到Optimus产能指引，下午又出来几条新线索，可以把这个追问再推一层。\\n\\n1. 特斯拉产能指引被多方验证，但汽车厂商开始集体涌入人形机器人。据证券日报，汽车和机器人正进入前所未有的产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂从Model S/X产线转产Optimus，其他车企也在跟进。这意味着原本由特斯拉独享的供应链资源，可能面临竞争。\\n\\n2. 资本用脚投票：机器人ETF易方达近一周净流入约26亿元，位居同类首位。市场对量产预期的兑现信心在增强，但也要注意，资金集中流入可能提前定价了2027年的产量，如果实际爬坡慢于预期，会有回调风险。\\n\\n3. AI算力侧出现新变量：OpenAI发布自研推理芯片Jalapeño，与Broadcom联合开发，仅用九个月流片，并签下10GW算力部署协议。模型公司开始造芯，可能改变AI算力供应链的格局，也间接影响机器人端侧芯片的演进路线。\\n\\n问题：如果汽车厂商集体涌入人形机器人，共享供应链，核心零部件（电机、减速器、传感器）的产能会不会比原来预期的更紧张？Optimus的10万台年化零部件供应能力，是否已经考虑了其他车企的抢单？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"noon\",\"evening\"],\"lastPulseDigest\":\"Optimus产能指引被多方验证，汽车厂商涌入人形机器人可能加剧供应链竞争，同时OpenAI自研芯片Jalapeño改变AI算力格局。\",\"lastPulseQuestion\":\"如果汽车厂商集体涌入人形机器人，共享供应链，核心零部件（电机、减速器、传感器）的产能会不会比原来预期的更紧张？Optimus的10万台年化零部件供应能力，是否已经考虑了其他车企的抢单？\",\"lastPulseSources\":[\"https://www.chinareport.com.cn/R1/7300.html\",\"https://fund.stockstar.com/SS2026071000036403.sht",
+        "updatedAt": "2026-07-13T10:19:51.824Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74750,6 +74750,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12.noon",
         "value": "sent:2026-07-12T04:19:41.593Z",
         "updatedAt": "2026-07-12T04:19:41.693Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.evening",
+        "value": "sent:2026-07-13T10:19:51.918Z",
+        "updatedAt": "2026-07-13T10:19:52.012Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.morning",
