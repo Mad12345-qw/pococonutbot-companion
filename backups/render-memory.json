@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-13T01:09:45.069Z",
+  "exportedAt": "2026-07-13T04:29:48.669Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74684,8 +74684,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-13T00:19:45.281Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里刚聊完AI算力竞争和机器人量产进度，今天三条动态正好延续这些线索。\\n\\n1. OpenAI、Anthropic、谷歌向初创企业提供数十万美元算力资源争取客户。据华尔街日报，三大AI巨头通过赠送算力、折扣等方式抢夺企业客户，尤其瞄准初创公司。算力正成为AI服务的核心杠杆，巨头通过资源绑定客户，可能重塑AI服务市场格局，加剧小公司的依赖性。影响产业链：AI算力服务、云基础设施、GPU租赁市场。\\n\\n2. 特斯拉弗里蒙特工厂从Model S/X产线向Optimus过渡，标志量产启动。马斯克发布Optimus工厂合照，德州超级工厂已动工，长期年产能目标达千万台。英伟达也在招聘机器人岗位。这验证了人形机器人从验证走向规模化生产，国内供应链如执行器、减速器、灵巧手等环节可能最先受益。\\n\\n3. SpaceX上半年部署1589颗Starlink卫星，创历史新高。据The Verge，在轨卫星约9600颗，宽带订阅用户超千万。Starlink作为核心现金流造血能力持续增强，验证了“火箭-卫星-AI”三位一体基础设施的可行性。国内商业航天IPO排队企业也在加速。\\n\\n最后抛一个问题：算力赠送策略会否加速AI初创公司对巨头的依赖，从而改变AI服务市场格局？特斯拉Optimus量产启动后，国内机器人供应链哪些环节最先受益？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"三大AI巨头送算力抢客户；特斯拉Optimus量产启动；Starlink部署创纪录。\",\"lastPulseQuestion\":\"算力赠送策略会否加速AI初创公司对巨头的依赖，从而改变AI服务市场格局？特斯拉Optimus量产启动后，国内机器人供应链哪些环节最先受益？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260707/202607070905272464.html\",\"https://field.10jqka.com.cn/20260",
-        "updatedAt": "2026-07-13T00:19:45.374Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-13T04:19:45.522Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n刚才早间聊到机器人量产进度，现在有一条新线索值得深挖：特斯拉向Optimus供应链下发更具体的零件采购与产能指引，要求供应商9月将周产能提到1000台，年底进一步到2000-2500台。按这个推算，年底零部件年化供应能力约10万台，比此前乐观预期更扎实。这条线索直接回答了“量产时间表是否可信”的问题，也牵出供应链产能爬坡的瓶颈点——电机、减速器、传感器这些环节谁最先卡脖子？另外，特斯拉弗里蒙特工厂从Model S/X产线转产Optimus，说明内部资源倾斜力度在加大。建议跟踪一下国内零部件供应商的产能公告和订单指引，看是否有验证信号。\\n\\n问题：如果特斯拉年底达到10万台年化零部件供应能力，那么明年实际整机产量可能落在哪个区间？有没有哪些关键零部件环节可能成为产能瓶颈？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉Optimus产能指引：9月周产能1000台，年底2000-2500台，零部件年化供应能力约10万台，量产时间表进一步清晰。\",\"lastPulseQuestion\":\"如果特斯拉年底达到10万台年化零部件供应能力，那么明年实际整机产量可能落在哪个区间？有没有哪些关键零部件环节可能成为产能瓶颈？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.topnews.cn/news/145FDFE143BF4D77\"],\"lastActivityAt\":\"2026-07-13T04:19:45.522Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-13T04:19:45.609Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74736,6 +74736,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.morning",
         "value": "sent:2026-07-13T00:19:45.461Z",
         "updatedAt": "2026-07-13T00:19:45.555Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.noon",
+        "value": "sent:2026-07-13T04:19:45.696Z",
+        "updatedAt": "2026-07-13T04:19:45.786Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
