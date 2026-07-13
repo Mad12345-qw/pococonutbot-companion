@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-12T10:29:40.461Z",
+  "exportedAt": "2026-07-13T00:29:40.971Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74555,6 +74555,11 @@
         "updatedAt": "2026-07-12T10:20:03.273Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-13T00:19:45.281Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里刚聊完AI算力竞争和机器人量产进度，今天三条动态正好延续这些线索。\\n\\n1. OpenAI、Anthropic、谷歌向初创企业提供数十万美元算力资源争取客户。据华尔街日报，三大AI巨头通过赠送算力、折扣等方式抢夺企业客户，尤其瞄准初创公司。算力正成为AI服务的核心杠杆，巨头通过资源绑定客户，可能重塑AI服务市场格局，加剧小公司的依赖性。影响产业链：AI算力服务、云基础设施、GPU租赁市场。\\n\\n2. 特斯拉弗里蒙特工厂从Model S/X产线向Optimus过渡，标志量产启动。马斯克发布Optimus工厂合照，德州超级工厂已动工，长期年产能目标达千万台。英伟达也在招聘机器人岗位。这验证了人形机器人从验证走向规模化生产，国内供应链如执行器、减速器、灵巧手等环节可能最先受益。\\n\\n3. SpaceX上半年部署1589颗Starlink卫星，创历史新高。据The Verge，在轨卫星约9600颗，宽带订阅用户超千万。Starlink作为核心现金流造血能力持续增强，验证了“火箭-卫星-AI”三位一体基础设施的可行性。国内商业航天IPO排队企业也在加速。\\n\\n最后抛一个问题：算力赠送策略会否加速AI初创公司对巨头的依赖，从而改变AI服务市场格局？特斯拉Optimus量产启动后，国内机器人供应链哪些环节最先受益？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"三大AI巨头送算力抢客户；特斯拉Optimus量产启动；Starlink部署创纪录。\",\"lastPulseQuestion\":\"算力赠送策略会否加速AI初创公司对巨头的依赖，从而改变AI服务市场格局？特斯拉Optimus量产启动后，国内机器人供应链哪些环节最先受益？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260707/202607070905272464.html\",\"https://field.10jqka.com.cn/20260",
+        "updatedAt": "2026-07-13T00:19:45.374Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74598,6 +74603,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-12.noon",
         "value": "sent:2026-07-12T04:19:41.593Z",
         "updatedAt": "2026-07-12T04:19:41.693Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.morning",
+        "value": "sent:2026-07-13T00:19:45.461Z",
+        "updatedAt": "2026-07-13T00:19:45.555Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
