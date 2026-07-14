@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-14T04:29:40.375Z",
+  "exportedAt": "2026-07-14T10:29:40.462Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74708,8 +74708,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-14T04:19:57.839Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新”开头，然后承接群里最近讨论的一小段。群内最近讨论是早间和晚间关于人形机器人的。所以写：“承接昨晚和今早关于人形机器人产业链的讨论，今天又有新动态：”然后列出三条动态。\\n\\n动态1：汽车厂商集体涌入人形机器人，共享技术基础和供应链。来源：中国经济报道。影响：人形机器人供应链竞争加剧，特斯拉不再是唯一玩家。\\n\\n动态2：特斯拉人形机器人市场预测：2026年54.1亿美元，2035年502.7亿美元，CAGR 28.1%。来源：老虎社区。影响：市场空间巨大，但需验证供应链能否支撑。\\n\\n动态3：特斯拉产能指引被供应商确认（来自groupMemory）：9月周产1000台，年底2000-2500台，年底零部件年化供应能力约10万台。来源：groupMemory中的早间消息。影响：产能爬坡节奏明确，但关键看电机、减速器等环节是否卡脖子。\\n\\n然后最后一个具体投研追问：例如“汽车厂商涌入后，原本由特斯拉独享的供应链资源（如电机、减速器）是否会出现产能挤兑？哪些中国供应商可能同时受益于特斯拉和国内车企的机器人订单？”\\n\\n注意：sources需要列出URL，包括newsCandidates中的两个URL，以及groupMemory中的消息没有URL，但可以引用早间消息的文本？但sources字段要求是URL列表，所以只能放有URL的。groupMemory中的消息没有URL，所以可以只放两个newsCandidates的URL。或者也可以放早间消息的链接？但早间消息是群内消息，没有外部链接。所以sources只放两个：https://www.chinareport.com.cn/R1/7300.html 和 https://www.laohu8.com/post/583971909191112。注意：第三个动态来自groupMemory，没有URL，所以sources只放\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"",
-        "updatedAt": "2026-07-14T04:19:57.927Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-14T10:20:03.068Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n承接早间关于汽车厂商涌入人形机器人的讨论，今天又有两条新动态可以深挖。\\n\\n1. 汽车厂商集体涌入人形机器人：据证券日报，汽车和机器人正进入前所未有的产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂已从Model S/X产线转产Optimus，其他车企也在跟进。这意味着原本由特斯拉独享的供应链资源可能面临竞争，但也可能加速零部件通用化和成本下降。\\n\\n2. 特斯拉人形机器人市场预测：MarketsandMarkets报告称，人形机器人市场预计从2026年的54.1亿美元飙升至2035年的502.7亿美元，CAGR 28.1%。特斯拉Optimus年底进入大规模生产，这一预测强化了长期增长逻辑，但需要关注量产爬坡过程中哪个环节先卡脖子——电机、减速器还是传感器。\\n\\n追问：随着汽车厂商集体涌入，供应链资源会因竞争而分散，还是因规模效应加速成本下降？特斯拉10万台年产能指引能否在2026年底兑现，关键瓶颈在哪？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"汽车厂商涌入人形机器人，市场预测2035年500亿美元，供应链竞争与产能爬坡成焦点。\",\"lastPulseQuestion\":\"随着汽车厂商集体涌入，供应链资源会因竞争而分散，还是因规模效应加速成本下降？特斯拉10万台年产能指引能否在2026年底兑现，关键瓶颈在哪？\",\"lastPulseSources\":[\"https://www.chinareport.com.cn/R1/7300.html\",\"https://www.laohu8.com/post/583971909191112\",\"https://fund.stockstar.com/SS2026071000036403.shtml\"],\"lastActivityAt\":\"2026-07-14T10:20:03.068Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkH",
+        "updatedAt": "2026-07-14T10:20:03.157Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74770,6 +74770,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.noon",
         "value": "sent:2026-07-13T04:19:45.696Z",
         "updatedAt": "2026-07-13T04:19:45.786Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14.evening",
+        "value": "sent:2026-07-14T10:20:03.246Z",
+        "updatedAt": "2026-07-14T10:20:03.334Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14.morning",
