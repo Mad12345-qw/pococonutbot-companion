@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-13T10:29:53.461Z",
+  "exportedAt": "2026-07-14T00:29:40.965Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74707,6 +74707,11 @@
         "updatedAt": "2026-07-13T10:19:51.824Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-14T00:19:57.249Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n昨晚聊到汽车厂商集体涌入人形机器人，产业链竞争格局开始变化。今天继续追这条线，同时AI算力竞争也有新动态。\\n\\n1. 特斯拉产能指引被供应商确认：9月周产能1000台，年底2000-2500台，年底零部件年化供应能力约10万台。这个数字比此前乐观预期更扎实，但关键看供应链能否同步爬坡，尤其是电机、减速器、传感器这些环节谁先卡脖子。\\n\\n2. 汽车厂商涌入人形机器人：据证券日报，汽车和机器人正进入前所未有的产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂从Model S/X产线转产Optimus，其他车企也在跟进。这意味着原本由特斯拉独享的供应链资源，可能面临竞争。\\n\\n3. AI算力争夺战升级：三大AI巨头通过赠送数十万美元算力资源争取企业客户，尤其瞄准初创公司。算力正成为绑客工具，可能重塑AI服务市场格局，加剧小公司对巨头资源的依赖。\\n\\n最后抛一个问题：汽车厂商集体涌入后，Optimus供应链的稀缺性会不会被稀释？特斯拉的垂直整合和产能爬坡速度，能保持优势吗？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"特斯拉产能指引确认、汽车厂商涌入人形机器人、AI算力争夺战升级\",\"lastPulseQuestion\":\"汽车厂商集体涌入后，Optimus供应链的稀缺性会不会被稀释？特斯拉的垂直整合和产能爬坡速度，能保持优势吗？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.chinareport.com.cn/R1/7300.html\",\"https://www.fx678.com/C/20260707/202607070905272464.html\"],\"lastActivityAt\":\"2026-07-14T00:19:57.249Z\",\"lastHumanActivityAt\":\"\",\"linkHi",
+        "updatedAt": "2026-07-14T00:19:57.335Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74765,6 +74770,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-13.noon",
         "value": "sent:2026-07-13T04:19:45.696Z",
         "updatedAt": "2026-07-13T04:19:45.786Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14.morning",
+        "value": "sent:2026-07-14T00:19:57.422Z",
+        "updatedAt": "2026-07-14T00:19:57.507Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
