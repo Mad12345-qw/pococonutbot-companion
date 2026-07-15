@@ -7,7 +7,7 @@ import path from "node:path";
 import zlib from "node:zlib";
 import express from "express";
 import ffmpegPath from "ffmpeg-static";
-import { authStoreConfigured, authStoreStatus, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
+import { authStoreConfigured, authStoreStatus, authSummaryFromJson, grokAuthPath, saveAuthJsonToStore, sha256Hex } from "./grok-auth-store.js";
 import { currentGrokStateHash, grokStateInventory, grokStateStoreStatus, restoreGrokStateFromStore, saveGrokStateToStore } from "./grok-state-store.js";
 
 const STARTED_AT = new Date();
@@ -2880,6 +2880,50 @@ app.get("/debug/grok-auth-status", async (req, res) => {
     res.json({ ok: true, auth: await authStoreStatus() });
   } catch (error) {
     res.status(500).json({ ok: false, error: error.message });
+  }
+});
+
+app.post("/debug/grok-auth-import", async (req, res) => {
+  if (!config.debugToken || req.get("x-debug-token") !== config.debugToken) {
+    res.status(404).json({ error: "not found" });
+    return;
+  }
+  try {
+    if (!config.grokAuthSyncEnabled || !authStoreConfigured()) {
+      throw new Error("Grok auth persistence is not configured.");
+    }
+    const encoded = String(req.body?.authJsonB64 || "").trim();
+    if (!encoded || encoded.length > 128000) {
+      throw new Error("A valid authJsonB64 payload is required.");
+    }
+    const authBuffer = Buffer.from(encoded, "base64");
+    if (!authBuffer.length || authBuffer.length > 65536) {
+      throw new Error("Decoded Grok auth payload has an invalid size.");
+    }
+    const json = authBuffer.toString("utf8");
+    JSON.parse(json);
+    const summary = authSummaryFromJson(json);
+    if (!summary.keyCount || !summary.hasRefreshToken) {
+      throw new Error("Grok auth payload does not contain a refreshable OAuth credential.");
+    }
+
+    const saved = await saveAuthJsonToStore(json);
+    const authPath = grokAuthPath();
+    fs.mkdirSync(path.dirname(authPath), { recursive: true });
+    const tempPath = `${authPath}.${crypto.randomUUID()}.tmp`;
+    fs.writeFileSync(tempPath, json, { mode: 0o600 });
+    fs.renameSync(tempPath, authPath);
+    lastObservedGrokAuthHash = sha256Hex(authBuffer);
+
+    res.json({
+      ok: true,
+      fileHashPrefix: lastObservedGrokAuthHash.slice(0, 12),
+      storeHashPrefix: saved.hashPrefix,
+      storeKey: saved.key,
+      summary
+    });
+  } catch (error) {
+    res.status(400).json({ ok: false, error: redactSensitive(error.message) });
   }
 });
 
