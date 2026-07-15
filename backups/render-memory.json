@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-15T04:29:43.860Z",
+  "exportedAt": "2026-07-15T06:59:41.062Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68708,6 +68708,31 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-14T11:13:18.909Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 提效必备，6 大 Skill 守护企业经营的财务与法律双防线\n为你的专属伙伴添加技能，高效减负、精准风控，一键搞定！\nhttps://aily.feishu.cn/ai/skills/share/60e859a0-fc18-45e2-98da-7cbc482e1522?open_from=featured_legalSkills_push\\\nhttps://aily.feishu.cn/ai/skills/share/c7b321d8-342e-49f4-9679-351cdb543983?open_from=featured_legalSkills_push\\\nhttps://aily.feishu.cn/ai/skills/share/8b61507e-c40a-42c1-88f9-af9fc031e11e?open_from=featured_legalSkills_push\\\nhttps://aily.feishu.cn/ai/skills/share/208c8635-ce02-4685-b4c6-4309b7e45a24?open_from=featured_financeSkills_push\\\nhttps://aily.feishu.cn/ai/skills/share/dadcf590-8539-44ac-9600-6a52b37a35bf?open_from=featured_financeSkills_push\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://aily.feishu.cn/ai/skills/share/60e859a0-fc18-45e2-98da-7cbc482e1522?open_from=featured_legalSkills_push\\",
+            "https://aily.feishu.cn/ai/skills/share/c7b321d8-342e-49f4-9679-351cdb543983?open_from=featured_legalSkills_push\\",
+            "https://aily.feishu.cn/ai/skills/share/8b61507e-c40a-42c1-88f9-af9fc031e11e?open_from=featured_legalSkills_push\\",
+            "https://aily.feishu.cn/ai/skills/share/208c8635-ce02-4685-b4c6-4309b7e45a24?open_from=featured_financeSkills_push\\",
+            "https://aily.feishu.cn/ai/skills/share/dadcf590-8539-44ac-9600-6a52b37a35bf?open_from=featured_financeSkills_push\\",
+            "https://aily.feishu.cn/ai/skills/share/91c4df46-8a62-4210-840c-71ad4b3ebc28?open_from=featured_financeSkills_push\\",
+            "https://aily.feishu.cn/ai/skills?open_from=featured_skills_push\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a46a8d5ccbcb36c7372fe60c5c",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-15T06:53:25.588Z"
       }
     ],
     "memories": [
