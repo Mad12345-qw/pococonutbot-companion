@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-15T06:59:41.062Z",
+  "exportedAt": "2026-07-15T10:29:42.167Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74757,8 +74757,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-15T04:19:47.360Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接昨晚和今早关于人形机器人产业链的讨论，特别是Optimus产能指引和汽车厂商涌入的话题，今天又有三条新动态值得深挖。\\n\\n1. 特斯拉向Optimus供应链下发更具体的零件采购与产能指引：要求供应商9月将周产能提到1000台，年底进一步到2000-2500台。按此推算，年底零部件年化供应能力约10万台。这个数字比此前乐观预期更扎实，关键看供应链能否同步爬坡，尤其是电机、减速器、传感器这些环节谁先卡脖子。\\n\\n2. 汽车厂商集体涌入人形机器人：据证券日报报道，汽车和机器人正进入前所未有的产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂已从Model S/X产线转产Optimus，其他车企也在跟进。这意味着原本由特斯拉独享的供应链资源可能面临竞争，但也可能加速零部件通用化和成本下降。\\n\\n3. 前沿AI模型ARR飙升至600亿美元：数据显示Anthropic的ARR已从2025年底的90亿美元增至超过600亿美元，有望于2026年三季度盈利转正。研报指出每GW算力有望贡献600亿美元ARR，显著高于数据中心年化总成本。这意味着头部厂商继续扩张算力仍具备良好商业回报，资本开支有望高效转化为收入。这条线索虽然不在机器人主线上，但算力投资的持续强化可能间接影响机器人所需的AI算力成本。\\n\\n最后抛一个问题给群友：Optimus 10万台年化产能的供应链瓶颈到底在哪里？电机减速器还是传感器？哪些供应商最有可能率先受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉产能指引被供应商确认，汽车厂商涌入人形机器人，AI模型ARR飙升至600亿\",\"lastPulseQuestion\":\"Optimus 10万台年化产能的供应链瓶颈到底在哪里？电机减速器还是传感器？哪些供应商最有可能率先受益？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"ht",
-        "updatedAt": "2026-07-15T04:19:47.452Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-15T10:19:54.817Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n承接下午关于Optimus产能指引和汽车厂商涌入的讨论，今天又出了几条新线索，可以再推一层。\\n\\n1. 特斯拉产能指引被供应商确认：要求9月周产1000台，年底2000-2500台，对应年底约10万台年化能力。这次给了具体SKU和交期，不再是模糊指引。关键看谁提前扩产，谁产能被验证。\\n\\n2. 汽车厂商集体涌入人形机器人：据证券日报，汽车和机器人正进入产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂已从Model S/X产线转产Optimus，其他车企也在跟进。供应链资源可能被分摊，但也可能加速零部件通用化降本。\\n\\n3. AI模型ARR飙升至600亿美元，算力投资回报被验证：Anthropic ARR超600亿，预计Q3盈利转正；OpenAI约400亿；Meta计划将算力从7GW翻倍至14GW。每GW算力贡献约600亿美元ARR，显著高于数据中心年化成本。头部厂商扩产的商业回报逻辑更扎实。这对人形机器人有什么启示？智能化能力成本下降，机器人应用场景可能更快打开。\\n\\n明天追的问题：Optimus周产1000台后，最先卡脖子的零部件环节会是电机、减速器还是传感器？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"承接人形机器人讨论，特斯拉产能指引被供应商确认，汽车厂商涌入加速，AI模型ARR验证算力投资回报。\",\"lastPulseQuestion\":\"Optimus周产1000台后，最先卡脖子的零部件环节会是电机、减速器还是传感器？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.chinareport.com.cn/R1/7300.html\",\"https://industry.cfi.cn/p20260713000042.html\",\"https://www.topnews.cn/news/145F",
+        "updatedAt": "2026-07-15T10:19:54.904Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74834,6 +74834,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14.noon",
         "value": "sent:2026-07-14T04:19:58.019Z",
         "updatedAt": "2026-07-14T04:19:58.106Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15.evening",
+        "value": "sent:2026-07-15T10:19:55.157Z",
+        "updatedAt": "2026-07-15T10:19:55.244Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15.morning",
