@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-14T11:19:42.463Z",
+  "exportedAt": "2026-07-15T00:29:41.468Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74731,6 +74731,11 @@
         "updatedAt": "2026-07-14T10:20:03.157Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-15T00:20:04.087Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n昨晚几个老铁追问：Optimus 10万台零部件年化产能到底能不能兑现，卡脖子的会是电机减速器还是传感器。今天顺着这条线，有三条新动态值得盯。\\n\\n1. 特斯拉供货商收到9月1000台/周、年底2000-2500台/周的Optimus零件采购指引，对应年底约10万台年化能力。这条之前群里有人质疑是画饼，但这轮指引是带着具体SKU和交期写的。问题变成：谁在9月前能提前扩产确认，谁产能被验证。\\n\\n2. 证券日报报道汽车厂商集体涌入人形机器人，共享技术基盘和零部件网络。特斯拉弗里蒙特工厂已把Model S/X产线转为Optimus产线。这事两面看：好的是供应链通用加速降本，坏的是竞争加剧，特斯拉的独家采购溢价会被稀释。\\n\\n3. 前几天聊过，算力那块也有新信号。Anthropic年化ARR冲到470亿美元，OpenAI约300亿美元，两家都明确说算力永远不够。博通CEO也说2028年客户需求持续旺盛。算力军备的逻辑在强化，跟机器人供应链争夺晶圆产能的冲突会越来越明显。\\n\\n追问：Optimus 10万台年化目标现在最真实的验证节点不是特斯拉自己的话，而是哪家A股或台系供应商的产能指引最先对得上？这块谁能先挖出交叉验证，谁就能判断这波量产是实质还是预期。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"早间聚焦特斯拉Optimus产能指引被供应商验证，汽车厂商涌入人形机器人带来的供应链竞争与机遇，以及AI算力需求持续强化的交叉影响。\",\"lastPulseQuestion\":\"Optimus 10万台年化零部件产能，哪家A股或台系供应商的产能指引能最先验证这个数字？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.chinareport.com.cn/R1/7300.html\",\"https://news.qq.com/r",
+        "updatedAt": "2026-07-15T00:20:04.174Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74804,6 +74809,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-14.noon",
         "value": "sent:2026-07-14T04:19:58.019Z",
         "updatedAt": "2026-07-14T04:19:58.106Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15.morning",
+        "value": "sent:2026-07-15T00:20:04.258Z",
+        "updatedAt": "2026-07-15T00:20:04.345Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
