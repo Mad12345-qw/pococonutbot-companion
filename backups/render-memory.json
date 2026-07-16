@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T02:49:43.959Z",
+  "exportedAt": "2026-07-16T04:59:43.271Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74821,8 +74821,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T00:19:42.741Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚看到群里在问星舰发射时间，正好今天出了新动态。之前我们一直在聊Optimus产能指引和汽车厂商涌入，现在三条新线索可以再推一层。\\n\\n1. 星舰第13飞定在7月16日，最大看点是首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段。如果成功，将验证完全可重复使用重型运载系统的商业化可行性，对卫星互联网产业链和火箭复用成本结构都是关键催化。\\n\\n2. 特斯拉向Optimus供应链下发更具体的零件采购与产能指引：要求供应商9月周产1000台，年底2000-2500台，对应年底约10万台年化能力。这次指引带着具体SKU和交期，不再是模糊预期。问题从“能不能实现”变成“谁先扩产、谁被验证”。\\n\\n3. 汽车厂商集体涌入人形机器人，据证券日报报道，汽车和机器人正进入产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂已从Model S/X产线转产Optimus，其他车企也在跟进。这既可能加速零部件通用化和成本下降，也可能导致供应链资源竞争。\\n\\n在Optimus产能爬坡和汽车厂商涌入的双重背景下，人形机器人产业链中哪个环节（电机、减速器、传感器）最可能成为瓶颈？或者星舰V3卫星部署成功后，对国内卫星互联网产业链的催化节奏如何？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰第13飞将部署20颗Starlink V3卫星，Optimus产能指引确认10万台年化，汽车厂商涌入人形机器人产业链。\",\"lastPulseQuestion\":\"在Optimus产能爬坡和汽车厂商涌入的双重背景下，人形机器人产业链中哪个环节（电机、减速器、传感器）最可能成为瓶颈？或者星舰V3卫星部署成功后，对国内卫星互联网产业链的催化节奏如何？\",\"lastPulseSources\":[\"https://english.news.cn/20260714/2b241ec0b51445209baec653e335c3e1/",
-        "updatedAt": "2026-07-16T00:19:42.824Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T04:49:40.837Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接昨晚和今早关于星舰发射时间和Optimus产能指引的讨论，今天又有两条新动态值得深挖。\\n\\n1. 星舰第13飞定于7月16日，首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段。如果成功，将验证完全可重复使用重型运载系统的商业化可行性，对卫星互联网产业链和火箭复用成本结构都是关键催化。关注发射后的回收复飞状态、卫星部署质量，以及后续星舰V3的发射节奏是否进一步提速。\\n\\n2. 特斯拉向供货商下发更具体的Optimus零件采购与产能指引：要求9月周产1000台，年底2000-2500台，对应年底约10万台年化能力。这次指引附带具体SKU和交期，不再是模糊数字。关键看哪些供应商能提前扩产确认，哪些环节可能卡脖子。此前群里有老铁质疑产能能否按时爬坡，现在这条线索给了更扎实的判据。\\n\\n问题：如果星舰成功部署星链V3，你认为对国内卫星互联网产业链的估值逻辑是短期催化还是长期重估？另外，Optimus 10万台年化产能对供应链各环节的盈利弹性排序如何？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"星舰首次商业载荷部署+Optimus产能指引细化，产业链验证节点临近。\",\"lastPulseQuestion\":\"如果星舰成功部署星链V3，对国内卫星互联网产业链是短期催化还是长期重估？Optimus 10万台产能对供应链各环节的盈利弹性排序？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260714A03HRT00\",\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://english.news.cn/northamerica/20260714/d3be2d305c6441c19275542a53d62724/c.html\"],\"lastActivityAt\":\"2026-07-16T",
+        "updatedAt": "2026-07-16T04:49:41.158Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74918,6 +74918,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.morning",
         "value": "sent:2026-07-16T00:19:42.912Z",
         "updatedAt": "2026-07-16T00:19:42.995Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.noon",
+        "value": "sent:2026-07-16T04:49:41.865Z",
+        "updatedAt": "2026-07-16T04:49:42.349Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
