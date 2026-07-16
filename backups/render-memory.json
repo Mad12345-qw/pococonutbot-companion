@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T07:09:44.360Z",
+  "exportedAt": "2026-07-16T10:29:42.271Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74841,8 +74841,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T04:49:40.837Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接昨晚和今早关于星舰发射时间和Optimus产能指引的讨论，今天又有两条新动态值得深挖。\\n\\n1. 星舰第13飞定于7月16日，首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段。如果成功，将验证完全可重复使用重型运载系统的商业化可行性，对卫星互联网产业链和火箭复用成本结构都是关键催化。关注发射后的回收复飞状态、卫星部署质量，以及后续星舰V3的发射节奏是否进一步提速。\\n\\n2. 特斯拉向供货商下发更具体的Optimus零件采购与产能指引：要求9月周产1000台，年底2000-2500台，对应年底约10万台年化能力。这次指引附带具体SKU和交期，不再是模糊数字。关键看哪些供应商能提前扩产确认，哪些环节可能卡脖子。此前群里有老铁质疑产能能否按时爬坡，现在这条线索给了更扎实的判据。\\n\\n问题：如果星舰成功部署星链V3，你认为对国内卫星互联网产业链的估值逻辑是短期催化还是长期重估？另外，Optimus 10万台年化产能对供应链各环节的盈利弹性排序如何？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"星舰首次商业载荷部署+Optimus产能指引细化，产业链验证节点临近。\",\"lastPulseQuestion\":\"如果星舰成功部署星链V3，对国内卫星互联网产业链是短期催化还是长期重估？Optimus 10万台产能对供应链各环节的盈利弹性排序？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260714A03HRT00\",\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://english.news.cn/northamerica/20260714/d3be2d305c6441c19275542a53d62724/c.html\"],\"lastActivityAt\":\"2026-07-16T",
-        "updatedAt": "2026-07-16T04:49:41.158Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T10:20:07.601Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里关于星舰发射和Optimus产能指引的讨论，今天又有三条新动态值得深挖。\\n1. AI数据中心建设持续扩张：The Verge报道美国各地AI数据中心项目不断涌现，但常遭当地居民反对。这意味着算力基建的规模化落地仍面临社会阻力，可能影响供应链节奏和成本结构。\\n2. 前沿AI模型ARR飙升至600亿美元：中财网数据显示Anthropic ARR已超600亿美元，OpenAI约400亿美元，且每GW算力有望贡献600亿美元ARR。这验证了Token经济性的兑现，头部厂商资本开支有望高效转化，利好算力产业链。\\n3. 人形机器人市场预测与汽车厂商涌入：据MarketsandMarkets报告，人形机器人市场预计从2026年54.1亿美元增至2035年502.7亿美元，CAGR 28.1%。同时汽车厂商基于共享技术和供应链加速布局，特斯拉Optimus已进入量产准备阶段。这强化了汽车产业链与人形机器人协同的逻辑。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"AI数据中心建设持续扩张，前沿模型ARR达600亿美元，人形机器人市场预计2035年达502.7亿美元\",\"lastPulseQuestion\":\"在AI数据中心建设持续扩张和模型商业化加速的背景下，人形机器人供应链与汽车产业的协同效应是否会被进一步放大？Optimus的产能指引能否支撑特斯拉在2026年占据人形机器人市场主导地位？\",\"lastPulseSources\":[\"https://www.theverge.com/science/965953/this-week-in-the-big-ai-data-center-buildout\",\"https://industry.cfi.cn/p20260713000042.html\",\"https://www.laohu8.com/post/583971909191112\",\"https://www.chinareport.com.cn/R1",
+        "updatedAt": "2026-07-16T10:20:07.687Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74933,6 +74933,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15.noon",
         "value": "sent:2026-07-15T04:19:47.541Z",
         "updatedAt": "2026-07-15T04:19:47.632Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.evening",
+        "value": "sent:2026-07-16T10:20:07.782Z",
+        "updatedAt": "2026-07-16T10:20:07.868Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.morning",
