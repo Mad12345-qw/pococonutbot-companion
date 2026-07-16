@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T02:09:42.765Z",
+  "exportedAt": "2026-07-16T02:39:42.769Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68754,6 +68754,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-16T01:59:43.379Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://github.com/Adgai115/paper-system-atlas.git\nhttps://github.com/Adgai115/paper-system-atlas.git",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/Adgai115/paper-system-atlas.git"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6ab06572e0e4b1f8e8443df84e6",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-16T02:32:34.213Z"
       }
     ],
     "memories": [
