@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T04:59:43.271Z",
+  "exportedAt": "2026-07-16T07:09:44.360Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68792,6 +68792,26 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-16T02:45:19.609Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_b30b7de541731d6e599bf864f4a9288e",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://platform.mosi.cn/app/playground\nhttps://platform.mosi.cn/app/playground\nhttps://platform.mosi.cn/app/playground\\n已开放，欢迎体验",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://platform.mosi.cn/app/playground",
+            "https://platform.mosi.cn/app/playground\\n已开放，欢迎体验"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6abc680c4ca4b1d2ce78d11b0b1",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-16T07:04:16.096Z"
       }
     ],
     "memories": [
