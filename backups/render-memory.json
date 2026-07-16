@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-15T15:09:47.367Z",
+  "exportedAt": "2026-07-16T00:29:39.970Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74761,6 +74761,11 @@
         "updatedAt": "2026-07-15T15:08:41.244Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T00:19:42.741Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚看到群里在问星舰发射时间，正好今天出了新动态。之前我们一直在聊Optimus产能指引和汽车厂商涌入，现在三条新线索可以再推一层。\\n\\n1. 星舰第13飞定在7月16日，最大看点是首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段。如果成功，将验证完全可重复使用重型运载系统的商业化可行性，对卫星互联网产业链和火箭复用成本结构都是关键催化。\\n\\n2. 特斯拉向Optimus供应链下发更具体的零件采购与产能指引：要求供应商9月周产1000台，年底2000-2500台，对应年底约10万台年化能力。这次指引带着具体SKU和交期，不再是模糊预期。问题从“能不能实现”变成“谁先扩产、谁被验证”。\\n\\n3. 汽车厂商集体涌入人形机器人，据证券日报报道，汽车和机器人正进入产业链融合阶段，共享技术基础和零部件网络。特斯拉弗里蒙特工厂已从Model S/X产线转产Optimus，其他车企也在跟进。这既可能加速零部件通用化和成本下降，也可能导致供应链资源竞争。\\n\\n在Optimus产能爬坡和汽车厂商涌入的双重背景下，人形机器人产业链中哪个环节（电机、减速器、传感器）最可能成为瓶颈？或者星舰V3卫星部署成功后，对国内卫星互联网产业链的催化节奏如何？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰第13飞将部署20颗Starlink V3卫星，Optimus产能指引确认10万台年化，汽车厂商涌入人形机器人产业链。\",\"lastPulseQuestion\":\"在Optimus产能爬坡和汽车厂商涌入的双重背景下，人形机器人产业链中哪个环节（电机、减速器、传感器）最可能成为瓶颈？或者星舰V3卫星部署成功后，对国内卫星互联网产业链的催化节奏如何？\",\"lastPulseSources\":[\"https://english.news.cn/20260714/2b241ec0b51445209baec653e335c3e1/",
+        "updatedAt": "2026-07-16T00:19:42.824Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74849,6 +74854,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-15.noon",
         "value": "sent:2026-07-15T04:19:47.541Z",
         "updatedAt": "2026-07-15T04:19:47.632Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.morning",
+        "value": "sent:2026-07-16T00:19:42.912Z",
+        "updatedAt": "2026-07-16T00:19:42.995Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
