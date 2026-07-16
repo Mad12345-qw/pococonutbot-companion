@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T12:19:50.060Z",
+  "exportedAt": "2026-07-16T12:29:44.265Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74860,8 +74860,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-16T10:20:07.601Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里关于星舰发射和Optimus产能指引的讨论，今天又有三条新动态值得深挖。\\n1. AI数据中心建设持续扩张：The Verge报道美国各地AI数据中心项目不断涌现，但常遭当地居民反对。这意味着算力基建的规模化落地仍面临社会阻力，可能影响供应链节奏和成本结构。\\n2. 前沿AI模型ARR飙升至600亿美元：中财网数据显示Anthropic ARR已超600亿美元，OpenAI约400亿美元，且每GW算力有望贡献600亿美元ARR。这验证了Token经济性的兑现，头部厂商资本开支有望高效转化，利好算力产业链。\\n3. 人形机器人市场预测与汽车厂商涌入：据MarketsandMarkets报告，人形机器人市场预计从2026年54.1亿美元增至2035年502.7亿美元，CAGR 28.1%。同时汽车厂商基于共享技术和供应链加速布局，特斯拉Optimus已进入量产准备阶段。这强化了汽车产业链与人形机器人协同的逻辑。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"AI数据中心建设持续扩张，前沿模型ARR达600亿美元，人形机器人市场预计2035年达502.7亿美元\",\"lastPulseQuestion\":\"在AI数据中心建设持续扩张和模型商业化加速的背景下，人形机器人供应链与汽车产业的协同效应是否会被进一步放大？Optimus的产能指引能否支撑特斯拉在2026年占据人形机器人市场主导地位？\",\"lastPulseSources\":[\"https://www.theverge.com/science/965953/this-week-in-the-big-ai-data-center-buildout\",\"https://industry.cfi.cn/p20260713000042.html\",\"https://www.laohu8.com/post/583971909191112\",\"https://www.chinareport.com.cn/R1",
-        "updatedAt": "2026-07-16T10:20:07.687Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-16T12:28:52.012Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-16T12:28:53.678Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
