@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-16T12:29:44.265Z",
+  "exportedAt": "2026-07-17T00:29:41.665Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74864,6 +74864,11 @@
         "updatedAt": "2026-07-16T12:28:53.678Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-17T00:19:48.990Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n昨晚群里在聊特斯拉Q2财报前投资者最关心的Optimus和Robotaxi问题，今天几条新动态可以直接对接这些关注点。先说Optimus：特斯拉向供应链下发最新产能指引，要求9月周产达到1000台，年底进一步提升到2000-2500台。按此推算，供应商侧2026年底将具备约10万台Optimus的零部件年化供应能力。这个数字比市场早前乐观预期更具体，直接回应了投资者对Gen 3生产扩张和出货节奏的追问。同步关注星舰：SpaceX计划7月16日进行第13次飞行，最大看点是首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段，如果成功，对火箭复用成本和卫星互联网产业链都是关键催化。另外，前沿AI模型商业化加速：Anthropic的ARR已超600亿美元，OpenAI约400亿美元，且每GW算力有望贡献600亿美元ARR。这组数据说明头部厂商继续扩张算力仍有良好商业回报，数据中心资本开支和光模块、液冷等配套环节逻辑被进一步验证。\\n\\n问题：Optimus 10万台年化产能指引下，哪些零部件环节最可能率先出现排产紧张？星舰V3商业部署后，卫星互联网地面设备需求何时体现？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Optimus供应链指引明确10万台年化产能；星舰第13飞首次部署Starlink V3；前沿模型ARR超600亿验证算力回报。\",\"lastPulseQuestion\":\"Optimus 10万台年化产能指引下，哪些零部件环节最可能率先出现排产紧张？星舰V3商业部署后，卫星互联网地面设备需求何时体现？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.topnews.cn/news/145FDFE143BF4D77\",\"https://english.news.cn/202",
+        "updatedAt": "2026-07-17T00:19:49.074Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -74967,6 +74972,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-16.noon",
         "value": "sent:2026-07-16T04:49:41.865Z",
         "updatedAt": "2026-07-16T04:49:42.349Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17.morning",
+        "value": "sent:2026-07-17T00:19:49.158Z",
+        "updatedAt": "2026-07-17T00:19:49.242Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
