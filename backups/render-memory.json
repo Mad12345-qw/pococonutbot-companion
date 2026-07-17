@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-17T00:29:41.665Z",
+  "exportedAt": "2026-07-17T04:29:41.962Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74865,8 +74865,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-17T00:19:48.990Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n昨晚群里在聊特斯拉Q2财报前投资者最关心的Optimus和Robotaxi问题，今天几条新动态可以直接对接这些关注点。先说Optimus：特斯拉向供应链下发最新产能指引，要求9月周产达到1000台，年底进一步提升到2000-2500台。按此推算，供应商侧2026年底将具备约10万台Optimus的零部件年化供应能力。这个数字比市场早前乐观预期更具体，直接回应了投资者对Gen 3生产扩张和出货节奏的追问。同步关注星舰：SpaceX计划7月16日进行第13次飞行，最大看点是首次搭载并部署20颗新一代Starlink V3卫星。这意味着星舰从技术验证正式迈入商业载荷部署阶段，如果成功，对火箭复用成本和卫星互联网产业链都是关键催化。另外，前沿AI模型商业化加速：Anthropic的ARR已超600亿美元，OpenAI约400亿美元，且每GW算力有望贡献600亿美元ARR。这组数据说明头部厂商继续扩张算力仍有良好商业回报，数据中心资本开支和光模块、液冷等配套环节逻辑被进一步验证。\\n\\n问题：Optimus 10万台年化产能指引下，哪些零部件环节最可能率先出现排产紧张？星舰V3商业部署后，卫星互联网地面设备需求何时体现？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Optimus供应链指引明确10万台年化产能；星舰第13飞首次部署Starlink V3；前沿模型ARR超600亿验证算力回报。\",\"lastPulseQuestion\":\"Optimus 10万台年化产能指引下，哪些零部件环节最可能率先出现排产紧张？星舰V3商业部署后，卫星互联网地面设备需求何时体现？\",\"lastPulseSources\":[\"https://fund.stockstar.com/SS2026071000036403.shtml\",\"https://www.topnews.cn/news/145FDFE143BF4D77\",\"https://english.news.cn/202",
-        "updatedAt": "2026-07-17T00:19:49.074Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-17T04:19:49.050Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n昨晚和今早我们密集讨论了星舰第13飞时间、Optimus产能指引，以及特斯拉Q2财报前投资者最关心的Top7问题。顺着这些，今天三条动态可以继续深挖。\\n\\n1. 星舰第13飞定于7月16日，首次搭载并部署20颗新一代Starlink V3卫星。这是星舰从技术验证迈入商业载荷部署的标志性一步。如果成功，将验证完全可重复使用重型运载系统的商业化可行性，直接影响卫星互联网产业链和火箭复用成本曲线。后续关注发射后回收状态、卫星部署质量，以及SpaceX是否提速星舰V3的发射节奏。\\n\\n2. 特斯拉向Optimus供应链下发更具体的零件采购与产能指引：要求供应商9月周产1000台，年底进一步提升到2000-2500台。按此推算，2026年底供应链侧具备约10万台Optimus的零部件年化供应能力。这比早前市场乐观预期更具体，直接回应了投资者对Gen 3生产扩张节奏的关切。接下来需要追踪关键零部件（如执行器、减速器）的瓶颈环节和供应商扩产进度。\\n\\n3. 前沿AI模型ARR飙升至600亿美元：Anthropic的ARR已超600亿美元，OpenAI约400亿美元，且每GW算力有望贡献600亿美元ARR。这意味着头部厂商继续扩张算力仍有商业回报，资本开支有望高效转化为收入。但数据中心项目在美国频遭地方反对，规模化落地存在社会阻力，可能影响供应链节奏。\\n\\n讨论延续：星舰今晚若成功部署Starlink V3，对国内卫星互联网产业链会带来哪些预期差？另外，Optimus产能指引已出，最卡脖子的零部件环节是哪几个？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"星舰13飞首次商业部署、Optimus产能指引细化至年底10万台年化、AI模型ARR验证算力回报逻辑。\",\"lastPulseQuestion\":\"星舰今晚若成功部署Starlink V3，对国内卫星互联网产业链会带来哪些预期差？另外，Optimus产能指引已出，最卡脖子的零部件环节是哪几个？\",\"lastPuls",
+        "updatedAt": "2026-07-17T04:19:49.134Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -74977,6 +74977,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17.morning",
         "value": "sent:2026-07-17T00:19:49.158Z",
         "updatedAt": "2026-07-17T00:19:49.242Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17.noon",
+        "value": "sent:2026-07-17T04:19:49.223Z",
+        "updatedAt": "2026-07-17T04:19:49.307Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
