@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T06:29:46.361Z",
+  "exportedAt": "2026-07-18T10:59:40.857Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68873,6 +68873,78 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-18T06:27:33.833Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "kimi发的新模型很强嘛？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a81e605a4a0de7e7bd7068eaf7",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUnionId": "on_241ed317be2997da80ab2862a31e9565",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-18T10:50:56.525Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我也看到消息了，挺好奇的～你试过了吗？感觉咋样？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-07-18T10:51:01.321Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "user",
+        "modality": "text",
+        "content": "你是如何做到发语音的？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6a81fdaddca4dd1d4ff59179b83",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUserId": "ou_b6930a96bdad6aa1973157ca59fa46b4",
+          "rawUnionId": "on_241ed317be2997da80ab2862a31e9565",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-18T10:53:45.108Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "我其实发不了语音哦～只能给你发文字。可能是语气比较自然，让你觉得像在说话？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
+        },
+        "createdAt": "2026-07-18T10:53:52.717Z"
       }
     ],
     "memories": [
@@ -71484,7 +71556,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T05:55:01.821Z",
-        "updatedAt": "2026-07-03T05:55:01.821Z"
+        "updatedAt": "2026-07-18T10:53:44.936Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -71494,7 +71566,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T05:55:01.753Z",
-        "updatedAt": "2026-07-03T05:55:01.753Z"
+        "updatedAt": "2026-07-18T10:53:44.764Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -74912,8 +74984,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-18T04:20:08.090Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里昨天刚拆完星舰第13飞点火中止和Optimus周产指引，今天有一条新动态直接把两条线串起来了：SpaceX正在与五角大楼磋商提供计算服务。如果落地，意味着SpaceX从发射、卫星通信，正式切入算力供应。这不是简单的政府合同——算力是AI数据中心基建的核心瓶颈，而SpaceX手里有星舰运力、星链宽带和轨道部署能力，完全可能变成“天基算力层”的供应商。\\n\\n值得追的逻辑：\\n1. 算力供给格局变化：当前AI算力堆在地面数据中心，受限于电力、土地、社区阻力。SpaceX若通过星链或星舰提供边缘/轨道算力，可能绕过地面审批瓶颈，直接向军方或企业输出低延迟算力。\\n2. 对产业链的影响：如果SpaceX的算力服务被国防部采用，会带动“星舰复用+星链回传+地面边缘节点”的闭环，上游的液冷、电源、通信模块需求可能从地面转向太空级。\\n3. 验证路径：关注SpaceX是否在复飞后明确算力服务的时间表，以及五角大楼的预算分配。\\n\\n问题：你们觉得SpaceX的算力服务如果落地，最先冲击的是现有云厂商（AWS、Azure）的国防订单，还是催生新的“星地混合算力”赛道？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX与五角大楼磋商提供计算服务，商业航天切入算力供应，可能改变AI数据中心产业链格局。\",\"lastPulseQuestion\":\"SpaceX的算力服务如果落地，最先冲击现有云厂商的国防订单，还是催生新的星地混合算力赛道？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260718/202607180305371124.html\"],\"lastActivityAt\":\"2026-07-18T04:20:08.090Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-18T04:20:08.180Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-18T10:56:46.231Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-18T10:56:47.398Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -75034,6 +75106,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17.noon",
         "value": "sent:2026-07-17T04:19:49.223Z",
         "updatedAt": "2026-07-17T04:19:49.307Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.evening",
+        "value": "sent:2026-07-18T10:50:09.169Z",
+        "updatedAt": "2026-07-18T10:50:09.259Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.morning",
