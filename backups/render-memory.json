@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T17:25:36.110Z",
+  "exportedAt": "2026-07-18T23:35:38.210Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -69163,6 +69163,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-18T17:18:08.100Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1  https://vcnvmnln7wit.feishu.cn/wiki/G8WNwYDrkiJ7HQkmcfmcayAHnOd请调用lark-cli吸收这篇文章  告诉我质量如何，你吸收到了什么，能够帮助你提升什么能力\nhttps://vcnvmnln7wit.feishu.cn/wiki/G8WNwYDrkiJ7HQkmcfmcayAHnOd请调用lark-cli吸收这篇文章\nfeishu-wiki:G8WNwYDrkiJ7HQkmcfmcayAHnOd",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/G8WNwYDrkiJ7HQkmcfmcayAHnOd请调用lark-cli吸收这篇文章"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6af4994f58a0b4a0c2013c2e566",
+          "wikiTokens": [
+            "G8WNwYDrkiJ7HQkmcfmcayAHnOd"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-18T23:34:21.203Z"
       }
     ],
     "memories": [
