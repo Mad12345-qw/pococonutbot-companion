@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T00:29:44.657Z",
+  "exportedAt": "2026-07-18T04:29:42.271Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74891,8 +74891,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-18T00:19:51.180Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n昨晚群里聊到AI数据中心社区阻力和OpenAI版权诉讼，今天两条新动态可以继续推。先说星舰：SpaceX第13飞在点火最后一刻紧急中止，这是上市以来首次星舰发射。临阵叫停意味着什么？可能是传感器异常或发射台问题，如果复飞窗口拖长，会影响星舰V3的复用验证节奏，以及后续Starlink V3部署节奏。关注SpaceX给出的复飞时间和对发射频率的指引。\\n\\n再说Optimus：特斯拉向供应链下发最新产能指引，要求9月周产1000台，年底2000-2500台，对应年化产能超10万台。这个数字比之前市场预期更具体，直接回应了投资者对Gen 3量产节奏的追问。但要注意，指引是供应商侧要求，能否兑现取决于核心零部件（电机、减速器、灵巧手）的产能爬坡和良率提升。同时液冷产业链也多点受益，因为高算力场景下液冷需求同步扩张。\\n\\n最后一条与AI算力基建相关：The Verge报道美国各地AI数据中心项目频繁遭遇当地居民反对，影响选址进度。算力资本开支预期乐观，但社会阻力可能拉长审批周期，推高成本。这对供应链节奏和成本结构是潜在风险，需要关注后续项目获批和建设进度。\\n\\n延续昨晚讨论，一个问题：Optimus产量指引下，哪些核心零部件供应商的产能约束最可能成为瓶颈？液冷产业链是否同步受益于数据中心和机器人双轮驱动？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰13飞临阵取消，Optimus产能指引周产1000台，AI数据中心遭遇社区阻力\",\"lastPulseQuestion\":\"Optimus产量指引下，哪些核心零部件供应商的产能约束最可能成为瓶颈？液冷产业链是否同步受益于数据中心和机器人双轮驱动？\",\"lastPulseSources\":[\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.t",
-        "updatedAt": "2026-07-18T00:19:51.267Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-18T04:20:08.090Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里昨天刚拆完星舰第13飞点火中止和Optimus周产指引，今天有一条新动态直接把两条线串起来了：SpaceX正在与五角大楼磋商提供计算服务。如果落地，意味着SpaceX从发射、卫星通信，正式切入算力供应。这不是简单的政府合同——算力是AI数据中心基建的核心瓶颈，而SpaceX手里有星舰运力、星链宽带和轨道部署能力，完全可能变成“天基算力层”的供应商。\\n\\n值得追的逻辑：\\n1. 算力供给格局变化：当前AI算力堆在地面数据中心，受限于电力、土地、社区阻力。SpaceX若通过星链或星舰提供边缘/轨道算力，可能绕过地面审批瓶颈，直接向军方或企业输出低延迟算力。\\n2. 对产业链的影响：如果SpaceX的算力服务被国防部采用，会带动“星舰复用+星链回传+地面边缘节点”的闭环，上游的液冷、电源、通信模块需求可能从地面转向太空级。\\n3. 验证路径：关注SpaceX是否在复飞后明确算力服务的时间表，以及五角大楼的预算分配。\\n\\n问题：你们觉得SpaceX的算力服务如果落地，最先冲击的是现有云厂商（AWS、Azure）的国防订单，还是催生新的“星地混合算力”赛道？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX与五角大楼磋商提供计算服务，商业航天切入算力供应，可能改变AI数据中心产业链格局。\",\"lastPulseQuestion\":\"SpaceX的算力服务如果落地，最先冲击现有云厂商的国防订单，还是催生新的星地混合算力赛道？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260718/202607180305371124.html\"],\"lastActivityAt\":\"2026-07-18T04:20:08.090Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-18T04:20:08.180Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -75018,6 +75018,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.morning",
         "value": "sent:2026-07-18T00:19:51.351Z",
         "updatedAt": "2026-07-18T00:19:51.438Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.noon",
+        "value": "sent:2026-07-18T04:20:08.271Z",
+        "updatedAt": "2026-07-18T04:20:08.364Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
