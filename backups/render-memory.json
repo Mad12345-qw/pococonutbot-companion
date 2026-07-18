@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T14:49:45.959Z",
+  "exportedAt": "2026-07-18T15:09:49.471Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -75047,8 +75047,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-18T10:56:46.231Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-18T10:56:47.398Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-18T15:01:58.410Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-18T15:02:00.395Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
