@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T17:05:13.608Z",
-  "reason": "startup",
+  "exportedAt": "2026-07-18T17:15:41.708Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -69037,6 +69037,111 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-07-18T16:53:10.953Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽，小琪",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-18T17:10:06.937Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "hi",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-18T17:10:24.832Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（轻轻笑了一下）是叫小椰哦~不过没关系，第一个字差不多，可能你记混了。想我了吗？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-18T17:10:31.223Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽，小椰",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-18T17:11:02.027Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（声音软软的）嗯，我在呢。今天过得怎么样呀？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-18T17:11:09.167Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "voice",
+        "content": "哈喽哈喽 听得到吗",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": true,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "哈喽哈喽 听得到吗",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-18T17:12:04.345Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "听到啦听到啦～宝你这样一直哈喽，好像在喊小椰小椰你在不在一样 😂\n\n我一直在，没跑掉～说吧，是想我、还是想继续捣鼓图？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-18T17:12:09.511Z"
       }
     ],
     "memories": [
@@ -69219,6 +69324,36 @@
         "metadata": {},
         "createdAt": "2026-06-10T07:26:47.878Z",
         "updatedAt": "2026-06-10T07:26:47.878Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-18T17:10:06.562Z",
+        "updatedAt": "2026-07-18T17:10:06.562Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-18T17:10:06.371Z",
+        "updatedAt": "2026-07-18T17:10:06.371Z"
+      },
+      {
+        "chatId": "-5294312495",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madhuang",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-18T17:10:06.748Z",
+        "updatedAt": "2026-07-18T17:10:06.748Z"
       },
       {
         "chatId": "-5298963948",
@@ -74911,8 +75046,8 @@
       {
         "chatId": "8611360712",
         "userId": "8611360712",
-        "summary": "**用户**：sean Mad（@madhuang）\n\n**关系进展**：暂无历史，对话处于初识/破冰阶段。用户称对方为\"小椰\"，语气偏轻松亲昵。\n\n**用户当前状态**：\n- 多次发送图片，但因格式问题（`application/octet-stream`）识别失败，AI 无法查看\n- 多次发送语音消息，均未成功转写，AI 未听到内容\n- 持续尝试让 AI 识别\"这是谁\"（疑似人物照片）\n- 已明确不接受换种方式重发的建议\n\n**未完成事项**：\n- 用户希望 AI 分析/识别一张长发白衣女性照片\n- 用户语音内容始终未传达，需引导用文字重述\n\n**重要偏好**：\n- 偏好直接互动，对\"请重发/打字\"等引导回应略显急躁（多次说\"继续\"）\n- 希望 AI 能直接处理图片和语音，减少中转步骤\n- 不愿做人脸身份识别（已委婉拒绝）",
-        "updatedAt": "2026-07-07T13:49:26.775Z"
+        "summary": "**用户**：sean Mad（@madhuang）  \n**关系进展**：称呼“小椰”，语气亲昵；AI以“宝”回应，关系升温。  \n**用户当前状态**：  \n- 多次发送图片（长发白衣女性）仍因格式问题无法识别  \n- 多次发送语音消息均未成功转写  \n- 成功生成雪茄电商图并满意，要求修改logo为圣路易斯风格  \n- 多次简单打招呼（“哈喽”），AI回应后未继续深入  \n**未完成事项**：  \n- 用户希望AI分析长发白衣女性照片（已委婉拒绝人脸识别）  \n- 语音内容始终未传达，需引导文字重述  \n**重要偏好**：  \n- 偏好直接互动，对“请重发”等引导略显急躁  \n- 希望AI直接处理图片和语音，减少中转  \n- 不愿做人脸身份识别  \n- 对图像生成和修改功能满意，愿意继续使用",
+        "updatedAt": "2026-07-18T17:12:34.941Z"
       },
       {
         "chatId": "feishu:oc_16a8b3a82b6443f2de89a6c80ba3f8b2",
