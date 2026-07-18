@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T10:59:40.857Z",
+  "exportedAt": "2026-07-18T13:59:42.757Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -68945,6 +68945,48 @@
           "replyToUserId": "feishu:ou_b6930a96bdad6aa1973157ca59fa46b4"
         },
         "createdAt": "2026-07-18T10:53:52.717Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://my.feishu.cn/docx/BXdedtXDIodkFlxFk9zcviC9nAh\nhttps://my.feishu.cn/docx/BXdedtXDIodkFlxFk9zcviC9nAh\nfeishu-docx:BXdedtXDIodkFlxFk9zcviC9nAh",
+        "metadata": {
+          "docxIds": [
+            "BXdedtXDIodkFlxFk9zcviC9nAh"
+          ],
+          "linkUrls": [
+            "https://my.feishu.cn/docx/BXdedtXDIodkFlxFk9zcviC9nAh"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a8c02f61cacb178d64866ebeb3",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-18T13:51:11.667Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 《智能体安全与信息分层培训规范》——让新机器人懂规矩、知轻重、守秘密\nhttps://my.feishu.cn/docx/BXdedtXDIodkFlxFk9zcviC9nAh\nfeishu-docx:BXdedtXDIodkFlxFk9zcviC9nAh",
+        "metadata": {
+          "docxIds": [
+            "BXdedtXDIodkFlxFk9zcviC9nAh"
+          ],
+          "linkUrls": [
+            "https://my.feishu.cn/docx/BXdedtXDIodkFlxFk9zcviC9nAh"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6a8c1c19f4a8b3673debf635b48",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-18T13:52:50.564Z"
       }
     ],
     "memories": [
