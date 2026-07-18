@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T15:09:49.471Z",
+  "exportedAt": "2026-07-18T16:59:45.666Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -69008,6 +69008,35 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-18T14:43:51.336Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽",
+        "metadata": {
+          "fullName": "sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madhuang",
+          "firstName": "sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-18T16:53:05.560Z"
+      },
+      {
+        "chatId": "8611360712",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "宝，哈喽哈喽～我随时都在呢 😊  \n今天想聊点什么，还是想让我陪你发会儿呆？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-18T16:53:10.953Z"
       }
     ],
     "memories": [
