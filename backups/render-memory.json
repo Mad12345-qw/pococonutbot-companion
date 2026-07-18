@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-17T11:29:42.161Z",
+  "exportedAt": "2026-07-18T00:29:44.657Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -74890,6 +74890,11 @@
         "updatedAt": "2026-07-17T10:19:50.531Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-18T00:19:51.180Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n昨晚群里聊到AI数据中心社区阻力和OpenAI版权诉讼，今天两条新动态可以继续推。先说星舰：SpaceX第13飞在点火最后一刻紧急中止，这是上市以来首次星舰发射。临阵叫停意味着什么？可能是传感器异常或发射台问题，如果复飞窗口拖长，会影响星舰V3的复用验证节奏，以及后续Starlink V3部署节奏。关注SpaceX给出的复飞时间和对发射频率的指引。\\n\\n再说Optimus：特斯拉向供应链下发最新产能指引，要求9月周产1000台，年底2000-2500台，对应年化产能超10万台。这个数字比之前市场预期更具体，直接回应了投资者对Gen 3量产节奏的追问。但要注意，指引是供应商侧要求，能否兑现取决于核心零部件（电机、减速器、灵巧手）的产能爬坡和良率提升。同时液冷产业链也多点受益，因为高算力场景下液冷需求同步扩张。\\n\\n最后一条与AI算力基建相关：The Verge报道美国各地AI数据中心项目频繁遭遇当地居民反对，影响选址进度。算力资本开支预期乐观，但社会阻力可能拉长审批周期，推高成本。这对供应链节奏和成本结构是潜在风险，需要关注后续项目获批和建设进度。\\n\\n延续昨晚讨论，一个问题：Optimus产量指引下，哪些核心零部件供应商的产能约束最可能成为瓶颈？液冷产业链是否同步受益于数据中心和机器人双轮驱动？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰13飞临阵取消，Optimus产能指引周产1000台，AI数据中心遭遇社区阻力\",\"lastPulseQuestion\":\"Optimus产量指引下，哪些核心零部件供应商的产能约束最可能成为瓶颈？液冷产业链是否同步受益于数据中心和机器人双轮驱动？\",\"lastPulseSources\":[\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.t",
+        "updatedAt": "2026-07-18T00:19:51.267Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -75008,6 +75013,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-17.noon",
         "value": "sent:2026-07-17T04:19:49.223Z",
         "updatedAt": "2026-07-17T04:19:49.307Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.morning",
+        "value": "sent:2026-07-18T00:19:51.351Z",
+        "updatedAt": "2026-07-18T00:19:51.438Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
