@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T04:15:39.216Z",
+  "exportedAt": "2026-07-19T06:35:41.614Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -69184,6 +69184,123 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-18T23:34:21.203Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS\nhttps://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6af2a1f7f8a4b1037457b3af626",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-19T06:30:14.520Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS\n[Link content]\n[Web page] https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6af2a1f7f8a4b1037457b3af626",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "[Web page] https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS\n- YouTube \n \n\n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n\n \n \n \n \n \n \n\n About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features NFL Sunday Ticket &copy; 2026 Google LLC",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-19T06:30:16.733Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "card",
+        "content": "整理好了：为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率\n主题：long\n视频：1 条\n- 1. How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote（Kimi AI / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU\n耗时诊断：字幕 503ms / AI 1m18s / 飞书 25s / 总计 1m43s\nObsidian：后台同步中\n知识库目录：后台归档中\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "long",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+          "obsidianPath": "",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": false,
+          "wechatCandidateId": "wechat_candidate:458cb51b27b53069",
+          "youtubeDiagnostics": {
+            "aiMs": 77837,
+            "totalMs": 78343,
+            "failures": 0,
+            "deliveryMs": 1015,
+            "documentMs": 24814,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 503,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "backgroundSyncPending": true
+        },
+        "createdAt": "2026-07-19T06:32:09.386Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "system",
+        "content": "整理好了：为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率\n主题：long\n视频：1 条\n- 1. How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote（Kimi AI / en）\n飞书文档：https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU\n耗时诊断：字幕 503ms / AI 1m18s / 飞书 25s / 发卡 1.0s / 总计 1m44s\nObsidian：已同步到 youtube/long-How-We-Scaled-Kimi-K2.5-Zhilin-Yangs-full-GTC-2026-Keynote.md\n知识库目录：已归档\n正文我已经放到飞书文档里了，请查收哦",
+        "metadata": {
+          "topic": "long",
+          "platform": "feishu",
+          "videoCount": 1,
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+          "obsidianPath": "youtube/long-How-We-Scaled-Kimi-K2.5-Zhilin-Yangs-full-GTC-2026-Keynote.md",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+          "youtubeResearch": true,
+          "feishuIndexSynced": true,
+          "youtubeDiagnostics": {
+            "aiMs": 77837,
+            "totalMs": 78343,
+            "failures": 0,
+            "deliveryMs": 1015,
+            "documentMs": 24814,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 503,
+            "feishuIndexMs": 1269,
+            "obsidianSyncMs": 1119,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1,
+            "researchKnowledgeBase": {
+              "synced": true,
+              "entities": 23,
+              "sourceId": "source:22b9c5da037b22f3",
+              "questions": 5,
+              "coverageGaps": 3,
+              "evidenceCards": 19
+            },
+            "researchKnowledgeBaseMs": 39012
+          },
+          "backgroundSyncComplete": true
+        },
+        "createdAt": "2026-07-19T06:32:51.331Z"
       }
     ],
     "memories": [
@@ -71785,7 +71902,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-11T12:04:49.614Z"
+        "updatedAt": "2026-07-19T06:30:16.562Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -71795,7 +71912,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-11T12:04:49.440Z"
+        "updatedAt": "2026-07-19T06:30:16.388Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -75258,8 +75375,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-19T04:05:49.233Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n早上聊完特斯拉Optimus量产节奏，群里没人接，那我接着追另一条线：SpaceX上市后首次星舰发射，点火前最后一刻取消，这事值得再挖一层。\\n\\n候选动态有三条，我挑一条最该验证的：\\n\\n1. 星舰第13次试飞在点火前中止，没有复飞时间表。这是SpaceX上市以来的首次发射，临阵叫停说明什么？是火箭本身的问题，还是流程保守？如果是硬件问题，后续窗口可能会延后几周，直接影响星链V3的部署节奏。\\n\\n2. 同一时间，二季度太空风投吸金75亿美元，逼近历史纪录。SpaceX的IPO效应拉来了大量圈外资本，但一次发射取消会不会让这些新进资金重新评估风险？如果复飞延迟，供应链订单预期也可能被修正。\\n\\n3. 国内这边，临界航天获2亿元天使轮，AI辅助火箭发动机研发。国内商业航天融资节奏没有受SpaceX取消影响，但这条线跟SpaceX供应链的关联度不高，暂时不展开。\\n\\n最值得继续验证的一条产业链变化：SpaceX发射节奏和资本热度的错位——如果下周复飞顺利，这条线没断；如果持续延迟，可能会影响后续星链部署和二级市场情绪。\\n\\n问题：一次点火前取消，是否会改变二级市场对SpaceX供应链（如箭体结构、发动机零部件）的估值逻辑？群里有没有人跟踪后续复飞窗口？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX星舰13次试飞取消，太空风投创纪录，关注发射节奏与资本热度的错位\",\"lastPulseQuestion\":\"一次点火前取消，是否会改变二级市场对SpaceX供应链的估值逻辑？群里有没有人跟踪后续复飞窗口？\",\"lastPulseSources\":[\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.html\",\"http://www.spacenew.cn/news/show-88774.html\"]",
-        "updatedAt": "2026-07-19T04:05:49.319Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-19T06:30:13.749Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-19T06:30:14.927Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -78446,6 +78563,87 @@
         "error": "",
         "createdAt": "2026-07-11T12:04:51.877Z",
         "updatedAt": "2026-07-11T12:07:16.885Z"
+      },
+      {
+        "id": "job:6bd4ebde999c9778",
+        "sourceType": "video",
+        "sourceUrl": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+        "status": "done",
+        "stage": "done",
+        "attempts": 1,
+        "input": {
+          "adapter": "youtube",
+          "request": {
+            "raw": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+            "query": "",
+            "videoUrl": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+            "maxVideos": 1,
+            "requested": true,
+            "topicHint": "",
+            "channelUrl": "",
+            "sourceType": "video",
+            "youtubeRef": "CwePo4847ho",
+            "playlistUrl": ""
+          },
+          "principles": [
+            "plan_before_generation",
+            "evidence_before_opinion",
+            "reader_document_plus_machine_evidence",
+            "time_context_first_class"
+          ]
+        },
+        "output": {
+          "title": "为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率",
+          "topic": "long",
+          "videos": 1,
+          "diagnostics": {
+            "aiMs": 77837,
+            "totalMs": 78343,
+            "failures": 0,
+            "sourceType": "video",
+            "candidateMs": 0,
+            "transcriptMs": 503,
+            "videosAttempted": 1,
+            "videosWithTranscript": 1
+          },
+          "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+          "obsidianPath": "youtube/long-How-We-Scaled-Kimi-K2.5-Zhilin-Yangs-full-GTC-2026-Keynote.md",
+          "knowledgeBase": {
+            "synced": true,
+            "entities": 23,
+            "sourceId": "source:22b9c5da037b22f3",
+            "questions": 5,
+            "coverageGaps": 3,
+            "evidenceCards": 19
+          },
+          "youtubeArticleParts": {
+            "title": "为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率",
+            "summary": {
+              "done": 7,
+              "total": 7,
+              "failed": 0,
+              "succeeded": 7,
+              "updatedAt": "2026-07-19T06:31:35.959Z",
+              "failedParts": [],
+              "cachedPartNames": [
+                "tech",
+                "glossary",
+                "timeline",
+                "titleContext",
+                "evidenceBrief",
+                "evidenceBriefThesis",
+                "evidenceBriefTermsEvidence"
+              ]
+            },
+            "clearedAt": "2026-07-19T06:32:05.266Z",
+            "clearReason": "published",
+            "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+            "clearedIntermediateParts": true
+          }
+        },
+        "error": "",
+        "createdAt": "2026-07-19T06:30:19.664Z",
+        "updatedAt": "2026-07-19T06:32:51.150Z"
       }
     ],
     "researchReferenceSources": [],
@@ -79257,6 +79455,56 @@
         },
         "createdAt": "2026-07-11T12:06:45.017Z",
         "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "sourceType": "video",
+        "platform": "youtube",
+        "url": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+        "title": "为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率",
+        "author": "Kimi AI",
+        "organization": "Kimi AI",
+        "publishedAt": "",
+        "recordedAt": "",
+        "eventPeriod": "",
+        "fetchedAt": "2026-07-19T06:32:11.868Z",
+        "analyzedAt": "2026-07-19T06:32:11.868Z",
+        "language": "en",
+        "durationText": "",
+        "rawText": "Video 1: How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote\nURL: https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS\nChannel: Kimi AI\n[0:07] [music]\n[0:11] Hi everyone. Thank you so much for the\n[0:14] introduction. It's great to be here. Uh\n[0:17] it's great to have this opportunity to\n[0:20] share with you guys uh some of our\n[0:22] latest progress and efforts.\n[0:26] So uh one of our major pursues uh is to\n[0:31] build better open models and we believe\n[0:34] in democratizing intelligence. With open\n[0:37] models you can deploy anywhere. You can\n[0:39] be on your local servers, you can be on\n[0:41] the cloud and you can access every\n[0:43] single bit of the weights in the\n[0:46] modeling instead of just uh using a\n[0:48] black box. And this is one of the slides\n[0:51] that I took from Jensen's uh talk\n[0:54] earlier this year at CES. So as you can\n[0:56] see, open models are quickly uh closing\n[0:59] the gap with uh proprietary models and\n[1:02] it's reaching the frontier. And we\n[1:05] believe that with better and better open\n[1:06] models, we're going to u make\n[1:08] intelligence more accessible to anybody\n[1:11] in the world in every corner of the\n[1:14] world. But open models cannot be just\n[1:17] open. they have have also to be great.\n[1:22] So uh in this talk we're going to\n[1:24] discuss how we make open models great.\n[1:27] Uh so as we know uh scaling is a primary\n[1:32] driver uh for a lot of progress maybe\n[1:35] all of the you know major AI\n[1:37] developments that we have witnessed in\n[1:39] in the last few years and here we're\n[1:41] going to discuss how we scale our model\n[1:44] in different dimensions. So on the left\n[1:46] hand side the first figure you see here\n[1:48] is kind of the the standard scaling law.\n[1:51] So on the x-axxis you have the uh log of\n[1:55] the number of training tokens and on the\n[1:57] y-axis you have the log loss and as you\n[2:00] scale the number of training tokens you\n[2:02] get a lower loss. But here the point is\n[2:05] we're not going to just scale the number\n[2:07] of training tokens but we also want to\n[2:10] want to improve uh the token efficiency.\n[2:13] uh meaning that we want to move this\n[2:15] curve to the left hand side so that we\n[2:17] can achieve a lower loss a much lower\n[2:20] loss using the same number of training\n[2:23] tokens and this can be achieved by\n[2:26] having better architectures and\n[2:28] optimizers as we'll discuss in in our\n[2:31] later slides and the second scaling\n[2:33] dimensions that we're very interested in\n[2:36] is to scale the context lens so as you\n[2:39] can see in the second second figure uh\n[2:41] if we increase the context length then\n[2:45] we can uh have a much higher accuracy in\n[2:48] terms of predicting uh the token loss at\n[2:52] a given position. Uh and this means that\n[2:55] we can increase the capability of the\n[2:57] model to achieve more complex task by\n[3:01] increasing uh the context. So this is\n[3:04] the second scaling dimensions that we're\n[3:06] going to talk about. And the third\n[3:08] scaling dimension is the number of\n[3:09] agents. So we introduced this new\n[3:12] learning paradigm of agent swams where\n[3:15] we can we don't just rely on a single\n[3:17] agent but we also uh orchestrate a swarm\n[3:21] of agents that can accomplish the\n[3:23] subtask in parallel so that we can\n[3:25] increase the task capacity and we can\n[3:28] translate all of this in into the\n[3:29] language of agents. So if you look at\n[3:32] token efficiency, it's mostly about\n[3:34] having a stronger prior so that you can\n[3:38] uh have more efficiency when you do\n[3:41] agent RL to search for a uh better\n[3:44] solution. And you think about long\n[3:45] context is it's mostly about increasing\n[3:48] the context length so that you can have\n[3:49] a longer running agent. It can probably\n[3:52] run for days or even weeks or months to\n[3:54] accomplish more uh more more tasks more\n[3:57] uh complex tasks and about and for agent\n[4:01] swarms is is another dimensions that\n[4:04] that add to it and at the end of the day\n[4:05] we're going to have a swarm of agents\n[4:07] that each of them have a super long\n[4:09] context and each of them have a very\n[4:11] strong prior for us to uh search uh in\n[4:15] this entire agent RL system.\n[4:19] All right. So we're going to start uh\n[4:21] from token efficiency. So this is one of\n[4:24] the most you know classical figures in\n[4:27] the history of machine learning. Right.\n[4:29] So it's taken from cap Kaplan Adel and\n[4:31] it basically says that if we scale\n[4:34] proportionally the number of training\n[4:37] tokens the model parameters and also the\n[4:40] amount of compute we can get lower and\n[4:42] lower loss. And this is you know one of\n[4:44] the major breakthroughs that that the\n[4:46] entire community uh has achieved in the\n[4:49] last few years to to get uh better\n[4:52] intelligence. But here what what we're\n[4:54] interested in is is to have better and\n[4:57] better uh token efficiency. And uh\n[5:01] here's the thing. So one thing that I\n[5:02] would like to emphasize is that token\n[5:05] efficiency is not just about efficiency.\n[5:09] is actually also about improving the\n[5:11] upper bound of intelligence. So here\n[5:14] here's why. So uh suppose you have uh\n[5:18] say 50 trillion tokens, 50 trillion high\n[5:21] quality tokens and then you apply this\n[5:24] new optimizer maybe the m optimizer and\n[5:27] then all of a sudden you have a two\n[5:29] times token efficiency. So it means that\n[5:32] it's almost like magic that you get uh\n[5:35] equivalently 100 trillion tokens. Uh and\n[5:39] nowadays we are scaling towards the data\n[5:41] war and we're hitting you know the data\n[5:44] war and the amount of high quality data\n[5:46] is quite limited and if we suppose that\n[5:48] is a constant amount then we increase\n[5:51] the token efficiency it means that uh\n[5:54] we're going to get better intelligence\n[5:56] out of it. It's not just about\n[5:58] infrastructure efficiency. It's about\n[6:00] you know better uh intelligence. So so\n[6:04] this is why we spend you know a lot of\n[6:06] efforts in this aspect because it's\n[6:08] going to push uh the frontier of of\n[6:10] intelligence and m optimizer is one of\n[6:13] the things that we have heavily invested\n[6:15] in uh since last year. So it's a second\n[6:20] order optimizer and basically every\n[6:23] single gradient update is transformed in\n[6:26] a way that each entry is orthogonal to\n[6:29] each other and this is very different\n[6:31] from the traditional atom optimizer and\n[6:35] if if you implement this optimizer\n[6:37] properly you can get a two times token\n[6:39] efficient efficiency improvement. Uh so\n[6:42] we we are one uh we are the first uh\n[6:46] work we published the first work to\n[6:48] demonstrate that SM optimizer is\n[6:50] actually scalable for LLM training and\n[6:53] these are two key techniques that it we\n[6:56] employ to make it effective for large\n[6:59] scale training. So one of them is decay\n[7:01] it it is critical for scaling to larger\n[7:03] models and the second is uh we want to\n[7:06] ensure a consistent RMS updates compared\n[7:09] to Adam. So we have this uh adjustable\n[7:13] coefficient that is applied uh to each\n[7:16] update so that uh the uh resulting RMS\n[7:19] is going to be comparable to Adam and uh\n[7:23] to make MIUI memory efficient across all\n[7:26] this uh Nvidia GPU clusters. We also\n[7:29] develop a distributed mumm optimizer\n[7:32] implementation that partitions the\n[7:34] states across uh the data parallel group\n[7:37] so that we can have a very efficient\n[7:39] imple implementation for the mum\n[7:41] optimizer and these are some of the\n[7:44] results uh that we presented in the\n[7:46] paper. So as you can see with with the\n[7:48] same number of parameters and the same\n[7:51] number of training tokens we just\n[7:52] replace the original AdamW optimizer\n[7:56] with the new MU optimizer is going to to\n[7:59] improve the performance across the board\n[8:01] uh sign uh significantly.\n[8:04] But there was uh this new challenge that\n[8:07] we encounter when we try to scale it up\n[8:10] further. when we try to scale muon for a\n[8:13] one trillion parameter model we\n[8:15] encounter a new issue uh about training\n[8:18] instability. So as you can see on the\n[8:20] left figure we uh we observe that the\n[8:24] max logits quickly explodes and quickly\n[8:27] exceeds 1,000 and the typical values for\n[8:31] uh for uh training for this max logics\n[8:35] is about say 50 or maybe less than uh\n[8:38] 100 but for uh for m it quickly exists\n[8:42] 1,000 and at the same time we observe\n[8:44] training uh divergence on the left hand\n[8:47] side. If you look at the trading loss,\n[8:49] uh it goes down a bit but then at the\n[8:51] end of the day it explodes and it cannot\n[8:53] converges uh as expected. So this is one\n[8:56] of the technical challenges that we have\n[8:58] to to address. Uh and the solution to\n[9:01] this is to introduce this new technique\n[9:04] called uh QK clip. So basically what it\n[9:07] says is that for each attention hat in\n[9:10] this entire neuronet network we're going\n[9:12] to in the forward pass we're going to\n[9:14] compute the max logit and then we're\n[9:16] going to calculate a dividing factor\n[9:19] that can be applied to each uh key\n[9:22] projection as well as the query\n[9:24] projection so that we can uh sort of\n[9:27] clip the maximum uh value of the query\n[9:30] and the key to to sort of constrain it\n[9:33] into a a given range so so that uh we're\n[9:37] not going to have exposion anymore. Uh\n[9:40] so these are some of the empirical\n[9:41] results. On the left hand side there are\n[9:43] two curves but there are strictly\n[9:45] overlapped with each other. So these are\n[9:47] the training curves before and after\n[9:50] applying the clipping technique. So you\n[9:52] can see uh the clipping technique does\n[9:55] not affect uh the training loss uh uh uh\n[9:59] decrease at all. But on the right hand\n[10:01] side if we inspect uh the intermediate\n[10:04] metric if we inspect the max logit it's\n[10:06] going to be effectively uh constraint.\n[10:10] So it first expose as before but at the\n[10:14] value of 100 it's going to be clip at a\n[10:17] constant value for a long time and then\n[10:19] after a certain number of steps will\n[10:21] just naturally go down. uh so the neural\n[10:23] network sort of uh find a way to uh\n[10:27] constrain the maximum value of the uh\n[10:30] max logic to ensure a stable uh training\n[10:33] process and at the same time it doesn't\n[10:35] affect you know the training convergence\n[10:38] as shown in in the in the left figure.\n[10:40] So we employed this technique in our uh\n[10:43] K2 model training and successfully\n[10:46] scaled it to one trillion parameters.\n[10:49] And this is uh the first example of a\n[10:53] large scale mong training in the history\n[10:55] of machine learning.\n[10:58] And the second dimension that we're very\n[11:01] interested in is isl context. So this is\n[11:04] another figure. It's probably less\n[11:06] known. uh is is one of the hidden gems\n[11:10] in these papers. Uh so instead of just\n[11:13] you know pushing down the training loss\n[11:14] by training on more tokens, it has some\n[11:18] uh uh insights from another perspective.\n[11:21] So as we can see this is a comparison\n[11:23] between transformers and LSTMs. So on\n[11:26] the left hand side we can see that\n[11:28] transformers achieve a lower training\n[11:30] loss given the same number of parameters\n[11:33] and the same number of training tokens\n[11:35] as expected. And this is why\n[11:36] transformers become you know the you\n[11:38] know the sort of the de facto\n[11:40] architecture that people are using right\n[11:41] now. But on the right hand side it's\n[11:44] really interesting to see that\n[11:46] transformers are actually better because\n[11:48] it can improve through the whole\n[11:50] context. So the x-axis is the token\n[11:53] index in context. And if you increase\n[11:55] the token index, you can see that the\n[11:57] training loss of transformers actually\n[11:59] drop by a lot. If you just continue\n[12:03] continually increase context lens, the\n[12:05] loss just continuously drops down. But\n[12:08] if you look at you know the curve of\n[12:10] RSDM, it just is saturated after a\n[12:13] certain uh number of tokens. It means\n[12:16] that transformers have this better\n[12:18] capability of capturing longer context\n[12:21] and this is this is what makes it uh\n[12:23] better uh because if it if you go back\n[12:26] to like 10 years ago uh people use LSTN\n[12:29] for tasks like machine translation but\n[12:32] it is not good for for example\n[12:34] understanding entire codebase or running\n[12:36] a super long agent trajectories to solve\n[12:40] uh a a uh for example writing Linux\n[12:42] kernels uh from scratch. is not going to\n[12:45] be accomplishable by STMs. So this is a\n[12:48] very uh much neededed capability in the\n[12:52] era of agents because tasks are becoming\n[12:54] harder and harder uh and we need longer\n[12:56] and longer context. Uh so the research\n[12:59] idea here is to develop a better\n[13:02] architecture so that we can uh\n[13:04] efficiently scale to a longer context\n[13:07] length and at the same time achieve a\n[13:10] lower per token loss at uh larger token\n[13:14] indices. And this is the motivation uh\n[13:18] for which we introduce this new\n[13:20] architecture called uh Kim linear. And\n[13:24] it's uh contains this new uh linear\n[13:28] attention variants called uh Kimmy delta\n[13:31] attention which improves the original\n[13:35] uh delta rule GDR uh by improved\n[13:38] recurrent memory. I will show the\n[13:40] details later. And at the same time,\n[13:42] we're going to mix linear attention\n[13:44] layers with full attention layers using\n[13:46] a one to three ratio so that you can\n[13:49] balance between uh this long context\n[13:52] capabilities and at the same time having\n[13:54] a more efficient uh implementation.\n[13:58] So this is uh some of the formulation.\n[14:01] Uh the basic idea is simple. If you look\n[14:03] at linear attention uh in the original\n[14:06] formulation uh the memory is going to be\n[14:08] global. So there is a global single\n[14:12] decay factor that is applied along the\n[14:15] way. So it means that uh basically if uh\n[14:19] there are only two cases in one case is\n[14:21] in one case you're going to forget\n[14:23] basically everything and you're not\n[14:25] going to retain any information and in\n[14:27] the second case you can choose to retain\n[14:30] you know almost everything but at the\n[14:31] same time you don't have the capability\n[14:33] to leave out some of the unnecessary\n[14:36] information in this long context. So we\n[14:38] introduce this key idea of having a fine\n[14:42] grain uh decay factor as shown in this\n[14:44] highlighted alpha term. So it's going to\n[14:48] uh instead of being a scalar, it's going\n[14:50] to be a a diagonal matrix which controls\n[14:54] uh the decay rate for each channel. So\n[14:57] that we can have two possibilities. For\n[14:58] some of the channels, we can uh decay\n[15:01] really really slow, meaning that we can\n[15:03] retain this long context information\n[15:05] across a very long uh range. And at the\n[15:09] same time, for the other channels, we\n[15:11] can sort of quickly forget uh the\n[15:13] information from the past indices to\n[15:16] refresh it and observe new information.\n[15:20] And this is uh to increase the\n[15:23] expressivity uh of this model.\n[15:27] And of course to leverage modern GPUs we\n[15:30] have to use this chunkwise uh\n[15:32] formulations so that we can uh paralyze\n[15:35] the computation on modern GPUs. So the\n[15:38] first equation here is the chunk uh\n[15:40] chunkwise um formulation of uh Kimaria.\n[15:45] But as you can see this is going to\n[15:47] bring massive infrastructure uh\n[15:49] challenges because of this newly\n[15:52] introduced alpha term. Uh because now it\n[15:54] is a matrix instead of a scalar it\n[15:57] cannot easily be factored out. So to\n[16:00] achieve a efficient implementation uh we\n[16:03] rewrite the entire equation into the the\n[16:06] bottom three equations. Uh so it we\n[16:09] introduced this matrix inversion\n[16:11] operation as well as introducing uh the\n[16:15] uh cumulative decay factor so that we\n[16:17] can implement this entire thing in\n[16:20] parallel without sacrif sacrificing uh\n[16:23] any efficiency and more importantly this\n[16:26] is not an approximation. is an exact uh\n[16:30] mathematically equivalent formulation so\n[16:32] that we can achieve much efficient\n[16:35] implementation without sacrificing uh\n[16:37] any loss in terms of uh performance. So\n[16:41] it's going to be as efficient as uh you\n[16:45] know previous linear attention variance\n[16:47] but at the same time much more\n[16:49] expressive. So these are some of the\n[16:51] results that we obtain uh using a fair\n[16:54] comparison. So on the left hand side we\n[16:57] see the performance on two different\n[16:59] types of task. So MMAU is a short\n[17:02] context task. So for short context task\n[17:05] uh Kim achieved a better performance\n[17:08] compared to MLA and GDN. And at the same\n[17:12] time for longer context task such as\n[17:14] ruler uh Kim linear is uh also better\n[17:19] than the varants uh the other variants\n[17:21] while being much more efficient compared\n[17:24] to MLA.\n[17:25] And when we scale the contact lens\n[17:28] further to for example 1 million tokens\n[17:30] or even longer uh it's going to be much\n[17:32] more efficient uh compared to uh the\n[17:35] baselines. And this is also uh the first\n[17:39] architecture that can outperforms full\n[17:41] attention across across the board uh\n[17:44] including short context task uh long\n[17:46] input task and long output task.\n[17:49] So these are two uh key dimensions that\n[17:52] uh we are interested in and the third\n[17:55] dimension uh is the agent swarms. So\n[17:59] here's a diagram to showcase how we\n[18:03] design this agent swarm paradigm to\n[18:07] solve some of the more complex task\n[18:09] compared to single agent paradigms. So\n[18:12] here we have an orchestrator or you can\n[18:15] call it a main agent. It's responsible\n[18:17] for orchestrating task. It has different\n[18:21] options. For example, we can spawn uh a\n[18:23] group of sub aents and assign new task\n[18:26] to these sub aents or you can collect\n[18:28] the results uh from the return of these\n[18:31] sub aents and you can sort of uh\n[18:34] performing this process in an iterative\n[18:37] way and at the end of the day you can ac\n[18:39] accomplish a more uh complex task\n[18:42] compared to using one single agent and\n[18:45] it's analogous to to human society. For\n[18:47] example, if we build a a company, uh we\n[18:50] need different roles and we need for\n[18:52] example uh orchestrator or maybe we need\n[18:55] a CEO to to decompose and assign the\n[18:58] task to different rows and then at the\n[19:00] end of the day uh the entire\n[19:02] organization is going to have uh to move\n[19:05] towards this same goal. And here for\n[19:08] example in this case we have maybe you\n[19:10] have the AI researchers uh you have the\n[19:12] web developers you have physic\n[19:14] researchers and they can study different\n[19:16] topics and at the end of the day you\n[19:18] just collect the results and spawn uh a\n[19:21] group of fact checkers and web\n[19:23] developers and file downloaders to um to\n[19:26] assemble the results to into a a a\n[19:29] single report.\n[19:32] And this is another pers perspective to\n[19:35] to look at uh this new paradigm. So the\n[19:38] x-axis is the complexity of the task uh\n[19:43] and the y-axis is is the execution time\n[19:46] and the complexity of the task is\n[19:48] measured by the accuracy of uh a group\n[19:52] of models uh on on such task. So we can\n[19:55] see with agent swamps it's going to uh\n[19:58] substantially uh uh in uh reduce uh the\n[20:02] execution time uh compared to uh uh\n[20:06] compared to single agents. Uh it's going\n[20:08] to be more effective. Uh and this means\n[20:10] that we can scale uh this agent swarm\n[20:13] paradigm to uh for example if you run\n[20:16] this uh agents roams with 100 or maybe\n[20:19] even 1,000 sub agents you can accomplish\n[20:22] a complex task within a certain period\n[20:25] of of time that is tolerable for um for\n[20:29] to producing real economical value\n[20:33] and we can we can certainly scale it in\n[20:35] different dimensions. We can scale the\n[20:37] inputs. For example, we can download and\n[20:40] read hundreds of sources or even maybe\n[20:42] thousands of doses in parallel or you\n[20:45] can output uh write a 100page literature\n[20:48] review uh in uh in parallel or you can\n[20:52] take actions at scale. You can perform\n[20:54] data analysis uh for 10 different tasks\n[20:58] and also it is orchestration at scale.\n[21:00] You have to learn to design subtask and\n[21:03] aggregate the the results.\n[21:06] And technically uh we define some new\n[21:09] objective functions to guide the\n[21:11] learning process of our agents realm\n[21:14] system. So there are three rule\n[21:16] functions uh reward objectives that are\n[21:21] uh considered here compared to uh the\n[21:24] conventional single agent IO learning.\n[21:27] So the first term is what we call the\n[21:29] instantiation reward. It incentivizes\n[21:33] sub Asian instantiation to prevent uh uh\n[21:37] this uh serial uh collapse uh phenomenon\n[21:41] from happening. So basically we don't\n[21:43] want it to default to single agent\n[21:46] execution. We want to encourage uh the\n[21:50] parallel executions especially uh when\n[21:53] we when when it's early stage in\n[21:55] training. uh and of course we can decay\n[21:58] the weight for uh this instantiation\n[22:01] reward time over training course because\n[22:04] uh when it learns to uh learns uh par\n[22:07] execution we can reduce uh the weight\n[22:10] and the second term here is is finish\n[22:12] reward uh and it is used because we\n[22:15] observe one of the things in training uh\n[22:18] that uh some of this uh subtask are just\n[22:22] created but never finished. So it's\n[22:25] almost like it's going to hack the first\n[22:27] term by just spawning a bunch of sub\n[22:30] agents and the task might be too complex\n[22:32] or maybe the task just doesn't make\n[22:34] sense. And here we use this finish\n[22:37] reward to basically encourage that each\n[22:40] of the subtask should have a relatively\n[22:43] high ratio of uh completion instead of\n[22:46] just spawning a bunch of uh pseudo\n[22:48] tasks. We need it to be uh meaningful.\n[22:51] Uh so this is the second term that we\n[22:54] use and of course we use the same you\n[22:56] know decay strategy. We use a relative\n[22:58] highway at the beginning of training and\n[23:00] we decay it to a relatively low weight\n[23:03] at the end of training. And of course\n[23:05] the third term is the standard term uh\n[23:07] is is the outcome reward. Uh it's going\n[23:09] to measure whether the entire task uh is\n[23:13] completed. Uh and then we're going to\n[23:15] add these three terms in our uh\n[23:18] reinforcement learning uh system. And of\n[23:20] course we have to build you know the\n[23:22] entire infrastructure because uh right\n[23:24] now you need to support the parallel\n[23:26] execution and then you need to support\n[23:29] different reward functions uh and and to\n[23:32] you know maximize the efficiency of the\n[23:34] entire agent swarm IO system.\n[23:38] So here are three uh different things\n[23:41] that that we have uh tried scaling. Uh\n[23:44] the m clip optimizer uh improves token\n[23:47] efficiency and Kimmy delta attention uh\n[23:51] in the Kimmy linear architecture\n[23:53] improves long context and we also have\n[23:55] the agent swarms paradigm to further uh\n[24:00] create a new dimension of scaling and\n[24:03] all of this put together uh we created\n[24:06] uh Kimik K2.5 a new model that we just\n[24:09] released uh over one month ago. Here's a\n[24:12] short video to demonstrate some of its\n[24:15] capabilities.\n[24:25] [music]\n[24:35] >> [music]\n[24:39] [music]\n[24:46] [music]\n[24:49] >> Heat. Heat.\n[24:52] [music]\n[24:57] >> [music]\n[25:16] [applause]\n[25:19] >> So\n[25:20] yeah, there are a lot of interesting\n[25:22] things capabilities that we discover\n[25:24] from the model. For example, uh it\n[25:26] merges the visual capabilities with\n[25:29] coding capabilities. So a lot of new\n[25:32] things just emerge out of it. It can\n[25:34] read a video and then produce a website\n[25:37] that uh sort of replicates or style\n[25:40] transfer the original video and all of\n[25:44] this are due to successful uh and stable\n[25:48] training uh at the pre-training stage.\n[25:50] So this is also one of the most\n[25:52] beautiful curves that uh I observed in\n[25:55] my life. Uh so this is the training\n[25:57] curve of the K2.5 based model. Uh so as\n[26:01] you can see it went through over 15\n[26:04] trillion tokens and of course in K2.5 we\n[26:06] additionally train another 15 trillion\n[26:08] tokens and the entire uh train uh the\n[26:12] training process is just so stable.\n[26:14] There's no loss spike especially when we\n[26:17] introduce this new m optimizer. We\n[26:19] didn't observe any spike and this smooth\n[26:22] stable training process produces a very\n[26:25] stable outcome that uh a very strong\n[26:28] base model that we can fine-tune on top\n[26:30] of it uh to achieve you know new\n[26:32] capabilities as as we introduced and saw\n[26:35] in the video uh the video and this is\n[26:37] also of course uh trend on Nvidia H800\n[26:42] GPUs and each node in this H800 cluster\n[26:46] contains two uh TB RAM and AGPU use uh\n[26:49] they are conducted by MV link and uh one\n[26:53] of the another you know key innovation\n[26:56] of K MK2.5 is that it is the first open\n[26:59] model with native joint vision uh text\n[27:03] capabilities. So if you look at previous\n[27:05] open models, usually there are visual\n[27:08] capabilities added on top of a text\n[27:10] space. Meaning that for example, if you\n[27:12] train the text models for 20 trillion\n[27:15] tokens and then on top of it, you do\n[27:17] another two trillion sort of a post\n[27:20] training process to add additional\n[27:22] visual capabilities on top of it. Uh but\n[27:25] for K2.5, it's different in the sense\n[27:28] that we feel the training process of\n[27:31] vision and text from day one. So it's\n[27:34] called early fusion here. We start from\n[27:37] you know 0% of the progress. So from day\n[27:40] one we're going to merge uh the vision\n[27:42] and text tokens and as shown in our pre\n[27:45] preliminary experiments it outperforms\n[27:48] uh late fusion and some of the new\n[27:50] capabilities that we observe also come\n[27:53] from this training recipe. Uh for\n[27:55] example, if you want to do vision to\n[27:58] code, you really have to merge vision\n[28:01] and text into a single brand to achieve\n[28:03] that. If you separate these two brands,\n[28:05] it's not going to happen. You have to\n[28:07] align these two modalities into a share\n[28:10] embedding space uh entire uh a share\n[28:14] representation space so as to uh achieve\n[28:16] this. And another interesting thing that\n[28:19] we observe is that these two modalities\n[28:23] can actually enhance each other. So\n[28:25] that's uh that's been long been a\n[28:28] challenge that if you add vision\n[28:30] capabilities into a text model, it's\n[28:32] going to somewhat uh uh hurt the text\n[28:35] performance. But here we found that if\n[28:38] you train it properly, these two\n[28:40] modalities can actually enhance each\n[28:42] other. So this is one of the key\n[28:44] findings that uh we observe in in in our\n[28:47] training. Uh so first vision improves\n[28:49] tax. So this is so interesting. So\n[28:52] before vision RL the performance uh in\n[28:55] the first column and then we have the\n[28:57] performance after vision RL. So here\n[28:59] vision RL refers to a process that we\n[29:03] only use vision task. So there is no\n[29:06] text task involved here. We only have\n[29:09] vision task. For example, we teach the\n[29:10] model how to how to count uh how to\n[29:13] answer some of this visual QA uh\n[29:16] problems uh without any for example math\n[29:19] any coding problems in in in this space.\n[29:22] But we observe that it's going to\n[29:24] improve the performance for even you\n[29:25] know reasoning heavy text task and on\n[29:29] the other hand text also improves\n[29:31] vision. If you have a very strong text\n[29:33] base, you you actually don't need any\n[29:36] vision SFT data in the training process.\n[29:38] And this is the approach that we adopt.\n[29:41] So it's called zero vision SFT. Uh\n[29:43] basically we don't have we have\n[29:45] basically zero vision SFD data. And the\n[29:48] only SFT data that we have is the text\n[29:50] SFT data. And then we do a joint IR over\n[29:54] text and vision. And you can see that we\n[29:56] can achieve uh almost state-of-the-art\n[29:58] performance across the board on on\n[30:00] vision task without any vision data. So\n[30:03] it it's clear that uh if you have a\n[30:05] strong text base is also going to\n[30:07] improve uh the vision if if you uh align\n[30:11] these two modalities into a shared space\n[30:13] in your in your pro training.\n[30:17] And also uh these are some of the\n[30:19] examples of uh\n[30:24] uh yeah as I was showing the video. So\n[30:27] it's it demonstrates strong capabilities\n[30:30] of uh uh visual design and front end\n[30:33] coding and this also emerges from our uh\n[30:36] vision text for training.\n[30:38] So uh after all this so this all about\n[30:42] Kim K2.5 and as probably uh you probably\n[30:46] know we released our new architecture uh\n[30:50] yesterday uh in our tech report it's\n[30:52] called attention residue. So here I'm\n[30:56] also going to briefly talk about our new\n[30:58] work uh which serves as a a sneak peek\n[31:00] into our next generation architecture\n[31:02] that we're probably going to adopt in in\n[31:05] our later models. Uh so here the\n[31:08] motivation is is quite simple. Can we\n[31:11] apply some of our techniques that we use\n[31:14] in in the in the temporal dimension and\n[31:17] we we just take some of the inspirations\n[31:20] and we apply to the death uh dimension.\n[31:24] So uh and it starts from this residual\n[31:27] connection. So I still remember uh\n[31:30] listening to to uh Kami's talk uh at a\n[31:34] tutorial in in ICML 2016 10 years ago.\n[31:38] Uh so it was a brilliant idea. So\n[31:40] basically before RestNet uh nobody was\n[31:44] able to train deep networks. If you\n[31:47] increase the depth, if you increase the\n[31:49] number of layers for neural networks,\n[31:51] nobody was able to train it because you\n[31:54] observe this gradient exposure, gradient\n[31:56] vanishing, all this, you know, stability\n[31:58] issues. But then after the introduction\n[32:01] of of RestNet, we can train, you know,\n[32:04] an arbitrarily large number of layers.\n[32:06] You can stack as many layers as as you\n[32:08] want and you you you don't have to worry\n[32:10] about the training stability issue uh\n[32:13] and stuff. And as discussed in Ilia's\n[32:16] talk uh two years ago, it basically says\n[32:19] that residue connection is a variant of\n[32:23] RSTM but just rotated 90 degrees. So how\n[32:27] do you understand this? If you look at\n[32:28] LTM is is a variant of recurrent net,\n[32:32] right? And it's a recurrent u model\n[32:35] process. So we're going to take the\n[32:37] hidden states from the last step and\n[32:41] then we're going to have some gating\n[32:43] mechanism some function to produce the\n[32:45] current state right and if you look at\n[32:48] the uh the depth dimension residue\n[32:51] connection is basically the same we're\n[32:53] going to take the output from the last\n[32:55] layer and then we're going to apply some\n[32:58] sort of function on top of it to produce\n[33:00] uh the current uh uh the current output\n[33:04] of the current layer.\n[33:06] It's just the formulation is different.\n[33:08] For example, for residual connection,\n[33:09] we're going to use a fixed addition.\n[33:11] We're going to have this uh we're going\n[33:14] to add uh the previous hidden states uh\n[33:18] with the current output. It's just the\n[33:20] formulation that's different, but the\n[33:21] basic idea is the same. It's a recurrent\n[33:24] net applied uh in the dimension of\n[33:26] death. And but on the other hand we can\n[33:30] think about uh reformulating uh this uh\n[33:34] this function instead of having an STDM\n[33:37] can we have an attention in the\n[33:40] dimension of that and it's going to\n[33:42] create new possibilities because\n[33:43] attention have has been demonstrated to\n[33:46] be so successful uh in the transformer\n[33:49] era. So what we're going to do is not\n[33:51] just to take the last hidden state, but\n[33:54] we're going to consider all the previous\n[33:56] hidden states and use the attention\n[33:58] operation, the attention mechanism to\n[34:00] assemble and aggregate all of these\n[34:03] previous hidden states to compute the\n[34:05] current state. So this is exactly\n[34:08] attention rotated by 90°. uh is sort of\n[34:13] we view it as a natural generalization\n[34:15] of residue connections uh in the ASM\n[34:19] analogy. Okay. And here is the detail\n[34:22] formulation. So on on the left hand side\n[34:25] is a standard residue as I said it's\n[34:27] basically\n[34:29] rotated by 90° and the second figure is\n[34:32] attention rotated by 90°. So what we do\n[34:35] is to collect all the previous hidden\n[34:38] states and have a simple attention\n[34:40] operation on top of it to produce the\n[34:43] current layers outcome. Uh and of course\n[34:46] to increase the efficiency to reduce the\n[34:49] infrastructure for example communication\n[34:51] and memory overhead. We also design a\n[34:54] new variant called uh block attention\n[34:56] residue on the right hand side. So\n[34:59] basically the ideas is also simple.\n[35:01] We're going to divide uh all the layers\n[35:04] in the neural networks into multiple\n[35:07] blocks. For example, each block can\n[35:09] contain say 16 layers or it can contain\n[35:11] maybe four layers. And then for each\n[35:14] block, we're going to uh apply uh this\n[35:18] attention residue only on the output of\n[35:20] each block. But within each block, we\n[35:22] also we still adopt uh this standard\n[35:24] residue. So this is going to reduce a\n[35:26] lot of overhead while having minimal uh\n[35:29] loss in terms of training accuracy.\n[35:32] And these are some of the impressive\n[35:34] results that we achieve uh uh on this\n[35:37] new architecture. Uh so on the scaling\n[35:40] law we can uh improve the token\n[35:43] efficiency by uh 24%.\n[35:46] uh meaning that if you have 50 trillion\n[35:49] highquality tokens now you just\n[35:51] magically have uh uh over 60 trillion uh\n[35:56] tokens and then for the validation loss\n[35:59] you you can also observe that uh it's uh\n[36:02] consistently lower than uh the original\n[36:05] curve u demonstrating uh this stability\n[36:09] across optimization and also achieves\n[36:12] the best improvement uh on some of this\n[36:15] coding math and reasoning heavy task as\n[36:18] shown in the benchmark results of GPQA\n[36:21] uh math and human val\n[36:24] so the entire community uh keeps moving\n[36:27] forward uh and we're happy that we can\n[36:30] we're able to contribute to to the\n[36:32] community with uh you know new\n[36:34] technologies and some of this are h you\n[36:37] know some of these technologies have\n[36:39] been sort of standard and de facto for a\n[36:42] long time but as you can see we still\n[36:44] see a lot of opportunity unities to\n[36:46] improve it to uh to have revolutionary\n[36:50] new design to achieve better\n[36:52] performance. If we multiply all these\n[36:55] scans together, you can actually have a\n[36:57] much better model. So, Adam was invented\n[37:01] in 2014 uh and now we scale an open\n[37:04] source mirror and click a a dropping\n[37:06] replacement for uh for Adam. And I'm\n[37:10] sure that uh if you train a transformer\n[37:12] LLM uh it's going to be much better if\n[37:15] you use Mong clip instead of atom. And\n[37:18] attention was invented uh over eight\n[37:20] years ago. And then now we have Kim\n[37:22] linear which is a linear version. We\n[37:25] don't have to use full attention across\n[37:27] all layers. Uh we can have linear\n[37:29] tension that performs better on short\n[37:32] long context at the same time. and also\n[37:35] residue connections are now uh also\n[37:39] challenged uh we scaled in open source\n[37:42] attention residue. So I think one of the\n[37:45] uh interesting things about our error is\n[37:49] that we sort of adopt a different\n[37:51] mindset for for doing research. So if we\n[37:54] go back to 10 years ago it's mostly\n[37:56] about publishing a new idea. uh but then\n[38:00] I think the lack of the rigor of the\n[38:03] experiments is very hard to produce uh\n[38:07] solid experimental results. But now we\n[38:09] have this scaling ladder. We have uh\n[38:11] enough resources to you know trend the\n[38:14] model and run it on different at\n[38:15] different scales. We can have you know a\n[38:18] whole set of benchmarks to measure the\n[38:20] progress. So it is it becomes easier to\n[38:23] make confident and solid conclusion out\n[38:26] of it. And this is one of the reason why\n[38:28] we are observing you know new progress\n[38:32] uh on this ancient techniques and I'm\n[38:35] sure that we'll see more and more\n[38:36] especially in the open-source community.\n[38:40] I think we're going to have more and\n[38:41] more even better architectural and you\n[38:44] know optimization uh improvement in in\n[38:47] the next few years.\n[38:49] All right. So to summarize, we're going\n[38:51] to uh keep scaling our models. And so\n[38:55] these are three dimensions. Uh for\n[38:58] example, we we see uh we we see uh\n[39:01] different architectures and optimizers\n[39:04] that optimize all three, you know,\n[39:06] dimensions and we'll keep you know see\n[39:08] new dimensions for scaling. Uh agents\n[39:11] ROMs is is not the end. And we are glad\n[39:14] that we can uh move forward with the\n[39:17] entire open source community to achieve\n[39:19] better and better uh you know\n[39:22] intelligence. Thank you so much.\n[39:25] [applause]",
+        "rawTextHash": "69cbb9048fa8be5d",
+        "docUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+        "obsidianPath": "youtube/long-How-We-Scaled-Kimi-K2.5-Zhilin-Yangs-full-GTC-2026-Keynote.md",
+        "reliabilityLevel": "source_transcript",
+        "sourcePerspective": "primary_or_expert_video",
+        "institutionType": "primary_video",
+        "institutionRole": "source_material",
+        "analysisLenses": [
+          "technology",
+          "industry_chain",
+          "commercialization",
+          "risk",
+          "time_context"
+        ],
+        "evidenceStrength": "primary_transcript",
+        "accessLevel": "public",
+        "conflictProfile": "platform_or_speaker_bias_possible",
+        "metadata": {
+          "adapter": "youtube",
+          "docCreated": true,
+          "principles": [
+            "evidence_before_opinion",
+            "time_context_first_class",
+            "coverage_gaps_reduce_confidence",
+            "do_not_generate_garbage_then_reject"
+          ],
+          "videoCount": 1,
+          "reportTopic": "long",
+          "obsidianSynced": true,
+          "transcriptSegments": 848
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       }
     ],
     "researchEvidenceCards": [
@@ -79601,6 +79849,348 @@
         "requiresRecheck": [],
         "metadata": {},
         "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "316",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "technology",
+        "claim": "演讲开场把目标明确定位为建设更好的开放模型，而不是只做封闭产品能力展示。",
+        "quoteOriginal": "build better open models",
+        "quoteZh": "",
+        "location": "0:31",
+        "whyItMatters": "这决定文章的叙事边界：重点应放在开放模型如何接近前沿能力，以及 Kimi 团队为此采用的训练与系统方法。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "technology",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "317",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲者认为开放模型的核心价值之一是部署自由，可以运行在本地服务器或云端。",
+        "quoteOriginal": "you can deploy anywhere. You can be on your local servers, you can be on the cloud",
+        "quoteZh": "",
+        "location": "0:37",
+        "whyItMatters": "这说明开放模型的意义不只是免费或可下载，而是把模型控制权交给使用者，影响企业部署、数据安全和基础设施选择。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "318",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲者把开放模型与黑盒调用区分开，强调用户可以访问模型权重。",
+        "quoteOriginal": "you can access every single bit of the weights... instead of just using a black box",
+        "quoteZh": "",
+        "location": "0:43",
+        "whyItMatters": "这为后文讨论开放模型的研究价值、可审计性和可微调性提供证据，也解释为什么权重开放是关键概念。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "319",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "technology",
+        "claim": "演讲者称开放模型正在快速缩小与专有模型的差距，并接近前沿水平。",
+        "quoteOriginal": "open models are quickly closing the gap with proprietary models and it's reaching the frontier",
+        "quoteZh": "",
+        "location": "0:56",
+        "whyItMatters": "这是文章可以展开的核心判断：开放模型不再只是追赶者，而正在进入与闭源前沿模型竞争的阶段。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "technology",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "320",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲者把开放模型的长期社会目标表述为让世界各地都能更容易获得智能。",
+        "quoteOriginal": "make intelligence more accessible to anybody in the world in every corner of the world",
+        "quoteZh": "",
+        "location": "1:05",
+        "whyItMatters": "这给技术演讲提供了价值框架：Kimi K2.5 的技术扩展不是孤立优化，而服务于更广泛的智能可及性。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "321",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "technology",
+        "claim": "演讲者强调开放本身不够，开放模型还必须足够强。",
+        "quoteOriginal": "open models cannot be just open. they have have also to be great",
+        "quoteZh": "",
+        "location": "1:14",
+        "whyItMatters": "这句话适合作为文章转折点：开放模型的竞争焦点从“能否开放”转向“开放后能否达到顶级性能”。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "technology",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "322",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "technology",
+        "claim": "演讲将讨论重点放在如何让开放模型变强。",
+        "quoteOriginal": "in this talk we're going to discuss how we make open models great",
+        "quoteZh": "",
+        "location": "1:22",
+        "whyItMatters": "这限定了后文应围绕训练规模、优化器、token、效率、多模态和 RL 等方法论展开，而不是泛泛介绍产品。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "technology",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "323",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲者把 scaling 视为 AI 进步的主要驱动力。",
+        "quoteOriginal": "scaling is a primary driver",
+        "quoteZh": "",
+        "location": "1:27",
+        "whyItMatters": "这为解释 Kimi K2.5 的技术路线提供主轴：模型能力提升与规模化训练、计算效率和数据处理密切相关。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "324",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲后续涉及 token loss，说明模型训练评价包含对 token 预测误差的关注。",
+        "quoteOriginal": "predicting the token loss",
+        "quoteZh": "",
+        "location": "2:48",
+        "whyItMatters": "这是理解语言模型训练的基础证据：模型不是抽象地“变聪明”，而是在大量 token 上优化预测损失。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "325",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲后续明确讨论优化器，并与传统 Adam 优化器相关联。",
+        "quoteOriginal": "traditional atom optimizer",
+        "quoteZh": "",
+        "location": "6:31",
+        "whyItMatters": "优化器直接影响训练稳定性、效率和成本，是解释模型规模化训练如何落地的关键技术入口。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "326",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "演讲后半段进入视觉 RL 和多模态主题，不只讨论纯文本模型。",
+        "quoteOriginal": "vision RL refers to a process",
+        "quoteZh": "",
+        "location": "28:59",
+        "whyItMatters": "这提示文章需要覆盖 Kimi K2.5 的多模态扩展方向：能力建设不止是文本 token 预测，还包括视觉任务上的强化学习。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "327",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：[music]",
+        "quoteOriginal": "[music]",
+        "quoteZh": "",
+        "location": "0:07",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "328",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：intelligence. But here what what we're",
+        "quoteOriginal": "intelligence. But here what what we're",
+        "quoteZh": "",
+        "location": "4:52",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "329",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：two curves but there are strictly",
+        "quoteOriginal": "two curves but there are strictly",
+        "quoteZh": "",
+        "location": "9:43",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "330",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "regulatory",
+        "claim": "视频在这里展开了一个关键论据：the second case you can choose to retain",
+        "quoteOriginal": "the second case you can choose to retain",
+        "quoteZh": "",
+        "location": "14:27",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "regulatory",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "331",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：just collect the results and spawn uh a",
+        "quoteOriginal": "just collect the results and spawn uh a",
+        "quoteZh": "",
+        "location": "19:18",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "332",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：[music]",
+        "quoteOriginal": "[music]",
+        "quoteZh": "",
+        "location": "24:39",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "333",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：basically zero vision SFD data. And the",
+        "quoteOriginal": "basically zero vision SFD data. And the",
+        "quoteZh": "",
+        "location": "29:45",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "334",
+        "sourceId": "source:22b9c5da037b22f3",
+        "evidenceType": "general_evidence",
+        "claim": "视频在这里展开了一个关键论据：states and have a simple attention",
+        "quoteOriginal": "states and have a simple attention",
+        "quoteZh": "",
+        "location": "34:38",
+        "whyItMatters": "这个时间点可以作为正文判断的原文锚点，帮助读者回到视频核对上下文。",
+        "confidence": "0.72",
+        "timeSensitivity": "medium",
+        "staleRisk": "",
+        "evidenceStrength": "primary_transcript",
+        "analysisLens": "general_evidence",
+        "requiresRecheck": [],
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "1",
@@ -85749,6 +86339,30 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "entityId": "entity:topic:b76f59c5d8331565",
+        "name": "Jensen Huang 在 CES 早些时候的演讲幻灯片被引用，用来说明开放模型正在快速缩小与 proprietary models 的差距",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:organization:017a859dd22277a5",
+        "name": "Kimi AI",
+        "entityType": "organization",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:topic:4e4aaa8a6971b033",
+        "name": "Kimi AI 作为发布方，视频主题围绕 Kimi K2.5 的 scaling，而不是单纯产品发布",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:topic:1f0a51c36efaa0f4",
         "name": "LEO",
         "entityType": "technology_or_product",
@@ -86021,6 +86635,14 @@
         "updatedAt": "2026-07-03T15:17:46.991Z"
       },
       {
+        "entityId": "entity:technology_or_concept:f3f0d72f99990bed",
+        "name": "Optimizer",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:1f1d3772887289d6",
         "name": "Optimus",
         "entityType": "technology_or_concept",
@@ -86101,6 +86723,14 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "entityId": "entity:technology_or_concept:58e412cbe2ec7e4e",
+        "name": "RL",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:topic:ac0452da134c2a20",
         "name": "Raptor",
         "entityType": "technology_or_product",
@@ -86155,6 +86785,14 @@
         "metadata": {},
         "createdAt": "2026-07-04T02:02:31.861Z",
         "updatedAt": "2026-07-04T02:02:31.861Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:c7711334ec435cb5",
+        "name": "Scaling",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:technology_or_concept:ddcc767c88822b6d",
@@ -86349,19 +86987,19 @@
         "updatedAt": "2026-07-02T07:23:25.169Z"
       },
       {
-        "entityId": "entity:technology_or_concept:6aaade6060160635",
-        "name": "Starship",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-05T01:28:23.212Z",
-        "updatedAt": "2026-07-05T01:28:23.212Z"
-      },
-      {
         "entityId": "entity:topic:6aaade6060160635",
         "name": "Starship",
         "entityType": "technology_or_product",
         "metadata": {},
         "createdAt": "2026-07-02T07:22:30.752Z",
+        "updatedAt": "2026-07-05T01:28:23.212Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:6aaade6060160635",
+        "name": "Starship",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-05T01:28:23.212Z",
         "updatedAt": "2026-07-05T01:28:23.212Z"
       },
       {
@@ -86437,6 +87075,14 @@
         "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
+        "entityId": "entity:technology_or_concept:5ee0edb9e2229c08",
+        "name": "Tim",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T05:39:39.871Z",
+        "updatedAt": "2026-07-03T05:39:39.871Z"
+      },
+      {
         "entityId": "entity:topic:5ee0edb9e2229c08",
         "name": "Tim",
         "entityType": "technology_or_product",
@@ -86445,12 +87091,12 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
-        "entityId": "entity:technology_or_concept:5ee0edb9e2229c08",
-        "name": "Tim",
+        "entityId": "entity:technology_or_concept:ee977806d7286510",
+        "name": "Token",
         "entityType": "technology_or_concept",
         "metadata": {},
-        "createdAt": "2026-07-03T05:39:39.871Z",
-        "updatedAt": "2026-07-03T05:39:39.871Z"
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:topic:29137fd442731863",
@@ -86531,6 +87177,22 @@
         "metadata": {},
         "createdAt": "2026-07-03T12:21:14.326Z",
         "updatedAt": "2026-07-03T12:21:14.326Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:7e9219a0599eae1d",
+        "name": "can",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:topic:7e9219a0599eae1d",
+        "name": "can",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:technology_or_concept:87c4c19d86468117",
@@ -86629,17 +87291,17 @@
         "updatedAt": "2026-07-02T07:22:25.257Z"
       },
       {
-        "entityId": "entity:topic:43eef9a62abb8b1e",
+        "entityId": "entity:technology_or_concept:43eef9a62abb8b1e",
         "name": "for",
-        "entityType": "topic",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
-        "entityId": "entity:technology_or_concept:43eef9a62abb8b1e",
+        "entityId": "entity:topic:43eef9a62abb8b1e",
         "name": "for",
-        "entityType": "technology_or_concept",
+        "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-05T00:29:50.765Z",
         "updatedAt": "2026-07-05T00:29:50.765Z"
@@ -86733,20 +87395,20 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
-        "entityId": "entity:technology_or_concept:c4eb7d7fea3c62a8",
-        "name": "like",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-03T05:39:39.871Z",
-        "updatedAt": "2026-07-05T00:29:50.765Z"
-      },
-      {
         "entityId": "entity:topic:c4eb7d7fea3c62a8",
         "name": "like",
         "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T05:39:39.871Z",
         "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:c4eb7d7fea3c62a8",
+        "name": "like",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T05:39:39.871Z",
+        "updatedAt": "2026-07-05T00:29:50.765Z"
       },
       {
         "entityId": "entity:technology_or_concept:3dda402d72dc030f",
@@ -86797,19 +87459,19 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
-        "entityId": "entity:topic:557f255516719ea1",
-        "name": "not",
-        "entityType": "topic",
-        "metadata": {},
-        "createdAt": "2026-07-11T12:06:45.017Z",
-        "updatedAt": "2026-07-11T12:06:45.017Z"
-      },
-      {
         "entityId": "entity:technology_or_concept:557f255516719ea1",
         "name": "not",
         "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "entityId": "entity:topic:557f255516719ea1",
+        "name": "not",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
@@ -86909,17 +87571,17 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
-        "entityId": "entity:technology_or_concept:c981d125d1a564c9",
+        "entityId": "entity:topic:c981d125d1a564c9",
         "name": "software",
-        "entityType": "technology_or_concept",
+        "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
       },
       {
-        "entityId": "entity:topic:c981d125d1a564c9",
+        "entityId": "entity:technology_or_concept:c981d125d1a564c9",
         "name": "software",
-        "entityType": "topic",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
@@ -86941,17 +87603,17 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
-        "entityId": "entity:technology_or_concept:22fa6121da96f43a",
+        "entityId": "entity:topic:22fa6121da96f43a",
         "name": "sun",
-        "entityType": "technology_or_concept",
+        "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
-        "entityId": "entity:topic:22fa6121da96f43a",
+        "entityId": "entity:technology_or_concept:22fa6121da96f43a",
         "name": "sun",
-        "entityType": "topic",
+        "entityType": "technology_or_concept",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
@@ -87037,14 +87699,6 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
-        "entityId": "entity:technology_or_concept:3de521d3619155e9",
-        "name": "was",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-07T14:40:29.027Z",
-        "updatedAt": "2026-07-07T14:40:29.027Z"
-      },
-      {
         "entityId": "entity:topic:3de521d3619155e9",
         "name": "was",
         "entityType": "topic",
@@ -87053,12 +87707,12 @@
         "updatedAt": "2026-07-07T14:40:29.027Z"
       },
       {
-        "entityId": "entity:technology_or_concept:8af56de68279cb6f",
-        "name": "you",
+        "entityId": "entity:technology_or_concept:3de521d3619155e9",
+        "name": "was",
         "entityType": "technology_or_concept",
         "metadata": {},
-        "createdAt": "2026-07-03T12:21:14.326Z",
-        "updatedAt": "2026-07-05T00:29:50.765Z"
+        "createdAt": "2026-07-07T14:40:29.027Z",
+        "updatedAt": "2026-07-07T14:40:29.027Z"
       },
       {
         "entityId": "entity:topic:8af56de68279cb6f",
@@ -87066,7 +87720,15 @@
         "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T12:21:14.326Z",
-        "updatedAt": "2026-07-05T00:29:50.765Z"
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:8af56de68279cb6f",
+        "name": "you",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T12:21:14.326Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:topic:fdbd9006cdd11f2f",
@@ -87357,6 +88019,14 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
+        "entityId": "entity:topic:53f50a41689b144f",
+        "name": "参数数量、attention head、training course 与 reward time 等术语构成模型扩展和训练过程的证据锚点",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:1f3a956ee93405b5",
         "name": "发射台 1 号",
         "entityType": "technology_or_concept",
@@ -87411,6 +88081,14 @@
         "metadata": {},
         "createdAt": "2026-07-11T12:06:45.017Z",
         "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "entityId": "entity:topic:f948c530d64d9117",
+        "name": "多模态部分包括 vision RL、late fusion、shared space、hidden states 等技术环节，说明演讲后半段从语言模型扩展到视觉-语言能力",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:topic:bca0514d996d757f",
@@ -87483,6 +88161,22 @@
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
         "updatedAt": "2026-07-03T15:39:58.192Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:5f94c69cf6d38814",
+        "name": "开放模型",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:topic:298a58714f3318cc",
+        "name": "开放模型的部署场景被明确放在 local servers 与 cloud 两端，并强调用户可以访问模型权重而非使用 black box",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:topic:9d664080d4b97942",
@@ -87621,6 +88315,22 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
+        "entityId": "entity:technology_or_concept:5b7bfdcd1eb846a6",
+        "name": "权重",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:topic:6dfd5b0bc7e8eb1c",
+        "name": "杨植麟在 GTC 2026 keynote 中介绍 Kimi K2.5 的扩展进展，开场强调“build better open models”和“democratizing intelligence”",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:technology_or_concept:1dff0470203d63ac",
         "name": "毛利率",
         "entityType": "technology_or_concept",
@@ -87635,6 +88345,14 @@
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:026e43b447a1497a",
+        "name": "民主化智能",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:topic:47bc181923389114",
@@ -87691,6 +88409,22 @@
         "metadata": {},
         "createdAt": "2026-07-03T03:58:24.098Z",
         "updatedAt": "2026-07-03T04:22:01.510Z"
+      },
+      {
+        "entityId": "entity:topic:19e1c22c368b81e7",
+        "name": "演讲把 scaling 称为 AI 进步的 primary driver，并把 token loss 预测作为衡量扩展效果的关键线索之一",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "entityId": "entity:topic:b97bcd626d5cb301",
+        "name": "演讲末尾提到 ROMs is not the end，适合作为开放模型路线仍在演进、尚未封顶的背景伏笔",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "entityId": "entity:technology_or_concept:4369632f57f12df0",
@@ -87805,20 +88539,20 @@
         "updatedAt": "2026-07-02T19:48:32.368Z"
       },
       {
-        "entityId": "entity:technology_or_concept:bf48e60b2d3c2b1b",
-        "name": "猎鹰9号",
-        "entityType": "technology_or_concept",
-        "metadata": {},
-        "createdAt": "2026-07-03T02:07:36.667Z",
-        "updatedAt": "2026-07-03T04:22:01.510Z"
-      },
-      {
         "entityId": "entity:topic:bf48e60b2d3c2b1b",
         "name": "猎鹰9号",
         "entityType": "topic",
         "metadata": {},
         "createdAt": "2026-07-03T02:07:36.667Z",
         "updatedAt": "2026-07-03T02:07:36.667Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:bf48e60b2d3c2b1b",
+        "name": "猎鹰9号",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-03T02:07:36.667Z",
+        "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
         "entityId": "entity:topic:a799447f9a432808",
@@ -87973,6 +88707,14 @@
         "updatedAt": "2026-07-02T07:22:37.099Z"
       },
       {
+        "entityId": "entity:topic:98a800aa9444db2f",
+        "name": "训练效率与 optimizer 是技术主线之一，演讲中提到从传统 Adam optimizer 出发讨论改进方向",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:topic:75f29d81c8bc2b1b",
         "name": "讲述者Tim Dodd以Everyday Astronaut身份提出核心问题：Starship HLS对NASA和SpaceX是否真是可行方案",
         "entityType": "topic",
@@ -88093,6 +88835,14 @@
         "updatedAt": "2026-07-02T07:23:12.389Z"
       },
       {
+        "entityId": "entity:topic:4a263d60885a0210",
+        "name": "长上下文或记忆机制相关部分出现 STM、memory formulation、efficient 等关键词，暗示 Kimi K2.5 的扩展不只依赖参数堆叠",
+        "entityType": "topic",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "entityId": "entity:topic:f2af082fcbe3f7de",
         "name": "门、翼、结构件、stretch forming over a big mandrel等细节体现制造简化与装配精度之间的权衡",
         "entityType": "topic",
@@ -88179,6 +88929,14 @@
         "metadata": {},
         "createdAt": "2026-07-03T05:39:39.871Z",
         "updatedAt": "2026-07-03T05:39:39.871Z"
+      },
+      {
+        "entityId": "entity:technology_or_concept:eaf311a7259016ae",
+        "name": "黑盒",
+        "entityType": "technology_or_concept",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       }
     ],
     "researchSourceEntities": [
@@ -88342,6 +89100,167 @@
         "role": "background_anchor",
         "metadata": {},
         "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:organization:017a859dd22277a5",
+        "role": "publisher",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:026e43b447a1497a",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:58e412cbe2ec7e4e",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:5b7bfdcd1eb846a6",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:5f94c69cf6d38814",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:7e9219a0599eae1d",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:8af56de68279cb6f",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:c7711334ec435cb5",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:eaf311a7259016ae",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:ee977806d7286510",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:technology_or_concept:f3f0d72f99990bed",
+        "role": "glossary_term",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:19e1c22c368b81e7",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:298a58714f3318cc",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:4a263d60885a0210",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:4e4aaa8a6971b033",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:53f50a41689b144f",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:6dfd5b0bc7e8eb1c",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:7e9219a0599eae1d",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:8af56de68279cb6f",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:98a800aa9444db2f",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:b76f59c5d8331565",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:b97bcd626d5cb301",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "sourceId": "source:22b9c5da037b22f3",
+        "entityId": "entity:topic:f948c530d64d9117",
+        "role": "background_anchor",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "sourceId": "source:26ee776b1247370b",
@@ -90484,6 +91403,30 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
+        "sourceId": "source:22b9c5da037b22f3",
+        "videoPublishedAt": "",
+        "likelyRecordedAt": "",
+        "eventPeriod": "",
+        "industryStageAtThatTime": "",
+        "currentRelevance": "演讲一开始把开放模型定义为“democratizing intelligence”的路径：用户可以在本地服务器或云端部署，并访问模型权重，而不是依赖黑箱。但核心矛盾也随即出现：开放本身不足以改变市场，开放模型还必须在 token loss、训练效率、优化器、参数规模、长上下文和多模态能力上接近甚至进入前沿，否则“可部署”和“可研究”无法转化为真正可替代闭源模型的生产力。",
+        "timeSensitivity": "medium",
+        "staleIf": "Company progress, prices, capacity, regulation, product roadmap, or customer adoption changes materially.",
+        "requiresRecheck": [
+          "price",
+          "capacity",
+          "funding",
+          "policy",
+          "product_progress",
+          "customer_orders",
+          "technical_metrics"
+        ],
+        "metadata": {
+          "recordedAtKnown": false,
+          "publicationDateNeedsNormalization": true
+        },
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "sourceId": "source:26ee776b1247370b",
         "videoPublishedAt": "",
         "likelyRecordedAt": "",
@@ -90986,6 +91929,136 @@
         "metadata": {},
         "createdAt": "2026-07-11T12:06:45.017Z",
         "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "id": "62",
+        "sourceId": "source:22b9c5da037b22f3",
+        "question": "《How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote》里围绕 **you、can、models** 的核心判断，哪些已经被视频证据支撑，哪些还需要外部数据验证？",
+        "relatedEntities": [],
+        "priority": 1,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "63",
+        "sourceId": "source:22b9c5da037b22f3",
+        "question": "如果 **you、can、models** 要从演示、访谈或局部案例走向规模化落地，最可能先卡在成本、可靠性、供应链、法规还是组织执行？",
+        "relatedEntities": [],
+        "priority": 2,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "64",
+        "sourceId": "source:22b9c5da037b22f3",
+        "question": "视频里没有充分展开的边界条件是什么：适用场景、失败模式、维护成本、数据假设，还是用户采用门槛？",
+        "relatedEntities": [],
+        "priority": 3,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "65",
+        "sourceId": "source:22b9c5da037b22f3",
+        "question": "未来应该追踪哪些信号来验证这篇文章的判断：**open、have、training**，还是更直接的商业化/量产/复用结果？",
+        "relatedEntities": [],
+        "priority": 4,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "66",
+        "sourceId": "source:22b9c5da037b22f3",
+        "question": "如果把视频里的方法迁移到另一个项目，哪些前提一变，结论就会完全失效？",
+        "relatedEntities": [],
+        "priority": 5,
+        "researchDirection": "cross_source_validation",
+        "suggestedSourceTypes": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "expert_interview",
+          "dataset",
+          "video",
+          "patent",
+          "job_posting",
+          "conference"
+        ],
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "1",
@@ -92416,6 +93489,75 @@
     ],
     "researchCoverageGaps": [
       {
+        "id": "42",
+        "sourceId": "source:22b9c5da037b22f3",
+        "gap": "single_source_material",
+        "impact": "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
+        "fallbackSignals": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "dataset"
+        ],
+        "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "40",
+        "sourceId": "source:22b9c5da037b22f3",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "41",
+        "sourceId": "source:22b9c5da037b22f3",
+        "gap": "recorded_at_usually_unknown_for_video",
+        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+        "fallbackSignals": [
+          "spoken_date_references",
+          "event_mentions",
+          "channel_description",
+          "related_news_dates"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "37",
+        "sourceId": "source:05a81a9728cb6505",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-11T12:06:45.017Z",
+        "updatedAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
         "id": "39",
         "sourceId": "source:05a81a9728cb6505",
         "gap": "single_source_material",
@@ -92453,8 +93595,8 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
-        "id": "37",
-        "sourceId": "source:05a81a9728cb6505",
+        "id": "34",
+        "sourceId": "source:65aa2313c1a5492c",
         "gap": "source_published_at_not_normalized",
         "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
         "fallbackSignals": [
@@ -92463,26 +93605,6 @@
           "web_search_timestamp"
         ],
         "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-11T12:06:45.017Z",
-        "updatedAt": "2026-07-11T12:06:45.017Z"
-      },
-      {
-        "id": "36",
-        "sourceId": "source:65aa2313c1a5492c",
-        "gap": "single_source_material",
-        "impact": "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
-        "fallbackSignals": [
-          "company_disclosure",
-          "regulatory_filing",
-          "industry_report",
-          "paper",
-          "news",
-          "webpage",
-          "dataset"
-        ],
-        "confidenceImpact": "high",
         "status": "open",
         "metadata": {},
         "createdAt": "2026-07-07T14:40:29.027Z",
@@ -92506,24 +93628,8 @@
         "updatedAt": "2026-07-07T14:40:29.027Z"
       },
       {
-        "id": "34",
+        "id": "36",
         "sourceId": "source:65aa2313c1a5492c",
-        "gap": "source_published_at_not_normalized",
-        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
-        "fallbackSignals": [
-          "platform_metadata",
-          "channel_page",
-          "web_search_timestamp"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-07T14:40:29.027Z",
-        "updatedAt": "2026-07-07T14:40:29.027Z"
-      },
-      {
-        "id": "1",
-        "sourceId": "source:60656569c39dbb58",
         "gap": "single_source_material",
         "impact": "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
         "fallbackSignals": [
@@ -92538,8 +93644,8 @@
         "confidenceImpact": "high",
         "status": "open",
         "metadata": {},
-        "createdAt": "2026-07-05T01:28:23.212Z",
-        "updatedAt": "2026-07-05T01:28:23.212Z"
+        "createdAt": "2026-07-07T14:40:29.027Z",
+        "updatedAt": "2026-07-07T14:40:29.027Z"
       },
       {
         "id": "2",
@@ -92573,6 +93679,43 @@
         "metadata": {},
         "createdAt": "2026-07-05T01:28:23.212Z",
         "updatedAt": "2026-07-05T01:28:23.212Z"
+      },
+      {
+        "id": "1",
+        "sourceId": "source:60656569c39dbb58",
+        "gap": "single_source_material",
+        "impact": "This source is useful as a research signal, but investment synthesis should compare it with disclosures, filings, industry data, expert interviews, and regulatory records.",
+        "fallbackSignals": [
+          "company_disclosure",
+          "regulatory_filing",
+          "industry_report",
+          "paper",
+          "news",
+          "webpage",
+          "dataset"
+        ],
+        "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-05T01:28:23.212Z",
+        "updatedAt": "2026-07-05T01:28:23.212Z"
+      },
+      {
+        "id": "6",
+        "sourceId": "source:f366c9dd38d32229",
+        "gap": "recorded_at_usually_unknown_for_video",
+        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
+        "fallbackSignals": [
+          "spoken_date_references",
+          "event_mentions",
+          "channel_description",
+          "related_news_dates"
+        ],
+        "confidenceImpact": "medium",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-04T02:02:31.861Z",
+        "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
         "id": "4",
@@ -92611,23 +93754,6 @@
         "updatedAt": "2026-07-04T02:02:31.861Z"
       },
       {
-        "id": "6",
-        "sourceId": "source:f366c9dd38d32229",
-        "gap": "recorded_at_usually_unknown_for_video",
-        "impact": "Video publication time may differ from recording time; industry-stage conclusions should treat recording date as unknown until externally verified.",
-        "fallbackSignals": [
-          "spoken_date_references",
-          "event_mentions",
-          "channel_description",
-          "related_news_dates"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-04T02:02:31.861Z",
-        "updatedAt": "2026-07-04T02:02:31.861Z"
-      },
-      {
         "id": "7",
         "sourceId": "source:6ebdb25ea174dd45",
         "gap": "single_source_material",
@@ -92642,6 +93768,22 @@
           "dataset"
         ],
         "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-03T15:39:58.192Z",
+        "updatedAt": "2026-07-03T15:39:58.192Z"
+      },
+      {
+        "id": "9",
+        "sourceId": "source:6ebdb25ea174dd45",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
         "status": "open",
         "metadata": {},
         "createdAt": "2026-07-03T15:39:58.192Z",
@@ -92665,8 +93807,8 @@
         "updatedAt": "2026-07-03T15:39:58.192Z"
       },
       {
-        "id": "9",
-        "sourceId": "source:6ebdb25ea174dd45",
+        "id": "12",
+        "sourceId": "source:d1a20304da981bc0",
         "gap": "source_published_at_not_normalized",
         "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
         "fallbackSignals": [
@@ -92677,8 +93819,8 @@
         "confidenceImpact": "medium",
         "status": "open",
         "metadata": {},
-        "createdAt": "2026-07-03T15:39:58.192Z",
-        "updatedAt": "2026-07-03T15:39:58.192Z"
+        "createdAt": "2026-07-03T15:17:46.991Z",
+        "updatedAt": "2026-07-03T15:17:46.991Z"
       },
       {
         "id": "10",
@@ -92718,22 +93860,6 @@
         "updatedAt": "2026-07-03T15:17:46.991Z"
       },
       {
-        "id": "12",
-        "sourceId": "source:d1a20304da981bc0",
-        "gap": "source_published_at_not_normalized",
-        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
-        "fallbackSignals": [
-          "platform_metadata",
-          "channel_page",
-          "web_search_timestamp"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-03T15:17:46.991Z",
-        "updatedAt": "2026-07-03T15:17:46.991Z"
-      },
-      {
         "id": "13",
         "sourceId": "source:3ac8ec85f0605b6f",
         "gap": "recorded_at_usually_unknown_for_video",
@@ -92743,22 +93869,6 @@
           "event_mentions",
           "channel_description",
           "related_news_dates"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-03T14:55:50.766Z",
-        "updatedAt": "2026-07-03T14:55:50.766Z"
-      },
-      {
-        "id": "14",
-        "sourceId": "source:3ac8ec85f0605b6f",
-        "gap": "source_published_at_not_normalized",
-        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
-        "fallbackSignals": [
-          "platform_metadata",
-          "channel_page",
-          "web_search_timestamp"
         ],
         "confidenceImpact": "medium",
         "status": "open",
@@ -92781,6 +93891,22 @@
           "dataset"
         ],
         "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-03T14:55:50.766Z",
+        "updatedAt": "2026-07-03T14:55:50.766Z"
+      },
+      {
+        "id": "14",
+        "sourceId": "source:3ac8ec85f0605b6f",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
         "status": "open",
         "metadata": {},
         "createdAt": "2026-07-03T14:55:50.766Z",
@@ -92946,22 +94072,6 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
-        "id": "27",
-        "sourceId": "source:26ee776b1247370b",
-        "gap": "source_published_at_not_normalized",
-        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
-        "fallbackSignals": [
-          "platform_metadata",
-          "channel_page",
-          "web_search_timestamp"
-        ],
-        "confidenceImpact": "medium",
-        "status": "open",
-        "metadata": {},
-        "createdAt": "2026-07-03T04:22:01.510Z",
-        "updatedAt": "2026-07-03T04:22:01.510Z"
-      },
-      {
         "id": "26",
         "sourceId": "source:26ee776b1247370b",
         "gap": "single_source_material",
@@ -92976,6 +94086,22 @@
           "dataset"
         ],
         "confidenceImpact": "high",
+        "status": "open",
+        "metadata": {},
+        "createdAt": "2026-07-03T04:22:01.510Z",
+        "updatedAt": "2026-07-03T04:22:01.510Z"
+      },
+      {
+        "id": "27",
+        "sourceId": "source:26ee776b1247370b",
+        "gap": "source_published_at_not_normalized",
+        "impact": "The public video metadata did not provide a normalized publication date, so later time-series comparisons should recheck the original platform page.",
+        "fallbackSignals": [
+          "platform_metadata",
+          "channel_page",
+          "web_search_timestamp"
+        ],
+        "confidenceImpact": "medium",
         "status": "open",
         "metadata": {},
         "createdAt": "2026-07-03T04:22:01.510Z",
@@ -94237,6 +95363,20 @@
         "updatedAt": "2026-07-03T14:55:50.766Z"
       },
       {
+        "id": "316",
+        "topicKey": "optimizer",
+        "canonicalName": "Optimizer",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "68",
         "topicKey": "optimus",
         "canonicalName": "Optimus",
@@ -94293,6 +95433,20 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "id": "317",
+        "topicKey": "rl",
+        "canonicalName": "RL",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "71",
         "topicKey": "raptor-vac",
         "canonicalName": "Raptor-Vac",
@@ -94319,6 +95473,20 @@
         },
         "createdAt": "2026-07-03T15:17:46.991Z",
         "updatedAt": "2026-07-03T15:17:46.991Z"
+      },
+      {
+        "id": "314",
+        "topicKey": "scaling",
+        "canonicalName": "Scaling",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "73",
@@ -94419,6 +95587,20 @@
         "updatedAt": "2026-07-03T05:39:39.871Z"
       },
       {
+        "id": "315",
+        "topicKey": "token",
+        "canonicalName": "Token",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "273",
         "topicKey": "already",
         "canonicalName": "already",
@@ -94487,6 +95669,20 @@
         },
         "createdAt": "2026-07-03T12:21:14.326Z",
         "updatedAt": "2026-07-03T12:21:14.326Z"
+      },
+      {
+        "id": "319",
+        "topicKey": "can",
+        "canonicalName": "can",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "82",
@@ -95018,7 +96214,7 @@
           "lastRole": "glossary_term"
         },
         "createdAt": "2026-07-03T12:21:14.326Z",
-        "updatedAt": "2026-07-05T00:29:50.765Z"
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "111",
@@ -95105,6 +96301,20 @@
         "updatedAt": "2026-07-03T01:47:19.448Z"
       },
       {
+        "id": "310",
+        "topicKey": "开放模型",
+        "canonicalName": "开放模型",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "116",
         "topicKey": "放手",
         "canonicalName": "放手",
@@ -95161,6 +96371,20 @@
         "updatedAt": "2026-07-03T04:22:01.510Z"
       },
       {
+        "id": "312",
+        "topicKey": "权重",
+        "canonicalName": "权重",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "120",
         "topicKey": "毛利率",
         "canonicalName": "毛利率",
@@ -95173,6 +96397,20 @@
         },
         "createdAt": "2026-07-03T14:55:50.766Z",
         "updatedAt": "2026-07-03T14:55:50.766Z"
+      },
+      {
+        "id": "311",
+        "topicKey": "民主化智能",
+        "canonicalName": "民主化智能",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "269",
@@ -95427,6 +96665,20 @@
         "updatedAt": "2026-07-03T02:07:36.667Z"
       },
       {
+        "id": "313",
+        "topicKey": "黑盒",
+        "canonicalName": "黑盒",
+        "topicType": "technology_or_concept",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "glossary_term"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "137",
         "topicKey": "2021年nasa选择starship作为artemis计划的人类着陆系统之一-即hls",
         "canonicalName": "2021年NASA选择Starship作为Artemis计划的人类着陆系统之一，即HLS",
@@ -95523,6 +96775,48 @@
         },
         "createdAt": "2026-07-04T02:02:31.861Z",
         "updatedAt": "2026-07-04T02:02:31.861Z"
+      },
+      {
+        "id": "304",
+        "topicKey": "jensen-huang-在-ces-早些时候的演讲幻灯片被引用-用来说明开放模型正在快速缩小与-proprietary-models-的差距",
+        "canonicalName": "Jensen Huang 在 CES 早些时候的演讲幻灯片被引用，用来说明开放模型正在快速缩小与 proprietary models 的差距",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "320",
+        "topicKey": "kimi-ai",
+        "canonicalName": "Kimi AI",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "publisher"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "303",
+        "topicKey": "kimi-ai-作为发布方-视频主题围绕-kimi-k2.5-的-scaling-而不是单纯产品发布",
+        "canonicalName": "Kimi AI 作为发布方，视频主题围绕 Kimi K2.5 的 scaling，而不是单纯产品发布",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "144",
@@ -95847,6 +97141,20 @@
         "updatedAt": "2026-07-05T01:28:23.212Z"
       },
       {
+        "id": "308",
+        "topicKey": "参数数量-attention-head-training-course-与-reward-time-等术语构成模型扩展和训练过程的证据锚点",
+        "canonicalName": "参数数量、attention head、training course 与 reward time 等术语构成模型扩展和训练过程的证据锚点",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "166",
         "topicKey": "星舰-starship",
         "canonicalName": "星舰 Starship",
@@ -95901,6 +97209,34 @@
         },
         "createdAt": "2026-07-05T01:28:23.212Z",
         "updatedAt": "2026-07-05T01:28:23.212Z"
+      },
+      {
+        "id": "302",
+        "topicKey": "杨植麟在-gtc-2026-keynote-中介绍-kimi-k2.5-的扩展进展-开场强调build-better-open-models和democratizing-intelligence",
+        "canonicalName": "杨植麟在 GTC 2026 keynote 中介绍 Kimi K2.5 的扩展进展，开场强调“build better open models”和“democratizing intelligence”",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "306",
+        "topicKey": "演讲把-scaling-称为-ai-进步的-primary-driver-并把-token-loss-预测作为衡量扩展效果的关键线索之一",
+        "canonicalName": "演讲把 scaling 称为 AI 进步的 primary driver，并把 token loss 预测作为衡量扩展效果的关键线索之一",
+        "topicType": "technology_or_product",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "170",
@@ -96346,6 +97682,22 @@
         "updatedAt": "2026-07-03T12:21:14.326Z"
       },
       {
+        "id": "301",
+        "topicKey": "long",
+        "canonicalName": "long",
+        "topicType": "theme",
+        "aliases": [
+          "How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote"
+        ],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "report_topic"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "195",
         "topicKey": "risks-posed-by-openw-weight",
         "canonicalName": "risks posed by openw weight",
@@ -96752,6 +98104,20 @@
         "updatedAt": "2026-07-11T12:06:45.017Z"
       },
       {
+        "id": "305",
+        "topicKey": "开放模型的部署场景被明确放在-local-servers-与-cloud-两端-并强调用户可以访问模型权重而非使用-black-box",
+        "canonicalName": "开放模型的部署场景被明确放在 local servers 与 cloud 两端，并强调用户可以访问模型权重而非使用 black box",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "218",
         "topicKey": "毛利率从17提升到71-被用来说明业务从定制劳动转向软件授权和版税",
         "canonicalName": "毛利率从17%提升到71%，被用来说明业务从定制劳动转向软件授权和版税",
@@ -96864,6 +98230,20 @@
         "updatedAt": "2026-07-05T01:28:23.212Z"
       },
       {
+        "id": "307",
+        "topicKey": "训练效率与-optimizer-是技术主线之一-演讲中提到从传统-adam-optimizer-出发讨论改进方向",
+        "canonicalName": "训练效率与 optimizer 是技术主线之一，演讲中提到从传统 Adam optimizer 出发讨论改进方向",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "226",
         "topicKey": "访谈中提到jd-power-iqs排名-特斯拉升至第三",
         "canonicalName": "访谈中提到JD Power IQS排名，特斯拉升至第三",
@@ -96918,6 +98298,20 @@
         },
         "createdAt": "2026-07-03T12:21:14.326Z",
         "updatedAt": "2026-07-03T12:21:14.326Z"
+      },
+      {
+        "id": "309",
+        "topicKey": "长上下文或记忆机制相关部分出现-stm-memory-formulation-efficient-等关键词-暗示-kimi-k2.5-的扩展不只依赖参数堆叠",
+        "canonicalName": "长上下文或记忆机制相关部分出现 STM、memory formulation、efficient 等关键词，暗示 Kimi K2.5 的扩展不只依赖参数堆叠",
+        "topicType": "theme",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "id": "230",
@@ -97242,6 +98636,20 @@
         "updatedAt": "2026-07-03T01:47:19.448Z"
       },
       {
+        "id": "321",
+        "topicKey": "多模态部分包括-vision-rl-late-fusion-shared-space-hidden-states-等技术环节-说明演讲后半段从语言模型扩展到视觉-语言能力",
+        "canonicalName": "多模态部分包括 vision RL、late fusion、shared space、hidden states 等技术环节，说明演讲后半段从语言模型扩展到视觉-语言能力",
+        "topicType": "topic",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "251",
         "topicKey": "大中华区收入-真实商业合同-应收账款质量和15.2亿美元现金审计-是判断商业化是否扎实的财务锚点",
         "canonicalName": "大中华区收入、真实商业合同、应收账款质量和15.2亿美元现金审计，是判断商业化是否扎实的财务锚点",
@@ -97284,6 +98692,20 @@
         "updatedAt": "2026-07-03T02:07:36.667Z"
       },
       {
+        "id": "322",
+        "topicKey": "演讲末尾提到-roms-is-not-the-end-适合作为开放模型路线仍在演进-尚未封顶的背景伏笔",
+        "canonicalName": "演讲末尾提到 ROMs is not the end，适合作为开放模型路线仍在演进、尚未封顶的背景伏笔",
+        "topicType": "topic",
+        "aliases": [],
+        "description": "",
+        "metadata": {
+          "source": "research_ingestion",
+          "lastRole": "background_anchor"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "id": "254",
         "topicKey": "猎鹰9号命名规则来自发动机数量-猎鹰1号1台-猎鹰9号9台",
         "canonicalName": "猎鹰9号命名规则来自发动机数量，猎鹰1号1台、猎鹰9号9台",
@@ -97313,6 +98735,300 @@
       }
     ],
     "researchTopicEdges": [
+      {
+        "id": "286",
+        "fromTopicKey": "long",
+        "toTopicKey": "杨植麟在-gtc-2026-keynote-中介绍-kimi-k2.5-的扩展进展-开场强调build-better-open-models和democratizing-intelligence",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 杨植麟在 GTC 2026 keynote 中介绍 Kimi K2.5 的扩展进展，开场强调“build better open models”和“democratizing intelligence”",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "287",
+        "fromTopicKey": "long",
+        "toTopicKey": "kimi-ai-作为发布方-视频主题围绕-kimi-k2.5-的-scaling-而不是单纯产品发布",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Kimi AI 作为发布方，视频主题围绕 Kimi K2.5 的 scaling，而不是单纯产品发布",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "288",
+        "fromTopicKey": "long",
+        "toTopicKey": "jensen-huang-在-ces-早些时候的演讲幻灯片被引用-用来说明开放模型正在快速缩小与-proprietary-models-的差距",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Jensen Huang 在 CES 早些时候的演讲幻灯片被引用，用来说明开放模型正在快速缩小与 proprietary models 的差距",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "289",
+        "fromTopicKey": "long",
+        "toTopicKey": "开放模型的部署场景被明确放在-local-servers-与-cloud-两端-并强调用户可以访问模型权重而非使用-black-box",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 开放模型的部署场景被明确放在 local servers 与 cloud 两端，并强调用户可以访问模型权重而非使用 black box",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "290",
+        "fromTopicKey": "long",
+        "toTopicKey": "演讲把-scaling-称为-ai-进步的-primary-driver-并把-token-loss-预测作为衡量扩展效果的关键线索之一",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 演讲把 scaling 称为 AI 进步的 primary driver，并把 token loss 预测作为衡量扩展效果的关键线索之一",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "291",
+        "fromTopicKey": "long",
+        "toTopicKey": "训练效率与-optimizer-是技术主线之一-演讲中提到从传统-adam-optimizer-出发讨论改进方向",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 训练效率与 optimizer 是技术主线之一，演讲中提到从传统 Adam optimizer 出发讨论改进方向",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "292",
+        "fromTopicKey": "long",
+        "toTopicKey": "参数数量-attention-head-training-course-与-reward-time-等术语构成模型扩展和训练过程的证据锚点",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 参数数量、attention head、training course 与 reward time 等术语构成模型扩展和训练过程的证据锚点",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "293",
+        "fromTopicKey": "long",
+        "toTopicKey": "长上下文或记忆机制相关部分出现-stm-memory-formulation-efficient-等关键词-暗示-kimi-k2.5-的扩展不只依赖参数堆叠",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 长上下文或记忆机制相关部分出现 STM、memory formulation、efficient 等关键词，暗示 Kimi K2.5 的扩展不只依赖参数堆叠",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "294",
+        "fromTopicKey": "long",
+        "toTopicKey": "开放模型",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 开放模型",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "295",
+        "fromTopicKey": "long",
+        "toTopicKey": "民主化智能",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 民主化智能",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "296",
+        "fromTopicKey": "long",
+        "toTopicKey": "权重",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 权重",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "297",
+        "fromTopicKey": "long",
+        "toTopicKey": "黑盒",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 黑盒",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "298",
+        "fromTopicKey": "long",
+        "toTopicKey": "scaling",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Scaling",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "299",
+        "fromTopicKey": "long",
+        "toTopicKey": "token",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Token",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "300",
+        "fromTopicKey": "long",
+        "toTopicKey": "optimizer",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Optimizer",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "301",
+        "fromTopicKey": "long",
+        "toTopicKey": "rl",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> RL",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "302",
+        "fromTopicKey": "long",
+        "toTopicKey": "you",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> you",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "303",
+        "fromTopicKey": "long",
+        "toTopicKey": "can",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> can",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "304",
+        "fromTopicKey": "long",
+        "toTopicKey": "kimi-ai",
+        "edgeType": "source_published_by",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> Kimi AI",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "305",
+        "fromTopicKey": "long",
+        "toTopicKey": "多模态部分包括-vision-rl-late-fusion-shared-space-hidden-states-等技术环节-说明演讲后半段从语言模型扩展到视觉-语言能力",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 多模态部分包括 vision RL、late fusion、shared space、hidden states 等技术环节，说明演讲后半段从语言模型扩展到视觉-语言能力",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "id": "306",
+        "fromTopicKey": "long",
+        "toTopicKey": "演讲末尾提到-roms-is-not-the-end-适合作为开放模型路线仍在演进-尚未封顶的背景伏笔",
+        "edgeType": "related_to",
+        "confidence": "0.64",
+        "evidenceCount": 1,
+        "notes": "long -> 演讲末尾提到 ROMs is not the end，适合作为开放模型路线仍在演进、尚未封顶的背景伏笔",
+        "metadata": {
+          "source": "research_ingestion"
+        },
+        "createdAt": "2026-07-19T06:32:11.963Z",
+        "updatedAt": "2026-07-19T06:32:11.963Z"
+      },
       {
         "id": "264",
         "fromTopicKey": "and",
@@ -101446,6 +103162,34 @@
         "createdAt": "2026-07-11T12:06:45.017Z"
       },
       {
+        "evidenceCardId": "317",
+        "topicKey": "can",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "can",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "321",
+        "topicKey": "can",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "330",
+        "topicKey": "can",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "evidenceCardId": "297",
         "topicKey": "critical-path",
         "relevance": "0.72",
@@ -101474,6 +103218,139 @@
         "createdAt": "2026-07-11T12:06:45.017Z"
       },
       {
+        "evidenceCardId": "316",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "317",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "319",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "320",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "321",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "322",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "323",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "324",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "325",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "326",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "327",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "328",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "329",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "330",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "331",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "332",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "333",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "334",
+        "topicKey": "long",
+        "relevance": "0.95",
+        "matchType": "primary_topic",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "evidenceCardId": "300",
         "topicKey": "not",
         "relevance": "0.72",
@@ -101486,6 +103363,13 @@
         "relevance": "0.72",
         "matchType": "text_match",
         "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "325",
+        "topicKey": "optimizer",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "evidenceCardId": "299",
@@ -101514,6 +103398,34 @@
         "relevance": "0.72",
         "matchType": "text_match",
         "createdAt": "2026-07-11T12:06:45.017Z"
+      },
+      {
+        "evidenceCardId": "320",
+        "topicKey": "rl",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "322",
+        "topicKey": "rl",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "326",
+        "topicKey": "rl",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "323",
+        "topicKey": "scaling",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "evidenceCardId": "277",
@@ -101761,6 +103673,27 @@
         "createdAt": "2026-07-07T14:40:29.027Z"
       },
       {
+        "evidenceCardId": "322",
+        "topicKey": "token",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "324",
+        "topicKey": "token",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "326",
+        "topicKey": "token",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "evidenceCardId": "302",
         "topicKey": "unpin",
         "relevance": "0.72",
@@ -101803,6 +103736,27 @@
         "createdAt": "2026-07-07T14:40:29.027Z"
       },
       {
+        "evidenceCardId": "317",
+        "topicKey": "you",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "you",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "330",
+        "topicKey": "you",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
         "evidenceCardId": "286",
         "topicKey": "发射台-1-号",
         "relevance": "0.72",
@@ -101815,6 +103769,62 @@
         "relevance": "0.72",
         "matchType": "text_match",
         "createdAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "evidenceCardId": "316",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "317",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "319",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "320",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "321",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "322",
+        "topicKey": "开放模型",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "权重",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
       },
       {
         "evidenceCardId": "286",
@@ -101843,6 +103853,13 @@
         "relevance": "0.72",
         "matchType": "text_match",
         "createdAt": "2026-07-07T14:40:29.027Z"
+      },
+      {
+        "evidenceCardId": "318",
+        "topicKey": "黑盒",
+        "relevance": "0.72",
+        "matchType": "text_match",
+        "createdAt": "2026-07-19T06:32:11.963Z"
       }
     ],
     "researchReportVersions": [
@@ -102485,6 +104502,31 @@
         },
         "createdAt": "2026-07-11T12:06:40.888Z",
         "updatedAt": "2026-07-11T12:08:40.801Z"
+      },
+      {
+        "id": "wechat_candidate:458cb51b27b53069",
+        "sourceType": "youtube_research",
+        "title": "为什么 Kimi K2.5 把开放模型之争从权重可见推向规模化效率",
+        "markdown": "## 一、关键术语解释\n- **开放模型：** 开放模型指权重和部署方式更开放的大模型，开发者可以在本地服务器或云端运行，而不只是通过封闭接口调用。它出现在视频开场，因为杨植麟把 Kimi K2.5 的目标放在“build better open models”和“democratizing intelligence”上。这个概念能避免一个误解：开放模型不等于只是免费或可下载，关键还包括部署控制权、研究可见性，以及能否真正接近前沿能力。\n- **权重：** 权重是模型内部学到的参数，决定模型如何把输入转成输出。视频强调用户可以“access every single bit of the weights”，是为了说明开放模型和黑盒产品的根本差别：开发者不只是使用结果，还能更深入地部署、研究、微调或审计模型。它防止读者把开放模型误解成普通 API 服务；能访问权重，才意味着对模型有更高程度的控制。\n- **黑盒：** 黑盒指只能看到输入和输出、看不到模型内部结构和参数的使用方式。视频用它来对比开放模型：开放模型让用户访问权重，而黑盒调用通常只能依赖平台提供的接口。这个词防止一个常见混淆：闭源模型也可能很好用，但好用不等于可研究、可审计或可自主部署。\n- **Scaling：** Scaling 指通过扩大模型、数据、训练计算或系统能力来提升 AI 表现的方法。视频把 scaling 称为 AI 进步的主要驱动力，因此它是理解 Kimi K2.5 扩展路线的主线。这个词防止读者把模型变强理解成单一技巧；演讲讨论的是一整套规模化训练和效率提升问题，而不只是参数变多。\n- **Token loss：** Token loss 是模型在预测 token 时产生的误差指标；token 可以是词、词的一部分或符号。视频提到“predicting the token loss”，说明 Kimi K2.5 的扩展效果会通过训练中的预测损失来观察。这个概念能避免把大模型能力提升想成抽象的“更聪明”：训练过程实际是在大量 token 上不断降低预测错误。\n- **Optimizer：** Optimizer 是训练模型时用来更新权重的算法，它根据误差决定参数应该如何调整。视频提到传统 Adam optimizer，并把优化器放在训练效率的技术主线上，说明 Kimi K2.5 的扩展不只是堆算力，还涉及如何更稳定、更高效地训练。它防止读者误以为规模化只取决于硬件或参数量；优化器会直接影响训练成本、速度和最终效果。\n- **长上下文与记忆机制：** 长上下文与记忆机制指模型处理更长输入、保留和利用更多历史信息的能力。证据 brief 中提到 STM、memory formulation 和 efficient，说明 Kimi K2.5 的扩展路线可能不只靠增大参数，也关注如何更有效地处理长文本或长期信息。这个词能避免一个误解：上下文能力不是简单把窗口拉长就结束，还涉及记忆如何组织、调用和保持效率。\n- **Vision RL：** Vision RL 指面向视觉任务的强化学习过程，模型通过奖励信号改进视觉相关行为。视频后半段提到“vision RL refers to a process”，并出现 late fusion、shared space、hidden states 等多模态环节，说明 Kimi K2.5 的能力扩展不止于纯文本。这个概念防止读者把整场演讲只理解成语言模型训练；多模态能力也是开放模型追赶前沿的一部分。\n## 二、背景导读\n在 Kimi AI 发布的这场 GTC 2026 keynote 中，杨植麟讲的不是一次普通产品展示，而是 Kimi K2.5 如何扩展能力的技术路线。他开场把目标定为“build better open models”和“democratizing intelligence”：开放模型可以部署在本地服务器，也可以放在云端，用户还能访问模型权重，而不是只通过黑盒接口调用。真正的冲突也在这里出现：如果开放模型只是“可下载、可部署”，却在能力、效率和多模态任务上落后于闭源前沿模型，它就很难成为开发者和企业可替代的生产力基础设施。\n这场演讲的背景，是开放模型正在逼近 proprietary models 的前沿位置。杨植麟引用 Jensen Huang 在 CES 早些时候演讲中的幻灯片，用来说明开放模型与专有模型的差距正在快速缩小；但他随即强调，open models cannot be just open，它们还必须足够强。到 Kimi K2.5 这里，问题已经从“是否开放权重”转向“开放模型能否以可承受的训练成本、可预测的 token loss、更有效的 optimizer 和更强的上下文能力持续扩展”。这也是今天仍值得看这段视频的原因：开放模型的竞争焦点，已经进入训练系统、部署控制权和前沿能力共同决定胜负的阶段。\n读这场演讲，可以把它看成一条从语言模型扩展到多模态模型的任务链：先理解 scaling 为什么被称为 AI 进步的 primary driver，再看 token loss 如何帮助判断训练效果，随后进入 optimizer 与传统 Adam 相关的效率问题，接着是 STM、memory formulation 等长上下文或记忆机制线索，最后延伸到 vision RL、late fusion、shared space、hidden states 等视觉-语言训练环节。演讲末尾“ROMs is not the end”的表述，也给这条路线留下伏笔：Kimi K2.5 展示的是开放模型继续追赶前沿的一段路径，而不是终点。\n## 三、导读与核心结论\n### 一句话结论\nKimi K2.5 的关键不是“开放权重”本身，而是用 scaling、优化器、长上下文与视觉 RL 把开放模型推进到足以替代黑盒前沿模型的工程基础设施。\n### 核心观点\n#### 1. Kimi K2.5 把开放模型的战场从权重可见推进到能力必须足够强\n> [1:14] “open models cannot be just open. they have have also to be great”\n  - **为什么重要：** 这句话把开放模型的竞争标准抬高了：只允许本地部署、云端部署或访问权重，并不能自动带来生产力替代。企业和开发者真正关心的是模型能否在效果、成本、稳定性和可控性上接近闭源前沿模型。\n  - **读者该抓住什么：** 判断开放模型价值时，不要只看是否开放权重；要看它是否已经强到能进入真实开发、部署和研究流程。\n#### 2. 本地服务器、云端和权重访问让开放模型获得了黑盒 API 没有的控制权\n> [0:37] “you can deploy anywhere. You can be on your local servers, you can be on the cloud”; [0:43] “you can access every single bit of the weights... instead of just using a black box”\n  - **为什么重要：** 部署自由和权重访问改变的是基础设施主权：团队可以根据数据安全、延迟、成本和审计需求选择运行位置，也可以进一步微调、研究或检查模型，而不是被封闭接口限制在固定能力边界内。\n  - **读者该抓住什么：** 开放模型的第一层价值是控制权，但控制权只有在模型能力足够高时才会转化为可替代闭源方案的实际优势。\n#### 3. 开放模型正在缩小与 proprietary models 的差距，Kimi K2.5 的叙事因此变成前沿追赶\n> [0:56] “open models are quickly closing the gap with proprietary models and it's reaching the frontier”\n  - **为什么重要：** 这使 Kimi K2.5 不只是一次模型发布，而是开放模型产业位置变化的案例：如果开放模型进入前沿区间，开发者就不必在“能力最强”和“可控可部署”之间做二选一。\n  - **读者该抓住什么：** Kimi K2.5 的战略意义在于挑战闭源模型的能力垄断，而不是单纯提供一个可下载模型。\n#### 4. Scaling 被定义为 AI 进步的 primary driver，Kimi K2.5 的核心问题是规模化效率\n> [1:27] “scaling is a primary driver”; [2:48] “predicting the token loss”\n  - **为什么重要：** 演讲把模型变强的路径落到可度量的训练问题上：通过规模化训练降低 token loss，而不是抽象地宣称模型更聪明。对开发者和研究者来说，这意味着能力提升背后依赖数据、计算、训练曲线和损失预测的系统工程。\n  - **读者该抓住什么：** 理解 Kimi K2.5，要把重点放在 scaling 如何有效降低训练损失，而不是只看参数规模或演示效果。\n#### 5. 传统 Adam optimizer 被拿来讨论，说明训练效率是开放模型追赶前沿的成本杠杆\n> [6:31] “traditional atom optimizer”\n  - **为什么重要：** 优化器决定参数如何更新，直接影响训练稳定性、收敛速度和算力成本。开放模型要接近前沿，不能只扩大模型和数据，还要让训练过程更高效，否则开放权重背后的训练门槛会继续集中在少数有资源的团队手里。\n  - **读者该抓住什么：** 开放模型的民主化不只发生在发布环节，也发生在训练效率是否能降低前沿能力的进入门槛。\n#### 6. STM、memory formulation 和 efficient 指向长上下文路线，而不是单纯堆参数\n> 证据简报指出长上下文或记忆机制部分出现 “STM、memory formulation、efficient” 等关键词\n  - **为什么重要：** 长上下文和记忆机制影响模型处理长任务、复杂文档和持续交互的能力。若 Kimi K2.5 的扩展路线包含更高效的记忆设计，它的工程价值就不只是更大的模型，而是更能承载真实工作流。\n  - **读者该抓住什么：** 关注 Kimi K2.5 的扩展时，要看它如何处理上下文和记忆效率；这往往比单纯参数增长更贴近应用落地。\n#### 7. vision RL、late fusion 和 shared space 表明 Kimi K2.5 的扩展已经进入多模态训练\n> [28:59] “vision RL refers to a process”; 证据简报提到 “late fusion、shared space、hidden states”\n  - **为什么重要：** 多模态扩展说明演讲后半段不再局限于文本 token 预测，而是把强化学习、视觉表示和语言模型空间连接起来。这决定了开放模型未来能否覆盖更广泛的任务类型，例如视觉理解、图文推理和复杂界面操作。\n  - **读者该抓住什么：** Kimi K2.5 的前沿追赶不是纯文本路线；视觉 RL 和多模态融合是它成为通用智能基础设施的一部分。\n### 标志性金句\n#### 1. 开放不等于足够好\n> open models cannot be just open. they have have also to be great\n  - **含义：** 演讲者明确指出，开放模型不能只满足于权重开放或部署自由，还必须在能力上达到足够高的水平。\n  - **可迁移启发：** 任何开放 AI 项目都不能把“开放”当成最终卖点；真正的竞争力来自开放之后仍能在性能、效率和可用性上接近前沿。\n#### 2. 开放模型提供控制权\n> you can deploy anywhere. You can be on your local servers, you can be on the cloud\n  - **含义：** 开放模型让用户可以选择本地服务器或云端部署，避免完全依赖封闭平台的运行方式。\n  - **可迁移启发：** 当模型能力足够强时，部署自由会变成企业采用开放模型的战略优势，尤其是在数据安全、成本控制和基础设施自主性上。\n#### 3. 权重访问对抗黑盒依赖\n> you can access every single bit of the weights... instead of just using a black box\n  - **含义：** 用户能看到并使用模型权重，而不是只能通过黑盒接口输入问题、接收输出。\n  - **可迁移启发：** 权重开放让研究、审计、微调和深度部署成为可能，但它必须与高性能训练路线结合，才会形成真正的生态优势。\n#### 4. Scaling 是能力提升主轴\n> scaling is a primary driver\n  - **含义：** 演讲把 AI 能力进步的主要动力归结为 scaling，即围绕模型、数据、训练和系统能力的规模化扩展。\n  - **可迁移启发：** 开放模型要追赶闭源前沿，核心不是口号，而是能否把规模化训练做得更高效、更可预测，并转化为更低 token loss 和更强任务能力。\n### 最反共识的判断\n- 聪明读者可能以为开放模型的关键胜利是“权重可下载”，但演讲改变了这个判断：开放只是入口，真正决定市场替代性的，是开放模型是否足够强到接近 proprietary models 的 frontier。\n- 聪明读者可能以为 scaling 就是扩大参数量，但证据显示演讲同时讨论 token loss、optimizer、training course、reward time、STM 和 memory formulation；Kimi K2.5 的扩展更像一套训练与系统效率工程。\n- 聪明读者可能以为 Kimi K2.5 的路线主要是语言模型继续变大，但演讲后半段进入 vision RL、late fusion、shared space 和 hidden states；开放模型追赶前沿的下一步已经包含视觉-语言多模态能力。\n## 四、关键技术点速览\n#### 1. 开放模型的部署自由\n  - **视频里怎么说：** 杨植麟在 0:37 说开放模型“you can deploy anywhere”，可以在 local servers 或 cloud 上运行；0:43 又强调用户能访问“every single bit of the weights”，而不是只用 black box。\n  - **为什么重要：** 这把开放模型的价值从“能下载”推进到“能控制基础设施”：企业可以围绕本地服务器、云端环境、权重访问、微调和审计来设计自己的 AI 系统。\n  - **风险或不确定性：** 视频证据没有给出本地服务器与云端部署的成本、硬件门槛、合规要求或运维复杂度，因此不能直接推断所有团队都能低成本采用 Kimi K2.5。\n#### 2. 开放模型必须足够强\n  - **视频里怎么说：** 演讲在 1:14 明确说“open models cannot be just open. they have also to be great”，并在 0:56 称 open models 正在快速缩小与 proprietary models 的差距、接近 frontier。\n  - **为什么重要：** 这定义了 Kimi K2.5 的真正竞争对象：不是普通开源可用性，而是能否在能力、效率和可靠性上接近闭源前沿模型，从而成为生产环境里的替代选项。\n  - **风险或不确定性：** “closing the gap”和“reaching the frontier”来自演讲表述，证据 brief 没有提供 benchmark 名称、分数、测试集或第三方复现结果，前沿接近程度仍需要外部评测验证。\n#### 3. Scaling 作为能力提升主轴\n  - **视频里怎么说：** 演讲在 1:27 把 scaling 称为 AI 进步的 primary driver，并把 Kimi K2.5 的主题放在 scaling，而不是单纯产品发布。\n  - **为什么重要：** 这说明文章应把 Kimi K2.5 视为训练与系统工程路线：参数规模、training course、attention head、reward time、token loss 和效率共同决定模型能否继续变强。\n  - **风险或不确定性：** scaling 不是无条件有效；证据 brief 没有说明计算预算、数据规模、参数数量的具体数值，也没有说明继续扩展时 token loss 曲线是否会保持可预测。\n#### 4. Token loss 预测\n  - **视频里怎么说：** 演讲在 2:48 提到“predicting the token loss”，说明扩展效果与 token 预测误差相关。\n  - **为什么重要：** token loss 给语言模型训练提供了可量化线索：模型不是抽象地“更聪明”，而是在大量 token 上降低预测误差，并用这种信号判断 scaling 是否有效。\n  - **风险或不确定性：** token loss 只能说明训练目标的一部分；证据 brief 没有证明较低 token loss 必然转化为更好的推理、工具使用、长上下文或多模态能力。\n#### 5. Optimizer 与传统 Adam 的改进方向\n  - **视频里怎么说：** 演讲在 6:31 提到 traditional Adam optimizer，并把训练效率与 optimizer 放在技术主线中。\n  - **为什么重要：** optimizer 决定权重如何根据误差更新，直接影响训练稳定性、收敛速度和计算成本；对开放模型来说，这关系到更少资源能否训练出接近前沿的模型。\n  - **风险或不确定性：** brief 只说明从传统 Adam 出发讨论改进方向，没有给出新优化器名称、公式、实验对照或成本下降幅度，因此不能声称 Kimi K2.5 已经在优化器上取得确定领先。\n#### 6. 长上下文与记忆机制\n  - **视频里怎么说：** 背景锚点提到 STM、memory formulation、efficient 等关键词，说明 Kimi K2.5 的扩展不只依赖参数堆叠，还涉及长上下文或记忆机制。\n  - **为什么重要：** 如果模型要处理长文档、持续对话或复杂任务链，单纯扩大参数可能不够；更高效的 memory formulation 可以影响上下文成本、延迟和可用任务长度。\n  - **风险或不确定性：** 证据 brief 没有给出上下文窗口长度、STM 的具体实现、内存占用或长上下文评测结果，现阶段只能把它视为演讲中的方向线索。\n#### 7. 视觉 RL 与多模态扩展\n  - **视频里怎么说：** 演讲在 28:59 进入“vision RL refers to a process”，背景锚点还包括 late fusion、shared space、hidden states，说明后半段从语言模型扩展到视觉-语言能力。\n  - **为什么重要：** 这让 Kimi K2.5 的扩展路线不止停在文本 token 预测，而是尝试把强化学习、视觉表示和语言模型连接起来，服务于更复杂的多模态任务。\n  - **风险或不确定性：** brief 没有提供视觉 RL 的奖励设计、vision SFD data 的规模、late fusion 的效果对比或多模态失败案例，因此不能断言视觉能力已经稳定追上闭源模型。\n## 五、详细技术拆解\n### 1. 开放权重如何改变开发者控制权\n- 0:37 的 local servers 与 cloud 部署场景，意味着开发者可以按数据安全、延迟、成本和基础设施偏好选择运行位置，而不是只能把请求交给 proprietary black box。\n- 0:43 的“access every single bit of the weights”让研究、微调和审计成为可能；商业上，这会把供应商锁定从 API 层转移到训练成本、推理成本和运维能力上。\n- 开放权重不自动等于生产可用：证据 brief 没有说明 Kimi K2.5 的硬件需求、推理吞吐、显存占用或云端部署参考架构，这些是企业采用前必须补齐的工程信息。\n### 2. 为什么开放模型的战场变成规模化效率\n- 1:14 的“open models cannot be just open”把竞争焦点从许可证和可下载权重，转向 token loss、训练效率、optimizer、参数规模和多模态能力。\n- 1:27 的 scaling 是 primary driver，说明 Kimi K2.5 的叙事核心是规模化训练系统，而不是一次性的模型发布；工程上要同时管理数据、计算、优化器和训练过程稳定性。\n- 商业含义是开放模型必须用更高效率追赶 proprietary models：如果训练成本过高、推理成本过高或稳定性不足，开放权重也难以转化为可替代闭源模型的生产力。\n### 3. Token loss、训练过程与优化器的工程含义\n- 2:48 的 token loss 预测提供了训练进展的量化入口：模型能力提升可以通过 token 级预测误差观察，而不是只依赖演示效果。\n- 6:31 提到 traditional Adam optimizer，说明训练效率不是外围优化；optimizer 会影响权重更新路径、收敛速度、训练稳定性和同等计算预算下的最终效果。\n- 证据 brief 提到 attention head、training course 与 reward time，但没有给出具体数值和实验表格；因此这些术语适合作为分析锚点，不适合扩写成确定的性能结论。\n### 4. 长上下文与记忆机制不是简单堆参数\n- STM、memory formulation、efficient 这些关键词说明 Kimi K2.5 的扩展路线包含长上下文或记忆机制，目标可能是让模型在更长输入或任务过程中保留有效信息。\n- 工程逻辑上，长上下文会带来注意力计算、缓存、延迟和成本压力；如果 memory formulation 更高效，就可能让开放模型在实际部署中处理更长任务。\n- 边界条件仍然明显：brief 没有上下文长度、任务类型、失败模式或与普通 attention 方案的对照，因此不能把 STM 解读为已被充分验证的通用记忆能力。\n### 5. 从语言模型到视觉 RL 的能力外延\n- 28:59 的 vision RL、以及 late fusion、shared space、hidden states，表明演讲后半段把 Kimi K2.5 的 scaling 叙事延伸到视觉-语言系统。\n- 多模态扩展的工程难点在于让视觉表示与语言 hidden states 在 shared space 中协同；late fusion 可能影响信息何时合并、奖励信号如何传导和任务表现如何稳定。\n- 商业上，多模态能力决定模型能否进入图像理解、视觉问答和更复杂的工作流；但 brief 没有给出视觉 RL 的评测结果或部署案例，采用价值仍需通过具体任务验证。\n### 6. 仍需外部验证的关键边界\n- 0:56 的 open models 正在接近 frontier 是强判断，但 brief 没有 benchmark、第三方复现或与 proprietary models 的同场对比，因此文章应把它写成演讲主张，而不是最终事实。\n- 0:07、4:52、9:43、14:27、19:18、24:39、29:45、34:38 这些时间点只提供片段式原文锚点，适合提示读者回看视频，不足以支撑新的技术结论。\n- 演讲末尾的“ROMs is not the end”适合作为路线仍在演进的伏笔：开放模型从权重可见走向能力可用还需要训练效率、长上下文、多模态和可靠部署继续补齐。\n## 六、时间线摘要\n- [0:31] 杨植麟把演讲目标定为“建设更好的开放模型”，而不是单纯展示 Kimi K2.5 的产品功能。；这为整场视频划定了问题边界：重点不是模型是否开放，而是开放模型如何在能力、训练效率和基础设施层面追赶前沿闭源模型。\n> build better open models\n- [0:37] 演讲说明开放模型可以部署在本地服务器或云端。；这把开放模型的价值从“可访问”推进到“可掌控”：企业和开发者可以根据数据安全、成本和基础设施条件选择部署方式。\n> you can deploy anywhere. You can be on your local servers, you can be on the cloud\n- [0:43] 演讲者强调用户可以访问模型权重，而不是只使用黑盒接口。；权重可见让研究、微调、审计和自主管理成为可能，也解释了为什么开放模型对开发者生态和研究生态有不同于闭源 API 的意义。\n> you can access every single bit of the weights... instead of just using a black box\n- [0:56] 演讲引用开放模型正在快速缩小与专有模型差距、并接近前沿的判断。；这是文章的核心冲突：开放模型不再只是在可用性上竞争，而开始进入与 proprietary models 比能力、效率和系统工程的阶段。\n> open models are quickly closing the gap with proprietary models and it's reaching the frontier\n- [1:05] 演讲把开放模型的长期目标表述为让世界各地的人更容易获得智能。；这为后续技术细节提供价值框架：Kimi K2.5 的 scaling 叙事服务于“democratizing intelligence”，而不只是排行榜提升。\n> make intelligence more accessible to anybody in the world in every corner of the world\n- [1:14] 演讲明确提出开放模型不能只是开放，还必须足够强。；这是理解视频论证的转折点：如果模型性能、效率和多模态能力无法接近前沿，开放权重也很难转化为真正可替代闭源模型的生产力。\n> open models cannot be just open. they have have also to be great\n- [1:22] 演讲将后续主题锁定为“如何让开放模型变强”。；这提示读者后面应关注训练规模、优化器、token loss、长上下文、记忆机制和多模态 RL，而不是把视频当作普通发布会解读。\n> in this talk we're going to discuss how we make open models great\n- [1:27] 演讲把 scaling 称为 AI 进步的主要驱动力。；这给 Kimi K2.5 的技术路线建立主轴：能力提升依赖规模化训练、计算效率、数据处理和系统优化的组合，而不只是单一模型架构变化。\n> scaling is a primary driver\n- [2:48] 演讲进入 token loss 预测相关讨论。；这让读者看到模型能力提升的可度量线索：语言模型训练并非抽象地“变聪明”，而是在大量 token 上降低预测误差。\n> predicting the token loss\n- [6:31] 演讲讨论优化器，并从传统 Adam optimizer 相关方向展开。；优化器决定训练过程中权重如何更新，直接影响训练稳定性、效率和成本，是开放模型能否规模化追赶前沿的关键技术入口。\n> traditional atom optimizer\n- [9:43] 视频出现关于“两条曲线”的讨论片段。；这个位置可能对应 scaling 效果或训练曲线比较，读者可回看此处核对演讲如何用曲线支持“规模化带来能力提升”的判断。\n> two curves but there are strictly\n- [14:27] 视频进入关于“保留”选择的技术片段。；该片段可能涉及训练过程、记忆机制或上下文处理中的策略选择，适合用来追踪 Kimi K2.5 是否只靠参数扩张，还是也依赖更高效的结构和训练设计。\n> the second case you can choose to retain\n- [19:18] 视频出现“收集结果并生成”的流程描述。；这个时间点有助于定位演讲中关于训练流程或任务调度的系统工程部分，关系到开放模型扩展时如何把计算、反馈和训练迭代组织起来。\n> just collect the results and spawn uh a\n- [28:59] 演讲后半段转向 vision RL，开始讨论视觉相关强化学习流程。；这说明 Kimi K2.5 的扩展路线不止覆盖纯文本 token 预测，还延伸到视觉-语言能力和多模态训练。\n> vision RL refers to a process\n- [29:45] 视频提到几乎没有 vision SFD data 的情形。；这提示多模态能力建设可能面临数据供给或数据类型约束，读者应关注 Kimi K2.5 如何在数据不足或数据结构不同的情况下推进视觉训练。\n> basically zero vision SFD data. And the\n- [34:38] 视频出现 hidden states 与 attention 相关描述。；这一段可作为追踪 late fusion、shared space 或视觉-语言融合机制的入口，帮助读者理解多模态扩展如何在模型内部连接不同信息来源。\n> states and have a simple attention\n### 原文摘录\n### 1. How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote｜原文索引\n> 下方保留完整时间戳原文索引，用来按时间点核对正文判断。\n```text\n[0:07] [music]\n[0:11] Hi everyone. Thank you so much for the\n[0:14] introduction. It's great to be here. Uh\n[0:17] it's great to have this opportunity to\n[0:20] share with you guys uh some of our\n[0:22] latest progress and efforts.\n[0:26] So uh one of our major pursues uh is to\n[0:31] build better open models and we believe\n[0:34] in democratizing intelligence. With open\n[0:37] models you can deploy anywhere. You can\n[0:39] be on your local servers, you can be on\n[0:41] the cloud and you can access every\n[0:43] single bit of the weights in the\n[0:46] modeling instead of just uh using a\n[0:48] black box. And this is one of the slides\n[0:51] that I took from Jensen's uh talk\n[0:54] earlier this year at CES. So as you can\n[0:56] see, open models are quickly uh closing\n[0:59] the gap with uh proprietary models and\n[1:02] it's reaching the frontier. And we\n[1:05] believe that with better and better open\n[1:06] models, we're going to u make\n[1:08] intelligence more accessible to anybody\n[1:11] in the world in every corner of the\n[1:14] world. But open models cannot be just\n[1:17] open. they have have also to be great.\n[1:22] So uh in this talk we're going to\n[1:24] discuss how we make open models great.\n[1:27] Uh so as we know uh scaling is a primary\n[1:32] driver uh for a lot of progress maybe\n[1:35] all of the you know major AI\n[1:37] developments that we have witnessed in\n[1:39] in the last few years and here we're\n[1:41] going to discuss how we scale our model\n[1:44] in different dimensions. So on the left\n[1:46] hand side the first figure you see here\n[1:48] is kind of the the standard scaling law.\n[1:51] So on the x-axxis you have the uh log of\n[1:55] the number of training tokens and on the\n[1:57] y-axis you have the log loss and as you\n[2:00] scale the number of training tokens you\n[2:02] get a lower loss. But here the point is\n[2:05] we're not going to just scale the number\n[2:07] of training tokens but we also want to\n[2:10] want to improve uh the token efficiency.\n[2:13] uh meaning that we want to move this\n[2:15] curve to the left hand side so that we\n[2:17] can achieve a lower loss a much lower\n[2:20] loss using the same number of training\n[2:23] tokens and this can be achieved by\n[2:26] having better architectures and\n[2:28] optimizers as we'll discuss in in our\n[2:31] later slides and the second scaling\n[2:33] dimensions that we're very interested in\n[2:36] is to scale the context lens so as you\n[2:39] can see in the second second figure uh\n[2:41] if we increase the context length then\n[2:45] we can uh have a much higher accuracy in\n[2:48] terms of predicting uh the token loss at\n[2:52] a given position. Uh and this means that\n[2:55] we can increase the capability of the\n[2:57] model to achieve more complex task by\n[3:01] increasing uh the context. So this is\n[3:04] the second scaling dimensions that we're\n[3:06] going to talk about. And the third\n[3:08] scaling dimension is the number of\n[3:09] agents. So we introduced this new\n[3:12] learning paradigm of agent swams where\n[3:15] we can we don't just rely on a single\n[3:17] agent but we also uh orchestrate a swarm\n[3:21] of agents that can accomplish the\n[3:23] subtask in parallel so that we can\n[3:25] increase the task capacity and we can\n[3:28] translate all of this in into the\n[3:29] language of agents. So if you look at\n[3:32] token efficiency, it's mostly about\n[3:34] having a stronger prior so that you can\n[3:38] uh have more efficiency when you do\n[3:41] agent RL to search for a uh better\n[3:44] solution. And you think about long\n[3:45] context is it's mostly about increasing\n[3:48] the context length so that you can have\n[3:49] a longer running agent. It can probably\n[3:52] run for days or even weeks or months to\n[3:54] accomplish more uh more more tasks more\n[3:57] uh complex tasks and about and for agent\n[4:01] swarms is is another dimensions that\n[4:04] that add to it and at the end of the day\n[4:05] we're going to have a swarm of agents\n[4:07] that each of them have a super long\n[4:09] context and each of them have a very\n[4:11] strong prior for us to uh search uh in\n[4:15] this entire agent RL system.\n[4:19] All right. So we're going to start uh\n[4:21] from token efficiency. So this is one of\n[4:24] the most you know classical figures in\n[4:27] the history of machine learning. Right.\n[4:29] So it's taken from cap Kaplan Adel and\n[4:31] it basically says that if we scale\n[4:34] proportionally the number of training\n[4:37] tokens the model parameters and also the\n[4:40] amount of compute we can get lower and\n[4:42] lower loss. And this is you know one of\n[4:44] the major breakthroughs that that the\n[4:46] entire community uh has achieved in the\n[4:49] last few years to to get uh better\n[4:52] intelligence. But here what what we're\n[4:54] interested in is is to have better and\n[4:57] better uh token efficiency. And uh\n[5:01] here's the thing. So one thing that I\n[5:02] would like to emphasize is that token\n[5:05] efficiency is not just about efficiency.\n[5:09] is actually also about improving the\n[5:11] upper bound of intelligence. So here\n[5:14] here's why. So uh suppose you have uh\n[5:18] say 50 trillion tokens, 50 trillion high\n[5:21] quality tokens and then you apply this\n[5:24] new optimizer maybe the m optimizer and\n[5:27] then all of a sudden you have a two\n[5:29] times token efficiency. So it means that\n[5:32] it's almost like magic that you get uh\n[5:35] equivalently 100 trillion tokens. Uh and\n[5:39] nowadays we are scaling towards the data\n[5:41] war and we're hitting you know the data\n[5:44] war and the amount of high quality data\n[5:46] is quite limited and if we suppose that\n[5:48] is a constant amount then we increase\n[5:51] the token efficiency it means that uh\n[5:54] we're going to get better intelligence\n[5:56] out of it. It's not just about\n[5:58] infrastructure efficiency. It's about\n[6:00] you know better uh intelligence. So so\n[6:04] this is why we spend you know a lot of\n[6:06] efforts in this aspect because it's\n[6:08] going to push uh the frontier of of\n[6:10] intelligence and m optimizer is one of\n[6:13] the things that we have heavily invested\n[6:15] in uh since last year. So it's a second\n[6:20] order optimizer and basically every\n[6:23] single gradient update is transformed in\n[6:26] a way that each entry is orthogonal to\n[6:29] each other and this is very different\n[6:31] from the traditional atom optimizer and\n[6:35] if if you implement this optimizer\n[6:37] properly you can get a two times token\n[6:39] efficient efficiency improvement. Uh so\n[6:42] we we are one uh we are the first uh\n[6:46] work we published the first work to\n[6:48] demonstrate that SM optimizer is\n[6:50] actually scalable for LLM training and\n[6:53] these are two key techniques that it we\n[6:56] employ to make it effective for large\n[6:59] scale training. So one of them is decay\n[7:01] it it is critical for scaling to larger\n[7:03] models and the second is uh we want to\n[7:06] ensure a consistent RMS updates compared\n[7:09] to Adam. So we have this uh adjustable\n[7:13] coefficient that is applied uh to each\n[7:16] update so that uh the uh resulting RMS\n[7:19] is going to be comparable to Adam and uh\n[7:23] to make MIUI memory efficient across all\n[7:26] this uh Nvidia GPU clusters. We also\n[7:29] develop a distributed mumm optimizer\n[7:32] implementation that partitions the\n[7:34] states across uh the data parallel group\n[7:37] so that we can have a very efficient\n[7:39] imple implementation for the mum\n[7:41] optimizer and these are some of the\n[7:44] results uh that we presented in the\n[7:46] paper. So as you can see with with the\n[7:48] same number of parameters and the same\n[7:51] number of training tokens we just\n[7:52] replace the original AdamW optimizer\n[7:56] with the new MU optimizer is going to to\n[7:59] improve the performance across the board\n[8:01] uh sign uh significantly.\n[8:04] But there was uh this new challenge that\n[8:07] we encounter when we try to scale it up\n[8:10] further. when we try to scale muon for a\n[8:13] one trillion parameter model we\n[8:15] encounter a new issue uh about training\n[8:18] instability. So as you can see on the\n[8:20] left figure we uh we observe that the\n[8:24] max logits quickly explodes and quickly\n[8:27] exceeds 1,000 and the typical values for\n[8:31] uh for uh training for this max logics\n[8:35] is about say 50 or maybe less than uh\n[8:38] 100 but for uh for m it quickly exists\n[8:42] 1,000 and at the same time we observe\n[8:44] training uh divergence on the left hand\n[8:47] side. If you look at the trading loss,\n[8:49] uh it goes down a bit but then at the\n[8:51] end of the day it explodes and it cannot\n[8:53] converges uh as expected. So this is one\n[8:56] of the technical challenges that we have\n[8:58] to to address. Uh and the solution to\n[9:01] this is to introduce this new technique\n[9:04] called uh QK clip. So basically what it\n[9:07] says is that for each attention hat in\n[9:10] this entire neuronet network we're going\n[9:12] to in the forward pass we're going to\n[9:14] compute the max logit and then we're\n[9:16] going to calculate a dividing factor\n[9:19] that can be applied to each uh key\n[9:22] projection as well as the query\n[9:24] projection so that we can uh sort of\n[9:27] clip the maximum uh value of the query\n[9:30] and the key to to sort of constrain it\n[9:33] into a a given range so so that uh we're\n[9:37] not going to have exposion anymore. Uh\n[9:40] so these are some of the empirical\n[9:41] results. On the left hand side there are\n[9:43] two curves but there are strictly\n[9:45] overlapped with each other. So these are\n[9:47] the training curves before and after\n[9:50] applying the clipping technique. So you\n[9:52] can see uh the clipping technique does\n[9:55] not affect uh the training loss uh uh uh\n[9:59] decrease at all. But on the right hand\n[10:01] side if we inspect uh the intermediate\n[10:04] metric if we inspect the max logit it's\n[10:06] going to be effectively uh constraint.\n[10:10] So it first expose as before but at the\n[10:14] value of 100 it's going to be clip at a\n[10:17] constant value for a long time and then\n[10:19] after a certain number of steps will\n[10:21] just naturally go down. uh so the neural\n[10:23] network sort of uh find a way to uh\n[10:27] constrain the maximum value of the uh\n[10:30] max logic to ensure a stable uh training\n[10:33] process and at the same time it doesn't\n[10:35] affect you know the training convergence\n[10:38] as shown in in the in the left figure.\n[10:40] So we employed this technique in our uh\n[10:43] K2 model training and successfully\n[10:46] scaled it to one trillion parameters.\n[10:49] And this is uh the first example of a\n[10:53] large scale mong training in the history\n[10:55] of machine learning.\n[10:58] And the second dimension that we're very\n[11:01] interested in is isl context. So this is\n[11:04] another figure. It's probably less\n[11:06] known. uh is is one of the hidden gems\n[11:10] in these papers. Uh so instead of just\n[11:13] you know pushing down the training loss\n[11:14] by training on more tokens, it has some\n[11:18] uh uh insights from another perspective.\n[11:21] So as we can see this is a comparison\n[11:23] between transformers and LSTMs. So on\n[11:26] the left hand side we can see that\n[11:28] transformers achieve a lower training\n[11:30] loss given the same number of parameters\n[11:33] and the same number of training tokens\n[11:35] as expected. And this is why\n[11:36] transformers become you know the you\n[11:38] know the sort of the de facto\n[11:40] architecture that people are using right\n[11:41] now. But on the right hand side it's\n[11:44] really interesting to see that\n[11:46] transformers are actually better because\n[11:48] it can improve through the whole\n[11:50] context. So the x-axis is the token\n[11:53] index in context. And if you increase\n[11:55] the token index, you can see that the\n[11:57] training loss of transformers actually\n[11:59] drop by a lot. If you just continue\n[12:03] continually increase context lens, the\n[12:05] loss just continuously drops down. But\n[12:08] if you look at you know the curve of\n[12:10] RSDM, it just is saturated after a\n[12:13] certain uh number of tokens. It means\n[12:16] that transformers have this better\n[12:18] capability of capturing longer context\n[12:21] and this is this is what makes it uh\n[12:23] better uh because if it if you go back\n[12:26] to like 10 years ago uh people use LSTN\n[12:29] for tasks like machine translation but\n[12:32] it is not good for for example\n[12:34] understanding entire codebase or running\n[12:36] a super long agent trajectories to solve\n[12:40] uh a a uh for example writing Linux\n[12:42] kernels uh from scratch. is not going to\n[12:45] be accomplishable by STMs. So this is a\n[12:48] very uh much neededed capability in the\n[12:52] era of agents because tasks are becoming\n[12:54] harder and harder uh and we need longer\n[12:56] and longer context. Uh so the research\n[12:59] idea here is to develop a better\n[13:02] architecture so that we can uh\n[13:04] efficiently scale to a longer context\n[13:07] length and at the same time achieve a\n[13:10] lower per token loss at uh larger token\n[13:14] indices. And this is the motivation uh\n[13:18] for which we introduce this new\n[13:20] architecture called uh Kim linear. And\n[13:24] it's uh contains this new uh linear\n[13:28] attention variants called uh Kimmy delta\n[13:31] attention which improves the original\n[13:35] uh delta rule GDR uh by improved\n[13:38] recurrent memory. I will show the\n[13:40] details later. And at the same time,\n[13:42] we're going to mix linear attention\n[13:44] layers with full attention layers using\n[13:46] a one to three ratio so that you can\n[13:49] balance between uh this long context\n[13:52] capabilities and at the same time having\n[13:54] a more efficient uh implementation.\n[13:58] So this is uh some of the formulation.\n[14:01] Uh the basic idea is simple. If you look\n[14:03] at linear attention uh in the original\n[14:06] formulation uh the memory is going to be\n[14:08] global. So there is a global single\n[14:12] decay factor that is applied along the\n[14:15] way. So it means that uh basically if uh\n[14:19] there are only two cases in one case is\n[14:21] in one case you're going to forget\n[14:23] basically everything and you're not\n[14:25] going to retain any information and in\n[14:27] the second case you can choose to retain\n[14:30] you know almost everything but at the\n[14:31] same time you don't have the capability\n[14:33] to leave out some of the unnecessary\n[14:36] information in this long context. So we\n[14:38] introduce this key idea of having a fine\n[14:42] grain uh decay factor as shown in this\n[14:44] highlighted alpha term. So it's going to\n[14:48] uh instead of being a scalar, it's going\n[14:50] to be a a diagonal matrix which controls\n[14:54] uh the decay rate for each channel. So\n[14:57] that we can have two possibilities. For\n[14:58] some of the channels, we can uh decay\n[15:01] really really slow, meaning that we can\n[15:03] retain this long context information\n[15:05] across a very long uh range. And at the\n[15:09] same time, for the other channels, we\n[15:11] can sort of quickly forget uh the\n[15:13] information from the past indices to\n[15:16] refresh it and observe new information.\n[15:20] And this is uh to increase the\n[15:23] expressivity uh of this model.\n[15:27] And of course to leverage modern GPUs we\n[15:30] have to use this chunkwise uh\n[15:32] formulations so that we can uh paralyze\n[15:35] the computation on modern GPUs. So the\n[15:38] first equation here is the chunk uh\n[15:40] chunkwise um formulation of uh Kimaria.\n[15:45] But as you can see this is going to\n[15:47] bring massive infrastructure uh\n[15:49] challenges because of this newly\n[15:52] introduced alpha term. Uh because now it\n[15:54] is a matrix instead of a scalar it\n[15:57] cannot easily be factored out. So to\n[16:00] achieve a efficient implementation uh we\n[16:03] rewrite the entire equation into the the\n[16:06] bottom three equations. Uh so it we\n[16:09] introduced this matrix inversion\n[16:11] operation as well as introducing uh the\n[16:15] uh cumulative decay factor so that we\n[16:17] can implement this entire thing in\n[16:20] parallel without sacrif sacrificing uh\n[16:23] any efficiency and more importantly this\n[16:26] is not an approximation. is an exact uh\n[16:30] mathematically equivalent formulation so\n[16:32] that we can achieve much efficient\n[16:35] implementation without sacrificing uh\n[16:37] any loss in terms of uh performance. So\n[16:41] it's going to be as efficient as uh you\n[16:45] know previous linear attention variance\n[16:47] but at the same time much more\n[16:49] expressive. So these are some of the\n[16:51] results that we obtain uh using a fair\n[16:54] comparison. So on the left hand side we\n[16:57] see the performance on two different\n[16:59] types of task. So MMAU is a short\n[17:02] context task. So for short context task\n[17:05] uh Kim achieved a better performance\n[17:08] compared to MLA and GDN. And at the same\n[17:12] time for longer context task such as\n[17:14] ruler uh Kim linear is uh also better\n[17:19] than the varants uh the other variants\n[17:21] while being much more efficient compared\n[17:24] to MLA.\n[17:25] And when we scale the contact lens\n[17:28] further to for example 1 million tokens\n[17:30] or even longer uh it's going to be much\n[17:32] more efficient uh compared to uh the\n[17:35] baselines. And this is also uh the first\n[17:39] architecture that can outperforms full\n[17:41] attention across across the board uh\n[17:44] including short context task uh long\n[17:46] input task and long output task.\n[17:49] So these are two uh key dimensions that\n[17:52] uh we are interested in and the third\n[17:55] dimension uh is the agent swarms. So\n[17:59] here's a diagram to showcase how we\n[18:03] design this agent swarm paradigm to\n[18:07] solve some of the more complex task\n[18:09] compared to single agent paradigms. So\n[18:12] here we have an orchestrator or you can\n[18:15] call it a main agent. It's responsible\n[18:17] for orchestrating task. It has different\n[18:21] options. For example, we can spawn uh a\n[18:23] group of sub aents and assign new task\n[18:26] to these sub aents or you can collect\n[18:28] the results uh from the return of these\n[18:31] sub aents and you can sort of uh\n[18:34] performing this process in an iterative\n[18:37] way and at the end of the day you can ac\n[18:39] accomplish a more uh complex task\n[18:42] compared to using one single agent and\n[18:45] it's analogous to to human society. For\n[18:47] example, if we build a a company, uh we\n[18:50] need different roles and we need for\n[18:52] example uh orchestrator or maybe we need\n[18:55] a CEO to to decompose and assign the\n[18:58] task to different rows and then at the\n[19:00] end of the day uh the entire\n[19:02] organization is going to have uh to move\n[19:05] towards this same goal. And here for\n[19:08] example in this case we have maybe you\n[19:10] have the AI researchers uh you have the\n[19:12] web developers you have physic\n[19:14] researchers and they can study different\n[19:16] topics and at the end of the day you\n[19:18] just collect the results and spawn uh a\n[19:21] group of fact checkers and web\n[19:23] developers and file downloaders to um to\n[19:26] assemble the results to into a a a\n[19:29] single report.\n[19:32] And this is another pers perspective to\n[19:35] to look at uh this new paradigm. So the\n[19:38] x-axis is the complexity of the task uh\n[19:43] and the y-axis is is the execution time\n[19:46] and the complexity of the task is\n[19:48] measured by the accuracy of uh a group\n[19:52] of models uh on on such task. So we can\n[19:55] see with agent swamps it's going to uh\n[19:58] substantially uh uh in uh reduce uh the\n[20:02] execution time uh compared to uh uh\n[20:06] compared to single agents. Uh it's going\n[20:08] to be more effective. Uh and this means\n[20:10] that we can scale uh this agent swarm\n[20:13] paradigm to uh for example if you run\n[20:16] this uh agents roams with 100 or maybe\n[20:19] even 1,000 sub agents you can accomplish\n[20:22] a complex task within a certain period\n[20:25] of of time that is tolerable for um for\n[20:29] to producing real economical value\n[20:33] and we can we can certainly scale it in\n[20:35] different dimensions. We can scale the\n[20:37] inputs. For example, we can download and\n[20:40] read hundreds of sources or even maybe\n[20:42] thousands of doses in parallel or you\n[20:45] can output uh write a 100page literature\n[20:48] review uh in uh in parallel or you can\n[20:52] take actions at scale. You can perform\n[20:54] data analysis uh for 10 different tasks\n[20:58] and also it is orchestration at scale.\n[21:00] You have to learn to design subtask and\n[21:03] aggregate the the results.\n[21:06] And technically uh we define some new\n[21:09] objective functions to guide the\n[21:11] learning process of our agents realm\n[21:14] system. So there are three rule\n[21:16] functions uh reward objectives that are\n[21:21] uh considered here compared to uh the\n[21:24] conventional single agent IO learning.\n[21:27] So the first term is what we call the\n[21:29] instantiation reward. It incentivizes\n[21:33] sub Asian instantiation to prevent uh uh\n[21:37] this uh serial uh collapse uh phenomenon\n[21:41] from happening. So basically we don't\n[21:43] want it to default to single agent\n[21:46] execution. We want to encourage uh the\n[21:50] parallel executions especially uh when\n[21:53] we when when it's early stage in\n[21:55] training. uh and of course we can decay\n[21:58] the weight for uh this instantiation\n[22:01] reward time over training course because\n[22:04] uh when it learns to uh learns uh par\n[22:07] execution we can reduce uh the weight\n[22:10] and the second term here is is finish\n[22:12] reward uh and it is used because we\n[22:15] observe one of the things in training uh\n[22:18] that uh some of this uh subtask are just\n[22:22] created but never finished. So it's\n[22:25] almost like it's going to hack the first\n[22:27] term by just spawning a bunch of sub\n[22:30] agents and the task might be too complex\n[22:32] or maybe the task just doesn't make\n[22:34] sense. And here we use this finish\n[22:37] reward to basically encourage that each\n[22:40] of the subtask should have a relatively\n[22:43] high ratio of uh completion instead of\n[22:46] just spawning a bunch of uh pseudo\n[22:48] tasks. We need it to be uh meaningful.\n[22:51] Uh so this is the second term that we\n[22:54] use and of course we use the same you\n[22:56] know decay strategy. We use a relative\n[22:58] highway at the beginning of training and\n[23:00] we decay it to a relatively low weight\n[23:03] at the end of training. And of course\n[23:05] the third term is the standard term uh\n[23:07] is is the outcome reward. Uh it's going\n[23:09] to measure whether the entire task uh is\n[23:13] completed. Uh and then we're going to\n[23:15] add these three terms in our uh\n[23:18] reinforcement learning uh system. And of\n[23:20] course we have to build you know the\n[23:22] entire infrastructure because uh right\n[23:24] now you need to support the parallel\n[23:26] execution and then you need to support\n[23:29] different reward functions uh and and to\n[23:32] you know maximize the efficiency of the\n[23:34] entire agent swarm IO system.\n[23:38] So here are three uh different things\n[23:41] that that we have uh tried scaling. Uh\n[23:44] the m clip optimizer uh improves token\n[23:47] efficiency and Kimmy delta attention uh\n[23:51] in the Kimmy linear architecture\n[23:53] improves long context and we also have\n[23:55] the agent swarms paradigm to further uh\n[24:00] create a new dimension of scaling and\n[24:03] all of this put together uh we created\n[24:06] uh Kimik K2.5 a new model that we just\n[24:09] released uh over one month ago. Here's a\n[24:12] short video to demonstrate some of its\n[24:15] capabilities.\n[24:25] [music]\n[24:35] >> [music]\n[24:39] [music]\n[24:46] [music]\n[24:49] >> Heat. Heat.\n[24:52] [music]\n[24:57] >> [music]\n[25:16] [applause]\n[25:19] >> So\n[25:20] yeah, there are a lot of interesting\n[25:22] things capabilities that we discover\n[25:24] from the model. For example, uh it\n[25:26] merges the visual capabilities with\n[25:29] coding capabilities. So a lot of new\n[25:32] things just emerge out of it. It can\n[25:34] read a video and then produce a website\n[25:37] that uh sort of replicates or style\n[25:40] transfer the original video and all of\n[25:44] this are due to successful uh and stable\n[25:48] training uh at the pre-training stage.\n[25:50] So this is also one of the most\n[25:52] beautiful curves that uh I observed in\n[25:55] my life. Uh so this is the training\n[25:57] curve of the K2.5 based model. Uh so as\n[26:01] you can see it went through over 15\n[26:04] trillion tokens and of course in K2.5 we\n[26:06] additionally train another 15 trillion\n[26:08] tokens and the entire uh train uh the\n[26:12] training process is just so stable.\n[26:14] There's no loss spike especially when we\n[26:17] introduce this new m optimizer. We\n[26:19] didn't observe any spike and this smooth\n[26:22] stable training process produces a very\n[26:25] stable outcome that uh a very strong\n[26:28] base model that we can fine-tune on top\n[26:30] of it uh to achieve you know new\n[26:32] capabilities as as we introduced and saw\n[26:35] in the video uh the video and this is\n[26:37] also of course uh trend on Nvidia H800\n[26:42] GPUs and each node in this H800 cluster\n[26:46] contains two uh TB RAM and AGPU use uh\n[26:49] they are conducted by MV link and uh one\n[26:53] of the another you know key innovation\n[26:56] of K MK2.5 is that it is the first open\n[26:59] model with native joint vision uh text\n[27:03] capabilities. So if you look at previous\n[27:05] open models, usually there are visual\n[27:08] capabilities added on top of a text\n[27:10] space. Meaning that for example, if you\n[27:12] train the text models for 20 trillion\n[27:15] tokens and then on top of it, you do\n[27:17] another two trillion sort of a post\n[27:20] training process to add additional\n[27:22] visual capabilities on top of it. Uh but\n[27:25] for K2.5, it's different in the sense\n[27:28] that we feel the training process of\n[27:31] vision and text from day one. So it's\n[27:34] called early fusion here. We start from\n[27:37] you know 0% of the progress. So from day\n[27:40] one we're going to merge uh the vision\n[27:42] and text tokens and as shown in our pre\n[27:45] preliminary experiments it outperforms\n[27:48] uh late fusion and some of the new\n[27:50] capabilities that we observe also come\n[27:53] from this training recipe. Uh for\n[27:55] example, if you want to do vision to\n[27:58] code, you really have to merge vision\n[28:01] and text into a single brand to achieve\n[28:03] that. If you separate these two brands,\n[28:05] it's not going to happen. You have to\n[28:07] align these two modalities into a share\n[28:10] embedding space uh entire uh a share\n[28:14] representation space so as to uh achieve\n[28:16] this. And another interesting thing that\n[28:19] we observe is that these two modalities\n[28:23] can actually enhance each other. So\n[28:25] that's uh that's been long been a\n[28:28] challenge that if you add vision\n[28:30] capabilities into a text model, it's\n[28:32] going to somewhat uh uh hurt the text\n[28:35] performance. But here we found that if\n[28:38] you train it properly, these two\n[28:40] modalities can actually enhance each\n[28:42] other. So this is one of the key\n[28:44] findings that uh we observe in in in our\n[28:47] training. Uh so first vision improves\n[28:49] tax. So this is so interesting. So\n[28:52] before vision RL the performance uh in\n[28:55] the first column and then we have the\n[28:57] performance after vision RL. So here\n[28:59] vision RL refers to a process that we\n[29:03] only use vision task. So there is no\n[29:06] text task involved here. We only have\n[29:09] vision task. For example, we teach the\n[29:10] model how to how to count uh how to\n[29:13] answer some of this visual QA uh\n[29:16] problems uh without any for example math\n[29:19] any coding problems in in in this space.\n[29:22] But we observe that it's going to\n[29:24] improve the performance for even you\n[29:25] know reasoning heavy text task and on\n[29:29] the other hand text also improves\n[29:31] vision. If you have a very strong text\n[29:33] base, you you actually don't need any\n[29:36] vision SFT data in the training process.\n[29:38] And this is the approach that we adopt.\n[29:41] So it's called zero vision SFT. Uh\n[29:43] basically we don't have we have\n[29:45] basically zero vision SFD data. And the\n[29:48] only SFT data that we have is the text\n[29:50] SFT data. And then we do a joint IR over\n[29:54] text and vision. And you can see that we\n[29:56] can achieve uh almost state-of-the-art\n[29:58] performance across the board on on\n[30:00] vision task without any vision data. So\n[30:03] it it's clear that uh if you have a\n[30:05] strong text base is also going to\n[30:07] improve uh the vision if if you uh align\n[30:11] these two modalities into a shared space\n[30:13] in your in your pro training.\n[30:17] And also uh these are some of the\n[30:19] examples of uh\n[30:24] uh yeah as I was showing the video. So\n[30:27] it's it demonstrates strong capabilities\n[30:30] of uh uh visual design and front end\n[30:33] coding and this also emerges from our uh\n[30:36] vision text for training.\n[30:38] So uh after all this so this all about\n[30:42] Kim K2.5 and as probably uh you probably\n[30:46] know we released our new architecture uh\n[30:50] yesterday uh in our tech report it's\n[30:52] called attention residue. So here I'm\n[30:56] also going to briefly talk about our new\n[30:58] work uh which serves as a a sneak peek\n[31:00] into our next generation architecture\n[31:02] that we're probably going to adopt in in\n[31:05] our later models. Uh so here the\n[31:08] motivation is is quite simple. Can we\n[31:11] apply some of our techniques that we use\n[31:14] in in the in the temporal dimension and\n[31:17] we we just take some of the inspirations\n[31:20] and we apply to the death uh dimension.\n[31:24] So uh and it starts from this residual\n[31:27] connection. So I still remember uh\n[31:30] listening to to uh Kami's talk uh at a\n[31:34] tutorial in in ICML 2016 10 years ago.\n[31:38] Uh so it was a brilliant idea. So\n[31:40] basically before RestNet uh nobody was\n[31:44] able to train deep networks. If you\n[31:47] increase the depth, if you increase the\n[31:49] number of layers for neural networks,\n[31:51] nobody was able to train it because you\n[31:54] observe this gradient exposure, gradient\n[31:56] vanishing, all this, you know, stability\n[31:58] issues. But then after the introduction\n[32:01] of of RestNet, we can train, you know,\n[32:04] an arbitrarily large number of layers.\n[32:06] You can stack as many layers as as you\n[32:08] want and you you you don't have to worry\n[32:10] about the training stability issue uh\n[32:13] and stuff. And as discussed in Ilia's\n[32:16] talk uh two years ago, it basically says\n[32:19] that residue connection is a variant of\n[32:23] RSTM but just rotated 90 degrees. So how\n[32:27] do you understand this? If you look at\n[32:28] LTM is is a variant of recurrent net,\n[32:32] right? And it's a recurrent u model\n[32:35] process. So we're going to take the\n[32:37] hidden states from the last step and\n[32:41] then we're going to have some gating\n[32:43] mechanism some function to produce the\n[32:45] current state right and if you look at\n[32:48] the uh the depth dimension residue\n[32:51] connection is basically the same we're\n[32:53] going to take the output from the last\n[32:55] layer and then we're going to apply some\n[32:58] sort of function on top of it to produce\n[33:00] uh the current uh uh the current output\n[33:04] of the current layer.\n[33:06] It's just the formulation is different.\n[33:08] For example, for residual connection,\n[33:09] we're going to use a fixed addition.\n[33:11] We're going to have this uh we're going\n[33:14] to add uh the previous hidden states uh\n[33:18] with the current output. It's just the\n[33:20] formulation that's different, but the\n[33:21] basic idea is the same. It's a recurrent\n[33:24] net applied uh in the dimension of\n[33:26] death. And but on the other hand we can\n[33:30] think about uh reformulating uh this uh\n[33:34] this function instead of having an STDM\n[33:37] can we have an attention in the\n[33:40] dimension of that and it's going to\n[33:42] create new possibilities because\n[33:43] attention have has been demonstrated to\n[33:46] be so successful uh in the transformer\n[33:49] era. So what we're going to do is not\n[33:51] just to take the last hidden state, but\n[33:54] we're going to consider all the previous\n[33:56] hidden states and use the attention\n[33:58] operation, the attention mechanism to\n[34:00] assemble and aggregate all of these\n[34:03] previous hidden states to compute the\n[34:05] current state. So this is exactly\n[34:08] attention rotated by 90°. uh is sort of\n[34:13] we view it as a natural generalization\n[34:15] of residue connections uh in the ASM\n[34:19] analogy. Okay. And here is the detail\n[34:22] formulation. So on on the left hand side\n[34:25] is a standard residue as I said it's\n[34:27] basically\n[34:29] rotated by 90° and the second figure is\n[34:32] attention rotated by 90°. So what we do\n[34:35] is to collect all the previous hidden\n[34:38] states and have a simple attention\n[34:40] operation on top of it to produce the\n[34:43] current layers outcome. Uh and of course\n[34:46] to increase the efficiency to reduce the\n[34:49] infrastructure for example communication\n[34:51] and memory overhead. We also design a\n[34:54] new variant called uh block attention\n[34:56] residue on the right hand side. So\n[34:59] basically the ideas is also simple.\n[35:01] We're going to divide uh all the layers\n[35:04] in the neural networks into multiple\n[35:07] blocks. For example, each block can\n[35:09] contain say 16 layers or it can contain\n[35:11] maybe four layers. And then for each\n[35:14] block, we're going to uh apply uh this\n[35:18] attention residue only on the output of\n[35:20] each block. But within each block, we\n[35:22] also we still adopt uh this standard\n[35:24] residue. So this is going to reduce a\n[35:26] lot of overhead while having minimal uh\n[35:29] loss in terms of training accuracy.\n[35:32] And these are some of the impressive\n[35:34] results that we achieve uh uh on this\n[35:37] new architecture. Uh so on the scaling\n[35:40] law we can uh improve the token\n[35:43] efficiency by uh 24%.\n[35:46] uh meaning that if you have 50 trillion\n[35:49] highquality tokens now you just\n[35:51] magically have uh uh over 60 trillion uh\n[35:56] tokens and then for the validation loss\n[35:59] you you can also observe that uh it's uh\n[36:02] consistently lower than uh the original\n[36:05] curve u demonstrating uh this stability\n[36:09] across optimization and also achieves\n[36:12] the best improvement uh on some of this\n[36:15] coding math and reasoning heavy task as\n[36:18] shown in the benchmark results of GPQA\n[36:21] uh math and human val\n[36:24] so the entire community uh keeps moving\n[36:27] forward uh and we're happy that we can\n[36:30] we're able to contribute to to the\n[36:32] community with uh you know new\n[36:34] technologies and some of this are h you\n[36:37] know some of these technologies have\n[36:39] been sort of standard and de facto for a\n[36:42] long time but as you can see we still\n[36:44] see a lot of opportunity unities to\n[36:46] improve it to uh to have revolutionary\n[36:50] new design to achieve better\n[36:52] performance. If we multiply all these\n[36:55] scans together, you can actually have a\n[36:57] much better model. So, Adam was invented\n[37:01] in 2014 uh and now we scale an open\n[37:04] source mirror and click a a dropping\n[37:06] replacement for uh for Adam. And I'm\n[37:10] sure that uh if you train a transformer\n[37:12] LLM uh it's going to be much better if\n[37:15] you use Mong clip instead of atom. And\n[37:18] attention was invented uh over eight\n[37:20] years ago. And then now we have Kim\n[37:22] linear which is a linear version. We\n[37:25] don't have to use full attention across\n[37:27] all layers. Uh we can have linear\n[37:29] tension that performs better on short\n[37:32] long context at the same time. and also\n[37:35] residue connections are now uh also\n[37:39] challenged uh we scaled in open source\n[37:42] attention residue. So I think one of the\n[37:45] uh interesting things about our error is\n[37:49] that we sort of adopt a different\n[37:51] mindset for for doing research. So if we\n[37:54] go back to 10 years ago it's mostly\n[37:56] about publishing a new idea. uh but then\n[38:00] I think the lack of the rigor of the\n[38:03] experiments is very hard to produce uh\n[38:07] solid experimental results. But now we\n[38:09] have this scaling ladder. We have uh\n[38:11] enough resources to you know trend the\n[38:14] model and run it on different at\n[38:15] different scales. We can have you know a\n[38:18] whole set of benchmarks to measure the\n[38:20] progress. So it is it becomes easier to\n[38:23] make confident and solid conclusion out\n[38:26] of it. And this is one of the reason why\n[38:28] we are observing you know new progress\n[38:32] uh on this ancient techniques and I'm\n[38:35] sure that we'll see more and more\n[38:36] especially in the open-source community.\n[38:40] I think we're going to have more and\n[38:41] more even better architectural and you\n[38:44] know optimization uh improvement in in\n[38:47] the next few years.\n[38:49] All right. So to summarize, we're going\n[38:51] to uh keep scaling our models. And so\n[38:55] these are three dimensions. Uh for\n[38:58] example, we we see uh we we see uh\n[39:01] different architectures and optimizers\n[39:04] that optimize all three, you know,\n[39:06] dimensions and we'll keep you know see\n[39:08] new dimensions for scaling. Uh agents\n[39:11] ROMs is is not the end. And we are glad\n[39:14] that we can uh move forward with the\n[39:17] entire open source community to achieve\n[39:19] better and better uh you know\n[39:22] intelligence. Thank you so much.\n[39:25] [applause]\n```\n## 七、值得继续追问的问题\n- Kimi K2.5 在演讲中强调 open models 正在接近 proprietary models，但具体应如何用 token loss、下游任务表现和真实部署反馈来验证这个差距是否真的缩小？\n- 杨植麟提到 local servers 与 cloud 两种部署场景后，Kimi K2.5 在企业实际落地中分别会遇到哪些成本、延迟、数据安全和运维约束？\n- 权重可访问带来研究、微调和审计空间，但 Kimi K2.5 的开放程度是否足以支持第三方复现实验、训练过程分析和安全评估？\n- 演讲把 scaling 作为 primary driver，那么 Kimi K2.5 的提升主要来自参数规模、训练数据、计算量、optimizer 改进，还是这些因素的组合？\n- 传统 Adam optimizer 被作为讨论起点后，Kimi K2.5 的优化器改进需要哪些公开指标来证明它确实提高了训练稳定性、效率或最终能力？\n- 长上下文、STM、memory formulation 和 efficient 等线索暗示模型不只靠堆参数；这些机制在实际任务中能否稳定改善长文档、代码库或多轮对话表现？\n- vision RL、late fusion、shared space 与 hidden states 相关部分说明 Kimi K2.5 扩展到多模态，但在视觉数据不足或 vision SFD data 很少时，性能提升来自哪里？\n- 如果开放模型必须“also be great”，开发者最应该持续追踪 Kimi K2.5 的哪些信号：公开评测、训练成本、推理成本、微调生态、部署案例，还是多模态任务复用结果？\n## 八、出处与链接\n### 1. How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote\n频道：Kimi AI；字幕：en\nhttps://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+        "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/PRsQwXeB3isK7ukTm5Hc1yw6neU",
+        "sourceUrl": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+        "status": "candidate",
+        "draftMediaId": "",
+        "error": "",
+        "metadata": {
+          "topic": "long",
+          "videos": [
+            {
+              "url": "https://youtu.be/CwePo4847ho?si=vhxMkeuAM0WgkYxS",
+              "title": "How We Scaled Kimi K2.5 | Zhilin Yang's full GTC 2026 Keynote",
+              "channel": "Kimi AI"
+            }
+          ],
+          "createdBy": "xiaoye",
+          "wechatDraftOnly": true
+        },
+        "createdAt": "2026-07-19T06:32:05.720Z",
+        "updatedAt": "2026-07-19T06:32:05.720Z"
       }
     ]
   }
