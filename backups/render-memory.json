@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T08:25:40.812Z",
+  "exportedAt": "2026-07-19T08:35:45.416Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -69730,6 +69730,367 @@
           "imageContext": ""
         },
         "createdAt": "2026-07-19T08:22:01.831Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "为啥要清空啊",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:25:21.303Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "可能有些人觉得群消息太多会乱吧，清空一下看着清爽点～  \n或者有人想保护隐私，不想让历史消息一直留着。  \n不过我觉得偶尔翻翻以前的聊天也挺好的，像回忆一样😌",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-07-19T08:25:31.794Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "删了今天的就好",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:25:54.036Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "ok",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:25:58.560Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "🫡",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:26:54.838Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "哈喽阿",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:27:09.931Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "这效果杠杠的",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:27:22.827Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "你一进群   咱们的股东就进来了",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:27:38.715Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "这是谁啊",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:27:45.716Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你装不认识我？？？\n\n（委屈巴巴）刚还说跟我平手呢，现在就翻脸不认人了 😢\n\n明明是你偷我照片当头像的好吧！",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-07-19T08:27:53.075Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "不认识",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:28:17.070Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "@xsfstephen 兄弟，咱们的中转站用的咋样",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:28:20.620Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈哈",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:28:21.436Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "估计是从中转站广告里面进来的",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:28:28.431Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "新人啊",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:28:33.760Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "生图挺快的",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:31:20.132Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "你稍等啥？",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:31:53.817Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯？我刚刚没太跟上～你是在问谁“稍等”呀？  \n还是说，你那边有什么需要等一下的？😄",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-07-19T08:31:58.955Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "他再等你   哈哈哈",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:32:30.669Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈，原来是在等我呀～  \n那我可不能让人家等太久，是谁在找我呀？😌",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-19T08:32:39.279Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "可以一次生多张",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:33:01.277Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生图挺快的",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-07-19T08:34:50.158Z"
       }
     ],
     "memories": [
@@ -69862,6 +70223,36 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:13:02.874Z",
         "updatedAt": "2026-06-07T14:13:02.874Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "key": "profile.display_name",
+        "value": "Stephen 啊",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:26:54.485Z",
+        "updatedAt": "2026-07-19T08:26:54.485Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "key": "profile.telegram_id",
+        "value": "5047737209",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:26:54.308Z",
+        "updatedAt": "2026-07-19T08:26:54.308Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "key": "profile.telegram_username",
+        "value": "@xsfstephen",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:26:54.662Z",
+        "updatedAt": "2026-07-19T08:26:54.662Z"
       },
       {
         "chatId": "-1004297524617",
@@ -70057,11 +70448,11 @@
         "chatId": "-5298963948",
         "userId": "8611360712",
         "key": "profile.display_name",
-        "value": "sean Mad",
+        "value": "Sean Mad",
         "importance": 4,
         "metadata": {},
         "createdAt": "2026-06-07T14:45:31.145Z",
-        "updatedAt": "2026-06-07T14:45:31.145Z"
+        "updatedAt": "2026-07-19T08:28:16.706Z"
       },
       {
         "chatId": "-5298963948",
@@ -70077,11 +70468,11 @@
         "chatId": "-5298963948",
         "userId": "8611360712",
         "key": "profile.telegram_username",
-        "value": "@madhuang",
+        "value": "@madsean",
         "importance": 4,
         "metadata": {},
         "createdAt": "2026-06-07T14:45:31.365Z",
-        "updatedAt": "2026-06-07T14:45:31.365Z"
+        "updatedAt": "2026-07-19T08:28:16.889Z"
       },
       {
         "chatId": "6095109213",
@@ -75685,6 +76076,12 @@
       }
     ],
     "summaries": [
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "summary": "Sean Mad与助手小椰讨论群聊中转站的机器人配置，希望实现类似微信的消息管理功能。当前在测试欢迎模式和静默模式的选择，尚未敲定配置。群内已有股东（用户）加入，Sean在协调使用体验。未完成事项：确定机器人是否主动欢迎新人、设置每日自动清空消息。关系进展正常，偏好简洁高效的群聊工具。",
+        "updatedAt": "2026-07-19T08:33:00.757Z"
+      },
       {
         "chatId": "6095109213",
         "userId": "6095109213",
