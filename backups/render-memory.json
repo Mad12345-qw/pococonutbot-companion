@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T06:35:41.614Z",
+  "exportedAt": "2026-07-19T08:25:40.812Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -69301,6 +69301,435 @@
           "backgroundSyncComplete": true
         },
         "createdAt": "2026-07-19T06:32:51.331Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "Halo",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:16:16.862Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "欢迎尊贵的001号用户回家",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:16:35.398Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "你们中转站还挺稳定的",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:16:56.283Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么说话的",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:17:05.003Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "是咱们的中转站",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:17:09.861Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:17:16.280Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "不要暴露",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:17:20.713Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "快删了",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:17:28.200Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "笑死，进群的都是股东",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:34.585Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哈哈哈哈哈",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:38.608Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "就咱俩  先别演",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:41.461Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "行",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:46.567Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "来人了  咱们配合一下",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:46.919Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "上面的聊天记录 别人也能看到的",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:18:50.003Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么能像微信那样",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:19:15.587Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "只能看到后面的消息啊",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:19:20.081Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "说话",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:19:25.443Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哈哈，你们俩这悄悄话有点明显哦～  \n群聊记录谁都能看到，不过没事，我会假装没看见的😉",
+        "metadata": {
+          "replyToUserId": "6095109213"
+        },
+        "createdAt": "2026-07-19T08:19:30.507Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "不能的",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:19:47.129Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "role": "user",
+        "modality": "text",
+        "content": "哦…",
+        "metadata": {
+          "fullName": "Zhou",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "Lylekkk",
+          "firstName": "Zhou",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:20:00.747Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "咱们这个机器人要怎么配置好一点？",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:21:03.245Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "配置的话，我建议你想想平时想让我多陪你说说话，还是偶尔帮忙提醒事情～  \n如果只是聊天，简单点就好，不用太复杂😊",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-19T08:21:09.049Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "每个进群的人都主动说话？",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:21:30.339Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "嗯，我可以设置成欢迎新人的模式，他们进群时我主动打个招呼～  \n不过如果你希望我保持安静，只在你@我的时候说话，也可以的。你想要哪种？",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-19T08:21:35.072Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "我记得群聊有个功能，就是可以选择每天自动清空消息的",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-19T08:22:01.831Z"
       }
     ],
     "memories": [
@@ -69433,6 +69862,66 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:13:02.874Z",
         "updatedAt": "2026-06-07T14:13:02.874Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "key": "profile.display_name",
+        "value": "Zhou",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:16.509Z",
+        "updatedAt": "2026-07-19T08:16:16.509Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "key": "profile.telegram_id",
+        "value": "6095109213",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:15.907Z",
+        "updatedAt": "2026-07-19T08:16:15.907Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6095109213",
+        "key": "profile.telegram_username",
+        "value": "@Lylekkk",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:16.686Z",
+        "updatedAt": "2026-07-19T08:16:16.686Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "key": "profile.display_name",
+        "value": "Sean Mad",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:35.044Z",
+        "updatedAt": "2026-07-19T08:16:35.044Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "key": "profile.telegram_id",
+        "value": "8611360712",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:34.866Z",
+        "updatedAt": "2026-07-19T08:16:34.866Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "key": "profile.telegram_username",
+        "value": "@madsean",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-19T08:16:35.221Z",
+        "updatedAt": "2026-07-19T08:16:35.221Z"
       },
       {
         "chatId": "-5123326132",
