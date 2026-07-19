@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-18T23:35:38.210Z",
+  "exportedAt": "2026-07-19T01:15:39.314Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -75257,6 +75257,11 @@
         "updatedAt": "2026-07-18T15:02:00.395Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-19T01:05:50.541Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n今天群里没聊产业，那我直接抛三条值得盯的线。\\n\\n第一条，特斯拉Optimus量产节奏明确。马斯克评审通过最新版本，供应商已接到采购指引：9月周产1000台，年底2000-2500台，对应年产能超10万台。液冷、灵巧手、减速器等核心零部件需求开始放量。这条线直接挂钩供应链弹性，谁拿到定点谁先受益。\\n\\n第二条，SpaceX星舰第13次试飞在点火前最后一刻取消，这是上市后首次星舰发射。同时二季度太空风投吸金75亿美元，逼近历史纪录。发射节奏和资本情绪出现错位，如果下次发射成功并部署星链V3，卫星通信和地面终端产业链会加速。\\n\\n第三条，美国新闻业与OpenAI版权诉讼升级，原告要求OpenAI提供涉及复制媒体文章的聊天及训练数据。这不仅是法律问题，更可能影响大模型训练数据获取成本和合规路径，进而改变模型迭代节奏和云厂商的资本开支预期。\\n\\n最后抛个问题：Optimus周产爬坡到1000台，液冷和灵巧手哪个环节最先出现产能瓶颈？你们怎么看？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"特斯拉Optimus量产指引明确，SpaceX星舰试飞取消但资本热情高涨，OpenAI版权诉讼升级影响数据成本。\",\"lastPulseQuestion\":\"Optimus周产爬坡到1000台，液冷和灵巧手哪个环节最先出现产能瓶颈？你们怎么看？\",\"lastPulseSources\":[\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.baogao.com/jigou/1503649.html\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.html\",\"https://www.thepaper.cn/newsDetail_forward_3",
+        "updatedAt": "2026-07-19T01:05:50.626Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -75390,6 +75395,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.noon",
         "value": "sent:2026-07-18T04:20:08.271Z",
         "updatedAt": "2026-07-18T04:20:08.364Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.morning",
+        "value": "sent:2026-07-19T01:05:50.720Z",
+        "updatedAt": "2026-07-19T01:05:50.806Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
