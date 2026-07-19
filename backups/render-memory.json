@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T12:45:39.711Z",
+  "exportedAt": "2026-07-19T14:05:43.915Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70167,6 +70167,27 @@
           "imageContext": ""
         },
         "createdAt": "2026-07-19T10:54:08.767Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 嘿嘿欢迎今天一批新的朋友加入群👏🏻\nhttps://github.com/OpenMOSS\nhttps://huggingface.co/OpenMOSS-Team\nhttps://github.com/OpenMOSS\\nHuggingface：https://huggingface.co/OpenMOSS-Team\\n\\n如果你关注API服务，欢迎体验API平台——\\nplatform.mosi.cn\\n（现在有credit赠送可体验模型",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/OpenMOSS",
+            "https://huggingface.co/OpenMOSS-Team",
+            "https://github.com/OpenMOSS\\nHuggingface：https://huggingface.co/OpenMOSS-Team\\n\\n如果你关注API服务，欢迎体验API平台——\\nplatform.mosi.cn\\n（现在有credit赠送可体验模型"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6af9db94aca0b2e9c96ded2a936",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-19T14:04:10.491Z"
       }
     ],
     "memories": [
