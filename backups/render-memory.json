@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T08:35:45.416Z",
+  "exportedAt": "2026-07-19T10:15:41.503Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -76261,8 +76261,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-19T06:30:13.749Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-19T06:30:14.927Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-19T10:05:54.761Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间\\n\\n早上聊完特斯拉Optimus量产节奏，群里没人接，我接着追：量产节奏明确后，供应链弹性是核心。今天新增两条线索值得验证。\\n\\n1. 特斯拉Optimus最新版本通过马斯克评审，供应商已接到采购指引：9月周产1000台，年底2000-2500台，对应年产能超10万台。液冷、灵巧手、减速器等核心零部件需求开始放量。同时，字节跳动发布100%全液冷架构的兆瓦级算力系统，多家液冷企业近期获得显著订单。液冷产业链可能同时受益于机器人和AI算力两条线，弹性值得算。\\n\\n2. SpaceX星舰第13次试飞在点火前最后一刻取消，这是上市后首次星舰发射。但二季度太空风投吸金75亿美元，逼近历史纪录，资本情绪并未冷却。如果星舰连续推迟，星链V3部署节奏受影响，但SpaceX的IPO效应仍在吸引圈外资本。临界航天获2亿元天使轮融资，AI缩短火箭发动机研发周期，这条线说明商业航天融资结构在变。\\n\\n明天要追的具体问题：Optimus量产爬坡中，液冷和灵巧手哪个环节弹性更大？如果液冷同时受益于机器人+AI算力，估值逻辑是否要重算？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"Optimus量产节奏明确，液冷产业链受益；星舰发射取消但资本情绪仍高；追问液冷和灵巧手弹性对比。\",\"lastPulseQuestion\":\"Optimus量产爬坡中，液冷和灵巧手哪个环节弹性更大？如果液冷同时受益于机器人+AI算力，估值逻辑是否要重算？\",\"lastPulseSources\":[\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.baogao.com/jigou/1503649.html\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.html\",\"http",
+        "updatedAt": "2026-07-19T10:05:54.854Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -76398,6 +76398,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-18.noon",
         "value": "sent:2026-07-18T04:20:08.271Z",
         "updatedAt": "2026-07-18T04:20:08.364Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.evening",
+        "value": "sent:2026-07-19T10:05:54.951Z",
+        "updatedAt": "2026-07-19T10:05:55.044Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.morning",
