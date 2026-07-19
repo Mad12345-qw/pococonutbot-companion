@@ -56,6 +56,9 @@ app.get("/health", (_req, res) => {
     feishuVideoRotation: true,
     feishuVideoPrewarm: Boolean(config.videoLibraryPrewarmOnStart),
     webSearch: Boolean(config.webSearchEnabled && config.bochaApiKey),
+    telegramCommunityOps: Boolean(config.telegramCommunityOpsEnabled && config.telegramCommunityOpsChatIds.length > 0),
+    telegramCommunityOpsChatCount: config.telegramCommunityOpsChatIds.length,
+    telegramCommunityOpsSchedule: ["08:00-11:00", "12:00-15:00", "18:00-22:00"],
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
     youtubeDocDeliveryMode: "feishu_doc_first",
     youtubeDocTemplateVersion: "guided_blueprint_parallel_slots_v27",
@@ -420,5 +423,5 @@ if (config.videoLibraryPrewarmOnStart) {
     console.error("Feishu video library prewarm failed:", error.message);
   });
 }
-const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech });
+const telegramBot = new TelegramCompanionBot({ config, storage, ai, imageGenerator, speechToText, textToSpeech, webSearch });
 await telegramBot.start();

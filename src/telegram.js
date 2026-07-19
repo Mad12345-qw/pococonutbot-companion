@@ -2,6 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import { extractImageGenerationIntent, imageGenerationCommands } from "./image-intent.js";
 import { buildSystemPrompt, getModeFromText } from "./persona.js";
 import { logEvent } from "./runtime-log.js";
+import { TelegramCommunityOps } from "./telegram-community-ops.js";
 import { convertWavToTelegramVoice } from "./tts-client.js";
 import { fetchAsBuffer, fetchAsDataUrl, getReplyDeliveryPreference, redactSensitive, removeGeneratedSpeechArtifacts, splitChatBubbles, stripLeadingSelfName, truncate } from "./utils.js";
 
@@ -10,21 +11,32 @@ const selfieKeywords = /(自拍|自拍照|照片|相片|发张照|发一张照|�
 const imageNounPattern = /(图|图片|图像|配图|攻略图|信息图|流程图|海报|封面|头像|壁纸|插画|漫画|表情包|infographic|poster|cover|wallpaper)$/i;
 
 export class TelegramCompanionBot {
-  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech }) {
+  constructor({ config, storage, ai, imageGenerator, speechToText, textToSpeech, webSearch }) {
     this.config = config;
     this.storage = storage;
     this.ai = ai;
     this.imageGenerator = imageGenerator;
     this.speechToText = speechToText;
     this.textToSpeech = textToSpeech;
+    this.webSearch = webSearch;
     this.bot = new TelegramBot(config.telegramToken, { polling: true });
     this.botInfo = null;
     this.chatQueues = new Map();
+    this.communityOps = new TelegramCommunityOps({
+      config,
+      storage,
+      ai,
+      webSearch,
+      bot: this.bot,
+      sendVoiceBubble: (chatId, text) => this.sendCommunitySpeech(chatId, text)
+    });
   }
 
   async start() {
     this.botInfo = await this.bot.getMe();
+    this.communityOps.botInfo = this.botInfo;
     this.registerHandlers();
+    await this.communityOps.start(this.botInfo);
     console.log(`Telegram bot started as @${this.botInfo.username}`);
   }
 
@@ -131,6 +143,11 @@ export class TelegramCompanionBot {
   }
 
   async handleMessage(msg) {
+    await this.communityOps.recordActivity(msg);
+    if (msg?.new_chat_members?.length) {
+      await this.communityOps.handleNewMembers(msg);
+      return;
+    }
     if (!msg || msg.from?.is_bot) return;
     if (!this.isAllowedChat(msg.chat.id)) return;
     if (this.isCommandOnly(msg)) return;
@@ -160,6 +177,7 @@ export class TelegramCompanionBot {
     }
 
     const safeUserText = redactSensitive(prepared.text);
+    const communityVoiceReply = this.communityOps.isTargetChat(chatId) && this.communityOps.prefersVoiceReply(safeUserText);
     const imageContext = prepared.imageUrls.length > 0
       ? await this.describeIncomingImages({
           chatId,
@@ -242,6 +260,9 @@ export class TelegramCompanionBot {
 
     const messages = [
       { role: "system", content: systemPrompt },
+      ...(this.communityOps.isTargetChat(chatId)
+        ? [{ role: "system", content: this.communityOps.answerSystemPrompt({ voiceReply: communityVoiceReply }) }]
+        : []),
       ...recentMessages.map((item) => ({
         role: item.role === "assistant" ? "assistant" : "user",
         content: this.formatMessageForModel(item)
@@ -312,11 +333,17 @@ export class TelegramCompanionBot {
     });
 
     const deliveryPreference = getReplyDeliveryPreference(safeUserText);
-    const sentAsSpeech = deliveryPreference === "text" ? false : await this.sendSpeechReply(msg, safeReply);
+    const forceCommunityText = this.communityOps.isTargetChat(chatId);
+    const sentAsSpeech = forceCommunityText
+      ? (communityVoiceReply ? await this.sendSpeechReply(msg, safeReply) : false)
+      : (deliveryPreference === "text" ? false : await this.sendSpeechReply(msg, safeReply));
     if (!sentAsSpeech) {
       for (const chunk of splitChatBubbles(safeReply, this.config.maxReplyChars)) {
         await this.bot.sendMessage(msg.chat.id, chunk, { reply_to_message_id: msg.message_id });
       }
+    }
+    if (forceCommunityText) {
+      await this.communityOps.recordActivityAt(chatId, new Date(), { force: true });
     }
 
     if (this.config.autoMemory) {
@@ -401,6 +428,28 @@ export class TelegramCompanionBot {
       logEvent("error", "Telegram text-to-speech reply failed", {
         chatId: String(msg.chat.id),
         error: error.message
+      });
+      return false;
+    }
+  }
+
+  async sendCommunitySpeech(chatId, text) {
+    if (!this.textToSpeech?.enabled) return false;
+    try {
+      await this.bot.sendChatAction(chatId, "upload_voice");
+      const speech = await this.textToSpeech.synthesize(text);
+      const voice = await convertWavToTelegramVoice(speech.buffer);
+      await this.bot.sendVoice(
+        chatId,
+        voice.buffer,
+        {},
+        { filename: voice.fileName, contentType: voice.contentType }
+      );
+      return true;
+    } catch (error) {
+      logEvent("warn", "Telegram community voice bubble failed", {
+        chatId: String(chatId),
+        error: truncate(error.message, 300)
       });
       return false;
     }
@@ -917,7 +966,7 @@ export class TelegramCompanionBot {
   }
 
   getGroupDecision(msg, text) {
-    if (this.config.triggerMode === "all") {
+    if (this.communityOps.shouldAutoAnswer(msg, text)) {
       return { shouldProcess: true, shouldReply: true, smartCandidate: false };
     }
 
@@ -931,6 +980,14 @@ export class TelegramCompanionBot {
       (msg.reply_to_message?.from?.id && msg.reply_to_message.from.id === this.botInfo?.id);
 
     if (explicit) {
+      return { shouldProcess: true, shouldReply: true, smartCandidate: false };
+    }
+
+    if (this.communityOps.isTargetChat(msg.chat?.id)) {
+      return { shouldProcess: false, shouldReply: false, smartCandidate: false };
+    }
+
+    if (this.config.triggerMode === "all") {
       return { shouldProcess: true, shouldReply: true, smartCandidate: false };
     }
 

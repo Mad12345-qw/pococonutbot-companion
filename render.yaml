@@ -99,6 +99,20 @@ services:
         value: "true"
       - key: SMART_REPLY_CONFIDENCE_THRESHOLD
         value: "0.75"
+      - key: TELEGRAM_COMMUNITY_OPS_ENABLED
+        value: "true"
+      - key: TELEGRAM_COMMUNITY_OPS_CHAT_IDS
+        value: "-1004297524617"
+      - key: TELEGRAM_COMMUNITY_OPS_CHECK_INTERVAL_MS
+        value: "1800000"
+      - key: TELEGRAM_COMMUNITY_OPS_QUIET_MINUTES
+        value: "30"
+      - key: TELEGRAM_COMMUNITY_OPS_FRESHNESS
+        value: oneWeek
+      - key: TELEGRAM_COMMUNITY_OPS_SEARCH_COUNT
+        value: "8"
+      - key: TELEGRAM_COMMUNITY_OPS_AI_TIMEOUT_MS
+        value: "60000"
       - key: AUTO_MEMORY
         value: "true"
       - key: RECENT_MESSAGE_LIMIT

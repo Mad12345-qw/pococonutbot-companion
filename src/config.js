@@ -248,6 +248,14 @@ export const config = {
   triggerMode: process.env.TRIGGER_MODE || "mention",
   smartClassifierEnabled: asBoolean(process.env.SMART_CLASSIFIER_ENABLED, (process.env.TRIGGER_MODE || "mention") === "smart"),
   smartReplyConfidenceThreshold: asNumber(process.env.SMART_REPLY_CONFIDENCE_THRESHOLD, 0.75),
+  telegramCommunityOpsEnabled: asBoolean(process.env.TELEGRAM_COMMUNITY_OPS_ENABLED, false),
+  telegramCommunityOpsChatIds: asList(process.env.TELEGRAM_COMMUNITY_OPS_CHAT_IDS),
+  telegramCommunityOpsCheckIntervalMs: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_CHECK_INTERVAL_MS, 30 * 60 * 1000),
+  telegramCommunityOpsQuietMinutes: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_QUIET_MINUTES, 30),
+  telegramCommunityOpsFreshness: process.env.TELEGRAM_COMMUNITY_OPS_FRESHNESS || "oneWeek",
+  telegramCommunityOpsSearchCount: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_SEARCH_COUNT, 8),
+  telegramCommunityOpsAiTimeoutMs: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_AI_TIMEOUT_MS, 60000),
+  telegramCommunityOpsForceSlot: process.env.TELEGRAM_COMMUNITY_OPS_FORCE_SLOT || "",
   feishuAlwaysReplyUserIds: process.env.FEISHU_ALWAYS_REPLY_USER_IDS !== undefined
     ? asList(process.env.FEISHU_ALWAYS_REPLY_USER_IDS)
     : ["410351", "用户410351"],
