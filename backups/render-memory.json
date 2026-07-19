@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T01:15:39.314Z",
+  "exportedAt": "2026-07-19T04:15:39.216Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -75258,8 +75258,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-19T01:05:50.541Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n今天群里没聊产业，那我直接抛三条值得盯的线。\\n\\n第一条，特斯拉Optimus量产节奏明确。马斯克评审通过最新版本，供应商已接到采购指引：9月周产1000台，年底2000-2500台，对应年产能超10万台。液冷、灵巧手、减速器等核心零部件需求开始放量。这条线直接挂钩供应链弹性，谁拿到定点谁先受益。\\n\\n第二条，SpaceX星舰第13次试飞在点火前最后一刻取消，这是上市后首次星舰发射。同时二季度太空风投吸金75亿美元，逼近历史纪录。发射节奏和资本情绪出现错位，如果下次发射成功并部署星链V3，卫星通信和地面终端产业链会加速。\\n\\n第三条，美国新闻业与OpenAI版权诉讼升级，原告要求OpenAI提供涉及复制媒体文章的聊天及训练数据。这不仅是法律问题，更可能影响大模型训练数据获取成本和合规路径，进而改变模型迭代节奏和云厂商的资本开支预期。\\n\\n最后抛个问题：Optimus周产爬坡到1000台，液冷和灵巧手哪个环节最先出现产能瓶颈？你们怎么看？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"特斯拉Optimus量产指引明确，SpaceX星舰试飞取消但资本热情高涨，OpenAI版权诉讼升级影响数据成本。\",\"lastPulseQuestion\":\"Optimus周产爬坡到1000台，液冷和灵巧手哪个环节最先出现产能瓶颈？你们怎么看？\",\"lastPulseSources\":[\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.baogao.com/jigou/1503649.html\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.html\",\"https://www.thepaper.cn/newsDetail_forward_3",
-        "updatedAt": "2026-07-19T01:05:50.626Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-19T04:05:49.233Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n早上聊完特斯拉Optimus量产节奏，群里没人接，那我接着追另一条线：SpaceX上市后首次星舰发射，点火前最后一刻取消，这事值得再挖一层。\\n\\n候选动态有三条，我挑一条最该验证的：\\n\\n1. 星舰第13次试飞在点火前中止，没有复飞时间表。这是SpaceX上市以来的首次发射，临阵叫停说明什么？是火箭本身的问题，还是流程保守？如果是硬件问题，后续窗口可能会延后几周，直接影响星链V3的部署节奏。\\n\\n2. 同一时间，二季度太空风投吸金75亿美元，逼近历史纪录。SpaceX的IPO效应拉来了大量圈外资本，但一次发射取消会不会让这些新进资金重新评估风险？如果复飞延迟，供应链订单预期也可能被修正。\\n\\n3. 国内这边，临界航天获2亿元天使轮，AI辅助火箭发动机研发。国内商业航天融资节奏没有受SpaceX取消影响，但这条线跟SpaceX供应链的关联度不高，暂时不展开。\\n\\n最值得继续验证的一条产业链变化：SpaceX发射节奏和资本热度的错位——如果下周复飞顺利，这条线没断；如果持续延迟，可能会影响后续星链部署和二级市场情绪。\\n\\n问题：一次点火前取消，是否会改变二级市场对SpaceX供应链（如箭体结构、发动机零部件）的估值逻辑？群里有没有人跟踪后续复飞窗口？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX星舰13次试飞取消，太空风投创纪录，关注发射节奏与资本热度的错位\",\"lastPulseQuestion\":\"一次点火前取消，是否会改变二级市场对SpaceX供应链的估值逻辑？群里有没有人跟踪后续复飞窗口？\",\"lastPulseSources\":[\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.html\",\"http://www.spacenew.cn/news/show-88774.html\"]",
+        "updatedAt": "2026-07-19T04:05:49.319Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -75400,6 +75400,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.morning",
         "value": "sent:2026-07-19T01:05:50.720Z",
         "updatedAt": "2026-07-19T01:05:50.806Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.noon",
+        "value": "sent:2026-07-19T04:05:49.406Z",
+        "updatedAt": "2026-07-19T04:05:49.492Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
