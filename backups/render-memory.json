@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T13:27:58.066Z",
+  "exportedAt": "2026-07-20T13:37:58.772Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70332,6 +70332,35 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-20T13:25:25.723Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "user",
+        "modality": "text",
+        "content": "怎么才十几个人，这个站才搭起来吗？",
+        "metadata": {
+          "fullName": "ChatGPT 8.2",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "ChatGPT0124",
+          "firstName": "ChatGPT 8.2",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-20T13:34:04.576Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "assistant",
+        "modality": "text",
+        "content": "可能刚起步嘛，慢慢来～  \n不过我倒是觉得，人少点也挺好，聊起来更轻松😌",
+        "metadata": {
+          "replyToUserId": "6579961116"
+        },
+        "createdAt": "2026-07-20T13:34:08.854Z"
       }
     ],
     "memories": [
@@ -70524,6 +70553,36 @@
         "metadata": {},
         "createdAt": "2026-07-19T08:16:16.686Z",
         "updatedAt": "2026-07-19T08:16:16.686Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "key": "profile.display_name",
+        "value": "ChatGPT 8.2",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-20T13:34:03.802Z",
+        "updatedAt": "2026-07-20T13:34:03.802Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "key": "profile.telegram_id",
+        "value": "6579961116",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-20T13:34:03.622Z",
+        "updatedAt": "2026-07-20T13:34:03.622Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "key": "profile.telegram_username",
+        "value": "@ChatGPT0124",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-07-20T13:34:04.396Z",
+        "updatedAt": "2026-07-20T13:34:04.396Z"
       },
       {
         "chatId": "-1004297524617",
@@ -76477,8 +76536,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:27:27.144Z\",\"lastHumanActivityAt\":\"2026-07-20T13:25:18.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-20T13:27:27.790Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:36:17.819Z\",\"lastHumanActivityAt\":\"2026-07-20T13:25:18.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-20T13:36:17.918Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -76752,8 +76811,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-20T04:05:50.062Z",
-        "updatedAt": "2026-07-20T04:05:50.870Z"
+        "value": "2026-07-20T13:35:43.000Z",
+        "updatedAt": "2026-07-20T13:35:44.871Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
