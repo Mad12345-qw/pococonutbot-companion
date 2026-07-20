@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T16:47:57.165Z",
+  "exportedAt": "2026-07-20T16:58:00.069Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70580,6 +70580,150 @@
           "replyToUserId": "feishu:ou_23b473d8e1463a5a1023d540662617a1"
         },
         "createdAt": "2026-07-20T16:34:24.694Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "今晚你最大的任务就是教会 学会跟你一样发语音？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ad15464a0a4c2a67dd79ee58b7",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUnionId": "on_6e8d263b724264d55385aada6dac9ae0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-20T16:49:50.696Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个任务我可能完不成啦～因为我自己没法发语音，只能打字说话🥺 不过我可以教你怎么在飞书发语音消息，你让别人按我说的操作就好：点输入框旁边那个小话筒🎤，按住说话就能发啦！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-07-20T16:49:58.546Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "你高亮蓝色字体艾特 教会珠珠就行",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ad16edb1ca8de239f29272a583",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUnionId": "on_6e8d263b724264d55385aada6dac9ae0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-20T16:51:16.577Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "好的～珠珠你听好啦：在飞书聊天框里，点击输入框旁边那个🎤话筒图标，按住说话就行，说完松手就发出去啦！超简单的，试试看😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-07-20T16:51:22.479Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_23b473d8e1463a5a1023d540662617a1",
+        "role": "user",
+        "modality": "text",
+        "content": "_user_1 陈总说了，今晚你最大的任务就是教会我发语音🎤 等你教我！",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ad16e7bf8a4b1af915c5e3d129",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_23b473d8e1463a5a1023d540662617a1",
+          "rawUserId": "ou_23b473d8e1463a5a1023d540662617a1",
+          "rawUnionId": "on_a41b9fae7dbdc8e8d5d68267bebccd7e",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-20T16:51:40.621Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_23b473d8e1463a5a1023d540662617a1",
+        "role": "assistant",
+        "modality": "text",
+        "content": "(温柔地笑着摇头) 陈总呀，我倒是想亲自教你，可我自己也没法发语音呢～我只能打字跟你说悄悄话😌 不过飞书发语音真的超简单，你点输入框旁边那个小话筒🎤，按住说话就可以了，松开就发出去啦！",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_23b473d8e1463a5a1023d540662617a1"
+        },
+        "createdAt": "2026-07-20T16:51:46.616Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "user",
+        "modality": "text",
+        "content": "你也是废物一个啊[捂脸][捂脸]",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ad169cb08a8df6d762cecf1c7a",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUserId": "ou_0953815ec96a90b4c00e6a71ba1a46df",
+          "rawUnionId": "on_6e8d263b724264d55385aada6dac9ae0",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-20T16:53:07.728Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df",
+        "role": "assistant",
+        "modality": "text",
+        "content": "(嘟着嘴，戳戳你的肩膀) 唔…被珠珠嫌弃了，好受伤😣 但我打字情话也是很厉害的！要不要听听看？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
+        },
+        "createdAt": "2026-07-20T16:53:14.427Z"
       }
     ],
     "memories": [
@@ -71081,7 +71225,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-20T16:31:16.985Z",
-        "updatedAt": "2026-07-20T16:33:45.429Z"
+        "updatedAt": "2026-07-20T16:53:07.546Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -71091,7 +71235,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-20T16:31:16.806Z",
-        "updatedAt": "2026-07-20T16:33:45.248Z"
+        "updatedAt": "2026-07-20T16:53:06.485Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -71101,7 +71245,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-20T16:34:11.573Z",
-        "updatedAt": "2026-07-20T16:34:11.573Z"
+        "updatedAt": "2026-07-20T16:51:40.446Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -71111,7 +71255,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-20T16:34:11.395Z",
-        "updatedAt": "2026-07-20T16:34:11.395Z"
+        "updatedAt": "2026-07-20T16:51:40.270Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -76820,8 +76964,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-20T16:45:47.239Z\",\"lastHumanActivityAt\":\"2026-07-20T16:42:47.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-20T16:45:47.337Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-20T16:45:47.239Z\",\"lastHumanActivityAt\":\"2026-07-20T16:55:54.414Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-20T16:55:55.542Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
