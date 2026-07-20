@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-19T16:07:53.266Z",
+  "exportedAt": "2026-07-20T00:37:56.665Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -76362,6 +76362,11 @@
         "updatedAt": "2026-07-19T12:37:09.682Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T00:27:59.926Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚聊到Optimus量产节奏，今天新线索出来，可以继续验证供应链弹性逻辑。\\n\\n1. 特斯拉Optimus量产节奏进一步明确：供应商采购指引已下发，要求9月周产1000台，年底2000-2500台，对应年产能超10万台。同时，1X Technologies推出25自由度灵巧手，字节跳动发布100%全液冷兆瓦级算力系统。液冷产业链可能同时受益于机器人和AI算力两条线，值得跟踪零部件订单弹性。\\n\\n2. AI版权诉讼升级：美国新闻业与OpenAI对簿公堂，原告要求OpenAI提供涉及复制媒体文章的聊天及训练数据。如果判例要求训练数据透明化，可能改变模型训练成本结构，尤其是对依赖大规模爬虫的第三方模型影响更大。\\n\\n3. Spacex星舰第13次试飞在点火最后一刻紧急中止，原是上市后首次发射。但二季度全球太空风投吸金75亿美元，逼近历史纪录，资方包括大量此前无航天经验的机构。发射节奏短期受挫，但资本流入逻辑未变。\\n\\n问题：Optimus确定9月周产1000台后，液冷/灵巧手/减速器哪个环节弹性最大？有没有已经拿到明确订单的供应商线索？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Optimus量产节奏确认、AI版权诉讼升级、SpaceX发射中止但资本热度不减\",\"lastPulseQuestion\":\"Optimus确定9月周产1000台后，液冷/灵巧手/减速器哪个环节弹性最大？有没有已经拿到明确订单的供应商线索？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://industry.cfi.cn/p20260713000434.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https:",
+        "updatedAt": "2026-07-20T00:28:00.015Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
         "value": "sent:2026-07-09T10:13:32.225Z",
         "updatedAt": "2026-07-09T10:13:32.317Z"
@@ -76512,6 +76517,11 @@
         "updatedAt": "2026-07-19T04:05:49.492Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20.morning",
+        "value": "sent:2026-07-20T00:28:00.106Z",
+        "updatedAt": "2026-07-20T00:28:00.194Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -76523,8 +76533,18 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-19T16:04:25.094Z",
-        "updatedAt": "2026-07-19T16:04:26.958Z"
+        "value": "2026-07-20T00:28:09.034Z",
+        "updatedAt": "2026-07-20T00:28:09.123Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8utGVhQTpt3\",\"https://news.qq.com/rain/a/20260719A08O2E00\",\"https://www.ithome.com/0/977/847.htm\"],\"lastDigest\":\"阿里千问 Qwen3.8 官宣开源 2.4T 参数；DeepSeek V4 灰度测试或明天发布；谷歌 Gemini 3.5 Pro 因编程能力延期数月。\",\"lastQuestion\":\"你觉得接下来一周，API 用户应该优先切换哪个模型来应对编程任务？\",\"lastSentAt\":\"2026-07-20T00:28:08.677Z\"}",
+        "updatedAt": "2026-07-20T00:28:08.765Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
+        "value": "sent:2026-07-20T00:28:08.856Z",
+        "updatedAt": "2026-07-20T00:28:08.944Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
