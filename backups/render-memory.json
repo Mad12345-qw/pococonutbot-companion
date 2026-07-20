@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T14:28:00.771Z",
+  "exportedAt": "2026-07-20T14:37:58.072Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -76679,8 +76679,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T14:22:03.064Z\",\"lastHumanActivityAt\":\"2026-07-20T13:57:12.919Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-20T14:22:03.158Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T14:36:27.156Z\",\"lastHumanActivityAt\":\"2026-07-20T13:57:12.919Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-20T14:36:27.247Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
