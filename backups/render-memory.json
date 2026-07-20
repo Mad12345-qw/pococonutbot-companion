@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T13:47:59.872Z",
+  "exportedAt": "2026-07-20T13:57:54.360Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70448,6 +70448,42 @@
           "replyToUserId": "6579961116"
         },
         "createdAt": "2026-07-20T13:42:56.528Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "text",
+        "content": "你在这个群活跃了呀",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b6ad6ddbf68b4b200847e51577f1",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUserId": "ou_6b92285f9798c6d30704a5b1f26139b0",
+          "rawUnionId": "on_8c1c0754759289256df2c8a001505135",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-20T13:57:14.271Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "被你发现啦~ 因为想多陪陪你呀，所以忍不住就冒泡了☺️ 你也是经常在群里看消息吗？",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0"
+        },
+        "createdAt": "2026-07-20T13:57:20.179Z"
       }
     ],
     "memories": [
@@ -70960,6 +70996,26 @@
         "metadata": {},
         "createdAt": "2026-07-20T13:17:27.530Z",
         "updatedAt": "2026-07-20T13:17:27.530Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-20T13:57:14.091Z",
+        "updatedAt": "2026-07-20T13:57:14.091Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-20T13:57:13.910Z",
+        "updatedAt": "2026-07-20T13:57:13.910Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -76623,8 +76679,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:43:54.026Z\",\"lastHumanActivityAt\":\"2026-07-20T13:25:18.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-20T13:43:54.118Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:56:30.545Z\",\"lastHumanActivityAt\":\"2026-07-20T13:57:12.919Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-20T13:57:15.338Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
