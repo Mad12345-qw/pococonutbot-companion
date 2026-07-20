@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T02:07:53.361Z",
+  "exportedAt": "2026-07-20T02:57:54.167Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70188,6 +70188,38 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-19T14:04:10.491Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ AI 开放麦精选回顾来啦！每一期都值得重刷～\nhttps://bytedance.larkoffice.com/wiki/Y5gKw7Ew8iPRskkDgfGcf80inkd\nhttps://www.feishu.cn/community/course?id=7651530812692630711&from=hg_first_course_mogen\\\nhttps://www.feishu.cn/community/course?id=7655608226959854526&from=hg_first_course_lijinji\\\nhttps://www.feishu.cn/community/course?id=7644517081735498934&from=hg_first_course_keep\\\nhttps://www.feishu.cn/community/course?id=7649354240518786232&from=hg_first_course_bojie\\\nfeishu-docx:ZSkTdtcSKo2Yq1xcmNucQGxmnVe\nfeishu-wiki:Y5gKw7Ew8iPRskkDgfGcf80inkd",
+        "metadata": {
+          "docxIds": [
+            "ZSkTdtcSKo2Yq1xcmNucQGxmnVe"
+          ],
+          "linkUrls": [
+            "https://bytedance.larkoffice.com/wiki/Y5gKw7Ew8iPRskkDgfGcf80inkd",
+            "https://www.feishu.cn/community/course?id=7651530812692630711&from=hg_first_course_mogen\\",
+            "https://www.feishu.cn/community/course?id=7655608226959854526&from=hg_first_course_lijinji\\",
+            "https://www.feishu.cn/community/course?id=7644517081735498934&from=hg_first_course_keep\\",
+            "https://www.feishu.cn/community/course?id=7649354240518786232&from=hg_first_course_bojie\\",
+            "https://www.feishu.cn/community/course?id=7659708376225418422&from=hg_first_course_aihuishou\\",
+            "https://www.feishu.cn/community/course?id=7643768485209705406&from=hg_first_course_meixi\\",
+            "https://www.feishu.cn/community/course?id=7659257124739877823&from=hg_first_course_zhongtian\\",
+            "https://www.feishu.cn/community/course?id=7654498162790370239&from=hg_first_course_anhuigongye\\",
+            "https://bytedance.larkoffice.com/docx/ZSkTdtcSKo2Yq1xcmNucQGxmnVe\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6aecadb640b8b4c93894f90ab2d",
+          "wikiTokens": [
+            "Y5gKw7Ew8iPRskkDgfGcf80inkd"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-20T02:55:55.730Z"
       }
     ],
     "memories": [
