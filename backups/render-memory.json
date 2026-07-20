@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T10:17:52.469Z",
+  "exportedAt": "2026-07-20T10:37:51.772Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -76435,8 +76435,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T05:57:59.745Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n早上聊到Optimus量产节奏，供应链弹性是核心，继续追。今天新线索验证了之前的判断：\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认，Optimus将于2026年底正式启动大规模量产，弗里蒙特工厂远期年产能目标100万台。第三代Optimus已完成高管评审定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。这个节奏比之前市场预期的更激进，减速器、电机、传感器等核心零部件的订单弹性值得重新算账。\\n\\n2. 车企集体入局人形机器人：比亚迪、小鹏、广汽、长安、奇瑞等逾10家车企已布局该赛道。依托汽车供应链同源优势，机器人零部件成本下降速度可能超预期。但当前应用场景有限、高成本仍是难题，需要关注哪些车企能真正把制造能力转化为机器人竞争力。\\n\\n3. AI版权诉讼升级：美国新闻业与OpenAI对簿公堂，原告要求OpenAI提供涉及复制媒体文章的聊天及训练数据。如果诉讼结果不利，可能推高模型训练的数据获取成本，间接影响AI算力投入节奏。\\n\\n问题：Optimus 9月周产1000台的零部件备货需求，是否已经反映在减速器、电机等供应商的Q3订单指引中？有没有群友跟踪到相关公司的最新交流纪要？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉Optimus量产节奏确认，9月周产1000台，年底2000-2500台，供应链弹性待验证；多家车企入局人形机器人；AI版权诉讼升级影响数据成本。\",\"lastPulseQuestion\":\"Optimus 9月周产1000台的零部件备货需求，是否已经反映在减速器、电机等供应商的Q3订单指引中？有没有群友跟踪到相关公司的最新交流纪要？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.laohu8.com/post/585333458694272",
-        "updatedAt": "2026-07-20T05:58:00.069Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T10:28:03.063Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚刚聊到Optimus量产节奏，供应链弹性是核心。今天下午新线索出来，可以继续验证这个逻辑。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认，2026年底正式启动大规模量产，弗里蒙特工厂远期年产能目标100万台。第三代Optimus已完成高管评审定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。这个节奏比之前市场预期的更激进，减速器、电机、传感器等核心零部件的订单弹性需要重新算。\\n\\n2. 车企加速入局人形机器人：比亚迪、小鹏、广汽、长安、奇瑞等逾10家车企均已布局。汽车产业与机器人产业技术同源、供应链互通，但商业化仍处早期，应用场景有限、高成本是难题。车企如何把制造能力转化为机器人竞争优势，有待时间检验。\\n\\n3. 西湖机器人展示实时动作模仿：Westlake Robotics推出Titan o1，搭载自主开发的General Action Expert模型，能实时模仿人类动作，不受时间空间限制。这可能是灵巧手和全身控制的新方向，值得跟踪其供应链选择。\\n\\n明天要追的问题：特斯拉9月周产1000台的指引下，减速器、空心杯电机、六维力传感器的国产供应商产能是否足够？哪家最可能率先卡住？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"Optimus量产时间表确认，供应链弹性成核心；车企加速布局；Titan o1展示实时模仿。\",\"lastPulseQuestion\":\"特斯拉9月周产1000台的指引下，减速器、空心杯电机、六维力传感器的国产供应商产能是否足够？哪家最可能率先卡住？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://zjic.zj.gov.cn/ywdh/ggkf/202607/t20260710_24152007.shtml\",\"https://espa",
+        "updatedAt": "2026-07-20T10:28:03.150Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -76587,6 +76587,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-19.noon",
         "value": "sent:2026-07-19T04:05:49.406Z",
         "updatedAt": "2026-07-19T04:05:49.492Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20.evening",
+        "value": "sent:2026-07-20T10:28:03.237Z",
+        "updatedAt": "2026-07-20T10:28:03.321Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20.morning",
