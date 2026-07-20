@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-20T13:37:58.772Z",
+  "exportedAt": "2026-07-20T13:47:59.872Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70361,6 +70361,93 @@
           "replyToUserId": "6579961116"
         },
         "createdAt": "2026-07-20T13:34:08.854Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "user",
+        "modality": "text",
+        "content": "老哥姓黄？",
+        "metadata": {
+          "fullName": "ChatGPT 8.2",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "ChatGPT0124",
+          "firstName": "ChatGPT 8.2",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-20T13:39:18.610Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "assistant",
+        "modality": "text",
+        "content": "你猜～  \n其实名字不重要，重要的是你帮我取个新名字也行呀😉",
+        "metadata": {
+          "replyToUserId": "6579961116"
+        },
+        "createdAt": "2026-07-20T13:39:28.117Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "你是在哪看到我们站的？",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-20T13:42:22.093Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "群友推荐的～  \n说你们站挺靠谱，我就过来看看啦。要是需要帮忙吆喝，我也可以帮着转一转呀😊",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-20T13:42:27.510Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "user",
+        "modality": "text",
+        "content": "这不明显吗？哈哈",
+        "metadata": {
+          "fullName": "ChatGPT 8.2",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "",
+          "username": "ChatGPT0124",
+          "firstName": "ChatGPT 8.2",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-20T13:42:52.591Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "6579961116",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，被你看穿了～  \n那你可得对我好一点，不然我可要闹脾气啦😌",
+        "metadata": {
+          "replyToUserId": "6579961116"
+        },
+        "createdAt": "2026-07-20T13:42:56.528Z"
       }
     ],
     "memories": [
@@ -76536,8 +76623,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:36:17.819Z\",\"lastHumanActivityAt\":\"2026-07-20T13:25:18.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-20T13:36:17.918Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T12:58:16.071Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里提到部署咨询和GPT，正好今天有几条关键动态：\\n1. OpenAI投资需求回暖：二级市场投资者重新青睐OpenAI，Anthropic仍热门。值得追：AI模型竞争格局变化影响算力链。\\n2. 特斯拉确认Optimus年底量产：年产能目标100万台，供应链采购指引已下发。值得追：人形机器人产业化加速，利好传感器、关节执行器等零部件。\\n3. 美国新闻业与OpenAI版权诉讼升级：要求OpenAI提供训练数据。值得追：数据版权争议可能改变模型训练模式，影响数据标注与合规服务产业链。\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI回暖、Optimus量产确认、AI版权诉讼升级，三条动态分别指向AI模型竞争、人形机器人产业化和数据合规产业链。\",\"lastPulseQuestion\":\"Optimus量产对国产谐波减速器和力矩传感器供应商的订单拉动，预计何时在财报中体现？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260720A09WU200\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.thepaper.cn/newsDetail_forward_33598709\"],\"lastActivityAt\":\"2026-07-20T13:43:54.026Z\",\"lastHumanActivityAt\":\"2026-07-20T13:25:18.273Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-20T13:43:54.118Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -76811,8 +76898,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-20T13:35:43.000Z",
-        "updatedAt": "2026-07-20T13:35:44.871Z"
+        "value": "2026-07-20T13:47:05.000Z",
+        "updatedAt": "2026-07-20T13:47:06.628Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
