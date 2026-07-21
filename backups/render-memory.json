@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T00:07:53.862Z",
+  "exportedAt": "2026-07-21T00:37:54.159Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -76964,8 +76964,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T00:03:47.364Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T00:03:47.446Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T00:35:50.613Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-21T00:35:50.694Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -77056,6 +77056,11 @@
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20",
         "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-20T10:28:03.063Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚刚聊到Optimus量产节奏，供应链弹性是核心。今天下午新线索出来，可以继续验证这个逻辑。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认，2026年底正式启动大规模量产，弗里蒙特工厂远期年产能目标100万台。第三代Optimus已完成高管评审定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。这个节奏比之前市场预期的更激进，减速器、电机、传感器等核心零部件的订单弹性需要重新算。\\n\\n2. 车企加速入局人形机器人：比亚迪、小鹏、广汽、长安、奇瑞等逾10家车企均已布局。汽车产业与机器人产业技术同源、供应链互通，但商业化仍处早期，应用场景有限、高成本是难题。车企如何把制造能力转化为机器人竞争优势，有待时间检验。\\n\\n3. 西湖机器人展示实时动作模仿：Westlake Robotics推出Titan o1，搭载自主开发的General Action Expert模型，能实时模仿人类动作，不受时间空间限制。这可能是灵巧手和全身控制的新方向，值得跟踪其供应链选择。\\n\\n明天要追的问题：特斯拉9月周产1000台的指引下，减速器、空心杯电机、六维力传感器的国产供应商产能是否足够？哪家最可能率先卡住？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"Optimus量产时间表确认，供应链弹性成核心；车企加速布局；Titan o1展示实时模仿。\",\"lastPulseQuestion\":\"特斯拉9月周产1000台的指引下，减速器、空心杯电机、六维力传感器的国产供应商产能是否足够？哪家最可能率先卡住？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://zjic.zj.gov.cn/ywdh/ggkf/202607/t20260710_24152007.shtml\",\"https://espa",
         "updatedAt": "2026-07-20T10:28:03.150Z"
+      },
+      {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T00:28:03.871Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚继续聊Optimus量产节奏，供应链弹性是核心。今天新线索出来，可以继续验证这个逻辑，同时航天领域也有新信号值得关注。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认年底启动大规模量产，第三代已完成定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。这个节奏比之前预期更激进，减速器、电机、传感器的订单弹性需要重新算账。\\n\\n2. 特斯拉46天拆除原有生产线，豪掷重金改造为Optimus产线。这意味着量产不是纸上谈兵，而是真金白银在砸。产线切换速度本身也是供应链能力的验证，核心零部件供应商的产能爬坡压力会提前释放。\\n\\n3. 航天这边，SpaceX星舰第13次试飞在点火前最后一刻紧急取消，这是上市后首次星舰发射，临阵叫停影响市场情绪。但二季度全球太空风投吸金75亿美元逼近纪录高位，说明资本层面热度不减，工程落地节奏和资本预期之间的落差值得跟踪。\\n\\n问题：在Optimus量产的确定性下，核心零部件环节——减速器、电机、灵巧手，哪家最可能率先受益，韧性最强？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Optimus量产节奏确认，供应链弹性验证；星舰试飞取消与太空风投新高形成反差。\",\"lastPulseQuestion\":\"在Optimus量产的确定性下，核心零部件环节——减速器、电机、灵巧手，哪家最可能率先受益，韧性最强？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.yoojia.com/article/9968057462605101986.html\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.h",
+        "updatedAt": "2026-07-21T00:28:03.952Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -77228,6 +77233,11 @@
         "updatedAt": "2026-07-20T05:58:00.248Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21.morning",
+        "value": "sent:2026-07-21T00:28:04.047Z",
+        "updatedAt": "2026-07-21T00:28:04.128Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -77251,6 +77261,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
         "value": "sent:2026-07-20T00:28:08.856Z",
         "updatedAt": "2026-07-20T00:28:08.944Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-21.morning",
+        "value": "reserved:1784593656305:983cmvds",
+        "updatedAt": "2026-07-21T00:27:36.390Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
