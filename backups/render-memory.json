@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T01:57:53.560Z",
+  "exportedAt": "2026-07-21T02:07:54.971Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70724,6 +70724,25 @@
           "replyToUserId": "feishu:ou_0953815ec96a90b4c00e6a71ba1a46df"
         },
         "createdAt": "2026-07-20T16:53:14.427Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 那你用这个https://5yuantoken.org/register?aff=R2YCECS7LKG4  5块钱爽蹬一天\nhttps://5yuantoken.org/register?aff=R2YCECS7LKG4",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://5yuantoken.org/register?aff=R2YCECS7LKG4"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6ad9623ef480b22c7f54159de07",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-21T02:00:54.198Z"
       }
     ],
     "memories": [
@@ -76964,8 +76983,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T01:54:04.846Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T01:54:04.925Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T02:03:50.426Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-21T02:03:50.507Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
