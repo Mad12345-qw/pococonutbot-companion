@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T02:27:55.270Z",
+  "exportedAt": "2026-07-21T02:37:52.659Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70743,6 +70743,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-21T02:00:54.198Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 谁还在花钱零散买学习资料？整理全套初高中语文名师课程 + 中考全科复习资料，全部 2026 最新版本！全部免费开源\nhttps://vcnvmnln7wit.feishu.cn/wiki/OX9Dw6u4giZSwtk2kTOcIM4YnTdhttps://vcnvmnln7wit.feishu.cn/wiki/OX9Dw6u4giZSwtk2kTOcIM4YnTd\nfeishu-wiki:OX9Dw6u4giZSwtk2kTOcIM4YnTdhttps",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vcnvmnln7wit.feishu.cn/wiki/OX9Dw6u4giZSwtk2kTOcIM4YnTdhttps://vcnvmnln7wit.feishu.cn/wiki/OX9Dw6u4giZSwtk2kTOcIM4YnTd"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6ad9d01c80b8b30b0db0c06e2be",
+          "wikiTokens": [
+            "OX9Dw6u4giZSwtk2kTOcIM4YnTdhttps"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-21T02:31:15.185Z"
       }
     ],
     "memories": [
@@ -76983,8 +77004,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T02:23:35.234Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T02:23:35.322Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T02:34:13.941Z\",\"lastHumanActivityAt\":\"2026-07-20T17:25:03.053Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-21T02:34:14.020Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
