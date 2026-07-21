@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T14:47:55.567Z",
+  "exportedAt": "2026-07-21T14:57:59.066Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77106,8 +77106,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T11:28:22.553Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里最近讨论的一小段\\n\\n1. OpenAI重获投资者青睐，Anthropic仍最热：据IT之家，7月20日称OpenAI因新模型和Codex成功，二级市场兴趣回升。影响AI模型训练、编程智能体产业链。\\n\\n2. 特斯拉Optimus年底量产：特斯拉副总裁陶琳确认2026年底大规模量产，弗里蒙特工厂远期年产100万台。影响人形机器人零部件、供应链（重资产零部件PPA等）。\\n\\n3. 具身智能是终极载体：汇添富机器人主题ETF报告称Optimus量产前夕，国内外进入下一产业阶段，通用性打破限制。影响具身智能、执行器、传感器产业链。\\n\\n最后一个具体投研追问：特斯拉Optimus量产在即，国内供应链哪些环节已签PPA订单？审厂进度如何？是否已到催化剂窗口？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI投资回暖、Optimus量产确认、具身智能报告，追问供应链订单与审厂进度\",\"lastPulseQuestion\":\"特斯拉Optimus量产在即，国内供应链哪些环节已签PPA订单？审厂进度如何？是否已到催化剂窗口？\",\"lastPulseSources\":[\"https://www.ithome.com/0/979/213.htm\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.baogao.com/jigou/1504016.html\"],\"lastActivityAt\":\"2026-07-21T11:28:22.553Z\",\"lastHumanActivityAt\":\"2026-07-21T14:38:58.505Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T14:39:00.749Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T11:28:22.553Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里最近讨论的一小段\\n\\n1. OpenAI重获投资者青睐，Anthropic仍最热：据IT之家，7月20日称OpenAI因新模型和Codex成功，二级市场兴趣回升。影响AI模型训练、编程智能体产业链。\\n\\n2. 特斯拉Optimus年底量产：特斯拉副总裁陶琳确认2026年底大规模量产，弗里蒙特工厂远期年产100万台。影响人形机器人零部件、供应链（重资产零部件PPA等）。\\n\\n3. 具身智能是终极载体：汇添富机器人主题ETF报告称Optimus量产前夕，国内外进入下一产业阶段，通用性打破限制。影响具身智能、执行器、传感器产业链。\\n\\n最后一个具体投研追问：特斯拉Optimus量产在即，国内供应链哪些环节已签PPA订单？审厂进度如何？是否已到催化剂窗口？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI投资回暖、Optimus量产确认、具身智能报告，追问供应链订单与审厂进度\",\"lastPulseQuestion\":\"特斯拉Optimus量产在即，国内供应链哪些环节已签PPA订单？审厂进度如何？是否已到催化剂窗口？\",\"lastPulseSources\":[\"https://www.ithome.com/0/979/213.htm\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.baogao.com/jigou/1504016.html\"],\"lastActivityAt\":\"2026-07-21T11:28:22.553Z\",\"lastHumanActivityAt\":\"2026-07-21T14:56:52.031Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-21T14:56:53.167Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
