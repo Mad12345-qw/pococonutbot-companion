@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T10:27:52.970Z",
+  "exportedAt": "2026-07-21T10:37:54.772Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77201,8 +77201,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T04:57:57.219Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n继续追Optimus量产节奏，供应链弹性，今天又有新验证。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认年底启动大规模量产，第三代已完成定型，供应链已收到具体零件采购指引，9月周产1000台，年底2000-2500台，对应年产能超10万台。弗里蒙特工厂远期年产能目标100万台。这个节奏比之前预期更激进，减速器、电机、传感器的订单弹性需要重新算账。\\n\\n2. 特斯拉46天拆除原有生产线，豪掷重金改造为Optimus流水线。这意味着特斯拉正在把电动车产能腾挪给机器人，内部资源倾斜信号明确，供应链切换节奏可能比市场预期更快。\\n\\n3. 宇树科技科创板上市注册获批，有望成为A股首家人形机器人上市公司。此外，国内人形机器人产业链企业2026年普遍加速IPO筹备。资本化通道打开后，一级市场估值体系可能向二级市场收敛，核心零部件供应商的估值逻辑也会对应调整。\\n\\n问：Optimus 9月目标周产1000台，年底2000-2500台，按单台价值量估算，减速器、电机、传感器各环节的增量需求弹性有多大？对应哪些A股供应商最受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"Optimus量产时间表明确，年底周产2500台，供应链弹性重新算账；宇树科技IPO获批，人形机器人资本化加速。\",\"lastPulseQuestion\":\"Optimus 9月目标周产1000台，年底2000-2500台，按单台价值量估算，减速器、电机、传感器各环节的增量需求弹性有多大？对应哪些A股供应商最受益？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.yoojia.com/article/9968057462605101986.html\",\"https://www.chinareport.com.cn/R1/7407.html\"],\"las",
-        "updatedAt": "2026-07-21T04:57:57.308Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T10:27:58.335Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n继续追Optimus量产节奏，供应链弹性是核心。今天新线索验证了之前的判断，同时航天领域也有新信号值得关注。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认年底启动大规模量产，第三代已完成定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。同时，特斯拉46天拆除原有生产线，豪掷重金改造为Optimus产线。这个节奏比之前预期更激进，减速器、电机、传感器的订单弹性需要重新算账。\\n\\n2. SpaceX星舰第13次试飞在点火最后一刻紧急中止，这是SpaceX上市以来首次星舰发射。虽然临阵叫停，但星舰的发射频率和可靠性直接影响后续星链V3部署节奏和卫星互联网商业模型。如果发射节奏持续受阻，地面终端和卫星制造环节的预期可能需要调整。\\n\\n3. 太空风投二季度吸金75亿美元，逼近历史纪录。SpaceX上市效应明显，吸引大量圈外资本涌入航天赛道。运载系统、卫星网络、国防技术等领域的大额融资轮次增多。这验证了航天产业作为主流资产类别的趋势，但也要警惕估值泡沫风险。\\n\\n问题：Optimus量产节奏比预期更激进，减速器、电机、传感器等核心零部件的订单弹性如何重新测算？哪些国内供应商可能最先受益？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"Optimus量产确认，星舰发射中止，太空风投创纪录\",\"lastPulseQuestion\":\"Optimus量产节奏比预期更激进，减速器、电机、传感器等核心零部件的订单弹性如何重新测算？哪些国内供应商可能最先受益？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.yoojia.com/article/9968057462605101986.html\",\"https://wenchuang.dalw.com.cn/tags-144681",
+        "updatedAt": "2026-07-21T10:27:58.420Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -77383,6 +77383,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-20.noon",
         "value": "sent:2026-07-20T05:58:00.165Z",
         "updatedAt": "2026-07-20T05:58:00.248Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21.evening",
+        "value": "sent:2026-07-21T10:27:58.512Z",
+        "updatedAt": "2026-07-21T10:27:58.597Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21.morning",
