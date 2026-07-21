@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T09:07:53.668Z",
+  "exportedAt": "2026-07-21T09:18:00.070Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70806,6 +70806,30 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-21T08:13:34.377Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ 医药人告别加班？君实巧用 AI 一键搞定日报研报｜AI 开放麦 07-22\nhttps://www.larkoffice.com/calendar/share?token=e98695955481ce1f7ce568888c10571f\\\nhttps://aily.feishu.cn/?open_from=kfm_aily_homepage\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=e98695955481ce1f7ce568888c10571f\\",
+            "https://aily.feishu.cn/?open_from=kfm_aily_homepage\\",
+            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
+            "https://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6ac7346aa4a4b26d8c5d2f28da8",
+          "wikiTokens": [
+            "MVacwustBixr7ykzSmAcjZIqngh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-21T09:11:10.327Z"
       }
     ],
     "memories": [
