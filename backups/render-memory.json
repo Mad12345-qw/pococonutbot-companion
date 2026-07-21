@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T04:27:55.074Z",
+  "exportedAt": "2026-07-21T05:07:55.071Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77004,8 +77004,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T04:26:52.915Z\",\"lastHumanActivityAt\":\"2026-07-21T04:05:11.616Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T04:26:53.000Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T05:05:42.412Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-21T05:05:42.919Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -77099,8 +77099,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T00:28:03.871Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚继续聊Optimus量产节奏，供应链弹性是核心。今天新线索出来，可以继续验证这个逻辑，同时航天领域也有新信号值得关注。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认年底启动大规模量产，第三代已完成定型，供应链已收到具体零件采购指引，要求9月周产1000台，年底2000-2500台。这个节奏比之前预期更激进，减速器、电机、传感器的订单弹性需要重新算账。\\n\\n2. 特斯拉46天拆除原有生产线，豪掷重金改造为Optimus产线。这意味着量产不是纸上谈兵，而是真金白银在砸。产线切换速度本身也是供应链能力的验证，核心零部件供应商的产能爬坡压力会提前释放。\\n\\n3. 航天这边，SpaceX星舰第13次试飞在点火前最后一刻紧急取消，这是上市后首次星舰发射，临阵叫停影响市场情绪。但二季度全球太空风投吸金75亿美元逼近纪录高位，说明资本层面热度不减，工程落地节奏和资本预期之间的落差值得跟踪。\\n\\n问题：在Optimus量产的确定性下，核心零部件环节——减速器、电机、灵巧手，哪家最可能率先受益，韧性最强？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Optimus量产节奏确认，供应链弹性验证；星舰试飞取消与太空风投新高形成反差。\",\"lastPulseQuestion\":\"在Optimus量产的确定性下，核心零部件环节——减速器、电机、灵巧手，哪家最可能率先受益，韧性最强？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.yoojia.com/article/9968057462605101986.html\",\"https://wenchuang.dalw.com.cn/tags-144681.html\",\"https://www.zhitongcaijing.com/content/detail/1468565.h",
-        "updatedAt": "2026-07-21T00:28:03.952Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-21T04:57:57.219Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n继续追Optimus量产节奏，供应链弹性，今天又有新验证。\\n\\n1. 特斯拉Optimus量产时间表进一步明确：陶琳在2026全球数字经济大会上确认年底启动大规模量产，第三代已完成定型，供应链已收到具体零件采购指引，9月周产1000台，年底2000-2500台，对应年产能超10万台。弗里蒙特工厂远期年产能目标100万台。这个节奏比之前预期更激进，减速器、电机、传感器的订单弹性需要重新算账。\\n\\n2. 特斯拉46天拆除原有生产线，豪掷重金改造为Optimus流水线。这意味着特斯拉正在把电动车产能腾挪给机器人，内部资源倾斜信号明确，供应链切换节奏可能比市场预期更快。\\n\\n3. 宇树科技科创板上市注册获批，有望成为A股首家人形机器人上市公司。此外，国内人形机器人产业链企业2026年普遍加速IPO筹备。资本化通道打开后，一级市场估值体系可能向二级市场收敛，核心零部件供应商的估值逻辑也会对应调整。\\n\\n问：Optimus 9月目标周产1000台，年底2000-2500台，按单台价值量估算，减速器、电机、传感器各环节的增量需求弹性有多大？对应哪些A股供应商最受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"Optimus量产时间表明确，年底周产2500台，供应链弹性重新算账；宇树科技IPO获批，人形机器人资本化加速。\",\"lastPulseQuestion\":\"Optimus 9月目标周产1000台，年底2000-2500台，按单台价值量估算，减速器、电机、传感器各环节的增量需求弹性有多大？对应哪些A股供应商最受益？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.yoojia.com/article/9968057462605101986.html\",\"https://www.chinareport.com.cn/R1/7407.html\"],\"las",
+        "updatedAt": "2026-07-21T04:57:57.308Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -77111,6 +77111,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21.morning",
         "value": "sent:2026-07-21T02:58:09.650Z",
         "updatedAt": "2026-07-21T02:58:09.733Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21.noon",
+        "value": "sent:2026-07-21T04:58:16.281Z",
+        "updatedAt": "2026-07-21T04:58:16.798Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -77283,6 +77288,11 @@
         "updatedAt": "2026-07-21T00:28:04.128Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21.noon",
+        "value": "sent:2026-07-21T04:57:57.396Z",
+        "updatedAt": "2026-07-21T04:57:57.485Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -77294,13 +77304,18 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-21T01:35:44.000Z",
-        "updatedAt": "2026-07-21T01:35:45.373Z"
+        "value": "2026-07-21T04:57:51.352Z",
+        "updatedAt": "2026-07-21T04:57:51.440Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
         "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8utGVhQTpt3\",\"https://news.qq.com/rain/a/20260719A08O2E00\",\"https://www.ithome.com/0/977/847.htm\"],\"lastDigest\":\"阿里千问 Qwen3.8 官宣开源 2.4T 参数；DeepSeek V4 灰度测试或明天发布；谷歌 Gemini 3.5 Pro 因编程能力延期数月。\",\"lastQuestion\":\"你觉得接下来一周，API 用户应该优先切换哪个模型来应对编程任务？\",\"lastSentAt\":\"2026-07-20T00:28:08.677Z\"}",
         "updatedAt": "2026-07-20T00:28:08.765Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-21",
+        "value": "{\"sentSlots\":[\"noon\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8umOPjOSWJx\",\"https://news.qq.com/rain/a/20260715A09OP100\",\"https://news.mydrivers.com/1/1136/1136950.htm\"],\"lastDigest\":\"DeepSeek V4 Flash月用量18.4T登顶；Meta Muse Spark 1.1低价API发布；奥特曼放话OpenAI降价75%。\",\"lastQuestion\":\"面对Meta低价入局和OpenAI可能的大幅降价，你现在更倾向于用哪家API做生产？是继续用国产低价模型，还是等降价后的GPT-5.6？\",\"lastSentAt\":\"2026-07-21T04:57:50.116Z\"}",
+        "updatedAt": "2026-07-21T04:57:50.210Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
@@ -77311,6 +77326,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-21.morning",
         "value": "reserved:1784593656305:983cmvds",
         "updatedAt": "2026-07-21T00:27:36.390Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-21.noon",
+        "value": "sent:2026-07-21T04:57:51.167Z",
+        "updatedAt": "2026-07-21T04:57:51.265Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
