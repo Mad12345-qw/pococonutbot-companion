@@ -31,6 +31,10 @@ function normalizedName(value = "") {
   return String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim();
 }
 
+function normalizeReplyMode(value = "") {
+  return String(value || "").trim().toLowerCase() === "question" ? "question" : "mention";
+}
+
 export function telegramCommunityNickname(user = {}) {
   const firstName = normalizedName(user.first_name || user.firstName || "");
   if (!firstName || firstName.length > 24) return "";
@@ -155,6 +159,7 @@ export class TelegramCommunityOps {
     this.chatIdSet = new Set((config.telegramCommunityOpsChatIds || []).map(String).filter(Boolean));
     this.verifiedChatIds = new Set();
     this.activityWrites = new Map();
+    this.replyModes = new Map();
   }
 
   get enabled() {
@@ -163,6 +168,33 @@ export class TelegramCommunityOps {
 
   isTargetChat(chatId = "") {
     return this.enabled && this.chatIdSet.has(String(chatId || ""));
+  }
+
+  replyModeKey(chatId = "") {
+    return `telegram.community_ops.reply_mode.${String(chatId || "")}`;
+  }
+
+  defaultReplyMode() {
+    return normalizeReplyMode(this.config.telegramCommunityOpsReplyMode || "mention");
+  }
+
+  replyMode(chatId = "") {
+    return this.replyModes.get(String(chatId || "")) || this.defaultReplyMode();
+  }
+
+  async loadReplyModes() {
+    for (const chatId of this.chatIdSet) {
+      const stored = await this.storage.getSetting(this.replyModeKey(chatId), this.defaultReplyMode());
+      this.replyModes.set(chatId, normalizeReplyMode(stored));
+    }
+  }
+
+  async setReplyMode(chatId = "", mode = "mention") {
+    const normalized = normalizeReplyMode(mode);
+    if (!this.isTargetChat(chatId)) return normalized;
+    await this.storage.setSetting(this.replyModeKey(chatId), normalized);
+    this.replyModes.set(String(chatId), normalized);
+    return normalized;
   }
 
   isTechnicalConversation(text = "") {
@@ -193,6 +225,7 @@ export class TelegramCommunityOps {
   }
 
   shouldAutoAnswer(msg = {}, text = "") {
+    if (this.replyMode(msg.chat?.id) !== "question") return false;
     return shouldTelegramCommunityAutoAnswer({
       text,
       botUsername: this.botInfo?.username || "",
@@ -204,6 +237,7 @@ export class TelegramCommunityOps {
     this.botInfo = botInfo || this.botInfo;
     if (!this.enabled) return;
 
+    await this.loadReplyModes();
     await this.verifyConfiguredChats().catch((error) => {
       logEvent("warn", "Telegram community ops chat verification failed", { error: error.message });
     });

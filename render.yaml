@@ -113,6 +113,8 @@ services:
         value: "8"
       - key: TELEGRAM_COMMUNITY_OPS_AI_TIMEOUT_MS
         value: "60000"
+      - key: TELEGRAM_COMMUNITY_OPS_REPLY_MODE
+        value: mention
       - key: AUTO_MEMORY
         value: "true"
       - key: RECENT_MESSAGE_LIMIT

@@ -91,7 +91,8 @@ const config = {
   telegramCommunityOpsForceSlot: "morning",
   telegramCommunityOpsFreshness: "oneWeek",
   telegramCommunityOpsSearchCount: 8,
-  telegramCommunityOpsAiTimeoutMs: 60000
+  telegramCommunityOpsAiTimeoutMs: 60000,
+  telegramCommunityOpsReplyMode: "mention"
 };
 const fallbackProvider = { name: "fallback", apiKey: "test", url: "https://example.com/v1/chat/completions", model: "test-model" };
 const authoritativeResults = [
@@ -151,6 +152,24 @@ ops.botInfo = { id: 999, username: "xiaoye_bot", can_read_all_group_messages: tr
 
 await ops.verifyConfiguredChats();
 assertEqual("telegram target group is verified", ops.verifiedChatIds.has(chatId), true);
+assertEqual("telegram community defaults to mention-only mode", ops.replyMode(chatId), "mention");
+assertEqual("mention-only mode ignores unmentioned questions", ops.shouldAutoAnswer({ chat: { id: chatId } }, "Claude API 为什么报 429？"), false);
+await ops.setReplyMode(chatId, "question");
+assertEqual("question mode enables proactive answers", ops.shouldAutoAnswer({ chat: { id: chatId } }, "Claude API 为什么报 429？"), true);
+await ops.setReplyMode(chatId, "mention");
+
+const commandReplies = [];
+const commandBot = Object.create(TelegramCompanionBot.prototype);
+commandBot.config = { ownerUserIds: [] };
+commandBot.communityOps = ops;
+commandBot.bot = {
+  getChatMember: async () => ({ status: "administrator" }),
+  sendMessage: async (_id, text) => commandReplies.push(text)
+};
+await commandBot.handleCommunityReplyModeCommand({ chat: { id: chatId }, from: { id: 456 }, message_id: 10 }, "question");
+assertEqual("telegram admin command changes reply mode", ops.replyMode(chatId), "question");
+assertEqual("telegram admin command confirms active mode", commandReplies.at(-1).includes("问题主动回答"), true);
+await ops.setReplyMode(chatId, "mention");
 
 await ops.handleNewMembers({
   chat: { id: chatId },

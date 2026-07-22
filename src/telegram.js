@@ -47,6 +47,9 @@ export class TelegramCompanionBot {
     this.bot.onText(/^\/memory\b/i, (msg) => this.handleMemoryCommand(msg));
     this.bot.onText(/^\/forget\b/i, (msg) => this.handleForgetCommand(msg));
     this.bot.onText(/^\/persona(?:@\w+)?\s*(.*)$/i, (msg, match) => this.handlePersonaCommand(msg, match?.[1] || ""));
+    this.bot.onText(/^\/xiaoye_mode(?:@\w+)?(?:\s+(mention|question))?\s*$/i, (msg, match) => {
+      this.handleCommunityReplyModeCommand(msg, match?.[1] || "").catch((error) => this.handleError(msg, error));
+    });
 
     this.bot.on("message", (msg) => this.enqueueMessage(msg));
     this.bot.on("polling_error", (error) => console.error("Telegram polling error:", error.message));
@@ -140,6 +143,48 @@ export class TelegramCompanionBot {
       { key: "relationship.persona", value: mode, importance: 5 }
     ]);
     await this.bot.sendMessage(msg.chat.id, `已切换人格：${mode}`, { reply_to_message_id: msg.message_id });
+  }
+
+  async isCommunityOperator(msg = {}) {
+    const userId = String(msg.from?.id || "");
+    if (this.config.ownerUserIds.includes(userId)) return true;
+    try {
+      const member = await this.bot.getChatMember(msg.chat.id, msg.from?.id);
+      return ["creator", "administrator"].includes(String(member?.status || ""));
+    } catch (error) {
+      logEvent("warn", "Telegram community mode admin check failed", {
+        chatId: String(msg.chat?.id || ""),
+        userId,
+        error: truncate(error.message, 240)
+      });
+      return false;
+    }
+  }
+
+  async handleCommunityReplyModeCommand(msg, requestedMode = "") {
+    const chatId = String(msg.chat?.id || "");
+    if (!this.communityOps.isTargetChat(chatId)) return;
+    const current = this.communityOps.replyMode(chatId);
+    if (!requestedMode) {
+      const label = current === "question" ? "问题主动回答" : "仅呼叫回复";
+      await this.bot.sendMessage(chatId, `当前小椰回复模式：${label}。\n切换命令：/xiaoye_mode mention 或 /xiaoye_mode question`, {
+        reply_to_message_id: msg.message_id
+      });
+      return;
+    }
+    if (!(await this.isCommunityOperator(msg))) {
+      await this.bot.sendMessage(chatId, "只有群主或群管理员可以切换小椰的回复模式。", {
+        reply_to_message_id: msg.message_id
+      });
+      return;
+    }
+
+    const mode = await this.communityOps.setReplyMode(chatId, requestedMode);
+    const text = mode === "question"
+      ? "已恢复问题主动回答：群里出现清晰问句时，小椰会主动回答。新人欢迎和定时资讯不受影响。"
+      : "已切换为仅呼叫回复：只有 @小椰、回复小椰，或使用 /ai、/ask 时才回答。新人欢迎和定时资讯不受影响。";
+    await this.bot.sendMessage(chatId, text, { reply_to_message_id: msg.message_id });
+    logEvent("info", "Telegram community reply mode changed", { chatId, mode, operator: String(msg.from?.id || "") });
   }
 
   async handleMessage(msg) {
@@ -1013,7 +1058,7 @@ export class TelegramCompanionBot {
 
   isCommandOnly(msg) {
     const text = msg.text || "";
-    return /^\/(?:start|help|ping|memory|forget|persona)(?:@\w+)?\b/i.test(text);
+    return /^\/(?:start|help|ping|memory|forget|persona|xiaoye_mode)(?:@\w+)?\b/i.test(text);
   }
 
   isAllowedChat(chatId) {

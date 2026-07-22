@@ -59,6 +59,7 @@ app.get("/health", (_req, res) => {
     telegramCommunityOps: Boolean(config.telegramCommunityOpsEnabled && config.telegramCommunityOpsChatIds.length > 0),
     telegramCommunityOpsChatCount: config.telegramCommunityOpsChatIds.length,
     telegramCommunityOpsSchedule: ["08:00-11:00", "12:00-15:00", "18:00-22:00"],
+    telegramCommunityOpsReplyMode: config.telegramCommunityOpsReplyMode || "mention",
     youtubeResearch: Boolean(config.transcriptApiEnabled && config.transcriptApiKey),
     youtubeDocDeliveryMode: "feishu_doc_first",
     youtubeDocTemplateVersion: "guided_blueprint_parallel_slots_v27",

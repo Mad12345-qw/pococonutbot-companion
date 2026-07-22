@@ -256,6 +256,7 @@ export const config = {
   telegramCommunityOpsSearchCount: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_SEARCH_COUNT, 8),
   telegramCommunityOpsAiTimeoutMs: asNumber(process.env.TELEGRAM_COMMUNITY_OPS_AI_TIMEOUT_MS, 60000),
   telegramCommunityOpsForceSlot: process.env.TELEGRAM_COMMUNITY_OPS_FORCE_SLOT || "",
+  telegramCommunityOpsReplyMode: process.env.TELEGRAM_COMMUNITY_OPS_REPLY_MODE || "mention",
   feishuAlwaysReplyUserIds: process.env.FEISHU_ALWAYS_REPLY_USER_IDS !== undefined
     ? asList(process.env.FEISHU_ALWAYS_REPLY_USER_IDS)
     : ["410351", "用户410351"],
