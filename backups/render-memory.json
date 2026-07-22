@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T03:17:56.665Z",
+  "exportedAt": "2026-07-22T03:37:52.767Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70866,6 +70866,27 @@
           "replyToUserId": "feishu:ou_94f40cbf289205cffa3656980f71415c"
         },
         "createdAt": "2026-07-21T10:19:36.028Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_ff0799e0cc765f4a43d8f01d206e415f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 【WAIC大会材料整理知识库汇总】没去WAIC的或者去了错过很多内容的，可以看知识库更新，消化知识+链接资源都需要蛮长时间的，这边持续整理了展商资源库，周边活动情况，演讲嘉宾逐字稿，演讲嘉宾PPT，以及大会相关数据等，欢迎大家共学！\nhttps://yunyinghui.feishu.cn/wiki/HnlhwXv9JiebrDkJ9occDNARnPO?from=from_copylink\nfeishu-wiki:HnlhwXv9JiebrDkJ9occDNARnPO",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://yunyinghui.feishu.cn/wiki/HnlhwXv9JiebrDkJ9occDNARnPO?from=from_copylink"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6937dd211490b249511e07a1a79",
+          "wikiTokens": [
+            "HnlhwXv9JiebrDkJ9occDNARnPO"
+          ],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-22T03:30:10.369Z"
       }
     ],
     "memories": [
