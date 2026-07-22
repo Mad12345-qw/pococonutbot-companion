@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T05:17:58.068Z",
+  "exportedAt": "2026-07-22T05:37:52.574Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -70887,6 +70887,151 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-22T03:30:10.369Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "生图快，终于找到一个生图时间快还不会一直报错的了，真的是各有各的好",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-22T05:28:38.136Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "就当作生图点用了哈哈哈",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-22T05:28:50.584Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "请问并发参数是n还是count？",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-22T05:29:15.485Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生图快，终于找到一个生图时间快还不会一直报错的了，真的是各有各的好",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-07-22T05:29:23.057Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "通常生成图片的时候，`n` 是单次生成张数，`count` 也可能是一个意思。不过不同站的参数名字确实不一样，最好看下他们文档里对并发控制的字段叫啥～  \n你用的是哪个模型？我可以帮你翻一下。😊",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-07-22T05:29:23.764Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生图点用了哈哈哈",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-07-22T05:29:25.367Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "还有banana的生图，都可以体验一下",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-22T05:30:42.637Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "比例 标准 4K size 适合场景\n16:9 3840x2160 横版壁纸、视频封面、展示图\n9:16 2160x3840 手机壁纸、短视频封面、竖版海报\n\n调用说明\n请求地址：\nPOST https://mad.myddns.me/v1/images/generations\n请求参数：\nmodel：固定填写 gpt-image-2-4k\nprompt：需要生成的图片描述\nsize：横图填写 3840x2160，竖图填写 2160x3840",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-22T05:31:43.689Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成的图片描述\nsize：横图填写 3840x2160，竖图填写 2160x3840",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-22T05:32:23.098Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生图，都可以体验一下",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-07-22T05:34:53.551Z"
       }
     ],
     "memories": [
@@ -77014,6 +77159,12 @@
     "summaries": [
       {
         "chatId": "-1004297524617",
+        "userId": "",
+        "summary": "群聊氛围轻松，用户间为“股东”关系。Sean Mad与Zhou讨论中转站稳定性，Stephen称赞生图快且稳定。Sean Mad询问机器人配置（欢迎新人模式），Stephen询问并发参数（n或count）。群聊刚起步，成员约十几人。用户偏好生图快、稳定，群聊氛围轻松。",
+        "updatedAt": "2026-07-22T05:29:32.312Z"
+      },
+      {
+        "chatId": "-1004297524617",
         "userId": "8611360712",
         "summary": "Sean Mad与助手小椰讨论群聊中转站的机器人配置，希望实现类似微信的消息管理功能。当前在测试欢迎模式和静默模式的选择，尚未敲定配置。群内已有股东（用户）加入，Sean在协调使用体验。未完成事项：确定机器人是否主动欢迎新人、设置每日自动清空消息。关系进展正常，偏好简洁高效的群聊工具。",
         "updatedAt": "2026-07-19T08:33:00.757Z"
@@ -77467,8 +77618,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-22T04:28:05.521Z",
-        "updatedAt": "2026-07-22T04:28:05.608Z"
+        "value": "2026-07-22T05:31:41.000Z",
+        "updatedAt": "2026-07-22T05:31:43.323Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
