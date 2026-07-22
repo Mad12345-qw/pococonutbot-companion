@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T05:37:52.574Z",
-  "reason": "interval",
+  "exportedAt": "2026-07-22T05:41:52.675Z",
+  "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -77618,8 +77618,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-22T05:31:41.000Z",
-        "updatedAt": "2026-07-22T05:31:43.323Z"
+        "value": "2026-07-22T05:41:10.000Z",
+        "updatedAt": "2026-07-22T05:41:11.676Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -77635,6 +77635,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-22",
         "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260722A00G6600\",\"https://news.qq.com/rain/a/20260721A04LEQ00\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260720A04OZM00\"],\"lastDigest\":\"GPT-6 传闻曝光，单次算力成本或达5万美元；谷歌连发三款低价Gemini模型；阿里Qwen3.8 Max回归开源。\",\"lastQuestion\":\"在GPT-6传闻算力成本高昂、谷歌推高性价比模型、以及国产模型开源降价的多重背景下，你更看好闭源强模型还是开源低成本模型？未来API使用策略会如何调整？\",\"lastSentAt\":\"2026-07-22T04:28:04.470Z\"}",
         "updatedAt": "2026-07-22T04:28:05.260Z"
+      },
+      {
+        "key": "telegram.community_ops.reply_mode.-1004297524617",
+        "value": "mention",
+        "updatedAt": "2026-07-22T05:40:23.544Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
