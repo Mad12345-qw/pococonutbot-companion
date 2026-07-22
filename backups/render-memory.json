@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T10:02:20.981Z",
+  "exportedAt": "2026-07-22T10:22:24.482Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77656,8 +77656,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T04:58:06.537Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n连续几轮都在拆Optimus量产节奏和供应链弹性，现在这条线可以再推一步：人形机器人企业正加速IPO，资本市场对产业的验证节点出现了。\\n\\n1. 宇树科技获批科创板注册，将成为首家A股上市人形机器人公司。7月6日上交所官网披露，宇树科创板注册申请于7月2日获准，距离正式挂牌仅一步之遥。这件事的产业信号：一级融资→二级流动性，上市后扩产资金到位，对上游零部件的订单锁定和付款节奏可能更快。\\n\\n2. 特斯拉Optimus量产指引持续明确。陶琳在2026全球数字经济大会上确认年底量产，第三代已定型，供应链采购指引要求9月周产1000台、年底2000-2500台。46天改造产线的节奏比预期更激进，减速器、电机、传感器的弹性需要重新算账。\\n\\n两个线索可以并在一起看：当一级市场的人形标的开始批量二级化，炒估值逻辑逐步让位给出货量逻辑。如果宇树上市后超募、扩产，供应链的产能瓶颈可能比市场想象更早暴露。\\n\\n如果人形机器人企业批量上市，资金涌入后供应链的产能瓶颈会先出现在哪个环节？减速器、电机，还是灵巧手？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"人形机器人企业扎堆IPO，宇树科技获批科创板，Optimus量产指引明确，供应链产能瓶颈可能提前暴露。\",\"lastPulseQuestion\":\"如果人形机器人企业批量上市，资金涌入后供应链的产能瓶颈会先出现在哪个环节？减速器、电机，还是灵巧手？\",\"lastPulseSources\":[\"https://www.chinareport.com.cn/R1/7407.html\",\"https://www.baogao.com/jigou/1503895.html\"],\"lastActivityAt\":\"2026-07-22T04:58:06.537Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-22T04:58:06.629Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-22T10:12:25.272Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达的消息，最近一条是午间线索更新（2026-07-22T04:58:05.405Z），还有一条关于OpenClaw的精读（2026-07-22T06:06:39.083Z）。但注意，我们当前是晚间研究追问，slot.key是evening。要求第一段先承接群里最近讨论或知识库旧问题。最近讨论：从recentMessages看，最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是app发送的，内容是关于OpenClaw进入基金会治理。然而，我们的任务是要把最新权威动态转成能激起群友投研讨论的线索。我们需要从newsCandidates中选择动态。注意：newsCandidates中有AI、机器人、商业航天三类。其中机器人有关于宇树科技IPO、Optimus量产等，这些已经在之前的雷达中讨论过。但今天（2026-07-22）的newsCandidates中，机器人有两条：一条是汇添富机器人主题ETF报告，一条是高端制造行业报告（Optimus量产），还有一条是Humanoid Robot Firms Rush for A-share Listings。这些与之前讨论高度相关。AI方面有OpenAI重获二级市场青睐，以及版权诉讼。商业航天有星舰第13次试飞取消等。\\n\\n我们需要结合groupMemory中的evidence和questions。注意：evidence中有关于人形机器人、商业航天、AI算力等的claim。但我们要避免把旧判断写成新证据。previousState中有lastPulseDigest和lastPulseQuestion，以及lastPromptText。lastPulseDigest是关于人形机器人企业扎堆IPO，宇树科技获批科创板等。lastPulseQuestion是关于供应链产能瓶颈先出现在哪个环节。所以当前讨论的延续应该是继续追问供应链瓶颈。\\n\\n但是，我们也要注意群里有新消息：OpenClaw精读。虽然那是关于AI Agent的，但我们可",
+        "updatedAt": "2026-07-22T10:12:25.359Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -77868,6 +77868,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-21.noon",
         "value": "sent:2026-07-21T04:57:57.396Z",
         "updatedAt": "2026-07-21T04:57:57.485Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.evening",
+        "value": "sent:2026-07-22T10:12:26.082Z",
+        "updatedAt": "2026-07-22T10:12:26.169Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.morning",
