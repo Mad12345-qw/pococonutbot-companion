@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T09:42:19.972Z",
+  "exportedAt": "2026-07-22T09:52:26.872Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71209,6 +71209,42 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-22T09:02:46.559Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+        "role": "user",
+        "modality": "text",
+        "content": "你这做的是公众号吧",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b693d41d780a8def89580110dfe8",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+          "rawUserId": "ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+          "rawUnionId": "on_84e8742a9c1d64b7b7107f02e560bb2a",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-22T09:44:21.018Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+        "role": "assistant",
+        "modality": "text",
+        "content": "（轻轻戳一下屏幕）被你发现了……我刚刚确实写得像公众号推文，太正经了😅 下次我改，像跟你聊天那样碎碎念，不搞小标题了～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013"
+        },
+        "createdAt": "2026-07-22T09:44:24.970Z"
       }
     ],
     "memories": [
@@ -71781,6 +71817,26 @@
         "metadata": {},
         "createdAt": "2026-07-20T13:17:27.530Z",
         "updatedAt": "2026-07-20T13:17:27.530Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-22T09:44:20.839Z",
+        "updatedAt": "2026-07-22T09:44:20.839Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_34bccb8e8fa0ed44dd2dcc88cd425013",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-22T09:44:20.663Z",
+        "updatedAt": "2026-07-22T09:44:20.663Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -77500,8 +77556,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T09:39:47.595Z\",\"lastHumanActivityAt\":\"2026-07-22T06:08:19.524Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-22T09:39:47.681Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T09:39:47.595Z\",\"lastHumanActivityAt\":\"2026-07-22T09:44:19.691Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-22T09:44:20.885Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
