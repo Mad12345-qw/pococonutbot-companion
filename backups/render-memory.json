@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T04:37:54.267Z",
+  "exportedAt": "2026-07-22T05:08:03.172Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77232,8 +77232,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T00:27:56.403Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚继续聊Optimus量产节奏，供应链弹性是核心。今天新线索除了验证特斯拉年底量产外，还有两条值得单独拉出来看：一是OpenAI在二级市场重获追捧，二是星舰上市后首次发射在最后一刻叫停。\\n\\n1. OpenAI二级市场兴趣重新升温。Anthropic依然是投资者最热门的标的，但OpenAI凭借Codex编程智能体和好评新模型，过去一个月需求明显回升。IPO前二级市场的估值变动，往往比一级融资更能反映机构对模型竞争格局的真实判断。如果Codex的变现能力被验证，可能带动整个AI编程工具链估值重估，对绑定OpenAI的算力供应商和云厂商也是增量信号。\\n\\n2. 星舰第13次试飞在点火前最后一刻紧急中止。这是SpaceX今年6月纳斯达克上市以来首次计划中的星舰发射，临阵叫停让市场重新审视其发射节奏和可靠性。此前星舰已多次尝试部署星链V3卫星，这次还计划测试发动机二次点火和助推器受控落海。中止原因未公布，但任何延期都会影响后续星链部署节奏和卫星制造订单的释放时点，值得跟踪后续官方说明。\\n\\n3. 宇树科技科创板注册获批，拟成为A股首个上市的人形机器人企业。加上此前特斯拉Optimus供应链指引，国内人形机器人从研发到上市的通道正在打开。宇树的上市会带来更多公开财务数据，让市场对硬件成本、毛利率和订单增速有更清晰的横向对比基准。\\n\\n问题：OpenAI这轮二级市场兴趣回升，是Codex智能体单点突破的短期情绪，还是市场对GPT-5发布前基础模型竞争格局的重新定价？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI二级市场升温、星舰上市后首次发射中止、宇树科技科创板获批\",\"lastPulseQuestion\":\"OpenAI这轮二级市场兴趣回升，是Codex智能体单点突破的短期情绪，还是市场对GPT-5发布前基础模型竞争格局的重新定价？\",\"lastPulseSources\":[\"https://www.ithome.com/0/979/213.",
-        "updatedAt": "2026-07-22T00:27:56.495Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T04:58:06.537Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n连续几轮都在拆Optimus量产节奏和供应链弹性，现在这条线可以再推一步：人形机器人企业正加速IPO，资本市场对产业的验证节点出现了。\\n\\n1. 宇树科技获批科创板注册，将成为首家A股上市人形机器人公司。7月6日上交所官网披露，宇树科创板注册申请于7月2日获准，距离正式挂牌仅一步之遥。这件事的产业信号：一级融资→二级流动性，上市后扩产资金到位，对上游零部件的订单锁定和付款节奏可能更快。\\n\\n2. 特斯拉Optimus量产指引持续明确。陶琳在2026全球数字经济大会上确认年底量产，第三代已定型，供应链采购指引要求9月周产1000台、年底2000-2500台。46天改造产线的节奏比预期更激进，减速器、电机、传感器的弹性需要重新算账。\\n\\n两个线索可以并在一起看：当一级市场的人形标的开始批量二级化，炒估值逻辑逐步让位给出货量逻辑。如果宇树上市后超募、扩产，供应链的产能瓶颈可能比市场想象更早暴露。\\n\\n如果人形机器人企业批量上市，资金涌入后供应链的产能瓶颈会先出现在哪个环节？减速器、电机，还是灵巧手？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"人形机器人企业扎堆IPO，宇树科技获批科创板，Optimus量产指引明确，供应链产能瓶颈可能提前暴露。\",\"lastPulseQuestion\":\"如果人形机器人企业批量上市，资金涌入后供应链的产能瓶颈会先出现在哪个环节？减速器、电机，还是灵巧手？\",\"lastPulseSources\":[\"https://www.chinareport.com.cn/R1/7407.html\",\"https://www.baogao.com/jigou/1503895.html\"],\"lastActivityAt\":\"2026-07-22T04:58:06.537Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-22T04:58:06.629Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -77449,6 +77449,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.morning",
         "value": "sent:2026-07-22T00:27:56.585Z",
         "updatedAt": "2026-07-22T00:27:56.676Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.noon",
+        "value": "sent:2026-07-22T04:58:06.719Z",
+        "updatedAt": "2026-07-22T04:58:06.810Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
