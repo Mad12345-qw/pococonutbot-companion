@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T08:52:21.281Z",
+  "exportedAt": "2026-07-22T09:12:23.083Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71185,6 +71185,30 @@
           "replyToUserId": "feishu:ou_12f9453abed20203285947795ffbcf13"
         },
         "createdAt": "2026-07-22T06:08:38.167Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] AI 开放麦第十二期来啦 - 《医药人也能告别加班？君实巧用 AI 搞定健康打卡与医学智能体》\nhttps://vc.larkoffice.com/j/326462443\nhttps://bytedance.larkoffice.com/wiki/C1nbwbylWiVgZykVu0ic9yPwnbb?from=from_copylink\nhttps://vc.larkoffice.com/j/326462443\\n🙎\nhttps://bytedance.larkoffice.com/wiki/C1nbwbylWiVgZykVu0ic9yPwnbb?from=from_copylink\\n✅\nfeishu-wiki:C1nbwbylWiVgZykVu0ic9yPwnbb",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vc.larkoffice.com/j/326462443",
+            "https://bytedance.larkoffice.com/wiki/C1nbwbylWiVgZykVu0ic9yPwnbb?from=from_copylink",
+            "https://vc.larkoffice.com/j/326462443\\n🙎",
+            "https://bytedance.larkoffice.com/wiki/C1nbwbylWiVgZykVu0ic9yPwnbb?from=from_copylink\\n✅"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b693c3df910b4de2e9cb4eef9744",
+          "wikiTokens": [
+            "C1nbwbylWiVgZykVu0ic9yPwnbb"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-22T09:02:46.559Z"
       }
     ],
     "memories": [
