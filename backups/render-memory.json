@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T15:02:24.684Z",
+  "exportedAt": "2026-07-22T16:02:34.082Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78026,8 +78026,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-22T08:18:59.308Z",
-        "updatedAt": "2026-07-22T08:19:00.121Z"
+        "value": "2026-07-22T15:59:07.726Z",
+        "updatedAt": "2026-07-22T15:59:08.528Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
