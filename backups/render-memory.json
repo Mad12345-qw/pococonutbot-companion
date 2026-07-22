@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-21T20:17:52.870Z",
+  "exportedAt": "2026-07-22T00:37:52.973Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77111,8 +77111,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-21T20:07:48.920Z\",\"lastHumanActivityAt\":\"2026-07-21T16:51:33.142Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-21T20:07:49.004Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T00:28:33.167Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n刚看到群里在聊 Gemini 3.6 Flash 的 token 效率提升和 Gemini 4 启动预训练，模型端卷出花来，但投资圈的资金流向也在变。今天几条值得关注的动态：\\n\\n1. OpenAI 二级市场兴趣回升，Anthropic 仍最热但 OpenAI 靠 Codex 和模型好评重新获得关注。Practical Venture Capital 创始人 Dave McClure 说过去一个月 OpenAI 的二级交易明显升温。这指向一个关键问题：当模型能力趋同，产品化能力（Codex 这种具体工具）才是估值分化的核心。\\n\\n2. 特斯拉 Optimus 年底量产确认。特斯拉副总裁陶琳在 2026 全球数字经济大会上公开确认 Optimus 年底启动大规模量产，弗里蒙特工厂远期规划年产能 100 万台。供应链已下发零件采购指引，第三代 Optimus 完成定型。这是人形机器人从实验室到工厂的里程碑，关注核心零部件（减速器、电机、传感器）的订单节奏和海外审厂进度。\\n\\n3. SpaceX 星舰第 13 次试飞在点火前最后一刻紧急中止，这是 SpaceX 6 月上市后首次星舰发射。原计划投放 20 颗星链 V3 卫星并尝试发动机二次点火，临阵叫停对发射节奏和二级市场情绪有短期影响，但星舰测试节奏本身在加快，Ship 40 和 Ship 41 并行作业。\\n\\n问题：OpenAI 重获投资者青睐，是靠 Codex 这种具体产品落地，还是靠模型能力口碑？如果这是 AI 商业化的新信号，那么对机器人和航天领域的“杀手级应用”逻辑有什么启示？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI 二级市场回暖、Optimus 量产确认、星舰试飞取消，三条动态指向产业落地节奏和资金流向变化。\",\"lastPulseQuestion\":\"OpenAI 重获投资者青睐，是靠 Codex 这种具体产品落地，还是靠模型能力口碑？如果这是 AI 商业化的新信号，那",
+        "updatedAt": "2026-07-22T00:28:33.254Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -77210,6 +77210,11 @@
         "updatedAt": "2026-07-21T10:27:58.420Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T00:27:56.403Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚继续聊Optimus量产节奏，供应链弹性是核心。今天新线索除了验证特斯拉年底量产外，还有两条值得单独拉出来看：一是OpenAI在二级市场重获追捧，二是星舰上市后首次发射在最后一刻叫停。\\n\\n1. OpenAI二级市场兴趣重新升温。Anthropic依然是投资者最热门的标的，但OpenAI凭借Codex编程智能体和好评新模型，过去一个月需求明显回升。IPO前二级市场的估值变动，往往比一级融资更能反映机构对模型竞争格局的真实判断。如果Codex的变现能力被验证，可能带动整个AI编程工具链估值重估，对绑定OpenAI的算力供应商和云厂商也是增量信号。\\n\\n2. 星舰第13次试飞在点火前最后一刻紧急中止。这是SpaceX今年6月纳斯达克上市以来首次计划中的星舰发射，临阵叫停让市场重新审视其发射节奏和可靠性。此前星舰已多次尝试部署星链V3卫星，这次还计划测试发动机二次点火和助推器受控落海。中止原因未公布，但任何延期都会影响后续星链部署节奏和卫星制造订单的释放时点，值得跟踪后续官方说明。\\n\\n3. 宇树科技科创板注册获批，拟成为A股首个上市的人形机器人企业。加上此前特斯拉Optimus供应链指引，国内人形机器人从研发到上市的通道正在打开。宇树的上市会带来更多公开财务数据，让市场对硬件成本、毛利率和订单增速有更清晰的横向对比基准。\\n\\n问题：OpenAI这轮二级市场兴趣回升，是Codex智能体单点突破的短期情绪，还是市场对GPT-5发布前基础模型竞争格局的重新定价？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI二级市场升温、星舰上市后首次发射中止、宇树科技科创板获批\",\"lastPulseQuestion\":\"OpenAI这轮二级市场兴趣回升，是Codex智能体单点突破的短期情绪，还是市场对GPT-5发布前基础模型竞争格局的重新定价？\",\"lastPulseSources\":[\"https://www.ithome.com/0/979/213.",
+        "updatedAt": "2026-07-22T00:27:56.495Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -77228,6 +77233,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-21.noon",
         "value": "sent:2026-07-21T04:58:16.281Z",
         "updatedAt": "2026-07-21T04:58:16.798Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22.morning",
+        "value": "sent:2026-07-22T00:28:33.342Z",
+        "updatedAt": "2026-07-22T00:28:33.428Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -77410,6 +77420,11 @@
         "updatedAt": "2026-07-21T04:57:57.485Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.morning",
+        "value": "sent:2026-07-22T00:27:56.585Z",
+        "updatedAt": "2026-07-22T00:27:56.676Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -77421,8 +77436,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-21T11:28:08.344Z",
-        "updatedAt": "2026-07-21T11:28:08.432Z"
+        "value": "2026-07-22T00:27:50.751Z",
+        "updatedAt": "2026-07-22T00:27:50.842Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -77433,6 +77448,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-21",
         "value": "{\"sentSlots\":[\"noon\",\"evening\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8umOPjOSWJx\",\"https://news.qq.com/rain/a/20260715A09OP100\",\"https://news.mydrivers.com/1/1136/1136950.htm\",\"https://www.ithome.com/0/976/962.htm\",\"https://m.163.com/dy/article/L27FIM58051180F7.html\",\"https://www.ithome.com/0/977/847.htm\"],\"lastDigest\":\"Mozilla报告开源与闭源差距仅3.3%，推理成本暴跌50倍；阿里Qwen3.8 Max预览版2.4T参数即将开源，限时1折；消息称谷歌Gemini 3.5 Pro延期数月，编程未达目标。\",\"lastQuestion\":\"开源模型与闭源差距已缩小到3.3%，阿里又推出2.4T参数的开源模型并大幅降价，而谷歌旗舰延期。你现在是否更倾向于使用开源模型API来降低推理成本？还是继续等待谷歌等闭源模型更新？\",\"lastSentAt\":\"2026-07-21T11:28:06.837Z\"}",
         "updatedAt": "2026-07-21T11:28:07.632Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-22",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260722A00G6600\",\"https://news.qq.com/rain/a/20260721A04LEQ00\"],\"lastDigest\":\"OpenAI GPT-6 传闻曝光；谷歌发布三款 Gemini 轻量模型；国产 Kimi K3 与 Qwen 3.8 密集上线，算力吃紧。\",\"lastQuestion\":\"在 GPT-6 传闻、谷歌轻量模型和国产大模型密集发布的背景下，你认为接下来 API 定价会因竞争而下降，还是因算力成本上升而上涨？\",\"lastSentAt\":\"2026-07-22T00:27:50.388Z\"}",
+        "updatedAt": "2026-07-22T00:27:50.480Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
@@ -77453,6 +77473,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-21.noon",
         "value": "sent:2026-07-21T04:57:51.167Z",
         "updatedAt": "2026-07-21T04:57:51.265Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-22.morning",
+        "value": "sent:2026-07-22T00:27:50.570Z",
+        "updatedAt": "2026-07-22T00:27:50.661Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
