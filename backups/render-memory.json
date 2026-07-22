@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T11:12:24.975Z",
+  "exportedAt": "2026-07-22T11:22:21.378Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71263,6 +71263,17 @@
           "imageContext": ""
         },
         "createdAt": "2026-07-22T11:06:12.530Z"
+      },
+      {
+        "chatId": "5047737209",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 502: {\"error\":{\"message\":\"Upstream service temporarily unavailable\",\"type\":\"upstream_error\"}}",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-07-22T11:16:18.743Z"
       }
     ],
     "memories": [
