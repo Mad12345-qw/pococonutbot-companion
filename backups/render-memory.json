@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T16:02:34.082Z",
+  "exportedAt": "2026-07-22T17:32:19.583Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71310,6 +71310,25 @@
           "replyToUserId": "feishu:ou_86286c2b638d8af727605a9946350790"
         },
         "createdAt": "2026-07-22T12:32:51.621Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9d4c431c00ee2d000c820f8737b875e7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 算今年读到最有价值的信息了https://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg\nhttps://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b693b8edd04a8b1d291d2ed17b59",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-22T17:21:09.835Z"
       }
     ],
     "memories": [
