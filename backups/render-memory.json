@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T03:47:52.671Z",
+  "exportedAt": "2026-07-22T04:37:54.267Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77132,8 +77132,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T03:42:31.974Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-22T03:42:32.065Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T04:28:31.488Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n刚看到群里之前讨论人形机器人量产节奏，正好今天有两件事值得串起来想。\\n\\n第一件事：特斯拉高管7月3日公开确认Optimus年底大规模量产，弗里蒙特工厂远期规划年产能100万台，第三代Optimus已完成定型，供应链采购指引已下发。这是第一次有头部玩家给出明确时间表，不再是“明年或后年”的模糊说法。\\n\\n第二件事：宇树科技7月2日科创板注册获批，即将成为A股人形机器人第一股。同时国内产业链企业加速IPO进程，说明资本化窗口已经打开。\\n\\n两条线叠加：量产从特斯拉开始，但国内公司正在用上市融资来卡位。关键变量是核心零部件（减速器、电机、传感器）的产能和成本下降是否能跟上。如果Optimus今年底真能量产，供应链会出现一波订单确认脉冲；如果跳票，二级市场回调风险也不小。\\n\\n一个值得持续跟踪的问题：在Optimus量产预期下，哪些国内零部件供应商已经签了PPA或进入定点名单？目前公开信息还很有限。\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"Optimus年底量产确认 + 宇树科技科创板获批，人形机器人产业链进入量产与资本化共振阶段，关注核心零部件订单兑现。\",\"lastPulseQuestion\":\"Optimus年底量产在即，你们觉得A股哪家减速器或电机公司最可能率先拿到特斯拉定点？有没有什么信号可以提前判断？\",\"lastPulseSources\":[\"https://www.baogao.com/jigou/1503895.html\",\"https://www.chinareport.com.cn/R1/7407.html\",\"https://www.baogao.com/jigou/1504016.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://espanol.cri.cn/2026/07/17/ARTI1784259398833386\"],\"lastActivityAt\":\"2026",
+        "updatedAt": "2026-07-22T04:28:31.574Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -77259,6 +77259,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22.morning",
         "value": "sent:2026-07-22T00:28:33.342Z",
         "updatedAt": "2026-07-22T00:28:33.428Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22.noon",
+        "value": "sent:2026-07-22T04:28:31.663Z",
+        "updatedAt": "2026-07-22T04:28:31.748Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -77457,8 +77462,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-22T00:27:50.751Z",
-        "updatedAt": "2026-07-22T00:27:50.842Z"
+        "value": "2026-07-22T04:28:05.521Z",
+        "updatedAt": "2026-07-22T04:28:05.608Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -77472,8 +77477,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-22",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260722A00G6600\",\"https://news.qq.com/rain/a/20260721A04LEQ00\"],\"lastDigest\":\"OpenAI GPT-6 传闻曝光；谷歌发布三款 Gemini 轻量模型；国产 Kimi K3 与 Qwen 3.8 密集上线，算力吃紧。\",\"lastQuestion\":\"在 GPT-6 传闻、谷歌轻量模型和国产大模型密集发布的背景下，你认为接下来 API 定价会因竞争而下降，还是因算力成本上升而上涨？\",\"lastSentAt\":\"2026-07-22T00:27:50.388Z\"}",
-        "updatedAt": "2026-07-22T00:27:50.480Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260722A00G6600\",\"https://news.qq.com/rain/a/20260721A04LEQ00\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260720A04OZM00\"],\"lastDigest\":\"GPT-6 传闻曝光，单次算力成本或达5万美元；谷歌连发三款低价Gemini模型；阿里Qwen3.8 Max回归开源。\",\"lastQuestion\":\"在GPT-6传闻算力成本高昂、谷歌推高性价比模型、以及国产模型开源降价的多重背景下，你更看好闭源强模型还是开源低成本模型？未来API使用策略会如何调整？\",\"lastSentAt\":\"2026-07-22T04:28:04.470Z\"}",
+        "updatedAt": "2026-07-22T04:28:05.260Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-20.morning",
@@ -77499,6 +77504,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-22.morning",
         "value": "sent:2026-07-22T00:27:50.570Z",
         "updatedAt": "2026-07-22T00:27:50.661Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-22.noon",
+        "value": "sent:2026-07-22T04:28:05.348Z",
+        "updatedAt": "2026-07-22T04:28:05.434Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
