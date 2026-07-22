@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T06:12:18.078Z",
+  "exportedAt": "2026-07-22T06:22:19.683Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77476,8 +77476,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T05:14:29.094Z\",\"lastHumanActivityAt\":\"2026-07-22T06:08:19.524Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-22T06:08:21.141Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T06:13:29.088Z\",\"lastHumanActivityAt\":\"2026-07-22T06:08:19.524Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-22T06:13:29.185Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -108527,7 +108527,7 @@
         "feishuDocUrl": "https://rcnx3mn0vg5z.feishu.cn/wiki/AE9iw5djDi1H5CklssBcUW8mn6f",
         "sourceUrl": "https://youtu.be/tnvyMcmtAiw?si=__oueevYawDkAfat",
         "status": "draft_created",
-        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfIdax8i4BhqJTILjEgLqrErI4yMjFnh_te06ydsn5_fm",
+        "draftMediaId": "1WkcDlza9yat8Rn1yBoHfJxlbW1__nZ35RNMkcvhqRkXX2GXjObMr2iGCgMeGKjY",
         "error": "",
         "metadata": {
           "topic": "Open",
@@ -108542,22 +108542,22 @@
             "ok": true,
             "title": "为什么 OpenClaw 进入基金会治理，会改变 AI Agent 基础设施的扩展边界",
             "digest": "一句话结论 OpenClaw 进入基金会不是开源姿态，而是一个每周 400 多万下载的 AI agent 基础设施在规模、安全和企业信任面前必须补上的治理层。 核心观点 1. 每周 400 多万下载把 OpenClaw 从工具推成基础设施问",
-            "coverUrl": "http://mmbiz.qpic.cn/sz_mmbiz_png/QmOcp1chR8vFwJoUXpcxH0TbZ8swed2DejG0ElANhSDhibxpfV8BS3HKESpOHM7hakfkbdQicbxjMXHAWTGeicTfwNMcgRbUkyXZH174gWXsGM/0?wx_fmt=png",
-            "elapsedMs": 46014,
+            "coverUrl": "http://mmbiz.qpic.cn/sz_mmbiz_png/QmOcp1chR8uGyWibRian8a7W67ZYRRRBkwqzhZTTib09BlHzvjymiaK71BhcJLpsWvmuzU7EnJdo5cGYeQy2su5uZLc232JN20icriaIM2xGwgricc/0?wx_fmt=png",
+            "elapsedMs": 243723,
             "imageMode": "generated_cover",
-            "coverMediaId": "1WkcDlza9yat8Rn1yBoHfJWc9hpi9R62K_wWIV9ZuHHte9PpYXJ0ihTMPU-HUiz5",
-            "draftMediaId": "1WkcDlza9yat8Rn1yBoHfIdax8i4BhqJTILjEgLqrErI4yMjFnh_te06ydsn5_fm",
-            "leadImageUrl": "http://mmbiz.qpic.cn/sz_mmbiz_jpg/QmOcp1chR8sViaANyzlGsAvEiaaoyQubxMWFCBa1AtcIjFia2cia98pa9n7zptCmlrCjBrkQYPIkLIWeNIjuRHDdlPCiaRMSAtwicokAIxa8pdvHw/0?from=appmsg"
+            "coverMediaId": "1WkcDlza9yat8Rn1yBoHfMSoee9Ungr8Ca9d-1B-EVk_dVoFZpwoSptFGe8iH2l4",
+            "draftMediaId": "1WkcDlza9yat8Rn1yBoHfJxlbW1__nZ35RNMkcvhqRkXX2GXjObMr2iGCgMeGKjY",
+            "leadImageUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/QmOcp1chR8tFIcdnk9LmTcu4TicafTj4QeA5n6Ofy31EMjasibyWlPYRw5gcOJ2y0MU0kGqGaa7W4karJtZFcT1CFVkSmC3YzO9MzoNvHauP0/0?from=appmsg"
           },
           "createdBy": "xiaoye",
           "generateImages": true,
           "wechatDraftOnly": true,
-          "lastPublishOperator": "ou_26a1a2d7f1df60de4ee741e4648f25a4",
+          "lastPublishOperator": "ou_94f40cbf289205cffa3656980f71415c",
           "lastPublishStartedAt": "2026-07-22T06:08:46.904Z",
-          "lastPublishFinishedAt": "2026-07-22T06:08:46.904Z"
+          "lastPublishFinishedAt": "2026-07-22T06:20:41.019Z"
         },
         "createdAt": "2026-07-22T06:06:43.618Z",
-        "updatedAt": "2026-07-22T06:08:47.000Z"
+        "updatedAt": "2026-07-22T06:20:41.828Z"
       }
     ]
   }
