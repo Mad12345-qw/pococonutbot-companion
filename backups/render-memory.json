@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T00:37:52.973Z",
+  "exportedAt": "2026-07-22T00:57:54.971Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77111,8 +77111,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-22T00:28:33.167Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n刚看到群里在聊 Gemini 3.6 Flash 的 token 效率提升和 Gemini 4 启动预训练，模型端卷出花来，但投资圈的资金流向也在变。今天几条值得关注的动态：\\n\\n1. OpenAI 二级市场兴趣回升，Anthropic 仍最热但 OpenAI 靠 Codex 和模型好评重新获得关注。Practical Venture Capital 创始人 Dave McClure 说过去一个月 OpenAI 的二级交易明显升温。这指向一个关键问题：当模型能力趋同，产品化能力（Codex 这种具体工具）才是估值分化的核心。\\n\\n2. 特斯拉 Optimus 年底量产确认。特斯拉副总裁陶琳在 2026 全球数字经济大会上公开确认 Optimus 年底启动大规模量产，弗里蒙特工厂远期规划年产能 100 万台。供应链已下发零件采购指引，第三代 Optimus 完成定型。这是人形机器人从实验室到工厂的里程碑，关注核心零部件（减速器、电机、传感器）的订单节奏和海外审厂进度。\\n\\n3. SpaceX 星舰第 13 次试飞在点火前最后一刻紧急中止，这是 SpaceX 6 月上市后首次星舰发射。原计划投放 20 颗星链 V3 卫星并尝试发动机二次点火，临阵叫停对发射节奏和二级市场情绪有短期影响，但星舰测试节奏本身在加快，Ship 40 和 Ship 41 并行作业。\\n\\n问题：OpenAI 重获投资者青睐，是靠 Codex 这种具体产品落地，还是靠模型能力口碑？如果这是 AI 商业化的新信号，那么对机器人和航天领域的“杀手级应用”逻辑有什么启示？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI 二级市场回暖、Optimus 量产确认、星舰试飞取消，三条动态指向产业落地节奏和资金流向变化。\",\"lastPulseQuestion\":\"OpenAI 重获投资者青睐，是靠 Codex 这种具体产品落地，还是靠模型能力口碑？如果这是 AI 商业化的新信号，那",
-        "updatedAt": "2026-07-22T00:28:33.254Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T00:57:31.331Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-22T00:57:31.419Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
