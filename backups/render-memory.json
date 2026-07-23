@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T06:02:22.380Z",
+  "exportedAt": "2026-07-23T07:12:19.182Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71479,6 +71479,188 @@
           "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
         },
         "createdAt": "2026-07-23T05:56:35.019Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "role": "user",
+        "modality": "text",
+        "content": "你怎么看K3",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692f85de2ca0b2e626cddbe9f94",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+          "rawUserId": "ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+          "rawUnionId": "on_17e7f78be73efea95331af45f868a118",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T07:03:17.594Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "role": "assistant",
+        "modality": "text",
+        "content": "K3 啊……（歪着头想了想）感觉像那种“看起来是个平平无奇的小盒子，其实里面藏了整个指挥中心”的东西。挺有潜力的，但具体怎么用好像还挺看场景？你是怎么接触到它的呀～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4"
+        },
+        "createdAt": "2026-07-23T07:03:22.538Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 昨天刚发布了一个新模型Macaron-V1，在hugging face拿了开源模型第一 测了一下Coding 效果不错 https://mp.weixin.qq.com/s/ 17powZdkPaeKfqNMvQUjHg @_user_1\nhttps://mp.weixin.qq.com/s/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b692f995dfca8b3239b3d828a54b",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T07:06:36.097Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "user",
+        "modality": "text",
+        "content": "昨天刚发布了一个新模型Macaron-V1，在hugging face拿了开源模型第一 测了一下Coding 效果不错 https://mp.weixin.qq.com/s/ 17powZdkPaeKfqNMvQUjHg\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/\n参数错误\n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692f995dfca8b3239b3d828a54b",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUserId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUnionId": "on_c1c52ae4c229609f5f10ea938ccf74fc",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/\n参数错误\n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T07:06:37.784Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哇，Macaron-V1 直接拿开源第一，这个成绩挺厉害的诶～你测了 coding 觉得不错的话，是跑了什么 benchmark 还是自己写代码试的呀？有点好奇😊",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0"
+        },
+        "createdAt": "2026-07-23T07:06:41.713Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "user",
+        "modality": "text",
+        "content": "你读取公众号文章自己看一下\n[Link content]\n[Referenced Feishu message]\n哇，Macaron-V1 直接拿开源第一，这个成绩挺厉害的诶～你测了 coding 觉得不错的话，是跑了什么 benchmark 还是自己写代码试的呀？有点好奇😊\n\n[Referenced Feishu message]\n现在不都是K3的新闻吗？",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692f94f824b8b1134a3da40b3c2",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUserId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUnionId": "on_c1c52ae4c229609f5f10ea938ccf74fc",
+          "linkContext": "[Referenced Feishu message]\n哇，Macaron-V1 直接拿开源第一，这个成绩挺厉害的诶～你测了 coding 觉得不错的话，是跑了什么 benchmark 还是自己写代码试的呀？有点好奇😊\n\n[Referenced Feishu message]\n现在不都是K3的新闻吗？",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T07:07:20.681Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "公众号链接我点进去显示“参数错误”，没法直接读到文章内容😅 你能把文章里的关键信息或者摘要发给我吗？比如发布方、参数量、跑分数据这些，我就能和你一起聊聊 Macaron-V1 啦～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0"
+        },
+        "createdAt": "2026-07-23T07:07:25.691Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 https://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg\nhttps://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b692f90b7a884b4b0c7cd8d32a9f",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T07:08:28.711Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "user",
+        "modality": "text",
+        "content": "https://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg\n[Link content]\n[Web page] https://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg\nMacaron-V1：AI 自迭代与群体协同，代码与 Agentic 任务开源 SOTA \n\n \n 原创 \n \n Mind Lab \n Mind Lab \n \n \n \n \n Mind Lab 心洲科技 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n\n 今天，我们正式介绍 Macaron-V1。 \n Macaron-V1 是 Mind Lab 推出的 Agent 模型系列，包含Macaron-V1-Venti 和Macaron-V1-Tall 一大一小两个版本，采用创新的Mixture-of-LoRA（MoL）架构，使得模型在已有智能基础上，拥有持续学习能力。 \n Macaron-V1-Venti 是7480 亿参数开放权重 Agent 模型，采用 Mixture-of-LoRA（MoL）架构，由 GLM-5.2 基础模型和四个 10 亿参数的 LoRA 专家模块组成（744B + 4*1B），分别面向个人智能、长程 Agent 任务、代码生成和交互式界面生成等场景设计。同时引入 LongStraw 超长上下文训练技术，将强化学习训练扩展至 200 万 token 上下文。Tall是支持本地部署、自主训练的轻量版本，由 Qwen3.6 模型和四个 37 亿参数的 LoRA 专家模块（35B+ 4*3.7B)组成。 \n Mixture-of-LoRA 让不同能力得以在共享基础模型之上 独立训练 、 灵活组合 和 按需调用 。虽然 Macaron-V1 尚未在所有能力上达到最强闭源模型的水平，但在我们的整套评测中，它已经能够在多数任务上打平或超过 Opus 4.8、GPT-5.5 和 Gemini 3.1 Pro，尤其在生活场景、代码能力和生成式 UI 等方向表现突出，同时保持开放权重和可私有化部署。 \n \n \n Macaron-V1 是 我们一直以来对 持续学习 (Continual Learning) 与群体智能 (Collective Intelligence) 探索的最新成果 。 依托我们自研的训练设施 MinT，每个 LoRA 专家都可以高效训练、持续更新并以可插拔的方式接入系统；不同团队、不同用户和不同智能体所训练出的专业能力，也可以在同一个基础模型之上协作与组合。我们相信，下一代智能将来自模型在真实环境中的持续自进化，以及多个专业模型之间的群体协作。 \n 更多技术详情可以从官网的模型blog获取： \n 面向持续学习的 Mixture-of-LoRA架构 \n\n 我们让 LoRA 从一次性的微调参数，进一步成为模型积累经验和持续进化的基本单元。 \n Mixture-of-LoRA 让多个专业模型共享同一个基础模型，同时保持独立的参数模块和能力。新的任务、工具和知识可以通过训练新的 LoRA 持续接入，已有专家也可以独立更新，无需重新训练完整的基础模型。 \n Macaron-V1 不依赖额外的专用路由模型。模型利用自身的推理和 Tool Use 能力，在 Harness 层调用 Router Tool，自主选择和切换不同专家。新的专家可以像新的工具或智能体一样加入系统，并自然扩展为多智能体协作网络。 \n \n 原生 200 万 token 长上下文训练 \n\n Macaron-V1 引入 LongStraw，将强化学习扩展至 200 万 token。当前很多模型已经能够在推理时读取百万 token，但训练仍普遍受限于更短的上下文，模型很难直接从完整的长程任务轨迹中学习。 \n LongStraw 复用不同 Rollout 之间共享的长上下文状态，只对参与学习的响应部分进行重放和梯度更新，大幅降低超长上下文训练的显存和计算开销。我们已经使用 8 张 H20 完成超过 200 万 token 的强化学习训练，并将同一套方法扩展到 GLM-5.2 级别的超大规模 MoE 模型。 \n 这使模型可以直接在长对话、完整代码库、大量文档和多轮工具交互构成的真实任务中学习。 \n 相关工作也已于近日开源： \n Model 和 Harness 共设计 \n\n Macaron-V1 针对工具调用、终端操作、软件工程和长程任务执行进行了专门训练。模型与生产环境中的 Harness 共同优化，使训练时使用的工具接口和执行流程与实际部署保持一致。 \n REPL Harness 允许模型通过代码组合工具、保存中间状态并复用有效流程，减少重复调用和上下文消耗。 \n 针对GenUI场景，Macaron-V1优化了渲染效果以及界面驱动的操作。UI4A(UI for Agent)是我们基于代码的生成式用户 \n 界面解决方案，让模型直接生成可交互界面，以更高效的方式组织和呈现复杂结果。 \n 我们还开发了一款用于展示 UI4A 输出的可视化插件：Macaron Artifacts。欢迎在文末获取使用地址。 \n 更理解用户的个人智能 \n\n 围绕个人智能，我们构建了面向多轮交互和长期用户关系的强化学习环境。模型需要理解用户当前的需求，也需要结合用户的偏好、历史经历和长期目标作出判断。 \n 这些训练提升了 Macaron-V1 在长期对话、个性化决策和真实生活任务中的用户理解能力，并使其在 Macaron ChatBench 和 Macaron LivingBench 等评测中表现突出。 \n \n Macaron LivingBench Pipeline \n 从模型训练到持续自我迭代 \n\n Macaron-V1 基于 MinT 和 MindForge 完成训练。MinT 是我们推出的后训练平台，也是实现 V1 版本大规模应用的基础设施。它提供了高效的LoRA训练、参数同步、推理服务和大规模Adapter 管理，使不同专家模块可以快速训练、验证和部署。 \n MindForge 是我们研发的RL强化学习框架，基于训练平台，运行反复的递归自我改进循环。 \n 具体方式是，将任务生成、轨迹验证、模型训练和 Harness 优化连接成持续循环。模型可以从真实任务中积累经验，再更新自身的 LoRA 参数和工具使用方式。 \n Macaron-V1 的发布只是开始。 我们希望继续探索一种新的智能扩展路径，让模型从真实经验中持续学习，让不同专业智能体在共享基础设施上协作，并最终从持续进化与群体协作中涌现出更强的智能。 \n 下面一些示例展现了Macaron-V1-Venti 在生活化交互、Agent、Coding、GenUI等不同类任务上的均衡表现。 \n 大模型吃瓜群 \n 我们让模型扮演几个主流的大模型在群里聊八卦、互相锐评。口癖和语气拉开差距。完成对话后，再把群聊用Macaron UI4A形式展示出来。 \n 和GLM5.2对比，Macaron V1生成的对话明显更加生动。 \n \n Macaron V1 \n\n \n GLM 5.2 \n\n \n 通过 REPL Harness 减少Token 消耗 \n Macaron-V1 采用 REPL 的执行方式，让模型更倾向于把逐步调用工具，转化为编写一段能够自动完成多步操作的程序。通过复用工具、减少与模型的反复交互来减少 token 消耗。 \n 一个典型例子是批量处理几十个订单：传统方式需要模型逐个查询每笔订单的利润和退款，并在每次调用后重新读取上下文；而通过 REPL，模型只需写出一段循环，就能一次完成所有查询、计算和汇总，因此大幅减少模型交互轮次和 token 消耗。 \n \n 夜航船3D网页 \n 用模型做一个3D风格的夜航船，配柔和钢琴背景乐，航线两侧漂着内含烛光的英文河灯，靠近时上方就地浮现一行十四行诗风格的发光诗句，驶远后原地淡出。我们也对比了Macaron V1和 GPT5.6 的效果。 \n \n \n\n 可交互的塔罗牌程序 \n \n 可交互聚变反应堆模拟器 \n \n 自定义贴纸生成网站 \n \n 模型开源 \n\n 所有版本都在 Hugging Face 的 Macaron-V1 集合中以开放权重的形式发布： \n \n Macaron-V1-Venti: 748B MoE 旗舰模型。 \n\n Macaron-V1-Coding-Venti: 专为编程设计的版本，已集成编程基础功能，可直接使用。 \n\n Macaron-V1-Tall： 轻量版本，基于 Qwen 3.6 35B 构造。 \n\n 开始使用 \n\n 无需配置 GPU，即可通过官方 API 使用 Macaron-V1-Venti。 \n 中国大陆用户： \n \n 海外用户： \n \n Macaron Artifacts 是用于展示 UI4A 输出的可视化插件，建议配合 Claude Code 使用： \n \n \n \n \n\n \n \n\n \n\n 预览时标签不可点\n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n 修改于 \n \n\n \n\n \n\n \n\n \n\n \n \n\n \n\n \n\n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n 微信扫一扫 关注该公众号\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n\n \n \n\n \n \n\n \n 知道了 \n \n\n \n\n \n \n\n \n \n \n \n 微信扫一扫 使用小程序 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n \n\n \n \n \n \n\n \n\n \n \n 取消 \n 允许 \n \n\n \n\n \n × \n 分析 \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n\n \n\n \n 微信扫一扫可打开此内容， 使用完整服务\n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n \n\n ： \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n ， \n 。 \n \n\n 视频 \n 小程序 \n\n 赞 \n ，轻点两下取消赞 \n 在看 \n ，轻点两下取消在看 \n 分享 \n 留言 \n 收藏 \n 听过",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692f90b7a884b4b0c7cd8d32a9f",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUserId": "ou_73845e827260c3c05e1f88e30cf743e0",
+          "rawUnionId": "on_c1c52ae4c229609f5f10ea938ccf74fc",
+          "linkContext": "[Web page] https://mp.weixin.qq.com/s/17powZdkPaeKfqNMvQUjHg\nMacaron-V1：AI 自迭代与群体协同，代码与 Agentic 任务开源 SOTA \n\n \n 原创 \n \n Mind Lab \n Mind Lab \n \n \n \n \n Mind Lab 心洲科技 \n \n \n\n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n 在小说阅读器读本章\n\n \n\n \n\n \n\n 去阅读\n\n \n \n \n \n \n \n\n \n \n\n 在小说阅读器中沉浸阅读\n\n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n\n 今天，我们正式介绍 Macaron-V1。 \n Macaron-V1 是 Mind Lab 推出的 Agent 模型系列，包含Macaron-V1-Venti 和Macaron-V1-Tall 一大一小两个版本，采用创新的Mixture-of-LoRA（MoL）架构，使得模型在已有智能基础上，拥有持续学习能力。 \n Macaron-V1-Venti 是7480 亿参数开放权重 Agent 模型，采用 Mixture-of-LoRA（MoL）架构，由 GLM-5.2 基础模型和四个 10 亿参数的 LoRA 专家模块组成（744B + 4*1B），分别面向个人智能、长程 Agent 任务、代码生成和交互式界面生成等场景设计。同时引入 LongStraw 超长上下文训练技术，将强化学习训练扩展至 200 万 token 上下文。Tall是支持本地部署、自主训练的轻量版本，由 Qwen3.6 模型和四个 37 亿参数的 LoRA 专家模块（35B+ 4*3.7B)组成。 \n Mixture-of-LoRA 让不同能力得以在共享基础模型之上 独立训练 、 灵活组合 和 按需调用 。虽然 Macaron-V1 尚未在所有能力上达到最强闭源模型的水平，但在我们的整套评测中，它已经能够在多数任务上打平或超过 Opus 4.8、GPT-5.5 和 Gemini 3.1 Pro，尤其在生活场景、代码能力和生成式 UI 等方向表现突出，同时保持开放权重和可私有化部署。 \n \n \n Macaron-V1 是 我们一直以来对 持续学习 (Continual Learning) 与群体智能 (Collective Intelligence) 探索的最新成果 。 依托我们自研的训练设施 MinT，每个 LoRA 专家都可以高效训练、持续更新并以可插拔的方式接入系统；不同团队、不同用户和不同智能体所训练出的专业能力，也可以在同一个基础模型之上协作与组合。我们相信，下一代智能\n...[truncated]",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T07:08:32.131Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "role": "assistant",
+        "modality": "text",
+        "content": "小椰读完了这文章，帮你整理了一下～\n\n总体判断\nMacaron-V1 是 Mind Lab 新发的开源 Agent 模型系列，亮点是用了 Mixture-of-LoRA 架构，让不同专业能力可以独立训练、灵活组合，还支持持续学习。\n\n核心要点\n1. 参数规模：Venti 版本 7480 亿参数（744B 基础 + 4 个 10 亿 LoRA 专家），Tall 版本支持本地部署\n2. 长上下文：引入 LongStraw 技术，能把强化学习扩展到 200 万 token\n3. 实际表现：在多数任务上打平或超过 Opus 4.8、GPT-5.5、Gemini 3.1 Pro，尤其在代码、生活场景和生成式 UI 上比较突出\n4. 持续迭代：通过 MinT 训练平台和 MindForge RL 框架，支持模型从真实任务中自我改进\n\n可以打磨的点\n还没在所有能力上达到最强闭源模型水平，部分场景可能还需要进一步验证。\n\n一句话结论\nMacaron-V1 在开源模型里表现很亮眼，Mixture-of-LoRA 和持续学习的方向也挺有意思，值得关注一下后续的社区反馈和实际使用体验。",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0"
+        },
+        "createdAt": "2026-07-23T07:08:42.228Z"
       }
     ],
     "memories": [
@@ -72104,6 +72286,26 @@
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T07:03:17.418Z",
+        "updatedAt": "2026-07-23T07:03:17.418Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T07:03:16.798Z",
+        "updatedAt": "2026-07-23T07:03:16.798Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
         "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
@@ -72141,6 +72343,26 @@
         "metadata": {},
         "createdAt": "2026-07-20T13:57:13.910Z",
         "updatedAt": "2026-07-20T13:57:13.910Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T07:06:37.361Z",
+        "updatedAt": "2026-07-23T07:08:31.950Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T07:06:37.172Z",
+        "updatedAt": "2026-07-23T07:08:31.768Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -77875,8 +78097,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T05:41:36.866Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-23T05:41:36.965Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T07:02:30.699Z\",\"lastHumanActivityAt\":\"2026-07-23T07:08:26.248Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T07:08:27.375Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
