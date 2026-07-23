@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T04:32:21.382Z",
+  "exportedAt": "2026-07-23T04:52:20.572Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77852,8 +77852,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T00:12:30.634Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n昨晚我们讨论了OpenClaw进入基金会治理对AI Agent基础设施的影响，今天早间产业雷达从三条新动态切入，继续追踪AI和机器人产业链的关键信号。\\n\\n1. 多家海外科技巨头加码数据中心业务，OpenAI将云支出预期上调至7500亿美元。发生了什么：OpenAI计划斥资超300亿美元建设新数据中心，微软与Mistral签署数十亿美元数据中心合作协议，SpaceX也在考虑拓展数据中心业务。为什么值得追：云支出预期大幅上调，直接拉动AI算力基础设施投资，光模块、液冷、服务器等环节需求确定性增强。影响产业链：AI算力、数据中心、光模块、液冷。\\n\\n2. OpenAI在二级市场重获投资者青睐，Anthropic仍是最热门标的。发生了什么：OpenAI凭借Codex编程智能体和好评新模型，过去一个月二级市场投资需求明显回升，而Anthropic依然保持最高热度。为什么值得追：二级市场估值变动反映机构对模型竞争格局的真实判断，Codex变现能力若被验证，将加速AI编程工具商业化。影响产业链：AI模型、AI编程工具、企业级AI应用。\\n\\n3. 特斯拉确认Optimus年底量产，人形机器人产业化迎里程碑。发生了什么：特斯拉副总裁陶琳在2026全球数字经济大会上公开确认Optimus将于2026年底启动大规模量产，弗里蒙特工厂远期规划年产能100万台。为什么值得追：量产时间表明确，供应链采购指引已下发，重资产零部件供应商PPA已签，产业链进入订单兑现期。影响产业链：人形机器人、精密减速器、电机、传感器。\\n\\n最后一个具体投研追问：在Optimus量产节奏明确、OpenAI算力支出激增的背景下，AI与机器人交叉领域的具身智能公司（如宇树科技）的IPO估值逻辑，是否会因上游供应链产能瓶颈而面临修正？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"早间产业雷达：OpenAI云支出上调至7500亿美元拉动算力基建；OpenAI二级市场回暖反映模型竞争格局；特斯拉",
-        "updatedAt": "2026-07-23T00:12:30.722Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T04:42:39.020Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近",
+        "updatedAt": "2026-07-23T04:42:39.117Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78094,6 +78094,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.morning",
         "value": "sent:2026-07-23T00:12:30.811Z",
         "updatedAt": "2026-07-23T00:12:30.898Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.noon",
+        "value": "sent:2026-07-23T04:42:39.205Z",
+        "updatedAt": "2026-07-23T04:42:39.293Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
