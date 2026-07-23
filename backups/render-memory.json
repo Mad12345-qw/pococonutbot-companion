@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T02:32:21.073Z",
+  "exportedAt": "2026-07-23T03:42:18.579Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71348,6 +71348,29 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-23T01:16:54.074Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_689d41693552db40b1391ef6793b1d5a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 飞书 aily 从工具进化到到“AI同事”，晚上来直播间看看Ta能帮你接什么活儿？\nhttps://mp.weixin.qq.com/s/yohwmP2Mija-CXsXFTwE3g\\\nhttps://weixin.qq.com/sph/AjZviVZcG\\\nhttps://bytedance.larkoffice.com/wiki/AImKwgSGxikLkgk9LWVcqC4ynTh\\\nfeishu-wiki:AImKwgSGxikLkgk9LWVcqC4ynTh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/yohwmP2Mija-CXsXFTwE3g\\",
+            "https://weixin.qq.com/sph/AjZviVZcG\\",
+            "https://bytedance.larkoffice.com/wiki/AImKwgSGxikLkgk9LWVcqC4ynTh\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b692c9e13d8b0c3ac3f88e0f3272",
+          "wikiTokens": [
+            "AImKwgSGxikLkgk9LWVcqC4ynTh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T03:40:01.383Z"
       }
     ],
     "memories": [
