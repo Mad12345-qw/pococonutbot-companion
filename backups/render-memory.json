@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T05:22:17.175Z",
+  "exportedAt": "2026-07-23T05:42:22.381Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77747,8 +77747,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T05:12:23.851Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n早间聊到OpenAI Codex和Qwen-Image-3.0，大家追问算力军备竞赛到底能持续多久。今天追一条最值得验证的线：AI数据中心资本开支的“天花板”到底在哪。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，这个数字比之前任何公开预测都激进。同时SpaceX考虑在德克萨斯拓展数据中心业务，微软与Mistral签下数十亿美元数据中心协议。Anthropic计划2027年购买多达2吉瓦AMD芯片。\\n\\n2. 为什么值得追：7500亿美元不是小数目，相当于全球云服务市场年收入的数倍。如果OpenAI真按这个节奏烧钱，光模块、液冷、电力设备供应链的订单能见度会大幅拉长。但问题在于：OpenAI的营收增长能否支撑这个资本开支节奏？二级市场投资者对OpenAI兴趣回升（IT之家报道），但估值和烧钱速度之间需要持续验证。\\n\\n3. 可能影响产业链：直接利好英伟达、AMD、博通等芯片厂商，以及中际旭创、天孚通信等光模块企业。液冷和电力设备环节也会受益。但若资本开支预期落空，相关标的可能面临估值回调。\\n\\n延续早间讨论，一个具体问题：OpenAI的7500亿美元云支出预期，是基于Codex等产品的收入爆发，还是融资驱动的战略押注？大家怎么看这个数字的合理性？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"AI数据中心资本开支预期上调至7500亿美元，OpenAI、SpaceX、微软、Anthropic集体加码，产业链订单能见度拉长但需验证营收支撑。\",\"lastPulseQuestion\":\"OpenAI的7500亿美元云支出预期，是基于Codex等产品的收入爆发，还是融资驱动的战略押注？大家怎么看这个数字的合理性？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"http",
-        "updatedAt": "2026-07-23T05:12:23.945Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T05:41:36.866Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T05:41:36.965Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
