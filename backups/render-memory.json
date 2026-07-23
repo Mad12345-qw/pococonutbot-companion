@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T01:22:17.879Z",
+  "exportedAt": "2026-07-23T02:32:21.073Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77724,8 +77724,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T00:12:45.919Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚群里在聊OpenAI Codex用户破千万、Qwen-Image-3.0实测表现，以及AI模型竞争格局。顺着这个方向，今天追三条线：AI算力资本开支、人形机器人量产里程碑、商业航天融资热潮。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，SpaceX考虑在德克萨斯拓展数据中心业务，微软与Mistral签下数十亿美元数据中心协议。算力军备竞赛再升级，光模块、液冷、电力设备直接受益。注意：Anthropic也计划2027年购买多达2吉瓦AMD芯片，需求端没有放缓迹象。\\n\\n2. 特斯拉确认Optimus年底量产，弗里蒙特工厂远期年产能100万台，第三代已定型并向供应链下发采购指引。人形机器人正式进入制造导入阶段，执行器、减速器、灵巧手等重资产零部件供应商PPA已签，关注订单节奏和海外审厂进展。\\n\\n3. SpaceX上市效应持续发酵：二季度全球太空初创融资75亿美元逼近历史高位，吸引大量圈外资本。运载系统、卫星网络、国防技术等领域大额融资轮次增多，航天产业正从主题投资转向主流资产类别。\\n\\n问题：OpenAI的7500亿云支出预期和特斯拉Optimus量产时间表叠加，算力与机器人两条线在2026下半年是否会争夺同一批高端制造产能？比如液冷、精密加工等环节，哪些细分领域可能最先出现瓶颈？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI算力资本开支再升级，Optimus量产确认，太空风投创纪录\",\"lastPulseQuestion\":\"OpenAI的7500亿云支出预期和特斯拉Optimus量产时间表叠加，算力与机器人两条线在2026下半年是否会争夺同一批高端制造产能？比如液冷、精密加工等环节，哪些细分领域可能最先出现瓶颈？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.baogao.com/jigo",
-        "updatedAt": "2026-07-23T00:12:46.011Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T02:27:46.456Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T02:27:46.545Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
