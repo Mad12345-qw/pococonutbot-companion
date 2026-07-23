@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T15:12:25.383Z",
+  "exportedAt": "2026-07-23T15:52:28.179Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71700,6 +71700,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-23T13:49:29.629Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_9d4c431c00ee2d000c820f8737b875e7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://my.feishu.cn/wiki/MpN2wePwBi9awBka5etcBDmjnaf\nhttps://my.feishu.cn/wiki/MpN2wePwBi9awBka5etcBDmjnaf\nfeishu-wiki:MpN2wePwBi9awBka5etcBDmjnaf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://my.feishu.cn/wiki/MpN2wePwBi9awBka5etcBDmjnaf"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b691738b73ca0b046dfc1e0faac0",
+          "wikiTokens": [
+            "MpN2wePwBi9awBka5etcBDmjnaf"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T15:46:50.322Z"
       }
     ],
     "memories": [
@@ -78136,8 +78157,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T15:08:10.708Z\",\"lastHumanActivityAt\":\"2026-07-23T13:07:20.845Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-23T15:08:10.798Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T15:08:10.708Z\",\"lastHumanActivityAt\":\"2026-07-23T15:46:49.483Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T15:46:51.153Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
