@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T13:12:22.681Z",
+  "exportedAt": "2026-07-23T13:52:23.675Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71681,6 +71681,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-23T07:59:20.236Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_3f74d6045e386e482ee6bd15e7e44821",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://aily.feishu.cn/bot?invite_code=ATW68U07&open_from=sidebar_quota_card团队智能体来啦\nhttps://aily.feishu.cn/bot?invite_code=ATW68U07&open_from=sidebar_quota_card团队智能体来啦",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://aily.feishu.cn/bot?invite_code=ATW68U07&open_from=sidebar_quota_card团队智能体来啦"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6915f3f88080b1162005e1b6769",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T13:49:29.629Z"
       }
     ],
     "memories": [
