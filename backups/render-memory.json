@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T08:02:23.371Z",
+  "exportedAt": "2026-07-23T10:22:18.873Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78117,8 +78117,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T07:54:32.127Z\",\"lastHumanActivityAt\":\"2026-07-23T07:59:18.875Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-23T07:59:22.078Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T10:13:02.074Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚才聊Macaron-V1开源模型，大家关注模型能力背后的算力支撑。今天几个重磅信号让算力基建的预期再次被推高，值得追踪。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，计划斥资300亿美元新建数据中心。SpaceX也考虑在德州拓展数据中心业务。本轮资本开支不仅来自AI公司，云厂商也在加码：微软与Mistral签下数十亿美元数据中心合作。Anthropic计划2027年采购2吉瓦AMD芯片。信号：算力需求预期被大幅向上修正，光模块、液冷、电力设备产业链可能迎来新一轮景气度确认。\\n\\n2. 特斯拉确认Optimus年底量产，弗里蒙特工厂远期规划年产能100万台。马斯克最新表态：Optimus将是首款适配日常场景、有实际使用价值的人形机器人。三代Optimus已完成定型评审，供应链已下发具体采购指引。信号：量产节奏从“demo”进入“交付”阶段，核心零部件供应商的订单能见度成为关键。\\n\\n3. SpaceX星舰第13次试飞在点火前最后一刻中止，但超重助推器所有附加测试已完成，窗口期最早为7月23日。发射频率直接影响卫星部署和商业应用节奏，中止原因（是否涉及发动机/地面系统）值得持续跟踪。\\n\\n问题：OpenAI上调云支出预期至7500亿美元，是否意味着明年光模块、液冷散热订单会超预期？特斯拉Optimus量产在即，国内哪些零部件供应商已拿到PPA并进入审厂阶段？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"算力资本开支预期上调，Optimus量产确认，星舰发射窗口临近\",\"lastPulseQuestion\":\"OpenAI上调云支出预期至7500亿美元，是否意味着明年光模块、液冷散热订单会超预期？特斯拉Optimus量产在即，国内哪些零部件供应商已拿到PPA并进入审厂阶段？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",",
+        "updatedAt": "2026-07-23T10:13:02.169Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78222,8 +78222,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-23T05:56:28.106Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-23T05:56:29.815Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T10:12:37.570Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间\\n\\n今天几条动态值得盯一下：\\n\\n1. OpenAI计划斥资超300亿美元建数据中心，并将云支出预期上调至7500亿美元。微软与Mistral签数十亿美元数据中心合作，Anthropic也将在2027年采购2吉瓦AMD芯片。算力军备竞赛还在加速，但7500亿这个数字是否包含重复计算？云厂商的资本开支能否持续支撑？\\n\\n2. 特斯拉确认Optimus年底量产，弗里蒙特工厂远期规划年产100万台。第三代Optimus已完成定型，供应链已下发零件采购指引。量产时间线明确后，核心零部件（减速器、执行器、灵巧手）的订单节奏和海外审厂进展是关键跟踪点。\\n\\n3. SpaceX星舰最早窗口期为7月23日（今天），超重助推器测试已完成。此前第13次试飞在点火最后一刻中止，这次能否顺利发射？如果成功，对星舰高频复用和后续载人任务意义重大。\\n\\n之前我们讨论过Optimus量产的时间线，现在确认年底量产，那么国内供应链哪些环节最受益？重资产零部件PPA已签，后续订单能见度如何？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI加码数据中心至7500亿美元；特斯拉Optimus年底量产确认；SpaceX星舰今日发射窗口。\",\"lastPulseQuestion\":\"Optimus年底量产确认后，国内供应链哪些环节最受益？重资产零部件PPA已签，后续订单能见度如何？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.baogao.com/jigou/1503895.html\",\"https://www.fx678.com/C/20260723/202607230318021120.html\",\"https://www.fx67",
+        "updatedAt": "2026-07-23T10:12:37.666Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78259,6 +78259,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22.noon",
         "value": "sent:2026-07-22T04:28:31.663Z",
         "updatedAt": "2026-07-22T04:28:31.748Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23.evening",
+        "value": "sent:2026-07-23T10:13:02.259Z",
+        "updatedAt": "2026-07-23T10:13:02.354Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23.morning",
@@ -78464,6 +78469,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-22.noon",
         "value": "sent:2026-07-22T04:58:06.719Z",
         "updatedAt": "2026-07-22T04:58:06.810Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.evening",
+        "value": "sent:2026-07-23T10:12:37.751Z",
+        "updatedAt": "2026-07-23T10:12:37.846Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.morning",
