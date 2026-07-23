@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-22T22:52:18.778Z",
+  "exportedAt": "2026-07-23T00:22:21.877Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -77705,8 +77705,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-22T22:51:44.867Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-22T22:51:44.951Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T00:12:45.919Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚群里在聊OpenAI Codex用户破千万、Qwen-Image-3.0实测表现，以及AI模型竞争格局。顺着这个方向，今天追三条线：AI算力资本开支、人形机器人量产里程碑、商业航天融资热潮。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，SpaceX考虑在德克萨斯拓展数据中心业务，微软与Mistral签下数十亿美元数据中心协议。算力军备竞赛再升级，光模块、液冷、电力设备直接受益。注意：Anthropic也计划2027年购买多达2吉瓦AMD芯片，需求端没有放缓迹象。\\n\\n2. 特斯拉确认Optimus年底量产，弗里蒙特工厂远期年产能100万台，第三代已定型并向供应链下发采购指引。人形机器人正式进入制造导入阶段，执行器、减速器、灵巧手等重资产零部件供应商PPA已签，关注订单节奏和海外审厂进展。\\n\\n3. SpaceX上市效应持续发酵：二季度全球太空初创融资75亿美元逼近历史高位，吸引大量圈外资本。运载系统、卫星网络、国防技术等领域大额融资轮次增多，航天产业正从主题投资转向主流资产类别。\\n\\n问题：OpenAI的7500亿云支出预期和特斯拉Optimus量产时间表叠加，算力与机器人两条线在2026下半年是否会争夺同一批高端制造产能？比如液冷、精密加工等环节，哪些细分领域可能最先出现瓶颈？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI算力资本开支再升级，Optimus量产确认，太空风投创纪录\",\"lastPulseQuestion\":\"OpenAI的7500亿云支出预期和特斯拉Optimus量产时间表叠加，算力与机器人两条线在2026下半年是否会争夺同一批高端制造产能？比如液冷、精密加工等环节，哪些细分领域可能最先出现瓶颈？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.baogao.com/jigo",
+        "updatedAt": "2026-07-23T00:12:46.011Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -77809,6 +77809,11 @@
         "updatedAt": "2026-07-22T10:12:25.359Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T00:12:30.634Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n昨晚我们讨论了OpenClaw进入基金会治理对AI Agent基础设施的影响，今天早间产业雷达从三条新动态切入，继续追踪AI和机器人产业链的关键信号。\\n\\n1. 多家海外科技巨头加码数据中心业务，OpenAI将云支出预期上调至7500亿美元。发生了什么：OpenAI计划斥资超300亿美元建设新数据中心，微软与Mistral签署数十亿美元数据中心合作协议，SpaceX也在考虑拓展数据中心业务。为什么值得追：云支出预期大幅上调，直接拉动AI算力基础设施投资，光模块、液冷、服务器等环节需求确定性增强。影响产业链：AI算力、数据中心、光模块、液冷。\\n\\n2. OpenAI在二级市场重获投资者青睐，Anthropic仍是最热门标的。发生了什么：OpenAI凭借Codex编程智能体和好评新模型，过去一个月二级市场投资需求明显回升，而Anthropic依然保持最高热度。为什么值得追：二级市场估值变动反映机构对模型竞争格局的真实判断，Codex变现能力若被验证，将加速AI编程工具商业化。影响产业链：AI模型、AI编程工具、企业级AI应用。\\n\\n3. 特斯拉确认Optimus年底量产，人形机器人产业化迎里程碑。发生了什么：特斯拉副总裁陶琳在2026全球数字经济大会上公开确认Optimus将于2026年底启动大规模量产，弗里蒙特工厂远期规划年产能100万台。为什么值得追：量产时间表明确，供应链采购指引已下发，重资产零部件供应商PPA已签，产业链进入订单兑现期。影响产业链：人形机器人、精密减速器、电机、传感器。\\n\\n最后一个具体投研追问：在Optimus量产节奏明确、OpenAI算力支出激增的背景下，AI与机器人交叉领域的具身智能公司（如宇树科技）的IPO估值逻辑，是否会因上游供应链产能瓶颈而面临修正？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"早间产业雷达：OpenAI云支出上调至7500亿美元拉动算力基建；OpenAI二级市场回暖反映模型竞争格局；特斯拉",
+        "updatedAt": "2026-07-23T00:12:30.722Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -77842,6 +77847,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-22.noon",
         "value": "sent:2026-07-22T04:28:31.663Z",
         "updatedAt": "2026-07-22T04:28:31.748Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23.morning",
+        "value": "sent:2026-07-23T00:12:46.105Z",
+        "updatedAt": "2026-07-23T00:12:46.196Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -78039,6 +78049,11 @@
         "updatedAt": "2026-07-22T04:58:06.810Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.morning",
+        "value": "sent:2026-07-23T00:12:30.811Z",
+        "updatedAt": "2026-07-23T00:12:30.898Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78050,8 +78065,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-22T15:59:07.726Z",
-        "updatedAt": "2026-07-22T15:59:08.528Z"
+        "value": "2026-07-23T00:12:29.294Z",
+        "updatedAt": "2026-07-23T00:12:29.382Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78067,6 +78082,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-22",
         "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260722A00G6600\",\"https://news.qq.com/rain/a/20260721A04LEQ00\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260720A04OZM00\"],\"lastDigest\":\"GPT-6 传闻曝光，单次算力成本或达5万美元；谷歌连发三款低价Gemini模型；阿里Qwen3.8 Max回归开源。\",\"lastQuestion\":\"在GPT-6传闻算力成本高昂、谷歌推高性价比模型、以及国产模型开源降价的多重背景下，你更看好闭源强模型还是开源低成本模型？未来API使用策略会如何调整？\",\"lastSentAt\":\"2026-07-22T04:28:04.470Z\"}",
         "updatedAt": "2026-07-22T04:28:05.260Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-23",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.ithome.com/0/979/823.htm\",\"https://www.ithome.com/0/979/795.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"早间三条：OpenAI GPT-6爆料或达AGI水平（未经证实）；谷歌发布三款高性价比Gemini模型；Kimi K3开源引发算力吃紧和API定价上移。\",\"lastQuestion\":\"在模型能力快速提升但算力紧缺的背景下，你更倾向于通过开源模型自主部署，还是使用闭源API？近期计划尝试哪些新模型？\",\"lastSentAt\":\"2026-07-23T00:12:28.234Z\"}",
+        "updatedAt": "2026-07-23T00:12:29.028Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78102,6 +78122,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-22.noon",
         "value": "sent:2026-07-22T04:28:05.348Z",
         "updatedAt": "2026-07-22T04:28:05.434Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-23.morning",
+        "value": "sent:2026-07-23T00:12:29.118Z",
+        "updatedAt": "2026-07-23T00:12:29.206Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
