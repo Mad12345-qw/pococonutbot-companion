@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T10:22:18.873Z",
+  "exportedAt": "2026-07-23T10:32:19.471Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78117,8 +78117,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T10:13:02.074Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚才聊Macaron-V1开源模型，大家关注模型能力背后的算力支撑。今天几个重磅信号让算力基建的预期再次被推高，值得追踪。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，计划斥资300亿美元新建数据中心。SpaceX也考虑在德州拓展数据中心业务。本轮资本开支不仅来自AI公司，云厂商也在加码：微软与Mistral签下数十亿美元数据中心合作。Anthropic计划2027年采购2吉瓦AMD芯片。信号：算力需求预期被大幅向上修正，光模块、液冷、电力设备产业链可能迎来新一轮景气度确认。\\n\\n2. 特斯拉确认Optimus年底量产，弗里蒙特工厂远期规划年产能100万台。马斯克最新表态：Optimus将是首款适配日常场景、有实际使用价值的人形机器人。三代Optimus已完成定型评审，供应链已下发具体采购指引。信号：量产节奏从“demo”进入“交付”阶段，核心零部件供应商的订单能见度成为关键。\\n\\n3. SpaceX星舰第13次试飞在点火前最后一刻中止，但超重助推器所有附加测试已完成，窗口期最早为7月23日。发射频率直接影响卫星部署和商业应用节奏，中止原因（是否涉及发动机/地面系统）值得持续跟踪。\\n\\n问题：OpenAI上调云支出预期至7500亿美元，是否意味着明年光模块、液冷散热订单会超预期？特斯拉Optimus量产在即，国内哪些零部件供应商已拿到PPA并进入审厂阶段？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"算力资本开支预期上调，Optimus量产确认，星舰发射窗口临近\",\"lastPulseQuestion\":\"OpenAI上调云支出预期至7500亿美元，是否意味着明年光模块、液冷散热订单会超预期？特斯拉Optimus量产在即，国内哪些零部件供应商已拿到PPA并进入审厂阶段？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",",
-        "updatedAt": "2026-07-23T10:13:02.169Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T10:22:15.647Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T10:22:15.738Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
