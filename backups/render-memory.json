@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T07:12:19.182Z",
+  "exportedAt": "2026-07-23T08:02:23.371Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71661,6 +71661,26 @@
           "replyToUserId": "feishu:ou_73845e827260c3c05e1f88e30cf743e0"
         },
         "createdAt": "2026-07-23T07:08:42.228Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_3e91546e261e5f8fbda4078a6e9e7cf4",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/VNOPQfiFfqDhkmbu122v9A\nhttps://mp.weixin.qq.com/s/VNOPQfiFfqDhkmbu122v9A\nhttps://mp.weixin.qq.com/s/VNOPQfiFfqDhkmbu122v9A\\n现在AI视频的出路在哪儿@_user_1",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/VNOPQfiFfqDhkmbu122v9A",
+            "https://mp.weixin.qq.com/s/VNOPQfiFfqDhkmbu122v9A\\n现在AI视频的出路在哪儿@_user_1"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6928d3856080b2a009ea991180f",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T07:59:20.236Z"
       }
     ],
     "memories": [
@@ -78097,8 +78117,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T07:02:30.699Z\",\"lastHumanActivityAt\":\"2026-07-23T07:08:26.248Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-23T07:08:27.375Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-23T07:54:32.127Z\",\"lastHumanActivityAt\":\"2026-07-23T07:59:18.875Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T07:59:22.078Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
