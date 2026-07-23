@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T00:22:21.877Z",
+  "exportedAt": "2026-07-23T01:22:17.879Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71329,6 +71329,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-22T17:21:09.835Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_b5e7288b72d3bdd83343a239e51172a6",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg\nhttps://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/o6Wt7t_8jWuavqRpP4oaQg"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6922f6fd7138ded24ebd6fd7edf",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-23T01:16:54.074Z"
       }
     ],
     "memories": [
