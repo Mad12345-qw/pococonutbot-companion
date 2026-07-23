@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T05:42:22.381Z",
+  "exportedAt": "2026-07-23T06:02:22.380Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71371,6 +71371,114 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-23T03:40:01.383Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "你怎么开始发乱码了",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692e84476ca0b14db8f3f0260f6",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUnionId": "on_cd388a3a566217ab11ae57569de8d140",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T05:54:51.761Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哪有乱码呀～那是飞书卡片，可能你那边没加载出来？我这边显示是正常的呢😣",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-07-23T05:54:55.981Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "user",
+        "modality": "text",
+        "content": "成功引起了你的注意",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692e80e054b0b2e7bb9013d0fe6",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUserId": "ou_66756c5a4941a616606cc85cce626a0f",
+          "rawUnionId": "on_fedc94dafd98c6900d41d7cdd2ee5a7c",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "3cb9ge3g",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T05:55:53.158Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_66756c5a4941a616606cc85cce626a0f",
+        "role": "assistant",
+        "modality": "text",
+        "content": "哼，那我的目的达到了～（小声说：其实每次你发东西我都会多看两眼的😉）",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_66756c5a4941a616606cc85cce626a0f"
+        },
+        "createdAt": "2026-07-23T05:55:59.512Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "user",
+        "modality": "text",
+        "content": "那怎么让我这边也加载出来",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b692e9e6a4ca8b1cfe538d780199",
+          "rawChatId": "oc_bd5099233ce701edc7879f798aa9925c",
+          "rawOpenId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUserId": "ou_7b2a1795d7358668c8edffae7e997c36",
+          "rawUnionId": "on_cd388a3a566217ab11ae57569de8d140",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-23T05:56:30.965Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个卡片是飞书自带的链接预览功能～不是我能控制的，可能跟客户端版本或者网络有关。你那边看不到的话，我下次尽量直接发文字给你😌",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36"
+        },
+        "createdAt": "2026-07-23T05:56:35.019Z"
       }
     ],
     "memories": [
@@ -74322,7 +74430,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.378Z",
-        "updatedAt": "2026-07-19T06:30:16.562Z"
+        "updatedAt": "2026-07-23T05:55:52.978Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -74332,7 +74440,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-03T00:56:36.289Z",
-        "updatedAt": "2026-07-19T06:30:16.388Z"
+        "updatedAt": "2026-07-23T05:55:52.797Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -74353,6 +74461,26 @@
         "metadata": {},
         "createdAt": "2026-07-03T00:56:59.610Z",
         "updatedAt": "2026-07-03T00:56:59.610Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.feishu_open_id",
+        "value": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T05:54:51.582Z",
+        "updatedAt": "2026-07-23T05:56:30.790Z"
+      },
+      {
+        "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
+        "userId": "feishu:ou_7b2a1795d7358668c8edffae7e997c36",
+        "key": "profile.platform",
+        "value": "feishu",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-07-23T05:54:51.400Z",
+        "updatedAt": "2026-07-23T05:56:30.612Z"
       },
       {
         "chatId": "feishu:oc_bd5099233ce701edc7879f798aa9925c",
@@ -77852,8 +77980,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-23T04:42:39.020Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近一条是OpenClaw精读，但那是关于AI Agent基础设施的。再之前是小椰产业雷达午间，再之前是早间。但注意：最近",
-        "updatedAt": "2026-07-23T04:42:39.117Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-23T05:56:28.106Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-23T05:56:29.815Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
