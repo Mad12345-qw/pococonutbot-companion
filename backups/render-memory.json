@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T03:42:18.579Z",
+  "exportedAt": "2026-07-23T04:22:19.074Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78107,8 +78107,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-23T00:12:29.294Z",
-        "updatedAt": "2026-07-23T00:12:29.382Z"
+        "value": "2026-07-23T04:12:13.734Z",
+        "updatedAt": "2026-07-23T04:12:13.819Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78127,8 +78127,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-23",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.ithome.com/0/979/823.htm\",\"https://www.ithome.com/0/979/795.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"早间三条：OpenAI GPT-6爆料或达AGI水平（未经证实）；谷歌发布三款高性价比Gemini模型；Kimi K3开源引发算力吃紧和API定价上移。\",\"lastQuestion\":\"在模型能力快速提升但算力紧缺的背景下，你更倾向于通过开源模型自主部署，还是使用闭源API？近期计划尝试哪些新模型？\",\"lastSentAt\":\"2026-07-23T00:12:28.234Z\"}",
-        "updatedAt": "2026-07-23T00:12:29.028Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://www.ithome.com/0/979/823.htm\",\"https://www.ithome.com/0/979/795.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"GPT-6爆料或达AGI但未经证实；谷歌三款Gemini主打高性价比；开源追上闭源致API价格暴跌但算力吃紧\",\"lastQuestion\":\"在GPT-6可能带来能力跃升但算力成本未知、谷歌推出高性价比模型、以及开源模型导致API价格暴跌但算力吃紧的背景下，你近期在API选型时更看重模型能力、价格还是调用稳定性？有没有遇到因算力不足导致的限流情况？\",\"lastSentAt\":\"2026-07-23T04:12:13.376Z\"}",
+        "updatedAt": "2026-07-23T04:12:13.465Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78169,6 +78169,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-23.morning",
         "value": "sent:2026-07-23T00:12:29.118Z",
         "updatedAt": "2026-07-23T00:12:29.206Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-23.noon",
+        "value": "sent:2026-07-23T04:12:13.553Z",
+        "updatedAt": "2026-07-23T04:12:13.646Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
