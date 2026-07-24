@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-24T06:02:25.169Z",
+  "exportedAt": "2026-07-24T06:12:21.280Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71779,6 +71779,42 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-07-24T05:59:24.666Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "user",
+        "modality": "text",
+        "content": "近期我想做一个关于人工智能与劳动过程变迁的课题论文    请你帮我遍历全球找到相应的研究资料",
+        "metadata": {
+          "chatType": "group",
+          "hasImage": false,
+          "hasVoice": false,
+          "platform": "feishu",
+          "messageId": "om_x100b69045a5154acdeb0a42f93ba080",
+          "rawChatId": "oc_0d2244701a484715c66edaafca3cacfb",
+          "rawOpenId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUserId": "ou_768babe170127903728b5d6ab2fa72c8",
+          "rawUnionId": "on_660d2d477304c1bace6baddf0adb5419",
+          "linkContext": "",
+          "imageContext": "",
+          "alwaysReplyUser": false,
+          "rawTenantUserId": "",
+          "voiceDurationMs": 0
+        },
+        "createdAt": "2026-07-24T06:08:13.552Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这个课题方向很有意思呢～我虽然没法直接联网帮你遍历全球数据库，但可以给你梳理几个最核心的文献获取路径和方向，帮你快速入手：\n\n1. 学术数据库：Google Scholar、Web of Science、Scopus 关键词用 \"AI and labor process theory\"、\"automation and work\"、\"digital Taylorism\"、\"platform labor\"\n2. 经典理论源：Braverman《劳动与垄断资本》、Zuboff《监控资本主义》、Autor 关于 AI 与就业的系列论文\n3. 近期报告：ILO（国际劳工组织）、世界经济论坛、McKinsey Global Institute 关于 AI 对劳动力影响的年度报告\n4. 中国视角：中国知网搜“人工智能 劳动过程 变迁”，关注《社会学研究》《管理世界》近3年相关文章\n5. 开源平台：arXiv 的 cs.CY 和 econ.GN 分类、SSRN 工作论文\n\n需要我帮你把其中几个方向的代表性文献标题列出来吗？或者你确定了具体子问题（比如只聚焦平台劳动、或制造业、或知识工作），我可以帮你细化搜索策略～",
+        "metadata": {
+          "platform": "feishu",
+          "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
+        },
+        "createdAt": "2026-07-24T06:08:19.511Z"
       }
     ],
     "memories": [
@@ -72485,12 +72521,22 @@
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
         "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
+        "key": "plans.research_topic",
+        "value": "关于人工智能与劳动过程变迁的课题论文",
+        "importance": 3,
+        "metadata": {},
+        "createdAt": "2026-07-24T06:09:15.966Z",
+        "updatedAt": "2026-07-24T06:09:15.966Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "key": "profile.feishu_open_id",
         "value": "feishu:ou_768babe170127903728b5d6ab2fa72c8",
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-24T05:59:17.392Z",
-        "updatedAt": "2026-07-24T05:59:17.392Z"
+        "updatedAt": "2026-07-24T06:08:13.355Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -72500,7 +72546,7 @@
         "importance": 5,
         "metadata": {},
         "createdAt": "2026-07-24T05:59:17.201Z",
-        "updatedAt": "2026-07-24T05:59:17.201Z"
+        "updatedAt": "2026-07-24T06:08:13.157Z"
       },
       {
         "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
@@ -78240,8 +78286,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-24T05:59:28.430Z\",\"lastHumanActivityAt\":\"2026-07-24T05:59:16.158Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-24T05:59:28.525Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-24T05:59:28.430Z\",\"lastHumanActivityAt\":\"2026-07-24T06:08:12.090Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-24T06:08:13.368Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
