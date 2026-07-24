@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-24T09:52:20.781Z",
+  "exportedAt": "2026-07-24T10:22:19.970Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78396,8 +78396,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T04:12:26.112Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n昨晚聊到算力军备和Optimus量产时间线，今天有一条新线索值得重点验证：SpaceX正在与五角大楼洽谈计算服务合作，这意味着商业航天公司开始向算力供应延伸。同时星舰发射窗口今天开启，超重助推器测试已完成。\\n\\n1. SpaceX与五角大楼谈算力合作：据市场消息，双方磋商从航天发射、卫星通信拓展到计算服务。如果落地，SpaceX将直接与AWS、Azure等云厂商争夺政府算力订单。这背后是SpaceX在德克萨斯州拓展数据中心业务的布局，与OpenAI计划花300亿美元建数据中心形成呼应。算力军备的参与者正在扩大，传统云厂商的护城河可能被打破。\\n\\n2. 星舰发射窗口今天开启：超重助推器所有附加测试已完成，最早窗口为7月23日。这是验证SpaceX发射频率和回收能力的关键节点。如果成功，将加速星链部署和后续重型载荷发射，进一步巩固其在商业航天的领先地位。\\n\\n3. 特斯拉Optimus生产线改造接近完工：财报配图首次展示弗里蒙特工厂的Optimus生产线，预计很快开始生产首批机器人用于Optimus学院。量产时间线明确后，供应链订单节奏和海外审厂情况是下一步观察重点。\\n\\n问题：SpaceX的算力服务如果落地，会对现有数据中心运营商和芯片厂商产生什么影响？与AI云厂商的竞争关系如何？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX与五角大楼洽谈算力合作，星舰发射窗口今天开启，Optimus生产线接近完工\",\"lastPulseQuestion\":\"SpaceX的算力服务如果落地，会对现有数据中心运营商和芯片厂商产生什么影响？与AI云厂商的竞争关系如何？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260718/202607180305371124.html\",\"https://www.fx678.com/C/20260723/202607230318021120.html\",\"https://c.m.",
-        "updatedAt": "2026-07-24T04:12:26.206Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T10:12:29.888Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间\\n\\n下午聊到SpaceX算力延伸和星舰窗口，今天收盘后有几条线索值得继续验证。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，同时二级市场兴趣回升，Anthropic仍是最热门标的。OpenAI靠Codex和模型口碑重新吸金，Anthropic则靠提前锁定AMD芯片产能。两家策略分化：一家押注应用生态，一家押注算力自主。这会影响云厂商资本开支的结构，也值得关注AMD在AI芯片的份额变化。\\n\\n2. 特斯拉Optimus生产线改造接近完工，财报配图首次展示了弗里蒙特工厂的Optimus产线。首批机器人将用于Optimus学院进行培训数据收集，正式量产还要等。这意味着供应链订单节奏和海外审厂进度是接下来要盯的关键节点。\\n\\n3. SpaceX星舰发射窗口今天开启，超重助推器所有附加测试已完成，气象条件是核心变量。如果发射成功，将验证快速迭代的并行作业能力，也为后续算力合作提供更多发射频次支撑。\\n\\n问题：7500亿美元云支出预期是否包含重复计算？云厂商资本开支能否持续支撑？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"OpenAI云支出上调至7500亿、Optimus产线接近完工、星舰发射窗口开启\",\"lastPulseQuestion\":\"7500亿美元云支出预期是否包含重复计算？云厂商资本开支能否持续支撑？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://www.fx678.com/C/20260723/202607230318021120.html\"],\"lastActivityAt\":\"2026-07-24T10:12:29.888Z\",\"",
+        "updatedAt": "2026-07-24T10:12:29.991Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78668,6 +78668,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-23.noon",
         "value": "sent:2026-07-23T04:42:39.205Z",
         "updatedAt": "2026-07-23T04:42:39.293Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24.evening",
+        "value": "sent:2026-07-24T10:12:30.087Z",
+        "updatedAt": "2026-07-24T10:12:30.190Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24.morning",
