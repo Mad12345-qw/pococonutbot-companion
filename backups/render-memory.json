@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-24T03:22:19.877Z",
+  "exportedAt": "2026-07-24T04:22:20.875Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78182,8 +78182,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-24T03:13:05.682Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-24T03:13:05.776Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T04:13:12.014Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\\"开头。requiredTextShape是示例格式？实际上用户给出了requiredTextShape字段，要求按那个形状写。但focus又说挑出最值得继续验证的一条。可能requiredTextShape是固定的模板，但内容可以围绕一条产业链变化展开？或者需要写三条动态但聚焦同一产业链？从groupMemory早间消息已经提到了数据中心和Optimus。午间应该更新最新动态。最新newsCandidates中有一条关于特斯拉Optimus全新生产线的新闻（发布时间7月23日23:50），还有一条关于数据中心加码的新闻（7月22日）。另外还有OpenAI二级市场兴趣回升等。但最值得继续验证的产业链变化可能是特斯拉Optimus生产线，因为早间没有提到这个，而且这是新进展。数据中心话题早间已经覆盖了。所以午间可以聚焦Optimus生产线。但requiredTextShape要求三条动态，可以围绕Optimus产业链写三条：1. 特斯拉公布Optimus全新生产线；2. 电力设备行业深度报告提及Optimus量产前夕；3. 可能还有一条？但只有两条相关。或者可以结合数据中心和Optimus？但focus说挑出最值得继续验证的一条。可能requiredTextShape是历史遗留，实际只需写一条？但用户明确说\\\"只返回JSON对象\\\"，并且给出了requiredTextShape字段。为了保险，我按照requiredTextShape写三条动态，但都围绕Optimus产业链变化。或者写三条动态但第一条是核心，其他是辅助。但groupMemory中早间消息已经写了三条动态（OpenAI、微软、Anthropic），午间应该更新。我决定：聚焦特斯拉Optimus生产线这一条产业链变化，但按照requiredTextShape写三条动态，可以分别写：1. 特斯拉公布Optimus全新生产线；2. 电力设备行业报告提及Optimus量产；3. 可能从其他新闻中找一条相关的？比如OpenAI数据中心虽然不直接相关，但可以对比？不，最好聚焦。或者第三条写Anthropic",
+        "updatedAt": "2026-07-24T04:13:12.112Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78292,8 +78292,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T00:12:23.062Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚聊到算力军备和Optimus量产时间线，今天有几条新动态可以跟进验证：\\n\\n1. OpenAI将云支出预期上调至7500亿美元，同时二级市场兴趣回升，Anthropic仍是最热门标的。OpenAI靠Codex和模型口碑重新吸金，Anthropic则靠提前锁定AMD芯片产能。两家策略分化：一家押注应用生态，一家押注算力自主。这会影响云厂商资本开支的结构，也值得关注AMD在AI芯片的份额变化。\\n\\n2. 特斯拉Optimus生产线改造接近完工，财报配图首次展示了弗里蒙特工厂内的Optimus产线。首批机器人将用于Optimus学院，进行培训数据收集。量产时间线明确后，供应链审厂和订单节奏成为下一阶段焦点，重资产零部件供应商的PPA签署情况值得跟踪。\\n\\n3. SpaceX星舰第13次试飞取消后，超重助推器所有附加测试已完成，今天（7月23日）有发射窗口。如果成功，将恢复发射节奏，对星舰供应链和卫星部署进度有直接拉动。\\n\\n问题：算力军备竞赛中，OpenAI和Anthropic的差异化策略（OpenAI靠应用生态，Anthropic靠芯片锁定）对产业链的影响，哪个路径更可持续？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI上调云支出至7500亿，二级市场兴趣回升；Optimus生产线改造接近完工，首批用于学院；星舰今天有发射窗口。\",\"lastPulseQuestion\":\"算力军备竞赛中，OpenAI和Anthropic的差异化策略（OpenAI靠应用生态，Anthropic靠芯片锁定）对产业链的影响，哪个路径更可持续？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://c.m.163.com/news/a/L2IF426H05568",
-        "updatedAt": "2026-07-24T00:12:23.149Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T04:12:26.112Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n昨晚聊到算力军备和Optimus量产时间线，今天有一条新线索值得重点验证：SpaceX正在与五角大楼洽谈计算服务合作，这意味着商业航天公司开始向算力供应延伸。同时星舰发射窗口今天开启，超重助推器测试已完成。\\n\\n1. SpaceX与五角大楼谈算力合作：据市场消息，双方磋商从航天发射、卫星通信拓展到计算服务。如果落地，SpaceX将直接与AWS、Azure等云厂商争夺政府算力订单。这背后是SpaceX在德克萨斯州拓展数据中心业务的布局，与OpenAI计划花300亿美元建数据中心形成呼应。算力军备的参与者正在扩大，传统云厂商的护城河可能被打破。\\n\\n2. 星舰发射窗口今天开启：超重助推器所有附加测试已完成，最早窗口为7月23日。这是验证SpaceX发射频率和回收能力的关键节点。如果成功，将加速星链部署和后续重型载荷发射，进一步巩固其在商业航天的领先地位。\\n\\n3. 特斯拉Optimus生产线改造接近完工：财报配图首次展示弗里蒙特工厂的Optimus生产线，预计很快开始生产首批机器人用于Optimus学院。量产时间线明确后，供应链订单节奏和海外审厂情况是下一步观察重点。\\n\\n问题：SpaceX的算力服务如果落地，会对现有数据中心运营商和芯片厂商产生什么影响？与AI云厂商的竞争关系如何？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"SpaceX与五角大楼洽谈算力合作，星舰发射窗口今天开启，Optimus生产线接近完工\",\"lastPulseQuestion\":\"SpaceX的算力服务如果落地，会对现有数据中心运营商和芯片厂商产生什么影响？与AI云厂商的竞争关系如何？\",\"lastPulseSources\":[\"https://www.fx678.com/C/20260718/202607180305371124.html\",\"https://www.fx678.com/C/20260723/202607230318021120.html\",\"https://c.m.",
+        "updatedAt": "2026-07-24T04:12:26.206Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78349,6 +78349,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24.morning",
         "value": "sent:2026-07-24T00:13:04.162Z",
         "updatedAt": "2026-07-24T00:13:04.247Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24.noon",
+        "value": "sent:2026-07-24T04:13:12.215Z",
+        "updatedAt": "2026-07-24T04:13:12.313Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -78566,6 +78571,11 @@
         "updatedAt": "2026-07-24T00:12:23.325Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24.noon",
+        "value": "sent:2026-07-24T04:12:26.302Z",
+        "updatedAt": "2026-07-24T04:12:26.396Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78577,8 +78587,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-24T00:12:31.379Z",
-        "updatedAt": "2026-07-24T00:12:31.468Z"
+        "value": "2026-07-24T04:12:19.014Z",
+        "updatedAt": "2026-07-24T04:12:19.108Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78602,8 +78612,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-24",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.ithome.com/0/979/795.htm\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"谷歌发布三款低成本Gemini模型；消息称OpenAI GPT-6测试文档曝光或达AGI水平；Kimi K3开源模型发布撼动闭源估值。\",\"lastQuestion\":\"谷歌新发布的Gemini 3.5 Flash Cyber主打低成本安全漏洞修复，而传闻中GPT-6展示了绕过安全扫描器的能力——在模型能力快速迭代的背景下，大家认为API提供商应如何平衡模型的安全性与开放性？\",\"lastSentAt\":\"2026-07-24T00:12:31.021Z\"}",
-        "updatedAt": "2026-07-24T00:12:31.110Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://www.ithome.com/0/979/795.htm\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"谷歌连发三款Gemini模型；消息称OpenAI GPT-6文档曝光或达AGI；开源与闭源性能差距缩至3.3%。\",\"lastQuestion\":\"传闻中GPT-6可能达到AGI水平，如果成真，大家认为这对当前开源模型生态和API定价会带来什么影响？\",\"lastSentAt\":\"2026-07-24T04:12:18.636Z\"}",
+        "updatedAt": "2026-07-24T04:12:18.728Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78654,6 +78664,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.morning",
         "value": "sent:2026-07-24T00:12:31.201Z",
         "updatedAt": "2026-07-24T00:12:31.289Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.noon",
+        "value": "sent:2026-07-24T04:12:18.825Z",
+        "updatedAt": "2026-07-24T04:12:18.918Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
