@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-24T02:52:18.376Z",
+  "exportedAt": "2026-07-24T03:22:19.877Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78182,8 +78182,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T00:13:03.989Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚群里有朋友提到Google首次出现负现金流季度，AI基础设施支出激增。今天几条动态进一步印证：算力军备竞赛远没到头，而且参与方和资金规模都在加速放大。\\n\\n1. OpenAI计划斥资超过300亿美元建设新数据中心，并将云支出预期上调至7500亿美元。为什么值得追：这是目前公开最高的单家AI公司资本开支目标，直接验证算力需求是否持续超预期，对光模块、液冷、电力设备等产业链形成长期需求锚点。\\n\\n2. 微软与Mistral签署数十亿美元数据中心合作协议，加码欧洲AI布局。为什么值得追：欧洲数据中心供应链可能迎来增量，同时Mistral作为欧洲模型代表，其算力采购规模可作为判断非美国模型厂商追赶速度的指标。\\n\\n3. Anthropic将于2027年上半年开始购买多达2吉瓦的AMD最新一代芯片。为什么值得追：AMD在AI训练/推理芯片市场份额能否从个位数突破，直接关系到英伟达的竞争格局和供应链多元化逻辑。\\n\\n在Google首次负现金流和OpenAI大幅上调云支出之间，市场对AI基础设施的定价是否已经过度乐观？还是说这轮资本开支才刚刚开始？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI 300亿美元数据中心、微软Mistral数十亿合作、Anthropic 2吉瓦AMD芯片，AI算力资本开支加速，与Google负现金流形成对比。\",\"lastPulseQuestion\":\"在Google首次负现金流和OpenAI大幅上调云支出之间，市场对AI基础设施的定价是否已经过度乐观？还是说这轮资本开支才刚刚开始？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\"],\"lastActivityAt\":\"2026-07-24T00:13",
-        "updatedAt": "2026-07-24T00:13:04.075Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-24T03:13:05.682Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-24T03:13:05.776Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
