@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-23T15:52:28.179Z",
+  "exportedAt": "2026-07-24T00:22:18.281Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78161,6 +78161,11 @@
         "updatedAt": "2026-07-23T15:46:51.153Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T00:13:03.989Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚群里有朋友提到Google首次出现负现金流季度，AI基础设施支出激增。今天几条动态进一步印证：算力军备竞赛远没到头，而且参与方和资金规模都在加速放大。\\n\\n1. OpenAI计划斥资超过300亿美元建设新数据中心，并将云支出预期上调至7500亿美元。为什么值得追：这是目前公开最高的单家AI公司资本开支目标，直接验证算力需求是否持续超预期，对光模块、液冷、电力设备等产业链形成长期需求锚点。\\n\\n2. 微软与Mistral签署数十亿美元数据中心合作协议，加码欧洲AI布局。为什么值得追：欧洲数据中心供应链可能迎来增量，同时Mistral作为欧洲模型代表，其算力采购规模可作为判断非美国模型厂商追赶速度的指标。\\n\\n3. Anthropic将于2027年上半年开始购买多达2吉瓦的AMD最新一代芯片。为什么值得追：AMD在AI训练/推理芯片市场份额能否从个位数突破，直接关系到英伟达的竞争格局和供应链多元化逻辑。\\n\\n在Google首次负现金流和OpenAI大幅上调云支出之间，市场对AI基础设施的定价是否已经过度乐观？还是说这轮资本开支才刚刚开始？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI 300亿美元数据中心、微软Mistral数十亿合作、Anthropic 2吉瓦AMD芯片，AI算力资本开支加速，与Google负现金流形成对比。\",\"lastPulseQuestion\":\"在Google首次负现金流和OpenAI大幅上调云支出之间，市场对AI基础设施的定价是否已经过度乐观？还是说这轮资本开支才刚刚开始？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\"],\"lastActivityAt\":\"2026-07-24T00:13",
+        "updatedAt": "2026-07-24T00:13:04.075Z"
+      },
+      {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
         "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-03T11:28:39.694Z\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastActivityAt\":\"2026-07-03T14:44:21.378Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78266,6 +78271,11 @@
         "updatedAt": "2026-07-23T10:12:37.666Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-24T00:12:23.062Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n昨晚聊到算力军备和Optimus量产时间线，今天有几条新动态可以跟进验证：\\n\\n1. OpenAI将云支出预期上调至7500亿美元，同时二级市场兴趣回升，Anthropic仍是最热门标的。OpenAI靠Codex和模型口碑重新吸金，Anthropic则靠提前锁定AMD芯片产能。两家策略分化：一家押注应用生态，一家押注算力自主。这会影响云厂商资本开支的结构，也值得关注AMD在AI芯片的份额变化。\\n\\n2. 特斯拉Optimus生产线改造接近完工，财报配图首次展示了弗里蒙特工厂内的Optimus产线。首批机器人将用于Optimus学院，进行培训数据收集。量产时间线明确后，供应链审厂和订单节奏成为下一阶段焦点，重资产零部件供应商的PPA签署情况值得跟踪。\\n\\n3. SpaceX星舰第13次试飞取消后，超重助推器所有附加测试已完成，今天（7月23日）有发射窗口。如果成功，将恢复发射节奏，对星舰供应链和卫星部署进度有直接拉动。\\n\\n问题：算力军备竞赛中，OpenAI和Anthropic的差异化策略（OpenAI靠应用生态，Anthropic靠芯片锁定）对产业链的影响，哪个路径更可持续？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI上调云支出至7500亿，二级市场兴趣回升；Optimus生产线改造接近完工，首批用于学院；星舰今天有发射窗口。\",\"lastPulseQuestion\":\"算力军备竞赛中，OpenAI和Anthropic的差异化策略（OpenAI靠应用生态，Anthropic靠芯片锁定）对产业链的影响，哪个路径更可持续？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://c.m.163.com/news/a/L2IF426H05568",
+        "updatedAt": "2026-07-24T00:12:23.149Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78314,6 +78324,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23.noon",
         "value": "sent:2026-07-23T05:12:24.032Z",
         "updatedAt": "2026-07-23T05:12:24.126Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24.morning",
+        "value": "sent:2026-07-24T00:13:04.162Z",
+        "updatedAt": "2026-07-24T00:13:04.247Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -78526,6 +78541,11 @@
         "updatedAt": "2026-07-23T04:42:39.293Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-24.morning",
+        "value": "sent:2026-07-24T00:12:23.240Z",
+        "updatedAt": "2026-07-24T00:12:23.325Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78537,8 +78557,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-23T04:12:13.734Z",
-        "updatedAt": "2026-07-23T04:12:13.819Z"
+        "value": "2026-07-24T00:12:31.379Z",
+        "updatedAt": "2026-07-24T00:12:31.468Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78559,6 +78579,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-23",
         "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://www.ithome.com/0/979/823.htm\",\"https://www.ithome.com/0/979/795.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"GPT-6爆料或达AGI但未经证实；谷歌三款Gemini主打高性价比；开源追上闭源致API价格暴跌但算力吃紧\",\"lastQuestion\":\"在GPT-6可能带来能力跃升但算力成本未知、谷歌推出高性价比模型、以及开源模型导致API价格暴跌但算力吃紧的背景下，你近期在API选型时更看重模型能力、价格还是调用稳定性？有没有遇到因算力不足导致的限流情况？\",\"lastSentAt\":\"2026-07-23T04:12:13.376Z\"}",
         "updatedAt": "2026-07-23T04:12:13.465Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-24",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.ithome.com/0/979/795.htm\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"谷歌发布三款低成本Gemini模型；消息称OpenAI GPT-6测试文档曝光或达AGI水平；Kimi K3开源模型发布撼动闭源估值。\",\"lastQuestion\":\"谷歌新发布的Gemini 3.5 Flash Cyber主打低成本安全漏洞修复，而传闻中GPT-6展示了绕过安全扫描器的能力——在模型能力快速迭代的背景下，大家认为API提供商应如何平衡模型的安全性与开放性？\",\"lastSentAt\":\"2026-07-24T00:12:31.021Z\"}",
+        "updatedAt": "2026-07-24T00:12:31.110Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78604,6 +78629,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-23.noon",
         "value": "sent:2026-07-23T04:12:13.553Z",
         "updatedAt": "2026-07-23T04:12:13.646Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.morning",
+        "value": "sent:2026-07-24T00:12:31.201Z",
+        "updatedAt": "2026-07-24T00:12:31.289Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
