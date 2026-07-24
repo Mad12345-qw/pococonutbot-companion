@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-24T10:22:19.970Z",
+  "exportedAt": "2026-07-24T12:52:20.476Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78286,8 +78286,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-24T09:51:18.902Z\",\"lastHumanActivityAt\":\"2026-07-24T06:16:44.278Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-24T09:51:19.001Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-24T12:44:33.195Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-24T12:44:34.565Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78448,6 +78448,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-23.noon",
         "value": "sent:2026-07-23T05:12:24.032Z",
         "updatedAt": "2026-07-23T05:12:24.126Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24.evening",
+        "value": "sent:2026-07-24T12:42:40.317Z",
+        "updatedAt": "2026-07-24T12:42:40.424Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-24.morning",
@@ -78696,8 +78701,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-24T04:12:19.014Z",
-        "updatedAt": "2026-07-24T04:12:19.108Z"
+        "value": "2026-07-24T12:42:39.189Z",
+        "updatedAt": "2026-07-24T12:42:39.294Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78721,8 +78726,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-24",
-        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://www.ithome.com/0/979/795.htm\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"谷歌连发三款Gemini模型；消息称OpenAI GPT-6文档曝光或达AGI；开源与闭源性能差距缩至3.3%。\",\"lastQuestion\":\"传闻中GPT-6可能达到AGI水平，如果成真，大家认为这对当前开源模型生态和API定价会带来什么影响？\",\"lastSentAt\":\"2026-07-24T04:12:18.636Z\"}",
-        "updatedAt": "2026-07-24T04:12:18.728Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://www.ithome.com/0/979/795.htm\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260721A04LEQ00\"],\"lastDigest\":\"谷歌连发三款Gemini高性价比模型；传闻OpenAI GPT-6或达AGI；Kimi K3上线吃紧算力暂停会员。\",\"lastQuestion\":\"模型能力快速迭代但算力瓶颈凸显，大家目前主要依赖哪家模型API？是否因为成本或供应问题调整过调用策略？\",\"lastSentAt\":\"2026-07-24T12:42:37.986Z\"}",
+        "updatedAt": "2026-07-24T12:42:38.892Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78768,6 +78773,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-23.noon",
         "value": "sent:2026-07-23T04:12:13.553Z",
         "updatedAt": "2026-07-23T04:12:13.646Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.evening",
+        "value": "sent:2026-07-24T12:42:38.989Z",
+        "updatedAt": "2026-07-24T12:42:39.094Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.morning",
