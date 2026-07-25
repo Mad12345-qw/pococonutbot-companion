@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T10:42:19.974Z",
+  "exportedAt": "2026-07-25T14:02:26.980Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71815,6 +71815,25 @@
           "replyToUserId": "feishu:ou_768babe170127903728b5d6ab2fa72c8"
         },
         "createdAt": "2026-07-24T06:08:19.511Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_94f40cbf289205cffa3656980f71415c",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🤖 AI 快讯 | 我用AI开发iOS应用HabbitTed，花了一年时间\nhttps://www.alexhyett.com/videos/tried-building-app-with-ai-it-took-a-year",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.alexhyett.com/videos/tried-building-app-with-ai-it-took-a-year"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6978597cd4a0b218e6def5e3e80",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-25T14:00:31.012Z"
       }
     ],
     "memories": [
@@ -78291,8 +78310,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-25T10:13:37.883Z\",\"lastHumanActivityAt\":\"2026-07-25T09:14:19.205Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-25T10:13:37.990Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-25T10:13:37.883Z\",\"lastHumanActivityAt\":\"2026-07-25T14:00:29.636Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-25T14:00:31.379Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
