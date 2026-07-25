@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T00:42:19.673Z",
+  "exportedAt": "2026-07-25T03:42:20.381Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78291,8 +78291,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-25T00:12:47.775Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚群里刚刷完Opus 5和Fable 5的对比，模型侧热闹不减。但今天有一条更宏观的线索值得跟：OpenAI把云支出预期上调到7500亿美元，还要花300亿建数据中心。SpaceX也在考虑拓展数据中心，Anthropic计划2027年买2吉瓦的AMD芯片。这些不是单独的新闻，而是算力军备竞赛的新一轮信号，直接影响光模块、液冷、电力基建这几个产业链节点。\\n\\n机器人这边也有一条硬消息：特斯拉弗里蒙特工厂的原Model S/X产线已改造成Optimus生产线，从财报配图看接近完工。首批机器人将用于Optimus学院，量产时间点基本锁定年底。第三代已定型，供应链零件采购指引下发。现在关键不是产线本身，而是核心零部件（减速器、电机、传感器）的订单确认节奏和海外审厂进度。\\n\\n商业航天方面，SpaceX刚完成Starship第13次飞行测试，继续迭代V3版本。发射频率肉眼可见在加快，复用技术成熟度是判断后续成本曲线的重要变量。\\n\\n回到群里的讨论：如果模型能力迭代速度如此快，算力投入的资本回报率能否支撑如此高的capex？还是说大家默认这是基础设施的必须成本？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI云支出上调至7500亿美元，算力军备竞赛信号；Optimus产线接近完工，年底量产关键节点；Starship第13次飞行测试，发射频率加快。\",\"lastPulseQuestion\":\"在模型能力快速迭代的背景下，算力投入的资本回报率是否还能支撑如此高的capex？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://english.news.cn/20260725/c836667735774da7b48d2cd8a2335451/",
-        "updatedAt": "2026-07-25T00:12:47.865Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-25T03:34:35.096Z\",\"lastHumanActivityAt\":\"2026-07-25T03:33:34.840Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-25T03:34:35.182Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
