@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T09:22:22.271Z",
+  "exportedAt": "2026-07-25T10:22:20.070Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78291,8 +78291,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-25T09:14:19.205Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-25T09:14:21.464Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-25T10:13:37.883Z\",\"lastHumanActivityAt\":\"2026-07-25T09:14:19.205Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-25T10:13:37.990Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78406,8 +78406,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-25T04:42:31.438Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n承接群里早上聊到的算力军备，今天有几条新动态值得继续验证。\\n1. 第一条动态：OpenAI将云支出预期上调至7500亿美元，计划斥资超300亿美元建设新数据中心，同时微软与Mistral签下数十亿美元数据中心合作协议，SpaceX也在考虑德克萨斯州数据中心业务。这表明大规模算力基础设施投入仍在加速，直接影响云厂商、光模块、液冷等产业链环节。\\n2. 第二条动态：Anthropic将于2027上半年购买多达2吉瓦的AMD最新一代芯片，与OpenAI的OpenAI数据中心策略形成分化。一家押注应用生态，一家押注算力自主，AMD在AI芯片的份额变化值得持续跟踪。\\n3. 第三条动态：特斯拉Optimus生产线改造接近完工，财报配图首次展示弗里蒙特工厂的Optimus产线，预计很快开始生产，首批用于训练数据收集。这标志着Optimus进入制造导入阶段，供应链订单节奏和海外审厂情况是关键验证点。\\n最后一个具体投研追问：OpenAI和Anthropic在数据中心策略上的分化，对云厂商资本开支结构（如微软、AWS、谷歌）以及AMD vs NVIDIA的份额影响，有哪些先行指标可以提前验证（如芯片订单、数据中心开工率、二级市场估值变化）？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"多家海外科技巨头加码数据中心，OpenAI上调云支出至7500亿美元；Anthropic锁定AMD芯片；特斯拉Optimus产线接近完工。\",\"lastPulseQuestion\":\"OpenAI和Anthropic在数据中心策略上的分化，对云厂商资本开支结构和AMD vs NVIDIA份额的影响有哪些先行指标？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://c.m.163.com/news",
-        "updatedAt": "2026-07-25T04:42:31.525Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-25T10:12:26.153Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n下午聊到星舰发射和Optimus进展，今天收盘后有几条新线索值得继续验证。\\n\\n1. 星舰第13次试飞成功，搭载20颗最先进星链卫星。这是星舰3和超重火箭的升级版首飞，也是第13次整体飞行。值得追：星舰测试节奏明显加快，从12飞到13飞仅隔两个月，且首次部署星链载荷。如果这一模式跑通，星舰的商业化应用将从单纯测试转向在轨服务，影响卫星互联网、空间运输和太空算力产业。同时SpaceX正在考虑在德州拓展数据中心业务，算力延伸逻辑可以交叉验证。\\n\\n2. 特斯拉Optimus全新生产线在财报配图中首次曝光，弗里蒙特工厂原Model S/X产线已改造为Optimus产线，接近完工。特斯拉表示首批机器人将用于Optimus学院进行数据收集和功能开发，正式量产还得等。值得追：产线改造完成是量产前的重要里程碑，但“先用于学院”意味着距离真正规模交付还有一段路。需要持续跟踪供应链订单节奏和海外审厂情况，尤其是重资产零部件供应商的PPA签单进展。\\n\\n3. 多家海外科技巨头加码数据中心：OpenAI将云支出预期上调至7500亿美元，计划斥资超300亿美元建新数据中心；微软与Mistral签数十亿美元数据中心合作；Anthropic将于2027年上半年购买2吉瓦AMD芯片。值得追：算力军备竞赛继续，但7500亿是否包含重复计算？云厂商资本开支能否持续支撑？这直接影响光模块、液冷、IDC运营商的景气度。\\n\\n明天可以继续讨论：星舰13飞成功部署星链，是否意味着SpaceX在算力延伸（地面数据中心+星舰算力节点）上有了更现实的路径？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"星舰13飞成功部署星链，Optimus产线改造完成，数据中心军备再升级\",\"lastPulseQuestion\":\"星舰13飞成功部署星链，是否意味着SpaceX在算力延伸（地面数据中心+星舰算力节点）上有了更现实的路径？\",\"lastPulseSources\":[\"https://www",
+        "updatedAt": "2026-07-25T10:12:26.259Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78710,6 +78710,11 @@
         "updatedAt": "2026-07-24T04:12:26.396Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25.evening",
+        "value": "sent:2026-07-25T10:12:26.331Z",
+        "updatedAt": "2026-07-25T10:12:26.432Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25.morning",
         "value": "sent:2026-07-25T00:12:27.219Z",
         "updatedAt": "2026-07-25T00:12:27.303Z"
@@ -78823,6 +78828,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-24.noon",
         "value": "sent:2026-07-24T04:12:18.825Z",
         "updatedAt": "2026-07-24T04:12:18.918Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-25.evening",
+        "value": "reserved:1784974321881:ep9u0o1x",
+        "updatedAt": "2026-07-25T10:12:02.393Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-25.morning",
