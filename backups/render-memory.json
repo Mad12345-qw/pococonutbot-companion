@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T04:52:18.384Z",
+  "exportedAt": "2026-07-25T07:32:23.673Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78291,8 +78291,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-25T04:13:10.471Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接群里最近讨论的AI模型竞争、算力需求与Optimus进展，今天三条动态直指产业链核心变化：\\n\\n1. 多家海外科技巨头加码数据中心业务：OpenAI计划斥资300亿美元建设新数据中心，并将云支出预期上调至7500亿美元；SpaceX考虑在德州拓展数据中心；微软与Mistral签署数十亿美元数据中心合作；Anthropic将于2027年采购2吉瓦AMD芯片。\\n→ 为什么值得追：算力军备竞赛从 GPU 采购扩展到基础设施级投资，直接拉动光模块、液冷、电力设备需求。\\n→ 影响产业链：AI算力（数据中心、光模块、CPO、液冷）。\\n\\n2. OpenAI 重获二级市场投资者青睐，Anthropic 仍是最热门标的：过去一个月OpenAI投资兴趣显著回升，得益于新模型好评和Codex成功，但Anthropic仍为市场最受青睐公司。\\n→ 为什么值得追：二级市场估值变化反映头部AI公司的商业化进展和竞争格局，影响后续融资和供应链议价能力。\\n→ 影响产业链：AI模型开发、AI应用及云服务。\\n\\n3. 特斯拉公布 Optimus 全新生产线：Optimus 在弗里蒙特工厂利用原Model S/X产线改造完成，预计很快开始生产，首批用于Optimus学院收集训练数据。\\n→ 为什么值得追：Optimus 正式进入制造导入阶段，量产节奏加速，带动人形机器人供应链（电机、减速器、传感器）订单落地。\\n→ 影响产业链：人形机器人（Optimus 供应链）。\\n\\n最后一个具体投研追问：在数据中心资本开支高企（OpenAI 7500亿美元预期）与Optimus量产导入的双重背景下，哪类零部件供应商（如定制芯片、液冷系统、机器人关节模组）的订单确定性最强，且估值尚未充分反映？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"AI数据中心资本开支飙升（OpenAI等巨头加码），Optimus生产线落成，模型竞争格局生变，产业链机会聚焦算力基建与人形机器人供应链。\",\"lastP",
-        "updatedAt": "2026-07-25T04:13:10.562Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-25T07:23:38.066Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-25T07:23:39.668Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
