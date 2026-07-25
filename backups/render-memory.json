@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T00:22:18.771Z",
+  "exportedAt": "2026-07-25T00:42:19.673Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78406,8 +78406,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-25T00:12:27.048Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚聊到算力军备和Optimus量产时间线，以及SpaceX算力延伸的可能性，今天有几条新动态可以继续验证。\\n\\n1. OpenAI将云支出预期上调至7500亿美元，计划斥资超过300亿美元建设新数据中心，同时二级市场兴趣回升。Anthropic仍是热门，但策略不同：Anthropic提前锁定AMD芯片产能（2027年采购2吉瓦）。两家分化——一家押注应用生态和规模，一家押注算力自主。这会影响云厂商资本开支结构和AMD份额变化，值得持续跟踪。\\n\\n2. 特斯拉Optimus生产线改造接近完工。财报配图首次展示了弗里蒙特工厂的原Model S/X产线改造后的Optimus生产线，预计很快开始生产，首批用于Optimus学院进行数据收集。这与之前确认的年底量产时间线一致，供应链订单和海外审厂进度是后续焦点。\\n\\n3. SpaceX星舰第13次飞行测试今天成功发射，继续测试升级版星舰3和超重助推器。同时SpaceX本身也在考虑拓展德克萨斯州数据中心业务，与五角大楼算力合作的传闻进一步增加了商业航天公司横向延伸算力供应的可能性。\\n\\n问题：在算力军备持续加码和Optimus量产临近的背景下，SpaceX横向拓展算力业务是否会对现有云厂商格局产生实质影响？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"OpenAI上调云支出至7500亿美元，Optimus生产线近完工，星舰第13次发射成功，SpaceX算力延伸值得关注。\",\"lastPulseQuestion\":\"在算力军备持续加码和Optimus量产临近的背景下，SpaceX横向拓展算力业务是否会对现有云厂商格局产生实质影响？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://",
-        "updatedAt": "2026-07-25T00:12:27.133Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-25T00:33:33.535Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-25T00:33:33.962Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
