@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T00:22:19.881Z",
+  "exportedAt": "2026-07-26T00:52:20.280Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78765,8 +78765,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-25T10:41:57.127Z",
-        "updatedAt": "2026-07-25T10:41:57.923Z"
+        "value": "2026-07-26T00:42:16.081Z",
+        "updatedAt": "2026-07-26T00:42:16.167Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78797,6 +78797,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-25",
         "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260721A04LEQ00\"],\"lastDigest\":\"谷歌发布三款低成本Gemini模型；OpenAI GPT-6测试文档曝光，消息称达AGI水平但未证实；Kimi K3上线后算力吃紧暂停会员开通。\",\"lastQuestion\":\"谷歌新发布的低成本Flash模型和Kimi K3的算力吃紧，是否让你在API选型时更倾向于性价比优先而非追求最强性能？你目前如何平衡调用成本与稳定性？\",\"lastSentAt\":\"2026-07-25T04:12:15.682Z\"}",
         "updatedAt": "2026-07-25T04:12:15.771Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-26",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://www.ithome.com/0/979/823.htm\",\"https://www.thepaper.cn/newsDetail_forward_33636398\"],\"lastDigest\":\"谷歌连发三款Gemini Flash模型主打性价比；GPT-6测试文档曝光但未证实；开源模型性能逼近闭源，Kimi K3引发估值震动。\",\"lastQuestion\":\"开源模型性能逼近闭源，API价格持续下降，大家现在更倾向于用开源还是闭源模型？在什么场景下你会坚持用闭源？\",\"lastSentAt\":\"2026-07-26T00:42:15.720Z\"}",
+        "updatedAt": "2026-07-26T00:42:15.806Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78872,6 +78877,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-25.noon",
         "value": "sent:2026-07-25T04:12:15.857Z",
         "updatedAt": "2026-07-25T04:12:15.945Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-26.morning",
+        "value": "sent:2026-07-26T00:42:15.902Z",
+        "updatedAt": "2026-07-26T00:42:15.987Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
