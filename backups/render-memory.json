@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-25T14:02:26.980Z",
+  "exportedAt": "2026-07-26T00:22:19.881Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78429,6 +78429,11 @@
         "updatedAt": "2026-07-25T10:12:26.259Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-26T00:12:21.026Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间\\n下午聊到星舰第13次试飞和Optimus生产线进展，今天收盘后有几条新线索可以继续验证。\\n1. 星舰第13次试飞成功，首次部署20颗新一代星链卫星。这是星舰3和超重火箭升级版首飞，测试间隔缩短到两个月，且从单纯测试转向在轨服务验证。如果这一模式跑通，直接影响卫星互联网组网速度、空间运输成本，以及SpaceX算力延伸的底层逻辑。\\n2. 特斯拉Optimus生产线改造接近完工，财报配图首次展示弗里蒙特工厂产线。首批机器人将用于Optimus学院进行数据收集和功能开发，正式量产仍需等待。但产线落地意味着供应链订单节奏和海外审厂进度成为下一阶段跟踪重点。\\n3. 多家海外科技巨头加码数据中心业务：OpenAI将云支出预期上调至7500亿美元，计划斥资超300亿美元建新数据中心；微软与Mistral签下数十亿美元数据中心协议；SpaceX也在考虑德州数据中心业务。算力基础设施投入仍在加速，直接影响云厂商资本开支结构、光模块和液冷产业链。\\n问题：星舰首次部署星链载荷，如果这一模式跑通，对卫星互联网组网速度和太空算力产业逻辑会有什么影响？SpaceX数据中心业务与星舰的协同是否值得提前布局？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰首次部署星链载荷，Optimus产线接近完工，数据中心资本开支持续加码\",\"lastPulseQuestion\":\"星舰首次部署星链载荷，如果这一模式跑通，对卫星互联网组网速度和太空算力产业逻辑会有什么影响？SpaceX数据中心业务与星舰的协同是否值得提前布局？\",\"lastPulseSources\":[\"https://sxdsb.voc.com.cn/mobile/content/33267075\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\"],\"last",
+        "updatedAt": "2026-07-26T00:12:21.115Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78742,6 +78747,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25.noon",
         "value": "sent:2026-07-25T04:42:31.610Z",
         "updatedAt": "2026-07-25T04:42:31.697Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.morning",
+        "value": "sent:2026-07-26T00:12:21.211Z",
+        "updatedAt": "2026-07-26T00:12:21.300Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
