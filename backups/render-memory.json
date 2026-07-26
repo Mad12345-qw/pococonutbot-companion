@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T15:22:21.678Z",
+  "exportedAt": "2026-07-26T15:32:21.170Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71863,6 +71863,48 @@
           "replyToUserId": "5047737209"
         },
         "createdAt": "2026-07-26T15:18:57.868Z"
+      },
+      {
+        "chatId": "feishu:oc_0d2244701a484715c66edaafca3cacfb",
+        "userId": "feishu:ou_9d4c431c00ee2d000c820f8737b875e7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 【醒觉社内部分享材料】飞书 AI 绝活大会 6 位嘉宾关键洞察\nhttps://my.feishu.cn/wiki/WRLJwWYlFi52mvke8JrcjkFcnOd\nfeishu-wiki:WRLJwWYlFi52mvke8JrcjkFcnOd",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://my.feishu.cn/wiki/WRLJwWYlFi52mvke8JrcjkFcnOd"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6956240114a0b3fcc80f1ff9c56",
+          "wikiTokens": [
+            "WRLJwWYlFi52mvke8JrcjkFcnOd"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-26T15:24:31.818Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9d4c431c00ee2d000c820f8737b875e7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 【醒觉社内部分享材料】飞书 AI 绝活大会 6 位嘉宾关键洞察\nhttps://my.feishu.cn/wiki/WRLJwWYlFi52mvke8JrcjkFcnOd\nfeishu-wiki:WRLJwWYlFi52mvke8JrcjkFcnOd",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://my.feishu.cn/wiki/WRLJwWYlFi52mvke8JrcjkFcnOd"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69562126e8a4b1c510a250d318f",
+          "wikiTokens": [
+            "WRLJwWYlFi52mvke8JrcjkFcnOd"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-26T15:25:55.961Z"
       }
     ],
     "memories": [
@@ -78344,8 +78386,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-26",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-26T10:08:02.129Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-26T10:08:02.221Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-26T10:08:02.129Z\",\"lastHumanActivityAt\":\"2026-07-26T15:24:31.023Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-26T15:24:32.173Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
