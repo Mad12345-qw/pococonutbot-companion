@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T10:22:23.083Z",
+  "exportedAt": "2026-07-26T10:52:58.284Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78435,8 +78435,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-26T04:12:27.723Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接昨晚群里聊到的算力军备话题，今天几条新动态值得继续验证。\\n\\n1. 二级市场信号：OpenAI正重获投资者青睐，而Anthropic仍是热门标的。OpenAI靠Codex和模型口碑重新吸金，Anthropic则提前锁定AMD芯片产能（2027年采购2吉瓦）。两家策略分化：一家押注应用生态和规模，一家押注算力自主。这会影响云厂商资本开支结构和AMD份额变化，值得持续跟踪。\\n\\n2. SpaceX也在考虑德克萨斯州拓展数据中心业务，与OpenAI、微软等巨头形成算力基础设施竞争。如果SpaceX将星舰发射能力与算力延伸结合，可能改变政府对云服务的采购格局。\\n\\n问题：OpenAI押注应用生态 vs Anthropic押注算力自主，哪种策略更可能在未来12个月获得更高回报？对AMD芯片订单和云厂商资本开支结构有何影响？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"OpenAI二级市场兴趣回升，Anthropic锁定AMD芯片，两大模型厂算力策略分化，SpaceX也在布局数据中心。\",\"lastPulseQuestion\":\"OpenAI押注应用生态 vs Anthropic押注算力自主，哪种策略更可能在未来12个月获得更高回报？对AMD芯片订单和云厂商资本开支结构有何影响？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\"],\"lastActivityAt\":\"2026-07-26T04:12:27.723Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-26T04:12:27.809Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-26T10:42:50.507Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里今天讨论的算力军备和机器人量产话题，今晚有几条新动态值得继续验证。\\n\\n1. 第一条动态：多家海外科技巨头加码数据中心业务，OpenAI计划投资超300亿美元建设新数据中心，并将云支出预期上调至7500亿美元；微软与Mistral签署数十亿美元数据中心合作协议；SpaceX也考虑在德州拓展数据中心。值得追：大规模算力基础设施投入仍在加速，直接影响云厂商、光模块、液冷等产业链环节，需验证是否出现订单前置或产能瓶颈。\\n\\n2. 第二条动态：特斯拉Optimus全新生产线在弗里蒙特工厂改造接近完工，财报配图首次展示产线。首批机器人将用于Optimus学院进行数据收集和功能开发，正式量产仍需等待。值得追：人形机器人进入制造导入阶段，T链（特斯拉供应链）应重点关注订单节奏和海外审厂进度，产业链近岸化布局可能加速。\\n\\n3. 第三条动态：Anthropic将于2027年上半年购买多达2吉瓦的AMD最新一代芯片，与OpenAI押注应用生态形成对比。值得追：两家模型厂算力策略分化，Anthropic的算力自主路线能否打破英伟达垄断？对AMD芯片订单和云厂商资本开支结构有何影响？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"noon\",\"evening\"],\"lastPulseDigest\":\"OpenAI/微软/Anthropic/SpaceX齐加码数据中心，Optimus产线接近完工，Anthropic锁定AMD芯片\",\"lastPulseQuestion\":\"如果OpenAI押注应用生态、Anthropic押注算力自主，未来12个月哪种策略更可能获得更高回报？对AMD芯片订单和云厂商资本开支结构有何具体影响？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://c.m.163",
+        "updatedAt": "2026-07-26T10:42:50.591Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78752,6 +78752,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-25.noon",
         "value": "sent:2026-07-25T04:42:31.610Z",
         "updatedAt": "2026-07-25T04:42:31.697Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.evening",
+        "value": "sent:2026-07-26T10:42:50.684Z",
+        "updatedAt": "2026-07-26T10:42:50.767Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.morning",
