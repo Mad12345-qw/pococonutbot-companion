@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T00:52:20.280Z",
+  "exportedAt": "2026-07-26T04:22:20.178Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78430,8 +78430,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-26T00:12:21.026Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间\\n下午聊到星舰第13次试飞和Optimus生产线进展，今天收盘后有几条新线索可以继续验证。\\n1. 星舰第13次试飞成功，首次部署20颗新一代星链卫星。这是星舰3和超重火箭升级版首飞，测试间隔缩短到两个月，且从单纯测试转向在轨服务验证。如果这一模式跑通，直接影响卫星互联网组网速度、空间运输成本，以及SpaceX算力延伸的底层逻辑。\\n2. 特斯拉Optimus生产线改造接近完工，财报配图首次展示弗里蒙特工厂产线。首批机器人将用于Optimus学院进行数据收集和功能开发，正式量产仍需等待。但产线落地意味着供应链订单节奏和海外审厂进度成为下一阶段跟踪重点。\\n3. 多家海外科技巨头加码数据中心业务：OpenAI将云支出预期上调至7500亿美元，计划斥资超300亿美元建新数据中心；微软与Mistral签下数十亿美元数据中心协议；SpaceX也在考虑德州数据中心业务。算力基础设施投入仍在加速，直接影响云厂商资本开支结构、光模块和液冷产业链。\\n问题：星舰首次部署星链载荷，如果这一模式跑通，对卫星互联网组网速度和太空算力产业逻辑会有什么影响？SpaceX数据中心业务与星舰的协同是否值得提前布局？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"星舰首次部署星链载荷，Optimus产线接近完工，数据中心资本开支持续加码\",\"lastPulseQuestion\":\"星舰首次部署星链载荷，如果这一模式跑通，对卫星互联网组网速度和太空算力产业逻辑会有什么影响？SpaceX数据中心业务与星舰的协同是否值得提前布局？\",\"lastPulseSources\":[\"https://sxdsb.voc.com.cn/mobile/content/33267075\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\"],\"last",
-        "updatedAt": "2026-07-26T00:12:21.115Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-26T04:12:27.723Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n承接昨晚群里聊到的算力军备话题，今天几条新动态值得继续验证。\\n\\n1. 二级市场信号：OpenAI正重获投资者青睐，而Anthropic仍是热门标的。OpenAI靠Codex和模型口碑重新吸金，Anthropic则提前锁定AMD芯片产能（2027年采购2吉瓦）。两家策略分化：一家押注应用生态和规模，一家押注算力自主。这会影响云厂商资本开支结构和AMD份额变化，值得持续跟踪。\\n\\n2. SpaceX也在考虑德克萨斯州拓展数据中心业务，与OpenAI、微软等巨头形成算力基础设施竞争。如果SpaceX将星舰发射能力与算力延伸结合，可能改变政府对云服务的采购格局。\\n\\n问题：OpenAI押注应用生态 vs Anthropic押注算力自主，哪种策略更可能在未来12个月获得更高回报？对AMD芯片订单和云厂商资本开支结构有何影响？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"OpenAI二级市场兴趣回升，Anthropic锁定AMD芯片，两大模型厂算力策略分化，SpaceX也在布局数据中心。\",\"lastPulseQuestion\":\"OpenAI押注应用生态 vs Anthropic押注算力自主，哪种策略更可能在未来12个月获得更高回报？对AMD芯片订单和云厂商资本开支结构有何影响？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://www.ithome.com/0/979/213.htm\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\"],\"lastActivityAt\":\"2026-07-26T04:12:27.723Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-26T04:12:27.809Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78754,6 +78754,11 @@
         "updatedAt": "2026-07-26T00:12:21.300Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.noon",
+        "value": "sent:2026-07-26T04:12:28.565Z",
+        "updatedAt": "2026-07-26T04:12:28.651Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78765,8 +78770,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-26T00:42:16.081Z",
-        "updatedAt": "2026-07-26T00:42:16.167Z"
+        "value": "2026-07-26T04:12:32.662Z",
+        "updatedAt": "2026-07-26T04:12:32.749Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78800,8 +78805,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-26",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://www.ithome.com/0/979/823.htm\",\"https://www.thepaper.cn/newsDetail_forward_33636398\"],\"lastDigest\":\"谷歌连发三款Gemini Flash模型主打性价比；GPT-6测试文档曝光但未证实；开源模型性能逼近闭源，Kimi K3引发估值震动。\",\"lastQuestion\":\"开源模型性能逼近闭源，API价格持续下降，大家现在更倾向于用开源还是闭源模型？在什么场景下你会坚持用闭源？\",\"lastSentAt\":\"2026-07-26T00:42:15.720Z\"}",
-        "updatedAt": "2026-07-26T00:42:15.806Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://www.ithome.com/0/979/823.htm\",\"https://www.thepaper.cn/newsDetail_forward_33636398\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A03S4S00\"],\"lastDigest\":\"谷歌连发三款Gemini Flash模型主打性价比；Kimi K3发布后开源闭源性能差距缩至3.3%，API价格持续下降；GPT-6测试文档曝光但未经证实，或达AGI水平。\",\"lastQuestion\":\"在API价格持续下行的趋势下，大家更倾向于用低成本开源模型满足日常需求，还是愿意为潜在的高性能闭源模型（如GPT-6）预留预算？\",\"lastSentAt\":\"2026-07-26T04:12:31.802Z\"}",
+        "updatedAt": "2026-07-26T04:12:32.294Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78882,6 +78887,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-26.morning",
         "value": "sent:2026-07-26T00:42:15.902Z",
         "updatedAt": "2026-07-26T00:42:15.987Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-26.noon",
+        "value": "sent:2026-07-26T04:12:32.480Z",
+        "updatedAt": "2026-07-26T04:12:32.566Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
