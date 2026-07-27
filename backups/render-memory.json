@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-26T18:22:18.670Z",
+  "exportedAt": "2026-07-27T00:22:19.776Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78515,6 +78515,11 @@
         "updatedAt": "2026-07-26T10:42:50.591Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-27",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T00:12:34.764Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里最近讨论的算力军备和机器人量产话题，今天有三条新动态值得继续验证。\\n\\n1. 第一条动态：多家海外科技巨头加码数据中心业务，OpenAI计划投资超300亿美元建设新数据中心，并将云支出预期上调至7500亿美元；微软与Mistral签署数十亿美元数据中心合作协议；SpaceX考虑在德州拓展数据中心；Anthropic将于2027年采购2吉瓦AMD芯片。值得追：算力基础设施投入仍在加速，直接影响云厂商、光模块、液冷等产业链环节，需验证是否出现订单前置或产能瓶颈。\\n\\n2. 第二条动态：特斯拉公布Optimus全新生产线，弗里蒙特工厂原Model S/X产线改造接近完工，首批机器人将用于Optimus学院进行培训数据收集和功能开发。值得追：人形机器人从研发进入制造导入阶段，近岸化供应链配套推进，重资产零部件供应商PPA已签，需关注订单节奏和海外审厂情况。\\n\\n3. 第三条动态：OpenAI与Nvidia、微软、Meta联合签署公开信，警告过早限制开源AI模型的风险；同时白宫指责中国窃取Anthropic技术。值得追：开源与闭源路线博弈加剧，可能影响全球AI监管政策走向，以及中美科技竞争格局。\\n\\n投研追问：如果算力军备和机器人量产同时加速，哪些细分环节（如液冷、精密减速器、AI芯片）可能最先出现产能瓶颈或订单超预期？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"算力军备：OpenAI/微软/SpaceX/Anthropic加码数据中心；机器人：特斯拉Optimus产线接近完工；监管：OpenAI等联合警告过早限制开源模型。\",\"lastPulseQuestion\":\"如果算力军备和机器人量产同时加速，哪些细分环节（如液冷、精密减速器、AI芯片）可能最先出现产能瓶颈或订单超预期？\",\"lastPulseSources\":[\"https://finance.eastmoney.com/a/202607223817615593.html\",\"ht",
+        "updatedAt": "2026-07-27T00:12:34.851Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78843,6 +78848,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.noon",
         "value": "sent:2026-07-26T04:12:28.565Z",
         "updatedAt": "2026-07-26T04:12:28.651Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-27.morning",
+        "value": "sent:2026-07-27T00:12:34.938Z",
+        "updatedAt": "2026-07-27T00:12:35.024Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
