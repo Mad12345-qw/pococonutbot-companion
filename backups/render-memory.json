@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T12:32:20.680Z",
+  "exportedAt": "2026-07-27T13:22:20.373Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78427,8 +78427,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-27T12:23:26.166Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-27T12:23:26.256Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T13:12:40.190Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n承接群里最近讨论的AI安全、数据中心与机器人进展，以及奥特曼“奇点”言论，今天有三条新动态值得追踪：\\n\\n1. 多家海外科技巨头加码数据中心业务：OpenAI计划斥资超300亿美元建设新数据中心，并将云支出预期上调至7500亿美元；SpaceX考虑在德克萨斯州拓展数据中心业务；微软与Mistral签署数十亿美元数据中心合作协议；Anthropic将于2027年上半年购买多达2吉瓦的AMD最新一代芯片。\\n   - 为什么值得追：这标志着AI基础设施投资进入新一轮军备竞赛，OpenAI和SpaceX跨界数据中心，可能改变算力供应链格局，直接影响光模块、液冷、电力等产业链环节。\\n   - 影响产业链：AI算力、数据中心、光模块、液冷、电力基础设施。\\n\\n2. OpenAI推出企业级智能体产品Presence：将模型、权限、护栏、评测打包为生产级方案，标志其向企业软件服务商转型。\\n   - 为什么值得追：这是OpenAI从API提供商向企业级AI平台跃迁的关键一步，可能加剧与微软、Salesforce等企业的竞争，同时带动智能体编排、安全合规等细分领域需求。\\n   - 影响产业链：企业AI软件、智能体、AI安全、SaaS。\\n\\n3. 特斯拉公布Optimus全新生产线：在弗里蒙特工厂将原Model S/X产线改造为Optimus人形机器人生产线，接近完工，首批用于Optimus学院进行培训数据收集。\\n   - 为什么值得追：特斯拉加速机器人量产，从实验室走向批产，验证供应链成熟度，可能带动伺服电机、减速器、传感器等零部件需求爆发。\\n   - 影响产业链：人形机器人、精密制造、传感器、电机。\\n\\n最后一个具体投研追问：在OpenAI、SpaceX、微软、Anthropic纷纷加码数据中心投资的背景下，谁最可能成为算力基础设施的“军火商”？AMD的芯片订单能否撼动英伟达的垄断地位？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"数据中心投资军备",
+        "updatedAt": "2026-07-27T13:12:40.499Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78629,6 +78629,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25.noon",
         "value": "sent:2026-07-25T04:13:10.648Z",
         "updatedAt": "2026-07-25T04:13:10.740Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27.evening",
+        "value": "sent:2026-07-27T13:12:40.590Z",
+        "updatedAt": "2026-07-27T13:12:40.676Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27.morning",
