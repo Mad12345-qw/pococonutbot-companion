@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T00:22:19.776Z",
+  "exportedAt": "2026-07-27T00:52:18.269Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78391,8 +78391,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"\",\"lastHumanActivityAt\":\"2026-07-26T18:18:19.871Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-26T18:18:21.001Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T00:42:23.324Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间版\\n\\n昨晚群里在聊AI实际体验与基准的严重脱节，以及开源与封闭的路线之争。今天刚好有两组数据能接上这个话题：第一，OpenAI把云支出预期上调到7500亿美元，单独砸300亿美元建数据中心，还联合微软、Nvidia、Meta签了公开信警告不要过早限制开源模型权重。这波操作很有意思——一边砸钱锁算力供给，一边在政策上为开源留空间，说明巨头们对AI长尾应用场景的算力争夺已经进入军备竞赛阶段。第二，Anthropic计划2027年上半年买下2吉瓦的AMD最新芯片，这不是小数目，相当于直接跟Nvidia在训练/推理芯片上拉开对冲。这两条线放在一起，核心问题是：算力资源到底是会继续向少数巨头集中，还是靠开源模型和更便宜的芯片走向分散化？\\n\\n再看机器人方向，特斯拉Q2财报里首次公开了Optimus全新生产线，弗里蒙特工厂把Model S/X产线改造成人形机器人产线，预计今年晚些时候投产。V3版本设计冻结，目标年产百万台、成本2万美元。与此同时，特斯拉明确要用和FSD一样的端到端策略，通过员工示范和实机试错采集数据。这意味着机器人供应链的竞争焦点正在从“谁能做出硬件”转向“谁的训练数据闭环和端侧算力更强”。T链的重资产零部件供应商已经签了PPA，下一阶段要盯的就是订单节奏和海外审厂进度。\\n\\n商业航天这边，SpaceX星舰完成第13次试飞，首次部署了20颗新一代星链卫星。星舰作为发射平台正式进入商用部署阶段，对卫星互联网的组网节奏和成本结构都有直接影响。另外SpaceX还在考虑在德州拓展数据中心业务，这条线可以和AI算力需求形成交叉验证。\\n\\n最后抛个问题：当OpenAI把云支出预期从千亿级拉到7500亿美元，而星舰又开始批量部署星链，你们觉得“算力+卫星”的组合会不会成为新基建的标配？还是说这只是一个阶段性的资本故事？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI数据中心军备竞赛加码，特斯拉Optimus量产在即，星舰成功部署新一代星链卫星\",\"lastPu",
+        "updatedAt": "2026-07-27T00:42:23.415Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78593,6 +78593,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-25.noon",
         "value": "sent:2026-07-25T04:13:10.648Z",
         "updatedAt": "2026-07-25T04:13:10.740Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27.morning",
+        "value": "sent:2026-07-27T00:42:23.499Z",
+        "updatedAt": "2026-07-27T00:42:23.590Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -78866,8 +78871,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-26T14:18:10.466Z",
-        "updatedAt": "2026-07-26T14:18:11.256Z"
+        "value": "2026-07-27T00:42:31.090Z",
+        "updatedAt": "2026-07-27T00:42:31.180Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78903,6 +78908,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-26",
         "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://www.cnet.com/tech/services-and-software/google-releases-three-new-gemini-models-3-5-pro-still-not-available/\",\"https://www.ithome.com/0/979/823.htm\",\"https://www.thepaper.cn/newsDetail_forward_33636398\",\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\",\"https://news.qq.com/rain/a/20260721A04LEQ00\"],\"lastDigest\":\"GPT-6文档曝光称或达AGI水平但算力成本高；谷歌连发三款低价Flash模型；Kimi K3上线后算力吃紧暂停会员开通。\",\"lastQuestion\":\"在GPT-6传闻可能带来更高性能但更高成本、谷歌推出低价Flash模型、以及Kimi K3因算力吃紧暂停服务的背景下，大家认为未来API定价会更倾向于“高性能高溢价”还是“低成本普惠”？你会如何调整自己的模型选择策略？\",\"lastSentAt\":\"2026-07-26T10:12:31.770Z\"}",
         "updatedAt": "2026-07-26T10:12:32.729Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-27",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"谷歌发布三款Gemini模型主打性价比；消息称OpenAI GPT-6测试文档曝光或达AGI水平；Kimi K3发布，开源模型性能逼近闭源。\",\"lastQuestion\":\"GPT-6传闻若成真，你认为OpenAI会如何定价其API？开源模型性能差距缩至3.3%后，你会优先选择开源还是闭源模型？\",\"lastSentAt\":\"2026-07-27T00:42:30.740Z\"}",
+        "updatedAt": "2026-07-27T00:42:30.831Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -78993,6 +79003,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-26.noon",
         "value": "sent:2026-07-26T04:12:32.480Z",
         "updatedAt": "2026-07-26T04:12:32.566Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-27.morning",
+        "value": "sent:2026-07-27T00:42:30.915Z",
+        "updatedAt": "2026-07-27T00:42:31.005Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
