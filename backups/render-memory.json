@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T10:22:19.378Z",
+  "exportedAt": "2026-07-27T11:52:21.575Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78552,8 +78552,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-27",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T04:12:31.466Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里早上聊到算力军备和机器人量产，午间再聚焦一条需要持续验证的产业链变化：超大规模数据中心资本开支是否正在超预期加速。\\n\\n几件事叠在一起看：OpenAI 计划投入超过 300 亿美元新建数据中心，并将云支出预期上调至 7500 亿美元；微软与 Mistral 签下数十亿美元数据中心合作协议；SpaceX 也在考虑德克萨斯州拓展数据中心业务。另一边，Anthropic 宣布 2027 年上半年采购多达 2 吉瓦的 AMD 最新一代芯片。\\n\\n这不是各家的独立动作，而是共同指向算力基础设施的军备竞赛从“模型公司租云”升级为“自建+定制芯片”的混合模式。如果 7500 亿云支出是真实指引，意味着传统云厂商的资本开支预期也会跟随上调，光模块、液冷、电网等供应链环节会提前出现订单前置。\\n\\n值得追问：OpenAI 的 7500 亿云支出预期，能否通过传统云厂商（AWS、Azure、GCP）的资本开支指引得到交叉验证？如果验证为真，A 股光模块和液冷环节的估值锚点是否会切换？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"验证数据中心资本开支是否超预期加速：OpenAI 300亿美元+7500亿云支出，微软与Mistral数十亿美元合作，SpaceX、Anthropic同步加码，算力军备升级至自建+定制芯片模式。\",\"lastPulseQuestion\":\"OpenAI 上调云支出至 7500 亿美元，是否意味着传统云厂商（AWS、Azure、GCP）的资本开支指引也会跟随上调？这会如何影响光模块和液冷赛道的估值锚点？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://finance.eastmoney.com/a/202607223817615593.html\",\"https://news.qq.com/rain/a/20260727A0461",
-        "updatedAt": "2026-07-27T04:12:31.554Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T11:42:24.697Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达的播报，内容涉及算力军备、数据中心资本开支、机器人量产、星舰试飞等。最近一条是\\\"小椰产业雷达｜午间线索更新\\\"（2026-07-27T04:12:30.317Z），内容提到OpenAI、微软、SpaceX数据中心、Anthropic采购AMD芯片等。再之前是早间、晚间等。所以群里最近讨论的话题是算力军备和机器人量产。\\n\\n现在看newsCandidates：有AI相关的多条，包括数据中心加码、OpenAI云支出上调、Anthropic采购AMD、微软与Mistral合作、SpaceX数据中心等。还有机器人相关的：特斯拉Optimus自主充电、生产线改造、V3设计冻结、供应链研报等。商业航天相关的：星舰第13次试飞部署20颗星链卫星。\\n\\n我们需要选择三条以内动态。注意要求：第一段先承接群里最近讨论或知识库旧问题。群里最近讨论的是算力军备和机器人量产，所以第一段应该承接这个。然后自然引出产业动态。\\n\\n我们可以选择：1. 数据中心资本开支继续超预期（OpenAI 7500亿美元、微软Mistral、SpaceX数据中心、Anthropic AMD）。2. 特斯拉Optimus生产线接近完工，V3设计冻结，量产在即。3. 星舰第13次试飞成功，首次部署星链卫星，测试节奏加快。\\n\\n但注意：不能堆砌，要每条说明发生了什么、为什么值得追、可能影响哪条产业链。最后给一个能延续上次讨论的具体问题。\\n\\n注意：不能使用Markdown，所以输出纯文本。JSON格式。\\n\\n结构：标题：小椰产业雷达｜晚间研究追问（因为slot是evening）\\n\\n第一段：承接群里最近讨论的算力军备和机器人量产话题，今天有几条新动态值得继续验证。\\n\\n然后三条动态，每条用自然语言描述。\\n\\n最后问题。\\n\\n注意：不能使用粗体符号，所以不要用**。可以用短句、冒号、编号。\\n\\n输出JSON对象，包含text, digest, question, sources。sources最多5个，从newsCandidates中提取URL。\\n\\n我们选择以下来源：\\n- 数据中心：https:",
+        "updatedAt": "2026-07-27T11:42:25.014Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78889,6 +78889,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-26.noon",
         "value": "sent:2026-07-26T04:12:28.565Z",
         "updatedAt": "2026-07-26T04:12:28.651Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-27.evening",
+        "value": "sent:2026-07-27T11:42:25.103Z",
+        "updatedAt": "2026-07-27T11:42:25.195Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-27.morning",
