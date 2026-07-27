@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T03:02:20.669Z",
+  "exportedAt": "2026-07-27T03:22:21.773Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71923,6 +71923,24 @@
           "imageContext": ""
         },
         "createdAt": "2026-07-27T02:52:44.100Z"
+      },
+      {
+        "chatId": "-5298963948",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "image",
+        "content": "请看这张图片并自然回应。",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-07-27T03:13:21.853Z"
       }
     ],
     "memories": [
