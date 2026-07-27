@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T00:52:18.269Z",
+  "exportedAt": "2026-07-27T01:32:19.789Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78391,8 +78391,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-27",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-27T00:42:23.324Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间版\\n\\n昨晚群里在聊AI实际体验与基准的严重脱节，以及开源与封闭的路线之争。今天刚好有两组数据能接上这个话题：第一，OpenAI把云支出预期上调到7500亿美元，单独砸300亿美元建数据中心，还联合微软、Nvidia、Meta签了公开信警告不要过早限制开源模型权重。这波操作很有意思——一边砸钱锁算力供给，一边在政策上为开源留空间，说明巨头们对AI长尾应用场景的算力争夺已经进入军备竞赛阶段。第二，Anthropic计划2027年上半年买下2吉瓦的AMD最新芯片，这不是小数目，相当于直接跟Nvidia在训练/推理芯片上拉开对冲。这两条线放在一起，核心问题是：算力资源到底是会继续向少数巨头集中，还是靠开源模型和更便宜的芯片走向分散化？\\n\\n再看机器人方向，特斯拉Q2财报里首次公开了Optimus全新生产线，弗里蒙特工厂把Model S/X产线改造成人形机器人产线，预计今年晚些时候投产。V3版本设计冻结，目标年产百万台、成本2万美元。与此同时，特斯拉明确要用和FSD一样的端到端策略，通过员工示范和实机试错采集数据。这意味着机器人供应链的竞争焦点正在从“谁能做出硬件”转向“谁的训练数据闭环和端侧算力更强”。T链的重资产零部件供应商已经签了PPA，下一阶段要盯的就是订单节奏和海外审厂进度。\\n\\n商业航天这边，SpaceX星舰完成第13次试飞，首次部署了20颗新一代星链卫星。星舰作为发射平台正式进入商用部署阶段，对卫星互联网的组网节奏和成本结构都有直接影响。另外SpaceX还在考虑在德州拓展数据中心业务，这条线可以和AI算力需求形成交叉验证。\\n\\n最后抛个问题：当OpenAI把云支出预期从千亿级拉到7500亿美元，而星舰又开始批量部署星链，你们觉得“算力+卫星”的组合会不会成为新基建的标配？还是说这只是一个阶段性的资本故事？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI数据中心军备竞赛加码，特斯拉Optimus量产在即，星舰成功部署新一代星链卫星\",\"lastPu",
-        "updatedAt": "2026-07-27T00:42:23.415Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-27T01:31:23.715Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-27T01:31:23.807Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
