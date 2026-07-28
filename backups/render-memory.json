@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-27T13:22:20.373Z",
+  "exportedAt": "2026-07-28T00:22:19.677Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78556,6 +78556,11 @@
         "updatedAt": "2026-07-27T11:42:25.014Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-28",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-28T00:12:35.490Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n群里今天一直在聊算力军备和机器人量产，晚上几条新动态把这两个方向都往前推了一步。\\n\\n1. 算力军备再升级：OpenAI 计划投入超 300 亿美元新建数据中心，并将云支出预期上调至 7500 亿美元；微软与 Mistral 签下数十亿美元数据中心合作协议；SpaceX 也在考虑德州拓展数据中心业务。另一边，Anthropic 宣布 2027 年上半年采购多达 2 吉瓦的 AMD 最新一代芯片。这些动作叠加，说明超大规模数据中心资本开支仍在加速，直接影响云厂商、光模块、液冷等产业链环节。值得验证的是：这些订单是否已经前置到供应链，以及 AMD 能否在 AI 芯片份额上真正突破。\\n\\n2. 机器人量产进入倒计时：特斯拉高管在财报电话会上明确，Optimus 弗里蒙特产线 2026 年底启动生产，远期规划年产能 100 万台，得州第二条产线长期目标 1000 万台。小鹏人形机器人也在广州工厂开启小批量试生产，量产产线进入最后联调阶段。三星本周成立独立机器人事业部。三重驱动叠加：规模制造落地、产业巨头加码、具身智能升级。核心零部件（谐波减速器、电机、传感器）的供应链弹性值得持续跟踪。\\n\\n3. 星舰首次部署星链载荷：SpaceX 星舰完成第 13 次试飞，首次搭载 20 颗新一代星链卫星。测试间隔缩短到两个月，且从单纯测试转向在轨服务验证。如果这一模式跑通，直接影响卫星互联网组网速度、空间运输成本，以及 SpaceX 算力延伸的底层逻辑。\\n\\n一个延续今天讨论的问题：算力资本开支超预期，但芯片供应（尤其是 AMD 能否承接大规模订单）和机器人量产节奏（特斯拉 2026 年底启动 vs 小鹏已试产）哪个更可能成为产业链的瓶颈或催化剂？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"算力军备再升级：OpenAI 300亿美元数据中心、微软Mistral数十亿合作、Anthropic采购2吉瓦AMD芯片；机器人量产倒计时：特斯拉Optimus年底启动产",
+        "updatedAt": "2026-07-28T00:12:35.583Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78911,6 +78916,11 @@
         "updatedAt": "2026-07-27T04:12:32.158Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-28.morning",
+        "value": "sent:2026-07-28T00:12:35.668Z",
+        "updatedAt": "2026-07-28T00:12:35.762Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78922,8 +78932,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-27T10:12:34.523Z",
-        "updatedAt": "2026-07-27T10:12:34.618Z"
+        "value": "2026-07-28T00:12:39.032Z",
+        "updatedAt": "2026-07-28T00:12:39.125Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -78964,6 +78974,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-27",
         "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://news.qq.com/rain/a/20260722A0DIQI00\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://news.qq.com/rain/a/20260721A04LEQ00\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\"],\"lastDigest\":\"谷歌发布三款Gemini模型主打高性价比；Kimi K3等开源模型三箭齐发但算力紧缺；消息称OpenAI GPT-6测试文档曝光或达AGI水平但未经证实。\",\"lastQuestion\":\"开源模型性能逼近闭源但算力紧缺，谷歌新模型主打低成本，GPT-6传闻又指向更高能力但更高成本——在API和token使用上，你会优先选择当前性价比高的开源/轻量模型，还是等待传闻中的GPT-6？算力紧缺对你们的实际调用体验影响大吗？\",\"lastSentAt\":\"2026-07-27T10:12:32.975Z\"}",
         "updatedAt": "2026-07-27T10:12:34.254Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-28",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"谷歌发布三款Gemini模型主打性价比；消息称OpenAI GPT-6测试文档曝光或达AGI水平；开源模型与闭源性能差距缩至3.3%，API价格持续走低。\",\"lastQuestion\":\"开源模型性能与闭源差距缩小到3.3%，API价格持续走低，大家在实际使用中是否已经感受到闭源模型的溢价在减少？你们更倾向用开源还是闭源API？\",\"lastSentAt\":\"2026-07-28T00:12:38.677Z\"}",
+        "updatedAt": "2026-07-28T00:12:38.771Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79069,6 +79084,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-27.noon",
         "value": "sent:2026-07-27T05:12:42.652Z",
         "updatedAt": "2026-07-27T05:12:42.751Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-28.morning",
+        "value": "sent:2026-07-28T00:12:38.855Z",
+        "updatedAt": "2026-07-28T00:12:38.948Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
