@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-28T03:02:23.876Z",
+  "exportedAt": "2026-07-28T03:12:20.173Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71941,6 +71941,30 @@
           "imageContext": ""
         },
         "createdAt": "2026-07-27T03:13:21.853Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ 我靠飞书 aily 做的 PPT skill，一个月内赚了 5 位数｜AI 开放麦 07-29\nhttps://www.larkoffice.com/calendar/share?token=fc11476c0b884cfd2a3ab10913d18e12\\\nhttps://aily.feishu.cn/?open_from=kfm_aily_homepage\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=fc11476c0b884cfd2a3ab10913d18e12\\",
+            "https://aily.feishu.cn/?open_from=kfm_aily_homepage\\",
+            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
+            "https://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69b5f558acacdd44e1d0209c9a5",
+          "wikiTokens": [
+            "MVacwustBixr7ykzSmAcjZIqngh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-28T03:02:25.663Z"
       }
     ],
     "memories": [
