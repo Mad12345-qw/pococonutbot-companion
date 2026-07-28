@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-28T07:12:23.077Z",
+  "exportedAt": "2026-07-28T08:12:22.379Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71986,6 +71986,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-28T07:04:16.069Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92ca3965e09a25e614163a7e0fc79d8a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://5yuantoken.org/register?aff=R2YCECS7LKG4\nhttps://5yuantoken.org/register?aff=R2YCECS7LKG4",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://5yuantoken.org/register?aff=R2YCECS7LKG4"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69b27430e4bcb278a12d5b04a3d",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-28T08:09:27.446Z"
       }
     ],
     "memories": [
