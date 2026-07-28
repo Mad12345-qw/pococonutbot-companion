@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-28T04:52:23.773Z",
+  "exportedAt": "2026-07-28T07:12:23.077Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -71965,6 +71965,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-28T03:02:25.663Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_689d41693552db40b1391ef6793b1d5a",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 飞书来支招 · 公开连麦直播间 7月专场\nhttps://mp.weixin.qq.com/s/Q4j0UdcQqbY8QwqiKNwg9Q\\\nhttps://bytedance.larkoffice.com/share/base/form/shrcnek79upxCrEsySCC2WdBlCf\\\nhttps://www.douyin.com/user/MS4wLjABAAAAgiKdxrADb7pxs2Zf63yTfF08h29WlBg3rapJnWjDfhcnPRXULhRLA7mZzW4rna8J\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/Q4j0UdcQqbY8QwqiKNwg9Q\\",
+            "https://bytedance.larkoffice.com/share/base/form/shrcnek79upxCrEsySCC2WdBlCf\\",
+            "https://www.douyin.com/user/MS4wLjABAAAAgiKdxrADb7pxs2Zf63yTfF08h29WlBg3rapJnWjDfhcnPRXULhRLA7mZzW4rna8J\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69b1080dbcb8c16f3fb3a163dde",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-28T07:04:16.069Z"
       }
     ],
     "memories": [
