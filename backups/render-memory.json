@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-28T10:52:20.270Z",
+  "exportedAt": "2026-07-28T11:52:20.278Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -79011,8 +79011,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-28T04:42:38.265Z",
-        "updatedAt": "2026-07-28T04:42:38.366Z"
+        "value": "2026-07-28T11:47:43.342Z",
+        "updatedAt": "2026-07-28T11:47:45.196Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79056,8 +79056,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-28",
-        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A0DIQI00\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\"],\"lastDigest\":\"Gemini三款新模型上线主打更快更便宜；GPT-6测试文档曝光称可达AGI但未证实；Kimi K3以2.8万亿参数成最大开源模型。\",\"lastQuestion\":\"Gemini新模型降价、GPT-6传闻、Kimi K3开源，这三件事中，哪一个最可能影响你近期API选型或token预算规划？\",\"lastSentAt\":\"2026-07-28T04:42:37.167Z\"}",
-        "updatedAt": "2026-07-28T04:42:37.997Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260721A0BYTO00\",\"https://www.ithome.com/0/979/823.htm\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A0DIQI00\",\"https://news.qq.com/rain/a/20260722A03S4S00\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://www.jiemian.com/article/14810895.html\",\"https://tech.ifeng.com/c/8uxYdAF5Rh5\"],\"lastDigest\":\"谷歌发布三款低成本Gemini模型；Kimi K3以2.8万亿参数开源；GPT-6疑似达到AGI的未证实文档流出。\",\"lastQuestion\":\"谷歌低成本Flash系列、Kimi K3开源、GPT-6传闻，这三件事哪一件最可能让你在接下来的一个月内调整API选型或token预算？\",\"lastSentAt\":\"2026-07-28T11:42:34.205Z\"}",
+        "updatedAt": "2026-07-28T11:42:35.018Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79163,6 +79163,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-27.noon",
         "value": "sent:2026-07-27T05:12:42.652Z",
         "updatedAt": "2026-07-27T05:12:42.751Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-28.evening",
+        "value": "sent:2026-07-28T11:42:35.109Z",
+        "updatedAt": "2026-07-28T11:42:35.204Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-28.morning",
