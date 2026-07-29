@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T09:02:25.973Z",
+  "exportedAt": "2026-07-29T10:52:20.680Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78707,8 +78707,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-29T04:12:30.857Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n群里昨天聊算力军备和机器人量产，今天两条新线索把讨论往前推了一步。\\n\\n1. 机器人量产加速：特斯拉Optimus弗里蒙特产线2026年底启动，远期年产能100万台；小鹏人形机器人已在广州工厂试生产；三星成立独立机器人事业部。值得追：量产从概念到落实，核心零部件供应链（减速器、电机、传感器）可能提前受益，需验证订单和产能匹配度。\\n\\n2. 算力军备新玩家：SpaceX考虑在德州拓展数据中心业务，Anthropic宣布2027年上半年采购2吉瓦AMD芯片。值得追：数据中心资本开支范围扩大，新玩家可能改变算力供应商格局，影响光模块、液冷等环节。\\n\\n问题：特斯拉Optimus量产时间表比预期快还是慢？核心零部件供应商谁先受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"机器人量产加速新证据，算力军备新玩家入局，产业链验证窗口打开\",\"lastPulseQuestion\":\"特斯拉Optimus量产时间表比预期快还是慢？核心零部件供应商谁先受益？\",\"lastPulseSources\":[\"https://longportapp.cn/en/news/293887627\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://www.yoojia.com/article/9567286861460398106.html\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://sxdsb.voc.com.cn/mobile/content/33267075\"],\"lastActivityAt\":\"2026-07-29T04:12:30.857Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-29T04:12:30.943Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-29T10:42:34.079Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\\"（2026-07-29T04:12:28.704Z），内容提到机器人量产加速（特斯拉Optimus、小鹏、三星）和算力军备新玩家（SpaceX数据中心、Anthropic采购AMD）。再之前是早间、晚间等。所以群里最近讨论的是算力军备和机器人量产。\\n\\n现在需要根据newsCandidates组织内容。注意：不能编造候选外的事实。newsCandidates中有多条关于AI数据中心加码、机器人量产、星舰试飞等。但注意要求：三条以内动态，每条说明发生了什么、为什么值得追、可能影响哪条产业链。\\n\\n从newsCandidates中，我们可以提取以下动态：\\n\\n1. 机器人量产：特斯拉Optimus弗里蒙特产线2026年底启动，远期年产能100万台；小鹏人形机器人已在广州工厂试生产；三星成立独立机器人事业部。这条在之前的播报中已经提到，但newsCandidates中也有相关条目（robotics index 1, 2, 3, 4）。注意：不能重复旧判断，但可以基于新证据更新。实际上，newsCandidates中robotics index 1提到“部分机器人概念股走高”，并引用了特斯拉高管视频解读财报电话会要点：Optimus弗里蒙特产线2026年底启动，远期年产能100万台，得州第二条产线长期目标总年产能1000万台。小鹏人形机器人已在广州工厂正式开启小批量试生产。三星成立独立机器人事业部。这些是今天（7月29日）的新消息吗？注意publishedAt：robotics index 1是2026-07-27，但摘要中提到“本周三星成立独立机器人事业部”，可能是在7月27日左右。但我们的newsCandidates中还有robotics index 3（特斯拉公布Optimus全新生产线，2026-07-23）和index 4（特斯拉Q2利润下滑，Optimus V3设计冻结，2026-07-23）。这些是旧消息。但群聊中已经讨论过这些。我们需要找更新的动态。\\n\\n注意：newsCandidates中有一条“OpenAI与Anthropic要求美国",
+        "updatedAt": "2026-07-29T10:42:34.169Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79084,6 +79084,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-28.noon",
         "value": "sent:2026-07-28T04:42:59.328Z",
         "updatedAt": "2026-07-28T04:42:59.416Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29.evening",
+        "value": "sent:2026-07-29T10:42:34.253Z",
+        "updatedAt": "2026-07-29T10:42:34.756Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29.morning",
