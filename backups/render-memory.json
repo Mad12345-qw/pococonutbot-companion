@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T07:52:20.869Z",
+  "exportedAt": "2026-07-29T09:02:25.973Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72052,6 +72052,30 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-29T07:44:20.671Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] AI 开放麦第十三期开播提醒 ⏰ ：《我靠飞书 aily 做的 PPT skill，一个月内赚了 5 位数》\nhttps://vc.larkoffice.com/j/528271656\nhttps://bytedance.larkoffice.com/wiki/FyYLwsYGAiGkPmkx5u5c3uyTn5e?from=from_copylink\nhttps://vc.larkoffice.com/j/528271656\\n🙎\nhttps://bytedance.larkoffice.com/wiki/FyYLwsYGAiGkPmkx5u5c3uyTn5e?from=from_copylink\\n✅\nfeishu-wiki:FyYLwsYGAiGkPmkx5u5c3uyTn5e",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://vc.larkoffice.com/j/528271656",
+            "https://bytedance.larkoffice.com/wiki/FyYLwsYGAiGkPmkx5u5c3uyTn5e?from=from_copylink",
+            "https://vc.larkoffice.com/j/528271656\\n🙎",
+            "https://bytedance.larkoffice.com/wiki/FyYLwsYGAiGkPmkx5u5c3uyTn5e?from=from_copylink\\n✅"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69a8568024a4dd1419f6a9bc6cf",
+          "wikiTokens": [
+            "FyYLwsYGAiGkPmkx5u5c3uyTn5e"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-29T09:02:00.002Z"
       }
     ],
     "memories": [
