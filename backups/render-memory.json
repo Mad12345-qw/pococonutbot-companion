@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T07:12:23.778Z",
+  "exportedAt": "2026-07-29T07:52:20.869Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72033,6 +72033,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-29T07:07:04.190Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_77d9a962cbdcc6cd914a8c76f0728ff0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://github.com/donjuangao/tingzhe\nhttps://github.com/donjuangao/tingzhe",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/donjuangao/tingzhe"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69aebbca90b8b399800f2eddcf2",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-29T07:44:20.671Z"
       }
     ],
     "memories": [
