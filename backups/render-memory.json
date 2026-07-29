@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T00:22:24.078Z",
+  "exportedAt": "2026-07-29T00:52:20.079Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78630,6 +78630,11 @@
         "updatedAt": "2026-07-28T10:42:46.420Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-29T00:42:29.611Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里昨天一直在聊算力军备和机器人量产，今天几条新动态把这两个方向继续往前推，同时商业航天也有新进展值得关注。\\n\\n1. 多家海外科技巨头加码数据中心业务：OpenAI计划投资超300亿美元建数据中心，并将云支出预期上调至7500亿美元；微软与Mistral签署数十亿美元数据中心合作协议；SpaceX考虑在德州拓展数据中心；Anthropic将于2027年上半年采购2吉瓦AMD芯片。值得追：超大规模数据中心资本开支仍在加速，直接影响光模块、液冷、电力等产业链环节，需验证是否出现订单前置或产能瓶颈。\\n\\n2. 机器人概念股走高，特斯拉Optimus弗里蒙特产线2026年底启动生产，远期规划年产能100万台，得州第二条产线长期目标1000万台；小鹏人形机器人已在广州工厂小批量试生产。值得追：量产时间表进一步明确，核心零部件（谐波减速器、电机、传感器）供应链订单有望提前，需关注国内供应商切入节奏。\\n\\n3. SpaceX星舰完成第13次试飞，首次部署20颗新一代星链卫星。值得追：星舰复用能力提升，卫星部署效率提高，对低轨宽带星座组网速度有直接推动，也影响地面终端和卫星互联网应用产业链。\\n\\n问题：数据中心资本开支加速和机器人量产时间表落地，哪条产业链的业绩兑现确定性更高？光模块/液冷 vs 机器人零部件，当前估值是否已充分反映预期？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"数据中心军备加速，机器人量产时间表明确，星舰首次部署新一代星链\",\"lastPulseQuestion\":\"数据中心资本开支加速和机器人量产时间表落地，哪条产业链的业绩兑现确定性更高？光模块/液冷 vs 机器人零部件，当前估值是否已充分反映预期？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://longportapp.cn/en/news/2938876",
+        "updatedAt": "2026-07-29T00:42:29.700Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78998,6 +79003,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-28.noon",
         "value": "sent:2026-07-28T04:42:59.328Z",
         "updatedAt": "2026-07-28T04:42:59.416Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29.morning",
+        "value": "sent:2026-07-29T00:42:29.787Z",
+        "updatedAt": "2026-07-29T00:42:29.872Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
