@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T05:32:18.478Z",
+  "exportedAt": "2026-07-29T07:12:23.778Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72005,6 +72005,34 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-28T08:09:27.446Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 今日（14:45场次）共入库 7 篇，其中高质量（精读）2 篇，泛读 3 篇。去重后实际归档 5 篇，另 2 篇为重复内容。\nhttps://dev.to/remojansen/your-ai-agents-need-finite-state-machines-fsms-2i9j\nhttps://dev.to/konark_13/vibe-coding-endgame-3bbn\nhttps://dev.to/gde/beyond-flutter-running-blocsignal-state-machines-in-pure-dart-jaspr-web-and-cli-tools-51f6\nhttps://dev.to/gde/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-162l\nhttps://dev.to/aws-builders/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-53cp",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://dev.to/remojansen/your-ai-agents-need-finite-state-machines-fsms-2i9j",
+            "https://dev.to/konark_13/vibe-coding-endgame-3bbn",
+            "https://dev.to/gde/beyond-flutter-running-blocsignal-state-machines-in-pure-dart-jaspr-web-and-cli-tools-51f6",
+            "https://dev.to/gde/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-162l",
+            "https://dev.to/aws-builders/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-53cp",
+            "https://dev.to/remojansen/your-ai-agents-need-finite-state-machines-fsms-2i9j\\n-",
+            "https://dev.to/konark_13/vibe-coding-endgame-3bbn\\n-",
+            "https://dev.to/gde/beyond-flutter-running-blocsignal-state-machines-in-pure-dart-jaspr-web-and-cli-tools-51f6\\n-",
+            "https://dev.to/gde/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-162l\\n-",
+            "https://dev.to/aws-builders/can-google-adk-talk-to-amazon-bedrock-agentcore-runtime-a-cross-cloud-a2a-benchmark-53cp\\n-"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69ae27ddeca4df320b0678ed657",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-29T07:07:04.190Z"
       }
     ],
     "memories": [
