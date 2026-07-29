@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T04:22:23.481Z",
+  "exportedAt": "2026-07-29T05:32:18.478Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78501,8 +78501,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-29",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-29T01:42:26.025Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n\\n刚才群里聊到模型通用能力倒退、RL专注编码导致语言退化，这个观察很关键。今天正好有几条动态可以放在这个框架下看。\\n\\n1. OpenAI与Anthropic联合要求美国帮助治理AI。两家头部公司主动寻求政府介入，说明它们意识到模型能力外溢的风险正在逼近监管红线。这件事值得追：治理框架一旦落地，会直接影响开源策略、训练数据合规和算力分配，整个AI产业链的竞争规则可能被改写。\\n\\n2. 多家海外科技巨头加码数据中心业务，OpenAI将云支出预期上调至7500亿美元，SpaceX也在考虑拓展数据中心。这组数字意味着算力军备竞赛还在加速，但结合模型能力倒退的讨论，需要警惕：资本开支是否正在脱离实际能力提升？如果RL训练边际收益递减，巨额投入可能变成沉没成本。\\n\\n3. 特斯拉Optimus弗里蒙特产线2026年底启动生产，远期规划年产能100万台；小鹏人形机器人已在广州工厂小批量试生产。量产信号越来越密集，但核心零部件（谐波减速器、电机）的供应链是否跟得上？成本能否降到2万美元？这是机器人产业链当前最硬的验证点。\\n\\n问题：模型能力倒退是否意味着当前RL训练路径需要修正？如果通用能力停滞，数据中心资本开支的合理性该如何重新评估？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"承接模型能力倒退讨论，梳理AI治理、数据中心资本开支、人形机器人量产三条动态\",\"lastPulseQuestion\":\"模型能力倒退是否意味着当前RL训练路径需要修正？如果通用能力停滞，数据中心资本开支的合理性该如何重新评估？\",\"lastPulseSources\":[\"https://wap.eastmoney.com/a/202607293823923568.html\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://longportapp.cn/en/news/293887627\",\"https:/",
-        "updatedAt": "2026-07-29T01:42:26.115Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-29T05:22:42.688Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-29T05:22:42.779Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
