@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T02:22:21.072Z",
+  "exportedAt": "2026-07-29T04:22:23.481Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78636,8 +78636,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-29T00:42:29.611Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里昨天一直在聊算力军备和机器人量产，今天几条新动态把这两个方向继续往前推，同时商业航天也有新进展值得关注。\\n\\n1. 多家海外科技巨头加码数据中心业务：OpenAI计划投资超300亿美元建数据中心，并将云支出预期上调至7500亿美元；微软与Mistral签署数十亿美元数据中心合作协议；SpaceX考虑在德州拓展数据中心；Anthropic将于2027年上半年采购2吉瓦AMD芯片。值得追：超大规模数据中心资本开支仍在加速，直接影响光模块、液冷、电力等产业链环节，需验证是否出现订单前置或产能瓶颈。\\n\\n2. 机器人概念股走高，特斯拉Optimus弗里蒙特产线2026年底启动生产，远期规划年产能100万台，得州第二条产线长期目标1000万台；小鹏人形机器人已在广州工厂小批量试生产。值得追：量产时间表进一步明确，核心零部件（谐波减速器、电机、传感器）供应链订单有望提前，需关注国内供应商切入节奏。\\n\\n3. SpaceX星舰完成第13次试飞，首次部署20颗新一代星链卫星。值得追：星舰复用能力提升，卫星部署效率提高，对低轨宽带星座组网速度有直接推动，也影响地面终端和卫星互联网应用产业链。\\n\\n问题：数据中心资本开支加速和机器人量产时间表落地，哪条产业链的业绩兑现确定性更高？光模块/液冷 vs 机器人零部件，当前估值是否已充分反映预期？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"数据中心军备加速，机器人量产时间表明确，星舰首次部署新一代星链\",\"lastPulseQuestion\":\"数据中心资本开支加速和机器人量产时间表落地，哪条产业链的业绩兑现确定性更高？光模块/液冷 vs 机器人零部件，当前估值是否已充分反映预期？\",\"lastPulseSources\":[\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://longportapp.cn/en/news/2938876",
-        "updatedAt": "2026-07-29T00:42:29.700Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-29T04:12:30.857Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n群里昨天聊算力军备和机器人量产，今天两条新线索把讨论往前推了一步。\\n\\n1. 机器人量产加速：特斯拉Optimus弗里蒙特产线2026年底启动，远期年产能100万台；小鹏人形机器人已在广州工厂试生产；三星成立独立机器人事业部。值得追：量产从概念到落实，核心零部件供应链（减速器、电机、传感器）可能提前受益，需验证订单和产能匹配度。\\n\\n2. 算力军备新玩家：SpaceX考虑在德州拓展数据中心业务，Anthropic宣布2027年上半年采购2吉瓦AMD芯片。值得追：数据中心资本开支范围扩大，新玩家可能改变算力供应商格局，影响光模块、液冷等环节。\\n\\n问题：特斯拉Optimus量产时间表比预期快还是慢？核心零部件供应商谁先受益？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"机器人量产加速新证据，算力军备新玩家入局，产业链验证窗口打开\",\"lastPulseQuestion\":\"特斯拉Optimus量产时间表比预期快还是慢？核心零部件供应商谁先受益？\",\"lastPulseSources\":[\"https://longportapp.cn/en/news/293887627\",\"https://c.m.163.com/news/a/L2IF426H05568W0A.html\",\"https://www.yoojia.com/article/9567286861460398106.html\",\"https://www.cqcb.com/news/56/2026-07-22/6185495.html\",\"https://sxdsb.voc.com.cn/mobile/content/33267075\"],\"lastActivityAt\":\"2026-07-29T04:12:30.857Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-29T04:12:30.943Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79020,6 +79020,11 @@
         "updatedAt": "2026-07-29T00:42:29.872Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-29.noon",
+        "value": "sent:2026-07-29T04:12:31.042Z",
+        "updatedAt": "2026-07-29T04:12:31.128Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79031,8 +79036,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-29T02:17:03.440Z",
-        "updatedAt": "2026-07-29T02:17:04.197Z"
+        "value": "2026-07-29T04:12:29.185Z",
+        "updatedAt": "2026-07-29T04:12:29.264Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79081,8 +79086,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-29",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://m.163.com/tech/article/L2EE9S4M00098IEO.html\",\"https://www.thepaper.cn/newsDetail_forward_33636398\",\"https://news.qq.com/rain/a/20260722A08XG000\"],\"lastDigest\":\"Gemini三款新模型聚焦Agent效率；Kimi K3以2.8万亿参数开源对齐闭源旗舰；开源与闭源性能差距缩至3.3%，API定价加速崩塌。\",\"lastQuestion\":\"在开源模型性能已接近闭源、API价格持续暴跌的背景下，你们在实际项目中会优先选择开源自部署还是闭源API？各自最看重的因素是什么？\",\"lastSentAt\":\"2026-07-29T00:12:21.399Z\"}",
-        "updatedAt": "2026-07-29T00:12:21.489Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://m.163.com/tech/article/L2EE9S4M00098IEO.html\",\"https://www.thepaper.cn/newsDetail_forward_33636398\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A0DIQI00\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://www.sohu.com/a/1053647602_118622?scm=10001.952_13-101000-0_922.0-0.0-1-0-0-0.a2_5X162X1744\"],\"lastDigest\":\"Gemini三款新模型上线，聚焦Agent效率与低成本；Kimi K3以2.8万亿参数开源，性能逼近闭源旗舰；国产AI商业化落地仍有差距，降本增效是关键。\",\"lastQuestion\":\"在Gemini新模型强调低延迟低成本、Kimi K3开源大参数但商业化落地尚需时，你们在实际项目中更看重模型的部署效率还是开源可定制性？对于API调用稳定性和token成本，你们目前最头疼的问题是什么？\",\"lastSentAt\":\"2026-07-29T04:12:28.116Z\"}",
+        "updatedAt": "2026-07-29T04:12:28.910Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79208,6 +79213,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-29.morning",
         "value": "sent:2026-07-29T00:12:21.573Z",
         "updatedAt": "2026-07-29T00:12:21.664Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-29.noon",
+        "value": "sent:2026-07-29T04:12:29.006Z",
+        "updatedAt": "2026-07-29T04:12:29.092Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
