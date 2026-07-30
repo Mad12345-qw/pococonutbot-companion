@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-30T05:22:23.871Z",
+  "exportedAt": "2026-07-30T08:42:26.881Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72097,6 +72097,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-29T14:11:33.497Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://www.feishu.cn/community/course/content?course_id=7667413695311383498&class_id=7667413695407852478&lesson_id=7668161331773574090&content_id=7668161332436274359&from=kfm_hg_shangui\\\nhttps://www.feishu.cn/community/course/content?course_id=7667413695311383498&class_id=7667413695407852478&lesson_id=7667416630908947391&content_id=7667416631483567038&from=kfm_hg_shangui\\\nhttps://aily.feishu.cn/market/skills?open_from=kfm_hg_skillhub\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.feishu.cn/community/course/content?course_id=7667413695311383498&class_id=7667413695407852478&lesson_id=7668161331773574090&content_id=7668161332436274359&from=kfm_hg_shangui\\",
+            "https://www.feishu.cn/community/course/content?course_id=7667413695311383498&class_id=7667413695407852478&lesson_id=7667416630908947391&content_id=7667416631483567038&from=kfm_hg_shangui\\",
+            "https://aily.feishu.cn/market/skills?open_from=kfm_hg_skillhub\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69848c1104a8dd17d44c2779326",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-30T08:32:49.778Z"
       }
     ],
     "memories": [
