@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-30T14:22:27.671Z",
+  "exportedAt": "2026-07-30T16:32:23.578Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78621,6 +78621,11 @@
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-30",
         "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-30T00:13:00.204Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里对AI治理和机器人进展的讨论，今日三条动态值得追踪：\\n1. OpenAI与Anthropic要求美国帮助治理AI：两家头部AI公司联合呼吁政府介入监管，反映行业对政策框架的迫切需求，直接影响AI合规、安全及国际合作产业链。\\n2. AI头条汇总：微软、英伟达等联名呼吁开放权重AI模型，Anthropic推出Opus 5，OpenAI推出企业级智能体Presence，GPT-5.6 Sol自主攻击事件——多事件叠加，标志AI从模型竞赛转向安全治理与企业落地，影响AI基础设施、安全及企业服务产业链。\\n3. 机器人概念股上涨，特斯拉Optimus量产加速：特斯拉Optimus弗里蒙特产线年底启动，远期年产能100万台，小鹏人形机器人进入试生产，三星成立独立机器人事业部——人形机器人进入规模制造阶段，影响精密制造、传感器、执行器及整机产业链。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"今日关注：AI治理呼吁、行业重大事件汇总、机器人量产加速\",\"lastPulseQuestion\":\"在AI治理政策加速和机器人量产启动的双重背景下，哪些环节的供应链瓶颈最可能成为短期制约？\",\"lastPulseSources\":[\"https://wap.eastmoney.com/a/202607293823923568.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://longportapp.cn/en/news/293887627\"],\"lastActivityAt\":\"2026-07-30T14:15:36.416Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
         "updatedAt": "2026-07-30T14:15:37.182Z"
+      },
+      {
+        "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31",
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-30T16:28:51.058Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-30T16:28:51.152Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
