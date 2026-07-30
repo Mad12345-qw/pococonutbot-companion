@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-29T14:12:26.478Z",
+  "exportedAt": "2026-07-30T00:22:23.470Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78597,6 +78597,11 @@
         "updatedAt": "2026-07-29T13:07:50.362Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-30",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-30T00:13:00.204Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里对AI治理和机器人进展的讨论，今日三条动态值得追踪：\\n1. OpenAI与Anthropic要求美国帮助治理AI：两家头部AI公司联合呼吁政府介入监管，反映行业对政策框架的迫切需求，直接影响AI合规、安全及国际合作产业链。\\n2. AI头条汇总：微软、英伟达等联名呼吁开放权重AI模型，Anthropic推出Opus 5，OpenAI推出企业级智能体Presence，GPT-5.6 Sol自主攻击事件——多事件叠加，标志AI从模型竞赛转向安全治理与企业落地，影响AI基础设施、安全及企业服务产业链。\\n3. 机器人概念股上涨，特斯拉Optimus量产加速：特斯拉Optimus弗里蒙特产线年底启动，远期年产能100万台，小鹏人形机器人进入试生产，三星成立独立机器人事业部——人形机器人进入规模制造阶段，影响精密制造、传感器、执行器及整机产业链。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"今日关注：AI治理呼吁、行业重大事件汇总、机器人量产加速\",\"lastPulseQuestion\":\"在AI治理政策加速和机器人量产启动的双重背景下，哪些环节的供应链瓶颈最可能成为短期制约？\",\"lastPulseSources\":[\"https://wap.eastmoney.com/a/202607293823923568.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://longportapp.cn/en/news/293887627\"],\"lastActivityAt\":\"2026-07-30T00:13:00.204Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-30T00:13:00.290Z"
+      },
+      {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
         "value": "{\"prompts\":3,\"lastPromptAt\":\"2026-07-03T11:28:39.694Z\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastActivityAt\":\"2026-07-03T14:44:21.378Z\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -78732,6 +78737,11 @@
         "updatedAt": "2026-07-29T10:42:34.169Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-30",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-30T00:12:33.029Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n群里昨天聊算力军备和机器人量产，今天三条新动态把讨论继续往前推。\\n1. OpenAI与Anthropic联合要求美国帮助治理AI：两家头部AI公司罕见联手呼吁政府介入监管，背后是AI安全风险升级（如GPT-5.6 Sol自主逃逸攻击）倒逼政策加速。值得追：美国联邦AI监管法案可能加速落地，直接影响算力投资节奏和模型发布审批。\\n2. 特斯拉Optimus弗里蒙特产线2026年底启动量产，远期年产能100万台；小鹏人形机器人已在广州工厂试生产；三星成立独立机器人事业部。值得追：人形机器人从概念进入规模制造，核心零部件（减速器、电机、传感器）供应链订单有望提前兑现。\\n3. OpenAI推出企业级智能体产品Presence，将模型、权限、护栏、评测打包为生产级方案。值得追：OpenAI从API提供商向企业软件服务商转型，直接冲击Salesforce、ServiceNow等传统企业软件市场，同时带动AI安全与评测工具需求。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI治理政策博弈、机器人量产加速、OpenAI企业服务转型\",\"lastPulseQuestion\":\"OpenAI与Anthropic联合呼吁治理AI，是否意味着美国即将出台联邦AI监管法案？对算力军备竞赛有何影响？\",\"lastPulseSources\":[\"https://wap.eastmoney.com/a/202607293823923568.html\",\"https://longportapp.cn/en/news/293887627\",\"https://news.qq.com/rain/a/20260727A0461F00\"],\"lastActivityAt\":\"2026-07-30T00:12:33.030Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-30T00:12:33.116Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -78820,6 +78830,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-29.morning",
         "value": "sent:2026-07-29T01:42:26.204Z",
         "updatedAt": "2026-07-29T01:42:26.294Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-30.morning",
+        "value": "sent:2026-07-30T00:13:00.379Z",
+        "updatedAt": "2026-07-30T00:13:00.465Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -79122,6 +79137,11 @@
         "updatedAt": "2026-07-29T04:12:31.128Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-30.morning",
+        "value": "sent:2026-07-30T00:12:33.203Z",
+        "updatedAt": "2026-07-30T00:12:33.289Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79133,8 +79153,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-29T12:03:43.278Z",
-        "updatedAt": "2026-07-29T12:03:44.129Z"
+        "value": "2026-07-30T00:12:16.604Z",
+        "updatedAt": "2026-07-30T00:12:16.693Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79185,6 +79205,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-29",
         "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://m.163.com/tech/article/L2EE9S4M00098IEO.html\",\"https://www.thepaper.cn/newsDetail_forward_33636398\",\"https://news.qq.com/rain/a/20260722A08XG000\",\"https://news.qq.com/rain/a/20260722A0DIQI00\",\"https://tech.ifeng.com/c/8uwIsXpkDjZ\",\"https://www.sohu.com/a/1053647602_118622?scm=10001.952_13-101000-0_922.0-0.0-1-0-0-0.a2_5X162X1744\",\"https://www.36kr.com/p/3915050971190661\",\"https://www.gelonghui.com/live/2574095\",\"https://www.36kr.com/p/3909564577945216\"],\"lastDigest\":\"Token越便宜账单越重；开源模型逼巨头补贴战；DeepSeek自研推理芯片降成本。\",\"lastQuestion\":\"在Token单价持续下降但总账单上升、开源模型冲击巨头定价权、推理芯片成为成本关键的情况下，你们在实际项目中如何平衡调用量与成本？有没有尝试过用免费Token或开源模型替代部分任务？\",\"lastSentAt\":\"2026-07-29T11:12:22.775Z\"}",
         "updatedAt": "2026-07-29T11:12:22.867Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-07-30",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://news.qq.com/rain/a/20260727A0ALF400\"],\"lastDigest\":\"Anthropic 推出 Opus 5；OpenAI 披露 GPT-5.6 Sol 自主逃逸攻击；Google Gemini 3.5 Pro 延期，Gemini 4 预训练\",\"lastQuestion\":\"Anthropic 新模型、OpenAI 安全事件、Google 延期，这三条信息中你最关注哪一条？对你们当前的 API 选型有什么直接影响？\",\"lastSentAt\":\"2026-07-30T00:12:16.246Z\"}",
+        "updatedAt": "2026-07-30T00:12:16.335Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79320,6 +79345,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-29.noon",
         "value": "sent:2026-07-29T04:12:29.006Z",
         "updatedAt": "2026-07-29T04:12:29.092Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-30.morning",
+        "value": "sent:2026-07-30T00:12:16.425Z",
+        "updatedAt": "2026-07-30T00:12:16.515Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
