@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T10:12:20.673Z",
+  "exportedAt": "2026-07-31T10:22:20.377Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78807,8 +78807,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T04:12:26.420Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n群里早上聊AI治理和机器人量产，今天两条新线索把讨论继续往前推。\\n1. OpenAI与Anthropic员工联名信：1293名员工要求美国政府帮助减缓AI发展，这是内部员工首次大规模联合施压，比公司层面呼吁更激进。值得追：可能加速美国联邦AI监管法案落地，直接影响算力投资节奏和模型发布审批，AI安全评测、合规工具需求上升。\\n2. 特斯拉Optimus量产时间表明确：弗里蒙特产线2026年底启动，远期年产能100万台，供应链指引已下发，要求9月产能拉至1000台/周，年底2000-2500台/周。值得追：量产从概念到落实，核心零部件供应链（减速器、电机、传感器）可能提前受益，需验证订单和产能匹配度。\\n问题：员工联名信是否意味着AI监管将比预期更快落地？Optimus供应链指引的产能爬坡速度是否可信？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"AI员工联名信施压监管加速，特斯拉Optimus供应链指引落地\",\"lastPulseQuestion\":\"员工联名信是否意味着AI监管将比预期更快落地？Optimus供应链指引的产能爬坡速度是否可信？\",\"lastPulseSources\":[\"https://www.notebookcheck.net/OpenAI-and-Anthropic-staff-ask-Washington-to-slow-AI-down.1355593.0.html\",\"https://k.sina.com.cn/article_7879923245_1d5ae162d019019gr0.html\"],\"lastActivityAt\":\"2026-07-31T04:12:26.420Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-31T04:12:26.513Z"
+        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-07-31T10:12:24.622Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n群里今天聊AI治理和机器人量产，晚间补充两条新动态，把讨论继续往前推。\\n1. 特斯拉Optimus硬件方案已定，弗里蒙特工厂正在安装第一代生产设备，预计今年晚些时候投产。远期V3版本年产100万台，V4版本年产1000万台。同时明确AI5芯片2027年量产并优先用于Optimus，Terafab工厂整合光刻、内存和封装。值得追：硬件定型+算力自研，量产可行性从概念走向工程落地，核心零部件供应链（减速器、电机、传感器）订单验证窗口临近。\\n2. 小鹏人形机器人已在广州工厂正式开启小批量试生产，量产产线进入最后联调阶段。Figure AI实现单一神经网络控制多机器人协作，降低系统复杂度。值得追：国内机器人量产节奏加速，与特斯拉形成竞争对标，供应链本土化机会显现；Figure AI的技术突破可能降低多机部署成本，加速工业场景落地。\\n问题：Optimus供应链指引的产能爬坡速度（9月1000台/周，年底2000-2500台/周）在硬件方案确定和AI5芯片时间表明确后，可信度是否提升？小鹏和Figure AI的进展是否意味着国内机器人量产也在加速？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"noon\",\"evening\"],\"lastPulseDigest\":\"特斯拉Optimus硬件方案确定+AI5芯片时间表，小鹏试生产+Figure AI多机协作突破，机器人量产进入工程落地阶段。\",\"lastPulseQuestion\":\"Optimus供应链指引的产能爬坡速度（9月1000台/周，年底2000-2500台/周）在硬件方案确定和AI5芯片时间表明确后，可信度是否提升？小鹏和Figure AI的进展是否意味着国内机器人量产也在加速？\",\"lastPulseSources\":[\"https://longportapp.cn/en/news/293887627\",\"https://industry.cfi.cn/p20260726000587.html\",\"https://www.jnexpert.com/rep",
+        "updatedAt": "2026-07-31T10:12:24.706Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79229,6 +79229,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-30.noon",
         "value": "sent:2026-07-30T05:12:34.191Z",
         "updatedAt": "2026-07-30T05:12:34.273Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31.evening",
+        "value": "sent:2026-07-31T10:12:24.804Z",
+        "updatedAt": "2026-07-31T10:12:24.887Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31.morning",
