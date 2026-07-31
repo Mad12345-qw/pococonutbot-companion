@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T10:22:20.377Z",
+  "exportedAt": "2026-07-31T10:52:22.472Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78662,8 +78662,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-31T10:02:30.998Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-31T10:02:31.083Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T10:42:26.329Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚才群里聊到纳德拉说AI护城河是专属学习循环，这个观点很有意思。但今天有两个新闻从不同角度挑战了这个叙事。\\n\\n1. Nvidia 推出 Open Secure AI Alliance，但排除了 OpenAI、Anthropic 和 Google。这意味着 Nvidia 想自己定义安全标准，而不是依赖模型厂商。如果底层安全框架由算力巨头主导，企业构建私有学习循环时，安全合规的边界可能被外部锁定，护城河还能完全私有吗？\\n\\n2. OpenAI 和 Anthropic 员工联名要求美国政府帮助减缓 AI 发展速度，目前已有 1293 人签名。这与纳德拉的“加速私有循环”形成直接张力——员工担心的是整体速度失控，而企业想的是如何更快跑通自己的数据飞轮。监管干预一旦落地，私有学习循环的节奏可能被打断。\\n\\n3. 特斯拉 Optimus 量产进入倒计时：硬件方案已定，弗里蒙特产线今年晚些时候投产，远期目标 V3 年产 100 万台。这背后需要大量端侧算力和训练卡，AI5 芯片 2027 年量产优先用于 Optimus。算力需求从数据中心延伸到物理世界，纳德拉说的“专属学习循环”在机器人场景里可能更依赖硬件绑定。\\n\\n问题：如果 Nvidia 的安全联盟排除了主要模型厂商，企业构建私有学习循环时，底层安全标准由谁定？这种外部依赖会不会让护城河变成租来的围墙？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"Nvidia安全联盟排除三大模型厂；OpenAI员工呼吁放缓；特斯拉Optimus量产在即\",\"lastPulseQuestion\":\"如果 Nvidia 的安全联盟排除了主要模型厂商，企业构建私有学习循环时，底层安全标准由谁定？这种外部依赖会不会让护城河变成租来的围墙？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance",
+        "updatedAt": "2026-07-31T10:42:26.416Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78904,6 +78904,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-30.morning",
         "value": "sent:2026-07-30T00:13:00.379Z",
         "updatedAt": "2026-07-30T00:13:00.465Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31.evening",
+        "value": "sent:2026-07-31T10:42:26.508Z",
+        "updatedAt": "2026-07-31T10:42:26.594Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31.morning",
