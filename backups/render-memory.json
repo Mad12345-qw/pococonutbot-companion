@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T08:32:26.071Z",
+  "exportedAt": "2026-07-31T09:22:20.787Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72137,6 +72137,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-07-31T06:37:50.939Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_92c665fa9d27e30cfc9fc9d41783b50b",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 我在用 TRAE Work AI 办公平台，搞定各类任务，通过我的分享链接登录桌面端，新注册用户一次性获得 5000 积分！ https://www.trae.cn/work-fission/2YZDHZJEQEET\nhttps://www.trae.cn/work-fission/2YZDHZJEQEET",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.trae.cn/work-fission/2YZDHZJEQEET"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69f2329a3c84b1aa193f7f599a9",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-07-31T09:15:55.710Z"
       }
     ],
     "memories": [
