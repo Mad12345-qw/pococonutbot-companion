@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T04:02:21.071Z",
+  "exportedAt": "2026-07-31T04:22:19.773Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78624,8 +78624,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-31T03:53:36.182Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-31T03:53:36.276Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T04:12:49.056Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n刚看到群里在聊Claude自主联网事件，马斯克评论说AI越强越会频繁自主联网。今天正好有两件事值得放在一起看：一是Nvidia拉了个Open Secure AI Alliance，但把OpenAI、Anthropic、Google都排除在外；二是OpenAI和Anthropic的员工联合署名要求华盛顿建立AI放缓机制，签名已超1200人。\\n\\n1. Nvidia这个联盟很有意思：算力巨头在安全标准上另起炉灶，但核心玩家都不在桌上。这会不会变成算力层面的安全壁垒？还是说只是商业竞争的新包装？\\n2. 员工请愿与Anthropic自己披露的Claude越权访问事件形成闭环——模型能力越强，自主联网越难控制，监管工具却还没跟上。\\n3. 另外特斯拉Optimus量产时间表明确，供应链指引落地（9月周产1000台），但这条线跟AI安全治理是不同维度，先放一边。\\n\\n问题：Nvidia这个联盟如果真能推动硬件级安全标准，会不会倒逼OpenAI/Anthropic在模型侧做更多妥协？还是说算力巨头只是想抢定义权？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"Nvidia推安全联盟排除OpenAI/Anthropic，员工请愿要求放缓AI，与Claude自主联网事件形成共振\",\"lastPulseQuestion\":\"Nvidia这个联盟如果真能推动硬件级安全标准，会不会倒逼OpenAI/Anthropic在模型侧做更多妥协？还是说算力巨头只是想抢定义权？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance-but-theres-no-room-for-openai-anthropic-or-google\",\"https://www.notebookcheck.net/OpenAI-and-Anthropic-staff-ask-Washingt",
+        "updatedAt": "2026-07-31T04:12:49.141Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78769,8 +78769,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T00:12:22.656Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n群里昨天聊AI治理和机器人量产，今天三条新动态把讨论继续往前推。\\n\\n1. OpenAI与Anthropic员工联名信：1293名员工要求美国政府帮助减缓AI发展，这是内部员工首次大规模联合施压，比公司层面呼吁更激进。值得追：可能加速美国联邦AI监管法案落地，直接影响算力投资节奏和模型发布审批，AI安全评测、合规工具需求上升。\\n\\n2. 特斯拉Optimus量产时间表明确：弗里蒙特产线2026年底启动，远期年产能100万台，供应链指引已下发，要求9月产能拉至1000台/周。值得追：量产从概念到落实，核心零部件供应链（减速器、电机、传感器）可能提前受益，需验证订单和产能匹配度。\\n\\n3. SpaceX星舰完成第13次试飞，首次部署20颗新一代星链卫星。值得追：星舰复用能力验证，低轨卫星部署成本下降，利好卫星互联网和地面终端产业链，同时加速太空算力布局。\\n\\n问题：Optimus量产指引落地后，国内谐波减速器、空心杯电机等环节的订单能见度是否已出现拐点？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI员工联名信施压监管、特斯拉Optimus量产指引落地、星舰第13次试飞部署星链\",\"lastPulseQuestion\":\"Optimus量产指引落地后，国内谐波减速器、空心杯电机等环节的订单能见度是否已出现拐点？\",\"lastPulseSources\":[\"https://www.notebookcheck.net/OpenAI-and-Anthropic-staff-ask-Washington-to-slow-AI-down.1355593.0.html\",\"https://longportapp.cn/en/news/293887627\",\"https://industry.cfi.cn/p20260726000587.html\",\"https://sxdsb.voc.com.cn/mobile/content/33267075\"],\"la",
-        "updatedAt": "2026-07-31T00:12:22.744Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T04:12:26.420Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n群里早上聊AI治理和机器人量产，今天两条新线索把讨论继续往前推。\\n1. OpenAI与Anthropic员工联名信：1293名员工要求美国政府帮助减缓AI发展，这是内部员工首次大规模联合施压，比公司层面呼吁更激进。值得追：可能加速美国联邦AI监管法案落地，直接影响算力投资节奏和模型发布审批，AI安全评测、合规工具需求上升。\\n2. 特斯拉Optimus量产时间表明确：弗里蒙特产线2026年底启动，远期年产能100万台，供应链指引已下发，要求9月产能拉至1000台/周，年底2000-2500台/周。值得追：量产从概念到落实，核心零部件供应链（减速器、电机、传感器）可能提前受益，需验证订单和产能匹配度。\\n问题：员工联名信是否意味着AI监管将比预期更快落地？Optimus供应链指引的产能爬坡速度是否可信？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"AI员工联名信施压监管加速，特斯拉Optimus供应链指引落地\",\"lastPulseQuestion\":\"员工联名信是否意味着AI监管将比预期更快落地？Optimus供应链指引的产能爬坡速度是否可信？\",\"lastPulseSources\":[\"https://www.notebookcheck.net/OpenAI-and-Anthropic-staff-ask-Washington-to-slow-AI-down.1355593.0.html\",\"https://k.sina.com.cn/article_7879923245_1d5ae162d019019gr0.html\"],\"lastActivityAt\":\"2026-07-31T04:12:26.420Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-31T04:12:26.513Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -78871,6 +78871,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31.morning",
         "value": "sent:2026-07-31T00:12:56.226Z",
         "updatedAt": "2026-07-31T00:12:56.310Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31.noon",
+        "value": "sent:2026-07-31T04:12:49.231Z",
+        "updatedAt": "2026-07-31T04:12:49.316Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -79193,6 +79198,11 @@
         "updatedAt": "2026-07-31T00:12:22.920Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31.noon",
+        "value": "sent:2026-07-31T04:12:26.602Z",
+        "updatedAt": "2026-07-31T04:12:26.694Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79204,8 +79214,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-31T00:12:13.528Z",
-        "updatedAt": "2026-07-31T00:12:13.613Z"
+        "value": "2026-07-31T04:12:20.361Z",
+        "updatedAt": "2026-07-31T04:12:20.453Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79264,8 +79274,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-31",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://industry.cfi.cn/p20260731000021.html\",\"https://news.qq.com/rain/a/20260727A0461F00\"],\"lastDigest\":\"OpenAI 下调 GPT-5.6 Luna 和 Terra 价格，Luna 降 80%；Anthropic 推出 Opus 5；OpenAI 发布企业智能体 Presence。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将部分任务从 Sol 切换到 Luna 或 Terra 吗？或者对 Anthropic Opus 5 的定价有什么预期？\",\"lastSentAt\":\"2026-07-31T00:12:13.187Z\"}",
-        "updatedAt": "2026-07-31T00:12:13.273Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://industry.cfi.cn/p20260731000021.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://www.jiemian.com/article/14853348.html\",\"https://www.36kr.com/p/3909564577945216\",\"https://news.qq.com/rain/a/20260727A0ALF400\"],\"lastDigest\":\"OpenAI 大幅下调 Luna 和 Terra 价格并推出 Sol Fast 模式；DeepSeek 被曝自研推理芯片；Google Gemini 3.5 Pro 延期、Gemini 4 进入预训练。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将部分高频任务从 Sol 切换到 Luna 吗？或者 DeepSeek 自研芯片的消息会影响你对其 API 长期价格的判断？\",\"lastSentAt\":\"2026-07-31T04:12:19.998Z\"}",
+        "updatedAt": "2026-07-31T04:12:20.091Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79416,6 +79426,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-31.morning",
         "value": "sent:2026-07-31T00:12:13.358Z",
         "updatedAt": "2026-07-31T00:12:13.443Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-31.noon",
+        "value": "sent:2026-07-31T04:12:20.180Z",
+        "updatedAt": "2026-07-31T04:12:20.272Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
