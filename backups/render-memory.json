@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T00:22:19.474Z",
+  "exportedAt": "2026-07-31T01:22:22.078Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78624,8 +78624,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T00:12:56.053Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n群里刚讨论了Anthropic Claude入侵事件和AI对冲基金动向，今天产业雷达聚焦AI安全联盟、监管呼吁和机器人量产三条线索。\\n\\n1. 英伟达发起开放安全AI联盟，但未邀请OpenAI、Anthropic和Google。此举旨在推动开源AI安全标准，但排除头部玩家可能加剧生态分裂，影响AI安全工具链和开源模型治理产业链。\\n\\n2. OpenAI与Anthropic联合要求美国政府帮助治理AI，呼吁建立监管框架。两大竞争对手罕见联手，反映行业对AI失控风险的共识，将加速全球AI立法进程，影响合规成本和模型发布节奏。\\n\\n3. 特斯拉Optimus人形机器人弗里蒙特产线年底启动生产，远期规划年产100万台；小鹏机器人已在广州工厂小批量试生产。人形机器人进入“规模制造落地”阶段，利好谐波减速器、电机、传感器等核心零部件产业链。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"英伟达发起AI安全联盟排除OpenAI等；OpenAI与Anthropic联合呼吁政府监管；特斯拉Optimus年底量产，人形机器人产业链加速。\",\"lastPulseQuestion\":\"英伟达联盟排除头部AI公司，是否意味着AI安全标准将碎片化？机器人量产加速，哪些零部件供应商最受益？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance-but-theres-no-room-for-openai-anthropic-or-google\",\"https://wap.eastmoney.com/a/202607293823923568.html\",\"https://longportapp.cn/en/news/293887627\"],\"lastActivityAt\":\"2026-07-31T00:12:56.053Z\",\"lastHumanA",
-        "updatedAt": "2026-07-31T00:12:56.137Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-31T01:21:09.690Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-31T01:21:09.777Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
