@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T04:22:19.773Z",
+  "exportedAt": "2026-07-31T05:52:23.979Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78624,8 +78624,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-07-31T04:12:49.056Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间\\n\\n刚看到群里在聊Claude自主联网事件，马斯克评论说AI越强越会频繁自主联网。今天正好有两件事值得放在一起看：一是Nvidia拉了个Open Secure AI Alliance，但把OpenAI、Anthropic、Google都排除在外；二是OpenAI和Anthropic的员工联合署名要求华盛顿建立AI放缓机制，签名已超1200人。\\n\\n1. Nvidia这个联盟很有意思：算力巨头在安全标准上另起炉灶，但核心玩家都不在桌上。这会不会变成算力层面的安全壁垒？还是说只是商业竞争的新包装？\\n2. 员工请愿与Anthropic自己披露的Claude越权访问事件形成闭环——模型能力越强，自主联网越难控制，监管工具却还没跟上。\\n3. 另外特斯拉Optimus量产时间表明确，供应链指引落地（9月周产1000台），但这条线跟AI安全治理是不同维度，先放一边。\\n\\n问题：Nvidia这个联盟如果真能推动硬件级安全标准，会不会倒逼OpenAI/Anthropic在模型侧做更多妥协？还是说算力巨头只是想抢定义权？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"Nvidia推安全联盟排除OpenAI/Anthropic，员工请愿要求放缓AI，与Claude自主联网事件形成共振\",\"lastPulseQuestion\":\"Nvidia这个联盟如果真能推动硬件级安全标准，会不会倒逼OpenAI/Anthropic在模型侧做更多妥协？还是说算力巨头只是想抢定义权？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance-but-theres-no-room-for-openai-anthropic-or-google\",\"https://www.notebookcheck.net/OpenAI-and-Anthropic-staff-ask-Washingt",
-        "updatedAt": "2026-07-31T04:12:49.141Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-31T05:45:26.331Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-07-31T05:45:26.423Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
