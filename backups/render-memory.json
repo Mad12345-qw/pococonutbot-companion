@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T10:52:22.472Z",
+  "exportedAt": "2026-07-31T11:22:23.474Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -79262,8 +79262,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-31T08:27:33.848Z",
-        "updatedAt": "2026-07-31T08:27:36.729Z"
+        "value": "2026-07-31T11:12:26.077Z",
+        "updatedAt": "2026-07-31T11:12:26.163Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79322,8 +79322,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-31",
-        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://industry.cfi.cn/p20260731000021.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://www.jiemian.com/article/14853348.html\",\"https://www.36kr.com/p/3909564577945216\",\"https://news.qq.com/rain/a/20260727A0ALF400\"],\"lastDigest\":\"OpenAI 大幅下调 Luna 和 Terra 价格并推出 Sol Fast 模式；DeepSeek 被曝自研推理芯片；Google Gemini 3.5 Pro 延期、Gemini 4 进入预训练。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将部分高频任务从 Sol 切换到 Luna 吗？或者 DeepSeek 自研芯片的消息会影响你对其 API 长期价格的判断？\",\"lastSentAt\":\"2026-07-31T04:12:19.998Z\"}",
-        "updatedAt": "2026-07-31T04:12:20.091Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://industry.cfi.cn/p20260731000021.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://www.jiemian.com/article/14853348.html\",\"https://www.36kr.com/p/3909564577945216\",\"https://news.qq.com/rain/a/20260727A0ALF400\",\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://www.ithome.com/0/984/155.htm\"],\"lastDigest\":\"OpenAI 下调 GPT-5.6 Luna 和 Terra 价格并推出 Sol Fast 模式；DeepSeek V4 疑定档 8 月 3 日，硅基流动涨价；谷歌 Gemini 3.5 Pro 短暂上线 Arena 后移除。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将部分高频任务从 Sol 切换到 Luna 吗？或者 DeepSeek V4 涨价的消息会影响你对其 API 长期价格的判断？\",\"lastSentAt\":\"2026-07-31T11:12:24.588Z\"}",
+        "updatedAt": "2026-07-31T11:12:25.373Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79469,6 +79469,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-30.noon",
         "value": "sent:2026-07-30T04:12:14.863Z",
         "updatedAt": "2026-07-30T04:12:14.947Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-07-31.evening",
+        "value": "sent:2026-07-31T11:12:25.463Z",
+        "updatedAt": "2026-07-31T11:12:25.989Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-31.morning",
