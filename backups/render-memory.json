@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T02:22:20.578Z",
+  "exportedAt": "2026-08-01T04:22:21.983Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -79311,8 +79311,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-08-01T00:12:11.181Z",
-        "updatedAt": "2026-08-01T00:12:11.268Z"
+        "value": "2026-08-01T04:12:26.386Z",
+        "updatedAt": "2026-08-01T04:12:26.471Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79376,8 +79376,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-08-01",
-        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8vCd2rvGfgb\",\"https://www.ithome.com/0/984/155.htm\",\"https://www.pconline.com.cn/ai/2179/21795772.html\"],\"lastDigest\":\"OpenAI 大幅下调 GPT-5.6 Luna 和 Terra 价格；谷歌 Gemini 3.5 Pro 短暂现身 Arena 后移除；DeepSeek V4 正式版疑定档 8 月 3 日。\",\"lastQuestion\":\"OpenAI 降价后，你会考虑切换 Luna 还是继续用其他模型？\",\"lastSentAt\":\"2026-08-01T00:12:10.844Z\"}",
-        "updatedAt": "2026-08-01T00:12:10.931Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8vCd2rvGfgb\",\"https://www.ithome.com/0/984/155.htm\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://news.qq.com/rain/a/20260731A02TUA00\",\"https://www.toutiao.com/article/7668628169552822810/\",\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\"],\"lastDigest\":\"OpenAI 下调 GPT-5.6 Luna 和 Terra 价格，Luna 降幅达 80%；行业分析指出定价权向聚合平台转移；竞争压力促使 OpenAI 降价巩固市场。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将高频任务切换到 Luna，还是继续用其他高性价比模型（如 DeepSeek V4 Pro）？\",\"lastSentAt\":\"2026-08-01T04:12:25.357Z\"}",
+        "updatedAt": "2026-08-01T04:12:26.128Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79543,6 +79543,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-01.morning",
         "value": "sent:2026-08-01T00:12:11.013Z",
         "updatedAt": "2026-08-01T00:12:11.100Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-08-01.noon",
+        "value": "sent:2026-08-01T04:12:26.215Z",
+        "updatedAt": "2026-08-01T04:12:26.300Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
