@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T07:02:31.279Z",
+  "exportedAt": "2026-08-01T10:22:23.472Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78846,8 +78846,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T04:42:21.113Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”、“小椰产业雷达｜午间线索更新”等，内容涉及AI治理、机器人量产、算力军备等。最后一条消息是“小椰产业雷达｜晚间研究追问”里可能有问题，但没显示。实际上，最近的群聊消息是2026-08-01T00:12:21.016Z的一条，内容是关于输出JSON格式的指令，不是讨论。但之前有多个“小椰产业雷达”消息，说明群里一直在讨论AI治理和机器人量产。所以第一段应该承接这个讨论。\\n\\n现在看newsCandidates：有AI相关的（Nvidia Open Secure AI Alliance、谷歌涨超4%加码AI算力、OpenAI与Anthropic要求美国帮助治理AI等），机器人相关的（特斯拉Optimus量产、Figure AI多机器人协作、机器人行业周报等），商业航天相关的（SpaceX获16亿美元订单、Starship试飞成功但股价跌等）。我们需要挑出最值得继续验证的一条产业链变化。根据要求，是“午间线索更新”，focus是“挑出最值得继续验证的一条产业链变化”。但输出格式要求标题是“小椰产业雷达｜时段名”，这里时段名应该是“午间线索更新”。但注意：我们生成的文本是直接发到群里的，所以标题要写“小椰产业雷达｜午间线索更新”。\\n\\n结构：第一段先承接群里最近讨论或知识库旧问题。群里最近讨论的是AI治理和机器人量产。我们可以说：群里早上聊AI治理和机器人量产，今天午间补充两条新动态。但注意：我们只能使用newsCandidates中的内容，不能编造。newsCandidates中有关于AI治理的（OpenAI与Anthropic要求美国帮助治理AI），还有关于机器人量产的（特斯拉Optimus量产、Figure AI等）。但还有一条关于谷歌加码AI算力布局（Anthropic数据中心项目）和谷歌DeepMind发布机器人模型。还有Nvidia的Open Secure AI Alliance。还有SpaceX的订单和股价。我们需要挑出最值得继续验证的一条产业链变化。根据focus，应该是挑出一条。但要求是“三条以内动态”，所以可以选两条或三条。但最好聚焦一条",
-        "updatedAt": "2026-08-01T04:42:21.206Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T10:12:23.643Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达”消息，说明群里一直在讨论AI治理和机器人量产。所以第一段应该承接这个讨论。\\n\\n现在看newsCandidates：有AI相关的（Nvidia Open Secure AI Alliance、谷歌涨超4%加码AI算力、OpenAI与Anthropic要求美国帮助治理AI）、机器人相关的（特斯拉Optimus量产、Figure AI多机协作、小鹏试生产）、商业航天相关的（SpaceX获16亿美元军事订单、Starship试飞成功但股价跌、国内卫星进展）。我们需要选择最相关、最新的动态。\\n\\n注意要求：不要编造候选外的事实。只使用给定的newsCandidates。\\n\\n群聊最近讨论的是AI治理和机器人量产。所以晚间研究追问应该围绕这两个主题，并加入新动态。\\n\\n从newsCandidates中，AI方面：Nvidia launches Open Secure AI Alliance（但摘要说没有OpenAI、Anthropic、Google的份，这很有意思，可能意味着Nvidia在AI安全上另起炉灶）；谷歌涨超4%加码AI算力，Anthropic数据中心项目150亿美元，采用谷歌TPU；OpenAI与Anthropic要求美国帮助治理AI。机器人方面：特斯拉Optimus量产时间表（但newsCandidates中有一条“Understanding the Market”提到特斯拉Optimus弗里蒙特产线2026年底启动，小鹏试生产，三星成立机器人事业部等）；还有Figure AI使用单一神经网络实现多机器人协作。商业航天方面：SpaceX获16亿美元军事订单，Starship试飞成功但股价跌。\\n\\n考虑到群聊最近讨论AI治理和机器人量产，且晚间研究追问要“把今天新增信息沉淀成明天要追的问题”，我们应该选择AI治理和机器人量产的新动态。但注意：群聊中已经讨论过OpenAI与Anthropic员工联名信、特斯拉Optimus量产时间表等，所以需要新的角度。\\n\\nnewsCandidates中有一个新的：Nvidia launches Open Secure A",
+        "updatedAt": "2026-08-01T10:12:24.294Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79298,6 +79298,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-31.noon",
         "value": "sent:2026-07-31T04:12:26.602Z",
         "updatedAt": "2026-07-31T04:12:26.694Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.evening",
+        "value": "sent:2026-08-01T10:12:24.391Z",
+        "updatedAt": "2026-08-01T10:12:24.907Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.morning",
