@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T04:22:21.983Z",
+  "exportedAt": "2026-08-01T04:52:20.882Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78846,8 +78846,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T00:12:21.381Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”里可能有问题，但没显示。从evidence中看到一些questions，但那是知识库中的，不是群聊中的。群聊中最后一条是“小椰产业雷达｜午间线索更新”里可能有问题，但也没显示。我们需要根据上下文生成一个具体问题。可以围绕AI安全治理和机器人技术突破来问。\\n\\n输出JSON格式，包含text、digest、question、sources。text是完整文本，digest是极短摘要，question是具体问题，sources是URL列表最多5个。\\n\\n注意：不要使用Markdown粗体，不要使用表格。语言要像懂产业的人在群里递线索。\\n\\n我组织如下：\\n\\n标题：小椰产业雷达｜晚间研究追问\\n\\n第一段：群里今天聊AI治理和机器人量产，晚间补充两条新动态，把讨论继续往前推。\\n\\n动态1：Nvidia发起Open Secure AI Alliance，但排除了OpenAI、Anthropic和Google。发生了什么：Nvidia联合多家企业成立开放安全AI联盟，但头部模型公司被拒之门外。为什么值得追：这显示安全治理话语权争夺，Nvidia试图主导安全标准，可能影响AI算力生态和模型发布审批。影响产业链：AI安全评测、合规工具、算力供应商格局。\\n\\n动态2：Figure AI实现单一神经网络多机器人协作。发生了什么：Figure AI成功用单一神经网络控制多台机器人协同工作，降低系统复杂度。为什么值得追：这是具身智能技术突破，为复杂场景规模化应用奠定算法基础，加速机器人从单机到集群的进化。影响产业链：机器人控制器、传感器、工业自动化方案商。\\n\\n最后问题：Nvidia排除头部模型公司建安全联盟，是否意味着AI安全治理将从模型层转向算力层？这对国内AI安全创业公司是机会还是挑战？\\n\\n注意：不要编造候选外的事实。Nvidia联盟的新闻来自newsCandidates[0]，Figure AI来自newsCandidates[3]（机器人行业周报）。确保引用准确。\\n\\nsources：使用到的\",\"lastPulseSlot\":\"morning\",",
-        "updatedAt": "2026-08-01T00:12:21.468Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T04:42:21.113Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”、“小椰产业雷达｜午间线索更新”等，内容涉及AI治理、机器人量产、算力军备等。最后一条消息是“小椰产业雷达｜晚间研究追问”里可能有问题，但没显示。实际上，最近的群聊消息是2026-08-01T00:12:21.016Z的一条，内容是关于输出JSON格式的指令，不是讨论。但之前有多个“小椰产业雷达”消息，说明群里一直在讨论AI治理和机器人量产。所以第一段应该承接这个讨论。\\n\\n现在看newsCandidates：有AI相关的（Nvidia Open Secure AI Alliance、谷歌涨超4%加码AI算力、OpenAI与Anthropic要求美国帮助治理AI等），机器人相关的（特斯拉Optimus量产、Figure AI多机器人协作、机器人行业周报等），商业航天相关的（SpaceX获16亿美元订单、Starship试飞成功但股价跌等）。我们需要挑出最值得继续验证的一条产业链变化。根据要求，是“午间线索更新”，focus是“挑出最值得继续验证的一条产业链变化”。但输出格式要求标题是“小椰产业雷达｜时段名”，这里时段名应该是“午间线索更新”。但注意：我们生成的文本是直接发到群里的，所以标题要写“小椰产业雷达｜午间线索更新”。\\n\\n结构：第一段先承接群里最近讨论或知识库旧问题。群里最近讨论的是AI治理和机器人量产。我们可以说：群里早上聊AI治理和机器人量产，今天午间补充两条新动态。但注意：我们只能使用newsCandidates中的内容，不能编造。newsCandidates中有关于AI治理的（OpenAI与Anthropic要求美国帮助治理AI），还有关于机器人量产的（特斯拉Optimus量产、Figure AI等）。但还有一条关于谷歌加码AI算力布局（Anthropic数据中心项目）和谷歌DeepMind发布机器人模型。还有Nvidia的Open Secure AI Alliance。还有SpaceX的订单和股价。我们需要挑出最值得继续验证的一条产业链变化。根据focus，应该是挑出一条。但要求是“三条以内动态”，所以可以选两条或三条。但最好聚焦一条",
+        "updatedAt": "2026-08-01T04:42:21.206Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79298,6 +79298,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.morning",
         "value": "sent:2026-08-01T00:12:21.558Z",
         "updatedAt": "2026-08-01T00:12:21.645Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.noon",
+        "value": "sent:2026-08-01T04:42:21.336Z",
+        "updatedAt": "2026-08-01T04:42:21.420Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
