@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-07-31T22:02:20.169Z",
+  "exportedAt": "2026-08-01T00:22:22.993Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78845,6 +78845,11 @@
         "updatedAt": "2026-07-31T10:12:24.706Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T00:12:21.381Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”里可能有问题，但没显示。从evidence中看到一些questions，但那是知识库中的，不是群聊中的。群聊中最后一条是“小椰产业雷达｜午间线索更新”里可能有问题，但也没显示。我们需要根据上下文生成一个具体问题。可以围绕AI安全治理和机器人技术突破来问。\\n\\n输出JSON格式，包含text、digest、question、sources。text是完整文本，digest是极短摘要，question是具体问题，sources是URL列表最多5个。\\n\\n注意：不要使用Markdown粗体，不要使用表格。语言要像懂产业的人在群里递线索。\\n\\n我组织如下：\\n\\n标题：小椰产业雷达｜晚间研究追问\\n\\n第一段：群里今天聊AI治理和机器人量产，晚间补充两条新动态，把讨论继续往前推。\\n\\n动态1：Nvidia发起Open Secure AI Alliance，但排除了OpenAI、Anthropic和Google。发生了什么：Nvidia联合多家企业成立开放安全AI联盟，但头部模型公司被拒之门外。为什么值得追：这显示安全治理话语权争夺，Nvidia试图主导安全标准，可能影响AI算力生态和模型发布审批。影响产业链：AI安全评测、合规工具、算力供应商格局。\\n\\n动态2：Figure AI实现单一神经网络多机器人协作。发生了什么：Figure AI成功用单一神经网络控制多台机器人协同工作，降低系统复杂度。为什么值得追：这是具身智能技术突破，为复杂场景规模化应用奠定算法基础，加速机器人从单机到集群的进化。影响产业链：机器人控制器、传感器、工业自动化方案商。\\n\\n最后问题：Nvidia排除头部模型公司建安全联盟，是否意味着AI安全治理将从模型层转向算力层？这对国内AI安全创业公司是机会还是挑战？\\n\\n注意：不要编造候选外的事实。Nvidia联盟的新闻来自newsCandidates[0]，Figure AI来自newsCandidates[3]（机器人行业周报）。确保引用准确。\\n\\nsources：使用到的\",\"lastPulseSlot\":\"morning\",",
+        "updatedAt": "2026-08-01T00:12:21.468Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -79285,6 +79290,11 @@
         "updatedAt": "2026-07-31T04:12:26.694Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.morning",
+        "value": "sent:2026-08-01T00:12:21.558Z",
+        "updatedAt": "2026-08-01T00:12:21.645Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79296,8 +79306,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-07-31T15:59:43.000Z",
-        "updatedAt": "2026-07-31T15:59:45.039Z"
+        "value": "2026-08-01T00:12:11.181Z",
+        "updatedAt": "2026-08-01T00:12:11.268Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79358,6 +79368,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-31",
         "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://industry.cfi.cn/p20260731000021.html\",\"https://news.qq.com/rain/a/20260727A0461F00\",\"https://www.jiemian.com/article/14853348.html\",\"https://www.36kr.com/p/3909564577945216\",\"https://news.qq.com/rain/a/20260727A0ALF400\",\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://www.ithome.com/0/984/155.htm\"],\"lastDigest\":\"OpenAI 下调 GPT-5.6 Luna 和 Terra 价格并推出 Sol Fast 模式；DeepSeek V4 疑定档 8 月 3 日，硅基流动涨价；谷歌 Gemini 3.5 Pro 短暂上线 Arena 后移除。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将部分高频任务从 Sol 切换到 Luna 吗？或者 DeepSeek V4 涨价的消息会影响你对其 API 长期价格的判断？\",\"lastSentAt\":\"2026-07-31T11:12:24.588Z\"}",
         "updatedAt": "2026-07-31T11:12:25.373Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-08-01",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8vCd2rvGfgb\",\"https://www.ithome.com/0/984/155.htm\",\"https://www.pconline.com.cn/ai/2179/21795772.html\"],\"lastDigest\":\"OpenAI 大幅下调 GPT-5.6 Luna 和 Terra 价格；谷歌 Gemini 3.5 Pro 短暂现身 Arena 后移除；DeepSeek V4 正式版疑定档 8 月 3 日。\",\"lastQuestion\":\"OpenAI 降价后，你会考虑切换 Luna 还是继续用其他模型？\",\"lastSentAt\":\"2026-08-01T00:12:10.844Z\"}",
+        "updatedAt": "2026-08-01T00:12:10.931Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79518,6 +79533,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-07-31.noon",
         "value": "sent:2026-07-31T04:12:20.180Z",
         "updatedAt": "2026-07-31T04:12:20.272Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-08-01.morning",
+        "value": "sent:2026-08-01T00:12:11.013Z",
+        "updatedAt": "2026-08-01T00:12:11.100Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
