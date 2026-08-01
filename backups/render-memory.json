@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T00:22:22.993Z",
+  "exportedAt": "2026-08-01T01:52:20.775Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78696,8 +78696,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-01",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-07-31T21:58:08.863Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-07-31T21:58:08.957Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T01:42:22.374Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\\"。focus是\\\"用三条权威动态打开今天的研究线索\\\"。\\n\\n我们需要从newsCandidates中选择三条以内动态。注意：newsCandidates有多个，我们需要挑选最相关且能激起投研讨论的。注意：不能编造候选外的事实。\\n\\n候选动态：\\n\\nAI:\\n1. Nvidia launches Open Secure AI Alliance - but there's no room for OpenAI, Anthropic or Google. (thesis: 算力、模型能力等)\\n2. OpenAI与Anthropic要求美国帮助治理AI. (thesis: 算力等)\\n3. ai开源_标签_网易出品 (似乎不是具体新闻，是标签页，忽略)\\n4. OpenAI and Anthropic staff ask Washington to slow AI down. (thesis: 算力等)\\n\\n机器人:\\n1. 部分机器人概念股走高，特斯拉Optimus量产等. (thesis: 量产交付等)\\n2. 特斯拉Optimus机器人自主充电. (thesis: 量产交付等)\\n3. 机器人行业周报: Optimus有望Q3量产等. (thesis: 量产交付等)\\n4. 特斯拉人形机器人量产在即 供应链爆发机会显现. (thesis: 量产交付等)\\n\\n商业航天:\\n1. 2026-07-30 新闻晚报 (包含SpaceX 16亿美元订单等)\\n2. SpaceX赢得16亿美元军事卫星网络发射订单. (thesis: 发射频率等)\\n3. Starship试飞成功 SpaceX股价却跌近3%. (thesis: 发射频率等)\\n4. 科学网-SpaceX获得美国太空军16亿美元的合同. (thesis: 发射频率等)\\n\\n由于群聊最近消息全是AI，所以第一段应该先承接AI话题。然后自然引出产业动态。我们可以选择两条AI动态和一条机器人或商业航天动态？但要求是三条以内，且要能激起投研讨论。注意：不要突然宣布新闻播报，要自然承接。\\n\\n群聊最近消",
+        "updatedAt": "2026-08-01T01:42:22.468Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78958,6 +78958,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-31.noon",
         "value": "sent:2026-07-31T04:12:49.231Z",
         "updatedAt": "2026-07-31T04:12:49.316Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-08-01.morning",
+        "value": "sent:2026-08-01T01:42:22.552Z",
+        "updatedAt": "2026-08-01T01:42:22.646Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
