@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T04:52:20.882Z",
+  "exportedAt": "2026-08-01T06:52:21.081Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78696,8 +78696,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-01",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-01T02:16:04.183Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-08-01T02:16:04.269Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-01T06:42:27.017Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n- 第一段：先承接群里最近讨论（亚马逊投OpenAI、OpenAI用户数、边缘AI收购），然后说今天追哪条线：机器人量产。\\n- 三条以内动态：从机器人候选里选。比如：特斯拉Optimus量产在即（候选4）、Figure AI多机器人协作（候选3）、小鹏人形机器人试生产（候选1中提及）。注意不要编造，只能从候选里提取。\\n- 最后给一个具体问题：比如“Optimus量产在即，核心零部件供应商的产能准备和订单可见度如何？有没有上市公司已经披露相关合同？”\\n\\n注意：不要使用Markdown，纯文本。输出JSON。\\n\\nsources最多5个，从使用的候选URL中选取。\\n\\n我们使用的候选：机器人候选1（longportapp.cn）、候选3（锦囊专家）、候选4（中财网）。可能还有候选2（自主充电）但不太关键。我们选三个动态：特斯拉Optimus量产、Figure AI多机器人协作、小鹏试生产。但小鹏在候选1中提及，可以引用。\\n\\n注意：候选1的URL是longportapp.cn/en/news/293887627，但summary中提到了小鹏。我们可以用这个。\\n\\n另外，机器人候选3的URL是锦囊专家。候选4是中财网。\\n\\n所以sources可以是这三个。\\n\\n现在写text。\\n\\n注意语气：像懂产业的人在群里递线索，短、具体、有投研味。\\n\\n先写承接：群里刚聊了亚马逊重金押注OpenAI、OpenAI用户破10亿、边缘AI芯片整合，这些都在强化AI算力投入的逻辑。但今天我想把视线转到机器人量产这条线，因为特斯拉Optimus量产时间表越来越清晰，而且Figure AI和国内小鹏也在加速，产业链可能迎来真正的订单验证期。\\n\\n然后三条动态：\\n1. 特斯拉高管在财报电话会确认：Optimus弗里蒙\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"las",
+        "updatedAt": "2026-08-01T06:42:27.106Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78963,6 +78963,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-08-01.morning",
         "value": "sent:2026-08-01T01:42:22.552Z",
         "updatedAt": "2026-08-01T01:42:22.646Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-08-01.noon",
+        "value": "sent:2026-08-01T06:42:27.201Z",
+        "updatedAt": "2026-08-01T06:42:27.289Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
