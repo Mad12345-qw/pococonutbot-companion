@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T05:52:22.780Z",
+  "exportedAt": "2026-08-02T06:02:26.490Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78721,8 +78721,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-02",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T00:42:22.143Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间\\n昨晚群里在聊DeepSeek成本降百倍、OpenAI Astra证明数学新成果，模型能力迭代和成本下降的节奏确实在加速。顺着这个方向，今天追三条线：\\n\\n1. 谷歌涨超4%，背后是Anthropic在德州推进150亿美元AI数据中心项目，采用谷歌TPU芯片，谷歌通过租赁和电力支持获得约20%股权。同时DeepMind发布Gemini Robotics 2，把视觉和语言指令直接转成机器人全身动作控制。这条线把算力投入、模型能力、机器人落地串起来了，值得关注数据中心资本开支和云厂商绑定模式的变化。\\n\\n2. 特斯拉Optimus量产节奏明确：高管称弗里蒙特产线2026年底启动生产，远期规划年产能100万台，得州第二条线目标1000万台。小鹏人形机器人也在广州工厂小批量试生产。三星成立独立机器人事业部。产业进入“规模制造落地+巨头加码”三重驱动阶段，核心零部件（减速器、执行器、传感器）的供应链机会是焦点。\\n\\n3. 美国太空军授予SpaceX总价值16亿美元发射订单，2027年底前完成18次猎鹰9发射，部署天基感知与瞄准军事卫星星座。SpaceX同时在建该星座最大的两个卫星系统，从发射到卫星制造全链条吃下。军事订单的稳定性和高价值对商业航天供应链是强催化。\\n\\n问题：DeepSeek成本降百倍后，AI模型能力迭代对算力需求的拉动，会不会被数据中心资本开支的边际放缓抵消？Anthropic这个150亿美元项目是特例还是趋势？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"谷歌/Anthropic数据中心项目、特斯拉Optimus量产时间表、SpaceX 16亿美元军事订单\",\"lastPulseQuestion\":\"DeepSeek成本降百倍后，AI模型能力迭代对算力需求的拉动，会不会被数据中心资本开支的边际放缓抵消？Anthropic这个150亿美元项目是特例还是趋势？\",\"lastPulseSources\":[\"https://www.laohu8.com",
-        "updatedAt": "2026-08-02T00:42:22.228Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-02T05:53:40.959Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-02T05:53:41.052Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
