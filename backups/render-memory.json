@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T06:02:26.490Z",
+  "exportedAt": "2026-08-02T06:52:23.580Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72205,6 +72205,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-02T05:46:53.282Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_9d4c431c00ee2d000c820f8737b875e7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://my.feishu.cn/wiki/DzBuwlTBPiFsbBkuCyZcV3x2nOb\nhttps://my.feishu.cn/wiki/DzBuwlTBPiFsbBkuCyZcV3x2nOb\nfeishu-wiki:DzBuwlTBPiFsbBkuCyZcV3x2nOb",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://my.feishu.cn/wiki/DzBuwlTBPiFsbBkuCyZcV3x2nOb"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69da377e70a4dee314c2e31053e",
+          "wikiTokens": [
+            "DzBuwlTBPiFsbBkuCyZcV3x2nOb"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-02T06:45:52.658Z"
       }
     ],
     "memories": [
