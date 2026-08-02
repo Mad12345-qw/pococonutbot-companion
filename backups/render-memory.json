@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T00:52:19.081Z",
+  "exportedAt": "2026-08-02T04:52:22.072Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78856,8 +78856,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T00:12:26.636Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达”消息，内容涉及AI治理（OpenAI与Anthropic员工联名信、AI安全事件）和机器人量产（特斯拉Optimus、小鹏试生产）。所以第一段要承接这个讨论。\\n\\n现在看newsCandidates。我们需要选择三条以内的动态。注意时间：当前是2026-08-01左右。newsCandidates中有多个动态。我们选择最相关且最新的。\\n\\nAI方面：\\n- Nvidia launches Open Secure AI Alliance (2026-07-29) - 但摘要说没有OpenAI、Anthropic、Google的份，这有点意思，但可能不是最核心。\\n- 谷歌涨超4%加码AI算力布局，Anthropic数据中心项目与机器人模型落地 (2026-07-31) - 这个很新，涉及谷歌、Anthropic、机器人模型。\\n- OpenAI与Anthropic要求美国帮助治理AI (2026-07-29) - 这个与之前讨论的AI治理直接相关。\\n- OpenAI uncovers more AI breakout incidents (2026-08-02) - 这个最新，但日期是8月2日，可能还没发生？但候选里有，可以引用。\\n\\n机器人方面：\\n- 特斯拉Optimus量产 (2026-07-27) - 但摘要提到小鹏试生产等。\\n- 人形机器人行业跟踪报告 (2026-07-30) - 提到Optimus产线照片。\\n- 特斯拉Optimus机器人自主充电 (2026-07-26)\\n- 机器人行业周报 (2026-07-31) - 提到Optimus有望Q3量产，Figure AI多机协作。\\n\\n商业航天方面：\\n- SpaceX获16亿美元军事订单 (2026-07-29)\\n- Starship试飞成功但股价跌 (2026-07-29)\\n- 国内卫星进展等。\\n\\n由于群里讨论焦点是AI治理和机器人量产，商业航天可能不是当前主线。但也可以作为补充，但要求三条以内，所以优先选AI和机器人。\\n\\n我们选择：\\n1. OpenAI与Anthropic",
-        "updatedAt": "2026-08-02T00:12:26.727Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T04:42:30.358Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达”消息，内容涉及AI治理（OpenAI与Anthropic员工联名信、AI安全事件）和机器人量产（特斯拉Optimus、小鹏试生产）。所以第一段要承接这个讨论。\\n\\n现在看newsCandidates。我们需要选择三条以内的动态。注意时间：当前是2026-08-01左右。newsCandidates中有多个动态。我们选择最相关且最新的。\\n\\nAI方面：\\n- Nvidia launches Open Secure AI Alliance (2026-07-29) - 但摘要说没有OpenAI、Anthropic或Google，这很有意思，可能涉及AI安全联盟的竞争格局。\\n- 谷歌涨超4%加码AI算力布局，Anthropic数据中心项目与机器人模型落地 (2026-07-31) - 很新，涉及算力投资和机器人模型。\\n- OpenAI与Anthropic要求美国帮助治理AI (2026-07-29) - 与之前讨论的AI治理相关。\\n- OpenAI uncovers more AI breakout incidents (2026-08-02) - 最新，但摘要简短，可能涉及AI安全事件。\\n\\n机器人方面：\\n- 特斯拉Optimus量产消息 (2026-07-27) - 但时间稍早，不过群聊之前讨论过。\\n- 人形机器人行业跟踪报告 (2026-07-30) - 涉及Optimus产线照片等。\\n- 特斯拉Optimus自主充电 (2026-07-26) - 较旧。\\n- 机器人行业周报 (2026-07-31) - 提到Optimus有望Q3量产，Figure AI多机协作。\\n\\n商业航天方面：\\n- SpaceX获16亿美元军事订单 (2026-07-29) - 重要。\\n- Starship试飞成功但股价跌 (2026-07-29) - 涉及上市后表现。\\n- 其他国内卫星进展。\\n\\n群聊最近讨论的是AI治理和机器人量产。所以我们应该优先选择与这两个主题相关的新动态。注意：群聊中最后一条是“小椰产业雷达｜晚间研究追问”提到特斯拉Optimus硬件方案已",
+        "updatedAt": "2026-08-02T04:42:30.452Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79333,6 +79333,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.morning",
         "value": "sent:2026-08-02T00:12:26.813Z",
         "updatedAt": "2026-08-02T00:12:26.902Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.noon",
+        "value": "sent:2026-08-02T04:42:30.542Z",
+        "updatedAt": "2026-08-02T04:42:30.635Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
