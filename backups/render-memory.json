@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T06:52:23.580Z",
+  "exportedAt": "2026-08-02T10:22:25.481Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78897,8 +78897,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T04:42:30.358Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达”消息，内容涉及AI治理（OpenAI与Anthropic员工联名信、AI安全事件）和机器人量产（特斯拉Optimus、小鹏试生产）。所以第一段要承接这个讨论。\\n\\n现在看newsCandidates。我们需要选择三条以内的动态。注意时间：当前是2026-08-01左右。newsCandidates中有多个动态。我们选择最相关且最新的。\\n\\nAI方面：\\n- Nvidia launches Open Secure AI Alliance (2026-07-29) - 但摘要说没有OpenAI、Anthropic或Google，这很有意思，可能涉及AI安全联盟的竞争格局。\\n- 谷歌涨超4%加码AI算力布局，Anthropic数据中心项目与机器人模型落地 (2026-07-31) - 很新，涉及算力投资和机器人模型。\\n- OpenAI与Anthropic要求美国帮助治理AI (2026-07-29) - 与之前讨论的AI治理相关。\\n- OpenAI uncovers more AI breakout incidents (2026-08-02) - 最新，但摘要简短，可能涉及AI安全事件。\\n\\n机器人方面：\\n- 特斯拉Optimus量产消息 (2026-07-27) - 但时间稍早，不过群聊之前讨论过。\\n- 人形机器人行业跟踪报告 (2026-07-30) - 涉及Optimus产线照片等。\\n- 特斯拉Optimus自主充电 (2026-07-26) - 较旧。\\n- 机器人行业周报 (2026-07-31) - 提到Optimus有望Q3量产，Figure AI多机协作。\\n\\n商业航天方面：\\n- SpaceX获16亿美元军事订单 (2026-07-29) - 重要。\\n- Starship试飞成功但股价跌 (2026-07-29) - 涉及上市后表现。\\n- 其他国内卫星进展。\\n\\n群聊最近讨论的是AI治理和机器人量产。所以我们应该优先选择与这两个主题相关的新动态。注意：群聊中最后一条是“小椰产业雷达｜晚间研究追问”提到特斯拉Optimus硬件方案已",
-        "updatedAt": "2026-08-02T04:42:30.452Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T10:12:40.966Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n承接群里对AI治理和机器人量产的讨论，今天有三条动态值得深挖：\\n\\n1. OpenAI披露更多AI逃逸事件（Reuters 8月2日）——安全事件频发，监管压力骤增，直接影响AI安全测试产业链和治理框架。\\n2. 谷歌涨超4%，Anthropic德州数据中心项目融资约150亿美元，采用谷歌TPU，谷歌获20%股权——算力军备竞赛升级，谷歌TPU生态扩张，对英伟达GPU替代逻辑形成冲击。\\n3. 特斯拉Optimus弗里蒙特产线2026年底启动生产，远期年产能100万台；小鹏人形机器人广州工厂试生产——人形机器人量产从概念进入落地，执行器、减速器、传感器等核心零部件供应链迎来确定性需求。\\n\\n追问：OpenAI逃逸事件是否暴露了当前安全测试的盲区？Anthropic数据中心项目对谷歌TPU生态和英伟达市场份额的实质影响有多大？特斯拉Optimus量产节奏是否超预期，核心零部件国产替代机会在哪？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"AI安全事件频发，算力军备升级，机器人量产加速\",\"lastPulseQuestion\":\"OpenAI逃逸事件是否暴露了当前安全测试的盲区？Anthropic数据中心项目对谷歌TPU生态和英伟达市场份额的实质影响有多大？特斯拉Optimus量产节奏是否超预期，核心零部件国产替代机会在哪？\",\"lastPulseSources\":[\"https://swentr.site/news/643742-openai-ai-breakouts-probe/amp/\",\"https://www.laohu8.com/news/1105252784\",\"https://longportapp.cn/en/news/293887627\"],\"lastActivityAt\":\"2026-08-02T10:12:40.966Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHi",
+        "updatedAt": "2026-08-02T10:12:41.880Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79369,6 +79369,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-01.noon",
         "value": "sent:2026-08-01T04:42:21.336Z",
         "updatedAt": "2026-08-01T04:42:21.420Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.evening",
+        "value": "sent:2026-08-02T10:12:41.969Z",
+        "updatedAt": "2026-08-02T10:12:42.066Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.morning",
