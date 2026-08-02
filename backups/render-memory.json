@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T10:22:25.481Z",
+  "exportedAt": "2026-08-02T11:52:27.272Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -79397,8 +79397,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-08-02T05:12:19.527Z",
-        "updatedAt": "2026-08-02T05:12:19.620Z"
+        "value": "2026-08-02T11:42:25.370Z",
+        "updatedAt": "2026-08-02T11:42:25.453Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79467,8 +79467,8 @@
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-08-02",
-        "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://news.qq.com/rain/a/20260731A09XX500\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://m.163.com/dy/article/L35HB5O3051180F7.html\",\"https://juejin.cn/post/7668568406279405606\",\"https://news.qq.com/rain/a/20260731A05JJ100\"],\"lastDigest\":\"OpenAI 大幅下调 GPT-5.6 Luna/Terra 价格（Luna 降 80%）；DeepSeek Flash 正式版发布，Agent 能力大幅增强；谷歌 DeepMind 发布 Gemini Robotics 2，具身推理模型集成 API。\",\"lastQuestion\":\"OpenAI 降价、DeepSeek 强化 Agent、谷歌开放机器人 API——你更倾向于用哪家的 API 来构建下一个应用？\",\"lastSentAt\":\"2026-08-02T05:12:17.236Z\"}",
-        "updatedAt": "2026-08-02T05:12:19.255Z"
+        "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://news.qq.com/rain/a/20260731A09XX500\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://m.163.com/dy/article/L35HB5O3051180F7.html\",\"https://juejin.cn/post/7668568406279405606\",\"https://news.qq.com/rain/a/20260731A05JJ100\",\"https://www.toutiao.com/article/7668617123672916534/\",\"https://www.fx678.com/C/20260731/202607310151188819.html\",\"https://www.topnews.cn/news/145ED4E247B04972\"],\"lastDigest\":\"OpenAI大幅下调GPT-5.6 Luna和Terra价格（Luna降80%）；Anthropic数据中心项目获谷歌支持；谷歌DeepMind发布Gemini Robotics 2机器人模型。\",\"lastQuestion\":\"OpenAI降价、Anthropic获谷歌支持、谷歌发布机器人模型——这三件事中，哪一项最可能影响你未来三个月选择API供应商的决策？\",\"lastSentAt\":\"2026-08-02T11:42:25.008Z\"}",
+        "updatedAt": "2026-08-02T11:42:25.099Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79639,6 +79639,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-01.noon",
         "value": "sent:2026-08-01T04:12:26.215Z",
         "updatedAt": "2026-08-01T04:12:26.300Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-08-02.evening",
+        "value": "sent:2026-08-02T11:42:25.193Z",
+        "updatedAt": "2026-08-02T11:42:25.279Z"
       },
       {
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-02.morning",
