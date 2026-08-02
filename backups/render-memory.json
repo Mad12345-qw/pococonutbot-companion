@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T12:22:21.283Z",
+  "exportedAt": "2026-08-02T13:12:20.983Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78742,8 +78742,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-02",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T12:12:25.550Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问\\n\\n刚看到群里在聊机器人革命可能比大语言模型更深刻，今天正好有几条动态可以接上这个话题。先看机器人这边：特斯拉Optimus弗里蒙特产线计划2026年底启动生产，远期目标年产100万台，得州第二条产线目标1000万台。同时小鹏人形机器人已在广州工厂小批量试生产，量产产线进入最后联调。更关键的是Figure AI用单一神经网络实现了多机器人协作，这降低了系统控制复杂度，意味着具身智能从单机走向集群的算法基础已经打通。谷歌DeepMind也发布了Gemini Robotics 2，能把视觉和语言指令直接转成全身动作控制。三条线都在指向同一个判断：人形机器人量产不再是口号，核心零部件（减速器、传感器、执行器）的供应链机会正在从预期变成订单。\\n\\nAI这边也有值得关注的信号：Nvidia发起Open Secure AI Alliance，但没邀请OpenAI、Anthropic和Google，这可能是算力层在安全标准上的路线分歧。同时Anthropic在德州推进150亿美元数据中心项目，采用谷歌TPU，谷歌获得20%股权。算力军备竞赛还在加码，但安全治理的联盟格局正在分化。\\n\\n商业航天方面，SpaceX拿到太空军16亿美元订单，18次猎鹰9发射部署军事卫星网络。但Starship试飞成功当天股价跌近3%，8月6日有20%股份解禁，市场对财报和抛压担忧更大。\\n\\n回到机器人这条线：如果Optimus Q3量产，Figure AI多机协同明年落地，那么国内谐波减速器、行星滚柱丝杠厂商的产能爬坡速度能否跟上？有没有已经在特斯拉或Figure供应链里的公司？\",\"lastPulseSlot\":\"evening\",\"sentPulseSlots\":[\"evening\"],\"lastPulseDigest\":\"机器人量产信号密集：特斯拉Optimus产线年底启动、小鹏试产、Figure AI多机协同突破、谷歌发布新模型。AI算力联盟分化，SpaceX获16亿军事订单但股价承压。\",\"lastPulseQuestion\":\"如果Optimus Q3量产，Figure ",
-        "updatedAt": "2026-08-02T12:12:25.636Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-02T13:02:54.124Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-02T13:02:54.211Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
