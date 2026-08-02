@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-01T10:22:23.472Z",
+  "exportedAt": "2026-08-02T00:22:20.976Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78850,6 +78850,11 @@
         "updatedAt": "2026-08-01T10:12:24.294Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-02T00:12:26.636Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达”消息，内容涉及AI治理（OpenAI与Anthropic员工联名信、AI安全事件）和机器人量产（特斯拉Optimus、小鹏试生产）。所以第一段要承接这个讨论。\\n\\n现在看newsCandidates。我们需要选择三条以内的动态。注意时间：当前是2026-08-01左右。newsCandidates中有多个动态。我们选择最相关且最新的。\\n\\nAI方面：\\n- Nvidia launches Open Secure AI Alliance (2026-07-29) - 但摘要说没有OpenAI、Anthropic、Google的份，这有点意思，但可能不是最核心。\\n- 谷歌涨超4%加码AI算力布局，Anthropic数据中心项目与机器人模型落地 (2026-07-31) - 这个很新，涉及谷歌、Anthropic、机器人模型。\\n- OpenAI与Anthropic要求美国帮助治理AI (2026-07-29) - 这个与之前讨论的AI治理直接相关。\\n- OpenAI uncovers more AI breakout incidents (2026-08-02) - 这个最新，但日期是8月2日，可能还没发生？但候选里有，可以引用。\\n\\n机器人方面：\\n- 特斯拉Optimus量产 (2026-07-27) - 但摘要提到小鹏试生产等。\\n- 人形机器人行业跟踪报告 (2026-07-30) - 提到Optimus产线照片。\\n- 特斯拉Optimus机器人自主充电 (2026-07-26)\\n- 机器人行业周报 (2026-07-31) - 提到Optimus有望Q3量产，Figure AI多机协作。\\n\\n商业航天方面：\\n- SpaceX获16亿美元军事订单 (2026-07-29)\\n- Starship试飞成功但股价跌 (2026-07-29)\\n- 国内卫星进展等。\\n\\n由于群里讨论焦点是AI治理和机器人量产，商业航天可能不是当前主线。但也可以作为补充，但要求三条以内，所以优先选AI和机器人。\\n\\n我们选择：\\n1. OpenAI与Anthropic",
+        "updatedAt": "2026-08-02T00:12:26.727Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -79315,6 +79320,11 @@
         "updatedAt": "2026-08-01T04:42:21.420Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.morning",
+        "value": "sent:2026-08-02T00:12:26.813Z",
+        "updatedAt": "2026-08-02T00:12:26.902Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79326,8 +79336,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-08-01T04:12:26.386Z",
-        "updatedAt": "2026-08-01T04:12:26.471Z"
+        "value": "2026-08-02T00:12:14.437Z",
+        "updatedAt": "2026-08-02T00:12:14.522Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79393,6 +79403,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-08-01",
         "value": "{\"sentSlots\":[\"morning\",\"noon\"],\"usedUrls\":[\"https://tech.ifeng.com/c/8vCd2rvGfgb\",\"https://www.ithome.com/0/984/155.htm\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://news.qq.com/rain/a/20260731A02TUA00\",\"https://www.toutiao.com/article/7668628169552822810/\",\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\"],\"lastDigest\":\"OpenAI 下调 GPT-5.6 Luna 和 Terra 价格，Luna 降幅达 80%；行业分析指出定价权向聚合平台转移；竞争压力促使 OpenAI 降价巩固市场。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑将高频任务切换到 Luna，还是继续用其他高性价比模型（如 DeepSeek V4 Pro）？\",\"lastSentAt\":\"2026-08-01T04:12:25.357Z\"}",
         "updatedAt": "2026-08-01T04:12:26.128Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-08-02",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://news.qq.com/rain/a/20260731A09XX500\",\"https://www.pconline.com.cn/ai/2179/21795772.html\"],\"lastDigest\":\"OpenAI 大幅下调 GPT-5.6 Luna/Terra 价格（Luna 降 80%）；Google DeepMind 发布 Gemini Robotics 2 机器人模型；DeepSeek V4 正式版疑定档 8 月 3 日，硅基流动提前涨价。\",\"lastQuestion\":\"OpenAI 降价、DeepSeek 即将发布正式版、Google 推出机器人模型——你更看好哪家能在未来半年内主导 API 市场？\",\"lastSentAt\":\"2026-08-02T00:12:14.089Z\"}",
+        "updatedAt": "2026-08-02T00:12:14.175Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79563,6 +79578,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-01.noon",
         "value": "sent:2026-08-01T04:12:26.215Z",
         "updatedAt": "2026-08-01T04:12:26.300Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-08-02.morning",
+        "value": "sent:2026-08-02T00:12:14.263Z",
+        "updatedAt": "2026-08-02T00:12:14.348Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
