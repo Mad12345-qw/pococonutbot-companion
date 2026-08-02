@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T05:22:21.280Z",
+  "exportedAt": "2026-08-02T05:52:22.780Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72185,6 +72185,26 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-07-31T15:58:44.386Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://5yuantoken.org/v1\nhttps://5yuantoken.org/v1\nhttps://5yuantoken.org/v1\\nsk-3cb39c15e37c78d6b47b4df613d29c6480b619afd9f9688fc5fa233f5b525805\\ndeepseek-v4-flash",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://5yuantoken.org/v1",
+            "https://5yuantoken.org/v1\\nsk-3cb39c15e37c78d6b47b4df613d29c6480b619afd9f9688fc5fa233f5b525805\\ndeepseek-v4-flash"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b69d9d24e48acc370fd9fe2e27d0",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-02T05:46:53.282Z"
       }
     ],
     "memories": [
