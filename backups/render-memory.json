@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-03T00:22:19.876Z",
+  "exportedAt": "2026-08-03T02:52:20.779Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78747,8 +78747,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-03",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-03T00:13:06.367Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里最近讨论的Ant收购ElevenLabs、Grok视频生成等AI应用动态，今天雷达聚焦产业基础设施与机器人量产的三条关键信号：\\n\\n1. Nvidia发起Open Secure AI Alliance，但排除OpenAI、Anthropic、Google。这意味着AI安全标准竞争加剧，可能推动自研芯片与异构计算需求，影响AI芯片与云服务产业链格局。\\n\\n2. 谷歌加码AI算力：Anthropic德州数据中心项目融资约150亿美元，采用谷歌TPU，谷歌获20%股权；同时DeepMind发布Gemini Robotics 2人形机器人模型。算力基建与机器人AI融合加速，关注光模块、液冷等配套环节。\\n\\n3. 特斯拉Optimus产线照片曝光，验证工业场景落地能力，Q3有望量产。执行器、减速器、传感器等高价值零部件需求确定性提升，国产替代机会值得跟踪。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Nvidia安全联盟排他性、谷歌TPU数据中心150亿美元融资、特斯拉Optimus产线照片验证量产——三条动态串联AI算力与机器人产业链关键节点。\",\"lastPulseQuestion\":\"在AI算力军备竞赛与人形机器人量产前夜，哪些环节存在预期差？例如Nvidia联盟的排他性是否加速自研芯片趋势？谷歌TPU数据中心对光模块/液冷需求弹性如何？Optimus量产对国产供应链的切入机会？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance-but-theres-no-room-for-openai-anthropic-or-google\",\"https://www.laohu8.com/news/1105252784\",\"https://www.jnexpert.com/report/detail?id=9639\"],",
-        "updatedAt": "2026-08-03T00:13:06.458Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-03T02:45:18.837Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-03T02:45:18.933Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
