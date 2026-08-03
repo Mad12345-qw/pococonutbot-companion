@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-02T16:12:23.982Z",
+  "exportedAt": "2026-08-03T00:22:19.876Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78747,8 +78747,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-03",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-02T16:04:39.036Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-08-02T16:04:39.125Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-03T00:13:06.367Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里最近讨论的Ant收购ElevenLabs、Grok视频生成等AI应用动态，今天雷达聚焦产业基础设施与机器人量产的三条关键信号：\\n\\n1. Nvidia发起Open Secure AI Alliance，但排除OpenAI、Anthropic、Google。这意味着AI安全标准竞争加剧，可能推动自研芯片与异构计算需求，影响AI芯片与云服务产业链格局。\\n\\n2. 谷歌加码AI算力：Anthropic德州数据中心项目融资约150亿美元，采用谷歌TPU，谷歌获20%股权；同时DeepMind发布Gemini Robotics 2人形机器人模型。算力基建与机器人AI融合加速，关注光模块、液冷等配套环节。\\n\\n3. 特斯拉Optimus产线照片曝光，验证工业场景落地能力，Q3有望量产。执行器、减速器、传感器等高价值零部件需求确定性提升，国产替代机会值得跟踪。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"Nvidia安全联盟排他性、谷歌TPU数据中心150亿美元融资、特斯拉Optimus产线照片验证量产——三条动态串联AI算力与机器人产业链关键节点。\",\"lastPulseQuestion\":\"在AI算力军备竞赛与人形机器人量产前夜，哪些环节存在预期差？例如Nvidia联盟的排他性是否加速自研芯片趋势？谷歌TPU数据中心对光模块/液冷需求弹性如何？Optimus量产对国产供应链的切入机会？\",\"lastPulseSources\":[\"https://www.techradar.com/pro/nvidia-launches-open-secure-ai-alliance-but-theres-no-room-for-openai-anthropic-or-google\",\"https://www.laohu8.com/news/1105252784\",\"https://www.jnexpert.com/report/detail?id=9639\"],",
+        "updatedAt": "2026-08-03T00:13:06.458Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78906,6 +78906,11 @@
         "updatedAt": "2026-08-02T10:12:41.880Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-03T00:12:38.105Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n承接群里对AI治理和机器人量产的讨论，今天三条动态值得深挖：\\n1. OpenAI披露更多AI逃逸事件（Reuters 8月2日）——安全事件频发，监管压力骤增，直接影响AI安全测试产业链和治理框架。\\n2. 谷歌涨超4%，Anthropic德州数据中心项目融资约150亿美元，采用谷歌TPU，谷歌获20%股权——算力军备竞赛升级，谷歌TPU生态扩张，对英伟达GPU替代逻辑形成冲击。\\n3. 机器人行业周报：Optimus有望Q3量产，Figure AI使用单一神经网络实现多机器人协作——人形机器人从研发测试迈向规模化制造，带动电机、减速器、传感器等核心零部件需求。\\n追问：AI逃逸事件频发下，安全测试产业链的订单可见度如何？谷歌TPU生态扩张对英伟达GPU替代节奏有何影响？Optimus量产对核心零部件供应链的拉动何时体现？\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"AI安全事件升级、谷歌TPU算力扩张、机器人量产加速\",\"lastPulseQuestion\":\"AI逃逸事件频发下，安全测试产业链的订单可见度如何？谷歌TPU生态扩张对英伟达GPU替代节奏有何影响？Optimus量产对核心零部件供应链的拉动何时体现？\",\"lastPulseSources\":[\"https://swentr.site/news/643742-openai-ai-breakouts-probe/amp/\",\"https://www.laohu8.com/news/1105252784\",\"https://www.jnexpert.com/report/detail?id=9667\"],\"lastActivityAt\":\"2026-08-03T00:12:38.105Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-03T00:12:38.199Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -79034,6 +79039,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-08-02.morning",
         "value": "sent:2026-08-02T00:42:22.318Z",
         "updatedAt": "2026-08-02T00:42:22.403Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-08-03.morning",
+        "value": "sent:2026-08-03T00:13:06.542Z",
+        "updatedAt": "2026-08-03T00:13:06.633Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-07-09.evening",
@@ -79396,6 +79406,11 @@
         "updatedAt": "2026-08-02T04:42:30.635Z"
       },
       {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03.morning",
+        "value": "sent:2026-08-03T00:12:38.284Z",
+        "updatedAt": "2026-08-03T00:12:38.377Z"
+      },
+      {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
         "value": "{\"title\":\"世界杯 阿根廷vs法国 投票\",\"options\":{\"draw\":\"平局 / 加时\",\"away\":\"法国\",\"home\":\"阿根廷\"},\"counts\":{\"draw\":5,\"away\":2,\"home\":5},\"voters\":{\"ou_66756c5a4941a616606cc85cce626a0f\":\"away\",\"ou_d7e6f9293a3d07ad815208fb72ea0729\":\"draw\",\"ou_aecd7830b866041c974349bab62bb403\":\"away\",\"ou_1f13e4b7c5125e1f2fe632f42664165a\":\"home\",\"ou_1d10d3d192f53bd0e1d42ebb6493e95c\":\"home\",\"ou_54b6dbf2d0754293f7e78cfbf61af34c\":\"draw\",\"ou_30b79e9d4fd79129b10eccea8d28f7d6\":\"draw\",\"ou_768babe170127903728b5d6ab2fa72c8\":\"home\",\"ou_9c2a4e7f1dd484b92395ee26465f6e4b\":\"draw\",\"ou_a125488708876b2efc8f7721670a8f56\":\"home\",\"ou_23bdabc77d91e92974609906b0049094\":\"home\",\"ou_d9b65537a036ffe6b9957f3f48fc329f\":\"draw\"},\"updatedAt\":\"2026-06-18T09:30:26.149Z\",\"pollId\":\"1a44f80ad8f697e8\",\"lastVoterChoice\":\"平局 / 加时\"}",
         "updatedAt": "2026-07-07T13:49:26.775Z"
@@ -79407,8 +79422,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-08-02T11:42:25.370Z",
-        "updatedAt": "2026-08-02T11:42:25.453Z"
+        "value": "2026-08-03T00:12:17.330Z",
+        "updatedAt": "2026-08-03T00:12:17.419Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -79479,6 +79494,11 @@
         "key": "telegram.community_ops.daily.-1004297524617.2026-08-02",
         "value": "{\"sentSlots\":[\"morning\",\"noon\",\"evening\"],\"usedUrls\":[\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://news.qq.com/rain/a/20260731A09XX500\",\"https://www.pconline.com.cn/ai/2179/21795772.html\",\"https://m.163.com/dy/article/L35HB5O3051180F7.html\",\"https://juejin.cn/post/7668568406279405606\",\"https://news.qq.com/rain/a/20260731A05JJ100\",\"https://www.toutiao.com/article/7668617123672916534/\",\"https://www.fx678.com/C/20260731/202607310151188819.html\",\"https://www.topnews.cn/news/145ED4E247B04972\"],\"lastDigest\":\"OpenAI大幅下调GPT-5.6 Luna和Terra价格（Luna降80%）；Anthropic数据中心项目获谷歌支持；谷歌DeepMind发布Gemini Robotics 2机器人模型。\",\"lastQuestion\":\"OpenAI降价、Anthropic获谷歌支持、谷歌发布机器人模型——这三件事中，哪一项最可能影响你未来三个月选择API供应商的决策？\",\"lastSentAt\":\"2026-08-02T11:42:25.008Z\"}",
         "updatedAt": "2026-08-02T11:42:25.099Z"
+      },
+      {
+        "key": "telegram.community_ops.daily.-1004297524617.2026-08-03",
+        "value": "{\"sentSlots\":[\"morning\"],\"usedUrls\":[\"https://finance.sina.com.cn/7x24/2026-07-31/doc-inikrmmx4833303.shtml\",\"https://news.qq.com/rain/a/20260731A05JJ100\",\"https://www.pconline.com.cn/ai/2179/21795772.html\"],\"lastDigest\":\"OpenAI 大幅降价 GPT-5.6 Luna/Terra；谷歌发布 Gemini Robotics 2 推进物理 AGI；DeepSeek V4 正式版疑定档 8 月 3 日，API 价格将上调。\",\"lastQuestion\":\"OpenAI 大幅降价后，你会考虑切换模型吗？还是继续用 DeepSeek V4？\",\"lastSentAt\":\"2026-08-03T00:12:16.973Z\"}",
+        "updatedAt": "2026-08-03T00:12:17.062Z"
       },
       {
         "key": "telegram.community_ops.reply_mode.-1004297524617",
@@ -79664,6 +79684,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-02.noon",
         "value": "sent:2026-08-02T05:12:19.345Z",
         "updatedAt": "2026-08-02T05:12:19.439Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-08-03.morning",
+        "value": "sent:2026-08-03T00:12:17.152Z",
+        "updatedAt": "2026-08-03T00:12:17.241Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
