@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-03T11:22:24.285Z",
+  "exportedAt": "2026-08-03T11:52:20.582Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78775,8 +78775,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-03",
-        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-03T11:13:52.752Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
-        "updatedAt": "2026-08-03T11:13:52.841Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-03T11:46:54.792Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-03T11:46:54.891Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
@@ -78935,8 +78935,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03",
-        "value": "{\"prompts\":2,\"lastPromptAt\":\"2026-08-03T04:12:38.957Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新”开头。需要返回JSON对象，包含text、digest、question、sources。\\n\\n首先，分析newsCandidates。有多个新闻，时间从7月29日到8月3日。groupMemory中有之前的消息，提到了AI治理、机器人量产等。previousState中的lastPulseDigest和lastPulseQuestion是之前的总结。\\n\\n我们需要挑出最值得继续验证的一条产业链变化。注意slot的focus是“挑出最值得继续验证的一条产业链变化”。但requiredTextShape中要求写三条动态？仔细看requiredTextShape：它列出了1. 2. 3. 三条动态，然后最后一个具体投研追问。但focus说“一条产业链变化”，可能是指整体聚焦一条产业链，但可以包含多个动态？或者我们理解有误。再看requiredTextShape：它说“1. 第一条动态：发生了什么、为什么值得追、影响哪条产业链”等等，共三条动态。所以我们需要选三条动态，但整体聚焦一条产业链变化？可能是指这些动态都围绕同一个产业链变化。从newsCandidates看，有AI安全、谷歌TPU、机器人量产等。但groupMemory中最近讨论的是AI治理和机器人量产。previousState中lastPulseDigest是“AI安全事件升级、谷歌TPU算力扩张、机器人量产加速”，所以之前已经覆盖了这些。现在午间线索更新，需要挑出最值得继续验证的一条产业链变化。可能我们需要聚焦于一个最突出的新动态。\\n\\n注意：newsCandidates中有一条关于特斯拉Optimus远期年产能目标修正为1000万台（8月3日），这是最新的，而且非常重磅。另外还有谷歌TPU项目（7月31日），以及OpenAI逃逸事件（8月2日）。但groupMemory中已经讨论过这些。我们需要考虑时间顺序：当前时间应该是2026年8月3日左右（因为最新新闻是8月3日）。所以午间线索更新应该基于最新的动态。\\n\\nrequiredTextShape要求写三条动态，但我们可以选择三条最相关的",
-        "updatedAt": "2026-08-03T04:12:39.050Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-03T11:42:26.462Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达”消息，最后一条是2026-08-03T04:12:38.567Z，内容是“小椰产业雷达｜午间线索更新”开头，但被截断了。实际上，群聊中最近讨论的主题是AI治理、机器人量产、算力军备等。previousState中的lastPulseDigest和lastPulseQuestion是之前的总结，但我们需要承接最近的讨论。\\n\\n从recentMessages看，最近一条是“小椰产业雷达｜午间线索更新”，但内容不完整。但我们可以从evidence中看到一些主题。不过，我们应直接使用recentMessages中明确的内容。最后一条消息是用户要求输出JSON，但之前有多个“小椰产业雷达”消息，内容涉及AI治理、机器人量产等。所以第一段要承接这些讨论。\\n\\n现在看newsCandidates。时间从7月29日到8月2日。当前时间应该是2026-08-03（因为最后一条消息是8月3日）。我们需要选择三条以内动态，且要“挑出最值得继续验证的一条产业链变化”。但slot要求是“晚间研究追问”，focus是“把今天新增信息沉淀成明天要追的问题”。所以我们需要从newsCandidates中选出今天新增的信息，并生成一个问题。\\n\\n注意：newsCandidates中有AI和商业航天的。AI方面：Nvidia Open Secure AI Alliance（7月29日）、谷歌涨超4%加码AI算力（7月31日）、OpenAI与Anthropic要求美国帮助治理AI（7月29日）、OpenAI uncovers more AI breakout incidents（8月2日）。商业航天方面：SpaceX获16亿美元军事订单（7月29日）、Starship试飞成功但股价跌（7月29日）、SpaceX发射24颗Starlink（8月1日）、国内卫星新闻（7月30日）。\\n\\n群聊之前讨论过AI治理和机器人量产。但newsCandidates中没有机器人相关的新闻。所以可能只能选AI和商业航天。但我们要“挑出最值得继续验证的一条产业链变化”。考虑到之前讨论过AI治理和算力，而OpenAI披露更",
+        "updatedAt": "2026-08-03T11:42:29.455Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79437,6 +79437,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-02.noon",
         "value": "sent:2026-08-02T04:42:30.542Z",
         "updatedAt": "2026-08-02T04:42:30.635Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03.evening",
+        "value": "sent:2026-08-03T11:42:29.542Z",
+        "updatedAt": "2026-08-03T11:42:29.628Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03.morning",
