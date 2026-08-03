@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-03T04:22:24.573Z",
+  "exportedAt": "2026-08-03T05:02:21.271Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72226,6 +72226,34 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-02T06:45:52.658Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_fe7bd4ec3373dbb125f333cbe227b877",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://dev.to/olund/an-agent-that-remembers-everything-is-a-secret-leak-with-a-good-memory-2ncj\nhttps://dev.to/komo/browser-agents-arent-about-browsers-theyre-about-who-acts-for-you-1997\nhttps://dev.to/hannody/spec-driven-development-with-ai-agents-constitutions-checkpoints-and-handoffs-2o8l\nhttps://dev.to/royalpinto007/i-built-agentrace-to-catch-the-subagent-runs-i-should-not-trust-1kmn\nhttps://github.com/royalpinto007/agentrace",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://dev.to/olund/an-agent-that-remembers-everything-is-a-secret-leak-with-a-good-memory-2ncj",
+            "https://dev.to/komo/browser-agents-arent-about-browsers-theyre-about-who-acts-for-you-1997",
+            "https://dev.to/hannody/spec-driven-development-with-ai-agents-constitutions-checkpoints-and-handoffs-2o8l",
+            "https://dev.to/royalpinto007/i-built-agentrace-to-catch-the-subagent-runs-i-should-not-trust-1kmn",
+            "https://github.com/royalpinto007/agentrace",
+            "https://dev.to/wane_hong_ff200a8f78f5d46/your-agents-failed-traces-are-wasted-fine-tuning-data-1gej",
+            "https://github.com/wane528/trace2train",
+            "https://dev.to/zxpmail/an-alternative-to-llm-quality-gates-deterministic-routing-sampling-1ilf",
+            "https://dev.to/henrypoydar/everyone-on-the-team-is-running-agents-nobodys-running-the-same-plan-37oo",
+            "https://dev.to/kenielzep97/everyone-is-hoping-ai-fails-im-building-the-net-anyway-4nnj"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68364d1874a4b4b9a87bea2f3d8",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-03T04:59:48.574Z"
       }
     ],
     "memories": [
