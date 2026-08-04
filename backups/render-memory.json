@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-04T04:02:22.284Z",
+  "exportedAt": "2026-08-04T04:22:23.084Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78990,8 +78990,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-04",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-04T00:12:32.950Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\\"的播报。需要根据给定的newsCandidates和groupMemory中的recentMessages来组织内容。注意：recentMessages中有多条\\\"小椰产业雷达\\\"消息，但最后一条是2026-08-03T04:12:38.567Z，内容被截断，但提到了\\\"小椰产业雷达｜午间线索更新\\\"。另外，群聊中最近讨论的主题是AI治理、机器人量产、算力军备等。previousState中的lastPulseDigest和lastPulseQuestion是之前的总结，但我们需要承接最近的讨论。\\n\\n从recentMessages看，最近一条是\\\"小椰产业雷达｜午间线索更新\\\"，但内容不完整。但我们可以从evidence中看到一些主题。不过，我们需要根据最新的newsCandidates来挑选动态。注意时间：当前是2026-08-03左右（因为新闻有8月3日的）。slot是\\\"morning\\\"，所以是早间播报。\\n\\n我们需要选择三条以内的动态。注意：newsCandidates中有多个，我们需要挑出最值得继续验证的一条产业链变化？不，要求是\\\"三条以内动态\\\"，但focus是\\\"用三条权威动态打开今天的研究线索\\\"。所以应该选三条。\\n\\n从newsCandidates看，有AI、机器人、商业航天。群聊最近讨论AI治理和机器人量产。所以第一段要承接这个讨论。\\n\\n具体动态：\\n\\n1. AI方面：Nvidia launches Open Secure AI Alliance (7月29日) - 但摘要说没有OpenAI, Anthropic, Google的份。这很有意思，可能影响AI安全联盟格局。另外，谷歌涨超4%加码AI算力，Anthropic数据中心项目融资150亿美元（7月31日）。还有OpenAI与Anthropic要求美国帮助治理AI（7月29日）。还有OpenAI uncovers more AI breakout incidents (8月2日)。这些都可以选。\\n\\n2. 机器人方面：人形机器人概念盘初走强，中大力德2连板（8",
-        "updatedAt": "2026-08-04T00:12:33.037Z"
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-04T04:12:47.588Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新\\n\\n群里早上还在聊AI治理和机器人量产，现在最值得盯的一条线是：特斯拉Optimus产能目标从100万台直接跳到1000万台。这不是简单的口号，是项目负责人Ashok Elluswamy在7月30日公开说的，8月3日A股人形机器人概念已经先反应了，中大力德2连板，福莱新材涨停，卧龙电驱、绿的谐波这些零部件票都在跟。\\n\\n这条线为什么值得追：\\n1. 产能目标十倍上调，意味着供应链要按年百万台级别重新估值，执行器、减速器、丝杠、传感器这些环节的产能规划都会被倒逼提前。\\n2. 特斯拉自己的产线照片和Q2产销报告也在验证从实验室到工厂实测的节奏，市场现在赌的是2026年是不是量产元年。\\n3. 但1000万台是远期目标，中间隔着成本下降、良率爬坡、真实订单落地，现在股价反应的是预期，不是交付。\\n\\n另外两条辅助线索：谷歌支持的Anthropic在德州推150亿美元数据中心项目，用谷歌TPU，谷歌拿20%股权，算力军备还在加码，这对英伟达之外的算力生态是个变量。SpaceX拿到太空军16亿美元、18次猎鹰9发射订单，商业航天这边是订单确定性强但股价和估值在分化。\\n\\n问题：如果Optimus真按1000万台远期目标倒推，国内零部件环节最先出现产能瓶颈的会是减速器、丝杠还是传感器？\",\"lastPulseSlot\":\"noon\",\"sentPulseSlots\":[\"noon\"],\"lastPulseDigest\":\"特斯拉Optimus产能目标上调至1000万台，机器人零部件链重估；Anthropic 150亿美元数据中心与SpaceX 16亿美元军单为辅助线索。\",\"lastPulseQuestion\":\"如果Optimus真按1000万台远期目标倒推，国内零部件环节最先出现产能瓶颈的会是减速器、丝杠还是传感器？\",\"lastPulseSources\":[\"https://news.qq.com/rain/a/20260803A036GH00\",\"https://i.ifeng.com/c/8vHbBqtNzUk\",\"https://c.m.163.c",
+        "updatedAt": "2026-08-04T04:12:48.523Z"
       },
       {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
@@ -79517,6 +79517,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-04.morning",
         "value": "sent:2026-08-04T00:12:33.122Z",
         "updatedAt": "2026-08-04T00:12:33.208Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-04.noon",
+        "value": "sent:2026-08-04T04:12:48.613Z",
+        "updatedAt": "2026-08-04T04:12:48.705Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
