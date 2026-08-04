@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-04T02:22:24.476Z",
+  "exportedAt": "2026-08-04T02:52:22.772Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72275,6 +72275,30 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-03T12:39:11.854Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ 从海报到世界地图：看字节工程师用 AI 玩转企业文化｜AI 开放麦 08-05\nhttps://www.larkoffice.com/calendar/share?token=0ead4cb9fef2468dfc20fe09efe0f371\\\nhttps://miaoda.feishu.cn/home\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=0ead4cb9fef2468dfc20fe09efe0f371\\",
+            "https://miaoda.feishu.cn/home\\",
+            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
+            "https://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68216455a4a0b22763db76719f5",
+          "wikiTokens": [
+            "MVacwustBixr7ykzSmAcjZIqngh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-04T02:47:09.125Z"
       }
     ],
     "memories": [
