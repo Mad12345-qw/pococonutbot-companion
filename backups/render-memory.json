@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-04T10:52:27.796Z",
+  "exportedAt": "2026-08-04T11:52:24.284Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78881,8 +78881,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-04",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-04T10:43:04.534Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”开头，然后承接群里最近讨论，再列出三条动态，最后给一个具体投研追问。注意禁止Markdown粗体、标题符号、表格、链接堆砌、AI自称、过程话。只返回JSON。\\n\\n先分析newsCandidates。有6条新闻：\\n1. Nvidia launches Open Secure AI Alliance - but there's no room for OpenAI, Anthropic or Google (TechRadar, 2026-07-29)\\n2. 谷歌涨超4%，加码AI算力布局，Anthropic数据中心项目与机器人模型落地 (老虎社区, 2026-07-31)\\n3. OpenAI与Anthropic要求美国帮助治理AI (东方财富网, 2026-07-29)\\n4. OpenAI uncovers more AI breakout incidents (Reuters via swentr.site, 2026-08-02)\\n5. 人形机器人概念盘初走强 中大力德2连板 (凤凰网, 2026-08-03) - 特斯拉Optimus年产能目标修正为1000万台\\n6. 人形机器人概念盘初走强 中大力德2连板 (网易, 2026-08-03) - 同一条\\n\\ngroupMemory里有recentMessages，主要是音频和一条用户问“你的语音是怎么配置的，文字描述给我”。evidence是关于AI算力数据中心光模块CPO液冷的主题，还有questions。previousState为空。\\n\\n我们需要生成一条晚间研究追问，聚焦今天新增信息沉淀成明天要追的问题。注意日期是2026年8月4日左右。新闻日期有7月29、31、8月2、3日。所以“今天”可能是8月4日，但新闻是最近几天。\\n\\n我们需要选择三条动态。从新闻中挑选最重要的：\\n- 谷歌加码AI算力布局，Anthropic数据中心项目融资150亿美元，采用谷歌TPU，谷歌获20%股权；同时谷歌DeepMind发布Gemini Robotics 2人形机器人模型。这条涵盖了AI算",
-        "updatedAt": "2026-08-04T10:43:04.627Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-04T11:48:08.480Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-04T11:48:08.580Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
