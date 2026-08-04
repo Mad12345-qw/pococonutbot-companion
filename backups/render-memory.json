@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-04T02:52:22.772Z",
+  "exportedAt": "2026-08-04T04:02:22.284Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78825,8 +78825,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-04",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-04T02:12:55.295Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\n\\n承接群里最近对特斯拉FSD、马斯克芯片厂和AI算力投入的讨论，今天三条动态聚焦人形机器人产能爆发、AI数据中心巨额融资和AI安全联盟格局变化。\\n\\n1. 特斯拉Optimus产能目标修正为1000万台：项目负责人Ashok Elluswamy将远期年产能目标从100万台提升至1000万台，十倍扩张信号强烈。A股人形机器人概念已走强，中大力德2连板。值得追：产能规划升级直接拉动精密减速器、传感器、电机等上游供应链需求，产业链估值逻辑重塑。影响：机器人产业链（核心零部件、整机代工）。\\n\\n2. 谷歌支持的Anthropic推进德州150亿美元AI数据中心项目：由摩根士丹利牵头融资，采用谷歌TPU芯片，谷歌获约20%股权。同时谷歌DeepMind发布人形机器人AI模型Gemini Robotics 2。值得追：巨额资本开支验证AI算力需求持续高景气，TPU生态扩张可能改变训练芯片竞争格局。影响：AI算力/数据中心产业链（芯片、液冷、光模块）。\\n\\n3. Nvidia推出Open Secure AI Alliance但排除OpenAI、Anthropic和Google：Nvidia主导的安全联盟旨在制定AI安全标准，但主要竞争对手被排除在外。值得追：AI安全治理进入阵营化阶段，标准制定权争夺加剧，可能影响未来模型部署合规成本。影响：AI安全/芯片产业链（安全软件、硬件信任根）。\",\"lastPulseSlot\":\"morning\",\"sentPulseSlots\":[\"morning\"],\"lastPulseDigest\":\"特斯拉Optimus产能目标十倍提升至1000万台；Anthropic德州数据中心融资150亿美元采用TPU；Nvidia安全联盟排除OpenAI等巨头。\",\"lastPulseQuestion\":\"特斯拉Optimus产能目标从100万提升至1000万台，对上游精密减速器、传感器等供应链的产能准备提出了哪些具体挑战？谷歌Anthropic数据中心项目采用TPU，是否会进一步挤压英伟达在AI训练市场的份额？\",\"lastPulse",
-        "updatedAt": "2026-08-04T02:12:55.388Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-04T03:56:31.840Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-04T03:56:31.924Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
