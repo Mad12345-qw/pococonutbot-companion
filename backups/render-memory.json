@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-03T14:32:29.583Z",
+  "exportedAt": "2026-08-04T00:22:20.677Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78960,6 +78960,11 @@
         "updatedAt": "2026-08-03T11:42:29.455Z"
       },
       {
+        "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-08-04",
+        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-04T00:12:32.950Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间产业雷达\\\"的播报。需要根据给定的newsCandidates和groupMemory中的recentMessages来组织内容。注意：recentMessages中有多条\\\"小椰产业雷达\\\"消息，但最后一条是2026-08-03T04:12:38.567Z，内容被截断，但提到了\\\"小椰产业雷达｜午间线索更新\\\"。另外，群聊中最近讨论的主题是AI治理、机器人量产、算力军备等。previousState中的lastPulseDigest和lastPulseQuestion是之前的总结，但我们需要承接最近的讨论。\\n\\n从recentMessages看，最近一条是\\\"小椰产业雷达｜午间线索更新\\\"，但内容不完整。但我们可以从evidence中看到一些主题。不过，我们需要根据最新的newsCandidates来挑选动态。注意时间：当前是2026-08-03左右（因为新闻有8月3日的）。slot是\\\"morning\\\"，所以是早间播报。\\n\\n我们需要选择三条以内的动态。注意：newsCandidates中有多个，我们需要挑出最值得继续验证的一条产业链变化？不，要求是\\\"三条以内动态\\\"，但focus是\\\"用三条权威动态打开今天的研究线索\\\"。所以应该选三条。\\n\\n从newsCandidates看，有AI、机器人、商业航天。群聊最近讨论AI治理和机器人量产。所以第一段要承接这个讨论。\\n\\n具体动态：\\n\\n1. AI方面：Nvidia launches Open Secure AI Alliance (7月29日) - 但摘要说没有OpenAI, Anthropic, Google的份。这很有意思，可能影响AI安全联盟格局。另外，谷歌涨超4%加码AI算力，Anthropic数据中心项目融资150亿美元（7月31日）。还有OpenAI与Anthropic要求美国帮助治理AI（7月29日）。还有OpenAI uncovers more AI breakout incidents (8月2日)。这些都可以选。\\n\\n2. 机器人方面：人形机器人概念盘初走强，中大力德2连板（8",
+        "updatedAt": "2026-08-04T00:12:33.037Z"
+      },
+      {
         "key": "feishu.community_ops.pulse_lock.oc_0d2244701a484715c66edaafca3cacfb.2026-07-20.evening",
         "value": "sent:2026-07-20T12:58:16.247Z",
         "updatedAt": "2026-07-20T12:58:16.338Z"
@@ -79473,6 +79478,11 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-03.noon",
         "value": "sent:2026-08-03T04:12:39.137Z",
         "updatedAt": "2026-08-03T04:12:39.226Z"
+      },
+      {
+        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-04.morning",
+        "value": "sent:2026-08-04T00:12:33.122Z",
+        "updatedAt": "2026-08-04T00:12:33.208Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
