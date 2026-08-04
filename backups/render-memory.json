@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-04T14:52:21.078Z",
+  "exportedAt": "2026-08-04T16:22:24.874Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72356,6 +72356,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-04T14:30:56.378Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_6b92285f9798c6d30704a5b1f26139b0",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 求助力！帮我提升ima存储空间\nhttps://ima.qq.com/invitation/storage-assistant/V_5sR6PRwbD9Ckgf8KrPyA",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://ima.qq.com/invitation/storage-assistant/V_5sR6PRwbD9Ckgf8KrPyA"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68154191bcb4b255df5b5bbc9a5",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-04T16:19:09.948Z"
       }
     ],
     "memories": [
