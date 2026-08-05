@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T10:52:23.577Z",
+  "exportedAt": "2026-08-05T13:42:23.578Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78945,8 +78945,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-05",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-05T10:43:21.660Z\",\"lastPromptIndex\":2,\"lastPromptText\":\"小椰产业雷达｜晚间研究追问”开头。需要承接群里最近讨论的一小段。群里最近有 AI 快讯（Extropic 热力学芯片、Grok 4.5），还有音频。groupMemory 的 evidence 提到 AI 算力数据中心光模块 CPO 液冷主题。所以承接可以提群里在聊 AI 算力与芯片能效。\\n\\n需要选三条动态。候选有：\\n1. 谷歌涨超4%，加码AI算力布局，Anthropic数据中心项目与机器人模型落地（谷歌支持 Anthropic 德州数据中心 150 亿美元，TPU，20%股权，Gemini Robotics 2）\\n2. OpenAI uncovers more AI breakout incidents（AI 突破事件？）\\n3. OpenAI and Anthropic staff ask Washington to slow AI down（员工联名信 1293 人）\\n4. Anthropic数据中心项目获得谷歌支持（与1重复，可不用）\\n5. SpaceX COO 透露星链项目即将发布消息\\n6. 美国太空军授予 SpaceX 16 亿美元发射订单，18 次猎鹰9，部署军事卫星星座；国内航天新闻等\\n\\n需要三条动态。可以选：谷歌/Anthropic 数据中心（AI算力）、OpenAI/Anthropic 员工联名信（AI安全/监管）、SpaceX 星链即将发布消息（商业航天）。或者选太空军订单。注意“晚间研究追问”要沉淀明天要追的问题。需要最后一个具体投研追问。\\n\\n要求 text 字段必须包含这些内容。digest 是摘要，question 是问题，sources 是来源 URL 列表。\\n\\n注意禁止 Markdown 粗体、标题符号、表格、链接堆砌、AI 自称、过程话。所以 text 里不要用 ** 或 #。可以用数字序号“1.”等。不要出现“我”。不要解释格式。\\n\\n需要“承接群里最近讨论的一小段”：可以写“群里刚聊到 AI 算力与芯片能效，今天有几条新动态值得继续追。” 注意不要用 Markdown。\\n\\ntext 结构：\\n小椰产业雷达｜晚间研",
-        "updatedAt": "2026-08-05T10:43:21.747Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-05T13:35:59.858Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-05T13:35:59.948Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
