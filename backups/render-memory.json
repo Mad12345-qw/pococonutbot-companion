@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T07:02:23.380Z",
+  "exportedAt": "2026-08-05T08:02:25.777Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78926,8 +78926,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-05",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-05T04:43:04.498Z\",\"lastPromptIndex\":1,\"lastPromptText\":\"小椰产业雷达｜午间线索更新。然后第一段承接群聊。然后三条动态。最后问题。\\n\\n注意不要用Markdown，不要用**。用短句、冒号、编号。\\n\\n我们写text。需要包含标题。然后内容。\\n\\n先写第一段：群里刚聊到白宫AI监管框架，开源模型豁免30天审查，闭源前沿模型受限。这个监管变量和算力投入是两条线，今天值得放在一起看。\\n\\n然后动态1：谷歌涨超4%，Anthropic德州数据中心项目融资约150亿美元，用谷歌TPU，谷歌拿20%股权。这说明云厂商和AI labs绑定加深，算力资本开支还在加码。影响：算力产业链，特别是TPU相关供应链，以及数据中心电力。\\n\\n动态2：特斯拉Optimus负责人把远期年产能目标从100万台修正到1000万台，十倍。A股人形机器人概念已经反应，中大力德2连板。这个数字很激进，需要验证的是产线、订单、核心零部件瓶颈。影响：执行器、减速器、丝杠、传感器。\\n\\n动态3：SpaceX拿到太空军16亿美元合同，18次猎鹰9发射，部署天基感知卫星。这个说明军事卫星需求在放量，发射频率确定性高。影响：商业航天发射服务、卫星制造。\\n\\n注意要求“三条以内动态”，我们给三条。但焦点是“最值得继续验证的一条产业链变化”，我们可以说最值得继续验证的是Optimus 1000万台目标，因为从100万到1000万是数量级变化，且A股已经异动，需要验证真实性。\\n\\n最后给一个具体问题：比如“1000万台对应的执行器、丝杠、减速器需求量，和现有产能差距有多大？哪些环节最可能先卡脖子？”\\n\\n注意不要泛泛问。要具体。\\n\\ndigest：极短摘要，比如“谷歌加码AI算力、Optimus产能目标上调十倍、SpaceX获16亿美元军单，重点验证人形机器人量产瓶颈”。\\n\\nquestion：最后抛给群里的具体讨论问题。\\n\\nsources：使用到的候选URL，最多5个。我们用了谷歌新闻、Optimus新闻、SpaceX合同新闻。注意URL要准确。从候选里选。\\n\\n注意不要编造。我们只使用候选中的信息。\\n\\n现在组织text。注意纯文本，不要Markdown。用换行",
-        "updatedAt": "2026-08-05T04:43:04.587Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-05T08:01:24.411Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-05T08:01:24.502Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
