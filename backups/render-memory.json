@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T13:42:23.578Z",
+  "exportedAt": "2026-08-05T16:12:29.083Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72394,6 +72394,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-05T09:02:05.469Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_f70c9cb220e25b87d07c4ff47dee80cf",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 【教程】40分钟教你自制自动驾驶智能车https://b23.tv/CdfL6zD\nhttps://b23.tv/CdfL6zD",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://b23.tv/CdfL6zD"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6801ba3114a4b328f1b458de93b",
+          "wikiTokens": [],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-05T16:05:42.617Z"
       }
     ],
     "memories": [
