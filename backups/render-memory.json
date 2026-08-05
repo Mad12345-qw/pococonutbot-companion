@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-05T00:22:21.671Z",
+  "exportedAt": "2026-08-05T02:32:24.973Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -78926,8 +78926,8 @@
       },
       {
         "key": "feishu.community_ops.daily.oc_0d2244701a484715c66edaafca3cacfb.2026-08-05",
-        "value": "{\"prompts\":1,\"lastPromptAt\":\"2026-08-05T00:13:14.143Z\",\"lastPromptIndex\":0,\"lastPromptText\":\"小椰产业雷达｜早间”之类。注意时段名是morning，label是早间产业雷达。所以标题：小椰产业雷达｜早间。\\n\\n写text时，注意不要用**等。用短句、冒号、编号。\\n\\n开始写。\\n\\ntext内容：\\n\\n小椰产业雷达｜早间\\n\\n群里刚聊到SpaceX Q2财报和马斯克说AI机器人会引爆带宽需求，今天有三条动态正好能接着这条线往下挖。\\n\\n一、谷歌涨超4%，Anthropic德州数据中心项目浮出水面。项目预计融资约150亿美元，由摩根士丹利牵头，采用谷歌TPU，谷歌通过长期租赁和电力承诺换约20%股权。同时DeepMind发布新一代人形机器人模型Gemini Robotics 2，把视觉和自然语言直接转成全身动作控制。这条线把算力资本开支、云厂商绑定、机器人模型三条链拧在一起，值得盯的是谷歌这种“出钱出芯片换股权”的模式会不会成为AI基建的主流结构。\\n\\n二、特斯拉Optimus项目负责人把远期年产能目标从100万台修正到1000万台，直接引爆今天人形机器人概念，中大力德2连板，福莱新材涨停，卧龙电驱、绿的谐波跟涨。1000万台是十倍级上调，但注意这是远期目标，不是近期排产。真正要验证的是执行器、减速器、丝杠这些环节的产能弹性和成本曲线，A股今天涨的是情绪，后面要看有没有实际定点或订单跟进。\\n\\n三、美国太空军授予SpaceX一份16亿美元合同，2027年底前完成18次猎鹰9发射，部署天基感知与瞄准卫星。这跟群里聊的SpaceX财报能对上：互联互通业务盈利，但AI业务还在亏。军星订单是稳定现金流，但毛利率和发射节奏要观察。另外Starship第13次试飞成功部署20颗V3卫星，但股价上市后跌了近30%，8月6日还有20%股份解禁，短期筹码压力不小。\\n\\n问题：Optimus远期目标上调到1000万台，如果按单台价值量拆解，减速器和丝杠环节的全球产能缺口大概会在哪一年出现？现在哪些公司有资格进入特斯拉供应链验证？\\n\\ndigest：谷歌加码AI算力、Optimus产能目标十倍上调、SpaceX获16亿美元军星订单，三条线串起算力、机器人和商业航天。\\n\\nques",
-        "updatedAt": "2026-08-05T00:13:14.236Z"
+        "value": "{\"prompts\":0,\"lastPromptAt\":\"\",\"lastPromptIndex\":-1,\"lastPromptText\":\"\",\"lastPulseSlot\":\"\",\"sentPulseSlots\":[],\"lastPulseDigest\":\"\",\"lastPulseQuestion\":\"\",\"lastPulseSources\":[],\"lastActivityAt\":\"2026-08-05T02:22:02.954Z\",\"lastHumanActivityAt\":\"\",\"linkHints\":0,\"lastLinkHintAt\":\"\"}",
+        "updatedAt": "2026-08-05T02:22:03.046Z"
       },
       {
         "key": "feishu.community_ops.daily.oc_bd5099233ce701edc7879f798aa9925c.2026-07-03",
