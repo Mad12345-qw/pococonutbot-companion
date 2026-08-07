@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-07T06:22:29.779Z",
+  "exportedAt": "2026-08-07T08:02:25.778Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72433,6 +72433,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-06T07:42:53.690Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_ca3e5f603d89ea227ac81c8354d7fc1b",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 [OpenMOSS/MOSS-Transcribe-Diarize: MOSS-Transcribe-Diarize 0.9B is an open-source SOTA end-to-end audio understanding model for long-form multi-speaker transcription, diarization, timestamps, and acoustic event awareness.](https://github.com/OpenMOSS/MOSS-Transcribe-Diarize#serve-with-sglan\nhttps://github.com/OpenMOSS/MOSS-Transcribe-Diarize#serve-with-sglang-omni",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/OpenMOSS/MOSS-Transcribe-Diarize#serve-with-sglang-omni"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b686d484d54a8dd1979a16bbf24b",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-07T07:59:38.744Z"
       }
     ],
     "memories": [
