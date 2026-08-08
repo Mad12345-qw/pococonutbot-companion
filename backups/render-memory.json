@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-07T08:02:25.778Z",
+  "exportedAt": "2026-08-08T13:32:21.194Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72452,6 +72452,26 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-07T07:59:38.744Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_d3200d1aac021b9a426a34cb9f6627a8",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] root@ubuntu22:~# curl -Xcurl -X POST http://localhost:8000/v1/audio/transcriptions \\\nhttp://localhost:8000/v1/audio/transcriptions\nhttps://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "http://localhost:8000/v1/audio/transcriptions",
+            "https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6846a1c0b8a4b2c01e51a1ba86f",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-08T13:28:19.312Z"
       }
     ],
     "memories": [
