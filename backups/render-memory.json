@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-10T02:42:25.278Z",
+  "exportedAt": "2026-08-10T02:52:21.472Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72472,6 +72472,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-08T13:28:19.312Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_8ce9e48cec5ab66320964715bc718a7d",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://acnc6zeentra.feishu.cn/wiki/FV6XwskmZiHD28kiagAcjcOZnnf?from=from_copylink\nhttps://acnc6zeentra.feishu.cn/wiki/FV6XwskmZiHD28kiagAcjcOZnnf?from=from_copylink\nfeishu-wiki:FV6XwskmZiHD28kiagAcjcOZnnf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://acnc6zeentra.feishu.cn/wiki/FV6XwskmZiHD28kiagAcjcOZnnf?from=from_copylink"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68a786bb8cb0b290c220900d7d3",
+          "wikiTokens": [
+            "FV6XwskmZiHD28kiagAcjcOZnnf"
+          ],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-10T02:50:49.254Z"
       }
     ],
     "memories": [
@@ -80055,11 +80076,6 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-08-04.morning",
         "value": "sent:2026-08-04T01:42:41.711Z",
         "updatedAt": "2026-08-04T01:42:41.798Z"
-      },
-      {
-        "key": "telegram.community_ops.slot.-1004297524617.2026-08-10.morning",
-        "value": "reserved:1786329721800:6hfayzap",
-        "updatedAt": "2026-08-10T02:42:01.884Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
