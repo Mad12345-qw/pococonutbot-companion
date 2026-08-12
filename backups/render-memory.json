@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-12T02:52:22.390Z",
+  "exportedAt": "2026-08-12T04:22:23.185Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72493,6 +72493,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-10T02:50:49.254Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_7ac5bae65efc42476fa2abdd94411f42",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 其实，24GB显存也能跑视觉理解模型！ 想在本地跑视觉... http://xhslink.cn/o/6o78e1tsUd9 \nhttp://xhslink.cn/o/6o78e1tsUd9",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "http://xhslink.cn/o/6o78e1tsUd9"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b688b744578a0c1b8ca0e58a1a05",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-12T04:16:43.667Z"
       }
     ],
     "memories": [
