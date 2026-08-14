@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-14T16:32:30.976Z",
+  "exportedAt": "2026-08-14T17:12:27.080Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72561,6 +72561,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-14T16:27:37.867Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_764dfb4dcb01728edd13c8a23e271653",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 自己开发的agent已开源，一切皆插件，与DeepSeek想到一起去了。欢迎大家体验，可以加我进飞书群讨论https://github.com/Jokerautowrite/chuang-agent\nhttps://github.com/Jokerautowrite/chuang-agent",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/Jokerautowrite/chuang-agent"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68c0f3e874a4b2ad72d15989ba4",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-14T17:09:44.473Z"
       }
     ],
     "memories": [
