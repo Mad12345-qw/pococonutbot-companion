@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-14T13:52:23.979Z",
+  "exportedAt": "2026-08-14T16:32:30.976Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72541,6 +72541,26 @@
           "replyToUserId": "5047737209"
         },
         "createdAt": "2026-08-13T17:00:57.241Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_8523b91cd8b30e176ac459630f77ddd1",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://404notfound-v.tail44b028.ts.net/\nhttps://404notfound-v.tail44b028.ts.net/\nhttps://404notfound-v.tail44b028.ts.net/\\n这是我自己用ai做的游戏\\n希望各位如果有兴趣可以抽空帮忙测试一下反馈给我反馈一下bug[亲亲",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://404notfound-v.tail44b028.ts.net/",
+            "https://404notfound-v.tail44b028.ts.net/\\n这是我自己用ai做的游戏\\n希望各位如果有兴趣可以抽空帮忙测试一下反馈给我反馈一下bug[亲亲"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b68c0519ed4a0c3bb8b47d69986c",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-14T16:27:37.867Z"
       }
     ],
     "memories": [
