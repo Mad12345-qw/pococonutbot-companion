@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-16T13:52:26.670Z",
+  "exportedAt": "2026-08-16T15:32:23.776Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72580,6 +72580,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-14T17:09:44.473Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_d9b65537a036ffe6b9957f3f48fc329f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 这个也可以\nhttps://www.tokenrouter.com/models免费使用qwen/qwen3.8-max-free",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.tokenrouter.com/models免费使用qwen/qwen3.8-max-free"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b672926fac8a0c376cf55d645e55",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-16T15:26:01.154Z"
       }
     ],
     "memories": [
