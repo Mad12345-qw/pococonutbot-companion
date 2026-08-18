@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-18T05:52:30.777Z",
+  "exportedAt": "2026-08-18T06:22:30.671Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72599,6 +72599,30 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-16T15:26:01.154Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 🎙️ 达人带货越投越亏？妙搭让 4 人跑通 200 万 KOC 生意｜AI 开放麦 08-19\nhttps://www.larkoffice.com/calendar/share?token=d1901563e28685043a2169e087834810\\\nhttps://miaoda.feishu.cn/home\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.larkoffice.com/calendar/share?token=d1901563e28685043a2169e087834810\\",
+            "https://miaoda.feishu.cn/home\\",
+            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
+            "https://bytedance.aiforce.cloud/app/app_4k1evxyq05y3s\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b670bc28674acdef6756cce29ed0",
+          "wikiTokens": [
+            "MVacwustBixr7ykzSmAcjZIqngh"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-18T06:16:40.555Z"
       }
     ],
     "memories": [
