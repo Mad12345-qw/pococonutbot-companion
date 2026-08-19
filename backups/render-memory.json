@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-19T11:52:25.075Z",
+  "exportedAt": "2026-08-19T16:32:24.680Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72661,6 +72661,26 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-19T09:03:12.431Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_06fb702a0e97e036fd589420dc21e1e9",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://github.com/joker444555/DSH-Desktop-Wqs\nhttps://github.com/joker444555/DSH-Desktop-Wqs\nhttps://github.com/joker444555/DSH-Desktop-Wqs\\n我把deepseek",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://github.com/joker444555/DSH-Desktop-Wqs",
+            "https://github.com/joker444555/DSH-Desktop-Wqs\\n我把deepseek"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6769d43948a4c3b80317e178e0b",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-19T16:28:36.945Z"
       }
     ],
     "memories": [
