@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-20T06:52:25.579Z",
+  "exportedAt": "2026-08-20T08:02:25.778Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72681,6 +72681,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-19T16:28:36.945Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_71affb4c314a14c2ef000ad1a3eec82f",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 这是俺做的多智能体任务看板，欢迎感兴趣的小伙伴去 github 围观。我把17个AI管成了打工人｜自托管任务板开源 家人们，... \nhttps://xhslink.cn/o/81RbyCVgOVA\nhttps://github.com/jklthinking/retinue\nhttps://github.com/jklthinking/retinue\\nCopy",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://xhslink.cn/o/81RbyCVgOVA",
+            "https://github.com/jklthinking/retinue",
+            "https://github.com/jklthinking/retinue\\nCopy"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b675f6484cca8c2467631dc9bd52",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-20T07:54:19.780Z"
       }
     ],
     "memories": [
