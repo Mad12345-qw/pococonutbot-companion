@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-20T08:02:25.778Z",
+  "exportedAt": "2026-08-20T09:42:38.775Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72702,6 +72702,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-20T07:54:19.780Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://www.feishu.cn/community/course/content?course_id=7675266027713727672&class_id=7675266027831168182&lesson_id=7676020164613115098&content_id=7676020165472947388&from=kfm_hg_yudazhi\\\nhttps://bytedance.larkoffice.com/minutes/obcniu2fngki4s5pu3y69ohs\\\nhttps://www.feishu.cn/community/prompts?promptId=7660454286156958678&from=share&from=kfm_hg_yudazhi\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.feishu.cn/community/course/content?course_id=7675266027713727672&class_id=7675266027831168182&lesson_id=7676020164613115098&content_id=7676020165472947388&from=kfm_hg_yudazhi\\",
+            "https://bytedance.larkoffice.com/minutes/obcniu2fngki4s5pu3y69ohs\\",
+            "https://www.feishu.cn/community/prompts?promptId=7660454286156958678&from=share&from=kfm_hg_yudazhi\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6758e6390088def441325fd7674",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-20T09:36:18.375Z"
       }
     ],
     "memories": [
