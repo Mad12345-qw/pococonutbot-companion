@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-25T06:42:28.682Z",
+  "exportedAt": "2026-08-25T06:52:25.378Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -80016,11 +80016,6 @@
         "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-05.noon",
         "value": "sent:2026-08-05T04:42:31.422Z",
         "updatedAt": "2026-08-05T04:42:31.515Z"
-      },
-      {
-        "key": "feishu.community_ops.pulse_lock.oc_bd5099233ce701edc7879f798aa9925c.2026-08-25.noon",
-        "value": "reserved:1787640123601:8jromk0f",
-        "updatedAt": "2026-08-25T06:42:03.691Z"
       },
       {
         "key": "feishu.worldcup.poll.1a44f80ad8f697e8",
