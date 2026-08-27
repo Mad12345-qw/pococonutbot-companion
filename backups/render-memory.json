@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-27T02:52:24.683Z",
+  "exportedAt": "2026-08-27T04:12:25.770Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72723,6 +72723,35 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-20T09:36:18.375Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "user",
+        "modality": "text",
+        "content": "是gemini生图还是文本模型？@itcoder996",
+        "metadata": {
+          "fullName": "Sean Mad",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "Mad",
+          "username": "madsean",
+          "firstName": "Sean",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-08-27T04:09:31.519Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8611360712",
+        "role": "assistant",
+        "modality": "text",
+        "content": "这次生图失败了：Image API error 400: {\"error\":{\"code\":\"400\",\"message\":\"您的请求无法用于生成图像。该请求可能因安全政策被拦截，或不适合进行图像生成。\",\"type\":\"invalid_request_error\"}}",
+        "metadata": {
+          "replyToUserId": "8611360712"
+        },
+        "createdAt": "2026-08-27T04:09:38.838Z"
       }
     ],
     "memories": [
@@ -80029,8 +80058,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-08-26T07:48:34.000Z",
-        "updatedAt": "2026-08-26T07:48:35.488Z"
+        "value": "2026-08-27T04:09:30.000Z",
+        "updatedAt": "2026-08-27T04:09:31.153Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
