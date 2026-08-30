@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-30T01:52:24.371Z",
+  "exportedAt": "2026-08-30T02:02:30.475Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72752,6 +72752,25 @@
           "replyToUserId": "8611360712"
         },
         "createdAt": "2026-08-27T04:09:38.838Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_da97d0d4edbfc61702916ce792ee76ba",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://chat.b.ai/chat?invite_code=NY2F4U\nhttps://chat.b.ai/chat?invite_code=NY2F4U",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://chat.b.ai/chat?invite_code=NY2F4U"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b660c9a6894a4b1495ff2f29dae3",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-30T01:54:24.364Z"
       }
     ],
     "memories": [
