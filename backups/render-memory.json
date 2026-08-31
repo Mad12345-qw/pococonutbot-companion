@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-08-31T06:52:25.371Z",
+  "exportedAt": "2026-08-31T08:52:29.673Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72771,6 +72771,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-30T01:54:24.364Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_c9503630fc12803bb60c39bfd40e9111",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://bytedance.larkoffice.com/docx/Foqnd0YOFo7v84x5p2jctgm0nFe\nfeishu-docx:Foqnd0YOFo7v84x5p2jctgm0nFe",
+        "metadata": {
+          "docxIds": [
+            "Foqnd0YOFo7v84x5p2jctgm0nFe"
+          ],
+          "linkUrls": [
+            "https://bytedance.larkoffice.com/docx/Foqnd0YOFo7v84x5p2jctgm0nFe"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b66604f764500c31e2f62899cd0c",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-08-31T08:49:34.747Z"
       }
     ],
     "memories": [
