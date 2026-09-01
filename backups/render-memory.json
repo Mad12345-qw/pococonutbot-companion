@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-01T05:23:47.435Z",
-  "reason": "startup",
+  "exportedAt": "2026-09-01T06:34:15.642Z",
+  "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
     "messages": [
@@ -72792,6 +72792,41 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-08-31T08:49:34.747Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_f0ed1a869b073019eec83b84b091f328",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 上新了飞书｜妙搭功能更新\nhttps://aily.feishu.cn/admin\nhttps://bytedance.larkoffice.com/wiki/DrFqwjqJWilFvwkOMykchWNonyd?from=from_copylink\nhttps://bytedance.larkoffice.com/docx/An1SdOyFVo63vtxY1fScGBymnad?from=from_copylink\nhttps://bytedance.larkoffice.com/wiki/RH88wUBDHiSDMDkIihccQtyQn1g#FtUpdpvJeofIB4xDrTNc5FUHnxz\nhttps://bytedance.larkoffice.com/wiki/RH88wUBDHiSDMDkIihccQtyQn1g#PP3odd1PmojedkxfKf1cnxz3nUe\nfeishu-docx:An1SdOyFVo63vtxY1fScGBymnad\nfeishu-wiki:DrFqwjqJWilFvwkOMykchWNonyd\nfeishu-wiki:RH88wUBDHiSDMDkIihccQtyQn1g\nfeishu-wiki:Y74GwINdeiny1pk0Tfhc69dZnbg\nfeishu-wiki:LdxDwDVbDi2NWSkbajYcZjySnSf",
+        "metadata": {
+          "docxIds": [
+            "An1SdOyFVo63vtxY1fScGBymnad"
+          ],
+          "linkUrls": [
+            "https://aily.feishu.cn/admin",
+            "https://bytedance.larkoffice.com/wiki/DrFqwjqJWilFvwkOMykchWNonyd?from=from_copylink",
+            "https://bytedance.larkoffice.com/docx/An1SdOyFVo63vtxY1fScGBymnad?from=from_copylink",
+            "https://bytedance.larkoffice.com/wiki/RH88wUBDHiSDMDkIihccQtyQn1g#FtUpdpvJeofIB4xDrTNc5FUHnxz",
+            "https://bytedance.larkoffice.com/wiki/RH88wUBDHiSDMDkIihccQtyQn1g#PP3odd1PmojedkxfKf1cnxz3nUe",
+            "https://bytedance.larkoffice.com/share/base/form/shrcnnDZWWVcBLMn8JHqtJRrP4f",
+            "https://bytedance.larkoffice.com/wiki/Y74GwINdeiny1pk0Tfhc69dZnbg?from=from_copylink",
+            "https://bytedance.larkoffice.com/wiki/RH88wUBDHiSDMDkIihccQtyQn1g#OauRdcn7vo8N61x7xstcs4mgne9",
+            "https://miaoda.feishu.cn/home?open-from=changelog\\",
+            "https://bytedance.larkoffice.com/wiki/LdxDwDVbDi2NWSkbajYcZjySnSf?from=from_copylink\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6652b46ff8b8c27ac2638d742f4",
+          "wikiTokens": [
+            "DrFqwjqJWilFvwkOMykchWNonyd",
+            "RH88wUBDHiSDMDkIihccQtyQn1g",
+            "Y74GwINdeiny1pk0Tfhc69dZnbg",
+            "LdxDwDVbDi2NWSkbajYcZjySnSf"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-01T06:24:46.776Z"
       }
     ],
     "memories": [
