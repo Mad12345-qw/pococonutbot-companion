@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-01T06:34:15.642Z",
+  "exportedAt": "2026-09-02T02:54:14.733Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72827,6 +72827,28 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-01T06:24:46.776Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 参与飞书 AI 绝活大会社区团建观影 & 征稿，3 台 Mac mini 在等待它们的有缘人！https://bytedance.larkoffice.com/wiki/AcE8w7PoxipwpDkG9wScxnonnee#share-EzYSdent7or7tTxlpPzcwtyMnvP\nhttps://bytedance.larkoffice.com/wiki/AcE8w7PoxipwpDkG9wScxnonnee#share-EzYSdent7or7tTxlpPzcwtyMnvP\nhttps://www.larkoffice.com/calendar/share?token=e1cddd544faab1e3a49deb73b785db0e\nfeishu-wiki:AcE8w7PoxipwpDkG9wScxnonnee",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://bytedance.larkoffice.com/wiki/AcE8w7PoxipwpDkG9wScxnonnee#share-EzYSdent7or7tTxlpPzcwtyMnvP",
+            "https://www.larkoffice.com/calendar/share?token=e1cddd544faab1e3a49deb73b785db0e"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b664cb85c30a0b3f3246c363c0c1",
+          "wikiTokens": [
+            "AcE8w7PoxipwpDkG9wScxnonnee"
+          ],
+          "messageType": "post",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-02T02:52:28.032Z"
       }
     ],
     "memories": [
