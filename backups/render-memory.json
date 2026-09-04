@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-04T05:54:17.334Z",
+  "exportedAt": "2026-09-04T06:04:19.328Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72849,6 +72849,33 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-02T02:52:28.032Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_0c5ee0b1ac5f84ca4899b9dd52e1cb21",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://mp.weixin.qq.com/s/KNqQXdH3Us-F08VWgwScGw\\\nhttps://weixin.qq.com/sph/AOwS9Iqplp\\\nhttps://bytedance.larkoffice.com/minutes/obcnrw426xp62k54g9b68snw\\\nhttps://bytedance.larkoffice.com/minutes/obcns9v9zu8ueb2x2m13et6w\\\nhttps://bytedance.larkoffice.com/minutes/obcnsk2vd8ypgg21y26dr853\\\nfeishu-wiki:PeQwwfzeoimpsRkWdGFcytsgnSf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://mp.weixin.qq.com/s/KNqQXdH3Us-F08VWgwScGw\\",
+            "https://weixin.qq.com/sph/AOwS9Iqplp\\",
+            "https://bytedance.larkoffice.com/minutes/obcnrw426xp62k54g9b68snw\\",
+            "https://bytedance.larkoffice.com/minutes/obcns9v9zu8ueb2x2m13et6w\\",
+            "https://bytedance.larkoffice.com/minutes/obcnsk2vd8ypgg21y26dr853\\",
+            "https://larkcommunity.feishu.cn/wiki/PeQwwfzeoimpsRkWdGFcytsgnSf\\",
+            "https://www.doubao.com/work\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6691bf608cacb1fcb3e8f774bb9",
+          "wikiTokens": [
+            "PeQwwfzeoimpsRkWdGFcytsgnSf"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-04T06:03:11.647Z"
       }
     ],
     "memories": [
@@ -80155,8 +80182,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-09-04T05:47:51.000Z",
-        "updatedAt": "2026-09-04T05:47:52.589Z"
+        "value": "2026-09-04T06:03:17.380Z",
+        "updatedAt": "2026-09-04T06:03:17.465Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
