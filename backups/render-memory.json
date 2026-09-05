@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-05T07:34:37.241Z",
+  "exportedAt": "2026-09-05T07:44:18.733Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72876,6 +72876,35 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-04T06:03:11.647Z"
+      },
+      {
+        "chatId": "1382374317",
+        "userId": "1382374317",
+        "role": "user",
+        "modality": "text",
+        "content": "hello 领额度",
+        "metadata": {
+          "fullName": "ddd hl",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "hl",
+          "username": "",
+          "firstName": "ddd",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-09-05T07:37:42.536Z"
+      },
+      {
+        "chatId": "1382374317",
+        "userId": "1382374317",
+        "role": "assistant",
+        "modality": "text",
+        "content": "hello～你来啦 🌴  \n“领额度”是做什么呀？是有链接还是平台说可以领什么奖励？你发我看看，我帮你一起看看怎么弄～",
+        "metadata": {
+          "replyToUserId": "1382374317"
+        },
+        "createdAt": "2026-09-05T07:37:48.572Z"
       }
     ],
     "memories": [
@@ -73288,6 +73317,26 @@
         "metadata": {},
         "createdAt": "2026-06-07T14:45:31.365Z",
         "updatedAt": "2026-07-19T08:28:16.889Z"
+      },
+      {
+        "chatId": "1382374317",
+        "userId": "1382374317",
+        "key": "profile.display_name",
+        "value": "ddd hl",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-09-05T07:37:42.351Z",
+        "updatedAt": "2026-09-05T07:37:42.351Z"
+      },
+      {
+        "chatId": "1382374317",
+        "userId": "1382374317",
+        "key": "profile.telegram_id",
+        "value": "1382374317",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-09-05T07:37:42.165Z",
+        "updatedAt": "2026-09-05T07:37:42.165Z"
       },
       {
         "chatId": "5047737209",
@@ -80182,8 +80231,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-09-05T07:33:46.547Z",
-        "updatedAt": "2026-09-05T07:33:47.091Z"
+        "value": "2026-09-05T07:35:52.897Z",
+        "updatedAt": "2026-09-05T07:35:52.986Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
