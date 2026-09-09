@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-09T08:44:16.443Z",
+  "exportedAt": "2026-09-09T15:24:21.228Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72929,6 +72929,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-09T06:22:43.624Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_bbe4f05f5418e17702969634c14eaba7",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://www.pptoken.org/?promo=PP1QB  gpt6 image2.5随便调用，稳定\nhttps://www.pptoken.org/?promo=PP1QB",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.pptoken.org/?promo=PP1QB"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6523d3a114a4b4b35d90b0748cb",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-09T15:23:09.312Z"
       }
     ],
     "memories": [
