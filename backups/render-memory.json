@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-09T05:04:14.533Z",
+  "exportedAt": "2026-09-09T06:24:19.430Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72905,6 +72905,30 @@
           "replyToUserId": "1382374317"
         },
         "createdAt": "2026-09-05T07:37:48.572Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_3f150753d02340886b1a66524189abbb",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 「抖音兴趣卡」内测火热招募\nhttps://wj.bytedance.com/q/v2/7681584174671560723/c6N307Ga/0768/#/\\\nhttps://bytetech.info/articles/7682999049059041320#GoeKdBw0Hov353x784wcy90unOc\\\nhttps://applink.larkoffice.com/client/chat/chatter/add_by_link?link_token=385hed8d-3c76-4e42-809e-26c652ed55de\\\nhttps://bytedance.larkoffice.com/wiki/BHs7w5rT8i6PVgkffO2czHN4nld\\\nfeishu-wiki:BHs7w5rT8i6PVgkffO2czHN4nld",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://wj.bytedance.com/q/v2/7681584174671560723/c6N307Ga/0768/#/\\",
+            "https://bytetech.info/articles/7682999049059041320#GoeKdBw0Hov353x784wcy90unOc\\",
+            "https://applink.larkoffice.com/client/chat/chatter/add_by_link?link_token=385hed8d-3c76-4e42-809e-26c652ed55de\\",
+            "https://bytedance.larkoffice.com/wiki/BHs7w5rT8i6PVgkffO2czHN4nld\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b653bfc3294b4b16aa354706289a",
+          "wikiTokens": [
+            "BHs7w5rT8i6PVgkffO2czHN4nld"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-09T06:22:43.624Z"
       }
     ],
     "memories": [
