@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-12T11:24:20.632Z",
+  "exportedAt": "2026-09-12T13:14:20.030Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72948,6 +72948,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-09T15:23:09.312Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_3f150753d02340886b1a66524189abbb",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] @_user_1 外部用户可以从这个问卷报名https://wj.toutiao.com/q/v2/7680551032276975652/11o1d656/80c7/#/\nhttps://wj.toutiao.com/q/v2/7680551032276975652/11o1d656/80c7/#/",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://wj.toutiao.com/q/v2/7680551032276975652/11o1d656/80c7/#/"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b6560b8b460acc449996b52d0c87",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-12T13:11:07.266Z"
       }
     ],
     "memories": [
@@ -80274,8 +80293,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-09-12T11:17:10.932Z",
-        "updatedAt": "2026-09-12T11:17:11.024Z"
+        "value": "2026-09-12T13:05:23.569Z",
+        "updatedAt": "2026-09-12T13:05:23.665Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
