@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-12T16:34:23.035Z",
+  "exportedAt": "2026-09-13T05:14:14.842Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72967,6 +72967,35 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-12T13:11:07.266Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8965413523",
+        "role": "user",
+        "modality": "text",
+        "content": "还能发别家的api？",
+        "metadata": {
+          "fullName": "小 玥",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "玥",
+          "username": "",
+          "firstName": "小",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-09-13T05:08:57.042Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8965413523",
+        "role": "assistant",
+        "modality": "text",
+        "content": "可以呀，群里有不少人分享各家API的用法和踩坑经验，只要不涉及敏感信息就行～  \n对了，刚才那个生图报错你那边解决了吗？",
+        "metadata": {
+          "replyToUserId": "8965413523"
+        },
+        "createdAt": "2026-09-13T05:09:05.390Z"
       }
     ],
     "memories": [
@@ -73219,6 +73248,26 @@
         "metadata": {},
         "createdAt": "2026-07-19T08:16:35.221Z",
         "updatedAt": "2026-07-19T08:16:35.221Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8965413523",
+        "key": "profile.display_name",
+        "value": "小 玥",
+        "importance": 4,
+        "metadata": {},
+        "createdAt": "2026-09-13T05:08:56.859Z",
+        "updatedAt": "2026-09-13T05:08:56.859Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "8965413523",
+        "key": "profile.telegram_id",
+        "value": "8965413523",
+        "importance": 5,
+        "metadata": {},
+        "createdAt": "2026-09-13T05:08:56.680Z",
+        "updatedAt": "2026-09-13T05:08:56.680Z"
       },
       {
         "chatId": "-5123326132",
@@ -80293,8 +80342,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-09-12T16:28:44.000Z",
-        "updatedAt": "2026-09-12T16:28:46.032Z"
+        "value": "2026-09-13T05:09:06.328Z",
+        "updatedAt": "2026-09-13T05:09:06.419Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
