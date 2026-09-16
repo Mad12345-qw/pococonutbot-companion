@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-16T21:28:32.539Z",
+  "exportedAt": "2026-09-16T21:29:07.738Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -72996,30 +72996,6 @@
           "replyToUserId": "8965413523"
         },
         "createdAt": "2026-09-13T05:09:05.390Z"
-      },
-      {
-        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
-        "userId": "feishu:ou_f0ed1a869b073019eec83b84b091f328",
-        "role": "user",
-        "modality": "link",
-        "content": "[Link message] 🎙️从 “盯群救火”到 数字孪生，扬杰科技用 AI 重构品质管理｜AI 开放麦 09-17\nhttps://www.larkoffice.com/calendar/share?token=f561337484debb068043f9ab76e297f1\\\nhttps://miaoda.feishu.cn/home\\\nhttps://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\\nhttps://www.feishu.cn/community/channels/detail?channel_id=7630819378291805116&tab=course\\\nfeishu-wiki:MVacwustBixr7ykzSmAcjZIqngh",
-        "metadata": {
-          "docxIds": [],
-          "linkUrls": [
-            "https://www.larkoffice.com/calendar/share?token=f561337484debb068043f9ab76e297f1\\",
-            "https://miaoda.feishu.cn/home\\",
-            "https://bytedance.larkoffice.com/wiki/MVacwustBixr7ykzSmAcjZIqngh?from=from_copylink\\",
-            "https://www.feishu.cn/community/channels/detail?channel_id=7630819378291805116&tab=course\\"
-          ],
-          "platform": "feishu",
-          "messageId": "om_x100b65910b6b7d10b17dcd0474f6183",
-          "wikiTokens": [
-            "MVacwustBixr7ykzSmAcjZIqngh"
-          ],
-          "messageType": "interactive",
-          "passiveLinkSource": true
-        },
-        "createdAt": "2026-09-16T21:27:28.586Z"
       }
     ],
     "memories": [
