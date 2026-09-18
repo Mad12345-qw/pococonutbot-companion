@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-18T14:11:48.341Z",
+  "exportedAt": "2026-09-18T14:20:56.729Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73020,6 +73020,27 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-16T21:27:28.586Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_f0ed1a869b073019eec83b84b091f328",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] img\nhttps://www.feishu.cn/community/course/content?course_id=7685649319700991188&class_id=7685649319780682931&lesson_id=7686712835576957911&content_id=7686712837086907353&from=kfm_hg_wangyiteng\\\nhttps://bytedance.larkoffice.com/minutes/obcn3of96j6nd153r17x87kw?from=from_copylink\\\nhttps://www.feishu.cn/community/channels/detail?channel_id=7630819378291805116&tab=course\\",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://www.feishu.cn/community/course/content?course_id=7685649319700991188&class_id=7685649319780682931&lesson_id=7686712835576957911&content_id=7686712837086907353&from=kfm_hg_wangyiteng\\",
+            "https://bytedance.larkoffice.com/minutes/obcn3of96j6nd153r17x87kw?from=from_copylink\\",
+            "https://www.feishu.cn/community/channels/detail?channel_id=7630819378291805116&tab=course\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b65f9ef4f30a0c4222d846a15f88",
+          "wikiTokens": [],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-18T14:20:05.184Z"
       }
     ],
     "memories": [
