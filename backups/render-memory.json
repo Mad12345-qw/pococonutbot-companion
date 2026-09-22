@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-22T11:17:04.237Z",
+  "exportedAt": "2026-09-22T11:24:23.238Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73041,6 +73041,35 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-18T14:20:05.184Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "user",
+        "modality": "text",
+        "content": "图片生成下载有问题？一直下载不到",
+        "metadata": {
+          "fullName": "Stephen 啊",
+          "hasImage": false,
+          "hasVoice": false,
+          "lastName": "啊",
+          "username": "xsfstephen",
+          "firstName": "Stephen",
+          "transcript": "",
+          "imageContext": ""
+        },
+        "createdAt": "2026-09-22T11:18:07.541Z"
+      },
+      {
+        "chatId": "-1004297524617",
+        "userId": "5047737209",
+        "role": "assistant",
+        "modality": "text",
+        "content": "已生成图片：生成下载有问题？一直下载不到",
+        "metadata": {
+          "replyToUserId": "5047737209"
+        },
+        "createdAt": "2026-09-22T11:18:56.318Z"
       }
     ],
     "memories": [
