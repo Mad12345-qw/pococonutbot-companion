@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-23T04:54:17.729Z",
+  "exportedAt": "2026-09-23T08:04:22.040Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73070,6 +73070,37 @@
           "replyToUserId": "5047737209"
         },
         "createdAt": "2026-09-22T11:18:56.318Z"
+      },
+      {
+        "chatId": "feishu:oc_4f5f294f132c713ba1f0b25639f6359a",
+        "userId": "feishu:ou_f0ed1a869b073019eec83b84b091f328",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 上新了飞书｜妙搭功能更新\nhttps://bytedance.larkoffice.com/wiki/L0ZlwhP7MiEXmBkac3CcwEOVnHF?from=from_copylink\nhttps://bytedance.larkoffice.com/wiki/ZrvmwpLj6iVYygkMaPscLWlhnZg#HLHQdRo8moeEyMxEPWbcqy85nuh\nhttps://bytedance.larkoffice.com/wiki/LnMdwVp2liLAlek7delcMev3n5d?from=from_copylink\nhttps://bytedance.larkoffice.com/wiki/ZrvmwpLj6iVYygkMaPscLWlhnZg#BZindyhxeo3i91xvSjxc4IeFnmb\nhttps://bytedance.larkoffice.com/wiki/ZKNgwiDEOifN7rkDgPNcUyZYn9b?from=from_copylink\nfeishu-wiki:L0ZlwhP7MiEXmBkac3CcwEOVnHF\nfeishu-wiki:ZrvmwpLj6iVYygkMaPscLWlhnZg\nfeishu-wiki:LnMdwVp2liLAlek7delcMev3n5d\nfeishu-wiki:ZKNgwiDEOifN7rkDgPNcUyZYn9b\nfeishu-wiki:MWwKwJGZkiOHqYkV7ZXcRB4VnQf",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://bytedance.larkoffice.com/wiki/L0ZlwhP7MiEXmBkac3CcwEOVnHF?from=from_copylink",
+            "https://bytedance.larkoffice.com/wiki/ZrvmwpLj6iVYygkMaPscLWlhnZg#HLHQdRo8moeEyMxEPWbcqy85nuh",
+            "https://bytedance.larkoffice.com/wiki/LnMdwVp2liLAlek7delcMev3n5d?from=from_copylink",
+            "https://bytedance.larkoffice.com/wiki/ZrvmwpLj6iVYygkMaPscLWlhnZg#BZindyhxeo3i91xvSjxc4IeFnmb",
+            "https://bytedance.larkoffice.com/wiki/ZKNgwiDEOifN7rkDgPNcUyZYn9b?from=from_copylink",
+            "https://miaoda.feishu.cn/home?open-from=changelog\\",
+            "https://bytedance.larkoffice.com/wiki/MWwKwJGZkiOHqYkV7ZXcRB4VnQf?from=from_copylink\\"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b640c241608a4c11b6359029a8f8",
+          "wikiTokens": [
+            "L0ZlwhP7MiEXmBkac3CcwEOVnHF",
+            "ZrvmwpLj6iVYygkMaPscLWlhnZg",
+            "LnMdwVp2liLAlek7delcMev3n5d",
+            "ZKNgwiDEOifN7rkDgPNcUyZYn9b",
+            "MWwKwJGZkiOHqYkV7ZXcRB4VnQf"
+          ],
+          "messageType": "interactive",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-23T07:58:41.449Z"
       }
     ],
     "memories": [
