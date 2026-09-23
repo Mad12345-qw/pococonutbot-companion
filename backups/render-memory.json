@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-23T08:04:22.040Z",
+  "exportedAt": "2026-09-23T15:38:02.140Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -80739,6 +80739,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-09-17.morning",
         "value": "reserved:1789607819713:09de62uw",
         "updatedAt": "2026-09-17T01:17:00.149Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-09-23.evening",
+        "value": "reserved:1790169333250:vg49n6u8",
+        "updatedAt": "2026-09-23T15:37:02.055Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
