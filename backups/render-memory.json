@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-24T17:04:42.740Z",
+  "exportedAt": "2026-09-24T21:24:30.729Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -80495,8 +80495,8 @@
       },
       {
         "key": "telegram.community_ops.activity.-1004297524617",
-        "value": "2026-09-24T13:17:02.000Z",
-        "updatedAt": "2026-09-24T17:03:07.326Z"
+        "value": "2026-09-24T17:03:10.917Z",
+        "updatedAt": "2026-09-24T21:23:35.811Z"
       },
       {
         "key": "telegram.community_ops.daily.-1004297524617.2026-07-20",
@@ -80777,6 +80777,11 @@
         "key": "telegram.community_ops.slot.-1004297524617.2026-09-17.morning",
         "value": "reserved:1789607819713:09de62uw",
         "updatedAt": "2026-09-17T01:17:00.149Z"
+      },
+      {
+        "key": "telegram.community_ops.slot.-1004297524617.2026-09-25.evening",
+        "value": "reserved:1790269458188:3g447ik1",
+        "updatedAt": "2026-09-24T21:23:43.633Z"
       },
       {
         "key": "video_asset:07cebc6f0a783598ff2eafd2",
