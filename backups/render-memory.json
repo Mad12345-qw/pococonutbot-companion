@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-23T16:47:11.938Z",
+  "exportedAt": "2026-09-24T03:44:20.038Z",
   "reason": "interval",
   "service": "telegram-ai-companion",
   "data": {
@@ -73101,6 +73101,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-23T07:58:41.449Z"
+      },
+      {
+        "chatId": "feishu:oc_e6107a9ff96409a9079354853014c429",
+        "userId": "feishu:ou_95bd86ecc1b004ad734ae31f3be5d44d",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] 快来看看你的个人 AI 智能体 Muse 。在加入后的 48 小时内通过“设置”兑现我的邀请码，我们就能分别获得 10 亿个 Muse 词元。\nhttps://muse.ai/join",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://muse.ai/join"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b647de242f4a8b22d957ec3d72cc",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-24T03:36:47.997Z"
       }
     ],
     "memories": [
