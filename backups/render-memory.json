@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "exportedAt": "2026-09-28T10:36:13.971Z",
+  "exportedAt": "2026-09-28T12:11:57.396Z",
   "reason": "startup",
   "service": "telegram-ai-companion",
   "data": {
@@ -73139,6 +73139,25 @@
           "passiveLinkSource": true
         },
         "createdAt": "2026-09-24T06:42:05.314Z"
+      },
+      {
+        "chatId": "feishu:oc_8760fa48762932e73d3ef8d6a27cf31d",
+        "userId": "feishu:ou_6ac8eb2b1163ba1c6d479a6d0c3bacde",
+        "role": "user",
+        "modality": "link",
+        "content": "[Link message] https://arxiv.org/pdf/2508.06372\nhttps://arxiv.org/pdf/2508.06372",
+        "metadata": {
+          "docxIds": [],
+          "linkUrls": [
+            "https://arxiv.org/pdf/2508.06372"
+          ],
+          "platform": "feishu",
+          "messageId": "om_x100b649773a02ca4c3ebc5f70fb4087",
+          "wikiTokens": [],
+          "messageType": "text",
+          "passiveLinkSource": true
+        },
+        "createdAt": "2026-09-28T10:36:25.679Z"
       }
     ],
     "memories": [
